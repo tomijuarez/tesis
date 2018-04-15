@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pingUin/' name='pingUin' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pingUin/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pingUin/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pingUin/'>
+      <xsd:element name='pingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='time' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pingRequestMessage'>
+    <part name='parameters' element='tns:pingParameters' />
+  </message>
+  <message name='pingResponseMessage'>
+    <part name='response' element='tns:pingResponse' />
+  </message>
+  <portType name='pingUinPortType'>
+    <operation name='ping'>
+      <documentation>ping the specified address</documentation>
+      <input message='tns:pingRequestMessage' name='pingInput' />
+      <output message='tns:pingResponseMessage' name='pingOutput' />
+    </operation>
+  </portType>
+  <binding name='pingUinBinding' type='tns:pingUinPortType'>
+    <operation name='ping'>
+      <soap12:operation soapAction='http://ping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pingUin'>
+    <documentation>ping an IP or URL</documentation>
+    <port name='pingUinPort' binding='tns:pingUinBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pingUin' />
+    </port>
+  </service>
+</definitions>

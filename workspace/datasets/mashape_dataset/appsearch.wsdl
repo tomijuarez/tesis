@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/appsearch/' name='appsearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/appsearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/appsearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/appsearch/'>
+      <xsd:element name='recommendationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='platform' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recommendationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apps' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='copyright' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='requirements' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description_plain' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='author' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='details_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='thumbnail_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='platform' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='download_short_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='thumbnail_big_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='num_ratings' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='download_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='platform' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='recommendationsRequestMessage'>
+    <part name='parameters' element='tns:recommendationsParameters' />
+  </message>
+  <message name='recommendationsResponseMessage'>
+    <part name='response' element='tns:recommendationsResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='appsearchPortType'>
+    <operation name='recommendations'>
+      <documentation>given one app as input get recommended apps as output</documentation>
+      <input message='tns:recommendationsRequestMessage' name='recommendationsInput' />
+      <output message='tns:recommendationsResponseMessage' name='recommendationsOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for apps</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='appsearchBinding' type='tns:appsearchPortType'>
+    <operation name='recommendations'>
+      <soap12:operation soapAction='http://recommendations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='appsearch'>
+    <documentation>mimvi App Search provides mobile app search discovery and recommendation services Based on proprietary biomimetic algorithms Mimvi App Search delivers the best coverage and most relevant mobile apps mobile content and mobile products Coverage includes iTunes Google Play Android Windows Phone Windows Phone Facebook Blackberry Web Apps</documentation>
+    <port name='appsearchPort' binding='tns:appsearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://appsearch' />
+    </port>
+  </service>
+</definitions>

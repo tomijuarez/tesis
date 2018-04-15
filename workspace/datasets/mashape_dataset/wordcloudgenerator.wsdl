@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordCloudGenerator/' name='wordCloudGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordCloudGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordCloudGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordCloudGenerator/'>
+      <xsd:element name='wordCloudResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordCloudByUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='wordCloudRequestMessage' />
+  <message name='wordCloudResponseMessage'>
+    <part name='response' element='tns:wordCloudResponse' />
+  </message>
+  <message name='wordCloudByUrlRequestMessage' />
+  <message name='wordCloudByUrlResponseMessage'>
+    <part name='response' element='tns:wordCloudByUrlResponse' />
+  </message>
+  <portType name='wordCloudGeneratorPortType'>
+    <operation name='wordCloud'>
+      <input message='tns:wordCloudRequestMessage' name='wordCloudInput' />
+      <output message='tns:wordCloudResponseMessage' name='wordCloudOutput' />
+    </operation>
+    <operation name='wordCloudByUrl'>
+      <input message='tns:wordCloudByUrlRequestMessage' name='wordCloudByUrlInput' />
+      <output message='tns:wordCloudByUrlResponseMessage' name='wordCloudByUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='wordCloudGeneratorBinding' type='tns:wordCloudGeneratorPortType'>
+    <operation name='wordCloud'>
+      <soap12:operation soapAction='http://wordCloud' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordCloudByUrl'>
+      <soap12:operation soapAction='http://wordCloudByUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordCloudGenerator'>
+    <documentation>generate Word Clouds from text Multi color and different sizes and easily output to jpg png or pdf</documentation>
+    <port name='wordCloudGeneratorPort' binding='tns:wordCloudGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordCloudGenerator' />
+    </port>
+  </service>
+</definitions>

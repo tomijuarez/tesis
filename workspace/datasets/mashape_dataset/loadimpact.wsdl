@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/loadImpact/' name='loadImpact' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/loadImpact/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/loadImpact/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/loadImpact/'>
+      <xsd:element name='abortRunningTestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='abortRunningTestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneTestConfigParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneTestConfigResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='config' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='load_schedule' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='users' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='user_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source_ips' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tracks' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='loadzone' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='clips' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='user_scenario_id' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='percent' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDataStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createTestConfigResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='config' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='load_schedule' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='users' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='user_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source_ips' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tracks' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='loadzone' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='clips' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='user_scenario_id' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='percent' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createUserScenarioResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='load_script' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDataStoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDataStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTestConfigParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTestConfigResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteUserScenarioParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteUserScenarioResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDataStoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDataStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLoadZoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLoadZoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='vendor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestConfigurationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestConfigurationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='config' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='load_schedule' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='users' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='user_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source_ips' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tracks' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='loadzone' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='clips' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='user_scenario_id' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='percent' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='public_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='ended' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='started' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTestResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='__li_user_load_time' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='__li_clients_active' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='load_script' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioValidationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioValidationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioValidationResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserScenarioValidationResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDataStoresResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='rows' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listLoadZonesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='vendor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTestConfigurationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listUserScenariosResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='load_script' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startATestBasedOnTestConfigParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startATestBasedOnTestConfigResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTestConfigurationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTestConfigurationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserScenarioParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserScenarioResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateUserScenarioResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='abortRunningTestRequestMessage'>
+    <part name='parameters' element='tns:abortRunningTestParameters' />
+  </message>
+  <message name='abortRunningTestResponseMessage'>
+    <part name='response' element='tns:abortRunningTestResponse' />
+  </message>
+  <message name='cloneTestConfigRequestMessage'>
+    <part name='parameters' element='tns:cloneTestConfigParameters' />
+  </message>
+  <message name='cloneTestConfigResponseMessage'>
+    <part name='response' element='tns:cloneTestConfigResponse' />
+  </message>
+  <message name='createDataStoreRequestMessage' />
+  <message name='createDataStoreResponseMessage'>
+    <part name='response' element='tns:createDataStoreResponse' />
+  </message>
+  <message name='createTestConfigRequestMessage' />
+  <message name='createTestConfigResponseMessage'>
+    <part name='response' element='tns:createTestConfigResponse' />
+  </message>
+  <message name='createUserScenarioRequestMessage' />
+  <message name='createUserScenarioResponseMessage'>
+    <part name='response' element='tns:createUserScenarioResponse' />
+  </message>
+  <message name='deleteDataStoreRequestMessage'>
+    <part name='parameters' element='tns:deleteDataStoreParameters' />
+  </message>
+  <message name='deleteDataStoreResponseMessage'>
+    <part name='response' element='tns:deleteDataStoreResponse' />
+  </message>
+  <message name='deleteTestConfigRequestMessage'>
+    <part name='parameters' element='tns:deleteTestConfigParameters' />
+  </message>
+  <message name='deleteTestConfigResponseMessage'>
+    <part name='response' element='tns:deleteTestConfigResponse' />
+  </message>
+  <message name='deleteUserScenarioRequestMessage'>
+    <part name='parameters' element='tns:deleteUserScenarioParameters' />
+  </message>
+  <message name='deleteUserScenarioResponseMessage'>
+    <part name='response' element='tns:deleteUserScenarioResponse' />
+  </message>
+  <message name='getDataStoreRequestMessage'>
+    <part name='parameters' element='tns:getDataStoreParameters' />
+  </message>
+  <message name='getDataStoreResponseMessage'>
+    <part name='response' element='tns:getDataStoreResponse' />
+  </message>
+  <message name='getLoadZoneRequestMessage'>
+    <part name='parameters' element='tns:getLoadZoneParameters' />
+  </message>
+  <message name='getLoadZoneResponseMessage'>
+    <part name='response' element='tns:getLoadZoneResponse' />
+  </message>
+  <message name='getTestConfigurationRequestMessage'>
+    <part name='parameters' element='tns:getTestConfigurationParameters' />
+  </message>
+  <message name='getTestConfigurationResponseMessage'>
+    <part name='response' element='tns:getTestConfigurationResponse' />
+  </message>
+  <message name='getTestDataRequestMessage'>
+    <part name='parameters' element='tns:getTestDataParameters' />
+  </message>
+  <message name='getTestDataResponseMessage'>
+    <part name='response' element='tns:getTestDataResponse' />
+  </message>
+  <message name='getTestResultsRequestMessage'>
+    <part name='parameters' element='tns:getTestResultsParameters' />
+  </message>
+  <message name='getTestResultsResponseMessage'>
+    <part name='response' element='tns:getTestResultsResponse' />
+  </message>
+  <message name='getUserScenarioRequestMessage'>
+    <part name='parameters' element='tns:getUserScenarioParameters' />
+  </message>
+  <message name='getUserScenarioResponseMessage'>
+    <part name='response' element='tns:getUserScenarioResponse' />
+  </message>
+  <message name='getUserScenarioValidationRequestMessage'>
+    <part name='parameters' element='tns:getUserScenarioValidationParameters' />
+  </message>
+  <message name='getUserScenarioValidationResponseMessage'>
+    <part name='response' element='tns:getUserScenarioValidationResponse' />
+  </message>
+  <message name='getUserScenarioValidationResultsRequestMessage'>
+    <part name='parameters' element='tns:getUserScenarioValidationResultsParameters' />
+  </message>
+  <message name='getUserScenarioValidationResultsResponseMessage'>
+    <part name='response' element='tns:getUserScenarioValidationResultsResponse' />
+  </message>
+  <message name='listDataStoresRequestMessage' />
+  <message name='listDataStoresResponseMessage'>
+    <part name='response' element='tns:listDataStoresResponse' />
+  </message>
+  <message name='listLoadZonesRequestMessage' />
+  <message name='listLoadZonesResponseMessage'>
+    <part name='response' element='tns:listLoadZonesResponse' />
+  </message>
+  <message name='listTestConfigurationsRequestMessage' />
+  <message name='listTestConfigurationsResponseMessage'>
+    <part name='response' element='tns:listTestConfigurationsResponse' />
+  </message>
+  <message name='listUserScenariosRequestMessage' />
+  <message name='listUserScenariosResponseMessage'>
+    <part name='response' element='tns:listUserScenariosResponse' />
+  </message>
+  <message name='startATestBasedOnTestConfigRequestMessage'>
+    <part name='parameters' element='tns:startATestBasedOnTestConfigParameters' />
+  </message>
+  <message name='startATestBasedOnTestConfigResponseMessage'>
+    <part name='response' element='tns:startATestBasedOnTestConfigResponse' />
+  </message>
+  <message name='updateTestConfigurationRequestMessage'>
+    <part name='parameters' element='tns:updateTestConfigurationParameters' />
+  </message>
+  <message name='updateTestConfigurationResponseMessage'>
+    <part name='response' element='tns:updateTestConfigurationResponse' />
+  </message>
+  <message name='updateUserScenarioRequestMessage'>
+    <part name='parameters' element='tns:updateUserScenarioParameters' />
+  </message>
+  <message name='updateUserScenarioResponseMessage'>
+    <part name='response' element='tns:updateUserScenarioResponse' />
+  </message>
+  <message name='validateUserScenarioRequestMessage' />
+  <message name='validateUserScenarioResponseMessage'>
+    <part name='response' element='tns:validateUserScenarioResponse' />
+  </message>
+  <portType name='loadImpactPortType'>
+    <operation name='abortRunningTest'>
+      <documentation></documentation>
+      <input message='tns:abortRunningTestRequestMessage' name='abortRunningTestInput' />
+      <output message='tns:abortRunningTestResponseMessage' name='abortRunningTestOutput' />
+    </operation>
+    <operation name='cloneTestConfig'>
+      <documentation></documentation>
+      <input message='tns:cloneTestConfigRequestMessage' name='cloneTestConfigInput' />
+      <output message='tns:cloneTestConfigResponseMessage' name='cloneTestConfigOutput' />
+    </operation>
+    <operation name='createDataStore'>
+      <documentation></documentation>
+      <input message='tns:createDataStoreRequestMessage' name='createDataStoreInput' />
+      <output message='tns:createDataStoreResponseMessage' name='createDataStoreOutput' />
+    </operation>
+    <operation name='createTestConfig'>
+      <documentation></documentation>
+      <input message='tns:createTestConfigRequestMessage' name='createTestConfigInput' />
+      <output message='tns:createTestConfigResponseMessage' name='createTestConfigOutput' />
+    </operation>
+    <operation name='createUserScenario'>
+      <documentation></documentation>
+      <input message='tns:createUserScenarioRequestMessage' name='createUserScenarioInput' />
+      <output message='tns:createUserScenarioResponseMessage' name='createUserScenarioOutput' />
+    </operation>
+    <operation name='deleteDataStore'>
+      <documentation></documentation>
+      <input message='tns:deleteDataStoreRequestMessage' name='deleteDataStoreInput' />
+      <output message='tns:deleteDataStoreResponseMessage' name='deleteDataStoreOutput' />
+    </operation>
+    <operation name='deleteTestConfig'>
+      <documentation></documentation>
+      <input message='tns:deleteTestConfigRequestMessage' name='deleteTestConfigInput' />
+      <output message='tns:deleteTestConfigResponseMessage' name='deleteTestConfigOutput' />
+    </operation>
+    <operation name='deleteUserScenario'>
+      <documentation>delete existing user scenario</documentation>
+      <input message='tns:deleteUserScenarioRequestMessage' name='deleteUserScenarioInput' />
+      <output message='tns:deleteUserScenarioResponseMessage' name='deleteUserScenarioOutput' />
+    </operation>
+    <operation name='getDataStore'>
+      <documentation></documentation>
+      <input message='tns:getDataStoreRequestMessage' name='getDataStoreInput' />
+      <output message='tns:getDataStoreResponseMessage' name='getDataStoreOutput' />
+    </operation>
+    <operation name='getLoadZone'>
+      <documentation></documentation>
+      <input message='tns:getLoadZoneRequestMessage' name='getLoadZoneInput' />
+      <output message='tns:getLoadZoneResponseMessage' name='getLoadZoneOutput' />
+    </operation>
+    <operation name='getTestConfiguration'>
+      <documentation>get a single test configuration</documentation>
+      <input message='tns:getTestConfigurationRequestMessage' name='getTestConfigurationInput' />
+      <output message='tns:getTestConfigurationResponseMessage' name='getTestConfigurationOutput' />
+    </operation>
+    <operation name='getTestData'>
+      <documentation></documentation>
+      <input message='tns:getTestDataRequestMessage' name='getTestDataInput' />
+      <output message='tns:getTestDataResponseMessage' name='getTestDataOutput' />
+    </operation>
+    <operation name='getTestResults'>
+      <documentation></documentation>
+      <input message='tns:getTestResultsRequestMessage' name='getTestResultsInput' />
+      <output message='tns:getTestResultsResponseMessage' name='getTestResultsOutput' />
+    </operation>
+    <operation name='getUserScenario'>
+      <documentation></documentation>
+      <input message='tns:getUserScenarioRequestMessage' name='getUserScenarioInput' />
+      <output message='tns:getUserScenarioResponseMessage' name='getUserScenarioOutput' />
+    </operation>
+    <operation name='getUserScenarioValidation'>
+      <documentation></documentation>
+      <input message='tns:getUserScenarioValidationRequestMessage' name='getUserScenarioValidationInput' />
+      <output message='tns:getUserScenarioValidationResponseMessage' name='getUserScenarioValidationOutput' />
+    </operation>
+    <operation name='getUserScenarioValidationResults'>
+      <documentation></documentation>
+      <input message='tns:getUserScenarioValidationResultsRequestMessage' name='getUserScenarioValidationResultsInput' />
+      <output message='tns:getUserScenarioValidationResultsResponseMessage' name='getUserScenarioValidationResultsOutput' />
+    </operation>
+    <operation name='listDataStores'>
+      <documentation></documentation>
+      <input message='tns:listDataStoresRequestMessage' name='listDataStoresInput' />
+      <output message='tns:listDataStoresResponseMessage' name='listDataStoresOutput' />
+    </operation>
+    <operation name='listLoadZones'>
+      <documentation></documentation>
+      <input message='tns:listLoadZonesRequestMessage' name='listLoadZonesInput' />
+      <output message='tns:listLoadZonesResponseMessage' name='listLoadZonesOutput' />
+    </operation>
+    <operation name='listTestConfigurations'>
+      <documentation>get all test configurations for a certain user</documentation>
+      <input message='tns:listTestConfigurationsRequestMessage' name='listTestConfigurationsInput' />
+      <output message='tns:listTestConfigurationsResponseMessage' name='listTestConfigurationsOutput' />
+    </operation>
+    <operation name='listUserScenarios'>
+      <documentation>get all user scenarios connected to a user account</documentation>
+      <input message='tns:listUserScenariosRequestMessage' name='listUserScenariosInput' />
+      <output message='tns:listUserScenariosResponseMessage' name='listUserScenariosOutput' />
+    </operation>
+    <operation name='startATestBasedOnTestConfig'>
+      <documentation>execute a load test based on existing test configuration</documentation>
+      <input message='tns:startATestBasedOnTestConfigRequestMessage' name='startATestBasedOnTestConfigInput' />
+      <output message='tns:startATestBasedOnTestConfigResponseMessage' name='startATestBasedOnTestConfigOutput' />
+    </operation>
+    <operation name='updateTestConfiguration'>
+      <documentation></documentation>
+      <input message='tns:updateTestConfigurationRequestMessage' name='updateTestConfigurationInput' />
+      <output message='tns:updateTestConfigurationResponseMessage' name='updateTestConfigurationOutput' />
+    </operation>
+    <operation name='updateUserScenario'>
+      <documentation>update existing user scenario</documentation>
+      <input message='tns:updateUserScenarioRequestMessage' name='updateUserScenarioInput' />
+      <output message='tns:updateUserScenarioResponseMessage' name='updateUserScenarioOutput' />
+    </operation>
+    <operation name='validateUserScenario'>
+      <documentation>start a validation of a user scenario</documentation>
+      <input message='tns:validateUserScenarioRequestMessage' name='validateUserScenarioInput' />
+      <output message='tns:validateUserScenarioResponseMessage' name='validateUserScenarioOutput' />
+    </operation>
+  </portType>
+  <binding name='loadImpactBinding' type='tns:loadImpactPortType'>
+    <operation name='abortRunningTest'>
+      <soap12:operation soapAction='http://abortRunningTest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cloneTestConfig'>
+      <soap12:operation soapAction='http://cloneTestConfig' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createDataStore'>
+      <soap12:operation soapAction='http://createDataStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createTestConfig'>
+      <soap12:operation soapAction='http://createTestConfig' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createUserScenario'>
+      <soap12:operation soapAction='http://createUserScenario' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteDataStore'>
+      <soap12:operation soapAction='http://deleteDataStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteTestConfig'>
+      <soap12:operation soapAction='http://deleteTestConfig' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteUserScenario'>
+      <soap12:operation soapAction='http://deleteUserScenario' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDataStore'>
+      <soap12:operation soapAction='http://getDataStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLoadZone'>
+      <soap12:operation soapAction='http://getLoadZone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTestConfiguration'>
+      <soap12:operation soapAction='http://getTestConfiguration' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTestData'>
+      <soap12:operation soapAction='http://getTestData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTestResults'>
+      <soap12:operation soapAction='http://getTestResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUserScenario'>
+      <soap12:operation soapAction='http://getUserScenario' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUserScenarioValidation'>
+      <soap12:operation soapAction='http://getUserScenarioValidation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUserScenarioValidationResults'>
+      <soap12:operation soapAction='http://getUserScenarioValidationResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDataStores'>
+      <soap12:operation soapAction='http://listDataStores' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listLoadZones'>
+      <soap12:operation soapAction='http://listLoadZones' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTestConfigurations'>
+      <soap12:operation soapAction='http://listTestConfigurations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listUserScenarios'>
+      <soap12:operation soapAction='http://listUserScenarios' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startATestBasedOnTestConfig'>
+      <soap12:operation soapAction='http://startATestBasedOnTestConfig' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateTestConfiguration'>
+      <soap12:operation soapAction='http://updateTestConfiguration' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateUserScenario'>
+      <soap12:operation soapAction='http://updateUserScenario' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateUserScenario'>
+      <soap12:operation soapAction='http://validateUserScenario' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='loadImpact'>
+    <documentation>the Load Impact load test API allows you to configure and start and stop web site application load tests and to retrieve test results from load tests</documentation>
+    <port name='loadImpactPort' binding='tns:loadImpactBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://loadImpact' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/checkThatBikeUs/' name='checkThatBikeUs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/checkThatBikeUs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/checkThatBikeUs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/checkThatBikeUs/'>
+      <xsd:element name='checkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='check' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='frame' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:int' minOccurs='0' />
+            <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error_number' type='xsd:string' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='checkedURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='checked' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='resultBoolean' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='frame' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='check' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error_number' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkRequestMessage'>
+    <part name='parameters' element='tns:checkParameters' />
+  </message>
+  <message name='checkResponseMessage'>
+    <part name='response' element='tns:checkResponse' />
+  </message>
+  <message name='listRequestMessage'>
+    <part name='parameters' element='tns:listParameters' />
+  </message>
+  <message name='listResponseMessage'>
+    <part name='response' element='tns:listResponse' />
+  </message>
+  <portType name='checkThatBikeUsPortType'>
+    <operation name='check'>
+      <documentation>used to search the database for matching frame numbers</documentation>
+      <input message='tns:checkRequestMessage' name='checkInput' />
+      <output message='tns:checkResponseMessage' name='checkOutput' />
+    </operation>
+    <operation name='list'>
+      <documentation>produces an array of valid strings for use with the check parameter</documentation>
+      <input message='tns:listRequestMessage' name='listInput' />
+      <output message='tns:listResponseMessage' name='listOutput' />
+    </operation>
+  </portType>
+  <binding name='checkThatBikeUsBinding' type='tns:checkThatBikeUsPortType'>
+    <operation name='check'>
+      <soap12:operation soapAction='http://check' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='list'>
+      <soap12:operation soapAction='http://list' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='checkThatBikeUs'>
+    <documentation>this API allows you to pragmatically check bike registers in the US</documentation>
+    <port name='checkThatBikeUsPort' binding='tns:checkThatBikeUsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://checkThatBikeUs' />
+    </port>
+  </service>
+</definitions>

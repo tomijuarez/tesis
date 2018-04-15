@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/evercontact/' name='evercontact' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/evercontact/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/evercontact/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/evercontact/'>
+      <xsd:element name='evercontactApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='uid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='threadInfo' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='signatureSnippet' type='xsd:string' minOccurs='0' />
+            <xsd:element name='signature' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='hint' type='xsd:string' minOccurs='0' />
+            <xsd:element name='mailId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='evercontactApiRequestMessage' />
+  <message name='evercontactApiResponseMessage'>
+    <part name='response' element='tns:evercontactApiResponse' />
+  </message>
+  <portType name='evercontactPortType'>
+    <operation name='evercontactApi'>
+      <documentation></documentation>
+      <input message='tns:evercontactApiRequestMessage' name='evercontactApiInput' />
+      <output message='tns:evercontactApiResponseMessage' name='evercontactApiOutput' />
+    </operation>
+  </portType>
+  <binding name='evercontactBinding' type='tns:evercontactPortType'>
+    <operation name='evercontactApi'>
+      <soap12:operation soapAction='http://evercontactApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='evercontact'>
+    <documentation>evercontact will allow you to extract contact information from an email and turn them into vCards With it you can Update an enterprise s CRM Create Update client lists with complete contact information Sync an Address Book with the most up</documentation>
+    <port name='evercontactPort' binding='tns:evercontactBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://evercontact' />
+    </port>
+  </service>
+</definitions>

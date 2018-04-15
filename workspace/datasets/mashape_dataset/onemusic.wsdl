@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onemusic/' name='onemusic' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onemusic/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onemusic/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onemusic/'>
+      <xsd:element name='onemusicParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='artist' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='inc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxresultcount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='onemusicResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='images' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='artist' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='genre' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='onemusicRequestMessage'>
+    <part name='parameters' element='tns:onemusicParameters' />
+  </message>
+  <message name='onemusicResponseMessage'>
+    <part name='response' element='tns:onemusicResponse' />
+  </message>
+  <portType name='onemusicPortType'>
+    <operation name='onemusic'>
+      <documentation></documentation>
+      <input message='tns:onemusicRequestMessage' name='onemusicInput' />
+      <output message='tns:onemusicResponseMessage' name='onemusicOutput' />
+    </operation>
+  </portType>
+  <binding name='onemusicBinding' type='tns:onemusicPortType'>
+    <operation name='onemusic'>
+      <soap12:operation soapAction='http://onemusic' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onemusic'>
+    <documentation>oneMusicAPI is an aggregated API combining several of the largest most accurate online music databases OneMusicAPI allows you to query all of these databases with one call This means less integration code for you to write debug maintain and re deploy OneMusicAPI is lightweight it is of a REST style You pass queries to OneMusicAPI in the form of URLs with the query details in the URL s query string You receive results in JSON format</documentation>
+    <port name='onemusicPort' binding='tns:onemusicBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onemusic' />
+    </port>
+  </service>
+</definitions>

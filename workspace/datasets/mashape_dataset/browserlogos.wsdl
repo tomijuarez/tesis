@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/browserLogos/' name='browserLogos' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/browserLogos/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/browserLogos/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/browserLogos/'>
+      <xsd:element name='getBrowserLogoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browser' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBrowserLogoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getBrowserLogoRequestMessage'>
+    <part name='parameters' element='tns:getBrowserLogoParameters' />
+  </message>
+  <message name='getBrowserLogoResponseMessage'>
+    <part name='response' element='tns:getBrowserLogoResponse' />
+  </message>
+  <portType name='browserLogosPortType'>
+    <operation name='getBrowserLogo'>
+      <documentation></documentation>
+      <input message='tns:getBrowserLogoRequestMessage' name='getBrowserLogoInput' />
+      <output message='tns:getBrowserLogoResponseMessage' name='getBrowserLogoOutput' />
+    </operation>
+  </portType>
+  <binding name='browserLogosBinding' type='tns:browserLogosPortType'>
+    <operation name='getBrowserLogo'>
+      <soap12:operation soapAction='http://getBrowserLogo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='browserLogos'>
+    <documentation>get the logos of your favorite browsers Doesn t get any better than that</documentation>
+    <port name='browserLogosPort' binding='tns:browserLogosBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://browserLogos' />
+    </port>
+  </service>
+</definitions>

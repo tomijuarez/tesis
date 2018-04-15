@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/liveaddressExtractAddressesFromText/' name='liveaddressExtractAddressesFromText' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/liveaddressExtractAddressesFromText/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/liveaddressExtractAddressesFromText/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/liveaddressExtractAddressesFromText/'>
+      <xsd:element name='extractAddressesFromTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addrlinebreaks' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='addrperline' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='aggressive' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='html' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='input' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractAddressesFromTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addresses' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='api_output' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='last_line' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='components' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='zipcode' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='city_name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='primary_number' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='delivery_point_check_digit' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='delivery_point' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='street_predirection' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='state_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='plus4_code' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='street_name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='street_suffix' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='metadata' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='congressional_district' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='county_fips' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='rdi' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='precision' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='county_name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='record_type' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='carrier_route' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='candidate_index' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='delivery_point_barcode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='delivery_line_1' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='analysis' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='dpv_match_code' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='dpv_vacant' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='active' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='dpv_cmra' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='footnotes' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='dpv_footnotes' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='verified' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='bytes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='unicode' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='verified_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lines' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='address_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='character_count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='extractAddressesFromTextRequestMessage'>
+    <part name='parameters' element='tns:extractAddressesFromTextParameters' />
+  </message>
+  <message name='extractAddressesFromTextResponseMessage'>
+    <part name='response' element='tns:extractAddressesFromTextResponse' />
+  </message>
+  <portType name='liveaddressExtractAddressesFromTextPortType'>
+    <operation name='extractAddressesFromText'>
+      <documentation></documentation>
+      <input message='tns:extractAddressesFromTextRequestMessage' name='extractAddressesFromTextInput' />
+      <output message='tns:extractAddressesFromTextResponseMessage' name='extractAddressesFromTextOutput' />
+    </operation>
+  </portType>
+  <binding name='liveaddressExtractAddressesFromTextBinding' type='tns:liveaddressExtractAddressesFromTextPortType'>
+    <operation name='extractAddressesFromText'>
+      <soap12:operation soapAction='http://extractAddressesFromText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='liveaddressExtractAddressesFromText'>
+    <documentation>find and validate addresses in arbitrary text such as emails web pages documents posts tweets articles or whatever else you ve got</documentation>
+    <port name='liveaddressExtractAddressesFromTextPort' binding='tns:liveaddressExtractAddressesFromTextBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://liveaddressExtractAddressesFromText' />
+    </port>
+  </service>
+</definitions>

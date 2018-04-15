@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twitterInterestGraph/' name='twitterInterestGraph' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twitterInterestGraph/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twitterInterestGraph/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twitterInterestGraph/'>
+      <xsd:element name='twitterInterestGraphParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='twitterhandle' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='twitterInterestGraphResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keywords' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='weight' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='keyword' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='age' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='twitterInterestGraphRequestMessage'>
+    <part name='parameters' element='tns:twitterInterestGraphParameters' />
+  </message>
+  <message name='twitterInterestGraphResponseMessage'>
+    <part name='response' element='tns:twitterInterestGraphResponse' />
+  </message>
+  <portType name='twitterInterestGraphPortType'>
+    <operation name='twitterInterestGraph'>
+      <documentation>compute vuGraph of Twitter handle</documentation>
+      <input message='tns:twitterInterestGraphRequestMessage' name='twitterInterestGraphInput' />
+      <output message='tns:twitterInterestGraphResponseMessage' name='twitterInterestGraphOutput' />
+    </operation>
+  </portType>
+  <binding name='twitterInterestGraphBinding' type='tns:twitterInterestGraphPortType'>
+    <operation name='twitterInterestGraph'>
+      <soap12:operation soapAction='http://twitterInterestGraph' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twitterInterestGraph'>
+    <documentation>twitter VuGraph generates social persona from the publicly available profile of a Twitter user by aggregating interests inferred from tweets photos vines checkins and commerce to produce the richest behavioral persona</documentation>
+    <port name='twitterInterestGraphPort' binding='tns:twitterInterestGraphBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twitterInterestGraph' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/placeholdEr/' name='placeholdEr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/placeholdEr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/placeholdEr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/placeholdEr/'>
+      <xsd:element name='placeholderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='widthxheight' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeholderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeholderWithTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='widthxheight' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeholderWithTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='placeholderRequestMessage'>
+    <part name='parameters' element='tns:placeholderParameters' />
+  </message>
+  <message name='placeholderResponseMessage'>
+    <part name='response' element='tns:placeholderResponse' />
+  </message>
+  <message name='placeholderWithTextRequestMessage'>
+    <part name='parameters' element='tns:placeholderWithTextParameters' />
+  </message>
+  <message name='placeholderWithTextResponseMessage'>
+    <part name='response' element='tns:placeholderWithTextResponse' />
+  </message>
+  <portType name='placeholdErPortType'>
+    <operation name='placeholder'>
+      <documentation></documentation>
+      <input message='tns:placeholderRequestMessage' name='placeholderInput' />
+      <output message='tns:placeholderResponseMessage' name='placeholderOutput' />
+    </operation>
+    <operation name='placeholderWithText'>
+      <documentation></documentation>
+      <input message='tns:placeholderWithTextRequestMessage' name='placeholderWithTextInput' />
+      <output message='tns:placeholderWithTextResponseMessage' name='placeholderWithTextOutput' />
+    </operation>
+  </portType>
+  <binding name='placeholdErBinding' type='tns:placeholdErPortType'>
+    <operation name='placeholder'>
+      <soap12:operation soapAction='http://placeholder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='placeholderWithText'>
+      <soap12:operation soapAction='http://placeholderWithText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='placeholdEr'>
+    <documentation>placehold er is a quick simple yet powerful image placeholder service for development</documentation>
+    <port name='placeholdErPort' binding='tns:placeholdErBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://placeholdEr' />
+    </port>
+  </service>
+</definitions>

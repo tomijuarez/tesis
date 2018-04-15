@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/highlightcamServicesV/' name='highlightcamServicesV' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/highlightcamServicesV/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/highlightcamServicesV/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/highlightcamServicesV/'>
+      <xsd:element name='createDependencyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDependencyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createProjectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+            <xsd:element name='orientation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='film_name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='focus' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='theme' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='create_date' type='xsd:string' minOccurs='0' />
+            <xsd:element name='resolution' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeMovieParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeMovieResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='myProjectsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projects' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='callback_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='orientation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='user_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='film_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='focus' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='theme' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='create_date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='resolution' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createDependencyRequestMessage'>
+    <part name='parameters' element='tns:createDependencyParameters' />
+  </message>
+  <message name='createDependencyResponseMessage'>
+    <part name='response' element='tns:createDependencyResponse' />
+  </message>
+  <message name='createProjectRequestMessage' />
+  <message name='createProjectResponseMessage'>
+    <part name='response' element='tns:createProjectResponse' />
+  </message>
+  <message name='makeMovieRequestMessage'>
+    <part name='parameters' element='tns:makeMovieParameters' />
+  </message>
+  <message name='makeMovieResponseMessage'>
+    <part name='response' element='tns:makeMovieResponse' />
+  </message>
+  <message name='myProjectsRequestMessage' />
+  <message name='myProjectsResponseMessage'>
+    <part name='response' element='tns:myProjectsResponse' />
+  </message>
+  <portType name='highlightcamServicesVPortType'>
+    <operation name='createDependency'>
+      <documentation>create a new dependency for a project</documentation>
+      <input message='tns:createDependencyRequestMessage' name='createDependencyInput' />
+      <output message='tns:createDependencyResponseMessage' name='createDependencyOutput' />
+    </operation>
+    <operation name='createProject'>
+      <documentation>create a new project</documentation>
+      <input message='tns:createProjectRequestMessage' name='createProjectInput' />
+      <output message='tns:createProjectResponseMessage' name='createProjectOutput' />
+    </operation>
+    <operation name='makeMovie'>
+      <documentation>after uploading all the assets use this to instruct the server to build the movie</documentation>
+      <input message='tns:makeMovieRequestMessage' name='makeMovieInput' />
+      <output message='tns:makeMovieResponseMessage' name='makeMovieOutput' />
+    </operation>
+    <operation name='myProjects'>
+      <documentation></documentation>
+      <input message='tns:myProjectsRequestMessage' name='myProjectsInput' />
+      <output message='tns:myProjectsResponseMessage' name='myProjectsOutput' />
+    </operation>
+  </portType>
+  <binding name='highlightcamServicesVBinding' type='tns:highlightcamServicesVPortType'>
+    <operation name='createDependency'>
+      <soap12:operation soapAction='http://createDependency' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createProject'>
+      <soap12:operation soapAction='http://createProject' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='makeMovie'>
+      <soap12:operation soapAction='http://makeMovie' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='myProjects'>
+      <soap12:operation soapAction='http://myProjects' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='highlightcamServicesV'>
+    <documentation>highlightCam helps your users create professional style summaries of movies All they do is upload footage and pictures chose a theme and hit go HighlightCam edits adds fades and gives you a video you can publish and share</documentation>
+    <port name='highlightcamServicesVPort' binding='tns:highlightcamServicesVBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://highlightcamServicesV' />
+    </port>
+  </service>
+</definitions>

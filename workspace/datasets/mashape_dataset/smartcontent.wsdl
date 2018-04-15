@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartContent/' name='smartContent' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartContent/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartContent/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartContent/'>
+      <xsd:element name='tagParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='option' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category_list' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='category_title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='category_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='level' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='service_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='concept_list' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='concept_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='concept_title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='entity_list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sentiment_score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='keywords' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='entities' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='prime_category' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment_score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='entity_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='categories' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='keyword' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='segmentations' type='xsd:string' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='tagRequestMessage'>
+    <part name='parameters' element='tns:tagParameters' />
+  </message>
+  <message name='tagResponseMessage'>
+    <part name='response' element='tns:tagResponse' />
+  </message>
+  <portType name='smartContentPortType'>
+    <operation name='tag'>
+      <documentation></documentation>
+      <input message='tns:tagRequestMessage' name='tagInput' />
+      <output message='tns:tagResponseMessage' name='tagOutput' />
+    </operation>
+  </portType>
+  <binding name='smartContentBinding' type='tns:smartContentPortType'>
+    <operation name='tag'>
+      <soap12:operation soapAction='http://tag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartContent'>
+    <documentation>detect relevant concepts categories entities and sentiments extracted from a given text such as a news article or email message for text analysis Data Ninja Services which focus on natural language understanding are developed by Docomo Innovations</documentation>
+    <port name='smartContentPort' binding='tns:smartContentBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartContent' />
+    </port>
+  </service>
+</definitions>

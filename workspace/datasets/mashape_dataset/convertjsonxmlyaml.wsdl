@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/convertJsonXmlYaml/' name='convertJsonXmlYaml' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/convertJsonXmlYaml/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/convertJsonXmlYaml/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/convertJsonXmlYaml/'>
+      <xsd:element name='convertJsonToXmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertJsonToYamlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertXmlToJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertXmlToYamlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertYamlToJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertYamlToXmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertJsonToXmlRequestMessage' />
+  <message name='convertJsonToXmlResponseMessage'>
+    <part name='response' element='tns:convertJsonToXmlResponse' />
+  </message>
+  <message name='convertJsonToYamlRequestMessage' />
+  <message name='convertJsonToYamlResponseMessage'>
+    <part name='response' element='tns:convertJsonToYamlResponse' />
+  </message>
+  <message name='convertXmlToJsonRequestMessage' />
+  <message name='convertXmlToJsonResponseMessage'>
+    <part name='response' element='tns:convertXmlToJsonResponse' />
+  </message>
+  <message name='convertXmlToYamlRequestMessage' />
+  <message name='convertXmlToYamlResponseMessage'>
+    <part name='response' element='tns:convertXmlToYamlResponse' />
+  </message>
+  <message name='convertYamlToJsonRequestMessage' />
+  <message name='convertYamlToJsonResponseMessage'>
+    <part name='response' element='tns:convertYamlToJsonResponse' />
+  </message>
+  <message name='convertYamlToXmlRequestMessage' />
+  <message name='convertYamlToXmlResponseMessage'>
+    <part name='response' element='tns:convertYamlToXmlResponse' />
+  </message>
+  <portType name='convertJsonXmlYamlPortType'>
+    <operation name='convertJsonToXml'>
+      <documentation>convert from the given json to xml format</documentation>
+      <input message='tns:convertJsonToXmlRequestMessage' name='convertJsonToXmlInput' />
+      <output message='tns:convertJsonToXmlResponseMessage' name='convertJsonToXmlOutput' />
+    </operation>
+    <operation name='convertJsonToYaml'>
+      <documentation>convert from the given json to yaml format</documentation>
+      <input message='tns:convertJsonToYamlRequestMessage' name='convertJsonToYamlInput' />
+      <output message='tns:convertJsonToYamlResponseMessage' name='convertJsonToYamlOutput' />
+    </operation>
+    <operation name='convertXmlToJson'>
+      <documentation>convert from the given xml to json format</documentation>
+      <input message='tns:convertXmlToJsonRequestMessage' name='convertXmlToJsonInput' />
+      <output message='tns:convertXmlToJsonResponseMessage' name='convertXmlToJsonOutput' />
+    </operation>
+    <operation name='convertXmlToYaml'>
+      <documentation>convert from the given xml to yaml format</documentation>
+      <input message='tns:convertXmlToYamlRequestMessage' name='convertXmlToYamlInput' />
+      <output message='tns:convertXmlToYamlResponseMessage' name='convertXmlToYamlOutput' />
+    </operation>
+    <operation name='convertYamlToJson'>
+      <documentation>convert from the given yaml to json format</documentation>
+      <input message='tns:convertYamlToJsonRequestMessage' name='convertYamlToJsonInput' />
+      <output message='tns:convertYamlToJsonResponseMessage' name='convertYamlToJsonOutput' />
+    </operation>
+    <operation name='convertYamlToXml'>
+      <documentation>convert from the given yaml to xml format</documentation>
+      <input message='tns:convertYamlToXmlRequestMessage' name='convertYamlToXmlInput' />
+      <output message='tns:convertYamlToXmlResponseMessage' name='convertYamlToXmlOutput' />
+    </operation>
+  </portType>
+  <binding name='convertJsonXmlYamlBinding' type='tns:convertJsonXmlYamlPortType'>
+    <operation name='convertJsonToXml'>
+      <soap12:operation soapAction='http://convertJsonToXml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertJsonToYaml'>
+      <soap12:operation soapAction='http://convertJsonToYaml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertXmlToJson'>
+      <soap12:operation soapAction='http://convertXmlToJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertXmlToYaml'>
+      <soap12:operation soapAction='http://convertXmlToYaml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertYamlToJson'>
+      <soap12:operation soapAction='http://convertYamlToJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertYamlToXml'>
+      <soap12:operation soapAction='http://convertYamlToXml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='convertJsonXmlYaml'>
+    <documentation>convert the body of your request in any of the given formats json xml and yaml</documentation>
+    <port name='convertJsonXmlYamlPort' binding='tns:convertJsonXmlYamlBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://convertJsonXmlYaml' />
+    </port>
+  </service>
+</definitions>

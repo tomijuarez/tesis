@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eventfindaNz/' name='eventfindaNz' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eventfindaNz/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eventfindaNz/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eventfindaNz/'>
+      <xsd:element name='eventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='eventsRequestMessage' />
+  <message name='eventsResponseMessage'>
+    <part name='response' element='tns:eventsResponse' />
+  </message>
+  <portType name='eventfindaNzPortType'>
+    <operation name='events'>
+      <documentation>list of events</documentation>
+      <input message='tns:eventsRequestMessage' name='eventsInput' />
+      <output message='tns:eventsResponseMessage' name='eventsOutput' />
+    </operation>
+  </portType>
+  <binding name='eventfindaNzBinding' type='tns:eventfindaNzPortType'>
+    <operation name='events'>
+      <soap12:operation soapAction='http://events' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eventfindaNz'>
+    <documentation>event Listings for New Zealand from Eventfinda See full documentation on our site http www eventfinda co nz api</documentation>
+    <port name='eventfindaNzPort' binding='tns:eventfindaNzBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eventfindaNz' />
+    </port>
+  </service>
+</definitions>

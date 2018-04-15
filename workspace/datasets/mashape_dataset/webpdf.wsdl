@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/webPdf/' name='webPdf' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/webPdf/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/webPdf/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/webPdf/'>
+      <xsd:element name='convertUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertUrlJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertUrlRequestMessage' />
+  <message name='convertUrlResponseMessage'>
+    <part name='response' element='tns:convertUrlResponse' />
+  </message>
+  <message name='convertUrlJsonRequestMessage' />
+  <message name='convertUrlJsonResponseMessage'>
+    <part name='response' element='tns:convertUrlJsonResponse' />
+  </message>
+  <portType name='webPdfPortType'>
+    <operation name='convertUrl'>
+      <documentation>post url to server</documentation>
+      <input message='tns:convertUrlRequestMessage' name='convertUrlInput' />
+      <output message='tns:convertUrlResponseMessage' name='convertUrlOutput' />
+    </operation>
+    <operation name='convertUrlJson'>
+      <documentation></documentation>
+      <input message='tns:convertUrlJsonRequestMessage' name='convertUrlJsonInput' />
+      <output message='tns:convertUrlJsonResponseMessage' name='convertUrlJsonOutput' />
+    </operation>
+  </portType>
+  <binding name='webPdfBinding' type='tns:webPdfPortType'>
+    <operation name='convertUrl'>
+      <soap12:operation soapAction='http://convertUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertUrlJson'>
+      <soap12:operation soapAction='http://convertUrlJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='webPdf'>
+    <documentation>the API for converting web pages to PDF files Fully supports HTML and CSS tags including page breaks JavaScript and other html elements</documentation>
+    <port name='webPdfPort' binding='tns:webPdfBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://webPdf' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordVec/' name='wordVec' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordVec/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordVec/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordVec/'>
+      <xsd:element name='apiDirectoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='routes' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='service' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dictionariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='routes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='dictionaries' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='dictid' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dictionaryDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dictid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dictionaryDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='routes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='dictid' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='relatedWordsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dictid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='words' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='relatedWordsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='distance' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='rank' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiDirectoryRequestMessage' />
+  <message name='apiDirectoryResponseMessage'>
+    <part name='response' element='tns:apiDirectoryResponse' />
+  </message>
+  <message name='dictionariesRequestMessage' />
+  <message name='dictionariesResponseMessage'>
+    <part name='response' element='tns:dictionariesResponse' />
+  </message>
+  <message name='dictionaryDetailsRequestMessage'>
+    <part name='parameters' element='tns:dictionaryDetailsParameters' />
+  </message>
+  <message name='dictionaryDetailsResponseMessage'>
+    <part name='response' element='tns:dictionaryDetailsResponse' />
+  </message>
+  <message name='relatedWordsRequestMessage'>
+    <part name='parameters' element='tns:relatedWordsParameters' />
+  </message>
+  <message name='relatedWordsResponseMessage'>
+    <part name='response' element='tns:relatedWordsResponse' />
+  </message>
+  <portType name='wordVecPortType'>
+    <operation name='apiDirectory'>
+      <documentation>lists available API methods you can call</documentation>
+      <input message='tns:apiDirectoryRequestMessage' name='apiDirectoryInput' />
+      <output message='tns:apiDirectoryResponseMessage' name='apiDirectoryOutput' />
+    </operation>
+    <operation name='dictionaries'>
+      <documentation>list dictionaries available for word vec lookup i e acceptable dictid parameters for Related Words searches</documentation>
+      <input message='tns:dictionariesRequestMessage' name='dictionariesInput' />
+      <output message='tns:dictionariesResponseMessage' name='dictionariesOutput' />
+    </operation>
+    <operation name='dictionaryDetails'>
+      <documentation>get information about a particular lookup dictionary using its dictionary id dictid</documentation>
+      <input message='tns:dictionaryDetailsRequestMessage' name='dictionaryDetailsInput' />
+      <output message='tns:dictionaryDetailsResponseMessage' name='dictionaryDetailsOutput' />
+    </operation>
+    <operation name='relatedWords'>
+      <documentation>find related words ranked by similarity distance in a particular word vec dictionary The dictid parameter can be common or wikipedia for instance See GET Dictionaries for a complete list of dictid s</documentation>
+      <input message='tns:relatedWordsRequestMessage' name='relatedWordsInput' />
+      <output message='tns:relatedWordsResponseMessage' name='relatedWordsOutput' />
+    </operation>
+  </portType>
+  <binding name='wordVecBinding' type='tns:wordVecPortType'>
+    <operation name='apiDirectory'>
+      <soap12:operation soapAction='http://apiDirectory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dictionaries'>
+      <soap12:operation soapAction='http://dictionaries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dictionaryDetails'>
+      <soap12:operation soapAction='http://dictionaryDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='relatedWords'>
+      <soap12:operation soapAction='http://relatedWords' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordVec'>
+    <documentation>when you provide an English word to this API it will give you a list of related English words scored by distance in meaning Uses natural language processing word vec GLoVe and lets you select any of large corpuses Wikipedia Common Crawl the internet and Gutenberg th Century Books See http domainthesaurus witzy org for an example use case</documentation>
+    <port name='wordVecPort' binding='tns:wordVecBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordVec' />
+    </port>
+  </service>
+</definitions>

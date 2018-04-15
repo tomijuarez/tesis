@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/taxee/' name='taxee' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/taxee/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/taxee/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/taxee/'>
+      <xsd:element name='calculateIncomeTaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='calculateIncomeTaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='annual' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='federal' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='state' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fica' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFederalIncomeTaxInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFederalIncomeTaxInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tax_withholding_percentage_method_tables' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='annual' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='single' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='deductions' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='deduction_amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='deduction_name' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='income_tax_brackets' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='head_of_household' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='deductions' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='deduction_amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='deduction_name' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='income_tax_brackets' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='married' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='deductions' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='deduction_amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='deduction_name' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='income_tax_brackets' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='married_separately' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='deductions' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='deduction_amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='deduction_name' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='income_tax_brackets' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getStateIncomeTaxInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getStateIncomeTaxInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='single' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='income_tax_brackets' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='head_of_household' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='income_tax_brackets' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='married' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='income_tax_brackets' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='married_separately' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='income_tax_brackets' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='bracket' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='marginal_rate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='calculateIncomeTaxesRequestMessage'>
+    <part name='parameters' element='tns:calculateIncomeTaxesParameters' />
+  </message>
+  <message name='calculateIncomeTaxesResponseMessage'>
+    <part name='response' element='tns:calculateIncomeTaxesResponse' />
+  </message>
+  <message name='getFederalIncomeTaxInformationRequestMessage'>
+    <part name='parameters' element='tns:getFederalIncomeTaxInformationParameters' />
+  </message>
+  <message name='getFederalIncomeTaxInformationResponseMessage'>
+    <part name='response' element='tns:getFederalIncomeTaxInformationResponse' />
+  </message>
+  <message name='getStateIncomeTaxInformationRequestMessage'>
+    <part name='parameters' element='tns:getStateIncomeTaxInformationParameters' />
+  </message>
+  <message name='getStateIncomeTaxInformationResponseMessage'>
+    <part name='response' element='tns:getStateIncomeTaxInformationResponse' />
+  </message>
+  <portType name='taxeePortType'>
+    <operation name='calculateIncomeTaxes'>
+      <documentation>given an income and filing status returns dollar amounts of taxes owed</documentation>
+      <input message='tns:calculateIncomeTaxesRequestMessage' name='calculateIncomeTaxesInput' />
+      <output message='tns:calculateIncomeTaxesResponseMessage' name='calculateIncomeTaxesOutput' />
+    </operation>
+    <operation name='getFederalIncomeTaxInformation'>
+      <documentation>given a year returns tax brackets and deductions for all filing statuses</documentation>
+      <input message='tns:getFederalIncomeTaxInformationRequestMessage' name='getFederalIncomeTaxInformationInput' />
+      <output message='tns:getFederalIncomeTaxInformationResponseMessage' name='getFederalIncomeTaxInformationOutput' />
+    </operation>
+    <operation name='getStateIncomeTaxInformation'>
+      <documentation>given a year and a state abbreviation returns tax brackets and deductions for all filing statuses</documentation>
+      <input message='tns:getStateIncomeTaxInformationRequestMessage' name='getStateIncomeTaxInformationInput' />
+      <output message='tns:getStateIncomeTaxInformationResponseMessage' name='getStateIncomeTaxInformationOutput' />
+    </operation>
+  </portType>
+  <binding name='taxeeBinding' type='tns:taxeePortType'>
+    <operation name='calculateIncomeTaxes'>
+      <soap12:operation soapAction='http://calculateIncomeTaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getFederalIncomeTaxInformation'>
+      <soap12:operation soapAction='http://getFederalIncomeTaxInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getStateIncomeTaxInformation'>
+      <soap12:operation soapAction='http://getStateIncomeTaxInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='taxee'>
+    <documentation>mEET TAXEE Your Friendly Neighborhood Income Tax Data and Calculation API</documentation>
+    <port name='taxeePort' binding='tns:taxeeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://taxee' />
+    </port>
+  </service>
+</definitions>

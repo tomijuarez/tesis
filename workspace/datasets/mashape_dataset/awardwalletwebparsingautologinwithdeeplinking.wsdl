@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/awardwalletWebParsingAutologinWithDeepLinking/' name='awardwalletWebParsingAutologinWithDeepLinking' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingAutologinWithDeepLinking/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/awardwalletWebParsingAutologinWithDeepLinking/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingAutologinWithDeepLinking/'>
+      <xsd:element name='listprovidersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='prepareredirectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listprovidersRequestMessage' />
+  <message name='listprovidersResponseMessage'>
+    <part name='response' element='tns:listprovidersResponse' />
+  </message>
+  <message name='prepareredirectRequestMessage' />
+  <message name='prepareredirectResponseMessage'>
+    <part name='response' element='tns:prepareredirectResponse' />
+  </message>
+  <portType name='awardwalletWebParsingAutologinWithDeepLinkingPortType'>
+    <operation name='listproviders'>
+      <documentation></documentation>
+      <input message='tns:listprovidersRequestMessage' name='listprovidersInput' />
+      <output message='tns:listprovidersResponseMessage' name='listprovidersOutput' />
+    </operation>
+    <operation name='prepareredirect'>
+      <documentation>prepare auto login to account</documentation>
+      <input message='tns:prepareredirectRequestMessage' name='prepareredirectInput' />
+      <output message='tns:prepareredirectResponseMessage' name='prepareredirectOutput' />
+    </operation>
+  </portType>
+  <binding name='awardwalletWebParsingAutologinWithDeepLinkingBinding' type='tns:awardwalletWebParsingAutologinWithDeepLinkingPortType'>
+    <operation name='listproviders'>
+      <soap12:operation soapAction='http://listproviders' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='prepareredirect'>
+      <soap12:operation soapAction='http://prepareredirect' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='awardwalletWebParsingAutologinWithDeepLinking'>
+    <documentation>this API gives you the ability to auto login your users from your website into loyalty program websites In many cases you can also take a user to a specific page within the target website The user only has to provide his or her credentials once and then you will be able to single sign on the user automatically whenever needed For more details please contact us at http awardwallet com contact php</documentation>
+    <port name='awardwalletWebParsingAutologinWithDeepLinkingPort' binding='tns:awardwalletWebParsingAutologinWithDeepLinkingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://awardwalletWebParsingAutologinWithDeepLinking' />
+    </port>
+  </service>
+</definitions>

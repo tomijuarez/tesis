@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/postmarkEmail/' name='postmarkEmail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/postmarkEmail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/postmarkEmail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/postmarkEmail/'>
+      <xsd:element name='emailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='TextBody' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='HtmlBody' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Headers' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Value' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='From' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='To' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Attachments' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ContentType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Content' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Subject' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='emailRequestMessage' />
+  <message name='emailResponseMessage'>
+    <part name='response' element='tns:emailResponse' />
+  </message>
+  <portType name='postmarkEmailPortType'>
+    <operation name='email'>
+      <documentation>http developer postmarkapp com developer build html message format</documentation>
+      <input message='tns:emailRequestMessage' name='emailInput' />
+      <output message='tns:emailResponseMessage' name='emailOutput' />
+    </operation>
+  </portType>
+  <binding name='postmarkEmailBinding' type='tns:postmarkEmailPortType'>
+    <operation name='email'>
+      <soap12:operation soapAction='http://email' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='postmarkEmail'>
+    <documentation>postmark removes the headaches of delivering email with minimal setup time and zero maintenance</documentation>
+    <port name='postmarkEmailPort' binding='tns:postmarkEmailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://postmarkEmail' />
+    </port>
+  </service>
+</definitions>

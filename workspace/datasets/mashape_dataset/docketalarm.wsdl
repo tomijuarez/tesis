@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/docketAlarm/' name='docketAlarm' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/docketAlarm/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/docketAlarm/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/docketAlarm/'>
+      <xsd:element name='getDocketParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientmatter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='court' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='docket' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='logintoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDocketResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='case_info' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date_filed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='magistrate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='judge' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='parties' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='docket' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='contents' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='entry_date' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='login_token' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchPacerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientmatter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='courtregion' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datefiledend' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datefiledstart' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='logintoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='partyname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchPacerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='search_results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date_filed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='court' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='docket' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page_max' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getDocketRequestMessage'>
+    <part name='parameters' element='tns:getDocketParameters' />
+  </message>
+  <message name='getDocketResponseMessage'>
+    <part name='response' element='tns:getDocketResponse' />
+  </message>
+  <message name='loginRequestMessage' />
+  <message name='loginResponseMessage'>
+    <part name='response' element='tns:loginResponse' />
+  </message>
+  <message name='searchPacerRequestMessage'>
+    <part name='parameters' element='tns:searchPacerParameters' />
+  </message>
+  <message name='searchPacerResponseMessage'>
+    <part name='response' element='tns:searchPacerResponse' />
+  </message>
+  <portType name='docketAlarmPortType'>
+    <operation name='getDocket'>
+      <documentation>retrieve docket information about a particular case</documentation>
+      <input message='tns:getDocketRequestMessage' name='getDocketInput' />
+      <output message='tns:getDocketResponseMessage' name='getDocketOutput' />
+    </operation>
+    <operation name='login'>
+      <documentation>login to the Docket Alarm API</documentation>
+      <input message='tns:loginRequestMessage' name='loginInput' />
+      <output message='tns:loginResponseMessage' name='loginOutput' />
+    </operation>
+    <operation name='searchPacer'>
+      <documentation>search PACER dockets using one of several search criteria</documentation>
+      <input message='tns:searchPacerRequestMessage' name='searchPacerInput' />
+      <output message='tns:searchPacerResponseMessage' name='searchPacerOutput' />
+    </operation>
+  </portType>
+  <binding name='docketAlarmBinding' type='tns:docketAlarmPortType'>
+    <operation name='getDocket'>
+      <soap12:operation soapAction='http://getDocket' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='login'>
+      <soap12:operation soapAction='http://login' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchPacer'>
+      <soap12:operation soapAction='http://searchPacer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='docketAlarm'>
+    <documentation>aPI for the U S Court System Search for cases get detailed docket information and download filings Docket Alarm is for Financial institutions that want to run background litigation checks on companies Document management or doc review systems that want to automatically sync data with the court s and Law firms that want to automate tracking court filings in their cases</documentation>
+    <port name='docketAlarmPort' binding='tns:docketAlarmBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://docketAlarm' />
+    </port>
+  </service>
+</definitions>

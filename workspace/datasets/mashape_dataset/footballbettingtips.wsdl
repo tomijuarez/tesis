@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/footballBettingTips/' name='footballBettingTips' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/footballBettingTips/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/footballBettingTips/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/footballBettingTips/'>
+      <xsd:element name='bettingTipsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bettingTipsRequestMessage' />
+  <message name='bettingTipsResponseMessage'>
+    <part name='response' element='tns:bettingTipsResponse' />
+  </message>
+  <portType name='footballBettingTipsPortType'>
+    <operation name='bettingTips'>
+      <documentation>football betting tips</documentation>
+      <input message='tns:bettingTipsRequestMessage' name='bettingTipsInput' />
+      <output message='tns:bettingTipsResponseMessage' name='bettingTipsOutput' />
+    </operation>
+  </portType>
+  <binding name='footballBettingTipsBinding' type='tns:footballBettingTipsPortType'>
+    <operation name='bettingTips'>
+      <soap12:operation soapAction='http://bettingTips' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='footballBettingTips'>
+    <documentation>passionate about sports betting Tipsxpert com provides your daily free betting tips and a collection of the best free bets</documentation>
+    <port name='footballBettingTipsPort' binding='tns:footballBettingTipsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://footballBettingTips' />
+    </port>
+  </service>
+</definitions>

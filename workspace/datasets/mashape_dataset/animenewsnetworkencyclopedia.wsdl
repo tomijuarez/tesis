@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/animeNewsNetworkEncyclopedia/' name='animeNewsNetworkEncyclopedia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/animeNewsNetworkEncyclopedia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/animeNewsNetworkEncyclopedia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/animeNewsNetworkEncyclopedia/'>
+      <xsd:element name='animeMangaDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='anime' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='manga' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='animeMangaDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='nlist' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='nskip' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='animeMangaDetailsRequestMessage'>
+    <part name='parameters' element='tns:animeMangaDetailsParameters' />
+  </message>
+  <message name='animeMangaDetailsResponseMessage'>
+    <part name='response' element='tns:animeMangaDetailsResponse' />
+  </message>
+  <message name='reportsRequestMessage'>
+    <part name='parameters' element='tns:reportsParameters' />
+  </message>
+  <message name='reportsResponseMessage'>
+    <part name='response' element='tns:reportsResponse' />
+  </message>
+  <portType name='animeNewsNetworkEncyclopediaPortType'>
+    <operation name='animeMangaDetails'>
+      <documentation></documentation>
+      <input message='tns:animeMangaDetailsRequestMessage' name='animeMangaDetailsInput' />
+      <output message='tns:animeMangaDetailsResponseMessage' name='animeMangaDetailsOutput' />
+    </operation>
+    <operation name='reports'>
+      <documentation></documentation>
+      <input message='tns:reportsRequestMessage' name='reportsInput' />
+      <output message='tns:reportsResponseMessage' name='reportsOutput' />
+    </operation>
+  </portType>
+  <binding name='animeNewsNetworkEncyclopediaBinding' type='tns:animeNewsNetworkEncyclopediaPortType'>
+    <operation name='animeMangaDetails'>
+      <soap12:operation soapAction='http://animeMangaDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reports'>
+      <soap12:operation soapAction='http://reports' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='animeNewsNetworkEncyclopedia'>
+    <documentation>get data from the Anime News Network Encyclopedia in XML format</documentation>
+    <port name='animeNewsNetworkEncyclopediaPort' binding='tns:animeNewsNetworkEncyclopediaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://animeNewsNetworkEncyclopedia' />
+    </port>
+  </service>
+</definitions>

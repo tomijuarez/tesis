@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hearthstone/' name='hearthstone' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hearthstone/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hearthstone/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hearthstone/'>
+      <xsd:element name='allCardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='card_class' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cost' type='xsd:int' minOccurs='0' />
+            <xsd:element name='set' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='race' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+            <xsd:element name='durability' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='health' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='flavour_text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='attack' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleCardParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleCardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='card_class' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cost' type='xsd:int' minOccurs='0' />
+            <xsd:element name='set' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='race' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+            <xsd:element name='durability' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='health' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='flavour_text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='attack' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='allCardsRequestMessage' />
+  <message name='allCardsResponseMessage'>
+    <part name='response' element='tns:allCardsResponse' />
+  </message>
+  <message name='singleCardRequestMessage'>
+    <part name='parameters' element='tns:singleCardParameters' />
+  </message>
+  <message name='singleCardResponseMessage'>
+    <part name='response' element='tns:singleCardResponse' />
+  </message>
+  <portType name='hearthstonePortType'>
+    <operation name='allCards'>
+      <documentation>retrieve information for all collectible cards in Hearthstone</documentation>
+      <input message='tns:allCardsRequestMessage' name='allCardsInput' />
+      <output message='tns:allCardsResponseMessage' name='allCardsOutput' />
+    </operation>
+    <operation name='singleCard'>
+      <documentation>retrieves information for a single Hearthstone card</documentation>
+      <input message='tns:singleCardRequestMessage' name='singleCardInput' />
+      <output message='tns:singleCardResponseMessage' name='singleCardOutput' />
+    </operation>
+  </portType>
+  <binding name='hearthstoneBinding' type='tns:hearthstonePortType'>
+    <operation name='allCards'>
+      <soap12:operation soapAction='http://allCards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleCard'>
+      <soap12:operation soapAction='http://singleCard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hearthstone'>
+    <documentation>irythia s Hearthstone API to access card information statistics and more</documentation>
+    <port name='hearthstonePort' binding='tns:hearthstoneBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hearthstone' />
+    </port>
+  </service>
+</definitions>

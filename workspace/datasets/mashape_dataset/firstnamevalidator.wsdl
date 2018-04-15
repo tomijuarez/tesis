@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/firstNameValidator/' name='firstNameValidator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/firstNameValidator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/firstNameValidator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/firstNameValidator/'>
+      <xsd:element name='validateAFirstNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateAFirstNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='validateAFirstNameRequestMessage'>
+    <part name='parameters' element='tns:validateAFirstNameParameters' />
+  </message>
+  <message name='validateAFirstNameResponseMessage'>
+    <part name='response' element='tns:validateAFirstNameResponse' />
+  </message>
+  <portType name='firstNameValidatorPortType'>
+    <operation name='validateAFirstName'>
+      <documentation></documentation>
+      <input message='tns:validateAFirstNameRequestMessage' name='validateAFirstNameInput' />
+      <output message='tns:validateAFirstNameResponseMessage' name='validateAFirstNameOutput' />
+    </operation>
+  </portType>
+  <binding name='firstNameValidatorBinding' type='tns:firstNameValidatorPortType'>
+    <operation name='validateAFirstName'>
+      <soap12:operation soapAction='http://validateAFirstName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='firstNameValidator'>
+    <documentation>validates a first name against our large database of names</documentation>
+    <port name='firstNameValidatorPort' binding='tns:firstNameValidatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://firstNameValidator' />
+    </port>
+  </service>
+</definitions>

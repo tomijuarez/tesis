@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/whatsapp/' name='whatsapp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/whatsapp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/whatsapp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/whatsapp/'>
+      <xsd:element name='sendMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='audmsg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='no' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='picmsg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txtmsg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vidmsg' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendMessageRequestMessage'>
+    <part name='parameters' element='tns:sendMessageParameters' />
+  </message>
+  <message name='sendMessageResponseMessage'>
+    <part name='response' element='tns:sendMessageResponse' />
+  </message>
+  <portType name='whatsappPortType'>
+    <operation name='sendMessage'>
+      <documentation>send Message to custom Number Note For Custom WhatsApp API and Instance visit http www datayuge in</documentation>
+      <input message='tns:sendMessageRequestMessage' name='sendMessageInput' />
+      <output message='tns:sendMessageResponseMessage' name='sendMessageOutput' />
+    </operation>
+  </portType>
+  <binding name='whatsappBinding' type='tns:whatsappPortType'>
+    <operation name='sendMessage'>
+      <soap12:operation soapAction='http://sendMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='whatsapp'>
+    <documentation>whatsapp API is an unofficial whatsapp API build to send messages including text video audio and picture to target numbers One can send this for reaching out to near ones from their own preferred apps and send custom messages This API is purely an unofficial API and we do not support any kind of spam messages through this API Visit our site to know more about custom whatsapp API instance and services E g whatsapp api python whatsapp api tutorial whatsapp api c whatsapp api github whatsapp api download whatsapp api ruby whatsapp api android whatsapp api php You must agree our TOS to use this free API</documentation>
+    <port name='whatsappPort' binding='tns:whatsappBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://whatsapp' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/marketResearchLibrary/' name='marketResearchLibrary' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/marketResearchLibrary/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/marketResearchLibrary/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/marketResearchLibrary/'>
+      <xsd:element name='apiTradeGovVMarketResearchLibrarySearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTradeGovVMarketResearchLibrarySearchRequestMessage' />
+  <message name='apiTradeGovVMarketResearchLibrarySearchResponseMessage'>
+    <part name='response' element='tns:apiTradeGovVMarketResearchLibrarySearchResponse' />
+  </message>
+  <portType name='marketResearchLibraryPortType'>
+    <operation name='apiTradeGovVMarketResearchLibrarySearch'>
+      <input message='tns:apiTradeGovVMarketResearchLibrarySearchRequestMessage' name='apiTradeGovVMarketResearchLibrarySearchInput' />
+      <output message='tns:apiTradeGovVMarketResearchLibrarySearchResponseMessage' name='apiTradeGovVMarketResearchLibrarySearchOutput' />
+    </operation>
+  </portType>
+  <binding name='marketResearchLibraryBinding' type='tns:marketResearchLibraryPortType'>
+    <operation name='apiTradeGovVMarketResearchLibrarySearch'>
+      <soap12:operation soapAction='http://apiTradeGovVMarketResearchLibrarySearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='marketResearchLibrary'>
+    <documentation>the Market Research Library API provides metadata for country and industry reports that are produced by ITA s trade experts and are available in ITA s online market research library ITA commercial officers that are stationed around the world publish these authoritative reports in conjunction with Foreign Service officers from the State Department</documentation>
+    <port name='marketResearchLibraryPort' binding='tns:marketResearchLibraryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://marketResearchLibrary' />
+    </port>
+  </service>
+</definitions>

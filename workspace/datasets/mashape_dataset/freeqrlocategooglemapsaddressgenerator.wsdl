@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/freeQrLocateGoogleMapsAddressGenerator/' name='freeQrLocateGoogleMapsAddressGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/freeQrLocateGoogleMapsAddressGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/freeQrLocateGoogleMapsAddressGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/freeQrLocateGoogleMapsAddressGenerator/'>
+      <xsd:element name='freeQrLocateGoogleMapsAddressApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='freeQrLocateGoogleMapsAddressApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='freeQrLocateGoogleMapsAddressApiRequestMessage'>
+    <part name='parameters' element='tns:freeQrLocateGoogleMapsAddressApiParameters' />
+  </message>
+  <message name='freeQrLocateGoogleMapsAddressApiResponseMessage'>
+    <part name='response' element='tns:freeQrLocateGoogleMapsAddressApiResponse' />
+  </message>
+  <portType name='freeQrLocateGoogleMapsAddressGeneratorPortType'>
+    <operation name='freeQrLocateGoogleMapsAddressApi'>
+      <documentation></documentation>
+      <input message='tns:freeQrLocateGoogleMapsAddressApiRequestMessage' name='freeQrLocateGoogleMapsAddressApiInput' />
+      <output message='tns:freeQrLocateGoogleMapsAddressApiResponseMessage' name='freeQrLocateGoogleMapsAddressApiOutput' />
+    </operation>
+  </portType>
+  <binding name='freeQrLocateGoogleMapsAddressGeneratorBinding' type='tns:freeQrLocateGoogleMapsAddressGeneratorPortType'>
+    <operation name='freeQrLocateGoogleMapsAddressApi'>
+      <soap12:operation soapAction='http://freeQrLocateGoogleMapsAddressApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='freeQrLocateGoogleMapsAddressGenerator'>
+    <documentation>free QR API locate google maps address With this API you can insert a QR in your web page that redirects to a google address For example if you want to get any writed address now is not necesary rewrite in your mobile device to find or navigate to this address The only you need is scan this QR and mobile device gets the correct address</documentation>
+    <port name='freeQrLocateGoogleMapsAddressGeneratorPort' binding='tns:freeQrLocateGoogleMapsAddressGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://freeQrLocateGoogleMapsAddressGenerator' />
+    </port>
+  </service>
+</definitions>

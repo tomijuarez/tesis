@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers/' name='contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers/'>
+      <xsd:element name='generalPhoneNumberQueryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generalPhoneNumberQueryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generalPhoneNumberQueryRequestMessage'>
+    <part name='parameters' element='tns:generalPhoneNumberQueryParameters' />
+  </message>
+  <message name='generalPhoneNumberQueryResponseMessage'>
+    <part name='response' element='tns:generalPhoneNumberQueryResponse' />
+  </message>
+  <portType name='contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbersPortType'>
+    <operation name='generalPhoneNumberQuery'>
+      <documentation>this is the general GET method for the Contactive Identity Platform API</documentation>
+      <input message='tns:generalPhoneNumberQueryRequestMessage' name='generalPhoneNumberQueryInput' />
+      <output message='tns:generalPhoneNumberQueryResponseMessage' name='generalPhoneNumberQueryOutput' />
+    </operation>
+  </portType>
+  <binding name='contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbersBinding' type='tns:contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbersPortType'>
+    <operation name='generalPhoneNumberQuery'>
+      <soap12:operation soapAction='http://generalPhoneNumberQuery' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers'>
+    <documentation>the Contactive Identity Platform is the core of our service and powers things like our CallerID and CalendarID mobile apps Our API allows you to get rich profile information for phone numbers and email address and then show that information in your app In other words you can use our API to get public available information associated to a telephone numbers You can use our API to Fill incomplete profiles Verify identities Create trust rankings based on the available information Augment contact information in your app Much more For full documentation and overview of the API please go to http developer contactive com</documentation>
+    <port name='contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbersPort' binding='tns:contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbersBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://contactiveIdentityPlatformGetFullProfilesAssociatedToTelephoneNumbers' />
+    </port>
+  </service>
+</definitions>

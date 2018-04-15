@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/messages/' name='messages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/messages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/messages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/messages/'>
+      <xsd:element name='getmsgsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getmsgsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Category' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getmsgsRequestMessage'>
+    <part name='parameters' element='tns:getmsgsParameters' />
+  </message>
+  <message name='getmsgsResponseMessage'>
+    <part name='response' element='tns:getmsgsResponse' />
+  </message>
+  <portType name='messagesPortType'>
+    <operation name='getmsgs'>
+      <documentation></documentation>
+      <input message='tns:getmsgsRequestMessage' name='getmsgsInput' />
+      <output message='tns:getmsgsResponseMessage' name='getmsgsOutput' />
+    </operation>
+  </portType>
+  <binding name='messagesBinding' type='tns:messagesPortType'>
+    <operation name='getmsgs'>
+      <soap12:operation soapAction='http://getmsgs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='messages'>
+    <documentation>retrieve random messages based on your selected category You can use this API for text messaging applications Status updating applications and more</documentation>
+    <port name='messagesPort' binding='tns:messagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://messages' />
+    </port>
+  </service>
+</definitions>

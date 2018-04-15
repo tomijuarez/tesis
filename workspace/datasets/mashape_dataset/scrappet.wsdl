@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/scrappet/' name='scrappet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/scrappet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/scrappet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/scrappet/'>
+      <xsd:element name='apiScrapeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiScrapeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiScrapeRequestMessage'>
+    <part name='parameters' element='tns:apiScrapeParameters' />
+  </message>
+  <message name='apiScrapeResponseMessage'>
+    <part name='response' element='tns:apiScrapeResponse' />
+  </message>
+  <portType name='scrappetPortType'>
+    <operation name='apiScrape'>
+      <documentation>get all page informations</documentation>
+      <input message='tns:apiScrapeRequestMessage' name='apiScrapeInput' />
+      <output message='tns:apiScrapeResponseMessage' name='apiScrapeOutput' />
+    </operation>
+  </portType>
+  <binding name='scrappetBinding' type='tns:scrappetPortType'>
+    <operation name='apiScrape'>
+      <soap12:operation soapAction='http://apiScrape' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='scrappet'>
+    <documentation>get information about pages via a RESTful API It scrapes a given page by the URL and returns you all informations about that page</documentation>
+    <port name='scrappetPort' binding='tns:scrappetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://scrappet' />
+    </port>
+  </service>
+</definitions>

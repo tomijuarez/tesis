@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfBravo/' name='pdfBravo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfBravo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfBravo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfBravo/'>
+      <xsd:element name='convertParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filename' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertRequestMessage'>
+    <part name='parameters' element='tns:convertParameters' />
+  </message>
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <portType name='pdfBravoPortType'>
+    <operation name='convert'>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfBravoBinding' type='tns:pdfBravoPortType'>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfBravo'>
+    <documentation>quickly Converts any URL to a beautifully formatted PDF document Generate great looking reports documents invoices in seconds If you need any features just let us know We value your feedback</documentation>
+    <port name='pdfBravoPort' binding='tns:pdfBravoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfBravo' />
+    </port>
+  </service>
+</definitions>

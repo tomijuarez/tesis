@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mashColor/' name='mashColor' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mashColor/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mashColor/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mashColor/'>
+      <xsd:element name='combinecolorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='colorprimary' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='colorsecondaryarr' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='combinecolorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='matching_color' type='xsd:int' minOccurs='0' />
+            <xsd:element name='color_brightness' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='nb30020' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='nffaef9' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='best_colors_match' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='matching_color' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='color_brightness' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nb30020' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='nffaef9' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='stauts' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='combinecolorRequestMessage'>
+    <part name='parameters' element='tns:combinecolorParameters' />
+  </message>
+  <message name='combinecolorResponseMessage'>
+    <part name='response' element='tns:combinecolorResponse' />
+  </message>
+  <portType name='mashColorPortType'>
+    <operation name='combinecolor'>
+      <documentation>tells if a color is combinable against a list of colors by returning the combinable value in percentage along with the color sharper value for each color passed as secondary</documentation>
+      <input message='tns:combinecolorRequestMessage' name='combinecolorInput' />
+      <output message='tns:combinecolorResponseMessage' name='combinecolorOutput' />
+    </operation>
+  </portType>
+  <binding name='mashColorBinding' type='tns:mashColorPortType'>
+    <operation name='combinecolor'>
+      <soap12:operation soapAction='http://combinecolor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mashColor'>
+    <documentation>with Mash Color you can easily establish how much colors can be combined by returning a JSON which indicates the combinable percentage and the brightness of that color against others passed as argument</documentation>
+    <port name='mashColorPort' binding='tns:mashColorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mashColor' />
+    </port>
+  </service>
+</definitions>

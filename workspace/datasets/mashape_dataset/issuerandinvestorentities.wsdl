@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/issuerAndInvestorEntities/' name='issuerAndInvestorEntities' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/issuerAndInvestorEntities/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/issuerAndInvestorEntities/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/issuerAndInvestorEntities/'>
+      <xsd:element name='entitiesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dateofbirth' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='executivename' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='regionformedin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='streetaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='taxidnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='region_formed_in' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='date_of_birth' type='xsd:date' minOccurs='0' />
+            <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='executive_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='street_address_1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='tax_id_number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='street_address_2' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='updated_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='postal_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='investor_suitability_status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitiesIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitiesIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='entitiesRequestMessage'>
+    <part name='parameters' element='tns:entitiesParameters' />
+  </message>
+  <message name='entitiesResponseMessage'>
+    <part name='response' element='tns:entitiesResponse' />
+  </message>
+  <message name='entitiesIdRequestMessage'>
+    <part name='parameters' element='tns:entitiesIdParameters' />
+  </message>
+  <message name='entitiesIdResponseMessage'>
+    <part name='response' element='tns:entitiesIdResponse' />
+  </message>
+  <portType name='issuerAndInvestorEntitiesPortType'>
+    <operation name='entities'>
+      <documentation>create New Entity Person Company</documentation>
+      <input message='tns:entitiesRequestMessage' name='entitiesInput' />
+      <output message='tns:entitiesResponseMessage' name='entitiesOutput' />
+    </operation>
+    <operation name='entitiesId'>
+      <documentation>view individual entity</documentation>
+      <input message='tns:entitiesIdRequestMessage' name='entitiesIdInput' />
+      <output message='tns:entitiesIdResponseMessage' name='entitiesIdOutput' />
+    </operation>
+  </portType>
+  <binding name='issuerAndInvestorEntitiesBinding' type='tns:issuerAndInvestorEntitiesPortType'>
+    <operation name='entities'>
+      <soap12:operation soapAction='http://entities' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entitiesId'>
+      <soap12:operation soapAction='http://entitiesId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='issuerAndInvestorEntities'>
+    <documentation>entities represent either a person or a company They are used in a number of places They can be an investor an issuer or anyone related to an offering that is eligible for a background check Entities can also have a investor suitability status set for them For more details on investor suitability status and the related investor suitability questionnaires please see Broker Dealer Services</documentation>
+    <port name='issuerAndInvestorEntitiesPort' binding='tns:issuerAndInvestorEntitiesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://issuerAndInvestorEntities' />
+    </port>
+  </service>
+</definitions>

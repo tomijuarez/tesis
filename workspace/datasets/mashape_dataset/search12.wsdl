@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/search/' name='search' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/search/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/search/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/search/'>
+      <xsd:element name='imageSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keyword' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='images' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='license' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='imageUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='licenseLink' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='thumbnailUrl' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='exacttitlematch' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='numresults' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='resultCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='processingTime' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='webSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='numresults' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='webSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='resultCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='processingTime' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageSearchRequestMessage'>
+    <part name='parameters' element='tns:imageSearchParameters' />
+  </message>
+  <message name='imageSearchResponseMessage'>
+    <part name='response' element='tns:imageSearchResponse' />
+  </message>
+  <message name='newsSearchRequestMessage'>
+    <part name='parameters' element='tns:newsSearchParameters' />
+  </message>
+  <message name='newsSearchResponseMessage'>
+    <part name='response' element='tns:newsSearchResponse' />
+  </message>
+  <message name='webSearchRequestMessage'>
+    <part name='parameters' element='tns:webSearchParameters' />
+  </message>
+  <message name='webSearchResponseMessage'>
+    <part name='response' element='tns:webSearchResponse' />
+  </message>
+  <portType name='searchPortType'>
+    <operation name='imageSearch'>
+      <documentation>search for images</documentation>
+      <input message='tns:imageSearchRequestMessage' name='imageSearchInput' />
+      <output message='tns:imageSearchResponseMessage' name='imageSearchOutput' />
+    </operation>
+    <operation name='newsSearch'>
+      <documentation>search for news containing certain query terms</documentation>
+      <input message='tns:newsSearchRequestMessage' name='newsSearchInput' />
+      <output message='tns:newsSearchResponseMessage' name='newsSearchOutput' />
+    </operation>
+    <operation name='webSearch'>
+      <documentation>search for Web pages containing certain query terms</documentation>
+      <input message='tns:webSearchRequestMessage' name='webSearchInput' />
+      <output message='tns:webSearchResponseMessage' name='webSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='searchBinding' type='tns:searchPortType'>
+    <operation name='imageSearch'>
+      <soap12:operation soapAction='http://imageSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='newsSearch'>
+      <soap12:operation soapAction='http://newsSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='webSearch'>
+      <soap12:operation soapAction='http://webSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='search'>
+    <documentation>the WebKnox search API lets you search the WebKnox Web index and news results</documentation>
+    <port name='searchPort' binding='tns:searchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://search' />
+    </port>
+  </service>
+</definitions>

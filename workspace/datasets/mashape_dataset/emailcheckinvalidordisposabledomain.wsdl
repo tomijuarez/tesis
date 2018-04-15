@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eMailCheckInvalidOrDisposableDomain/' name='eMailCheckInvalidOrDisposableDomain' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eMailCheckInvalidOrDisposableDomain/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eMailCheckInvalidOrDisposableDomain/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eMailCheckInvalidOrDisposableDomain/'>
+      <xsd:element name='mailcheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mailcheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='block' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='disposable' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mailcheckRequestMessage'>
+    <part name='parameters' element='tns:mailcheckParameters' />
+  </message>
+  <message name='mailcheckResponseMessage'>
+    <part name='response' element='tns:mailcheckResponse' />
+  </message>
+  <portType name='eMailCheckInvalidOrDisposableDomainPortType'>
+    <operation name='mailcheck'>
+      <documentation>check if e mail domain is valid or a disposable temporary address</documentation>
+      <input message='tns:mailcheckRequestMessage' name='mailcheckInput' />
+      <output message='tns:mailcheckResponseMessage' name='mailcheckOutput' />
+    </operation>
+  </portType>
+  <binding name='eMailCheckInvalidOrDisposableDomainBinding' type='tns:eMailCheckInvalidOrDisposableDomainPortType'>
+    <operation name='mailcheck'>
+      <soap12:operation soapAction='http://mailcheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eMailCheckInvalidOrDisposableDomain'>
+    <documentation>easily check if a certain e mail address is valid Is it a valid domain Is the e mail a temporary disposable e mail That s a common indicator of spamming trolling so now there s an API for you so you can easily block it</documentation>
+    <port name='eMailCheckInvalidOrDisposableDomainPort' binding='tns:eMailCheckInvalidOrDisposableDomainBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eMailCheckInvalidOrDisposableDomain' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/air/' name='air' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/air/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/air/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/air/'>
+      <xsd:element name='textAnnotationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='annotation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='cost' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='time' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='auth' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='exec' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='keyword' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='form' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='rel' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='ngram' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='form' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='n' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='span' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textAnnotationRequestMessage' />
+  <message name='textAnnotationResponseMessage'>
+    <part name='response' element='tns:textAnnotationResponse' />
+  </message>
+  <portType name='airPortType'>
+    <operation name='textAnnotation'>
+      <documentation>the annotate method is used to extract keywords within a posted text and optionally to link them to Linked Open Data resources by means of disambiguation Linked keywords can be enriched with images synonyms DBpedia Airpedia classes categories etc Available in languages en de fr es it</documentation>
+      <input message='tns:textAnnotationRequestMessage' name='textAnnotationInput' />
+      <output message='tns:textAnnotationResponseMessage' name='textAnnotationOutput' />
+    </operation>
+  </portType>
+  <binding name='airBinding' type='tns:airPortType'>
+    <operation name='textAnnotation'>
+      <soap12:operation soapAction='http://textAnnotation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='air'>
+    <documentation>an entity annotation based on Wikipedia available in languages en de fr es it</documentation>
+    <port name='airPort' binding='tns:airBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://air' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/siteScraper/' name='siteScraper' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/siteScraper/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/siteScraper/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/siteScraper/'>
+      <xsd:element name='fetchsitetitleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fetchsitetitleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fetchsitetitleRequestMessage'>
+    <part name='parameters' element='tns:fetchsitetitleParameters' />
+  </message>
+  <message name='fetchsitetitleResponseMessage'>
+    <part name='response' element='tns:fetchsitetitleResponse' />
+  </message>
+  <portType name='siteScraperPortType'>
+    <operation name='fetchsitetitle'>
+      <documentation>fetch site title by passing site URL</documentation>
+      <input message='tns:fetchsitetitleRequestMessage' name='fetchsitetitleInput' />
+      <output message='tns:fetchsitetitleResponseMessage' name='fetchsitetitleOutput' />
+    </operation>
+  </portType>
+  <binding name='siteScraperBinding' type='tns:siteScraperPortType'>
+    <operation name='fetchsitetitle'>
+      <soap12:operation soapAction='http://fetchsitetitle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='siteScraper'>
+    <documentation>the web site title scraper by passing an URL and the system will crawl the site title</documentation>
+    <port name='siteScraperPort' binding='tns:siteScraperBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://siteScraper' />
+    </port>
+  </service>
+</definitions>

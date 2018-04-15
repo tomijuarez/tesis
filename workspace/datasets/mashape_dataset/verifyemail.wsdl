@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/verifyEmail/' name='verifyEmail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/verifyEmail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/verifyEmail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/verifyEmail/'>
+      <xsd:element name='verifyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='valid_format' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='verified_address' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='verifyRequestMessage'>
+    <part name='parameters' element='tns:verifyParameters' />
+  </message>
+  <message name='verifyResponseMessage'>
+    <part name='response' element='tns:verifyResponse' />
+  </message>
+  <portType name='verifyEmailPortType'>
+    <operation name='verify'>
+      <documentation>verify if an email address exists</documentation>
+      <input message='tns:verifyRequestMessage' name='verifyInput' />
+      <output message='tns:verifyResponseMessage' name='verifyOutput' />
+    </operation>
+  </portType>
+  <binding name='verifyEmailBinding' type='tns:verifyEmailPortType'>
+    <operation name='verify'>
+      <soap12:operation soapAction='http://verify' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='verifyEmail'>
+    <documentation>a simple api that checks if an email address is valid and exists It checks the format of the address then tries to contact the server to make sure the address exists</documentation>
+    <port name='verifyEmailPort' binding='tns:verifyEmailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://verifyEmail' />
+    </port>
+  </service>
+</definitions>

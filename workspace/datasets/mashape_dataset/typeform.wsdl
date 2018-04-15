@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/typeform/' name='typeform' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/typeform/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/typeform/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/typeform/'>
+      <xsd:element name='responseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='completed' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='uid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='until' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='responseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='stats' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='responses' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='completed' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='locked' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='showing' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='http_status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='responseRequestMessage'>
+    <part name='parameters' element='tns:responseParameters' />
+  </message>
+  <message name='responseResponseMessage'>
+    <part name='response' element='tns:responseResponse' />
+  </message>
+  <portType name='typeformPortType'>
+    <operation name='response'>
+      <documentation>this is for getting the responses</documentation>
+      <input message='tns:responseRequestMessage' name='responseInput' />
+      <output message='tns:responseResponseMessage' name='responseOutput' />
+    </operation>
+  </portType>
+  <binding name='typeformBinding' type='tns:typeformPortType'>
+    <operation name='response'>
+      <soap12:operation soapAction='http://response' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='typeform'>
+    <documentation>type form s Data API is to consult the responses submitted to a particular typeform You can also use your data API to automatically export your results to more than web services</documentation>
+    <port name='typeformPort' binding='tns:typeformBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://typeform' />
+    </port>
+  </service>
+</definitions>

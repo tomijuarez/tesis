@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/byteplantEmailAddressOnlineVerification/' name='byteplantEmailAddressOnlineVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/byteplantEmailAddressOnlineVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/byteplantEmailAddressOnlineVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/byteplantEmailAddressOnlineVerification/'>
+      <xsd:element name='byteplantEmailAddressValidationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='emailaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='byteplantEmailAddressValidationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='byteplantEmailAddressValidationRequestMessage'>
+    <part name='parameters' element='tns:byteplantEmailAddressValidationParameters' />
+  </message>
+  <message name='byteplantEmailAddressValidationResponseMessage'>
+    <part name='response' element='tns:byteplantEmailAddressValidationResponse' />
+  </message>
+  <portType name='byteplantEmailAddressOnlineVerificationPortType'>
+    <operation name='byteplantEmailAddressValidation'>
+      <documentation>verify Email Address</documentation>
+      <input message='tns:byteplantEmailAddressValidationRequestMessage' name='byteplantEmailAddressValidationInput' />
+      <output message='tns:byteplantEmailAddressValidationResponseMessage' name='byteplantEmailAddressValidationOutput' />
+    </operation>
+  </portType>
+  <binding name='byteplantEmailAddressOnlineVerificationBinding' type='tns:byteplantEmailAddressOnlineVerificationPortType'>
+    <operation name='byteplantEmailAddressValidation'>
+      <soap12:operation soapAction='http://byteplantEmailAddressValidation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='byteplantEmailAddressOnlineVerification'>
+    <documentation>keep your email list clean and focus on real people real time email address validation is easy to implement and has a lot of benefits for your business The best way to capture good leads is to verify contact information right at the point of entry Integrate our online email address verification API directly into your sign up forms or web apps and allow your website visitors to fix errors in their email addresses instantly only valid usable email addresses will be accepted Reject throwaway disposable email addresses and stay in touch with your users Avoid costly list cleaning procedures to protect your online reputation when sending out newsletters and notifications to your users</documentation>
+    <port name='byteplantEmailAddressOnlineVerificationPort' binding='tns:byteplantEmailAddressOnlineVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://byteplantEmailAddressOnlineVerification' />
+    </port>
+  </service>
+</definitions>

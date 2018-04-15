@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/citizenRequests/' name='citizenRequests' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/citizenRequests/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/citizenRequests/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/citizenRequests/'>
+      <xsd:element name='createNewRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actionid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='desc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tracking_number' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveStatusOfExistingRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='showall' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='trackingnumber' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveStatusOfExistingRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='user' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateExistingRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='desc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='trackingnumber' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateExistingRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tracking_number' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createNewRequestRequestMessage'>
+    <part name='parameters' element='tns:createNewRequestParameters' />
+  </message>
+  <message name='createNewRequestResponseMessage'>
+    <part name='response' element='tns:createNewRequestResponse' />
+  </message>
+  <message name='retrieveStatusOfExistingRequestRequestMessage'>
+    <part name='parameters' element='tns:retrieveStatusOfExistingRequestParameters' />
+  </message>
+  <message name='retrieveStatusOfExistingRequestResponseMessage'>
+    <part name='response' element='tns:retrieveStatusOfExistingRequestResponse' />
+  </message>
+  <message name='updateExistingRequestRequestMessage'>
+    <part name='parameters' element='tns:updateExistingRequestParameters' />
+  </message>
+  <message name='updateExistingRequestResponseMessage'>
+    <part name='response' element='tns:updateExistingRequestResponse' />
+  </message>
+  <portType name='citizenRequestsPortType'>
+    <operation name='createNewRequest'>
+      <documentation>this entry point accepts a POST with the action id and description fields needed to post a request to the e Gov system and returns a tracking number</documentation>
+      <input message='tns:createNewRequestRequestMessage' name='createNewRequestInput' />
+      <output message='tns:createNewRequestResponseMessage' name='createNewRequestOutput' />
+    </operation>
+    <operation name='retrieveStatusOfExistingRequest'>
+      <documentation>this entry point accepts a GET with the tracking number of the request and returns a JSON array of indexed comments</documentation>
+      <input message='tns:retrieveStatusOfExistingRequestRequestMessage' name='retrieveStatusOfExistingRequestInput' />
+      <output message='tns:retrieveStatusOfExistingRequestResponseMessage' name='retrieveStatusOfExistingRequestOutput' />
+    </operation>
+    <operation name='updateExistingRequest'>
+      <documentation>this entry point accepts a PUT with the tracking number of a request and comment to post an existing request and returns the tracking number</documentation>
+      <input message='tns:updateExistingRequestRequestMessage' name='updateExistingRequestInput' />
+      <output message='tns:updateExistingRequestResponseMessage' name='updateExistingRequestOutput' />
+    </operation>
+  </portType>
+  <binding name='citizenRequestsBinding' type='tns:citizenRequestsPortType'>
+    <operation name='createNewRequest'>
+      <soap12:operation soapAction='http://createNewRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveStatusOfExistingRequest'>
+      <soap12:operation soapAction='http://retrieveStatusOfExistingRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateExistingRequest'>
+      <soap12:operation soapAction='http://updateExistingRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='citizenRequests'>
+    <documentation>citizen requests</documentation>
+    <port name='citizenRequestsPort' binding='tns:citizenRequestsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://citizenRequests' />
+    </port>
+  </service>
+</definitions>

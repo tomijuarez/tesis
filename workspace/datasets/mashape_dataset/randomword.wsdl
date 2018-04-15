@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/randomWord/' name='randomWord' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/randomWord/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/randomWord/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/randomWord/'>
+      <xsd:element name='runCgiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='runCgiRequestMessage' />
+  <message name='runCgiResponseMessage'>
+    <part name='response' element='tns:runCgiResponse' />
+  </message>
+  <portType name='randomWordPortType'>
+    <operation name='runCgi'>
+      <documentation></documentation>
+      <input message='tns:runCgiRequestMessage' name='runCgiInput' />
+      <output message='tns:runCgiResponseMessage' name='runCgiOutput' />
+    </operation>
+  </portType>
+  <binding name='randomWordBinding' type='tns:randomWordPortType'>
+    <operation name='runCgi'>
+      <soap12:operation soapAction='http://runCgi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='randomWord'>
+    <documentation>the application generating random words is very useful not only as a tool for various parlor games but it is also essential for the authors of articles or literary works The application is developed in cooperation with nlp centre According to parameters entered by a user it returns a random word as a text</documentation>
+    <port name='randomWordPort' binding='tns:randomWordBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://randomWord' />
+    </port>
+  </service>
+</definitions>

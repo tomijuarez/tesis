@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/currencyExchange/' name='currencyExchange' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/currencyExchange/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/currencyExchange/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/currencyExchange/'>
+      <xsd:element name='exchangeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exchangeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listquotesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='exchangeRequestMessage'>
+    <part name='parameters' element='tns:exchangeParameters' />
+  </message>
+  <message name='exchangeResponseMessage'>
+    <part name='response' element='tns:exchangeResponse' />
+  </message>
+  <message name='listquotesRequestMessage' />
+  <message name='listquotesResponseMessage'>
+    <part name='response' element='tns:listquotesResponse' />
+  </message>
+  <portType name='currencyExchangePortType'>
+    <operation name='exchange'>
+      <documentation>get Currency Exchange by specifying the quotes of source from and destination to and optionally the source amount to calculate which to get the destination amount by default the source amount will be</documentation>
+      <input message='tns:exchangeRequestMessage' name='exchangeInput' />
+      <output message='tns:exchangeResponseMessage' name='exchangeOutput' />
+    </operation>
+    <operation name='listquotes'>
+      <documentation>list the available quotes in JSON Array this API support all the available quotes can be used in source and destination quote Refer exchange endpoint for more information how to call the currency exchange from the source quote to destination quote</documentation>
+      <input message='tns:listquotesRequestMessage' name='listquotesInput' />
+      <output message='tns:listquotesResponseMessage' name='listquotesOutput' />
+    </operation>
+  </portType>
+  <binding name='currencyExchangeBinding' type='tns:currencyExchangePortType'>
+    <operation name='exchange'>
+      <soap12:operation soapAction='http://exchange' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listquotes'>
+      <soap12:operation soapAction='http://listquotes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='currencyExchange'>
+    <documentation>live currency and foreign exchange rates by specifying source and destination quotes and optionally amount to calculate Support vast amount of quotes around the world</documentation>
+    <port name='currencyExchangePort' binding='tns:currencyExchangeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://currencyExchange' />
+    </port>
+  </service>
+</definitions>

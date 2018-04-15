@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/netImpactGeographicLocationAndIspData/' name='netImpactGeographicLocationAndIspData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/netImpactGeographicLocationAndIspData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/netImpactGeographicLocationAndIspData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/netImpactGeographicLocationAndIspData/'>
+      <xsd:element name='getInfoByIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='d' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hostname' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qt' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInfoByIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getInfoByIpRequestMessage'>
+    <part name='parameters' element='tns:getInfoByIpParameters' />
+  </message>
+  <message name='getInfoByIpResponseMessage'>
+    <part name='response' element='tns:getInfoByIpResponse' />
+  </message>
+  <portType name='netImpactGeographicLocationAndIspDataPortType'>
+    <operation name='getInfoByIp'>
+      <documentation></documentation>
+      <input message='tns:getInfoByIpRequestMessage' name='getInfoByIpInput' />
+      <output message='tns:getInfoByIpResponseMessage' name='getInfoByIpOutput' />
+    </operation>
+  </portType>
+  <binding name='netImpactGeographicLocationAndIspDataBinding' type='tns:netImpactGeographicLocationAndIspDataPortType'>
+    <operation name='getInfoByIp'>
+      <soap12:operation soapAction='http://getInfoByIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='netImpactGeographicLocationAndIspData'>
+    <documentation>netImpact s easy to use JSON APIs provide IP to Location data consisting of Company IP ISP Host Name Geographic Location Zip Code Area Code</documentation>
+    <port name='netImpactGeographicLocationAndIspDataPort' binding='tns:netImpactGeographicLocationAndIspDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://netImpactGeographicLocationAndIspData' />
+    </port>
+  </service>
+</definitions>

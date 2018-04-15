@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geocodeLocationLookup/' name='geocodeLocationLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geocodeLocationLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geocodeLocationLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geocodeLocationLookup/'>
+      <xsd:element name='addressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='address' type='xsd:int' minOccurs='0' />
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+            <xsd:element name='street' type='xsd:string' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='address' type='xsd:int' minOccurs='0' />
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+            <xsd:element name='street' type='xsd:string' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='address' type='xsd:int' minOccurs='0' />
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+            <xsd:element name='street' type='xsd:string' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressRequestMessage'>
+    <part name='parameters' element='tns:addressParameters' />
+  </message>
+  <message name='addressResponseMessage'>
+    <part name='response' element='tns:addressResponse' />
+  </message>
+  <message name='ipRequestMessage'>
+    <part name='parameters' element='tns:ipParameters' />
+  </message>
+  <message name='ipResponseMessage'>
+    <part name='response' element='tns:ipResponse' />
+  </message>
+  <message name='reverseRequestMessage'>
+    <part name='parameters' element='tns:reverseParameters' />
+  </message>
+  <message name='reverseResponseMessage'>
+    <part name='response' element='tns:reverseResponse' />
+  </message>
+  <portType name='geocodeLocationLookupPortType'>
+    <operation name='address'>
+      <documentation>address based location lookup</documentation>
+      <input message='tns:addressRequestMessage' name='addressInput' />
+      <output message='tns:addressResponseMessage' name='addressOutput' />
+    </operation>
+    <operation name='ip'>
+      <documentation>get the geocode information for an IP address</documentation>
+      <input message='tns:ipRequestMessage' name='ipInput' />
+      <output message='tns:ipResponseMessage' name='ipOutput' />
+    </operation>
+    <operation name='reverse'>
+      <documentation>reverse lat long to geocode</documentation>
+      <input message='tns:reverseRequestMessage' name='reverseInput' />
+      <output message='tns:reverseResponseMessage' name='reverseOutput' />
+    </operation>
+  </portType>
+  <binding name='geocodeLocationLookupBinding' type='tns:geocodeLocationLookupPortType'>
+    <operation name='address'>
+      <soap12:operation soapAction='http://address' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ip'>
+      <soap12:operation soapAction='http://ip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reverse'>
+      <soap12:operation soapAction='http://reverse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geocodeLocationLookup'>
+    <documentation>geocode and reverse lookup location information by IP address address or latitude longitude coordinates</documentation>
+    <port name='geocodeLocationLookupPort' binding='tns:geocodeLocationLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geocodeLocationLookup' />
+    </port>
+  </service>
+</definitions>

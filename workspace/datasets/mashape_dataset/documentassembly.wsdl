@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/documentAssembly/' name='documentAssembly' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/documentAssembly/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/documentAssembly/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/documentAssembly/'>
+      <xsd:element name='answersToQuestionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='questionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='answersToQuestionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createClauseAtIndexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='indexno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createClauseAtIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='index' type='xsd:int' minOccurs='0' />
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createQuestionForDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createQuestionForDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteClauseSParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='indexno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteClauseSResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllBranchLabelInDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllBranchLabelInDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllDocumentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='no_of_paragraphs' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClauseBranchesAtIndexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='indexno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClauseBranchesAtIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='label' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClausesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='index' type='xsd:int' minOccurs='0' />
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClausesForADocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClausesForADocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='label' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDocumentDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDocumentDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clauses' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='label' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getQuestionAnswersForDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getQuestionAnswersForDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postAnswerToQuestionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='questionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postAnswerToQuestionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putClauseAtIndexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='indexno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putClauseAtIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='index' type='xsd:int' minOccurs='0' />
+            <xsd:element name='branch_label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='label' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='doc_id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadYourDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='answersToQuestionRequestMessage'>
+    <part name='parameters' element='tns:answersToQuestionParameters' />
+  </message>
+  <message name='answersToQuestionResponseMessage'>
+    <part name='response' element='tns:answersToQuestionResponse' />
+  </message>
+  <message name='createClauseAtIndexRequestMessage'>
+    <part name='parameters' element='tns:createClauseAtIndexParameters' />
+  </message>
+  <message name='createClauseAtIndexResponseMessage'>
+    <part name='response' element='tns:createClauseAtIndexResponse' />
+  </message>
+  <message name='createQuestionForDocumentRequestMessage'>
+    <part name='parameters' element='tns:createQuestionForDocumentParameters' />
+  </message>
+  <message name='createQuestionForDocumentResponseMessage'>
+    <part name='response' element='tns:createQuestionForDocumentResponse' />
+  </message>
+  <message name='deleteClauseSRequestMessage'>
+    <part name='parameters' element='tns:deleteClauseSParameters' />
+  </message>
+  <message name='deleteClauseSResponseMessage'>
+    <part name='response' element='tns:deleteClauseSResponse' />
+  </message>
+  <message name='getAllBranchLabelInDocumentRequestMessage'>
+    <part name='parameters' element='tns:getAllBranchLabelInDocumentParameters' />
+  </message>
+  <message name='getAllBranchLabelInDocumentResponseMessage'>
+    <part name='response' element='tns:getAllBranchLabelInDocumentResponse' />
+  </message>
+  <message name='getAllDocumentsRequestMessage' />
+  <message name='getAllDocumentsResponseMessage'>
+    <part name='response' element='tns:getAllDocumentsResponse' />
+  </message>
+  <message name='getClauseBranchesAtIndexRequestMessage'>
+    <part name='parameters' element='tns:getClauseBranchesAtIndexParameters' />
+  </message>
+  <message name='getClauseBranchesAtIndexResponseMessage'>
+    <part name='response' element='tns:getClauseBranchesAtIndexResponse' />
+  </message>
+  <message name='getClausesRequestMessage' />
+  <message name='getClausesResponseMessage'>
+    <part name='response' element='tns:getClausesResponse' />
+  </message>
+  <message name='getClausesForADocumentRequestMessage'>
+    <part name='parameters' element='tns:getClausesForADocumentParameters' />
+  </message>
+  <message name='getClausesForADocumentResponseMessage'>
+    <part name='response' element='tns:getClausesForADocumentResponse' />
+  </message>
+  <message name='getDocumentDetailsRequestMessage'>
+    <part name='parameters' element='tns:getDocumentDetailsParameters' />
+  </message>
+  <message name='getDocumentDetailsResponseMessage'>
+    <part name='response' element='tns:getDocumentDetailsResponse' />
+  </message>
+  <message name='getQuestionAnswersForDocumentRequestMessage'>
+    <part name='parameters' element='tns:getQuestionAnswersForDocumentParameters' />
+  </message>
+  <message name='getQuestionAnswersForDocumentResponseMessage'>
+    <part name='response' element='tns:getQuestionAnswersForDocumentResponse' />
+  </message>
+  <message name='postAnswerToQuestionRequestMessage'>
+    <part name='parameters' element='tns:postAnswerToQuestionParameters' />
+  </message>
+  <message name='postAnswerToQuestionResponseMessage'>
+    <part name='response' element='tns:postAnswerToQuestionResponse' />
+  </message>
+  <message name='putClauseAtIndexRequestMessage'>
+    <part name='parameters' element='tns:putClauseAtIndexParameters' />
+  </message>
+  <message name='putClauseAtIndexResponseMessage'>
+    <part name='response' element='tns:putClauseAtIndexResponse' />
+  </message>
+  <message name='uploadYourDocumentRequestMessage' />
+  <message name='uploadYourDocumentResponseMessage'>
+    <part name='response' element='tns:uploadYourDocumentResponse' />
+  </message>
+  <portType name='documentAssemblyPortType'>
+    <operation name='answersToQuestion'>
+      <documentation>returns all the answers for the question</documentation>
+      <input message='tns:answersToQuestionRequestMessage' name='answersToQuestionInput' />
+      <output message='tns:answersToQuestionResponseMessage' name='answersToQuestionOutput' />
+    </operation>
+    <operation name='createClauseAtIndex'>
+      <documentation>takes a clause JSON creates a new Clause adds it at the url index</documentation>
+      <input message='tns:createClauseAtIndexRequestMessage' name='createClauseAtIndexInput' />
+      <output message='tns:createClauseAtIndexResponseMessage' name='createClauseAtIndexOutput' />
+    </operation>
+    <operation name='createQuestionForDocument'>
+      <documentation>takes a question JSON and creates a Question object returns the newly created question</documentation>
+      <input message='tns:createQuestionForDocumentRequestMessage' name='createQuestionForDocumentInput' />
+      <output message='tns:createQuestionForDocumentResponseMessage' name='createQuestionForDocumentOutput' />
+    </operation>
+    <operation name='deleteClauseS'>
+      <documentation>deletes Clause es at the specified index</documentation>
+      <input message='tns:deleteClauseSRequestMessage' name='deleteClauseSInput' />
+      <output message='tns:deleteClauseSResponseMessage' name='deleteClauseSOutput' />
+    </operation>
+    <operation name='getAllBranchLabelInDocument'>
+      <documentation>returns all the branch label s present in the document</documentation>
+      <input message='tns:getAllBranchLabelInDocumentRequestMessage' name='getAllBranchLabelInDocumentInput' />
+      <output message='tns:getAllBranchLabelInDocumentResponseMessage' name='getAllBranchLabelInDocumentOutput' />
+    </operation>
+    <operation name='getAllDocuments'>
+      <documentation>gET returns a list of documents</documentation>
+      <input message='tns:getAllDocumentsRequestMessage' name='getAllDocumentsInput' />
+      <output message='tns:getAllDocumentsResponseMessage' name='getAllDocumentsOutput' />
+    </operation>
+    <operation name='getClauseBranchesAtIndex'>
+      <documentation>returns all the clauses branches at the specified index</documentation>
+      <input message='tns:getClauseBranchesAtIndexRequestMessage' name='getClauseBranchesAtIndexInput' />
+      <output message='tns:getClauseBranchesAtIndexResponseMessage' name='getClauseBranchesAtIndexOutput' />
+    </operation>
+    <operation name='getClauses'>
+      <documentation>takes a json formatted clause data and creates a new Clause for the document</documentation>
+      <input message='tns:getClausesRequestMessage' name='getClausesInput' />
+      <output message='tns:getClausesResponseMessage' name='getClausesOutput' />
+    </operation>
+    <operation name='getClausesForADocument'>
+      <documentation>returns all clauses of the document</documentation>
+      <input message='tns:getClausesForADocumentRequestMessage' name='getClausesForADocumentInput' />
+      <output message='tns:getClausesForADocumentResponseMessage' name='getClausesForADocumentOutput' />
+    </operation>
+    <operation name='getDocumentDetails'>
+      <documentation>returns details of documents if the document belongs to the user or is public</documentation>
+      <input message='tns:getDocumentDetailsRequestMessage' name='getDocumentDetailsInput' />
+      <output message='tns:getDocumentDetailsResponseMessage' name='getDocumentDetailsOutput' />
+    </operation>
+    <operation name='getQuestionAnswersForDocument'>
+      <documentation>returns all the questions including their answers for the document</documentation>
+      <input message='tns:getQuestionAnswersForDocumentRequestMessage' name='getQuestionAnswersForDocumentInput' />
+      <output message='tns:getQuestionAnswersForDocumentResponseMessage' name='getQuestionAnswersForDocumentOutput' />
+    </operation>
+    <operation name='postAnswerToQuestion'>
+      <documentation>takes a answer JSON and creates an Answer object returns the newly created answer</documentation>
+      <input message='tns:postAnswerToQuestionRequestMessage' name='postAnswerToQuestionInput' />
+      <output message='tns:postAnswerToQuestionResponseMessage' name='postAnswerToQuestionOutput' />
+    </operation>
+    <operation name='putClauseAtIndex'>
+      <documentation>takes a Clause JSON if the branch label is new then creates a new Clause adds it at the index as a branch If branch label is existing edits the text field of the Clause with new value</documentation>
+      <input message='tns:putClauseAtIndexRequestMessage' name='putClauseAtIndexInput' />
+      <output message='tns:putClauseAtIndexResponseMessage' name='putClauseAtIndexOutput' />
+    </operation>
+    <operation name='uploadYourDocument'>
+      <documentation>pOST takes a text file extracts document content and initialises a wizard</documentation>
+      <input message='tns:uploadYourDocumentRequestMessage' name='uploadYourDocumentInput' />
+      <output message='tns:uploadYourDocumentResponseMessage' name='uploadYourDocumentOutput' />
+    </operation>
+  </portType>
+  <binding name='documentAssemblyBinding' type='tns:documentAssemblyPortType'>
+    <operation name='answersToQuestion'>
+      <soap12:operation soapAction='http://answersToQuestion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createClauseAtIndex'>
+      <soap12:operation soapAction='http://createClauseAtIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createQuestionForDocument'>
+      <soap12:operation soapAction='http://createQuestionForDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteClauseS'>
+      <soap12:operation soapAction='http://deleteClauseS' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllBranchLabelInDocument'>
+      <soap12:operation soapAction='http://getAllBranchLabelInDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllDocuments'>
+      <soap12:operation soapAction='http://getAllDocuments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getClauseBranchesAtIndex'>
+      <soap12:operation soapAction='http://getClauseBranchesAtIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getClauses'>
+      <soap12:operation soapAction='http://getClauses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getClausesForADocument'>
+      <soap12:operation soapAction='http://getClausesForADocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDocumentDetails'>
+      <soap12:operation soapAction='http://getDocumentDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getQuestionAnswersForDocument'>
+      <soap12:operation soapAction='http://getQuestionAnswersForDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postAnswerToQuestion'>
+      <soap12:operation soapAction='http://postAnswerToQuestion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='putClauseAtIndex'>
+      <soap12:operation soapAction='http://putClauseAtIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadYourDocument'>
+      <soap12:operation soapAction='http://uploadYourDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='documentAssembly'>
+    <documentation>humble Paper s document builder API allows you to build dynamic documents in seconds We call these dynamic documents Wizards Use our api to create a wizard and publish them on Humble Paper or you could embed a wizard on your own website Users can answer questions and download a fully customised document built using the answers to those questions</documentation>
+    <port name='documentAssemblyPort' binding='tns:documentAssemblyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://documentAssembly' />
+    </port>
+  </service>
+</definitions>

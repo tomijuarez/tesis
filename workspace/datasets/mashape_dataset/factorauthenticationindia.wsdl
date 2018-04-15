@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/factorAuthenticationIndia/' name='factorAuthenticationIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/factorAuthenticationIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/factorAuthenticationIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/factorAuthenticationIndia/'>
+      <xsd:element name='checkSmsBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkSmsBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Details' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkVoiceBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkVoiceBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Details' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendingSmsOtpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='otp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phonenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendingSmsOtpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Details' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendingVoiceOtpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='otp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='phonenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendingVoiceOtpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Details' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkSmsBalanceRequestMessage'>
+    <part name='parameters' element='tns:checkSmsBalanceParameters' />
+  </message>
+  <message name='checkSmsBalanceResponseMessage'>
+    <part name='response' element='tns:checkSmsBalanceResponse' />
+  </message>
+  <message name='checkVoiceBalanceRequestMessage'>
+    <part name='parameters' element='tns:checkVoiceBalanceParameters' />
+  </message>
+  <message name='checkVoiceBalanceResponseMessage'>
+    <part name='response' element='tns:checkVoiceBalanceResponse' />
+  </message>
+  <message name='sendingSmsOtpRequestMessage'>
+    <part name='parameters' element='tns:sendingSmsOtpParameters' />
+  </message>
+  <message name='sendingSmsOtpResponseMessage'>
+    <part name='response' element='tns:sendingSmsOtpResponse' />
+  </message>
+  <message name='sendingVoiceOtpRequestMessage'>
+    <part name='parameters' element='tns:sendingVoiceOtpParameters' />
+  </message>
+  <message name='sendingVoiceOtpResponseMessage'>
+    <part name='response' element='tns:sendingVoiceOtpResponse' />
+  </message>
+  <portType name='factorAuthenticationIndiaPortType'>
+    <operation name='checkSmsBalance'>
+      <documentation>this endpoint is used to check SMS OTP balance</documentation>
+      <input message='tns:checkSmsBalanceRequestMessage' name='checkSmsBalanceInput' />
+      <output message='tns:checkSmsBalanceResponseMessage' name='checkSmsBalanceOutput' />
+    </operation>
+    <operation name='checkVoiceBalance'>
+      <documentation>this endpoint is used to check VOICE OTP balance</documentation>
+      <input message='tns:checkVoiceBalanceRequestMessage' name='checkVoiceBalanceInput' />
+      <output message='tns:checkVoiceBalanceResponseMessage' name='checkVoiceBalanceOutput' />
+    </operation>
+    <operation name='sendingSmsOtp'>
+      <documentation>this endpoint is used to send SMS OTP to India</documentation>
+      <input message='tns:sendingSmsOtpRequestMessage' name='sendingSmsOtpInput' />
+      <output message='tns:sendingSmsOtpResponseMessage' name='sendingSmsOtpOutput' />
+    </operation>
+    <operation name='sendingVoiceOtp'>
+      <documentation>this endpoint is used to send VOICE OTP to India</documentation>
+      <input message='tns:sendingVoiceOtpRequestMessage' name='sendingVoiceOtpInput' />
+      <output message='tns:sendingVoiceOtpResponseMessage' name='sendingVoiceOtpOutput' />
+    </operation>
+  </portType>
+  <binding name='factorAuthenticationIndiaBinding' type='tns:factorAuthenticationIndiaPortType'>
+    <operation name='checkSmsBalance'>
+      <soap12:operation soapAction='http://checkSmsBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkVoiceBalance'>
+      <soap12:operation soapAction='http://checkVoiceBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendingSmsOtp'>
+      <soap12:operation soapAction='http://sendingSmsOtp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendingVoiceOtp'>
+      <soap12:operation soapAction='http://sendingVoiceOtp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='factorAuthenticationIndia'>
+    <documentation>Factor in provides extremely simple to use APIs for implementing Factor Authentication Phone verification with just API Call Best Part of Factor in solution is its Fast Reliable Economical too</documentation>
+    <port name='factorAuthenticationIndiaPort' binding='tns:factorAuthenticationIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://factorAuthenticationIndia' />
+    </port>
+  </service>
+</definitions>

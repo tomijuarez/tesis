@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lruCache/' name='lruCache' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lruCache/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lruCache/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lruCache/'>
+      <xsd:element name='createCacheEntryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='anyJsonDataYouWant' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='healthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='bytes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='items' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='package' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='service' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='pid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uptimeSeconds' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ts' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='readCacheEntryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='readCacheEntryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='anyJsonDataYouWant' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createCacheEntryRequestMessage' />
+  <message name='createCacheEntryResponseMessage'>
+    <part name='response' element='tns:createCacheEntryResponse' />
+  </message>
+  <message name='healthRequestMessage' />
+  <message name='healthResponseMessage'>
+    <part name='response' element='tns:healthResponse' />
+  </message>
+  <message name='readCacheEntryRequestMessage'>
+    <part name='parameters' element='tns:readCacheEntryParameters' />
+  </message>
+  <message name='readCacheEntryResponseMessage'>
+    <part name='response' element='tns:readCacheEntryResponse' />
+  </message>
+  <portType name='lruCachePortType'>
+    <operation name='createCacheEntry'>
+      <documentation></documentation>
+      <input message='tns:createCacheEntryRequestMessage' name='createCacheEntryInput' />
+      <output message='tns:createCacheEntryResponseMessage' name='createCacheEntryOutput' />
+    </operation>
+    <operation name='health'>
+      <documentation>get service and cache status</documentation>
+      <input message='tns:healthRequestMessage' name='healthInput' />
+      <output message='tns:healthResponseMessage' name='healthOutput' />
+    </operation>
+    <operation name='readCacheEntry'>
+      <documentation></documentation>
+      <input message='tns:readCacheEntryRequestMessage' name='readCacheEntryInput' />
+      <output message='tns:readCacheEntryResponseMessage' name='readCacheEntryOutput' />
+    </operation>
+  </portType>
+  <binding name='lruCacheBinding' type='tns:lruCachePortType'>
+    <operation name='createCacheEntry'>
+      <soap12:operation soapAction='http://createCacheEntry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='health'>
+      <soap12:operation soapAction='http://health' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='readCacheEntry'>
+      <soap12:operation soapAction='http://readCacheEntry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lruCache'>
+    <documentation>global shared namespace for saving arbitrary JSON data in a cache where least recently used items are dropped Your item may not be there when you ask for it again Entries are assigned a GUID and returned in the x created key response header for use in future lookups Restify wrapper around npm im lru cache</documentation>
+    <port name='lruCachePort' binding='tns:lruCacheBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lruCache' />
+    </port>
+  </service>
+</definitions>

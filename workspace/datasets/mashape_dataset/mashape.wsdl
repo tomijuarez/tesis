@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mashape/' name='mashape' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mashape/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mashape/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mashape/'>
+      <xsd:element name='exploreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exploreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='image_owner' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='links' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='image_api' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='prices' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='desc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findForNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='parameter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findForNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='image_owner' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='links' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='image_api' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='prices' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='desc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findForTagsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='parameter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findForTagsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='image_owner' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='links' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='image_api' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='prices' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='desc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='exploreRequestMessage'>
+    <part name='parameters' element='tns:exploreParameters' />
+  </message>
+  <message name='exploreResponseMessage'>
+    <part name='response' element='tns:exploreResponse' />
+  </message>
+  <message name='findForNameRequestMessage'>
+    <part name='parameters' element='tns:findForNameParameters' />
+  </message>
+  <message name='findForNameResponseMessage'>
+    <part name='response' element='tns:findForNameResponse' />
+  </message>
+  <message name='findForTagsRequestMessage'>
+    <part name='parameters' element='tns:findForTagsParameters' />
+  </message>
+  <message name='findForTagsResponseMessage'>
+    <part name='response' element='tns:findForTagsResponse' />
+  </message>
+  <portType name='mashapePortType'>
+    <operation name='explore'>
+      <documentation>this route get JSON array of Mashape s explore page</documentation>
+      <input message='tns:exploreRequestMessage' name='exploreInput' />
+      <output message='tns:exploreResponseMessage' name='exploreOutput' />
+    </operation>
+    <operation name='findForName'>
+      <documentation>find your Api You need to replace parameter value with the API s name</documentation>
+      <input message='tns:findForNameRequestMessage' name='findForNameInput' />
+      <output message='tns:findForNameResponseMessage' name='findForNameOutput' />
+    </operation>
+    <operation name='findForTags'>
+      <documentation>this route find API for Tags like Tools Education Device You need to replace parameter value with your tags</documentation>
+      <input message='tns:findForTagsRequestMessage' name='findForTagsInput' />
+      <output message='tns:findForTagsResponseMessage' name='findForTagsOutput' />
+    </operation>
+  </portType>
+  <binding name='mashapeBinding' type='tns:mashapePortType'>
+    <operation name='explore'>
+      <soap12:operation soapAction='http://explore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findForName'>
+      <soap12:operation soapAction='http://findForName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findForTags'>
+      <soap12:operation soapAction='http://findForTags' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mashape'>
+    <documentation>with this API you can search and explore Mashape s Marketplace Now every devices Android iPhone ecc can access to Mashape for a quick search</documentation>
+    <port name='mashapePort' binding='tns:mashapeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mashape' />
+    </port>
+  </service>
+</definitions>

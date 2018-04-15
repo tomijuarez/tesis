@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/realEstateForeclosureListings/' name='realEstateForeclosureListings' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/realEstateForeclosureListings/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/realEstateForeclosureListings/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/realEstateForeclosureListings/'>
+      <xsd:element name='cityCityStateStateTypeTypeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cityCityStateStateTypeTypeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zipcodeZipcodeTypeTypeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zipcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zipcodeZipcodeTypeTypeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='zipCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='saleType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='fireplace' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='foreclosuerTrusteeOrAttorney' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='propertyType' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='sqft' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='heating' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Google_Map_URL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='built' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='foreclosureEstimate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lotSize' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='foreclosureType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pool' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recorded' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='daysOnMarket' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Property_ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='baths' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='belowMarket' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cooling' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='foreclosureInformation' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='beds' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='priceEstimate' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cityCityStateStateTypeTypeRequestMessage'>
+    <part name='parameters' element='tns:cityCityStateStateTypeTypeParameters' />
+  </message>
+  <message name='cityCityStateStateTypeTypeResponseMessage'>
+    <part name='response' element='tns:cityCityStateStateTypeTypeResponse' />
+  </message>
+  <message name='zipcodeZipcodeTypeTypeRequestMessage'>
+    <part name='parameters' element='tns:zipcodeZipcodeTypeTypeParameters' />
+  </message>
+  <message name='zipcodeZipcodeTypeTypeResponseMessage'>
+    <part name='response' element='tns:zipcodeZipcodeTypeTypeResponse' />
+  </message>
+  <portType name='realEstateForeclosureListingsPortType'>
+    <operation name='cityCityStateStateTypeType'>
+      <documentation>find foreclosures by city</documentation>
+      <input message='tns:cityCityStateStateTypeTypeRequestMessage' name='cityCityStateStateTypeTypeInput' />
+      <output message='tns:cityCityStateStateTypeTypeResponseMessage' name='cityCityStateStateTypeTypeOutput' />
+    </operation>
+    <operation name='zipcodeZipcodeTypeType'>
+      <documentation>Digit Zip Code</documentation>
+      <input message='tns:zipcodeZipcodeTypeTypeRequestMessage' name='zipcodeZipcodeTypeTypeInput' />
+      <output message='tns:zipcodeZipcodeTypeTypeResponseMessage' name='zipcodeZipcodeTypeTypeOutput' />
+    </operation>
+  </portType>
+  <binding name='realEstateForeclosureListingsBinding' type='tns:realEstateForeclosureListingsPortType'>
+    <operation name='cityCityStateStateTypeType'>
+      <soap12:operation soapAction='http://cityCityStateStateTypeType' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='zipcodeZipcodeTypeType'>
+      <soap12:operation soapAction='http://zipcodeZipcodeTypeType' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='realEstateForeclosureListings'>
+    <documentation>get details on foreclosed and pre foreclosed homes by zip code or city</documentation>
+    <port name='realEstateForeclosureListingsPort' binding='tns:realEstateForeclosureListingsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://realEstateForeclosureListings' />
+    </port>
+  </service>
+</definitions>

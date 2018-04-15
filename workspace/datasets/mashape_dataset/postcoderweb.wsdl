@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/postcoderWeb/' name='postcoderWeb' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/postcoderWeb/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/postcoderWeb/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/postcoderWeb/'>
+      <xsd:element name='addressAndGeocodingLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lines' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressAndGeocodingLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodingWithPostcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodingWithPostcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postcodeLookupWebApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lines' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postcodeLookupWebApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='buildingname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='premise' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='street' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='addressline3' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='county' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='addressline2' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='organisation' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='addressline1' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='summaryline' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='dependentlocality' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='posttown' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressAndGeocodingLookupRequestMessage'>
+    <part name='parameters' element='tns:addressAndGeocodingLookupParameters' />
+  </message>
+  <message name='addressAndGeocodingLookupResponseMessage'>
+    <part name='response' element='tns:addressAndGeocodingLookupResponse' />
+  </message>
+  <message name='geocodingWithPostcodeRequestMessage'>
+    <part name='parameters' element='tns:geocodingWithPostcodeParameters' />
+  </message>
+  <message name='geocodingWithPostcodeResponseMessage'>
+    <part name='response' element='tns:geocodingWithPostcodeResponse' />
+  </message>
+  <message name='postcodeLookupWebApiRequestMessage'>
+    <part name='parameters' element='tns:postcodeLookupWebApiParameters' />
+  </message>
+  <message name='postcodeLookupWebApiResponseMessage'>
+    <part name='response' element='tns:postcodeLookupWebApiResponse' />
+  </message>
+  <portType name='postcoderWebPortType'>
+    <operation name='addressAndGeocodingLookup'>
+      <documentation>address lookup with geocoding information in one call Sign up for a free trial or try it out here Note You will need to purchase credits to go live</documentation>
+      <input message='tns:addressAndGeocodingLookupRequestMessage' name='addressAndGeocodingLookupInput' />
+      <output message='tns:addressAndGeocodingLookupResponseMessage' name='addressAndGeocodingLookupOutput' />
+    </operation>
+    <operation name='geocodingWithPostcode'>
+      <documentation>get latitude and longitude co ordinates along with OS Grid Reference eastings and northings from just a postcode Sign up for a free trial or try it out here Note You will need to purchase credits to go live</documentation>
+      <input message='tns:geocodingWithPostcodeRequestMessage' name='geocodingWithPostcodeInput' />
+      <output message='tns:geocodingWithPostcodeResponseMessage' name='geocodingWithPostcodeOutput' />
+    </operation>
+    <operation name='postcodeLookupWebApi'>
+      <documentation>sign up for a free trial or try it out here Note You will need to purchase credits to go live</documentation>
+      <input message='tns:postcodeLookupWebApiRequestMessage' name='postcodeLookupWebApiInput' />
+      <output message='tns:postcodeLookupWebApiResponseMessage' name='postcodeLookupWebApiOutput' />
+    </operation>
+  </portType>
+  <binding name='postcoderWebBinding' type='tns:postcoderWebPortType'>
+    <operation name='addressAndGeocodingLookup'>
+      <soap12:operation soapAction='http://addressAndGeocodingLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='geocodingWithPostcode'>
+      <soap12:operation soapAction='http://geocodingWithPostcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postcodeLookupWebApi'>
+      <soap12:operation soapAction='http://postcodeLookupWebApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='postcoderWeb'>
+    <documentation>a simple UK postcode lookup API with the latest Royal Mail addresses Sign up for a free trial or buy credits on our website Note You will need to purchase credits to go live</documentation>
+    <port name='postcoderWebPort' binding='tns:postcoderWebBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://postcoderWeb' />
+    </port>
+  </service>
+</definitions>

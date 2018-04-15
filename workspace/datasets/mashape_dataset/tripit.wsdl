@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tripit/' name='tripit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tripit/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tripit/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tripit/'>
+      <xsd:element name='createResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Trip' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='end_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='is_private' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='primary_location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='start_date' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='objecttype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tripitobjectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='objecttype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tripitobjectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Trip' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='end_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='primary_location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='start_date' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filterparameter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='filtervalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='objecttype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Trip' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='end_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='primary_location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='start_date' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='replaceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='objecttype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tripitobjectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='replaceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createRequestMessage' />
+  <message name='createResponseMessage'>
+    <part name='response' element='tns:createResponse' />
+  </message>
+  <message name='deleteRequestMessage'>
+    <part name='parameters' element='tns:deleteParameters' />
+  </message>
+  <message name='deleteResponseMessage'>
+    <part name='response' element='tns:deleteResponse' />
+  </message>
+  <message name='getRequestMessage'>
+    <part name='parameters' element='tns:getParameters' />
+  </message>
+  <message name='getResponseMessage'>
+    <part name='response' element='tns:getResponse' />
+  </message>
+  <message name='listRequestMessage'>
+    <part name='parameters' element='tns:listParameters' />
+  </message>
+  <message name='listResponseMessage'>
+    <part name='response' element='tns:listResponse' />
+  </message>
+  <message name='replaceRequestMessage'>
+    <part name='parameters' element='tns:replaceParameters' />
+  </message>
+  <message name='replaceResponseMessage'>
+    <part name='response' element='tns:replaceResponse' />
+  </message>
+  <portType name='tripitPortType'>
+    <operation name='create'>
+      <documentation>a create request is used to create new objects To create objects make an HTTP POST request to the following URL https api tripit com v create The client must POST a single Request object as the value of the request parameter xml in the POST body of the request</documentation>
+      <input message='tns:createRequestMessage' name='createInput' />
+      <output message='tns:createResponseMessage' name='createOutput' />
+    </operation>
+    <operation name='delete'>
+      <documentation>a delete request is used to delete existing objects</documentation>
+      <input message='tns:deleteRequestMessage' name='deleteInput' />
+      <output message='tns:deleteResponseMessage' name='deleteOutput' />
+    </operation>
+    <operation name='get'>
+      <documentation>a get request is used to retrieve a specific object from the TripIt API given its TripIt object ID Since get requests do not change data they are all made via an HTTP GET request for a URL that takes the following form</documentation>
+      <input message='tns:getRequestMessage' name='getInput' />
+      <output message='tns:getResponseMessage' name='getOutput' />
+    </operation>
+    <operation name='list'>
+      <documentation>a list request is used to retrieve multiple objects given an object type and set of filter parameters Since list requests do not change data they are all made via an HTTP GET request for a URL that takes the following form</documentation>
+      <input message='tns:listRequestMessage' name='listInput' />
+      <output message='tns:listResponseMessage' name='listOutput' />
+    </operation>
+    <operation name='replace'>
+      <documentation>a replace request is used to replace existing objects in a TripIt account After the object is replaced it will get the same object id as the one the object had before the replace call</documentation>
+      <input message='tns:replaceRequestMessage' name='replaceInput' />
+      <output message='tns:replaceResponseMessage' name='replaceOutput' />
+    </operation>
+  </portType>
+  <binding name='tripitBinding' type='tns:tripitPortType'>
+    <operation name='create'>
+      <soap12:operation soapAction='http://create' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='delete'>
+      <soap12:operation soapAction='http://delete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='get'>
+      <soap12:operation soapAction='http://get' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='list'>
+      <soap12:operation soapAction='http://list' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='replace'>
+      <soap12:operation soapAction='http://replace' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tripit'>
+    <documentation>tripIt organizes travel plans into an itinerary that has all of your trip details in one place Simply forward confirmation emails to plans tripit com and TripIt will automatically build an itinerary for your trip that you can access anytime either online or from a mobile device With the TripIt API you can Add travel information to a TripIt account enabling Instant availability of clean professional looking itineraries accessible on the web or via mobile device Seamless calendar integration via TripIt s iCal feeds feature Access to many third party productivity applications that use the TripIt API Import travel information from a TripIt traveler s account enabling Seamless email import technology for your customers to add travel plans to your application Insight into a traveler s entire trip air hotel car restaurants meetings etc Outputting travel data to social network applications such as Facebook and LinkedIn</documentation>
+    <port name='tripitPort' binding='tns:tripitBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tripit' />
+    </port>
+  </service>
+</definitions>

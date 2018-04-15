@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/diffbot/' name='diffbot' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/diffbot/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/diffbot/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/diffbot/'>
+      <xsd:element name='articleApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paging' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='articleApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='html' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='frontpageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='all' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='frontpageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='tagName' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='leafPage' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='products' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='offerPriceDetails' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='offerPrice' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='articleApiRequestMessage'>
+    <part name='parameters' element='tns:articleApiParameters' />
+  </message>
+  <message name='articleApiResponseMessage'>
+    <part name='response' element='tns:articleApiResponse' />
+  </message>
+  <message name='frontpageRequestMessage'>
+    <part name='parameters' element='tns:frontpageParameters' />
+  </message>
+  <message name='frontpageResponseMessage'>
+    <part name='response' element='tns:frontpageResponse' />
+  </message>
+  <message name='productApiRequestMessage'>
+    <part name='parameters' element='tns:productApiParameters' />
+  </message>
+  <message name='productApiResponseMessage'>
+    <part name='response' element='tns:productApiResponse' />
+  </message>
+  <portType name='diffbotPortType'>
+    <operation name='articleApi'>
+      <documentation>the Article API is used to extract clean article text from news articles blog posts and other text heavy web pages</documentation>
+      <input message='tns:articleApiRequestMessage' name='articleApiInput' />
+      <output message='tns:articleApiResponseMessage' name='articleApiOutput' />
+    </operation>
+    <operation name='frontpage'>
+      <documentation>the Frontpage API takes in a multifaceted homepage and returns individual page elements</documentation>
+      <input message='tns:frontpageRequestMessage' name='frontpageInput' />
+      <output message='tns:frontpageResponseMessage' name='frontpageOutput' />
+    </operation>
+    <operation name='productApi'>
+      <documentation>the Product API retrieves full product data from any e commerce shopping page</documentation>
+      <input message='tns:productApiRequestMessage' name='productApiInput' />
+      <output message='tns:productApiResponseMessage' name='productApiOutput' />
+    </operation>
+  </portType>
+  <binding name='diffbotBinding' type='tns:diffbotPortType'>
+    <operation name='articleApi'>
+      <soap12:operation soapAction='http://articleApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='frontpage'>
+      <soap12:operation soapAction='http://frontpage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productApi'>
+      <soap12:operation soapAction='http://productApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='diffbot'>
+    <documentation>diffbot extracts data from web pages automatically and returns structured JSON For example our Article API returns an article s title author date and full text Use the web as your database We use computer vision machine learning and natural language processing to add structure to just about any web page</documentation>
+    <port name='diffbotPort' binding='tns:diffbotBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://diffbot' />
+    </port>
+  </service>
+</definitions>

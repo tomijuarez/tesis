@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/skysignature/' name='skysignature' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/skysignature/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/skysignature/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/skysignature/'>
+      <xsd:element name='skysignatureResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='skysignatureRequestMessage' />
+  <message name='skysignatureResponseMessage'>
+    <part name='response' element='tns:skysignatureResponse' />
+  </message>
+  <portType name='skysignaturePortType'>
+    <operation name='skysignature'>
+      <documentation></documentation>
+      <input message='tns:skysignatureRequestMessage' name='skysignatureInput' />
+      <output message='tns:skysignatureResponseMessage' name='skysignatureOutput' />
+    </operation>
+  </portType>
+  <binding name='skysignatureBinding' type='tns:skysignaturePortType'>
+    <operation name='skysignature'>
+      <soap12:operation soapAction='http://skysignature' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='skysignature'>
+    <documentation>skySignature is an online Digital Signature application Fast Easy and straight forward Free for personal use Very flexible and intuitive It is fully loaded with many helpful features and PDF editing tools such as type anywhere capability available exclusively only on SkySignature com More features such as Sign Here tags that can be dragged and dropped onto the document Allows to create a new PDF document out of the individual pages from existing PDF Documents SkySignature uses a custom unique advanced encryption algorithm to ensure security</documentation>
+    <port name='skysignaturePort' binding='tns:skysignatureBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://skysignature' />
+    </port>
+  </service>
+</definitions>

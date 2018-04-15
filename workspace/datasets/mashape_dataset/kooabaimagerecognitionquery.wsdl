@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kooabaImageRecognitionQuery/' name='kooabaImageRecognitionQuery' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kooabaImageRecognitionQuery/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kooabaImageRecognitionQuery/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kooabaImageRecognitionQuery/'>
+      <xsd:element name='queryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='queryRequestMessage' />
+  <message name='queryResponseMessage'>
+    <part name='response' element='tns:queryResponse' />
+  </message>
+  <portType name='kooabaImageRecognitionQueryPortType'>
+    <operation name='query'>
+      <documentation></documentation>
+      <input message='tns:queryRequestMessage' name='queryInput' />
+      <output message='tns:queryResponseMessage' name='queryOutput' />
+    </operation>
+  </portType>
+  <binding name='kooabaImageRecognitionQueryBinding' type='tns:kooabaImageRecognitionQueryPortType'>
+    <operation name='query'>
+      <soap12:operation soapAction='http://query' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kooabaImageRecognitionQuery'>
+    <documentation>this API allows you to make requests to our existing database of objects e g CDs DVDs books or your own database of reference images uploaded with the Data API</documentation>
+    <port name='kooabaImageRecognitionQueryPort' binding='tns:kooabaImageRecognitionQueryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kooabaImageRecognitionQuery' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailValidate/' name='emailValidate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailValidate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailValidate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailValidate/'>
+      <xsd:element name='emailValidateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain-error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='is-freemail' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='syntax-error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='emailValidateRequestMessage' />
+  <message name='emailValidateResponseMessage'>
+    <part name='response' element='tns:emailValidateResponse' />
+  </message>
+  <portType name='emailValidatePortType'>
+    <operation name='emailValidate'>
+      <documentation></documentation>
+      <input message='tns:emailValidateRequestMessage' name='emailValidateInput' />
+      <output message='tns:emailValidateResponseMessage' name='emailValidateOutput' />
+    </operation>
+  </portType>
+  <binding name='emailValidateBinding' type='tns:emailValidatePortType'>
+    <operation name='emailValidate'>
+      <soap12:operation soapAction='http://emailValidate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailValidate'>
+    <documentation>parse validate and clean an email address This API performs the following functions Syntax Checks Check if the email address is RFC RFC compliant DNS Checks Check if the email address domain resolves correctly and has valid MX mail exchanger records Typo Fixing Fix common domain TLD top level domain and freemail email address typos Freemail Check Determine if the email address is a freemail registered email address i e not a commercial address</documentation>
+    <port name='emailValidatePort' binding='tns:emailValidateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailValidate' />
+    </port>
+  </service>
+</definitions>

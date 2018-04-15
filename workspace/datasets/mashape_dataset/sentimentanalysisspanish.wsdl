@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentimentAnalysisSpanish/' name='sentimentAnalysisSpanish' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentimentAnalysisSpanish/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentimentAnalysisSpanish/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentimentAnalysisSpanish/'>
+      <xsd:element name='tweetAnalysisGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tweet' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tweetAnalysisGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='texto' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ponderacion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='intensidad' type='xsd:int' minOccurs='0' />
+            <xsd:element name='certidumbre' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tweetAnalysisPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='texto' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ponderacion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='intensidad' type='xsd:int' minOccurs='0' />
+            <xsd:element name='certidumbre' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='tweetAnalysisGetRequestMessage'>
+    <part name='parameters' element='tns:tweetAnalysisGetParameters' />
+  </message>
+  <message name='tweetAnalysisGetResponseMessage'>
+    <part name='response' element='tns:tweetAnalysisGetResponse' />
+  </message>
+  <message name='tweetAnalysisPostRequestMessage' />
+  <message name='tweetAnalysisPostResponseMessage'>
+    <part name='response' element='tns:tweetAnalysisPostResponse' />
+  </message>
+  <portType name='sentimentAnalysisSpanishPortType'>
+    <operation name='tweetAnalysisGet'>
+      <documentation>provides sentiment analysis for any given tweet in Spanish</documentation>
+      <input message='tns:tweetAnalysisGetRequestMessage' name='tweetAnalysisGetInput' />
+      <output message='tns:tweetAnalysisGetResponseMessage' name='tweetAnalysisGetOutput' />
+    </operation>
+    <operation name='tweetAnalysisPost'>
+      <documentation>provides sentiment analysis for any given tweet in Spanish</documentation>
+      <input message='tns:tweetAnalysisPostRequestMessage' name='tweetAnalysisPostInput' />
+      <output message='tns:tweetAnalysisPostResponseMessage' name='tweetAnalysisPostOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentAnalysisSpanishBinding' type='tns:sentimentAnalysisSpanishPortType'>
+    <operation name='tweetAnalysisGet'>
+      <soap12:operation soapAction='http://tweetAnalysisGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tweetAnalysisPost'>
+      <soap12:operation soapAction='http://tweetAnalysisPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentimentAnalysisSpanish'>
+    <documentation>sentiment analysis for Spanish language of any given tweet</documentation>
+    <port name='sentimentAnalysisSpanishPort' binding='tns:sentimentAnalysisSpanishBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentimentAnalysisSpanish' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tunein/' name='tunein' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tunein/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tunein/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tunein/'>
+      <xsd:element name='broadcasterEndpointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='album' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='artist' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commericial' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='broadcasterEndpointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='broadcasterEndpointRequestMessage'>
+    <part name='parameters' element='tns:broadcasterEndpointParameters' />
+  </message>
+  <message name='broadcasterEndpointResponseMessage'>
+    <part name='response' element='tns:broadcasterEndpointResponse' />
+  </message>
+  <portType name='tuneinPortType'>
+    <operation name='broadcasterEndpoint'>
+      <documentation>your title and artist information should be set to be updated by your broadcast software in correspondence with the currently playing song</documentation>
+      <input message='tns:broadcasterEndpointRequestMessage' name='broadcasterEndpointInput' />
+      <output message='tns:broadcasterEndpointResponseMessage' name='broadcasterEndpointOutput' />
+    </operation>
+  </portType>
+  <binding name='tuneinBinding' type='tns:tuneinPortType'>
+    <operation name='broadcasterEndpoint'>
+      <soap12:operation soapAction='http://broadcasterEndpoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tunein'>
+    <documentation>aIR is our broadcaster API It offers several simple methods to allow broadcasters and other publishers to send radio directory content to TuneIn in realtime When you implement the AIR API your listeners will See current artist album artwork on TuneIn com player Discover your station by searching for your artists Browse station playlist history on TuneIn mobile and TuneIn com Please e mail broadcaster support tunein com your TuneIn station URL search for your station on TuneIn com for permission to use the API and we will grant a partnerId and partnerKey If you use a special broadcaster software let us know as well</documentation>
+    <port name='tuneinPort' binding='tns:tuneinBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tunein' />
+    </port>
+  </service>
+</definitions>

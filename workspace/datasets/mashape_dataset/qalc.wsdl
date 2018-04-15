@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qalc/' name='qalc' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qalc/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qalc/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qalc/'>
+      <xsd:element name='calculateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='calculateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='calculateRequestMessage'>
+    <part name='parameters' element='tns:calculateParameters' />
+  </message>
+  <message name='calculateResponseMessage'>
+    <part name='response' element='tns:calculateResponse' />
+  </message>
+  <portType name='qalcPortType'>
+    <operation name='calculate'>
+      <documentation>every expression can be passed to this endpoint</documentation>
+      <input message='tns:calculateRequestMessage' name='calculateInput' />
+      <output message='tns:calculateResponseMessage' name='calculateOutput' />
+    </operation>
+  </portType>
+  <binding name='qalcBinding' type='tns:qalcPortType'>
+    <operation name='calculate'>
+      <soap12:operation soapAction='http://calculate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qalc'>
+    <documentation>qalc takes in a mathematical expression and gives you a clean result An example could be with the response of or giving</documentation>
+    <port name='qalcPort' binding='tns:qalcBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qalc' />
+    </port>
+  </service>
+</definitions>

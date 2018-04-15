@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twinwordTextAnalysisBundle/' name='twinwordTextAnalysisBundle' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twinwordTextAnalysisBundle/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twinwordTextAnalysisBundle/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twinwordTextAnalysisBundle/'>
+      <xsd:element name='analyzeGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='analyzeGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='keywords' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ratio' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='analyzePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='keywords' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ratio' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='associationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='associationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='assoc_word' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='assoc_word_ex' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keywords' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='categories_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Rocking_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Gaming_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Slipper_Chairs' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='keywords_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='chair' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='back' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='comfort' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='taxonomy_set' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keywords' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='categories_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Rocking_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Gaming_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Slipper_Chairs' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='keywords_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='chair' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='back' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='comfort' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='taxonomy_set' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='meaning' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='adjective' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='verb' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='noun' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='adverb' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ipa' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionKrParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionKrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='meaning' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='adjective' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='verb' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='noun' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='korean' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='adverb' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ipa' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='difficultyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='difficultyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='examHistoryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='examHistoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='exam' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exampleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exampleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='example' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='excludenoncontentwords' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='flag' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lemma' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rock' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='frog' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hop' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lemma' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rock' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='frog' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hop' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topic' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='system' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='biology' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='software' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='data' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='computer_science' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='machine' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='technology' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='engineering' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='knowledge' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='keyword' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='compute' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='computer' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='study' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='gene' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='science' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='alternate' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='biological' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='information' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cell' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='structure' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generatePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topic' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='system' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='biology' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='software' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='data' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='computer_science' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='machine' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='technology' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='engineering' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='knowledge' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='keyword' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='compute' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='computer' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='study' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='gene' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='science' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='alternate' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='biological' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='information' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cell' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='structure' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='referenceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='referenceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='relation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='associations' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='narrow_terms' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='broad_terms' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='related_terms' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='synonyms' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='evocations' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='derived_terms' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='themeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='themeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='theme' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='typeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='area' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='level' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='typeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='area' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='level' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='quizlist' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='quiz' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='correct' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='option' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizeGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizeGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='context' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='relation' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='acoustic' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='context' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='relation' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='acoustic' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordAssociationsGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordAssociationsGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='associations' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sound' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='associations_array' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='associations_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='voice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='tone' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ring' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='vocal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='din' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='echo' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='scream' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='radio' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hiss' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='music' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bang' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='noise' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='growl' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hearing' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='speak' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='talk' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='roar' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='quiet' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='shout' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hear' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='loud' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='song' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='acoustic' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='say' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='angry' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bell' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='resounding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='whisper' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sing' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordAssociationsPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='associations' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sound' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='associations_array' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='associations_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='voice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='tone' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ring' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='vocal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='din' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='echo' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='scream' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='radio' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hiss' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='music' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bang' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='noise' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='growl' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hearing' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='speak' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='talk' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='roar' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='quiet' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='shout' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hear' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='loud' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='song' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='acoustic' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='say' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='angry' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bell' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='resounding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='whisper' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sing' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='analyzeGetRequestMessage'>
+    <part name='parameters' element='tns:analyzeGetParameters' />
+  </message>
+  <message name='analyzeGetResponseMessage'>
+    <part name='response' element='tns:analyzeGetResponse' />
+  </message>
+  <message name='analyzePostRequestMessage' />
+  <message name='analyzePostResponseMessage'>
+    <part name='response' element='tns:analyzePostResponse' />
+  </message>
+  <message name='associationRequestMessage'>
+    <part name='parameters' element='tns:associationParameters' />
+  </message>
+  <message name='associationResponseMessage'>
+    <part name='response' element='tns:associationResponse' />
+  </message>
+  <message name='classifyGetRequestMessage'>
+    <part name='parameters' element='tns:classifyGetParameters' />
+  </message>
+  <message name='classifyGetResponseMessage'>
+    <part name='response' element='tns:classifyGetResponse' />
+  </message>
+  <message name='classifyPostRequestMessage' />
+  <message name='classifyPostResponseMessage'>
+    <part name='response' element='tns:classifyPostResponse' />
+  </message>
+  <message name='definitionRequestMessage'>
+    <part name='parameters' element='tns:definitionParameters' />
+  </message>
+  <message name='definitionResponseMessage'>
+    <part name='response' element='tns:definitionResponse' />
+  </message>
+  <message name='definitionKrRequestMessage'>
+    <part name='parameters' element='tns:definitionKrParameters' />
+  </message>
+  <message name='definitionKrResponseMessage'>
+    <part name='response' element='tns:definitionKrResponse' />
+  </message>
+  <message name='difficultyRequestMessage'>
+    <part name='parameters' element='tns:difficultyParameters' />
+  </message>
+  <message name='difficultyResponseMessage'>
+    <part name='response' element='tns:difficultyResponse' />
+  </message>
+  <message name='examHistoryRequestMessage'>
+    <part name='parameters' element='tns:examHistoryParameters' />
+  </message>
+  <message name='examHistoryResponseMessage'>
+    <part name='response' element='tns:examHistoryResponse' />
+  </message>
+  <message name='exampleRequestMessage'>
+    <part name='parameters' element='tns:exampleParameters' />
+  </message>
+  <message name='exampleResponseMessage'>
+    <part name='response' element='tns:exampleResponse' />
+  </message>
+  <message name='extractGetRequestMessage'>
+    <part name='parameters' element='tns:extractGetParameters' />
+  </message>
+  <message name='extractGetResponseMessage'>
+    <part name='response' element='tns:extractGetResponse' />
+  </message>
+  <message name='extractPostRequestMessage' />
+  <message name='extractPostResponseMessage'>
+    <part name='response' element='tns:extractPostResponse' />
+  </message>
+  <message name='generateGetRequestMessage'>
+    <part name='parameters' element='tns:generateGetParameters' />
+  </message>
+  <message name='generateGetResponseMessage'>
+    <part name='response' element='tns:generateGetResponse' />
+  </message>
+  <message name='generatePostRequestMessage' />
+  <message name='generatePostResponseMessage'>
+    <part name='response' element='tns:generatePostResponse' />
+  </message>
+  <message name='referenceRequestMessage'>
+    <part name='parameters' element='tns:referenceParameters' />
+  </message>
+  <message name='referenceResponseMessage'>
+    <part name='response' element='tns:referenceResponse' />
+  </message>
+  <message name='textGetRequestMessage'>
+    <part name='parameters' element='tns:textGetParameters' />
+  </message>
+  <message name='textGetResponseMessage'>
+    <part name='response' element='tns:textGetResponse' />
+  </message>
+  <message name='textPostRequestMessage' />
+  <message name='textPostResponseMessage'>
+    <part name='response' element='tns:textPostResponse' />
+  </message>
+  <message name='themeRequestMessage'>
+    <part name='parameters' element='tns:themeParameters' />
+  </message>
+  <message name='themeResponseMessage'>
+    <part name='response' element='tns:themeResponse' />
+  </message>
+  <message name='typeRequestMessage'>
+    <part name='parameters' element='tns:typeParameters' />
+  </message>
+  <message name='typeResponseMessage'>
+    <part name='response' element='tns:typeResponse' />
+  </message>
+  <message name='visualizeGetRequestMessage'>
+    <part name='parameters' element='tns:visualizeGetParameters' />
+  </message>
+  <message name='visualizeGetResponseMessage'>
+    <part name='response' element='tns:visualizeGetResponse' />
+  </message>
+  <message name='visualizePostRequestMessage' />
+  <message name='visualizePostResponseMessage'>
+    <part name='response' element='tns:visualizePostResponse' />
+  </message>
+  <message name='wordGetRequestMessage'>
+    <part name='parameters' element='tns:wordGetParameters' />
+  </message>
+  <message name='wordGetResponseMessage'>
+    <part name='response' element='tns:wordGetResponse' />
+  </message>
+  <message name='wordPostRequestMessage' />
+  <message name='wordPostResponseMessage'>
+    <part name='response' element='tns:wordPostResponse' />
+  </message>
+  <message name='wordAssociationsGetRequestMessage'>
+    <part name='parameters' element='tns:wordAssociationsGetParameters' />
+  </message>
+  <message name='wordAssociationsGetResponseMessage'>
+    <part name='response' element='tns:wordAssociationsGetResponse' />
+  </message>
+  <message name='wordAssociationsPostRequestMessage' />
+  <message name='wordAssociationsPostResponseMessage'>
+    <part name='response' element='tns:wordAssociationsPostResponse' />
+  </message>
+  <portType name='twinwordTextAnalysisBundlePortType'>
+    <operation name='analyzeGet'>
+      <documentation>return sentiment analysis results with score for the given text</documentation>
+      <input message='tns:analyzeGetRequestMessage' name='analyzeGetInput' />
+      <output message='tns:analyzeGetResponseMessage' name='analyzeGetOutput' />
+    </operation>
+    <operation name='analyzePost'>
+      <documentation>return sentiment analysis results with score for the given text</documentation>
+      <input message='tns:analyzePostRequestMessage' name='analyzePostInput' />
+      <output message='tns:analyzePostResponseMessage' name='analyzePostOutput' />
+    </operation>
+    <operation name='association'>
+      <documentation>get the associations of a word</documentation>
+      <input message='tns:associationRequestMessage' name='associationInput' />
+      <output message='tns:associationResponseMessage' name='associationOutput' />
+    </operation>
+    <operation name='classifyGet'>
+      <documentation>classify and recommend highly related categories for e commerce and other uses</documentation>
+      <input message='tns:classifyGetRequestMessage' name='classifyGetInput' />
+      <output message='tns:classifyGetResponseMessage' name='classifyGetOutput' />
+    </operation>
+    <operation name='classifyPost'>
+      <documentation>classify and recommend highly related categories for e commerce and other uses</documentation>
+      <input message='tns:classifyPostRequestMessage' name='classifyPostInput' />
+      <output message='tns:classifyPostResponseMessage' name='classifyPostOutput' />
+    </operation>
+    <operation name='definition'>
+      <documentation>get the definitions of a word</documentation>
+      <input message='tns:definitionRequestMessage' name='definitionInput' />
+      <output message='tns:definitionResponseMessage' name='definitionOutput' />
+    </operation>
+    <operation name='definitionKr'>
+      <documentation>get the Korean definitions of a word</documentation>
+      <input message='tns:definitionKrRequestMessage' name='definitionKrInput' />
+      <output message='tns:definitionKrResponseMessage' name='definitionKrOutput' />
+    </operation>
+    <operation name='difficulty'>
+      <documentation>get the difficulty level of a word</documentation>
+      <input message='tns:difficultyRequestMessage' name='difficultyInput' />
+      <output message='tns:difficultyResponseMessage' name='difficultyOutput' />
+    </operation>
+    <operation name='examHistory'>
+      <documentation>see which exams a word has been on</documentation>
+      <input message='tns:examHistoryRequestMessage' name='examHistoryInput' />
+      <output message='tns:examHistoryResponseMessage' name='examHistoryOutput' />
+    </operation>
+    <operation name='example'>
+      <documentation>see examples of a word used in a sentence</documentation>
+      <input message='tns:exampleRequestMessage' name='exampleInput' />
+      <output message='tns:exampleResponseMessage' name='exampleOutput' />
+    </operation>
+    <operation name='extractGet'>
+      <documentation>return the root of a word or roots of a string of words</documentation>
+      <input message='tns:extractGetRequestMessage' name='extractGetInput' />
+      <output message='tns:extractGetResponseMessage' name='extractGetOutput' />
+    </operation>
+    <operation name='extractPost'>
+      <documentation>return the root of a word or roots of a string of words</documentation>
+      <input message='tns:extractPostRequestMessage' name='extractPostInput' />
+      <output message='tns:extractPostResponseMessage' name='extractPostOutput' />
+    </operation>
+    <operation name='generateGet'>
+      <documentation>detect and generate human like topics to the given text</documentation>
+      <input message='tns:generateGetRequestMessage' name='generateGetInput' />
+      <output message='tns:generateGetResponseMessage' name='generateGetOutput' />
+    </operation>
+    <operation name='generatePost'>
+      <documentation>detect and generate human like topics to the given text</documentation>
+      <input message='tns:generatePostRequestMessage' name='generatePostInput' />
+      <output message='tns:generatePostResponseMessage' name='generatePostOutput' />
+    </operation>
+    <operation name='reference'>
+      <documentation>get the broad terms narrow terms related terms evocations synonyms associations and derived terms of a word</documentation>
+      <input message='tns:referenceRequestMessage' name='referenceInput' />
+      <output message='tns:referenceResponseMessage' name='referenceOutput' />
+    </operation>
+    <operation name='textGet'>
+      <documentation>evaluate the difficulty level of a word sentence or paragraph</documentation>
+      <input message='tns:textGetRequestMessage' name='textGetInput' />
+      <output message='tns:textGetResponseMessage' name='textGetOutput' />
+    </operation>
+    <operation name='textPost'>
+      <documentation>evaluate the difficulty level of a word sentence or paragraph</documentation>
+      <input message='tns:textPostRequestMessage' name='textPostInput' />
+      <output message='tns:textPostResponseMessage' name='textPostOutput' />
+    </operation>
+    <operation name='theme'>
+      <documentation>get the themes of a word</documentation>
+      <input message='tns:themeRequestMessage' name='themeInput' />
+      <output message='tns:themeResponseMessage' name='themeOutput' />
+    </operation>
+    <operation name='type'>
+      <documentation>customized word association quiz for game and e learning software</documentation>
+      <input message='tns:typeRequestMessage' name='typeInput' />
+      <output message='tns:typeResponseMessage' name='typeOutput' />
+    </operation>
+    <operation name='visualizeGet'>
+      <documentation>diagram information for visualizing concepts or mind maps</documentation>
+      <input message='tns:visualizeGetRequestMessage' name='visualizeGetInput' />
+      <output message='tns:visualizeGetResponseMessage' name='visualizeGetOutput' />
+    </operation>
+    <operation name='visualizePost'>
+      <documentation>diagram information for visualizing concepts or mind maps</documentation>
+      <input message='tns:visualizePostRequestMessage' name='visualizePostInput' />
+      <output message='tns:visualizePostResponseMessage' name='visualizePostOutput' />
+    </operation>
+    <operation name='wordGet'>
+      <documentation>evaluate the difficulty level of a word</documentation>
+      <input message='tns:wordGetRequestMessage' name='wordGetInput' />
+      <output message='tns:wordGetResponseMessage' name='wordGetOutput' />
+    </operation>
+    <operation name='wordPost'>
+      <documentation>evaluate the difficulty level of a word</documentation>
+      <input message='tns:wordPostRequestMessage' name='wordPostInput' />
+      <output message='tns:wordPostResponseMessage' name='wordPostOutput' />
+    </operation>
+    <operation name='wordAssociationsGet'>
+      <documentation>get word associations with semantic distance score</documentation>
+      <input message='tns:wordAssociationsGetRequestMessage' name='wordAssociationsGetInput' />
+      <output message='tns:wordAssociationsGetResponseMessage' name='wordAssociationsGetOutput' />
+    </operation>
+    <operation name='wordAssociationsPost'>
+      <documentation>get word associations with semantic distance score</documentation>
+      <input message='tns:wordAssociationsPostRequestMessage' name='wordAssociationsPostInput' />
+      <output message='tns:wordAssociationsPostResponseMessage' name='wordAssociationsPostOutput' />
+    </operation>
+  </portType>
+  <binding name='twinwordTextAnalysisBundleBinding' type='tns:twinwordTextAnalysisBundlePortType'>
+    <operation name='analyzeGet'>
+      <soap12:operation soapAction='http://analyzeGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='analyzePost'>
+      <soap12:operation soapAction='http://analyzePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='association'>
+      <soap12:operation soapAction='http://association' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='classifyGet'>
+      <soap12:operation soapAction='http://classifyGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='classifyPost'>
+      <soap12:operation soapAction='http://classifyPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='definition'>
+      <soap12:operation soapAction='http://definition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='definitionKr'>
+      <soap12:operation soapAction='http://definitionKr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='difficulty'>
+      <soap12:operation soapAction='http://difficulty' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='examHistory'>
+      <soap12:operation soapAction='http://examHistory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='example'>
+      <soap12:operation soapAction='http://example' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractGet'>
+      <soap12:operation soapAction='http://extractGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractPost'>
+      <soap12:operation soapAction='http://extractPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='generateGet'>
+      <soap12:operation soapAction='http://generateGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='generatePost'>
+      <soap12:operation soapAction='http://generatePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reference'>
+      <soap12:operation soapAction='http://reference' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textGet'>
+      <soap12:operation soapAction='http://textGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textPost'>
+      <soap12:operation soapAction='http://textPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='theme'>
+      <soap12:operation soapAction='http://theme' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='type'>
+      <soap12:operation soapAction='http://type' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizeGet'>
+      <soap12:operation soapAction='http://visualizeGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizePost'>
+      <soap12:operation soapAction='http://visualizePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordGet'>
+      <soap12:operation soapAction='http://wordGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordPost'>
+      <soap12:operation soapAction='http://wordPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordAssociationsGet'>
+      <soap12:operation soapAction='http://wordAssociationsGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordAssociationsPost'>
+      <soap12:operation soapAction='http://wordAssociationsPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twinwordTextAnalysisBundle'>
+    <documentation>one API for all your text analysis needs Sentiment Analysis Topic Tagging Lemmatizer and much more Various NLP tools all with one plan Use natural language processing to analyze and understand human sentences</documentation>
+    <port name='twinwordTextAnalysisBundlePort' binding='tns:twinwordTextAnalysisBundleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twinwordTextAnalysisBundle' />
+    </port>
+  </service>
+</definitions>

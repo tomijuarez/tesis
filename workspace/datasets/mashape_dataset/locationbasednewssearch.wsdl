@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/locationBasedNewsSearch/' name='locationBasedNewsSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/locationBasedNewsSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/locationBasedNewsSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/locationBasedNewsSearch/'>
+      <xsd:element name='currentNewsFeedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='coordinates' type='xsd:decimal' maxOccurs='unbounded' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='properties' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='marker-symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='marker-color' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='marker-size' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchNewsFeedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchNewsFeedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='coordinates' type='xsd:decimal' maxOccurs='unbounded' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='properties' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='marker-symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='marker-color' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='marker-size' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='currentNewsFeedRequestMessage' />
+  <message name='currentNewsFeedResponseMessage'>
+    <part name='response' element='tns:currentNewsFeedResponse' />
+  </message>
+  <message name='searchNewsFeedRequestMessage'>
+    <part name='parameters' element='tns:searchNewsFeedParameters' />
+  </message>
+  <message name='searchNewsFeedResponseMessage'>
+    <part name='response' element='tns:searchNewsFeedResponse' />
+  </message>
+  <portType name='locationBasedNewsSearchPortType'>
+    <operation name='currentNewsFeed'>
+      <documentation>gets the current AlertifyMe News feed This is in GeoJson format</documentation>
+      <input message='tns:currentNewsFeedRequestMessage' name='currentNewsFeedInput' />
+      <output message='tns:currentNewsFeedResponseMessage' name='currentNewsFeedOutput' />
+    </operation>
+    <operation name='searchNewsFeed'>
+      <documentation>this will search the news feed</documentation>
+      <input message='tns:searchNewsFeedRequestMessage' name='searchNewsFeedInput' />
+      <output message='tns:searchNewsFeedResponseMessage' name='searchNewsFeedOutput' />
+    </operation>
+  </portType>
+  <binding name='locationBasedNewsSearchBinding' type='tns:locationBasedNewsSearchPortType'>
+    <operation name='currentNewsFeed'>
+      <soap12:operation soapAction='http://currentNewsFeed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchNewsFeed'>
+      <soap12:operation soapAction='http://searchNewsFeed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='locationBasedNewsSearch'>
+    <documentation>this API retrieves the news feed for AlertifyMe News You can search news by location or content Each news item is attached to a location</documentation>
+    <port name='locationBasedNewsSearchPort' binding='tns:locationBasedNewsSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://locationBasedNewsSearch' />
+    </port>
+  </service>
+</definitions>

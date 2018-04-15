@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/coinbase/' name='coinbase' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/coinbase/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/coinbase/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/coinbase/'>
+      <xsd:element name='cancelMoneyRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cancelMoneyRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='completeMoneyRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='completeMoneyRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createANewUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPaymentButtonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateBitcoinReceiveAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback_url' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAccountBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBitcoinReceiveAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='api_key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSpotPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTotalBuyPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTotalSellPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listBitcoinAddressesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='button' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_string' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='custom' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='style' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price_currency_iso' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listOrdersReceivedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPreviouslyUsedEmailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listRecentBuysAndSellsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listRecentTransactionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listRecurringPaymentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSubscriptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='purchaseBitcoinResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resendMoneyRequestEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resendMoneyRequestEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sellBitcoinResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendBitcoinsToAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendInvoiceRequestToAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showExchangeRatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualOrderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualOrderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualRecurringPaymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualRecurringPaymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualSubscriptionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showIndividualSubscriptionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showSupportedCurrenciesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showTransactionDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showTransactionDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transaction' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showUserAccountSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateAccountSettingsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateAccountSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cancelMoneyRequestRequestMessage'>
+    <part name='parameters' element='tns:cancelMoneyRequestParameters' />
+  </message>
+  <message name='cancelMoneyRequestResponseMessage'>
+    <part name='response' element='tns:cancelMoneyRequestResponse' />
+  </message>
+  <message name='completeMoneyRequestRequestMessage'>
+    <part name='parameters' element='tns:completeMoneyRequestParameters' />
+  </message>
+  <message name='completeMoneyRequestResponseMessage'>
+    <part name='response' element='tns:completeMoneyRequestResponse' />
+  </message>
+  <message name='createANewUserRequestMessage' />
+  <message name='createANewUserResponseMessage'>
+    <part name='response' element='tns:createANewUserResponse' />
+  </message>
+  <message name='createPaymentButtonRequestMessage' />
+  <message name='createPaymentButtonResponseMessage'>
+    <part name='response' element='tns:createPaymentButtonResponse' />
+  </message>
+  <message name='generateBitcoinReceiveAddressRequestMessage' />
+  <message name='generateBitcoinReceiveAddressResponseMessage'>
+    <part name='response' element='tns:generateBitcoinReceiveAddressResponse' />
+  </message>
+  <message name='getAccountBalanceRequestMessage' />
+  <message name='getAccountBalanceResponseMessage'>
+    <part name='response' element='tns:getAccountBalanceResponse' />
+  </message>
+  <message name='getBitcoinReceiveAddressRequestMessage' />
+  <message name='getBitcoinReceiveAddressResponseMessage'>
+    <part name='response' element='tns:getBitcoinReceiveAddressResponse' />
+  </message>
+  <message name='getSpotPriceRequestMessage' />
+  <message name='getSpotPriceResponseMessage'>
+    <part name='response' element='tns:getSpotPriceResponse' />
+  </message>
+  <message name='getTotalBuyPriceRequestMessage' />
+  <message name='getTotalBuyPriceResponseMessage'>
+    <part name='response' element='tns:getTotalBuyPriceResponse' />
+  </message>
+  <message name='getTotalSellPriceRequestMessage' />
+  <message name='getTotalSellPriceResponseMessage'>
+    <part name='response' element='tns:getTotalSellPriceResponse' />
+  </message>
+  <message name='listBitcoinAddressesRequestMessage' />
+  <message name='listBitcoinAddressesResponseMessage'>
+    <part name='response' element='tns:listBitcoinAddressesResponse' />
+  </message>
+  <message name='listOrdersReceivedRequestMessage' />
+  <message name='listOrdersReceivedResponseMessage'>
+    <part name='response' element='tns:listOrdersReceivedResponse' />
+  </message>
+  <message name='listPreviouslyUsedEmailsRequestMessage' />
+  <message name='listPreviouslyUsedEmailsResponseMessage'>
+    <part name='response' element='tns:listPreviouslyUsedEmailsResponse' />
+  </message>
+  <message name='listRecentBuysAndSellsRequestMessage' />
+  <message name='listRecentBuysAndSellsResponseMessage'>
+    <part name='response' element='tns:listRecentBuysAndSellsResponse' />
+  </message>
+  <message name='listRecentTransactionsRequestMessage' />
+  <message name='listRecentTransactionsResponseMessage'>
+    <part name='response' element='tns:listRecentTransactionsResponse' />
+  </message>
+  <message name='listRecurringPaymentsRequestMessage' />
+  <message name='listRecurringPaymentsResponseMessage'>
+    <part name='response' element='tns:listRecurringPaymentsResponse' />
+  </message>
+  <message name='listSubscriptionsRequestMessage' />
+  <message name='listSubscriptionsResponseMessage'>
+    <part name='response' element='tns:listSubscriptionsResponse' />
+  </message>
+  <message name='purchaseBitcoinRequestMessage' />
+  <message name='purchaseBitcoinResponseMessage'>
+    <part name='response' element='tns:purchaseBitcoinResponse' />
+  </message>
+  <message name='resendMoneyRequestEmailRequestMessage'>
+    <part name='parameters' element='tns:resendMoneyRequestEmailParameters' />
+  </message>
+  <message name='resendMoneyRequestEmailResponseMessage'>
+    <part name='response' element='tns:resendMoneyRequestEmailResponse' />
+  </message>
+  <message name='sellBitcoinRequestMessage' />
+  <message name='sellBitcoinResponseMessage'>
+    <part name='response' element='tns:sellBitcoinResponse' />
+  </message>
+  <message name='sendBitcoinsToAddressRequestMessage' />
+  <message name='sendBitcoinsToAddressResponseMessage'>
+    <part name='response' element='tns:sendBitcoinsToAddressResponse' />
+  </message>
+  <message name='sendInvoiceRequestToAddressRequestMessage' />
+  <message name='sendInvoiceRequestToAddressResponseMessage'>
+    <part name='response' element='tns:sendInvoiceRequestToAddressResponse' />
+  </message>
+  <message name='showExchangeRatesRequestMessage' />
+  <message name='showExchangeRatesResponseMessage'>
+    <part name='response' element='tns:showExchangeRatesResponse' />
+  </message>
+  <message name='showIndividualOrderRequestMessage'>
+    <part name='parameters' element='tns:showIndividualOrderParameters' />
+  </message>
+  <message name='showIndividualOrderResponseMessage'>
+    <part name='response' element='tns:showIndividualOrderResponse' />
+  </message>
+  <message name='showIndividualRecurringPaymentRequestMessage'>
+    <part name='parameters' element='tns:showIndividualRecurringPaymentParameters' />
+  </message>
+  <message name='showIndividualRecurringPaymentResponseMessage'>
+    <part name='response' element='tns:showIndividualRecurringPaymentResponse' />
+  </message>
+  <message name='showIndividualSubscriptionRequestMessage'>
+    <part name='parameters' element='tns:showIndividualSubscriptionParameters' />
+  </message>
+  <message name='showIndividualSubscriptionResponseMessage'>
+    <part name='response' element='tns:showIndividualSubscriptionResponse' />
+  </message>
+  <message name='showSupportedCurrenciesRequestMessage' />
+  <message name='showSupportedCurrenciesResponseMessage'>
+    <part name='response' element='tns:showSupportedCurrenciesResponse' />
+  </message>
+  <message name='showTransactionDetailsRequestMessage'>
+    <part name='parameters' element='tns:showTransactionDetailsParameters' />
+  </message>
+  <message name='showTransactionDetailsResponseMessage'>
+    <part name='response' element='tns:showTransactionDetailsResponse' />
+  </message>
+  <message name='showUserAccountSettingsRequestMessage' />
+  <message name='showUserAccountSettingsResponseMessage'>
+    <part name='response' element='tns:showUserAccountSettingsResponse' />
+  </message>
+  <message name='updateAccountSettingsRequestMessage'>
+    <part name='parameters' element='tns:updateAccountSettingsParameters' />
+  </message>
+  <message name='updateAccountSettingsResponseMessage'>
+    <part name='response' element='tns:updateAccountSettingsResponse' />
+  </message>
+  <portType name='coinbasePortType'>
+    <operation name='cancelMoneyRequest'>
+      <documentation>cancel a money request</documentation>
+      <input message='tns:cancelMoneyRequestRequestMessage' name='cancelMoneyRequestInput' />
+      <output message='tns:cancelMoneyRequestResponseMessage' name='cancelMoneyRequestOutput' />
+    </operation>
+    <operation name='completeMoneyRequest'>
+      <documentation>complete a money request</documentation>
+      <input message='tns:completeMoneyRequestRequestMessage' name='completeMoneyRequestInput' />
+      <output message='tns:completeMoneyRequestResponseMessage' name='completeMoneyRequestOutput' />
+    </operation>
+    <operation name='createANewUser'>
+      <documentation>create or signup a new user</documentation>
+      <input message='tns:createANewUserRequestMessage' name='createANewUserInput' />
+      <output message='tns:createANewUserResponseMessage' name='createANewUserOutput' />
+    </operation>
+    <operation name='createPaymentButton'>
+      <documentation>create a new payment button</documentation>
+      <input message='tns:createPaymentButtonRequestMessage' name='createPaymentButtonInput' />
+      <output message='tns:createPaymentButtonResponseMessage' name='createPaymentButtonOutput' />
+    </operation>
+    <operation name='generateBitcoinReceiveAddress'>
+      <documentation></documentation>
+      <input message='tns:generateBitcoinReceiveAddressRequestMessage' name='generateBitcoinReceiveAddressInput' />
+      <output message='tns:generateBitcoinReceiveAddressResponseMessage' name='generateBitcoinReceiveAddressOutput' />
+    </operation>
+    <operation name='getAccountBalance'>
+      <documentation>get the user s account balance in BTC</documentation>
+      <input message='tns:getAccountBalanceRequestMessage' name='getAccountBalanceInput' />
+      <output message='tns:getAccountBalanceResponseMessage' name='getAccountBalanceOutput' />
+    </operation>
+    <operation name='getBitcoinReceiveAddress'>
+      <documentation>get the user s current bitcoin receive address</documentation>
+      <input message='tns:getBitcoinReceiveAddressRequestMessage' name='getBitcoinReceiveAddressInput' />
+      <output message='tns:getBitcoinReceiveAddressResponseMessage' name='getBitcoinReceiveAddressOutput' />
+    </operation>
+    <operation name='getSpotPrice'>
+      <documentation>get the spot price of bitcoin</documentation>
+      <input message='tns:getSpotPriceRequestMessage' name='getSpotPriceInput' />
+      <output message='tns:getSpotPriceResponseMessage' name='getSpotPriceOutput' />
+    </operation>
+    <operation name='getTotalBuyPrice'>
+      <documentation>get the total buy price for some bitcoin amount</documentation>
+      <input message='tns:getTotalBuyPriceRequestMessage' name='getTotalBuyPriceInput' />
+      <output message='tns:getTotalBuyPriceResponseMessage' name='getTotalBuyPriceOutput' />
+    </operation>
+    <operation name='getTotalSellPrice'>
+      <documentation>get the total sell price for some bitcoin amount</documentation>
+      <input message='tns:getTotalSellPriceRequestMessage' name='getTotalSellPriceInput' />
+      <output message='tns:getTotalSellPriceResponseMessage' name='getTotalSellPriceOutput' />
+    </operation>
+    <operation name='listBitcoinAddresses'>
+      <documentation>list bitcoin addresses associated with this account</documentation>
+      <input message='tns:listBitcoinAddressesRequestMessage' name='listBitcoinAddressesInput' />
+      <output message='tns:listBitcoinAddressesResponseMessage' name='listBitcoinAddressesOutput' />
+    </operation>
+    <operation name='listOrdersReceived'>
+      <documentation>list merchant orders received</documentation>
+      <input message='tns:listOrdersReceivedRequestMessage' name='listOrdersReceivedInput' />
+      <output message='tns:listOrdersReceivedResponseMessage' name='listOrdersReceivedOutput' />
+    </operation>
+    <operation name='listPreviouslyUsedEmails'>
+      <documentation>list emails the user has previously used for autocompletion</documentation>
+      <input message='tns:listPreviouslyUsedEmailsRequestMessage' name='listPreviouslyUsedEmailsInput' />
+      <output message='tns:listPreviouslyUsedEmailsResponseMessage' name='listPreviouslyUsedEmailsOutput' />
+    </operation>
+    <operation name='listRecentBuysAndSells'>
+      <documentation>list a user s recent buys and sells</documentation>
+      <input message='tns:listRecentBuysAndSellsRequestMessage' name='listRecentBuysAndSellsInput' />
+      <output message='tns:listRecentBuysAndSellsResponseMessage' name='listRecentBuysAndSellsOutput' />
+    </operation>
+    <operation name='listRecentTransactions'>
+      <documentation>list a user s recent transactions</documentation>
+      <input message='tns:listRecentTransactionsRequestMessage' name='listRecentTransactionsInput' />
+      <output message='tns:listRecentTransactionsResponseMessage' name='listRecentTransactionsOutput' />
+    </operation>
+    <operation name='listRecurringPayments'>
+      <documentation>list your recurring payments</documentation>
+      <input message='tns:listRecurringPaymentsRequestMessage' name='listRecurringPaymentsInput' />
+      <output message='tns:listRecurringPaymentsResponseMessage' name='listRecurringPaymentsOutput' />
+    </operation>
+    <operation name='listSubscriptions'>
+      <documentation>list customer subscriptions</documentation>
+      <input message='tns:listSubscriptionsRequestMessage' name='listSubscriptionsInput' />
+      <output message='tns:listSubscriptionsResponseMessage' name='listSubscriptionsOutput' />
+    </operation>
+    <operation name='purchaseBitcoin'>
+      <documentation>purchase bitcoin by debiting your U S bank account</documentation>
+      <input message='tns:purchaseBitcoinRequestMessage' name='purchaseBitcoinInput' />
+      <output message='tns:purchaseBitcoinResponseMessage' name='purchaseBitcoinOutput' />
+    </operation>
+    <operation name='resendMoneyRequestEmail'>
+      <documentation>resend emails for a money request</documentation>
+      <input message='tns:resendMoneyRequestEmailRequestMessage' name='resendMoneyRequestEmailInput' />
+      <output message='tns:resendMoneyRequestEmailResponseMessage' name='resendMoneyRequestEmailOutput' />
+    </operation>
+    <operation name='sellBitcoin'>
+      <documentation>sell bitcoin and receive a credit to your U S bank account</documentation>
+      <input message='tns:sellBitcoinRequestMessage' name='sellBitcoinInput' />
+      <output message='tns:sellBitcoinResponseMessage' name='sellBitcoinOutput' />
+    </operation>
+    <operation name='sendBitcoinsToAddress'>
+      <documentation>send bitcoins to an email address or bitcoin address</documentation>
+      <input message='tns:sendBitcoinsToAddressRequestMessage' name='sendBitcoinsToAddressInput' />
+      <output message='tns:sendBitcoinsToAddressResponseMessage' name='sendBitcoinsToAddressOutput' />
+    </operation>
+    <operation name='sendInvoiceRequestToAddress'>
+      <documentation>send an invoice money request to an email address</documentation>
+      <input message='tns:sendInvoiceRequestToAddressRequestMessage' name='sendInvoiceRequestToAddressInput' />
+      <output message='tns:sendInvoiceRequestToAddressResponseMessage' name='sendInvoiceRequestToAddressOutput' />
+    </operation>
+    <operation name='showExchangeRates'>
+      <documentation>show exchange rates between BTC and other currencies</documentation>
+      <input message='tns:showExchangeRatesRequestMessage' name='showExchangeRatesInput' />
+      <output message='tns:showExchangeRatesResponseMessage' name='showExchangeRatesOutput' />
+    </operation>
+    <operation name='showIndividualOrder'>
+      <documentation>show an individual merchant order</documentation>
+      <input message='tns:showIndividualOrderRequestMessage' name='showIndividualOrderInput' />
+      <output message='tns:showIndividualOrderResponseMessage' name='showIndividualOrderOutput' />
+    </operation>
+    <operation name='showIndividualRecurringPayment'>
+      <documentation>show an individual recurring payment</documentation>
+      <input message='tns:showIndividualRecurringPaymentRequestMessage' name='showIndividualRecurringPaymentInput' />
+      <output message='tns:showIndividualRecurringPaymentResponseMessage' name='showIndividualRecurringPaymentOutput' />
+    </operation>
+    <operation name='showIndividualSubscription'>
+      <documentation>show an individual customer subscription</documentation>
+      <input message='tns:showIndividualSubscriptionRequestMessage' name='showIndividualSubscriptionInput' />
+      <output message='tns:showIndividualSubscriptionResponseMessage' name='showIndividualSubscriptionOutput' />
+    </operation>
+    <operation name='showSupportedCurrencies'>
+      <documentation>show currencies supported by Coinbase</documentation>
+      <input message='tns:showSupportedCurrenciesRequestMessage' name='showSupportedCurrenciesInput' />
+      <output message='tns:showSupportedCurrenciesResponseMessage' name='showSupportedCurrenciesOutput' />
+    </operation>
+    <operation name='showTransactionDetails'>
+      <documentation>show details for an individual transaction</documentation>
+      <input message='tns:showTransactionDetailsRequestMessage' name='showTransactionDetailsInput' />
+      <output message='tns:showTransactionDetailsResponseMessage' name='showTransactionDetailsOutput' />
+    </operation>
+    <operation name='showUserAccountSettings'>
+      <documentation>show current user with account settings</documentation>
+      <input message='tns:showUserAccountSettingsRequestMessage' name='showUserAccountSettingsInput' />
+      <output message='tns:showUserAccountSettingsResponseMessage' name='showUserAccountSettingsOutput' />
+    </operation>
+    <operation name='updateAccountSettings'>
+      <documentation>update account settings for current user</documentation>
+      <input message='tns:updateAccountSettingsRequestMessage' name='updateAccountSettingsInput' />
+      <output message='tns:updateAccountSettingsResponseMessage' name='updateAccountSettingsOutput' />
+    </operation>
+  </portType>
+  <binding name='coinbaseBinding' type='tns:coinbasePortType'>
+    <operation name='cancelMoneyRequest'>
+      <soap12:operation soapAction='http://cancelMoneyRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='completeMoneyRequest'>
+      <soap12:operation soapAction='http://completeMoneyRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createANewUser'>
+      <soap12:operation soapAction='http://createANewUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createPaymentButton'>
+      <soap12:operation soapAction='http://createPaymentButton' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='generateBitcoinReceiveAddress'>
+      <soap12:operation soapAction='http://generateBitcoinReceiveAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAccountBalance'>
+      <soap12:operation soapAction='http://getAccountBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getBitcoinReceiveAddress'>
+      <soap12:operation soapAction='http://getBitcoinReceiveAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSpotPrice'>
+      <soap12:operation soapAction='http://getSpotPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTotalBuyPrice'>
+      <soap12:operation soapAction='http://getTotalBuyPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTotalSellPrice'>
+      <soap12:operation soapAction='http://getTotalSellPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listBitcoinAddresses'>
+      <soap12:operation soapAction='http://listBitcoinAddresses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listOrdersReceived'>
+      <soap12:operation soapAction='http://listOrdersReceived' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPreviouslyUsedEmails'>
+      <soap12:operation soapAction='http://listPreviouslyUsedEmails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listRecentBuysAndSells'>
+      <soap12:operation soapAction='http://listRecentBuysAndSells' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listRecentTransactions'>
+      <soap12:operation soapAction='http://listRecentTransactions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listRecurringPayments'>
+      <soap12:operation soapAction='http://listRecurringPayments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listSubscriptions'>
+      <soap12:operation soapAction='http://listSubscriptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='purchaseBitcoin'>
+      <soap12:operation soapAction='http://purchaseBitcoin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resendMoneyRequestEmail'>
+      <soap12:operation soapAction='http://resendMoneyRequestEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sellBitcoin'>
+      <soap12:operation soapAction='http://sellBitcoin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendBitcoinsToAddress'>
+      <soap12:operation soapAction='http://sendBitcoinsToAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendInvoiceRequestToAddress'>
+      <soap12:operation soapAction='http://sendInvoiceRequestToAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showExchangeRates'>
+      <soap12:operation soapAction='http://showExchangeRates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showIndividualOrder'>
+      <soap12:operation soapAction='http://showIndividualOrder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showIndividualRecurringPayment'>
+      <soap12:operation soapAction='http://showIndividualRecurringPayment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showIndividualSubscription'>
+      <soap12:operation soapAction='http://showIndividualSubscription' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showSupportedCurrencies'>
+      <soap12:operation soapAction='http://showSupportedCurrencies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showTransactionDetails'>
+      <soap12:operation soapAction='http://showTransactionDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showUserAccountSettings'>
+      <soap12:operation soapAction='http://showUserAccountSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateAccountSettings'>
+      <soap12:operation soapAction='http://updateAccountSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='coinbase'>
+    <documentation>bitcoin made simple Coinbase is an international digital wallet that allows you to securely buy use and accept bitcoin currency</documentation>
+    <port name='coinbasePort' binding='tns:coinbaseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://coinbase' />
+    </port>
+  </service>
+</definitions>

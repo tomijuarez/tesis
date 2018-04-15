@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlSanitizer/' name='htmlSanitizer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlSanitizer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlSanitizer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlSanitizer/'>
+      <xsd:element name='htmlSanitizerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='htmlSanitizerRequestMessage' />
+  <message name='htmlSanitizerResponseMessage'>
+    <part name='response' element='tns:htmlSanitizerResponse' />
+  </message>
+  <portType name='htmlSanitizerPortType'>
+    <operation name='htmlSanitizer'>
+      <documentation></documentation>
+      <input message='tns:htmlSanitizerRequestMessage' name='htmlSanitizerInput' />
+      <output message='tns:htmlSanitizerResponseMessage' name='htmlSanitizerOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlSanitizerBinding' type='tns:htmlSanitizerPortType'>
+    <operation name='htmlSanitizer'>
+      <soap12:operation soapAction='http://htmlSanitizer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlSanitizer'>
+    <documentation>the sanitizer will remove certain tags script marquee head frame menu object et al It retains predominantly content tags The sanitizer will remove most attributes It will keep only hrefs on a tags and colspans on td th tags The sanitizer can be a great tool for cleaning up the HTML saved by the likes of Word and OpenOffice</documentation>
+    <port name='htmlSanitizerPort' binding='tns:htmlSanitizerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlSanitizer' />
+    </port>
+  </service>
+</definitions>

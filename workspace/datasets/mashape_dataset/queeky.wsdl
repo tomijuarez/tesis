@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/queeky/' name='queeky' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/queeky/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/queeky/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/queeky/'>
+      <xsd:element name='appApikeyApiKeyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='appApikeyApiKeyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='appImageUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='appImageUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queekyApiVConfigureApiKeyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queekyApiVConfigureApiKeyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='site_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='bg_color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='submit_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='api_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='opt_publish' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='opt_description' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='opt_category' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='opt_variate' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='appApikeyApiKeyRequestMessage'>
+    <part name='parameters' element='tns:appApikeyApiKeyParameters' />
+  </message>
+  <message name='appApikeyApiKeyResponseMessage'>
+    <part name='response' element='tns:appApikeyApiKeyResponse' />
+  </message>
+  <message name='appImageUrlRequestMessage'>
+    <part name='parameters' element='tns:appImageUrlParameters' />
+  </message>
+  <message name='appImageUrlResponseMessage'>
+    <part name='response' element='tns:appImageUrlResponse' />
+  </message>
+  <message name='queekyApiVConfigureApiKeyRequestMessage'>
+    <part name='parameters' element='tns:queekyApiVConfigureApiKeyParameters' />
+  </message>
+  <message name='queekyApiVConfigureApiKeyResponseMessage'>
+    <part name='response' element='tns:queekyApiVConfigureApiKeyResponse' />
+  </message>
+  <portType name='queekyPortType'>
+    <operation name='appApikeyApiKey'>
+      <documentation>allow QueekyPaint to post on your site</documentation>
+      <input message='tns:appApikeyApiKeyRequestMessage' name='appApikeyApiKeyInput' />
+      <output message='tns:appApikeyApiKeyResponseMessage' name='appApikeyApiKeyOutput' />
+    </operation>
+    <operation name='appImageUrl'>
+      <documentation>edit an image with QueekyPaint</documentation>
+      <input message='tns:appImageUrlRequestMessage' name='appImageUrlInput' />
+      <output message='tns:appImageUrlResponseMessage' name='appImageUrlOutput' />
+    </operation>
+    <operation name='queekyApiVConfigureApiKey'>
+      <documentation>get API settings</documentation>
+      <input message='tns:queekyApiVConfigureApiKeyRequestMessage' name='queekyApiVConfigureApiKeyInput' />
+      <output message='tns:queekyApiVConfigureApiKeyResponseMessage' name='queekyApiVConfigureApiKeyOutput' />
+    </operation>
+  </portType>
+  <binding name='queekyBinding' type='tns:queekyPortType'>
+    <operation name='appApikeyApiKey'>
+      <soap12:operation soapAction='http://appApikeyApiKey' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='appImageUrl'>
+      <soap12:operation soapAction='http://appImageUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='queekyApiVConfigureApiKey'>
+      <soap12:operation soapAction='http://queekyApiVConfigureApiKey' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='queeky'>
+    <documentation>queekyPaint is an online drawing tool that creates videos of your work while you are painting Create your own speed paint drawing or visit the huge galleries and learn from the creation process of your favourite art</documentation>
+    <port name='queekyPort' binding='tns:queekyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://queeky' />
+    </port>
+  </service>
+</definitions>

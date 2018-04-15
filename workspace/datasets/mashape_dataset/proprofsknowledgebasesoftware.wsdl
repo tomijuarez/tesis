@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/proprofsKnowledgeBaseSoftware/' name='proprofsKnowledgeBaseSoftware' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/proprofsKnowledgeBaseSoftware/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/proprofsKnowledgeBaseSoftware/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/proprofsKnowledgeBaseSoftware/'>
+      <xsd:element name='knowledgeManagementSoftwareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='knowledgeManagementSoftwareRequestMessage' />
+  <message name='knowledgeManagementSoftwareResponseMessage'>
+    <part name='response' element='tns:knowledgeManagementSoftwareResponse' />
+  </message>
+  <portType name='proprofsKnowledgeBaseSoftwarePortType'>
+    <operation name='knowledgeManagementSoftware'>
+      <documentation>online knowledgebase</documentation>
+      <input message='tns:knowledgeManagementSoftwareRequestMessage' name='knowledgeManagementSoftwareInput' />
+      <output message='tns:knowledgeManagementSoftwareResponseMessage' name='knowledgeManagementSoftwareOutput' />
+    </operation>
+  </portType>
+  <binding name='proprofsKnowledgeBaseSoftwareBinding' type='tns:proprofsKnowledgeBaseSoftwarePortType'>
+    <operation name='knowledgeManagementSoftware'>
+      <soap12:operation soapAction='http://knowledgeManagementSoftware' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='proprofsKnowledgeBaseSoftware'>
+    <documentation>proProfs Knowledge Base Software is a powerful online tool using which businesses can centrally access and manage organizational and employees knowledge The knowledgebase software also helps organizations to create an online FAQ to share relevant information with their customers by uploading files documents videos and more ProProfs Knowledge Base also facilitates HR professional to centrally manage employees records as well as share relevant HR policies procedures and know hows</documentation>
+    <port name='proprofsKnowledgeBaseSoftwarePort' binding='tns:proprofsKnowledgeBaseSoftwareBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://proprofsKnowledgeBaseSoftware' />
+    </port>
+  </service>
+</definitions>

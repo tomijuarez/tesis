@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mobileLandlineInfoWithDndStatsIndia/' name='mobileLandlineInfoWithDndStatsIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mobileLandlineInfoWithDndStatsIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mobileLandlineInfoWithDndStatsIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mobileLandlineInfoWithDndStatsIndia/'>
+      <xsd:element name='mobileAndLandlineInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mobileAndLandlineInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mobileAndLandlineInfoRequestMessage'>
+    <part name='parameters' element='tns:mobileAndLandlineInfoParameters' />
+  </message>
+  <message name='mobileAndLandlineInfoResponseMessage'>
+    <part name='response' element='tns:mobileAndLandlineInfoResponse' />
+  </message>
+  <portType name='mobileLandlineInfoWithDndStatsIndiaPortType'>
+    <operation name='mobileAndLandlineInfo'>
+      <documentation>gET Indian Mobile LandLine Info with DND stats</documentation>
+      <input message='tns:mobileAndLandlineInfoRequestMessage' name='mobileAndLandlineInfoInput' />
+      <output message='tns:mobileAndLandlineInfoResponseMessage' name='mobileAndLandlineInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='mobileLandlineInfoWithDndStatsIndiaBinding' type='tns:mobileLandlineInfoWithDndStatsIndiaPortType'>
+    <operation name='mobileAndLandlineInfo'>
+      <soap12:operation soapAction='http://mobileAndLandlineInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mobileLandlineInfoWithDndStatsIndia'>
+    <documentation>using this API you can get the details of mobile number and Land Line number all over India You can find the state Service Provider and DND etc Soon other features will be adding to this API Contact US for Mobile Name Finder API Cheers Arun</documentation>
+    <port name='mobileLandlineInfoWithDndStatsIndiaPort' binding='tns:mobileLandlineInfoWithDndStatsIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mobileLandlineInfoWithDndStatsIndia' />
+    </port>
+  </service>
+</definitions>

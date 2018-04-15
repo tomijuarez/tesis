@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lyricsnmusic/' name='lyricsnmusic' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lyricsnmusic/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lyricsnmusic/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lyricsnmusic/'>
+      <xsd:element name='searchLyricsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='artist' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lyrics' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='track' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchLyricsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='snippet' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='viewable' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='artist' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='instrumental' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='context' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchLyricsRequestMessage'>
+    <part name='parameters' element='tns:searchLyricsParameters' />
+  </message>
+  <message name='searchLyricsResponseMessage'>
+    <part name='response' element='tns:searchLyricsResponse' />
+  </message>
+  <portType name='lyricsnmusicPortType'>
+    <operation name='searchLyrics'>
+      <documentation>by artist name song title or lyrics words</documentation>
+      <input message='tns:searchLyricsRequestMessage' name='searchLyricsInput' />
+      <output message='tns:searchLyricsResponseMessage' name='searchLyricsOutput' />
+    </operation>
+  </portType>
+  <binding name='lyricsnmusicBinding' type='tns:lyricsnmusicPortType'>
+    <operation name='searchLyrics'>
+      <soap12:operation soapAction='http://searchLyrics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lyricsnmusic'>
+    <documentation>the LYRICSnMUSIC API allows your site to legally display up to characters of a songs lyrics with a link back to our copyright compliant lyric page or you can simply link back to the lyrics without displaying them on your App Site</documentation>
+    <port name='lyricsnmusicPort' binding='tns:lyricsnmusicBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lyricsnmusic' />
+    </port>
+  </service>
+</definitions>

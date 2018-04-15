@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tiledNauticalCharts/' name='tiledNauticalCharts' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tiledNauticalCharts/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tiledNauticalCharts/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tiledNauticalCharts/'>
+      <xsd:element name='bsbTileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='quadkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bsbTileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='encTileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='quadkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='encTileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bsbTileRequestMessage'>
+    <part name='parameters' element='tns:bsbTileParameters' />
+  </message>
+  <message name='bsbTileResponseMessage'>
+    <part name='response' element='tns:bsbTileResponse' />
+  </message>
+  <message name='encTileRequestMessage'>
+    <part name='parameters' element='tns:encTileParameters' />
+  </message>
+  <message name='encTileResponseMessage'>
+    <part name='response' element='tns:encTileResponse' />
+  </message>
+  <portType name='tiledNauticalChartsPortType'>
+    <operation name='bsbTile'>
+      <documentation>returns an image tile for the raster BSB layer and specified quadkey as a PNG</documentation>
+      <input message='tns:bsbTileRequestMessage' name='bsbTileInput' />
+      <output message='tns:bsbTileResponseMessage' name='bsbTileOutput' />
+    </operation>
+    <operation name='encTile'>
+      <documentation>returns an image tile for the ENC layer and specified quadkey as a PNG</documentation>
+      <input message='tns:encTileRequestMessage' name='encTileInput' />
+      <output message='tns:encTileResponseMessage' name='encTileOutput' />
+    </operation>
+  </portType>
+  <binding name='tiledNauticalChartsBinding' type='tns:tiledNauticalChartsPortType'>
+    <operation name='bsbTile'>
+      <soap12:operation soapAction='http://bsbTile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='encTile'>
+      <soap12:operation soapAction='http://encTile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tiledNauticalCharts'>
+    <documentation>this API can be used to overlay nautical charts atop a tiled map such as Google Bing leaflet and so on It currently supports ENC Electronic nautical charts and RNC Raster nautical charts from NOAA</documentation>
+    <port name='tiledNauticalChartsPort' binding='tns:tiledNauticalChartsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tiledNauticalCharts' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/simsimiConversation/' name='simsimiConversation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/simsimiConversation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/simsimiConversation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/simsimiConversation/'>
+      <xsd:element name='requestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ft' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:int' minOccurs='0' />
+            <xsd:element name='msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='requestRequestMessage'>
+    <part name='parameters' element='tns:requestParameters' />
+  </message>
+  <message name='requestResponseMessage'>
+    <part name='response' element='tns:requestResponse' />
+  </message>
+  <portType name='simsimiConversationPortType'>
+    <operation name='request'>
+      <documentation></documentation>
+      <input message='tns:requestRequestMessage' name='requestInput' />
+      <output message='tns:requestResponseMessage' name='requestOutput' />
+    </operation>
+  </portType>
+  <binding name='simsimiConversationBinding' type='tns:simsimiConversationPortType'>
+    <operation name='request'>
+      <soap12:operation soapAction='http://request' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='simsimiConversation'>
+    <documentation>simSimi database consists of simple Request Response set When you request Hi SimSimi API send response by similarity with request sentence Conversation API enables you to get SimSimi s response data</documentation>
+    <port name='simsimiConversationPort' binding='tns:simsimiConversationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://simsimiConversation' />
+    </port>
+  </service>
+</definitions>

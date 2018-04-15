@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/genderAndEthnicDetectionForRussianNames/' name='genderAndEthnicDetectionForRussianNames' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/genderAndEthnicDetectionForRussianNames/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/genderAndEthnicDetectionForRussianNames/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/genderAndEthnicDetectionForRussianNames/'>
+      <xsd:element name='detectPersonGenderByFullnameRussianParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectPersonGenderByFullnameRussianResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ethnics' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mn' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='fn' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='parsed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sn' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectPersonGenderByFullnameRussianRequestMessage'>
+    <part name='parameters' element='tns:detectPersonGenderByFullnameRussianParameters' />
+  </message>
+  <message name='detectPersonGenderByFullnameRussianResponseMessage'>
+    <part name='response' element='tns:detectPersonGenderByFullnameRussianResponse' />
+  </message>
+  <portType name='genderAndEthnicDetectionForRussianNamesPortType'>
+    <operation name='detectPersonGenderByFullnameRussian'>
+      <documentation>parses fullname in Russian written at any style and detects gender of the person</documentation>
+      <input message='tns:detectPersonGenderByFullnameRussianRequestMessage' name='detectPersonGenderByFullnameRussianInput' />
+      <output message='tns:detectPersonGenderByFullnameRussianResponseMessage' name='detectPersonGenderByFullnameRussianOutput' />
+    </operation>
+  </portType>
+  <binding name='genderAndEthnicDetectionForRussianNamesBinding' type='tns:genderAndEthnicDetectionForRussianNamesPortType'>
+    <operation name='detectPersonGenderByFullnameRussian'>
+      <soap12:operation soapAction='http://detectPersonGenderByFullnameRussian' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='genderAndEthnicDetectionForRussianNames'>
+    <documentation>parses fullname and extracts surname firstname and middle name Detects gender of the person and ethics if possible For Russian names only</documentation>
+    <port name='genderAndEthnicDetectionForRussianNamesPort' binding='tns:genderAndEthnicDetectionForRussianNamesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://genderAndEthnicDetectionForRussianNames' />
+    </port>
+  </service>
+</definitions>

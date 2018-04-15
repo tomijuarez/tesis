@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gfacebook/' name='gfacebook' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gfacebook/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gfacebook/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gfacebook/'>
+      <xsd:element name='usernameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usernameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='locale' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='usernameRequestMessage'>
+    <part name='parameters' element='tns:usernameParameters' />
+  </message>
+  <message name='usernameResponseMessage'>
+    <part name='response' element='tns:usernameResponse' />
+  </message>
+  <portType name='gfacebookPortType'>
+    <operation name='username'>
+      <documentation>get information of a user from facebook using graph api</documentation>
+      <input message='tns:usernameRequestMessage' name='usernameInput' />
+      <output message='tns:usernameResponseMessage' name='usernameOutput' />
+    </operation>
+  </portType>
+  <binding name='gfacebookBinding' type='tns:gfacebookPortType'>
+    <operation name='username'>
+      <soap12:operation soapAction='http://username' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gfacebook'>
+    <documentation>just a test api to demonstrate brad about mashape</documentation>
+    <port name='gfacebookPort' binding='tns:gfacebookBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gfacebook' />
+    </port>
+  </service>
+</definitions>

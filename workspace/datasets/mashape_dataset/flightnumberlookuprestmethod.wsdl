@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/flightNumberLookupRestMethod/' name='flightNumberLookupRestMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/flightNumberLookupRestMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/flightNumberLookupRestMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/flightNumberLookupRestMethod/'>
+      <xsd:element name='flightmetadataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='airline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='airport' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='day' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='direction' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='flightnumber' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='month' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timerange' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='flightmetadataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='flightmetadataRequestMessage'>
+    <part name='parameters' element='tns:flightmetadataParameters' />
+  </message>
+  <message name='flightmetadataResponseMessage'>
+    <part name='response' element='tns:flightmetadataResponse' />
+  </message>
+  <portType name='flightNumberLookupRestMethodPortType'>
+    <operation name='flightmetadata'>
+      <documentation>this method returns metadata about a flight number on a specified date</documentation>
+      <input message='tns:flightmetadataRequestMessage' name='flightmetadataInput' />
+      <output message='tns:flightmetadataResponseMessage' name='flightmetadataOutput' />
+    </operation>
+  </portType>
+  <binding name='flightNumberLookupRestMethodBinding' type='tns:flightNumberLookupRestMethodPortType'>
+    <operation name='flightmetadata'>
+      <soap12:operation soapAction='http://flightmetadata' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='flightNumberLookupRestMethod'>
+    <documentation>flightLookup Flight Metadata Need to know the details of a flight or its route then this is a quick lookup service Metadata on Specific Flight Arrive Depart Times Days of operation Operating Carrier Terminal</documentation>
+    <port name='flightNumberLookupRestMethodPort' binding='tns:flightNumberLookupRestMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://flightNumberLookupRestMethod' />
+    </port>
+  </service>
+</definitions>

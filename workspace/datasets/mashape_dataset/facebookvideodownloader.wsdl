@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/facebookVideoDownloader/' name='facebookVideoDownloader' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/facebookVideoDownloader/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/facebookVideoDownloader/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/facebookVideoDownloader/'>
+      <xsd:element name='urlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='updated_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='picture' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='urlRequestMessage'>
+    <part name='parameters' element='tns:urlParameters' />
+  </message>
+  <message name='urlResponseMessage'>
+    <part name='response' element='tns:urlResponse' />
+  </message>
+  <portType name='facebookVideoDownloaderPortType'>
+    <operation name='url'>
+      <documentation></documentation>
+      <input message='tns:urlRequestMessage' name='urlInput' />
+      <output message='tns:urlResponseMessage' name='urlOutput' />
+    </operation>
+  </portType>
+  <binding name='facebookVideoDownloaderBinding' type='tns:facebookVideoDownloaderPortType'>
+    <operation name='url'>
+      <soap12:operation soapAction='http://url' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='facebookVideoDownloader'>
+    <documentation>download facebook videos</documentation>
+    <port name='facebookVideoDownloaderPort' binding='tns:facebookVideoDownloaderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://facebookVideoDownloader' />
+    </port>
+  </service>
+</definitions>

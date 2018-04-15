@@ -1,0 +1,1377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/koliseo/' name='koliseo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/koliseo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/koliseo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/koliseo/'>
+      <xsd:element name='createDiscountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDiscountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='expires' type='xsd:int' minOccurs='0' />
+            <xsd:element name='maxRedemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deleted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='bg' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='small' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='original' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='medium' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='unlisted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='maxTicketsPerUser' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='displayAvailableTickets' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPaymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPaymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPerformanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPerformanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='geo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalAmount' type='xsd:string' minOccurs='0' />
+            <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='minPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='checkedinTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='totalTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+            <xsd:element name='zones' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='totalTickets' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDiscountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDiscountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='expires' type='xsd:int' minOccurs='0' />
+            <xsd:element name='maxRedemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletePerformanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletePerformanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='geo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalAmount' type='xsd:string' minOccurs='0' />
+            <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='minPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='checkedinTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='totalTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+            <xsd:element name='zones' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='totalTickets' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDiscountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDiscountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='expires' type='xsd:int' minOccurs='0' />
+            <xsd:element name='maxRedemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDiscountsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDiscountsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deleted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='bg' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='small' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='original' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='medium' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='unlisted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='maxTicketsPerUser' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='displayAvailableTickets' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventQrParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventQrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPaymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='paymentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPaymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amounts' type='xsd:string' minOccurs='0' />
+            <xsd:element name='creationDateStr' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='state' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPaymentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPaymentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='geo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalAmount' type='xsd:string' minOccurs='0' />
+            <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='minPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='checkedinTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='totalTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+            <xsd:element name='zones' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='totalTickets' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformancesInAPaymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='paymentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformancesInAPaymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformancesInUserBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPerformancesInUserBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='checkinTimestamp' type='xsd:string' minOccurs='0' />
+            <xsd:element name='discount' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='performanceZoneName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='secret' type='xsd:string' minOccurs='0' />
+            <xsd:element name='numTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='performance' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='dateTimeStr' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='event' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='purchased' type='xsd:int' minOccurs='0' />
+            <xsd:element name='purchasedStr' type='xsd:string' minOccurs='0' />
+            <xsd:element name='checksum' type='xsd:string' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='state' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketQrParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketQrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='performanceid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsPurchasedByAUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsPurchasedByAUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsSoldByAUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTicketsSoldByAUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cursor' type='xsd:string' minOccurs='0' />
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amounts' type='xsd:string' minOccurs='0' />
+            <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lastModified' type='xsd:int' minOccurs='0' />
+            <xsd:element name='performances' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isDiscountValidParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='discount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isDiscountValidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='refreshBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='refreshBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDiscountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDiscountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='expires' type='xsd:int' minOccurs='0' />
+            <xsd:element name='maxRedemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redemptions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePerformanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePerformanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='geo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalAmount' type='xsd:string' minOccurs='0' />
+            <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='minPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='checkedinTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='totalTickets' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+            <xsd:element name='zones' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='soldTickets' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='totalTickets' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createDiscountRequestMessage'>
+    <part name='parameters' element='tns:createDiscountParameters' />
+  </message>
+  <message name='createDiscountResponseMessage'>
+    <part name='response' element='tns:createDiscountResponse' />
+  </message>
+  <message name='createEventRequestMessage'>
+    <part name='parameters' element='tns:createEventParameters' />
+  </message>
+  <message name='createEventResponseMessage'>
+    <part name='response' element='tns:createEventResponse' />
+  </message>
+  <message name='createPaymentRequestMessage'>
+    <part name='parameters' element='tns:createPaymentParameters' />
+  </message>
+  <message name='createPaymentResponseMessage'>
+    <part name='response' element='tns:createPaymentResponse' />
+  </message>
+  <message name='createPerformanceRequestMessage'>
+    <part name='parameters' element='tns:createPerformanceParameters' />
+  </message>
+  <message name='createPerformanceResponseMessage'>
+    <part name='response' element='tns:createPerformanceResponse' />
+  </message>
+  <message name='deleteDiscountRequestMessage'>
+    <part name='parameters' element='tns:deleteDiscountParameters' />
+  </message>
+  <message name='deleteDiscountResponseMessage'>
+    <part name='response' element='tns:deleteDiscountResponse' />
+  </message>
+  <message name='deleteEventRequestMessage'>
+    <part name='parameters' element='tns:deleteEventParameters' />
+  </message>
+  <message name='deleteEventResponseMessage'>
+    <part name='response' element='tns:deleteEventResponse' />
+  </message>
+  <message name='deletePerformanceRequestMessage'>
+    <part name='parameters' element='tns:deletePerformanceParameters' />
+  </message>
+  <message name='deletePerformanceResponseMessage'>
+    <part name='response' element='tns:deletePerformanceResponse' />
+  </message>
+  <message name='getDiscountRequestMessage'>
+    <part name='parameters' element='tns:getDiscountParameters' />
+  </message>
+  <message name='getDiscountResponseMessage'>
+    <part name='response' element='tns:getDiscountResponse' />
+  </message>
+  <message name='getDiscountsRequestMessage'>
+    <part name='parameters' element='tns:getDiscountsParameters' />
+  </message>
+  <message name='getDiscountsResponseMessage'>
+    <part name='response' element='tns:getDiscountsResponse' />
+  </message>
+  <message name='getEventRequestMessage'>
+    <part name='parameters' element='tns:getEventParameters' />
+  </message>
+  <message name='getEventResponseMessage'>
+    <part name='response' element='tns:getEventResponse' />
+  </message>
+  <message name='getEventQrRequestMessage'>
+    <part name='parameters' element='tns:getEventQrParameters' />
+  </message>
+  <message name='getEventQrResponseMessage'>
+    <part name='response' element='tns:getEventQrResponse' />
+  </message>
+  <message name='getEventsRequestMessage'>
+    <part name='parameters' element='tns:getEventsParameters' />
+  </message>
+  <message name='getEventsResponseMessage'>
+    <part name='response' element='tns:getEventsResponse' />
+  </message>
+  <message name='getPaymentRequestMessage'>
+    <part name='parameters' element='tns:getPaymentParameters' />
+  </message>
+  <message name='getPaymentResponseMessage'>
+    <part name='response' element='tns:getPaymentResponse' />
+  </message>
+  <message name='getPaymentsRequestMessage'>
+    <part name='parameters' element='tns:getPaymentsParameters' />
+  </message>
+  <message name='getPaymentsResponseMessage'>
+    <part name='response' element='tns:getPaymentsResponse' />
+  </message>
+  <message name='getPerformanceRequestMessage'>
+    <part name='parameters' element='tns:getPerformanceParameters' />
+  </message>
+  <message name='getPerformanceResponseMessage'>
+    <part name='response' element='tns:getPerformanceResponse' />
+  </message>
+  <message name='getPerformancesInAPaymentRequestMessage'>
+    <part name='parameters' element='tns:getPerformancesInAPaymentParameters' />
+  </message>
+  <message name='getPerformancesInAPaymentResponseMessage'>
+    <part name='response' element='tns:getPerformancesInAPaymentResponse' />
+  </message>
+  <message name='getPerformancesInUserBalanceRequestMessage'>
+    <part name='parameters' element='tns:getPerformancesInUserBalanceParameters' />
+  </message>
+  <message name='getPerformancesInUserBalanceResponseMessage'>
+    <part name='response' element='tns:getPerformancesInUserBalanceResponse' />
+  </message>
+  <message name='getTicketRequestMessage'>
+    <part name='parameters' element='tns:getTicketParameters' />
+  </message>
+  <message name='getTicketResponseMessage'>
+    <part name='response' element='tns:getTicketResponse' />
+  </message>
+  <message name='getTicketQrRequestMessage'>
+    <part name='parameters' element='tns:getTicketQrParameters' />
+  </message>
+  <message name='getTicketQrResponseMessage'>
+    <part name='response' element='tns:getTicketQrResponse' />
+  </message>
+  <message name='getTicketsRequestMessage'>
+    <part name='parameters' element='tns:getTicketsParameters' />
+  </message>
+  <message name='getTicketsResponseMessage'>
+    <part name='response' element='tns:getTicketsResponse' />
+  </message>
+  <message name='getTicketsPurchasedByAUserRequestMessage'>
+    <part name='parameters' element='tns:getTicketsPurchasedByAUserParameters' />
+  </message>
+  <message name='getTicketsPurchasedByAUserResponseMessage'>
+    <part name='response' element='tns:getTicketsPurchasedByAUserResponse' />
+  </message>
+  <message name='getTicketsSoldByAUserRequestMessage'>
+    <part name='parameters' element='tns:getTicketsSoldByAUserParameters' />
+  </message>
+  <message name='getTicketsSoldByAUserResponseMessage'>
+    <part name='response' element='tns:getTicketsSoldByAUserResponse' />
+  </message>
+  <message name='getUserRequestMessage'>
+    <part name='parameters' element='tns:getUserParameters' />
+  </message>
+  <message name='getUserResponseMessage'>
+    <part name='response' element='tns:getUserResponse' />
+  </message>
+  <message name='getUserBalanceRequestMessage'>
+    <part name='parameters' element='tns:getUserBalanceParameters' />
+  </message>
+  <message name='getUserBalanceResponseMessage'>
+    <part name='response' element='tns:getUserBalanceResponse' />
+  </message>
+  <message name='isDiscountValidRequestMessage'>
+    <part name='parameters' element='tns:isDiscountValidParameters' />
+  </message>
+  <message name='isDiscountValidResponseMessage'>
+    <part name='response' element='tns:isDiscountValidResponse' />
+  </message>
+  <message name='refreshBalanceRequestMessage'>
+    <part name='parameters' element='tns:refreshBalanceParameters' />
+  </message>
+  <message name='refreshBalanceResponseMessage'>
+    <part name='response' element='tns:refreshBalanceResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='updateDiscountRequestMessage'>
+    <part name='parameters' element='tns:updateDiscountParameters' />
+  </message>
+  <message name='updateDiscountResponseMessage'>
+    <part name='response' element='tns:updateDiscountResponse' />
+  </message>
+  <message name='updateEventRequestMessage'>
+    <part name='parameters' element='tns:updateEventParameters' />
+  </message>
+  <message name='updateEventResponseMessage'>
+    <part name='response' element='tns:updateEventResponse' />
+  </message>
+  <message name='updatePerformanceRequestMessage'>
+    <part name='parameters' element='tns:updatePerformanceParameters' />
+  </message>
+  <message name='updatePerformanceResponseMessage'>
+    <part name='response' element='tns:updatePerformanceResponse' />
+  </message>
+  <message name='updateUserRequestMessage'>
+    <part name='parameters' element='tns:updateUserParameters' />
+  </message>
+  <message name='updateUserResponseMessage'>
+    <part name='response' element='tns:updateUserResponse' />
+  </message>
+  <portType name='koliseoPortType'>
+    <operation name='createDiscount'>
+      <documentation></documentation>
+      <input message='tns:createDiscountRequestMessage' name='createDiscountInput' />
+      <output message='tns:createDiscountResponseMessage' name='createDiscountOutput' />
+    </operation>
+    <operation name='createEvent'>
+      <documentation></documentation>
+      <input message='tns:createEventRequestMessage' name='createEventInput' />
+      <output message='tns:createEventResponseMessage' name='createEventOutput' />
+    </operation>
+    <operation name='createPayment'>
+      <documentation></documentation>
+      <input message='tns:createPaymentRequestMessage' name='createPaymentInput' />
+      <output message='tns:createPaymentResponseMessage' name='createPaymentOutput' />
+    </operation>
+    <operation name='createPerformance'>
+      <documentation></documentation>
+      <input message='tns:createPerformanceRequestMessage' name='createPerformanceInput' />
+      <output message='tns:createPerformanceResponseMessage' name='createPerformanceOutput' />
+    </operation>
+    <operation name='deleteDiscount'>
+      <documentation></documentation>
+      <input message='tns:deleteDiscountRequestMessage' name='deleteDiscountInput' />
+      <output message='tns:deleteDiscountResponseMessage' name='deleteDiscountOutput' />
+    </operation>
+    <operation name='deleteEvent'>
+      <documentation></documentation>
+      <input message='tns:deleteEventRequestMessage' name='deleteEventInput' />
+      <output message='tns:deleteEventResponseMessage' name='deleteEventOutput' />
+    </operation>
+    <operation name='deletePerformance'>
+      <documentation></documentation>
+      <input message='tns:deletePerformanceRequestMessage' name='deletePerformanceInput' />
+      <output message='tns:deletePerformanceResponseMessage' name='deletePerformanceOutput' />
+    </operation>
+    <operation name='getDiscount'>
+      <documentation>retrieve a discount by name</documentation>
+      <input message='tns:getDiscountRequestMessage' name='getDiscountInput' />
+      <output message='tns:getDiscountResponseMessage' name='getDiscountOutput' />
+    </operation>
+    <operation name='getDiscounts'>
+      <documentation></documentation>
+      <input message='tns:getDiscountsRequestMessage' name='getDiscountsInput' />
+      <output message='tns:getDiscountsResponseMessage' name='getDiscountsOutput' />
+    </operation>
+    <operation name='getEvent'>
+      <documentation>retrieve a JSON representation of an Event</documentation>
+      <input message='tns:getEventRequestMessage' name='getEventInput' />
+      <output message='tns:getEventResponseMessage' name='getEventOutput' />
+    </operation>
+    <operation name='getEventQr'>
+      <documentation>retrieve the QR code of an Event for offline promotion</documentation>
+      <input message='tns:getEventQrRequestMessage' name='getEventQrInput' />
+      <output message='tns:getEventQrResponseMessage' name='getEventQrOutput' />
+    </operation>
+    <operation name='getEvents'>
+      <documentation></documentation>
+      <input message='tns:getEventsRequestMessage' name='getEventsInput' />
+      <output message='tns:getEventsResponseMessage' name='getEventsOutput' />
+    </operation>
+    <operation name='getPayment'>
+      <documentation></documentation>
+      <input message='tns:getPaymentRequestMessage' name='getPaymentInput' />
+      <output message='tns:getPaymentResponseMessage' name='getPaymentOutput' />
+    </operation>
+    <operation name='getPayments'>
+      <documentation></documentation>
+      <input message='tns:getPaymentsRequestMessage' name='getPaymentsInput' />
+      <output message='tns:getPaymentsResponseMessage' name='getPaymentsOutput' />
+    </operation>
+    <operation name='getPerformance'>
+      <documentation></documentation>
+      <input message='tns:getPerformanceRequestMessage' name='getPerformanceInput' />
+      <output message='tns:getPerformanceResponseMessage' name='getPerformanceOutput' />
+    </operation>
+    <operation name='getPerformancesInAPayment'>
+      <documentation>retrieve the list of performances that compose a Payment</documentation>
+      <input message='tns:getPerformancesInAPaymentRequestMessage' name='getPerformancesInAPaymentInput' />
+      <output message='tns:getPerformancesInAPaymentResponseMessage' name='getPerformancesInAPaymentOutput' />
+    </operation>
+    <operation name='getPerformancesInUserBalance'>
+      <documentation>retrieve the list of all performances that have not yet been paid</documentation>
+      <input message='tns:getPerformancesInUserBalanceRequestMessage' name='getPerformancesInUserBalanceInput' />
+      <output message='tns:getPerformancesInUserBalanceResponseMessage' name='getPerformancesInUserBalanceOutput' />
+    </operation>
+    <operation name='getTicket'>
+      <documentation></documentation>
+      <input message='tns:getTicketRequestMessage' name='getTicketInput' />
+      <output message='tns:getTicketResponseMessage' name='getTicketOutput' />
+    </operation>
+    <operation name='getTicketQr'>
+      <documentation></documentation>
+      <input message='tns:getTicketQrRequestMessage' name='getTicketQrInput' />
+      <output message='tns:getTicketQrResponseMessage' name='getTicketQrOutput' />
+    </operation>
+    <operation name='getTickets'>
+      <documentation>get sold tickets for an Event</documentation>
+      <input message='tns:getTicketsRequestMessage' name='getTicketsInput' />
+      <output message='tns:getTicketsResponseMessage' name='getTicketsOutput' />
+    </operation>
+    <operation name='getTicketsPurchasedByAUser'>
+      <documentation></documentation>
+      <input message='tns:getTicketsPurchasedByAUserRequestMessage' name='getTicketsPurchasedByAUserInput' />
+      <output message='tns:getTicketsPurchasedByAUserResponseMessage' name='getTicketsPurchasedByAUserOutput' />
+    </operation>
+    <operation name='getTicketsSoldByAUser'>
+      <documentation></documentation>
+      <input message='tns:getTicketsSoldByAUserRequestMessage' name='getTicketsSoldByAUserInput' />
+      <output message='tns:getTicketsSoldByAUserResponseMessage' name='getTicketsSoldByAUserOutput' />
+    </operation>
+    <operation name='getUser'>
+      <documentation></documentation>
+      <input message='tns:getUserRequestMessage' name='getUserInput' />
+      <output message='tns:getUserResponseMessage' name='getUserOutput' />
+    </operation>
+    <operation name='getUserBalance'>
+      <documentation></documentation>
+      <input message='tns:getUserBalanceRequestMessage' name='getUserBalanceInput' />
+      <output message='tns:getUserBalanceResponseMessage' name='getUserBalanceOutput' />
+    </operation>
+    <operation name='isDiscountValid'>
+      <documentation>check if a discount is available for this event</documentation>
+      <input message='tns:isDiscountValidRequestMessage' name='isDiscountValidInput' />
+      <output message='tns:isDiscountValidResponseMessage' name='isDiscountValidOutput' />
+    </operation>
+    <operation name='refreshBalance'>
+      <documentation>trigger a recalculation of the user balance adding the income of all past performances that have not yet been paid Note that this operation may take some time specially for big events</documentation>
+      <input message='tns:refreshBalanceRequestMessage' name='refreshBalanceInput' />
+      <output message='tns:refreshBalanceResponseMessage' name='refreshBalanceOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>will search for users and shows matching this query Advanced queries are available like uuid icoloma or description foo bar</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='updateDiscount'>
+      <documentation></documentation>
+      <input message='tns:updateDiscountRequestMessage' name='updateDiscountInput' />
+      <output message='tns:updateDiscountResponseMessage' name='updateDiscountOutput' />
+    </operation>
+    <operation name='updateEvent'>
+      <documentation></documentation>
+      <input message='tns:updateEventRequestMessage' name='updateEventInput' />
+      <output message='tns:updateEventResponseMessage' name='updateEventOutput' />
+    </operation>
+    <operation name='updatePerformance'>
+      <documentation></documentation>
+      <input message='tns:updatePerformanceRequestMessage' name='updatePerformanceInput' />
+      <output message='tns:updatePerformanceResponseMessage' name='updatePerformanceOutput' />
+    </operation>
+    <operation name='updateUser'>
+      <documentation></documentation>
+      <input message='tns:updateUserRequestMessage' name='updateUserInput' />
+      <output message='tns:updateUserResponseMessage' name='updateUserOutput' />
+    </operation>
+  </portType>
+  <binding name='koliseoBinding' type='tns:koliseoPortType'>
+    <operation name='createDiscount'>
+      <soap12:operation soapAction='http://createDiscount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createEvent'>
+      <soap12:operation soapAction='http://createEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createPayment'>
+      <soap12:operation soapAction='http://createPayment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createPerformance'>
+      <soap12:operation soapAction='http://createPerformance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteDiscount'>
+      <soap12:operation soapAction='http://deleteDiscount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteEvent'>
+      <soap12:operation soapAction='http://deleteEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deletePerformance'>
+      <soap12:operation soapAction='http://deletePerformance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDiscount'>
+      <soap12:operation soapAction='http://getDiscount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDiscounts'>
+      <soap12:operation soapAction='http://getDiscounts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEvent'>
+      <soap12:operation soapAction='http://getEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEventQr'>
+      <soap12:operation soapAction='http://getEventQr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEvents'>
+      <soap12:operation soapAction='http://getEvents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPayment'>
+      <soap12:operation soapAction='http://getPayment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPayments'>
+      <soap12:operation soapAction='http://getPayments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPerformance'>
+      <soap12:operation soapAction='http://getPerformance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPerformancesInAPayment'>
+      <soap12:operation soapAction='http://getPerformancesInAPayment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPerformancesInUserBalance'>
+      <soap12:operation soapAction='http://getPerformancesInUserBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTicket'>
+      <soap12:operation soapAction='http://getTicket' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTicketQr'>
+      <soap12:operation soapAction='http://getTicketQr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTickets'>
+      <soap12:operation soapAction='http://getTickets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTicketsPurchasedByAUser'>
+      <soap12:operation soapAction='http://getTicketsPurchasedByAUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTicketsSoldByAUser'>
+      <soap12:operation soapAction='http://getTicketsSoldByAUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUser'>
+      <soap12:operation soapAction='http://getUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUserBalance'>
+      <soap12:operation soapAction='http://getUserBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='isDiscountValid'>
+      <soap12:operation soapAction='http://isDiscountValid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='refreshBalance'>
+      <soap12:operation soapAction='http://refreshBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateDiscount'>
+      <soap12:operation soapAction='http://updateDiscount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateEvent'>
+      <soap12:operation soapAction='http://updateEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatePerformance'>
+      <soap12:operation soapAction='http://updatePerformance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateUser'>
+      <soap12:operation soapAction='http://updateUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='koliseo'>
+    <documentation>koliseo is an event ticketing platform with an attitude</documentation>
+    <port name='koliseoPort' binding='tns:koliseoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://koliseo' />
+    </port>
+  </service>
+</definitions>

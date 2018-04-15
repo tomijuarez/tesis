@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/blocktrailBitcoinDevelopersPlatform/' name='blocktrailBitcoinDevelopersPlatform' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/blocktrailBitcoinDevelopersPlatform/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/blocktrailBitcoinDevelopersPlatform/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/blocktrailBitcoinDevelopersPlatform/'>
+      <xsd:element name='vNetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='network' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vNetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vNetworkRequestMessage'>
+    <part name='parameters' element='tns:vNetworkParameters' />
+  </message>
+  <message name='vNetworkResponseMessage'>
+    <part name='response' element='tns:vNetworkResponse' />
+  </message>
+  <portType name='blocktrailBitcoinDevelopersPlatformPortType'>
+    <operation name='vNetwork'>
+      <documentation>blockTrail API Endpoint</documentation>
+      <input message='tns:vNetworkRequestMessage' name='vNetworkInput' />
+      <output message='tns:vNetworkResponseMessage' name='vNetworkOutput' />
+    </operation>
+  </portType>
+  <binding name='blocktrailBitcoinDevelopersPlatformBinding' type='tns:blocktrailBitcoinDevelopersPlatformPortType'>
+    <operation name='vNetwork'>
+      <soap12:operation soapAction='http://vNetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='blocktrailBitcoinDevelopersPlatform'>
+    <documentation>blockTrail is a bitcoin API and developers platform enabling data and payments for developers enterprises and service providers</documentation>
+    <port name='blocktrailBitcoinDevelopersPlatformPort' binding='tns:blocktrailBitcoinDevelopersPlatformBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://blocktrailBitcoinDevelopersPlatform' />
+    </port>
+  </service>
+</definitions>

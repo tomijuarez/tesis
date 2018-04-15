@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stacklead/' name='stacklead' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stacklead/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stacklead/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stacklead/'>
+      <xsd:element name='customerIntelligenceApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='customerIntelligenceApiRequestMessage' />
+  <message name='customerIntelligenceApiResponseMessage'>
+    <part name='response' element='tns:customerIntelligenceApiResponse' />
+  </message>
+  <portType name='stackleadPortType'>
+    <operation name='customerIntelligenceApi'>
+      <documentation>you can receive lead research by sending a POST request to the StackLead API Requests are authenticated with your private API key and are sent to the reply address or webhook URL configured at https stacklead com user</documentation>
+      <input message='tns:customerIntelligenceApiRequestMessage' name='customerIntelligenceApiInput' />
+      <output message='tns:customerIntelligenceApiResponseMessage' name='customerIntelligenceApiOutput' />
+    </operation>
+  </portType>
+  <binding name='stackleadBinding' type='tns:stackleadPortType'>
+    <operation name='customerIntelligenceApi'>
+      <soap12:operation soapAction='http://customerIntelligenceApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stacklead'>
+    <documentation>the research you need to understand every new user delivered to your inbox when they sign up Additional API documentation available at https stacklead com docs</documentation>
+    <port name='stackleadPort' binding='tns:stackleadBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stacklead' />
+    </port>
+  </service>
+</definitions>

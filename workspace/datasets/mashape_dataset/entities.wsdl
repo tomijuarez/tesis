@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/entities/' name='entities' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/entities/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/entities/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/entities/'>
+      <xsd:element name='detectEntitiesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectEntitiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='normalizedEntity' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='entity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findEntitiesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findEntitiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='concept' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findQuotesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='author' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='topic' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findQuotesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mentionUrls' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='concept' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='facts' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectEntitiesRequestMessage'>
+    <part name='parameters' element='tns:detectEntitiesParameters' />
+  </message>
+  <message name='detectEntitiesResponseMessage'>
+    <part name='response' element='tns:detectEntitiesResponse' />
+  </message>
+  <message name='findEntitiesRequestMessage'>
+    <part name='parameters' element='tns:findEntitiesParameters' />
+  </message>
+  <message name='findEntitiesResponseMessage'>
+    <part name='response' element='tns:findEntitiesResponse' />
+  </message>
+  <message name='findQuotesRequestMessage'>
+    <part name='parameters' element='tns:findQuotesParameters' />
+  </message>
+  <message name='findQuotesResponseMessage'>
+    <part name='response' element='tns:findQuotesResponse' />
+  </message>
+  <message name='getEntityInformationRequestMessage'>
+    <part name='parameters' element='tns:getEntityInformationParameters' />
+  </message>
+  <message name='getEntityInformationResponseMessage'>
+    <part name='response' element='tns:getEntityInformationResponse' />
+  </message>
+  <portType name='entitiesPortType'>
+    <operation name='detectEntities'>
+      <documentation>detect entity mentions in a given text</documentation>
+      <input message='tns:detectEntitiesRequestMessage' name='detectEntitiesInput' />
+      <output message='tns:detectEntitiesResponseMessage' name='detectEntitiesOutput' />
+    </operation>
+    <operation name='findEntities'>
+      <documentation>find entities by name</documentation>
+      <input message='tns:findEntitiesRequestMessage' name='findEntitiesInput' />
+      <output message='tns:findEntitiesResponseMessage' name='findEntitiesOutput' />
+    </operation>
+    <operation name='findQuotes'>
+      <documentation>find quotes from people about certain topics</documentation>
+      <input message='tns:findQuotesRequestMessage' name='findQuotesInput' />
+      <output message='tns:findQuotesResponseMessage' name='findQuotesOutput' />
+    </operation>
+    <operation name='getEntityInformation'>
+      <documentation>get information about a certain entity</documentation>
+      <input message='tns:getEntityInformationRequestMessage' name='getEntityInformationInput' />
+      <output message='tns:getEntityInformationResponseMessage' name='getEntityInformationOutput' />
+    </operation>
+  </portType>
+  <binding name='entitiesBinding' type='tns:entitiesPortType'>
+    <operation name='detectEntities'>
+      <soap12:operation soapAction='http://detectEntities' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findEntities'>
+      <soap12:operation soapAction='http://findEntities' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findQuotes'>
+      <soap12:operation soapAction='http://findQuotes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEntityInformation'>
+      <soap12:operation soapAction='http://getEntityInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='entities'>
+    <documentation>the WebKnox entities API gives you access to millions of entities such as cities actors movies cars etc You can search for entities and get factual information Additionally you may detect known entities from texts often referred to as Named Entity Recognition</documentation>
+    <port name='entitiesPort' binding='tns:entitiesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://entities' />
+    </port>
+  </service>
+</definitions>

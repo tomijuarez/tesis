@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/origin/' name='origin' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/origin/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/origin/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/origin/'>
+      <xsd:element name='nameoriginParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nameoriginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='topRegion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='countryLastName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='subRegion' type='xsd:string' minOccurs='0' />
+            <xsd:element name='scoreLastName' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='countryAlt' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='countryFirstName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scoreFirstName' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='countryName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='script' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nameoriginlistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='names' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='topRegion' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='subRegion' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='countryAlt' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='scoreFirstName' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='script' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='countryLastName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='scoreLastName' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='countryFirstName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='countryName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nameoriginRequestMessage'>
+    <part name='parameters' element='tns:nameoriginParameters' />
+  </message>
+  <message name='nameoriginResponseMessage'>
+    <part name='response' element='tns:nameoriginResponse' />
+  </message>
+  <message name='nameoriginlistRequestMessage' />
+  <message name='nameoriginlistResponseMessage'>
+    <part name='response' element='tns:nameoriginlistResponse' />
+  </message>
+  <portType name='originPortType'>
+    <operation name='nameorigin'>
+      <documentation>determine the likely country of origin of a single name</documentation>
+      <input message='tns:nameoriginRequestMessage' name='nameoriginInput' />
+      <output message='tns:nameoriginResponseMessage' name='nameoriginOutput' />
+    </operation>
+    <operation name='nameoriginlist'>
+      <documentation>determine the likely country of origin of each name in a list</documentation>
+      <input message='tns:nameoriginlistRequestMessage' name='nameoriginlistInput' />
+      <output message='tns:nameoriginlistResponseMessage' name='nameoriginlistOutput' />
+    </operation>
+  </portType>
+  <binding name='originBinding' type='tns:originPortType'>
+    <operation name='nameorigin'>
+      <soap12:operation soapAction='http://nameorigin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nameoriginlist'>
+      <soap12:operation soapAction='http://nameoriginlist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='origin'>
+    <documentation>determine the likely country of origin of a personal name based on the sociolinguistics of the name language culture Covers all countries in most scripts LATIN CYRILLIC ARABIC HAN BENGALI HANGUL MYANMAR GUJARATI KANNADA DEVANAGARI HIRAGANA KATAKANA HEBREW GEORGIAN TAMIL Use it for diversity analytics customer intelligence datamining predictive analytics</documentation>
+    <port name='originPort' binding='tns:originBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://origin' />
+    </port>
+  </service>
+</definitions>

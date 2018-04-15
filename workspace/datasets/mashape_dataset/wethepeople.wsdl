@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/weThePeople/' name='weThePeople' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/weThePeople/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/weThePeople/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/weThePeople/'>
+      <xsd:element name='petitionsPetitionIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='petitionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='petitionsPetitionIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='petitionsPetitionIdSignaturesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdafter' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='createdat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mock' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='petitionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zipcode' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='petitionsPetitionIdSignaturesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='petitionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='body' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdafter' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='createdat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mock' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='responseassociationtimebefore' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='responseid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturecount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturecountceiling' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturecountfloor' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturethreshold' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturethresholdceiling' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='signaturethresholdfloor' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='petitionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='petitionsPetitionIdRequestMessage'>
+    <part name='parameters' element='tns:petitionsPetitionIdParameters' />
+  </message>
+  <message name='petitionsPetitionIdResponseMessage'>
+    <part name='response' element='tns:petitionsPetitionIdResponse' />
+  </message>
+  <message name='petitionsPetitionIdSignaturesRequestMessage'>
+    <part name='parameters' element='tns:petitionsPetitionIdSignaturesParameters' />
+  </message>
+  <message name='petitionsPetitionIdSignaturesResponseMessage'>
+    <part name='response' element='tns:petitionsPetitionIdSignaturesResponse' />
+  </message>
+  <message name='petitionsRequestMessage'>
+    <part name='parameters' element='tns:petitionsParameters' />
+  </message>
+  <message name='petitionsResponseMessage'>
+    <part name='response' element='tns:petitionsResponse' />
+  </message>
+  <portType name='weThePeoplePortType'>
+    <operation name='petitionsPetitionId'>
+      <documentation>returns a petition matching the petition id</documentation>
+      <input message='tns:petitionsPetitionIdRequestMessage' name='petitionsPetitionIdInput' />
+      <output message='tns:petitionsPetitionIdResponseMessage' name='petitionsPetitionIdOutput' />
+    </operation>
+    <operation name='petitionsPetitionIdSignatures'>
+      <documentation>display signatures attached to a petition Unsupported non Latin characters are replaced with an x</documentation>
+      <input message='tns:petitionsPetitionIdSignaturesRequestMessage' name='petitionsPetitionIdSignaturesInput' />
+      <output message='tns:petitionsPetitionIdSignaturesResponseMessage' name='petitionsPetitionIdSignaturesOutput' />
+    </operation>
+    <operation name='petitions'>
+      <documentation>this API provides access to data on all petitions that passed the signature threshold required to become publicly available on the site</documentation>
+      <input message='tns:petitionsRequestMessage' name='petitionsInput' />
+      <output message='tns:petitionsResponseMessage' name='petitionsOutput' />
+    </operation>
+  </portType>
+  <binding name='weThePeopleBinding' type='tns:weThePeoplePortType'>
+    <operation name='petitionsPetitionId'>
+      <soap12:operation soapAction='http://petitionsPetitionId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='petitionsPetitionIdSignatures'>
+      <soap12:operation soapAction='http://petitionsPetitionIdSignatures' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='petitions'>
+      <soap12:operation soapAction='http://petitions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='weThePeople'>
+    <documentation>the We the People API currently provides read only access to data within We the People the White House petitions system This API provides access to data on all petitions that passed the signature threshold required to become publicly available on the site We ve also published a gallery of projects leveraging the We the People API including links to live examples and GitHub repositories</documentation>
+    <port name='weThePeoplePort' binding='tns:weThePeopleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://weThePeople' />
+    </port>
+  </service>
+</definitions>

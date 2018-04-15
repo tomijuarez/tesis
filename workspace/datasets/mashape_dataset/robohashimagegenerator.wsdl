@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/robohashImageGenerator/' name='robohashImageGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/robohashImageGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/robohashImageGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/robohashImageGenerator/'>
+      <xsd:element name='robohashImageGeneratorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='robohashImageGeneratorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageUrl' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='robohashImageGeneratorRequestMessage'>
+    <part name='parameters' element='tns:robohashImageGeneratorParameters' />
+  </message>
+  <message name='robohashImageGeneratorResponseMessage'>
+    <part name='response' element='tns:robohashImageGeneratorResponse' />
+  </message>
+  <portType name='robohashImageGeneratorPortType'>
+    <operation name='robohashImageGenerator'>
+      <documentation>generate a random and cool looking robot image for your text</documentation>
+      <input message='tns:robohashImageGeneratorRequestMessage' name='robohashImageGeneratorInput' />
+      <output message='tns:robohashImageGeneratorResponseMessage' name='robohashImageGeneratorOutput' />
+    </operation>
+  </portType>
+  <binding name='robohashImageGeneratorBinding' type='tns:robohashImageGeneratorPortType'>
+    <operation name='robohashImageGenerator'>
+      <soap12:operation soapAction='http://robohashImageGenerator' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='robohashImageGenerator'>
+    <documentation>generate a cool looking robot image for any text using this new api</documentation>
+    <port name='robohashImageGeneratorPort' binding='tns:robohashImageGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://robohashImageGenerator' />
+    </port>
+  </service>
+</definitions>

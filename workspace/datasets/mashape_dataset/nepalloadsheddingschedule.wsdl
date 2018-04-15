@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nepalLoadsheddingSchedule/' name='nepalLoadsheddingSchedule' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nepalLoadsheddingSchedule/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nepalLoadsheddingSchedule/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nepalLoadsheddingSchedule/'>
+      <xsd:element name='getScheduleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ampm' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='group' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getScheduleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getScheduleRequestMessage'>
+    <part name='parameters' element='tns:getScheduleParameters' />
+  </message>
+  <message name='getScheduleResponseMessage'>
+    <part name='response' element='tns:getScheduleResponse' />
+  </message>
+  <portType name='nepalLoadsheddingSchedulePortType'>
+    <operation name='getSchedule'>
+      <documentation>returns whole week schedule for a particular group specified</documentation>
+      <input message='tns:getScheduleRequestMessage' name='getScheduleInput' />
+      <output message='tns:getScheduleResponseMessage' name='getScheduleOutput' />
+    </operation>
+  </portType>
+  <binding name='nepalLoadsheddingScheduleBinding' type='tns:nepalLoadsheddingSchedulePortType'>
+    <operation name='getSchedule'>
+      <soap12:operation soapAction='http://getSchedule' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nepalLoadsheddingSchedule'>
+    <documentation>the core API which powers the Loadshedding Schedule service provided by Sparrow SMS for getting the weekly powercut schedule for any group in Nepal Sparrow SMS has been providing this service via SMS and Web And its now public for developers too D</documentation>
+    <port name='nepalLoadsheddingSchedulePort' binding='tns:nepalLoadsheddingScheduleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nepalLoadsheddingSchedule' />
+    </port>
+  </service>
+</definitions>

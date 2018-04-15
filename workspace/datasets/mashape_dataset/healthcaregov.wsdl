@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/healthcareGov/' name='healthcareGov' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/healthcareGov/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/healthcareGov/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/healthcareGov/'>
+      <xsd:element name='contentCollectionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contenttype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='contentCollectionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='contentIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='contentObjectsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='posttitle' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='contentObjectsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='insurance-status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='date' type='xsd:string' minOccurs='0' />
+            <xsd:element name='featured' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='question-header' type='xsd:string' minOccurs='0' />
+            <xsd:element name='other-subject' type='xsd:string' minOccurs='0' />
+            <xsd:element name='questions' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='seo-keywords' type='xsd:string' minOccurs='0' />
+            <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='barrier' type='xsd:string' minOccurs='0' />
+            <xsd:element name='related' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='bite' type='xsd:string' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='plan' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title-short' type='xsd:string' minOccurs='0' />
+            <xsd:element name='audience' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='process-step' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topics' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='published' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:int' minOccurs='0' />
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tags' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='layout' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='meta-description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='meta-title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='state-dropdown' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='excerpt' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='contentCollectionsRequestMessage'>
+    <part name='parameters' element='tns:contentCollectionsParameters' />
+  </message>
+  <message name='contentCollectionsResponseMessage'>
+    <part name='response' element='tns:contentCollectionsResponse' />
+  </message>
+  <message name='contentIndexRequestMessage' />
+  <message name='contentIndexResponseMessage'>
+    <part name='response' element='tns:contentIndexResponse' />
+  </message>
+  <message name='contentObjectsRequestMessage'>
+    <part name='parameters' element='tns:contentObjectsParameters' />
+  </message>
+  <message name='contentObjectsResponseMessage'>
+    <part name='response' element='tns:contentObjectsResponse' />
+  </message>
+  <portType name='healthcareGovPortType'>
+    <operation name='contentCollections'>
+      <documentation>collections are a list of post objects by content type The following content types are available articles blog questions glossary states and topics</documentation>
+      <input message='tns:contentCollectionsRequestMessage' name='contentCollectionsInput' />
+      <output message='tns:contentCollectionsResponseMessage' name='contentCollectionsOutput' />
+    </operation>
+    <operation name='contentIndex'>
+      <documentation>the index is an abridged list of metadata for all posts on this website Use it to get an aggregate view of content and to generate additional queries of post objects</documentation>
+      <input message='tns:contentIndexRequestMessage' name='contentIndexInput' />
+      <output message='tns:contentIndexResponseMessage' name='contentIndexOutput' />
+    </operation>
+    <operation name='contentObjects'>
+      <documentation>content objects the body content and metadata for each post on this website</documentation>
+      <input message='tns:contentObjectsRequestMessage' name='contentObjectsInput' />
+      <output message='tns:contentObjectsResponseMessage' name='contentObjectsOutput' />
+    </operation>
+  </portType>
+  <binding name='healthcareGovBinding' type='tns:healthcareGovPortType'>
+    <operation name='contentCollections'>
+      <soap12:operation soapAction='http://contentCollections' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='contentIndex'>
+      <soap12:operation soapAction='http://contentIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='contentObjects'>
+      <soap12:operation soapAction='http://contentObjects' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='healthcareGov'>
+    <documentation>healthCare gov for Developers We re making our source code freely available on GitHub All of our educational content about the Health Insurance Marketplace is available in machine readable formats so that innovators entrepreneurs and partners can turn it into new products and services</documentation>
+    <port name='healthcareGovPort' binding='tns:healthcareGovBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://healthcareGov' />
+    </port>
+  </service>
+</definitions>

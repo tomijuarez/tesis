@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/instatunes/' name='instatunes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/instatunes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/instatunes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/instatunes/'>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='download_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='other_info' type='xsd:string' minOccurs='0' />
+            <xsd:element name='stream_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage' />
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='instatunesPortType'>
+    <operation name='search'>
+      <documentation>searches for mp files around the world</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='instatunesBinding' type='tns:instatunesPortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='instatunes'>
+    <documentation>love music This API will search for tracks songs in mp formate and gets direct download stream links to you You can then either stream the track directly or download it it can search for all indian english and other local music download wont cost you anything</documentation>
+    <port name='instatunesPort' binding='tns:instatunesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://instatunes' />
+    </port>
+  </service>
+</definitions>

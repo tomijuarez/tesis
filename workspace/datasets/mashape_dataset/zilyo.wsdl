@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zilyo/' name='zilyo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zilyo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zilyo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zilyo/'>
+      <xsd:element name='boxSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='isinstantbook' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='nelatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='nelongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='provider' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='swlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='swlongitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='boxSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amenities' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='reviews' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='entries' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='picture' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='provider' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='micro' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='nid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='full' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cid' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='price' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='itemStatus' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='all' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='streetName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='neighbourhood' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postalCode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='availability' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='attr' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='occupancy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='lastUpdatedAt' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='heading' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='responseTime' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='securityDeposit' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bathrooms' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='isCalAvailable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='bedrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cancellation' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='checkIn' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='propType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='beds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='checkOut' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='roomType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='instantBookable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='extraGuests' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='after' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='photos' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='xlarge' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='caption' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='priceRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='latLng' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='resultsPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amtOfNights' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ids' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='runtime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isNearQuery' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queryType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='totalResults' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='totalPages' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='resultsPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amtOfNights' type='xsd:int' minOccurs='0' />
+            <xsd:element name='runtime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isNearQuery' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queryType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='idParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='idResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amenities' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='reviews' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='provider' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='micro' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='nid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='full' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cid' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='price' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='itemStatus' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='all' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='streetName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='neighbourhood' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postalCode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='availability' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='attr' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='fees' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='occupancy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='lastUpdatedAt' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='heading' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='responseTime' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='securityDeposit' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bathrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='isCalAvailable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='bedrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cancellation' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='checkIn' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='propType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='beds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='checkOut' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='roomType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='instantBookable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='extraGuests' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='after' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='photos' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='xlarge' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='caption' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='priceRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='latLng' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='resultsPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amtOfNights' type='xsd:int' minOccurs='0' />
+            <xsd:element name='runtime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isNearQuery' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queryType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='idsCollectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ids' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='idsCollectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amenities' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='reviews' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='entries' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='picture' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='provider' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='micro' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='nid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='full' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cid' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='price' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='itemStatus' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='all' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='streetName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='neighbourhood' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postalCode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='availability' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='attr' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='occupancy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='lastUpdatedAt' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='heading' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='responseTime' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='securityDeposit' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bathrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='isCalAvailable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='bedrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cancellation' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='checkIn' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='propType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='beds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='checkOut' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='roomType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='instantBookable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='extraGuests' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='after' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='photos' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='xlarge' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='caption' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='priceRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='latLng' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='resultsPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amtOfNights' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ids' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='runtime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isNearQuery' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queryType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pointSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='etimestamp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='guests' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='isinstantbook' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='latitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxdistance' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='numofbathrooms' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='numofbedrooms' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='numofbeds' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='pricemax' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='pricemin' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='provider' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='resultsperpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stimestamp' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pointSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amenities' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='reviews' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='rating' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='provider' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='micro' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='nid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='full' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cid' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='price' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='itemStatus' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='all' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='streetName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='neighbourhood' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postalCode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='availability' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='attr' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='occupancy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='lastUpdatedAt' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='heading' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='responseTime' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='securityDeposit' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bathrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='isCalAvailable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='bedrooms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cancellation' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='link' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='checkIn' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='propType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='beds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='checkOut' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='roomType' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='instantBookable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='extraGuests' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='fee' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='after' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='photos' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='xlarge' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='caption' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='priceRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nightly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekend' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='maxNight' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='weekly' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='latLng' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='resultsPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amtOfNights' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ids' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='runtime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isNearQuery' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sort' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queryType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='boxSearchRequestMessage'>
+    <part name='parameters' element='tns:boxSearchParameters' />
+  </message>
+  <message name='boxSearchResponseMessage'>
+    <part name='response' element='tns:boxSearchResponse' />
+  </message>
+  <message name='countRequestMessage'>
+    <part name='parameters' element='tns:countParameters' />
+  </message>
+  <message name='countResponseMessage'>
+    <part name='response' element='tns:countResponse' />
+  </message>
+  <message name='idRequestMessage'>
+    <part name='parameters' element='tns:idParameters' />
+  </message>
+  <message name='idResponseMessage'>
+    <part name='response' element='tns:idResponse' />
+  </message>
+  <message name='idsCollectionRequestMessage'>
+    <part name='parameters' element='tns:idsCollectionParameters' />
+  </message>
+  <message name='idsCollectionResponseMessage'>
+    <part name='response' element='tns:idsCollectionResponse' />
+  </message>
+  <message name='pointSearchRequestMessage'>
+    <part name='parameters' element='tns:pointSearchParameters' />
+  </message>
+  <message name='pointSearchResponseMessage'>
+    <part name='response' element='tns:pointSearchResponse' />
+  </message>
+  <portType name='zilyoPortType'>
+    <operation name='boxSearch'>
+      <documentation>performs a search query to find listings based on your parameters Using neLatitude neLongitude swLatitude swLongitude as required parameters Supports all filtering parameters</documentation>
+      <input message='tns:boxSearchRequestMessage' name='boxSearchInput' />
+      <output message='tns:boxSearchResponseMessage' name='boxSearchOutput' />
+    </operation>
+    <operation name='count'>
+      <documentation>returns the number of results for a search query Accepts all parameters from search Supports all filtering parameters</documentation>
+      <input message='tns:countRequestMessage' name='countInput' />
+      <output message='tns:countResponseMessage' name='countOutput' />
+    </operation>
+    <operation name='id'>
+      <documentation>performs a single ID search The fastest and most efficient way if you want to query only id</documentation>
+      <input message='tns:idRequestMessage' name='idInput' />
+      <output message='tns:idResponseMessage' name='idOutput' />
+    </operation>
+    <operation name='idsCollection'>
+      <documentation>performs a query with a set of ids given Supports filtering with parameters</documentation>
+      <input message='tns:idsCollectionRequestMessage' name='idsCollectionInput' />
+      <output message='tns:idsCollectionResponseMessage' name='idsCollectionOutput' />
+    </operation>
+    <operation name='pointSearch'>
+      <documentation>performs a search query to find listings based on your parameters Using latitude and longitude as required parameters Supports all filtering parameters</documentation>
+      <input message='tns:pointSearchRequestMessage' name='pointSearchInput' />
+      <output message='tns:pointSearchResponseMessage' name='pointSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='zilyoBinding' type='tns:zilyoPortType'>
+    <operation name='boxSearch'>
+      <soap12:operation soapAction='http://boxSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='count'>
+      <soap12:operation soapAction='http://count' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='id'>
+      <soap12:operation soapAction='http://id' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='idsCollection'>
+      <soap12:operation soapAction='http://idsCollection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pointSearch'>
+      <soap12:operation soapAction='http://pointSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zilyo'>
+    <documentation>this API gives you access from over accommodation listings across the world in over destinations We return results for short term rentals ranging from apartments houses cottages villas castles and even igloos from all over the world We currently support these suppliers Airbnb HomeAway AlwaysOnVacation ApartmentsApart BookingPal BedyCasa CitiesReference Geronimo Gloveler HolidayVelvet HomeStay HostelWorld HouseTrip Interhome Flats Roomorama StopSleepGo TheOtherHome Travelmob VacationRentalPeople VaycayHero WayToStay and WebChalet</documentation>
+    <port name='zilyoPort' binding='tns:zilyoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zilyo' />
+    </port>
+  </service>
+</definitions>

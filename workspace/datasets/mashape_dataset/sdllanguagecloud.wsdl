@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sdlLanguageCloud/' name='sdlLanguageCloud' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sdlLanguageCloud/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sdlLanguageCloud/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sdlLanguageCloud/'>
+      <xsd:element name='arrayTextTranslationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errorCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='translateTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='arrayTextTranslationRequestMessage' />
+  <message name='arrayTextTranslationResponseMessage'>
+    <part name='response' element='tns:arrayTextTranslationResponse' />
+  </message>
+  <message name='getLanguagesRequestMessage' />
+  <message name='getLanguagesResponseMessage'>
+    <part name='response' element='tns:getLanguagesResponse' />
+  </message>
+  <message name='translateTextRequestMessage' />
+  <message name='translateTextResponseMessage'>
+    <part name='response' element='tns:translateTextResponse' />
+  </message>
+  <portType name='sdlLanguageCloudPortType'>
+    <operation name='arrayTextTranslation'>
+      <documentation>array of text translation call between two languages defined using ISO char code or language id Note The size limit for each text is bytes</documentation>
+      <input message='tns:arrayTextTranslationRequestMessage' name='arrayTextTranslationInput' />
+      <output message='tns:arrayTextTranslationResponseMessage' name='arrayTextTranslationOutput' />
+    </operation>
+    <operation name='getLanguages'>
+      <documentation>retrieve available language pairings</documentation>
+      <input message='tns:getLanguagesRequestMessage' name='getLanguagesInput' />
+      <output message='tns:getLanguagesResponseMessage' name='getLanguagesOutput' />
+    </operation>
+    <operation name='translateText'>
+      <documentation>translate a text</documentation>
+      <input message='tns:translateTextRequestMessage' name='translateTextInput' />
+      <output message='tns:translateTextResponseMessage' name='translateTextOutput' />
+    </operation>
+  </portType>
+  <binding name='sdlLanguageCloudBinding' type='tns:sdlLanguageCloudPortType'>
+    <operation name='arrayTextTranslation'>
+      <soap12:operation soapAction='http://arrayTextTranslation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLanguages'>
+      <soap12:operation soapAction='http://getLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='translateText'>
+      <soap12:operation soapAction='http://translateText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sdlLanguageCloud'>
+    <documentation>the API enables developers to submit content for translation via the SDL Language Cloud translation platform The API allows developers to offer translation as a service within their own applications by accessing proprietary SDL Machine Translation technology</documentation>
+    <port name='sdlLanguageCloudPort' binding='tns:sdlLanguageCloudBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sdlLanguageCloud' />
+    </port>
+  </service>
+</definitions>

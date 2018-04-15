@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/robotsTxtTextParser/' name='robotsTxtTextParser' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/robotsTxtTextParser/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/robotsTxtTextParser/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/robotsTxtTextParser/'>
+      <xsd:element name='parseAsTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='agents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='params' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parseByUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parseByUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='agents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='params' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='parseAsTextRequestMessage' />
+  <message name='parseAsTextResponseMessage'>
+    <part name='response' element='tns:parseAsTextResponse' />
+  </message>
+  <message name='parseByUrlRequestMessage'>
+    <part name='parameters' element='tns:parseByUrlParameters' />
+  </message>
+  <message name='parseByUrlResponseMessage'>
+    <part name='response' element='tns:parseByUrlResponse' />
+  </message>
+  <portType name='robotsTxtTextParserPortType'>
+    <operation name='parseAsText'>
+      <documentation>parses text of file provided</documentation>
+      <input message='tns:parseAsTextRequestMessage' name='parseAsTextInput' />
+      <output message='tns:parseAsTextResponseMessage' name='parseAsTextOutput' />
+    </operation>
+    <operation name='parseByUrl'>
+      <documentation>parse robots txt by url provided</documentation>
+      <input message='tns:parseByUrlRequestMessage' name='parseByUrlInput' />
+      <output message='tns:parseByUrlResponseMessage' name='parseByUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='robotsTxtTextParserBinding' type='tns:robotsTxtTextParserPortType'>
+    <operation name='parseAsText'>
+      <soap12:operation soapAction='http://parseAsText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='parseByUrl'>
+      <soap12:operation soapAction='http://parseByUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='robotsTxtTextParser'>
+    <documentation>this API parses robots txt provided as text or as url and provides JSON output with all parsed values</documentation>
+    <port name='robotsTxtTextParserPort' binding='tns:robotsTxtTextParserBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://robotsTxtTextParser' />
+    </port>
+  </service>
+</definitions>

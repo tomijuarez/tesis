@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/yotpo/' name='yotpo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/yotpo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/yotpo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/yotpo/'>
+      <xsd:element name='getProductBottomLineScoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='domainkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductBottomLineScoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='bottomline' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='average_score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='total_reviews' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductReviewsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='domainkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductReviewsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reviews' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='new' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='user_vote' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='votes_up' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='distance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='products' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Location_idx' type='xsd:int' maxOccurs='unbounded' />
+                              <xsd:element name='Product' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='images' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                                          <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name='product_url' type='xsd:anyURI' minOccurs='0' />
+                                    <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='shorten_url' type='xsd:anyURI' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='votes_down' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='deleted' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='user' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='social_image' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='badges' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='image_100' type='xsd:anyURI' minOccurs='0' />
+                                    <xsd:element name='image_300' type='xsd:anyURI' minOccurs='0' />
+                                    <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='bio' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='display_name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='total_reviews' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total_products' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='products' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='images' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='big_image_url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='image_content_type' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='domain_key' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bread_crumbs' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='last_mention' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='new_reviews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='updated_at' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='total_reviews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='deleted_reviews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='featured_image_id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getProductBottomLineScoreRequestMessage'>
+    <part name='parameters' element='tns:getProductBottomLineScoreParameters' />
+  </message>
+  <message name='getProductBottomLineScoreResponseMessage'>
+    <part name='response' element='tns:getProductBottomLineScoreResponse' />
+  </message>
+  <message name='getProductReviewsRequestMessage'>
+    <part name='parameters' element='tns:getProductReviewsParameters' />
+  </message>
+  <message name='getProductReviewsResponseMessage'>
+    <part name='response' element='tns:getProductReviewsResponse' />
+  </message>
+  <message name='getProductsRequestMessage'>
+    <part name='parameters' element='tns:getProductsParameters' />
+  </message>
+  <message name='getProductsResponseMessage'>
+    <part name='response' element='tns:getProductsResponse' />
+  </message>
+  <portType name='yotpoPortType'>
+    <operation name='getProductBottomLineScore'>
+      <documentation>get bottom line score for a specific product that belongs to a specific app key</documentation>
+      <input message='tns:getProductBottomLineScoreRequestMessage' name='getProductBottomLineScoreInput' />
+      <output message='tns:getProductBottomLineScoreResponseMessage' name='getProductBottomLineScoreOutput' />
+    </operation>
+    <operation name='getProductReviews'>
+      <documentation>get all reviews for a specific product that belongs to a specific app key</documentation>
+      <input message='tns:getProductReviewsRequestMessage' name='getProductReviewsInput' />
+      <output message='tns:getProductReviewsResponseMessage' name='getProductReviewsOutput' />
+    </operation>
+    <operation name='getProducts'>
+      <documentation>getting all products stored for a specific app key</documentation>
+      <input message='tns:getProductsRequestMessage' name='getProductsInput' />
+      <output message='tns:getProductsResponseMessage' name='getProductsOutput' />
+    </operation>
+  </portType>
+  <binding name='yotpoBinding' type='tns:yotpoPortType'>
+    <operation name='getProductBottomLineScore'>
+      <soap12:operation soapAction='http://getProductBottomLineScore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getProductReviews'>
+      <soap12:operation soapAction='http://getProductReviews' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getProducts'>
+      <soap12:operation soapAction='http://getProducts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='yotpo'>
+    <documentation>yotpo is taking reviews social being a fun social way for your e commerce customers to read and write reviews BEFORE YOU BEGIN you must sign for a free account at Yotpo https www yotpo com register and you are more than welcome to further read on us at http www yotpo com We also encourage first time users to checkout our example sites where Yotpo is installed http magento yotpo com http shop yotpo com for list of existing customers please refer to our website Yotpo API works above the Yotpo Social Reviews service It is designed to create more customised solutions for Yotpo customers and to let them smartly integrate with Yotpo s system Stayed tuned the Yotpo API is a work in progress</documentation>
+    <port name='yotpoPort' binding='tns:yotpoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://yotpo' />
+    </port>
+  </service>
+</definitions>

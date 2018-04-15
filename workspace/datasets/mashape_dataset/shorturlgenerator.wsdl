@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shortUrlGenerator/' name='shortUrlGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shortUrlGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shortUrlGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shortUrlGenerator/'>
+      <xsd:element name='createurlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='realurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createurlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createurlRequestMessage'>
+    <part name='parameters' element='tns:createurlParameters' />
+  </message>
+  <message name='createurlResponseMessage'>
+    <part name='response' element='tns:createurlResponse' />
+  </message>
+  <portType name='shortUrlGeneratorPortType'>
+    <operation name='createurl'>
+      <documentation>creating ShortUrls</documentation>
+      <input message='tns:createurlRequestMessage' name='createurlInput' />
+      <output message='tns:createurlResponseMessage' name='createurlOutput' />
+    </operation>
+  </portType>
+  <binding name='shortUrlGeneratorBinding' type='tns:shortUrlGeneratorPortType'>
+    <operation name='createurl'>
+      <soap12:operation soapAction='http://createurl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shortUrlGenerator'>
+    <documentation>generate Short Urls Easy Peezey</documentation>
+    <port name='shortUrlGeneratorPort' binding='tns:shortUrlGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shortUrlGenerator' />
+    </port>
+  </service>
+</definitions>

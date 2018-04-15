@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/transistorHandbook/' name='transistorHandbook' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/transistorHandbook/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/transistorHandbook/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/transistorHandbook/'>
+      <xsd:element name='availableupdatesjsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsonstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='availableupdatesjsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Description' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getlastupdatesjsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsonstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getlastupdatesjsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gettransistorjsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsonstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gettransistorjsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatetransistorsjsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsonstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatetransistorsjsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Description' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='availableupdatesjsonRequestMessage'>
+    <part name='parameters' element='tns:availableupdatesjsonParameters' />
+  </message>
+  <message name='availableupdatesjsonResponseMessage'>
+    <part name='response' element='tns:availableupdatesjsonResponse' />
+  </message>
+  <message name='getlastupdatesjsonRequestMessage'>
+    <part name='parameters' element='tns:getlastupdatesjsonParameters' />
+  </message>
+  <message name='getlastupdatesjsonResponseMessage'>
+    <part name='response' element='tns:getlastupdatesjsonResponse' />
+  </message>
+  <message name='gettransistorjsonRequestMessage'>
+    <part name='parameters' element='tns:gettransistorjsonParameters' />
+  </message>
+  <message name='gettransistorjsonResponseMessage'>
+    <part name='response' element='tns:gettransistorjsonResponse' />
+  </message>
+  <message name='updatetransistorsjsonRequestMessage'>
+    <part name='parameters' element='tns:updatetransistorsjsonParameters' />
+  </message>
+  <message name='updatetransistorsjsonResponseMessage'>
+    <part name='response' element='tns:updatetransistorsjsonResponse' />
+  </message>
+  <portType name='transistorHandbookPortType'>
+    <operation name='availableupdatesjson'>
+      <documentation>returns the amount of transistors updated from the specified date</documentation>
+      <input message='tns:availableupdatesjsonRequestMessage' name='availableupdatesjsonInput' />
+      <output message='tns:availableupdatesjsonResponseMessage' name='availableupdatesjsonOutput' />
+    </operation>
+    <operation name='getlastupdatesjson'>
+      <documentation>returns the transistors updated from the specified date</documentation>
+      <input message='tns:getlastupdatesjsonRequestMessage' name='getlastupdatesjsonInput' />
+      <output message='tns:getlastupdatesjsonResponseMessage' name='getlastupdatesjsonOutput' />
+    </operation>
+    <operation name='gettransistorjson'>
+      <documentation>search and returns the transistors data</documentation>
+      <input message='tns:gettransistorjsonRequestMessage' name='gettransistorjsonInput' />
+      <output message='tns:gettransistorjsonResponseMessage' name='gettransistorjsonOutput' />
+    </operation>
+    <operation name='updatetransistorsjson'>
+      <documentation>request a updating data of a transistors</documentation>
+      <input message='tns:updatetransistorsjsonRequestMessage' name='updatetransistorsjsonInput' />
+      <output message='tns:updatetransistorsjsonResponseMessage' name='updatetransistorsjsonOutput' />
+    </operation>
+  </portType>
+  <binding name='transistorHandbookBinding' type='tns:transistorHandbookPortType'>
+    <operation name='availableupdatesjson'>
+      <soap12:operation soapAction='http://availableupdatesjson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getlastupdatesjson'>
+      <soap12:operation soapAction='http://getlastupdatesjson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='gettransistorjson'>
+      <soap12:operation soapAction='http://gettransistorjson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatetransistorsjson'>
+      <soap12:operation soapAction='http://updatetransistorsjson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='transistorHandbook'>
+    <documentation>this app will guide you to know choose select and design your next board masterpiece using that transistor you weren t remembering With Transistors Handbook you will see the design the kind and all the aspects of more than transistors</documentation>
+    <port name='transistorHandbookPort' binding='tns:transistorHandbookBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://transistorHandbook' />
+    </port>
+  </service>
+</definitions>

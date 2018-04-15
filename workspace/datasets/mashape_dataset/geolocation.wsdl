@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geolocation/' name='geolocation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geolocation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geolocation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geolocation/'>
+      <xsd:element name='geolocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geolocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='city' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geolocationRequestMessage'>
+    <part name='parameters' element='tns:geolocationParameters' />
+  </message>
+  <message name='geolocationResponseMessage'>
+    <part name='response' element='tns:geolocationResponse' />
+  </message>
+  <portType name='geolocationPortType'>
+    <operation name='geolocation'>
+      <documentation>this endpoint returns geolocation information for the given IP address If no IP address is specified then the current IP address is used</documentation>
+      <input message='tns:geolocationRequestMessage' name='geolocationInput' />
+      <output message='tns:geolocationResponseMessage' name='geolocationOutput' />
+    </operation>
+  </portType>
+  <binding name='geolocationBinding' type='tns:geolocationPortType'>
+    <operation name='geolocation'>
+      <soap12:operation soapAction='http://geolocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geolocation'>
+    <documentation>geolocation api Have you ever needed to know where the person visiting your website is coming from Just use this API If you use it in your front end javascript code you may even leave the IP argument empty Just hit the root of the API and you ll be given information on the whereabouts of your visitor Using in the backend is as simple All you have to do is pass a ip argument with the ip address of the given user</documentation>
+    <port name='geolocationPort' binding='tns:geolocationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geolocation' />
+    </port>
+  </service>
+</definitions>

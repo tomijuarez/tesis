@@ -1,0 +1,2559 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pamfax/' name='pamfax' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pamfax/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pamfax/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pamfax/'>
+      <xsd:element name='addcredittosandboxuserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='reason' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addcredittosandboxuserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addremotefileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addremotefileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='additionalinfo' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Faxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='origin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useragent' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='FaxContainer' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='send_chat' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='created' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='send_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sender_fax' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='error_notification' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='sender_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cover_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='processing_started' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='currency_rate' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='pages' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='group_notification' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cover_page_length' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cover_data' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cover_text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='send_mail' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='send_sms' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='state_override' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createloginidentifierParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timetolifeminutes' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createloginidentifierResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UserIdentifier' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='identifier' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='valid_until' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emptytrashParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emptytrashResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='RemovedCount' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sent' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='inbox' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getcurrentcultureinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='CultureInfo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='CurrenyConversionFunction' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='TimeZone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ParentCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='NativeName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='IsRTL' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='Code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DefaultDateFormat' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Iso2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EnglishName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='DefaultTimeFormat' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getcurrentsettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Timezone' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Language' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Currency' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rate_to_eur' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Systemtime' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getfaxstateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getfaxstateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getgeoipinformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getgeoipinformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='GeoIpInformation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnumberinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='faxnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnumberinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='NumberInfo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='numberpart1' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='zone' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='country_prefix' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='area_code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='formatted_number' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='number_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getpagepriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='faxnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getpagepriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Price' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country_zone' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='area_code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='priceperpage' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='formatted_number' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='number_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price_source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='zone' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='priceperpage_proplan' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getpreviewParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getpreviewResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getshoplinkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pay' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='product' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getshoplinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ShopLink' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listavailablecoversParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='defaultsifempty' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listavailablecoversResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Covers' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listavailableitemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listavailableitemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Plans' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='CreditPacks' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listchangesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listchangesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Changes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listcountriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='CountryList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listcountriesforzoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zone' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listcountriesforzoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='CountryList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listcurrenciesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listcurrenciesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='CurrencyList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listfaxfilesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listfaxfilesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listinboxfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listinboxfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='InboxFaxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='current_page' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listlanguagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='minpercenttranslated' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listlanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='LanguagesList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listoutboxfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listoutboxfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='OutboxFaxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listprovidersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='attachsettings' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listprovidersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ProviderList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecentfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datatolist' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecentfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='RecentFaxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecentrecipientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecentrecipientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Recipients' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecipientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listrecipientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listsentfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listsentfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='SentFaxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liststringsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='culture' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ids' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liststringsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Strings' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listsupportedfiletypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='FileTypeGroups' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listtimezonesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='TimezonesList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='default' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listtrashParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listtrashResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Trash' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='current_page' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listunpaidfaxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemsperpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listunpaidfaxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UnpaidFaxes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listversionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='VersionInfoList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listzonesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ZoneList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logoutParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logoutResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UserToken' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='redeemcreditvoucherParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vouchercode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='redeemcreditvoucherResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Voucher' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerlistenerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='append' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='listenertypes' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerlistenerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reloaduserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reloaduserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UserRights' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='User' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='free_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='is_member' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='created' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='inactive_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reactivated_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeallfilesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeallfilesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeallrecipientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeallrecipientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removecoverParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removecoverResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resetnotificationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resetnotificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sendat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sendattimezone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendlaterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sendat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sendattimezone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendlaterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setcoverParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templateid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templateuuid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setcoverResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setnotificationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errornotification' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='groupnotification' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='notifications' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='savedefaults' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setnotificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setrecipientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='names' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='numbers' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setrecipientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpreviewcreationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usertoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpreviewcreationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyuserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyuserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UserRights' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='User' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='free_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='is_member' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='created' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='inactive_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='reactivated_credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='credit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='UserToken' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addcredittosandboxuserRequestMessage'>
+    <part name='parameters' element='tns:addcredittosandboxuserParameters' />
+  </message>
+  <message name='addcredittosandboxuserResponseMessage'>
+    <part name='response' element='tns:addcredittosandboxuserResponse' />
+  </message>
+  <message name='addremotefileRequestMessage'>
+    <part name='parameters' element='tns:addremotefileParameters' />
+  </message>
+  <message name='addremotefileResponseMessage'>
+    <part name='response' element='tns:addremotefileResponse' />
+  </message>
+  <message name='countfaxesRequestMessage'>
+    <part name='parameters' element='tns:countfaxesParameters' />
+  </message>
+  <message name='countfaxesResponseMessage'>
+    <part name='response' element='tns:countfaxesResponse' />
+  </message>
+  <message name='createRequestMessage'>
+    <part name='parameters' element='tns:createParameters' />
+  </message>
+  <message name='createResponseMessage'>
+    <part name='response' element='tns:createResponse' />
+  </message>
+  <message name='createloginidentifierRequestMessage'>
+    <part name='parameters' element='tns:createloginidentifierParameters' />
+  </message>
+  <message name='createloginidentifierResponseMessage'>
+    <part name='response' element='tns:createloginidentifierResponse' />
+  </message>
+  <message name='emptytrashRequestMessage'>
+    <part name='parameters' element='tns:emptytrashParameters' />
+  </message>
+  <message name='emptytrashResponseMessage'>
+    <part name='response' element='tns:emptytrashResponse' />
+  </message>
+  <message name='getcurrentcultureinfoRequestMessage' />
+  <message name='getcurrentcultureinfoResponseMessage'>
+    <part name='response' element='tns:getcurrentcultureinfoResponse' />
+  </message>
+  <message name='getcurrentsettingsRequestMessage' />
+  <message name='getcurrentsettingsResponseMessage'>
+    <part name='response' element='tns:getcurrentsettingsResponse' />
+  </message>
+  <message name='getfaxstateRequestMessage'>
+    <part name='parameters' element='tns:getfaxstateParameters' />
+  </message>
+  <message name='getfaxstateResponseMessage'>
+    <part name='response' element='tns:getfaxstateResponse' />
+  </message>
+  <message name='getgeoipinformationRequestMessage'>
+    <part name='parameters' element='tns:getgeoipinformationParameters' />
+  </message>
+  <message name='getgeoipinformationResponseMessage'>
+    <part name='response' element='tns:getgeoipinformationResponse' />
+  </message>
+  <message name='getnumberinfoRequestMessage'>
+    <part name='parameters' element='tns:getnumberinfoParameters' />
+  </message>
+  <message name='getnumberinfoResponseMessage'>
+    <part name='response' element='tns:getnumberinfoResponse' />
+  </message>
+  <message name='getpagepriceRequestMessage'>
+    <part name='parameters' element='tns:getpagepriceParameters' />
+  </message>
+  <message name='getpagepriceResponseMessage'>
+    <part name='response' element='tns:getpagepriceResponse' />
+  </message>
+  <message name='getpreviewRequestMessage'>
+    <part name='parameters' element='tns:getpreviewParameters' />
+  </message>
+  <message name='getpreviewResponseMessage'>
+    <part name='response' element='tns:getpreviewResponse' />
+  </message>
+  <message name='getshoplinkRequestMessage'>
+    <part name='parameters' element='tns:getshoplinkParameters' />
+  </message>
+  <message name='getshoplinkResponseMessage'>
+    <part name='response' element='tns:getshoplinkResponse' />
+  </message>
+  <message name='listavailablecoversRequestMessage'>
+    <part name='parameters' element='tns:listavailablecoversParameters' />
+  </message>
+  <message name='listavailablecoversResponseMessage'>
+    <part name='response' element='tns:listavailablecoversResponse' />
+  </message>
+  <message name='listavailableitemsRequestMessage'>
+    <part name='parameters' element='tns:listavailableitemsParameters' />
+  </message>
+  <message name='listavailableitemsResponseMessage'>
+    <part name='response' element='tns:listavailableitemsResponse' />
+  </message>
+  <message name='listchangesRequestMessage'>
+    <part name='parameters' element='tns:listchangesParameters' />
+  </message>
+  <message name='listchangesResponseMessage'>
+    <part name='response' element='tns:listchangesResponse' />
+  </message>
+  <message name='listcountriesRequestMessage' />
+  <message name='listcountriesResponseMessage'>
+    <part name='response' element='tns:listcountriesResponse' />
+  </message>
+  <message name='listcountriesforzoneRequestMessage'>
+    <part name='parameters' element='tns:listcountriesforzoneParameters' />
+  </message>
+  <message name='listcountriesforzoneResponseMessage'>
+    <part name='response' element='tns:listcountriesforzoneResponse' />
+  </message>
+  <message name='listcurrenciesRequestMessage'>
+    <part name='parameters' element='tns:listcurrenciesParameters' />
+  </message>
+  <message name='listcurrenciesResponseMessage'>
+    <part name='response' element='tns:listcurrenciesResponse' />
+  </message>
+  <message name='listfaxfilesRequestMessage'>
+    <part name='parameters' element='tns:listfaxfilesParameters' />
+  </message>
+  <message name='listfaxfilesResponseMessage'>
+    <part name='response' element='tns:listfaxfilesResponse' />
+  </message>
+  <message name='listinboxfaxesRequestMessage'>
+    <part name='parameters' element='tns:listinboxfaxesParameters' />
+  </message>
+  <message name='listinboxfaxesResponseMessage'>
+    <part name='response' element='tns:listinboxfaxesResponse' />
+  </message>
+  <message name='listlanguagesRequestMessage'>
+    <part name='parameters' element='tns:listlanguagesParameters' />
+  </message>
+  <message name='listlanguagesResponseMessage'>
+    <part name='response' element='tns:listlanguagesResponse' />
+  </message>
+  <message name='listoutboxfaxesRequestMessage'>
+    <part name='parameters' element='tns:listoutboxfaxesParameters' />
+  </message>
+  <message name='listoutboxfaxesResponseMessage'>
+    <part name='response' element='tns:listoutboxfaxesResponse' />
+  </message>
+  <message name='listprovidersRequestMessage'>
+    <part name='parameters' element='tns:listprovidersParameters' />
+  </message>
+  <message name='listprovidersResponseMessage'>
+    <part name='response' element='tns:listprovidersResponse' />
+  </message>
+  <message name='listrecentfaxesRequestMessage'>
+    <part name='parameters' element='tns:listrecentfaxesParameters' />
+  </message>
+  <message name='listrecentfaxesResponseMessage'>
+    <part name='response' element='tns:listrecentfaxesResponse' />
+  </message>
+  <message name='listrecentrecipientsRequestMessage'>
+    <part name='parameters' element='tns:listrecentrecipientsParameters' />
+  </message>
+  <message name='listrecentrecipientsResponseMessage'>
+    <part name='response' element='tns:listrecentrecipientsResponse' />
+  </message>
+  <message name='listrecipientsRequestMessage'>
+    <part name='parameters' element='tns:listrecipientsParameters' />
+  </message>
+  <message name='listrecipientsResponseMessage'>
+    <part name='response' element='tns:listrecipientsResponse' />
+  </message>
+  <message name='listsentfaxesRequestMessage'>
+    <part name='parameters' element='tns:listsentfaxesParameters' />
+  </message>
+  <message name='listsentfaxesResponseMessage'>
+    <part name='response' element='tns:listsentfaxesResponse' />
+  </message>
+  <message name='liststringsRequestMessage'>
+    <part name='parameters' element='tns:liststringsParameters' />
+  </message>
+  <message name='liststringsResponseMessage'>
+    <part name='response' element='tns:liststringsResponse' />
+  </message>
+  <message name='listsupportedfiletypesRequestMessage' />
+  <message name='listsupportedfiletypesResponseMessage'>
+    <part name='response' element='tns:listsupportedfiletypesResponse' />
+  </message>
+  <message name='listtimezonesRequestMessage' />
+  <message name='listtimezonesResponseMessage'>
+    <part name='response' element='tns:listtimezonesResponse' />
+  </message>
+  <message name='listtrashRequestMessage'>
+    <part name='parameters' element='tns:listtrashParameters' />
+  </message>
+  <message name='listtrashResponseMessage'>
+    <part name='response' element='tns:listtrashResponse' />
+  </message>
+  <message name='listunpaidfaxesRequestMessage'>
+    <part name='parameters' element='tns:listunpaidfaxesParameters' />
+  </message>
+  <message name='listunpaidfaxesResponseMessage'>
+    <part name='response' element='tns:listunpaidfaxesResponse' />
+  </message>
+  <message name='listversionsRequestMessage' />
+  <message name='listversionsResponseMessage'>
+    <part name='response' element='tns:listversionsResponse' />
+  </message>
+  <message name='listzonesRequestMessage' />
+  <message name='listzonesResponseMessage'>
+    <part name='response' element='tns:listzonesResponse' />
+  </message>
+  <message name='logoutRequestMessage'>
+    <part name='parameters' element='tns:logoutParameters' />
+  </message>
+  <message name='logoutResponseMessage'>
+    <part name='response' element='tns:logoutResponse' />
+  </message>
+  <message name='redeemcreditvoucherRequestMessage'>
+    <part name='parameters' element='tns:redeemcreditvoucherParameters' />
+  </message>
+  <message name='redeemcreditvoucherResponseMessage'>
+    <part name='response' element='tns:redeemcreditvoucherResponse' />
+  </message>
+  <message name='registerlistenerRequestMessage'>
+    <part name='parameters' element='tns:registerlistenerParameters' />
+  </message>
+  <message name='registerlistenerResponseMessage'>
+    <part name='response' element='tns:registerlistenerResponse' />
+  </message>
+  <message name='reloaduserRequestMessage'>
+    <part name='parameters' element='tns:reloaduserParameters' />
+  </message>
+  <message name='reloaduserResponseMessage'>
+    <part name='response' element='tns:reloaduserResponse' />
+  </message>
+  <message name='removeallfilesRequestMessage'>
+    <part name='parameters' element='tns:removeallfilesParameters' />
+  </message>
+  <message name='removeallfilesResponseMessage'>
+    <part name='response' element='tns:removeallfilesResponse' />
+  </message>
+  <message name='removeallrecipientsRequestMessage'>
+    <part name='parameters' element='tns:removeallrecipientsParameters' />
+  </message>
+  <message name='removeallrecipientsResponseMessage'>
+    <part name='response' element='tns:removeallrecipientsResponse' />
+  </message>
+  <message name='removecoverRequestMessage'>
+    <part name='parameters' element='tns:removecoverParameters' />
+  </message>
+  <message name='removecoverResponseMessage'>
+    <part name='response' element='tns:removecoverResponse' />
+  </message>
+  <message name='resetnotificationsRequestMessage'>
+    <part name='parameters' element='tns:resetnotificationsParameters' />
+  </message>
+  <message name='resetnotificationsResponseMessage'>
+    <part name='response' element='tns:resetnotificationsResponse' />
+  </message>
+  <message name='sendRequestMessage'>
+    <part name='parameters' element='tns:sendParameters' />
+  </message>
+  <message name='sendResponseMessage'>
+    <part name='response' element='tns:sendResponse' />
+  </message>
+  <message name='sendlaterRequestMessage'>
+    <part name='parameters' element='tns:sendlaterParameters' />
+  </message>
+  <message name='sendlaterResponseMessage'>
+    <part name='response' element='tns:sendlaterResponse' />
+  </message>
+  <message name='setcoverRequestMessage'>
+    <part name='parameters' element='tns:setcoverParameters' />
+  </message>
+  <message name='setcoverResponseMessage'>
+    <part name='response' element='tns:setcoverResponse' />
+  </message>
+  <message name='setnotificationsRequestMessage'>
+    <part name='parameters' element='tns:setnotificationsParameters' />
+  </message>
+  <message name='setnotificationsResponseMessage'>
+    <part name='response' element='tns:setnotificationsResponse' />
+  </message>
+  <message name='setrecipientsRequestMessage'>
+    <part name='parameters' element='tns:setrecipientsParameters' />
+  </message>
+  <message name='setrecipientsResponseMessage'>
+    <part name='response' element='tns:setrecipientsResponse' />
+  </message>
+  <message name='startpreviewcreationRequestMessage'>
+    <part name='parameters' element='tns:startpreviewcreationParameters' />
+  </message>
+  <message name='startpreviewcreationResponseMessage'>
+    <part name='response' element='tns:startpreviewcreationResponse' />
+  </message>
+  <message name='verifyuserRequestMessage'>
+    <part name='parameters' element='tns:verifyuserParameters' />
+  </message>
+  <message name='verifyuserResponseMessage'>
+    <part name='response' element='tns:verifyuserResponse' />
+  </message>
+  <portType name='pamfaxPortType'>
+    <operation name='addcredittosandboxuser'>
+      <documentation>adds some credit in user s currency to the currently logged in user NOTES This method is for testing purposes only so it is not available in the LIVE system Use it to create some virtual credits for your users</documentation>
+      <input message='tns:addcredittosandboxuserRequestMessage' name='addcredittosandboxuserInput' />
+      <output message='tns:addcredittosandboxuserResponseMessage' name='addcredittosandboxuserOutput' />
+    </operation>
+    <operation name='addremotefile'>
+      <documentation>add a remote file to the fax The url parameter may contain username password for basic http auth but this is the only supported authentication method URL Examples http myusername andpassord somewhere com download php id https myusername andpassord somewhere com image jpeg http www justplaindomain com test txt</documentation>
+      <input message='tns:addremotefileRequestMessage' name='addremotefileInput' />
+      <output message='tns:addremotefileResponseMessage' name='addremotefileOutput' />
+    </operation>
+    <operation name='countfaxes'>
+      <documentation>returns the number of faxes from users history with a specific state</documentation>
+      <input message='tns:countfaxesRequestMessage' name='countfaxesInput' />
+      <output message='tns:countfaxesResponseMessage' name='countfaxesOutput' />
+    </operation>
+    <operation name='create'>
+      <documentation>creates a new fax in the API backend and returns it If a fax job is currently in edit mode in this session this fax job is returned instead Note This is not an error It provides you with the possibility to continue with the fax</documentation>
+      <input message='tns:createRequestMessage' name='createInput' />
+      <output message='tns:createResponseMessage' name='createOutput' />
+    </operation>
+    <operation name='createloginidentifier'>
+      <documentation>creates an identifier for the current user The created identifier then can be passed to the portal to directly log in the user https portal pamfax biz id Be aware that these identifiers are case sensitive Identifiers with ttl can only be used once</documentation>
+      <input message='tns:createloginidentifierRequestMessage' name='createloginidentifierInput' />
+      <output message='tns:createloginidentifierResponseMessage' name='createloginidentifierOutput' />
+    </operation>
+    <operation name='emptytrash'>
+      <documentation>removes all faxes from trash for user and if user is member of a company and has delete rights also for the owners inbox faxes</documentation>
+      <input message='tns:emptytrashRequestMessage' name='emptytrashInput' />
+      <output message='tns:emptytrashResponseMessage' name='emptytrashOutput' />
+    </operation>
+    <operation name='getcurrentcultureinfo'>
+      <documentation>returns the current culture info data</documentation>
+      <input message='tns:getcurrentcultureinfoRequestMessage' name='getcurrentcultureinfoInput' />
+      <output message='tns:getcurrentcultureinfoResponseMessage' name='getcurrentcultureinfoOutput' />
+    </operation>
+    <operation name='getcurrentsettings'>
+      <documentation>returns the current settings for timezone and currency This is the format timezone ALL return values of the API are in These are taken from the user if logged in the api user s settings or the current ip address</documentation>
+      <input message='tns:getcurrentsettingsRequestMessage' name='getcurrentsettingsInput' />
+      <output message='tns:getcurrentsettingsResponseMessage' name='getcurrentsettingsOutput' />
+    </operation>
+    <operation name='getfaxstate'>
+      <documentation>returns the state of the current fax</documentation>
+      <input message='tns:getfaxstateRequestMessage' name='getfaxstateInput' />
+      <output message='tns:getfaxstateResponseMessage' name='getfaxstateOutput' />
+    </operation>
+    <operation name='getgeoipinformation'>
+      <documentation>returns Geo information based on the given IP address IPV</documentation>
+      <input message='tns:getgeoipinformationRequestMessage' name='getgeoipinformationInput' />
+      <output message='tns:getgeoipinformationResponseMessage' name='getgeoipinformationOutput' />
+    </operation>
+    <operation name='getnumberinfo'>
+      <documentation>get some information about a fax number Result contains zone type city Validates and corrects the number too</documentation>
+      <input message='tns:getnumberinfoRequestMessage' name='getnumberinfoInput' />
+      <output message='tns:getnumberinfoResponseMessage' name='getnumberinfoOutput' />
+    </operation>
+    <operation name='getpageprice'>
+      <documentation>calculate the expected price per page to a given fax number Use GetNumberInfo when you do not need pricing information as calculating expected price takes longer then just looking up the info for a number</documentation>
+      <input message='tns:getpagepriceRequestMessage' name='getpagepriceInput' />
+      <output message='tns:getpagepriceResponseMessage' name='getpagepriceOutput' />
+    </operation>
+    <operation name='getpreview'>
+      <documentation>returns the states of all preview pages Call after fax is ready GetFaxState returns FAX READY TO SEND</documentation>
+      <input message='tns:getpreviewRequestMessage' name='getpreviewInput' />
+      <output message='tns:getpreviewResponseMessage' name='getpreviewOutput' />
+    </operation>
+    <operation name='getshoplink'>
+      <documentation>returns different shop links Use these links to open a browser window with the shop in a specific state</documentation>
+      <input message='tns:getshoplinkRequestMessage' name='getshoplinkInput' />
+      <output message='tns:getshoplinkResponseMessage' name='getshoplinkOutput' />
+    </operation>
+    <operation name='listavailablecovers'>
+      <documentation>returns a list of all coverpages the user may use Result includes the no cover if the fax job already contains a file as in that case there s no need to add a cover</documentation>
+      <input message='tns:listavailablecoversRequestMessage' name='listavailablecoversInput' />
+      <output message='tns:listavailablecoversResponseMessage' name='listavailablecoversOutput' />
+    </operation>
+    <operation name='listavailableitems'>
+      <documentation>returns a list of available items from the shop When a user is logged in it will also contain the items only available to validated customers</documentation>
+      <input message='tns:listavailableitemsRequestMessage' name='listavailableitemsInput' />
+      <output message='tns:listavailableitemsResponseMessage' name='listavailableitemsOutput' />
+    </operation>
+    <operation name='listchanges'>
+      <documentation>returns all changes in the system that affect the currently logged in user This could be changes to the user s profile credit settings Changes will be deleted after you received them once via this call so use it wisely</documentation>
+      <input message='tns:listchangesRequestMessage' name='listchangesInput' />
+      <output message='tns:listchangesResponseMessage' name='listchangesOutput' />
+    </operation>
+    <operation name='listcountries'>
+      <documentation>returns a preview page for a fax May be in progress sent or from inbox</documentation>
+      <input message='tns:listcountriesRequestMessage' name='listcountriesInput' />
+      <output message='tns:listcountriesResponseMessage' name='listcountriesOutput' />
+    </operation>
+    <operation name='listcountriesforzone'>
+      <documentation>returns all countries in the given zone Result includes their translated names countrycode and country prefix</documentation>
+      <input message='tns:listcountriesforzoneRequestMessage' name='listcountriesforzoneInput' />
+      <output message='tns:listcountriesforzoneResponseMessage' name='listcountriesforzoneOutput' />
+    </operation>
+    <operation name='listcurrencies'>
+      <documentation>returns the list of supported currencies Result contains convertion rates too If code is given will only return the specified currency s information</documentation>
+      <input message='tns:listcurrenciesRequestMessage' name='listcurrenciesInput' />
+      <output message='tns:listcurrenciesResponseMessage' name='listcurrenciesOutput' />
+    </operation>
+    <operation name='listfaxfiles'>
+      <documentation>get all uploaded files for the current fax</documentation>
+      <input message='tns:listfaxfilesRequestMessage' name='listfaxfilesInput' />
+      <output message='tns:listfaxfilesResponseMessage' name='listfaxfilesOutput' />
+    </operation>
+    <operation name='listinboxfaxes'>
+      <documentation>list all faxes in the inbox of the current user</documentation>
+      <input message='tns:listinboxfaxesRequestMessage' name='listinboxfaxesInput' />
+      <output message='tns:listinboxfaxesResponseMessage' name='listinboxfaxesOutput' />
+    </operation>
+    <operation name='listlanguages'>
+      <documentation>list all available languages Result may be filtered to that only languages are returned that are at least translated min percent translated</documentation>
+      <input message='tns:listlanguagesRequestMessage' name='listlanguagesInput' />
+      <output message='tns:listlanguagesResponseMessage' name='listlanguagesOutput' />
+    </operation>
+    <operation name='listoutboxfaxes'>
+      <documentation>faxes in the outbox that are currently in the sending process</documentation>
+      <input message='tns:listoutboxfaxesRequestMessage' name='listoutboxfaxesInput' />
+      <output message='tns:listoutboxfaxesResponseMessage' name='listoutboxfaxesOutput' />
+    </operation>
+    <operation name='listproviders'>
+      <documentation>returns a list of supported providers</documentation>
+      <input message='tns:listprovidersRequestMessage' name='listprovidersInput' />
+      <output message='tns:listprovidersResponseMessage' name='listprovidersOutput' />
+    </operation>
+    <operation name='listrecentfaxes'>
+      <documentation>returns a list of latest faxes for the user Does not contain deleted and delayed faxes See ListTrash for deleted faxes</documentation>
+      <input message='tns:listrecentfaxesRequestMessage' name='listrecentfaxesInput' />
+      <output message='tns:listrecentfaxesResponseMessage' name='listrecentfaxesOutput' />
+    </operation>
+    <operation name='listrecentrecipients'>
+      <documentation>returns a list of the last recipient This is fixed to a maximum of records</documentation>
+      <input message='tns:listrecentrecipientsRequestMessage' name='listrecentrecipientsInput' />
+      <output message='tns:listrecentrecipientsResponseMessage' name='listrecentrecipientsOutput' />
+    </operation>
+    <operation name='listrecipients'>
+      <documentation>returns the recipients for the current fax</documentation>
+      <input message='tns:listrecipientsRequestMessage' name='listrecipientsInput' />
+      <output message='tns:listrecipientsResponseMessage' name='listrecipientsOutput' />
+    </operation>
+    <operation name='listsentfaxes'>
+      <documentation>list all sent faxes successful or not</documentation>
+      <input message='tns:listsentfaxesRequestMessage' name='listsentfaxesInput' />
+      <output message='tns:listsentfaxesResponseMessage' name='listsentfaxesOutput' />
+    </operation>
+    <operation name='liststrings'>
+      <documentation>returns a list of strings translated into the given language</documentation>
+      <input message='tns:liststringsRequestMessage' name='liststringsInput' />
+      <output message='tns:liststringsResponseMessage' name='liststringsOutput' />
+    </operation>
+    <operation name='listsupportedfiletypes'>
+      <documentation>returns the supported file types for documents that can be faxed</documentation>
+      <input message='tns:listsupportedfiletypesRequestMessage' name='listsupportedfiletypesInput' />
+      <output message='tns:listsupportedfiletypesResponseMessage' name='listsupportedfiletypesOutput' />
+    </operation>
+    <operation name='listtimezones'>
+      <documentation>list all supported timezones TimezonesList result list will contain attributes default and if a user is logged in user timezone which contain that values Additionally the corresponding list entries are marked with attributes is default and is user timezone</documentation>
+      <input message='tns:listtimezonesRequestMessage' name='listtimezonesInput' />
+      <output message='tns:listtimezonesResponseMessage' name='listtimezonesOutput' />
+    </operation>
+    <operation name='listtrash'>
+      <documentation>lists all faxes in trash</documentation>
+      <input message='tns:listtrashRequestMessage' name='listtrashInput' />
+      <output message='tns:listtrashResponseMessage' name='listtrashOutput' />
+    </operation>
+    <operation name='listunpaidfaxes'>
+      <documentation>lists all unpaid faxes That are waiting for a payment When this user makes a transaction to add credit these faxes will be sent automatically if they are younger that hours</documentation>
+      <input message='tns:listunpaidfaxesRequestMessage' name='listunpaidfaxesInput' />
+      <output message='tns:listunpaidfaxesResponseMessage' name='listunpaidfaxesOutput' />
+    </operation>
+    <operation name='listversions'>
+      <documentation>lists the current Versions Result contains versions for the PamFax Gadget Client etc and returns the version and update url</documentation>
+      <input message='tns:listversionsRequestMessage' name='listversionsInput' />
+      <output message='tns:listversionsResponseMessage' name='listversionsOutput' />
+    </operation>
+    <operation name='listzones'>
+      <documentation>returns price and price pro for a given zone</documentation>
+      <input message='tns:listzonesRequestMessage' name='listzonesInput' />
+      <output message='tns:listzonesResponseMessage' name='listzonesOutput' />
+    </operation>
+    <operation name='logout'>
+      <documentation>terminate the current session</documentation>
+      <input message='tns:logoutRequestMessage' name='logoutInput' />
+      <output message='tns:logoutResponseMessage' name='logoutOutput' />
+    </operation>
+    <operation name='redeemcreditvoucher'>
+      <documentation>redeem a credit voucher These are different then the shop vouchers to be used in the online shop You can use PCPC to test this function in the Sandbox API</documentation>
+      <input message='tns:redeemcreditvoucherRequestMessage' name='redeemcreditvoucherInput' />
+      <output message='tns:redeemcreditvoucherResponseMessage' name='redeemcreditvoucherOutput' />
+    </operation>
+    <operation name='registerlistener'>
+      <documentation>registers listeners for the current session Any change of the listened types will then be available via Session ListChanges function</documentation>
+      <input message='tns:registerlistenerRequestMessage' name='registerlistenerInput' />
+      <output message='tns:registerlistenerResponseMessage' name='registerlistenerOutput' />
+    </operation>
+    <operation name='reloaduser'>
+      <documentation>returns the current user object Use this if you need to ensure that your locally stored user object is up to date</documentation>
+      <input message='tns:reloaduserRequestMessage' name='reloaduserInput' />
+      <output message='tns:reloaduserResponseMessage' name='reloaduserOutput' />
+    </operation>
+    <operation name='removeallfiles'>
+      <documentation>remove all uploaded files from the current fax</documentation>
+      <input message='tns:removeallfilesRequestMessage' name='removeallfilesInput' />
+      <output message='tns:removeallfilesResponseMessage' name='removeallfilesOutput' />
+    </operation>
+    <operation name='removeallrecipients'>
+      <documentation>removes all recipients for the current fax</documentation>
+      <input message='tns:removeallrecipientsRequestMessage' name='removeallrecipientsInput' />
+      <output message='tns:removeallrecipientsResponseMessage' name='removeallrecipientsOutput' />
+    </operation>
+    <operation name='removecover'>
+      <documentation>removes the cover from fax</documentation>
+      <input message='tns:removecoverRequestMessage' name='removecoverInput' />
+      <output message='tns:removecoverResponseMessage' name='removecoverOutput' />
+    </operation>
+    <operation name='resetnotifications'>
+      <documentation>resets the notification options for the current fax to their default values Notification options will be set to what is set for the user as default</documentation>
+      <input message='tns:resetnotificationsRequestMessage' name='resetnotificationsInput' />
+      <output message='tns:resetnotificationsResponseMessage' name='resetnotificationsOutput' />
+    </operation>
+    <operation name='send'>
+      <documentation>start the fax sending Only successfull if all necessary data is set to the fax at least recipient and a cover page or a file uploaded Will only work if user has enough credit to pay for the fax You may pass in a datetime when the fax shall be sent This must be a string formatted in the users chosen culture so exactly as you would show it to him and may not be in the past nor be greater than now days Additionally you may give a timezone the send at value is in</documentation>
+      <input message='tns:sendRequestMessage' name='sendInput' />
+      <output message='tns:sendResponseMessage' name='sendOutput' />
+    </operation>
+    <operation name='sendlater'>
+      <documentation>put the fax in the unpaid faxes queue Only possible if user has NOT enough credit to send this fax directly You may pass in a datetime when the fax shall be sent This must be a string formatted in the users chosen culture so exactly as you would show it to him and may not be in the past nor be greater than now days Additionally you may give a timezone the send at value is in</documentation>
+      <input message='tns:sendlaterRequestMessage' name='sendlaterInput' />
+      <output message='tns:sendlaterResponseMessage' name='sendlaterOutput' />
+    </operation>
+    <operation name='setcover'>
+      <documentation>sets the cover template for the current fax IMPORTANT NOTE This method allowed only selection of cover template using the cover id argument up to and including API MR We kept that argument valid in API meaning that the UUIDs for the standard covers are the same as their ID We will remove the template id argument in future versions of this API and most likely reorder the arguments So for now everything is backwards compatible but we will break that soon so please update your code to use the UUID pattern Just do not pass template id anymore and pass template uuid instead Since API you may set your own covers using the UserInfoAPI See AddCover method there for a detailed description of standard placeholders here s just the list ToName FaxNumber FromName Date Page Pages Message Using the data argument you can fill up the cover with user specific data other than the standard placeholders You may also use it to overwrite the standard placeholders values with you own data Your data keys should be build up like this my var including the brackets Sample MyOwnName PamFax Tester MyOwnLorem Ipsum Note that you may send in more data than actually present in the cover template meaning that if you provide your own set of standard covers with your own placeholders you may pass the values in here even if the user selected another an own cover without the placeholders inside</documentation>
+      <input message='tns:setcoverRequestMessage' name='setcoverInput' />
+      <output message='tns:setcoverResponseMessage' name='setcoverOutput' />
+    </operation>
+    <operation name='setnotifications'>
+      <documentation>sets the notification options for the current fax Notification options that are not in the array will not be changed resetted Note defaults for notification settings will be taken from users account so potentially not need to call this on every fax DEPRECATED We do not support setting these settings per fax anymore Please use UserInfo SetNotifyProviderSettings and UserInfo SetGlobalNotifySettings instead to set the profile wide settings</documentation>
+      <input message='tns:setnotificationsRequestMessage' name='setnotificationsInput' />
+      <output message='tns:setnotificationsResponseMessage' name='setnotificationsOutput' />
+    </operation>
+    <operation name='setrecipients'>
+      <documentation>creates recipients for the current fax All recipients are replaced with the given ones Note that each name may be characters long More characters will be cut off</documentation>
+      <input message='tns:setrecipientsRequestMessage' name='setrecipientsInput' />
+      <output message='tns:setrecipientsResponseMessage' name='setrecipientsOutput' />
+    </operation>
+    <operation name='startpreviewcreation'>
+      <documentation>starts creating the preview for this fax Call after fax is ready GetFaxState returns FAX READY TO SEND DEPRECATED Use FaxJob GetPreview instead</documentation>
+      <input message='tns:startpreviewcreationRequestMessage' name='startpreviewcreationInput' />
+      <output message='tns:startpreviewcreationResponseMessage' name='startpreviewcreationOutput' />
+    </operation>
+    <operation name='verifyuser'>
+      <documentation>verifies a PamFax user via username password</documentation>
+      <input message='tns:verifyuserRequestMessage' name='verifyuserInput' />
+      <output message='tns:verifyuserResponseMessage' name='verifyuserOutput' />
+    </operation>
+  </portType>
+  <binding name='pamfaxBinding' type='tns:pamfaxPortType'>
+    <operation name='addcredittosandboxuser'>
+      <soap12:operation soapAction='http://addcredittosandboxuser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addremotefile'>
+      <soap12:operation soapAction='http://addremotefile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='countfaxes'>
+      <soap12:operation soapAction='http://countfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='create'>
+      <soap12:operation soapAction='http://create' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createloginidentifier'>
+      <soap12:operation soapAction='http://createloginidentifier' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='emptytrash'>
+      <soap12:operation soapAction='http://emptytrash' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getcurrentcultureinfo'>
+      <soap12:operation soapAction='http://getcurrentcultureinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getcurrentsettings'>
+      <soap12:operation soapAction='http://getcurrentsettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getfaxstate'>
+      <soap12:operation soapAction='http://getfaxstate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getgeoipinformation'>
+      <soap12:operation soapAction='http://getgeoipinformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getnumberinfo'>
+      <soap12:operation soapAction='http://getnumberinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getpageprice'>
+      <soap12:operation soapAction='http://getpageprice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getpreview'>
+      <soap12:operation soapAction='http://getpreview' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getshoplink'>
+      <soap12:operation soapAction='http://getshoplink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listavailablecovers'>
+      <soap12:operation soapAction='http://listavailablecovers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listavailableitems'>
+      <soap12:operation soapAction='http://listavailableitems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listchanges'>
+      <soap12:operation soapAction='http://listchanges' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listcountries'>
+      <soap12:operation soapAction='http://listcountries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listcountriesforzone'>
+      <soap12:operation soapAction='http://listcountriesforzone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listcurrencies'>
+      <soap12:operation soapAction='http://listcurrencies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listfaxfiles'>
+      <soap12:operation soapAction='http://listfaxfiles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listinboxfaxes'>
+      <soap12:operation soapAction='http://listinboxfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listlanguages'>
+      <soap12:operation soapAction='http://listlanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listoutboxfaxes'>
+      <soap12:operation soapAction='http://listoutboxfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listproviders'>
+      <soap12:operation soapAction='http://listproviders' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listrecentfaxes'>
+      <soap12:operation soapAction='http://listrecentfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listrecentrecipients'>
+      <soap12:operation soapAction='http://listrecentrecipients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listrecipients'>
+      <soap12:operation soapAction='http://listrecipients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listsentfaxes'>
+      <soap12:operation soapAction='http://listsentfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='liststrings'>
+      <soap12:operation soapAction='http://liststrings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listsupportedfiletypes'>
+      <soap12:operation soapAction='http://listsupportedfiletypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listtimezones'>
+      <soap12:operation soapAction='http://listtimezones' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listtrash'>
+      <soap12:operation soapAction='http://listtrash' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listunpaidfaxes'>
+      <soap12:operation soapAction='http://listunpaidfaxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listversions'>
+      <soap12:operation soapAction='http://listversions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listzones'>
+      <soap12:operation soapAction='http://listzones' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logout'>
+      <soap12:operation soapAction='http://logout' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='redeemcreditvoucher'>
+      <soap12:operation soapAction='http://redeemcreditvoucher' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='registerlistener'>
+      <soap12:operation soapAction='http://registerlistener' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reloaduser'>
+      <soap12:operation soapAction='http://reloaduser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeallfiles'>
+      <soap12:operation soapAction='http://removeallfiles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeallrecipients'>
+      <soap12:operation soapAction='http://removeallrecipients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removecover'>
+      <soap12:operation soapAction='http://removecover' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resetnotifications'>
+      <soap12:operation soapAction='http://resetnotifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='send'>
+      <soap12:operation soapAction='http://send' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendlater'>
+      <soap12:operation soapAction='http://sendlater' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setcover'>
+      <soap12:operation soapAction='http://setcover' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setnotifications'>
+      <soap12:operation soapAction='http://setnotifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setrecipients'>
+      <soap12:operation soapAction='http://setrecipients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpreviewcreation'>
+      <soap12:operation soapAction='http://startpreviewcreation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verifyuser'>
+      <soap12:operation soapAction='http://verifyuser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pamfax'>
+    <documentation>you can use the PamFax API to send faxes show incoming faxes create new PamFax users and a lot more</documentation>
+    <port name='pamfaxPort' binding='tns:pamfaxBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pamfax' />
+    </port>
+  </service>
+</definitions>

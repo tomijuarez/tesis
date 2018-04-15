@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tradeEvents/' name='tradeEvents' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tradeEvents/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tradeEvents/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tradeEvents/'>
+      <xsd:element name='apiTradeGovVTradeEventsSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTradeGovVTradeEventsSearchRequestMessage' />
+  <message name='apiTradeGovVTradeEventsSearchResponseMessage'>
+    <part name='response' element='tns:apiTradeGovVTradeEventsSearchResponse' />
+  </message>
+  <portType name='tradeEventsPortType'>
+    <operation name='apiTradeGovVTradeEventsSearch'>
+      <input message='tns:apiTradeGovVTradeEventsSearchRequestMessage' name='apiTradeGovVTradeEventsSearchInput' />
+      <output message='tns:apiTradeGovVTradeEventsSearchResponseMessage' name='apiTradeGovVTradeEventsSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='tradeEventsBinding' type='tns:tradeEventsPortType'>
+    <operation name='apiTradeGovVTradeEventsSearch'>
+      <soap12:operation soapAction='http://apiTradeGovVTradeEventsSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tradeEvents'>
+    <documentation>the Trade Events API provides data on events for U S businesses interested in selling their products and services overseas These events include industry conferences webinars lectures and trade missions organized by ITA and other trade agencies including The U S Trade and Development Agency The Export Import Bank The State Department The Small Business Administration</documentation>
+    <port name='tradeEventsPort' binding='tns:tradeEventsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tradeEvents' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ontologyBasedTopicDetection/' name='ontologyBasedTopicDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ontologyBasedTopicDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ontologyBasedTopicDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ontologyBasedTopicDetection/'>
+      <xsd:element name='getCategoriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cleanup' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='edges' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='nbtopcat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='srclang' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='textLang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='categories' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCorpusCategoriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='edges' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='nbtopcat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='srclang' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCorpusCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documents' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='edges' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='corpus' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getCategoriesRequestMessage'>
+    <part name='parameters' element='tns:getCategoriesParameters' />
+  </message>
+  <message name='getCategoriesResponseMessage'>
+    <part name='response' element='tns:getCategoriesResponse' />
+  </message>
+  <message name='getCorpusCategoriesRequestMessage'>
+    <part name='parameters' element='tns:getCorpusCategoriesParameters' />
+  </message>
+  <message name='getCorpusCategoriesResponseMessage'>
+    <part name='response' element='tns:getCorpusCategoriesResponse' />
+  </message>
+  <portType name='ontologyBasedTopicDetectionPortType'>
+    <operation name='getCategories'>
+      <documentation>returns the top themes associated to the given text</documentation>
+      <input message='tns:getCategoriesRequestMessage' name='getCategoriesInput' />
+      <output message='tns:getCategoriesResponseMessage' name='getCategoriesOutput' />
+    </operation>
+    <operation name='getCorpusCategories'>
+      <documentation>first gets the categories associated to the whole corpus Then returns categories for each document keeping only doc categories that are also corpus categories</documentation>
+      <input message='tns:getCorpusCategoriesRequestMessage' name='getCorpusCategoriesInput' />
+      <output message='tns:getCorpusCategoriesResponseMessage' name='getCorpusCategoriesOutput' />
+    </operation>
+  </portType>
+  <binding name='ontologyBasedTopicDetectionBinding' type='tns:ontologyBasedTopicDetectionPortType'>
+    <operation name='getCategories'>
+      <soap12:operation soapAction='http://getCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getCorpusCategories'>
+      <soap12:operation soapAction='http://getCorpusCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ontologyBasedTopicDetection'>
+    <documentation>a text analysis service to find out what any text is about by extracting the most relevant Wikipedia s categories through a patented NLP technology</documentation>
+    <port name='ontologyBasedTopicDetectionPort' binding='tns:ontologyBasedTopicDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ontologyBasedTopicDetection' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textToSpeech/' name='textToSpeech' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textToSpeech/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+      <xsd:element name='convertTextToSpeechViaHttpGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='c' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='f' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='r' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='src' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertTextToSpeechViaHttpGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertTextToSpeechViaHttpPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertTextToSpeechViaHttpGetRequestMessage'>
+    <part name='parameters' element='tns:convertTextToSpeechViaHttpGetParameters' />
+  </message>
+  <message name='convertTextToSpeechViaHttpGetResponseMessage'>
+    <part name='response' element='tns:convertTextToSpeechViaHttpGetResponse' />
+  </message>
+  <message name='convertTextToSpeechViaHttpPostRequestMessage' />
+  <message name='convertTextToSpeechViaHttpPostResponseMessage'>
+    <part name='response' element='tns:convertTextToSpeechViaHttpPostResponse' />
+  </message>
+  <portType name='textToSpeechPortType'>
+    <operation name='convertTextToSpeechViaHttpGet'>
+      <documentation>converts textual content to audio content</documentation>
+      <input message='tns:convertTextToSpeechViaHttpGetRequestMessage' name='convertTextToSpeechViaHttpGetInput' />
+      <output message='tns:convertTextToSpeechViaHttpGetResponseMessage' name='convertTextToSpeechViaHttpGetOutput' />
+    </operation>
+    <operation name='convertTextToSpeechViaHttpPost'>
+      <documentation>converts textual content to audio content</documentation>
+      <input message='tns:convertTextToSpeechViaHttpPostRequestMessage' name='convertTextToSpeechViaHttpPostInput' />
+      <output message='tns:convertTextToSpeechViaHttpPostResponseMessage' name='convertTextToSpeechViaHttpPostOutput' />
+    </operation>
+  </portType>
+  <binding name='textToSpeechBinding' type='tns:textToSpeechPortType'>
+    <operation name='convertTextToSpeechViaHttpGet'>
+      <soap12:operation soapAction='http://convertTextToSpeechViaHttpGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertTextToSpeechViaHttpPost'>
+      <soap12:operation soapAction='http://convertTextToSpeechViaHttpPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textToSpeech'>
+    <documentation>the Voice RSS Text to Speech TTS API allows conversion of textual content to speech easier than ever Just connect to our Text to Speech TTS API with a few lines of code and get verbal representation of a textual content</documentation>
+    <port name='textToSpeechPort' binding='tns:textToSpeechBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textToSpeech' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/flightSchedulesMultiDayRestMethod/' name='flightSchedulesMultiDayRestMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/flightSchedulesMultiDayRestMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/flightSchedulesMultiDayRestMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/flightSchedulesMultiDayRestMethod/'>
+      <xsd:element name='routeserviceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='airline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='endday' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='endmonth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='endyear' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='interline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startday' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startmonth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startyear' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeserviceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='routeserviceRequestMessage'>
+    <part name='parameters' element='tns:routeserviceParameters' />
+  </message>
+  <message name='routeserviceResponseMessage'>
+    <part name='response' element='tns:routeserviceResponse' />
+  </message>
+  <portType name='flightSchedulesMultiDayRestMethodPortType'>
+    <operation name='routeservice'>
+      <documentation>this method returns route summary information for a specified route over a specified time range</documentation>
+      <input message='tns:routeserviceRequestMessage' name='routeserviceInput' />
+      <output message='tns:routeserviceResponseMessage' name='routeserviceOutput' />
+    </operation>
+  </portType>
+  <binding name='flightSchedulesMultiDayRestMethodBinding' type='tns:flightSchedulesMultiDayRestMethodPortType'>
+    <operation name='routeservice'>
+      <soap12:operation soapAction='http://routeservice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='flightSchedulesMultiDayRestMethod'>
+    <documentation>flightLookup Route Service Want to know the regular service between two airports over a date range Returns information for a specific route over a range of dates Flight Number Origin Destination Times Start Date End Date</documentation>
+    <port name='flightSchedulesMultiDayRestMethodPort' binding='tns:flightSchedulesMultiDayRestMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://flightSchedulesMultiDayRestMethod' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/currencyConverter/' name='currencyConverter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/currencyConverter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/currencyConverter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/currencyConverter/'>
+      <xsd:element name='availablecurrenciesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromamount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='to_amount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='from_amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='availablecurrenciesRequestMessage' />
+  <message name='availablecurrenciesResponseMessage'>
+    <part name='response' element='tns:availablecurrenciesResponse' />
+  </message>
+  <message name='convertRequestMessage'>
+    <part name='parameters' element='tns:convertParameters' />
+  </message>
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <portType name='currencyConverterPortType'>
+    <operation name='availablecurrencies'>
+      <documentation></documentation>
+      <input message='tns:availablecurrenciesRequestMessage' name='availablecurrenciesInput' />
+      <output message='tns:availablecurrenciesResponseMessage' name='availablecurrenciesOutput' />
+    </operation>
+    <operation name='convert'>
+      <documentation></documentation>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+  </portType>
+  <binding name='currencyConverterBinding' type='tns:currencyConverterPortType'>
+    <operation name='availablecurrencies'>
+      <soap12:operation soapAction='http://availablecurrencies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='currencyConverter'>
+    <documentation>simple and free currency converter Insert an amount what currency to convert from and what currency to convert to This API is free to use</documentation>
+    <port name='currencyConverterPort' binding='tns:currencyConverterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://currencyConverter' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/compete/' name='compete' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/compete/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/compete/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/compete/'>
+      <xsd:element name='genericParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='latest' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='metric' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genericResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='trends_frequency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='query_cost' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='trends' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='uv' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='trends_low_sample' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='genericRequestMessage'>
+    <part name='parameters' element='tns:genericParameters' />
+  </message>
+  <message name='genericResponseMessage'>
+    <part name='response' element='tns:genericResponse' />
+  </message>
+  <portType name='competePortType'>
+    <operation name='generic'>
+      <documentation>you can call different groups of APIs based on METRIC The available APIs include Basic Monthly Demographic Daily Keyword Incoming Traffic You can find the METRIC list here https www compete com developer documentation doc MetricList</documentation>
+      <input message='tns:genericRequestMessage' name='genericInput' />
+      <output message='tns:genericResponseMessage' name='genericOutput' />
+    </operation>
+  </portType>
+  <binding name='competeBinding' type='tns:competePortType'>
+    <operation name='generic'>
+      <soap12:operation soapAction='http://generic' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='compete'>
+    <documentation>optimize your digital marketing Understand consumer online behavior to drive marketing decisions The path to digital marketing optimization begins with Compete PRO Get started now</documentation>
+    <port name='competePort' binding='tns:competeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://compete' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/locate/' name='locate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/locate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/locate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/locate/'>
+      <xsd:element name='locateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='server' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='response_time' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='province' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='locateRequestMessage'>
+    <part name='parameters' element='tns:locateParameters' />
+  </message>
+  <message name='locateResponseMessage'>
+    <part name='response' element='tns:locateResponse' />
+  </message>
+  <portType name='locatePortType'>
+    <operation name='locate'>
+      <documentation>find approximate location software and response time of the server</documentation>
+      <input message='tns:locateRequestMessage' name='locateInput' />
+      <output message='tns:locateResponseMessage' name='locateOutput' />
+    </operation>
+  </portType>
+  <binding name='locateBinding' type='tns:locatePortType'>
+    <operation name='locate'>
+      <soap12:operation soapAction='http://locate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='locate'>
+    <documentation>find location software and response time of a server</documentation>
+    <port name='locatePort' binding='tns:locateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://locate' />
+    </port>
+  </service>
+</definitions>

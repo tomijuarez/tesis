@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/projectNameGenerator/' name='projectNameGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/projectNameGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/projectNameGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/projectNameGenerator/'>
+      <xsd:element name='withNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dashed' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='raw' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='spaced' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='withoutNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='withNumberRequestMessage' />
+  <message name='withNumberResponseMessage'>
+    <part name='response' element='tns:withNumberResponse' />
+  </message>
+  <message name='withoutNumberRequestMessage' />
+  <message name='withoutNumberResponseMessage'>
+    <part name='response' element='tns:withoutNumberResponse' />
+  </message>
+  <portType name='projectNameGeneratorPortType'>
+    <operation name='withNumber'>
+      <documentation>generate a project name with a number at the end e g sassy bread</documentation>
+      <input message='tns:withNumberRequestMessage' name='withNumberInput' />
+      <output message='tns:withNumberResponseMessage' name='withNumberOutput' />
+    </operation>
+    <operation name='withoutNumber'>
+      <documentation>get a project name without a number e g diligent teddy</documentation>
+      <input message='tns:withoutNumberRequestMessage' name='withoutNumberInput' />
+      <output message='tns:withoutNumberResponseMessage' name='withoutNumberOutput' />
+    </operation>
+  </portType>
+  <binding name='projectNameGeneratorBinding' type='tns:projectNameGeneratorPortType'>
+    <operation name='withNumber'>
+      <soap12:operation soapAction='http://withNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='withoutNumber'>
+      <soap12:operation soapAction='http://withoutNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='projectNameGenerator'>
+    <documentation>generate quirky names for your project app server e g vivacious flood divine rooster</documentation>
+    <port name='projectNameGeneratorPort' binding='tns:projectNameGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://projectNameGenerator' />
+    </port>
+  </service>
+</definitions>

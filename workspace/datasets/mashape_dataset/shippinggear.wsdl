@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shippingGear/' name='shippingGear' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shippingGear/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shippingGear/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shippingGear/'>
+      <xsd:element name='totalweightParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='length' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='weight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='totalweightResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='weight_dhl' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='weight_ups' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='weight_tnt' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='weight_parcelforce' type='xsd:int' minOccurs='0' />
+            <xsd:element name='weight_fedex' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='totalweightRequestMessage'>
+    <part name='parameters' element='tns:totalweightParameters' />
+  </message>
+  <message name='totalweightResponseMessage'>
+    <part name='response' element='tns:totalweightResponse' />
+  </message>
+  <portType name='shippingGearPortType'>
+    <operation name='totalweight'>
+      <documentation>calculates the result of package physical weight and volume comparison for given dimensions which represents the total chargeable weight for specific carrier Carriers Supported DHL TNT Parcelforce FedEx UPS</documentation>
+      <input message='tns:totalweightRequestMessage' name='totalweightInput' />
+      <output message='tns:totalweightResponseMessage' name='totalweightOutput' />
+    </operation>
+  </portType>
+  <binding name='shippingGearBinding' type='tns:shippingGearPortType'>
+    <operation name='totalweight'>
+      <soap12:operation soapAction='http://totalweight' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shippingGear'>
+    <documentation>some useful stuff for eCommerce shipping work in progress</documentation>
+    <port name='shippingGearPort' binding='tns:shippingGearBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shippingGear' />
+    </port>
+  </service>
+</definitions>

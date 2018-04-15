@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gengoTranslate/' name='gengoTranslate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gengoTranslate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gengoTranslate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gengoTranslate/'>
+      <xsd:element name='accountStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apisig' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='accountStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quoteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountStatisticsRequestMessage'>
+    <part name='parameters' element='tns:accountStatisticsParameters' />
+  </message>
+  <message name='accountStatisticsResponseMessage'>
+    <part name='response' element='tns:accountStatisticsResponse' />
+  </message>
+  <message name='quoteRequestMessage' />
+  <message name='quoteResponseMessage'>
+    <part name='response' element='tns:quoteResponse' />
+  </message>
+  <portType name='gengoTranslatePortType'>
+    <operation name='accountStatistics'>
+      <documentation>retrieves account stats such as orders made</documentation>
+      <input message='tns:accountStatisticsRequestMessage' name='accountStatisticsInput' />
+      <output message='tns:accountStatisticsResponseMessage' name='accountStatisticsOutput' />
+    </operation>
+    <operation name='quote'>
+      <documentation></documentation>
+      <input message='tns:quoteRequestMessage' name='quoteInput' />
+      <output message='tns:quoteResponseMessage' name='quoteOutput' />
+    </operation>
+  </portType>
+  <binding name='gengoTranslateBinding' type='tns:gengoTranslatePortType'>
+    <operation name='accountStatistics'>
+      <soap12:operation soapAction='http://accountStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='quote'>
+      <soap12:operation soapAction='http://quote' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gengoTranslate'>
+    <documentation>get human translation directly from your website or application Plug into the most scalable adaptable translation platform</documentation>
+    <port name='gengoTranslatePort' binding='tns:gengoTranslateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gengoTranslate' />
+    </port>
+  </service>
+</definitions>

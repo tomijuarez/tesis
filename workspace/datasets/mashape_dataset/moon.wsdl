@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/moon/' name='moon' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/moon/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/moon/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/moon/'>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='DFS' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='illumination' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='stage' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='FM' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='DT' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='UT' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='DFCOE' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='NNM' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='DT' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='UT' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='age' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage' />
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='moonPortType'>
+    <operation name=''>
+      <documentation></documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='moonBinding' type='tns:moonPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='moon'>
+    <documentation>mOON API v URL http api burningsoul in moon OUTPUT JSON INPUT Time stamp tns nill for current data Moon API returns current status of moon along with distance full moon new moon Example output age illumination stage waning DFCOE DFS FM UT DT Apr NNM UT DT Apr Structure age current age of moon in days illumination illumination in stage current moon phase stage waning waxing DFCOE distance from core of earth DFS distance from sun FM UT full moon unix time stamp FM DT full moon date and time NNM UT new moon unix time stamp NNM DT new moon date and time Usage Getting info by time In order to get info by time you have to pass the unix time stamp to URL URL http api burningsoul in moon timestamp EX http api burningsoul in moon jQuery getJSON http api burningsoul in moon function data do something with data PHP moonData get file contents http api burningsoul in moon Using API client API new Burningsoul API data API moon</documentation>
+    <port name='moonPort' binding='tns:moonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://moon' />
+    </port>
+  </service>
+</definitions>

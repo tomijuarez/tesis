@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wtfFacts/' name='wtfFacts' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wtfFacts/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wtfFacts/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wtfFacts/'>
+      <xsd:element name='factsVFactsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='factsVFactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='facts' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='dislikes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='likes' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='factsVFactsRequestMessage'>
+    <part name='parameters' element='tns:factsVFactsParameters' />
+  </message>
+  <message name='factsVFactsResponseMessage'>
+    <part name='response' element='tns:factsVFactsResponse' />
+  </message>
+  <portType name='wtfFactsPortType'>
+    <operation name='factsVFacts'>
+      <documentation></documentation>
+      <input message='tns:factsVFactsRequestMessage' name='factsVFactsInput' />
+      <output message='tns:factsVFactsResponseMessage' name='factsVFactsOutput' />
+    </operation>
+  </portType>
+  <binding name='wtfFactsBinding' type='tns:wtfFactsPortType'>
+    <operation name='factsVFacts'>
+      <soap12:operation soapAction='http://factsVFacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wtfFacts'>
+    <documentation>first Facts API in the market Collection of Mind boggling facts from various categories and various sources If you have any problem in using API you can contact us support smartdevelopers in OR mishrapk live com</documentation>
+    <port name='wtfFactsPort' binding='tns:wtfFactsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wtfFacts' />
+    </port>
+  </service>
+</definitions>

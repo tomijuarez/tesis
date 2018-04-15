@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cubiculusLegoSetInformation/' name='cubiculusLegoSetInformation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cubiculusLegoSetInformation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cubiculusLegoSetInformation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cubiculusLegoSetInformation/'>
+      <xsd:element name='legoSetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='legosetno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='legoSetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='idLastImageRevision' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='modelImageUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='legoModelName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='idLegoCategory' type='xsd:int' minOccurs='0' />
+            <xsd:element name='idLegoModel' type='xsd:int' minOccurs='0' />
+            <xsd:element name='separator' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pieces' type='xsd:int' minOccurs='0' />
+            <xsd:element name='boxNo' type='xsd:int' minOccurs='0' />
+            <xsd:element name='idLastRevision' type='xsd:int' minOccurs='0' />
+            <xsd:element name='idLegoBox' type='xsd:int' minOccurs='0' />
+            <xsd:element name='price' type='xsd:int' minOccurs='0' />
+            <xsd:element name='imageUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='released' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='legoSetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='propertiesParams' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='yearRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='from' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='to' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='idPropertyValues' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='priceRange' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='from' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='to' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='rowPerPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currentPageNo' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='propertiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='idProperty' type='xsd:int' minOccurs='0' />
+            <xsd:element name='values' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='idPropertyValue' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='webName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rangePriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:int' minOccurs='0' />
+            <xsd:element name='to' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rangeYearResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:int' minOccurs='0' />
+            <xsd:element name='to' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='legoSetRequestMessage'>
+    <part name='parameters' element='tns:legoSetParameters' />
+  </message>
+  <message name='legoSetResponseMessage'>
+    <part name='response' element='tns:legoSetResponse' />
+  </message>
+  <message name='legoSetsRequestMessage' />
+  <message name='legoSetsResponseMessage'>
+    <part name='response' element='tns:legoSetsResponse' />
+  </message>
+  <message name='propertiesRequestMessage' />
+  <message name='propertiesResponseMessage'>
+    <part name='response' element='tns:propertiesResponse' />
+  </message>
+  <message name='rangePriceRequestMessage' />
+  <message name='rangePriceResponseMessage'>
+    <part name='response' element='tns:rangePriceResponse' />
+  </message>
+  <message name='rangeYearRequestMessage' />
+  <message name='rangeYearResponseMessage'>
+    <part name='response' element='tns:rangeYearResponse' />
+  </message>
+  <portType name='cubiculusLegoSetInformationPortType'>
+    <operation name='legoSet'>
+      <documentation>get lego set by it s number it s number that appears at each LEGO box</documentation>
+      <input message='tns:legoSetRequestMessage' name='legoSetInput' />
+      <output message='tns:legoSetResponseMessage' name='legoSetOutput' />
+    </operation>
+    <operation name='legoSets'>
+      <documentation>for given parameters return concrete part of selected lego sets</documentation>
+      <input message='tns:legoSetsRequestMessage' name='legoSetsInput' />
+      <output message='tns:legoSetsResponseMessage' name='legoSetsOutput' />
+    </operation>
+    <operation name='properties'>
+      <documentation>return list of properties and property values that belongs to some selection Method allows show tree like structure for selecting categories</documentation>
+      <input message='tns:propertiesRequestMessage' name='propertiesInput' />
+      <output message='tns:propertiesResponseMessage' name='propertiesOutput' />
+    </operation>
+    <operation name='rangePrice'>
+      <input message='tns:rangePriceRequestMessage' name='rangePriceInput' />
+      <output message='tns:rangePriceResponseMessage' name='rangePriceOutput' />
+    </operation>
+    <operation name='rangeYear'>
+      <input message='tns:rangeYearRequestMessage' name='rangeYearInput' />
+      <output message='tns:rangeYearResponseMessage' name='rangeYearOutput' />
+    </operation>
+  </portType>
+  <binding name='cubiculusLegoSetInformationBinding' type='tns:cubiculusLegoSetInformationPortType'>
+    <operation name='legoSet'>
+      <soap12:operation soapAction='http://legoSet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='legoSets'>
+      <soap12:operation soapAction='http://legoSets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='properties'>
+      <soap12:operation soapAction='http://properties' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rangePrice'>
+      <soap12:operation soapAction='http://rangePrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rangeYear'>
+      <soap12:operation soapAction='http://rangeYear' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cubiculusLegoSetInformation'>
+    <documentation>aPI provide information about LEGO sets including images Allows maintain LEGO set collection a provide information about LEGO building instructions</documentation>
+    <port name='cubiculusLegoSetInformationPort' binding='tns:cubiculusLegoSetInformationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cubiculusLegoSetInformation' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/odesktemp/' name='odesktemp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/odesktemp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/odesktemp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/odesktemp/'>
+      <xsd:element name='cancelTheJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='openingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cancelTheJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='server_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createJobOpeningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createJobOpeningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTheDetailsForJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='openingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTheDetailsForJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='server_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobForACompanyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdtimefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdtimeto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobForACompanyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='server_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobForATeamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buyerteamreference' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdtimefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdtimeto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='includesubteams' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='team' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobForATeamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='server_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='topics' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listRegionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='alias' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchJobsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='c' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='c' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dur' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='fb' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='gr' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='max' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='min' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='st' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tba' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='wl' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchJobsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='numNewCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='endDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyerCompanyReference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyerTeamId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lastCandidacyAccessTime' type='xsd:string' minOccurs='0' />
+            <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+            <xsd:element name='reference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='createdTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='jobType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='buyerTeamName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cancelledDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='budget' type='xsd:string' minOccurs='0' />
+            <xsd:element name='filledDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyer_company__name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='visibility' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='numCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='buyerTeamReference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='created_by' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='publicUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='numActiveCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='subcategory' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='startDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchSpecificJobsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='openingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchSpecificJobsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='numNewCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='endDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyerCompanyReference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyerTeamId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lastCandidacyAccessTime' type='xsd:string' minOccurs='0' />
+            <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+            <xsd:element name='reference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='createdTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='jobType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='buyerTeamName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cancelledDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='budget' type='xsd:string' minOccurs='0' />
+            <xsd:element name='filledDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='buyer_company__name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='visibility' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='numCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='buyerTeamReference' type='xsd:int' minOccurs='0' />
+            <xsd:element name='created_by' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='publicUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='numActiveCandidates' type='xsd:int' minOccurs='0' />
+            <xsd:element name='subcategory' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='startDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateJobOpeningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='openingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateJobOpeningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cancelTheJobRequestMessage'>
+    <part name='parameters' element='tns:cancelTheJobParameters' />
+  </message>
+  <message name='cancelTheJobResponseMessage'>
+    <part name='response' element='tns:cancelTheJobResponse' />
+  </message>
+  <message name='createJobOpeningRequestMessage'>
+    <part name='parameters' element='tns:createJobOpeningParameters' />
+  </message>
+  <message name='createJobOpeningResponseMessage'>
+    <part name='response' element='tns:createJobOpeningResponse' />
+  </message>
+  <message name='getTheDetailsForJobRequestMessage'>
+    <part name='parameters' element='tns:getTheDetailsForJobParameters' />
+  </message>
+  <message name='getTheDetailsForJobResponseMessage'>
+    <part name='response' element='tns:getTheDetailsForJobResponse' />
+  </message>
+  <message name='listAllJobForACompanyRequestMessage'>
+    <part name='parameters' element='tns:listAllJobForACompanyParameters' />
+  </message>
+  <message name='listAllJobForACompanyResponseMessage'>
+    <part name='response' element='tns:listAllJobForACompanyResponse' />
+  </message>
+  <message name='listAllJobForATeamRequestMessage'>
+    <part name='parameters' element='tns:listAllJobForATeamParameters' />
+  </message>
+  <message name='listAllJobForATeamResponseMessage'>
+    <part name='response' element='tns:listAllJobForATeamResponse' />
+  </message>
+  <message name='listCategoriesRequestMessage' />
+  <message name='listCategoriesResponseMessage'>
+    <part name='response' element='tns:listCategoriesResponse' />
+  </message>
+  <message name='listRegionsRequestMessage' />
+  <message name='listRegionsResponseMessage'>
+    <part name='response' element='tns:listRegionsResponse' />
+  </message>
+  <message name='searchJobsRequestMessage'>
+    <part name='parameters' element='tns:searchJobsParameters' />
+  </message>
+  <message name='searchJobsResponseMessage'>
+    <part name='response' element='tns:searchJobsResponse' />
+  </message>
+  <message name='searchSpecificJobsRequestMessage'>
+    <part name='parameters' element='tns:searchSpecificJobsParameters' />
+  </message>
+  <message name='searchSpecificJobsResponseMessage'>
+    <part name='response' element='tns:searchSpecificJobsResponse' />
+  </message>
+  <message name='updateJobOpeningRequestMessage'>
+    <part name='parameters' element='tns:updateJobOpeningParameters' />
+  </message>
+  <message name='updateJobOpeningResponseMessage'>
+    <part name='response' element='tns:updateJobOpeningResponse' />
+  </message>
+  <portType name='odesktempPortType'>
+    <operation name='cancelTheJob'>
+      <documentation></documentation>
+      <input message='tns:cancelTheJobRequestMessage' name='cancelTheJobInput' />
+      <output message='tns:cancelTheJobResponseMessage' name='cancelTheJobOutput' />
+    </operation>
+    <operation name='createJobOpening'>
+      <documentation>see the details of a Create a job opening</documentation>
+      <input message='tns:createJobOpeningRequestMessage' name='createJobOpeningInput' />
+      <output message='tns:createJobOpeningResponseMessage' name='createJobOpeningOutput' />
+    </operation>
+    <operation name='getTheDetailsForJob'>
+      <documentation></documentation>
+      <input message='tns:getTheDetailsForJobRequestMessage' name='getTheDetailsForJobInput' />
+      <output message='tns:getTheDetailsForJobResponseMessage' name='getTheDetailsForJobOutput' />
+    </operation>
+    <operation name='listAllJobForACompany'>
+      <documentation></documentation>
+      <input message='tns:listAllJobForACompanyRequestMessage' name='listAllJobForACompanyInput' />
+      <output message='tns:listAllJobForACompanyResponseMessage' name='listAllJobForACompanyOutput' />
+    </operation>
+    <operation name='listAllJobForATeam'>
+      <documentation></documentation>
+      <input message='tns:listAllJobForATeamRequestMessage' name='listAllJobForATeamInput' />
+      <output message='tns:listAllJobForATeamResponseMessage' name='listAllJobForATeamOutput' />
+    </operation>
+    <operation name='listCategories'>
+      <documentation>get job categories</documentation>
+      <input message='tns:listCategoriesRequestMessage' name='listCategoriesInput' />
+      <output message='tns:listCategoriesResponseMessage' name='listCategoriesOutput' />
+    </operation>
+    <operation name='listRegions'>
+      <documentation>get list of regions</documentation>
+      <input message='tns:listRegionsRequestMessage' name='listRegionsInput' />
+      <output message='tns:listRegionsResponseMessage' name='listRegionsOutput' />
+    </operation>
+    <operation name='searchJobs'>
+      <documentation>search for job openings</documentation>
+      <input message='tns:searchJobsRequestMessage' name='searchJobsInput' />
+      <output message='tns:searchJobsResponseMessage' name='searchJobsOutput' />
+    </operation>
+    <operation name='searchSpecificJobs'>
+      <documentation>see the details of a specific job opening</documentation>
+      <input message='tns:searchSpecificJobsRequestMessage' name='searchSpecificJobsInput' />
+      <output message='tns:searchSpecificJobsResponseMessage' name='searchSpecificJobsOutput' />
+    </operation>
+    <operation name='updateJobOpening'>
+      <documentation></documentation>
+      <input message='tns:updateJobOpeningRequestMessage' name='updateJobOpeningInput' />
+      <output message='tns:updateJobOpeningResponseMessage' name='updateJobOpeningOutput' />
+    </operation>
+  </portType>
+  <binding name='odesktempBinding' type='tns:odesktempPortType'>
+    <operation name='cancelTheJob'>
+      <soap12:operation soapAction='http://cancelTheJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createJobOpening'>
+      <soap12:operation soapAction='http://createJobOpening' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTheDetailsForJob'>
+      <soap12:operation soapAction='http://getTheDetailsForJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllJobForACompany'>
+      <soap12:operation soapAction='http://listAllJobForACompany' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllJobForATeam'>
+      <soap12:operation soapAction='http://listAllJobForATeam' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCategories'>
+      <soap12:operation soapAction='http://listCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listRegions'>
+      <soap12:operation soapAction='http://listRegions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchJobs'>
+      <soap12:operation soapAction='http://searchJobs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchSpecificJobs'>
+      <soap12:operation soapAction='http://searchSpecificJobs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateJobOpening'>
+      <soap12:operation soapAction='http://updateJobOpening' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='odesktemp'>
+    <documentation>refactoring oDesk APIs</documentation>
+    <port name='odesktempPort' binding='tns:odesktempBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://odesktemp' />
+    </port>
+  </service>
+</definitions>

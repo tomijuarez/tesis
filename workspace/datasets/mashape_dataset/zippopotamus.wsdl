@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zippopotamUs/' name='zippopotamUs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zippopotamUs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zippopotamUs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zippopotamUs/'>
+      <xsd:element name='getInfoByCityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInfoByCityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='place_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='places' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='place_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='post_code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='country_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getZipCodeInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getZipCodeInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='places' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='place_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='state_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='country_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='post_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getInfoByCityRequestMessage'>
+    <part name='parameters' element='tns:getInfoByCityParameters' />
+  </message>
+  <message name='getInfoByCityResponseMessage'>
+    <part name='response' element='tns:getInfoByCityResponse' />
+  </message>
+  <message name='getZipCodeInfoRequestMessage'>
+    <part name='parameters' element='tns:getZipCodeInfoParameters' />
+  </message>
+  <message name='getZipCodeInfoResponseMessage'>
+    <part name='response' element='tns:getZipCodeInfoResponse' />
+  </message>
+  <portType name='zippopotamUsPortType'>
+    <operation name='getInfoByCity'>
+      <documentation></documentation>
+      <input message='tns:getInfoByCityRequestMessage' name='getInfoByCityInput' />
+      <output message='tns:getInfoByCityResponseMessage' name='getInfoByCityOutput' />
+    </operation>
+    <operation name='getZipCodeInfo'>
+      <documentation></documentation>
+      <input message='tns:getZipCodeInfoRequestMessage' name='getZipCodeInfoInput' />
+      <output message='tns:getZipCodeInfoResponseMessage' name='getZipCodeInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='zippopotamUsBinding' type='tns:zippopotamUsPortType'>
+    <operation name='getInfoByCity'>
+      <soap12:operation soapAction='http://getInfoByCity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getZipCodeInfo'>
+      <soap12:operation soapAction='http://getZipCodeInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zippopotamUs'>
+    <documentation>zip Code Galore Zip po pot amus zip p t m s Postal Codes and Zip Codes made easy Free API with JSON Response Format Over Countries Supported Perfect for Form Autocompletion Open for Crowdsourcing and Contribution</documentation>
+    <port name='zippopotamUsPort' binding='tns:zippopotamUsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zippopotamUs' />
+    </port>
+  </service>
+</definitions>

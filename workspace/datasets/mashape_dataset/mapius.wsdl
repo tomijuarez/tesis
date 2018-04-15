@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mapiUs/' name='mapiUs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mapiUs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mapiUs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mapiUs/'>
+      <xsd:element name='activeIngredientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='activeIngredientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dosagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dosagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='drugAutocompletionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='drugAutocompletionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='suggestions' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='activeIngredientsRequestMessage'>
+    <part name='parameters' element='tns:activeIngredientsParameters' />
+  </message>
+  <message name='activeIngredientsResponseMessage'>
+    <part name='response' element='tns:activeIngredientsResponse' />
+  </message>
+  <message name='dosagesRequestMessage'>
+    <part name='parameters' element='tns:dosagesParameters' />
+  </message>
+  <message name='dosagesResponseMessage'>
+    <part name='response' element='tns:dosagesResponse' />
+  </message>
+  <message name='drugAutocompletionRequestMessage'>
+    <part name='parameters' element='tns:drugAutocompletionParameters' />
+  </message>
+  <message name='drugAutocompletionResponseMessage'>
+    <part name='response' element='tns:drugAutocompletionResponse' />
+  </message>
+  <portType name='mapiUsPortType'>
+    <operation name='activeIngredients'>
+      <documentation>get all the active ingredients associated with a drug</documentation>
+      <input message='tns:activeIngredientsRequestMessage' name='activeIngredientsInput' />
+      <output message='tns:activeIngredientsResponseMessage' name='activeIngredientsOutput' />
+    </operation>
+    <operation name='dosages'>
+      <documentation>get all the dosages associated with a drug</documentation>
+      <input message='tns:dosagesRequestMessage' name='dosagesInput' />
+      <output message='tns:dosagesResponseMessage' name='dosagesOutput' />
+    </operation>
+    <operation name='drugAutocompletion'>
+      <documentation>query our database to provide autocompletion for drug names</documentation>
+      <input message='tns:drugAutocompletionRequestMessage' name='drugAutocompletionInput' />
+      <output message='tns:drugAutocompletionResponseMessage' name='drugAutocompletionOutput' />
+    </operation>
+  </portType>
+  <binding name='mapiUsBinding' type='tns:mapiUsPortType'>
+    <operation name='activeIngredients'>
+      <soap12:operation soapAction='http://activeIngredients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dosages'>
+      <soap12:operation soapAction='http://dosages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='drugAutocompletion'>
+      <soap12:operation soapAction='http://drugAutocompletion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mapiUs'>
+    <documentation>information about drugs available through an API Accessible everywhere</documentation>
+    <port name='mapiUsPort' binding='tns:mapiUsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mapiUs' />
+    </port>
+  </service>
+</definitions>

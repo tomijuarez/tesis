@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gestureRecognitionRapi/' name='gestureRecognitionRapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gestureRecognitionRapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gestureRecognitionRapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gestureRecognitionRapi/'>
+      <xsd:element name='recognizeGestureResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='recognizeGestureRequestMessage' />
+  <message name='recognizeGestureResponseMessage'>
+    <part name='response' element='tns:recognizeGestureResponse' />
+  </message>
+  <portType name='gestureRecognitionRapiPortType'>
+    <operation name='recognizeGesture'>
+      <documentation>sends a list of points to the API to identify the name of the gesture drawn</documentation>
+      <input message='tns:recognizeGestureRequestMessage' name='recognizeGestureInput' />
+      <output message='tns:recognizeGestureResponseMessage' name='recognizeGestureOutput' />
+    </operation>
+  </portType>
+  <binding name='gestureRecognitionRapiBinding' type='tns:gestureRecognitionRapiPortType'>
+    <operation name='recognizeGesture'>
+      <soap12:operation soapAction='http://recognizeGesture' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gestureRecognitionRapi'>
+    <documentation>recognize is a gesture recognition system API build for PCs called RAPI through which a Net C developer can easily build applications controlled through next gen interfacing i e hand finger dynamic gestures Only hardware needed for taking input is the webcam which is easily available and cheap and comes mostly built in inside laptops and PCs</documentation>
+    <port name='gestureRecognitionRapiPort' binding='tns:gestureRecognitionRapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gestureRecognitionRapi' />
+    </port>
+  </service>
+</definitions>

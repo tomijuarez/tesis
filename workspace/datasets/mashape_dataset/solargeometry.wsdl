@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/solarGeometry/' name='solarGeometry' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/solarGeometry/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/solarGeometry/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/solarGeometry/'>
+      <xsd:element name='solarPositionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hour_angle' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='sunrise' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='declination' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='sunset' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='solar_elevation' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='angle_of_incidence' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='solar_azimuth' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='solarPositionRequestMessage' />
+  <message name='solarPositionResponseMessage'>
+    <part name='response' element='tns:solarPositionResponse' />
+  </message>
+  <portType name='solarGeometryPortType'>
+    <operation name='solarPosition'>
+      <documentation>a sample POST method</documentation>
+      <input message='tns:solarPositionRequestMessage' name='solarPositionInput' />
+      <output message='tns:solarPositionResponseMessage' name='solarPositionOutput' />
+    </operation>
+  </portType>
+  <binding name='solarGeometryBinding' type='tns:solarGeometryPortType'>
+    <operation name='solarPosition'>
+      <soap12:operation soapAction='http://solarPosition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='solarGeometry'>
+    <documentation>calculates the geometry of the Sun such as the direction of the sunlight on the panel such as solar panel</documentation>
+    <port name='solarGeometryPort' binding='tns:solarGeometryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://solarGeometry' />
+    </port>
+  </service>
+</definitions>

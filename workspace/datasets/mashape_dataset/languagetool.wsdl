@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languagetool/' name='languagetool' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languagetool/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languagetool/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languagetool/'>
+      <xsd:element name='listOfLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textCheckingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listOfLanguagesRequestMessage' />
+  <message name='listOfLanguagesResponseMessage'>
+    <part name='response' element='tns:listOfLanguagesResponse' />
+  </message>
+  <message name='textCheckingRequestMessage' />
+  <message name='textCheckingResponseMessage'>
+    <part name='response' element='tns:textCheckingResponse' />
+  </message>
+  <portType name='languagetoolPortType'>
+    <operation name='listOfLanguages'>
+      <documentation></documentation>
+      <input message='tns:listOfLanguagesRequestMessage' name='listOfLanguagesInput' />
+      <output message='tns:listOfLanguagesResponseMessage' name='listOfLanguagesOutput' />
+    </operation>
+    <operation name='textChecking'>
+      <documentation></documentation>
+      <input message='tns:textCheckingRequestMessage' name='textCheckingInput' />
+      <output message='tns:textCheckingResponseMessage' name='textCheckingOutput' />
+    </operation>
+  </portType>
+  <binding name='languagetoolBinding' type='tns:languagetoolPortType'>
+    <operation name='listOfLanguages'>
+      <soap12:operation soapAction='http://listOfLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textChecking'>
+      <soap12:operation soapAction='http://textChecking' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languagetool'>
+    <documentation>style and grammar checking proofreading for more than languages including English French Polish Spanish and German Based on languagetool org</documentation>
+    <port name='languagetoolPort' binding='tns:languagetoolBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languagetool' />
+    </port>
+  </service>
+</definitions>

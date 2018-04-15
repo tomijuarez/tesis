@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/awardwalletWebParsingLoyaltyDataRetrieval/' name='awardwalletWebParsingLoyaltyDataRetrieval' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingLoyaltyDataRetrieval/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/awardwalletWebParsingLoyaltyDataRetrieval/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingLoyaltyDataRetrieval/'>
+      <xsd:element name='checkaccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listprovidersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkaccountRequestMessage' />
+  <message name='checkaccountResponseMessage'>
+    <part name='response' element='tns:checkaccountResponse' />
+  </message>
+  <message name='listprovidersRequestMessage' />
+  <message name='listprovidersResponseMessage'>
+    <part name='response' element='tns:listprovidersResponse' />
+  </message>
+  <portType name='awardwalletWebParsingLoyaltyDataRetrievalPortType'>
+    <operation name='checkaccount'>
+      <documentation>check single account</documentation>
+      <input message='tns:checkaccountRequestMessage' name='checkaccountInput' />
+      <output message='tns:checkaccountResponseMessage' name='checkaccountOutput' />
+    </operation>
+    <operation name='listproviders'>
+      <documentation>information about supported loyalty programs</documentation>
+      <input message='tns:listprovidersRequestMessage' name='listprovidersInput' />
+      <output message='tns:listprovidersResponseMessage' name='listprovidersOutput' />
+    </operation>
+  </portType>
+  <binding name='awardwalletWebParsingLoyaltyDataRetrievalBinding' type='tns:awardwalletWebParsingLoyaltyDataRetrievalPortType'>
+    <operation name='checkaccount'>
+      <soap12:operation soapAction='http://checkaccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listproviders'>
+      <soap12:operation soapAction='http://listproviders' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='awardwalletWebParsingLoyaltyDataRetrieval'>
+    <documentation>this API allows you to automatically retrive Account balance and other properties of a loyalty account such as Expiration Name Account number Status Next elite level Miles needed to next level Segments needed to next level Last activity etc Account history As of Jun we support programs and growing If you run into any issues please contact us via http awardwallet com contact php</documentation>
+    <port name='awardwalletWebParsingLoyaltyDataRetrievalPort' binding='tns:awardwalletWebParsingLoyaltyDataRetrievalBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://awardwalletWebParsingLoyaltyDataRetrieval' />
+    </port>
+  </service>
+</definitions>

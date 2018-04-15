@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stargetSentimentAnalysis/' name='stargetSentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stargetSentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stargetSentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stargetSentimentAnalysis/'>
+      <xsd:element name='startgetSentimntAnalysisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='classifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='context' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='target' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startgetSentimntAnalysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='startgetSentimntAnalysisRequestMessage'>
+    <part name='parameters' element='tns:startgetSentimntAnalysisParameters' />
+  </message>
+  <message name='startgetSentimntAnalysisResponseMessage'>
+    <part name='response' element='tns:startgetSentimntAnalysisResponse' />
+  </message>
+  <portType name='stargetSentimentAnalysisPortType'>
+    <operation name='startgetSentimntAnalysis'>
+      <documentation>this service returns sentiment for a given text regarding a specified target</documentation>
+      <input message='tns:startgetSentimntAnalysisRequestMessage' name='startgetSentimntAnalysisInput' />
+      <output message='tns:startgetSentimntAnalysisResponseMessage' name='startgetSentimntAnalysisOutput' />
+    </operation>
+  </portType>
+  <binding name='stargetSentimentAnalysisBinding' type='tns:stargetSentimentAnalysisPortType'>
+    <operation name='startgetSentimntAnalysis'>
+      <soap12:operation soapAction='http://startgetSentimntAnalysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stargetSentimentAnalysis'>
+    <documentation>this is a short text a twitt or a single sentence sentiment classification API It has two types of analysis one for finding more but less accurate sentiment snippets and another one for finding more accurate sentiment but missing some difficult cases Long documents are planned to be supported later</documentation>
+    <port name='stargetSentimentAnalysisPort' binding='tns:stargetSentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stargetSentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

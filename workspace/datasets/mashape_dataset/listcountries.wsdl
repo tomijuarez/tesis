@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/listcountries/' name='listcountries' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/listcountries/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/listcountries/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/listcountries/'>
+      <xsd:element name='listallcountriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listallcountriesRequestMessage' />
+  <message name='listallcountriesResponseMessage'>
+    <part name='response' element='tns:listallcountriesResponse' />
+  </message>
+  <portType name='listcountriesPortType'>
+    <operation name='listallcountries'>
+      <documentation>get list of all countries description</documentation>
+      <input message='tns:listallcountriesRequestMessage' name='listallcountriesInput' />
+      <output message='tns:listallcountriesResponseMessage' name='listallcountriesOutput' />
+    </operation>
+  </portType>
+  <binding name='listcountriesBinding' type='tns:listcountriesPortType'>
+    <operation name='listallcountries'>
+      <soap12:operation soapAction='http://listallcountries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='listcountries'>
+    <documentation>it will list all countries</documentation>
+    <port name='listcountriesPort' binding='tns:listcountriesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://listcountries' />
+    </port>
+  </service>
+</definitions>

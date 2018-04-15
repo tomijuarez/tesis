@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/usPhoneNumberLookup/' name='usPhoneNumberLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/usPhoneNumberLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/usPhoneNumberLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/usPhoneNumberLookup/'>
+      <xsd:element name='getPhoneNumberDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='opencnamauthtoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='opencnamsid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPhoneNumberDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='carrier' type='xsd:string' minOccurs='0' />
+            <xsd:element name='opencnam' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='county' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cbsa_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone_number' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='xxx' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='npa' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='nxx' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='time_zone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getPhoneNumberDetailsRequestMessage'>
+    <part name='parameters' element='tns:getPhoneNumberDetailsParameters' />
+  </message>
+  <message name='getPhoneNumberDetailsResponseMessage'>
+    <part name='response' element='tns:getPhoneNumberDetailsResponse' />
+  </message>
+  <portType name='usPhoneNumberLookupPortType'>
+    <operation name='getPhoneNumberDetails'>
+      <documentation></documentation>
+      <input message='tns:getPhoneNumberDetailsRequestMessage' name='getPhoneNumberDetailsInput' />
+      <output message='tns:getPhoneNumberDetailsResponseMessage' name='getPhoneNumberDetailsOutput' />
+    </operation>
+  </portType>
+  <binding name='usPhoneNumberLookupBinding' type='tns:usPhoneNumberLookupPortType'>
+    <operation name='getPhoneNumberDetails'>
+      <soap12:operation soapAction='http://getPhoneNumberDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='usPhoneNumberLookup'>
+    <documentation>insert an US phone number Digits only and retrieve details like approximate latitude and longitude city county and some other details about it Update Added OpenCNAM API www opencnam com</documentation>
+    <port name='usPhoneNumberLookupPort' binding='tns:usPhoneNumberLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://usPhoneNumberLookup' />
+    </port>
+  </service>
+</definitions>

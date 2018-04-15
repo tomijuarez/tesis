@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sitesXRay/' name='sitesXRay' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sitesXRay/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sitesXRay/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sitesXRay/'>
+      <xsd:element name='websiteDomainNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='websitedomainname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='websiteDomainNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='locationLat' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='crawled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='ipAddress' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='locationCountryName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='siteTechnologies' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='techCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='locationCountryCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='locationSubdivisionCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='locationPostalCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domainName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='redirectToSSL' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='rank' type='xsd:int' minOccurs='0' />
+            <xsd:element name='locationSubdivisionName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='locationLon' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='locationCity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='websiteDomainNameRequestMessage'>
+    <part name='parameters' element='tns:websiteDomainNameParameters' />
+  </message>
+  <message name='websiteDomainNameResponseMessage'>
+    <part name='response' element='tns:websiteDomainNameResponse' />
+  </message>
+  <portType name='sitesXRayPortType'>
+    <operation name='websiteDomainName'>
+      <documentation>website domain name</documentation>
+      <input message='tns:websiteDomainNameRequestMessage' name='websiteDomainNameInput' />
+      <output message='tns:websiteDomainNameResponseMessage' name='websiteDomainNameOutput' />
+    </operation>
+  </portType>
+  <binding name='sitesXRayBinding' type='tns:sitesXRayPortType'>
+    <operation name='websiteDomainName'>
+      <soap12:operation soapAction='http://websiteDomainName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sitesXRay'>
+    <documentation>this API provide for the given website domain name the list of the technologies used in the websites the website IP Address the server location the global rank the linked domains and the main language used</documentation>
+    <port name='sitesXRayPort' binding='tns:sitesXRayBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sitesXRay' />
+    </port>
+  </service>
+</definitions>

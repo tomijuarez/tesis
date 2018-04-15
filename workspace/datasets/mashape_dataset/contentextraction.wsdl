@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/contentExtraction/' name='contentExtraction' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/contentExtraction/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/contentExtraction/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/contentExtraction/'>
+      <xsd:element name='extractorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta_description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='http_status' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='meta_keywords' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redirect_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='extractorRequestMessage'>
+    <part name='parameters' element='tns:extractorParameters' />
+  </message>
+  <message name='extractorResponseMessage'>
+    <part name='response' element='tns:extractorResponse' />
+  </message>
+  <portType name='contentExtractionPortType'>
+    <operation name='extractor'>
+      <documentation>content Extraction</documentation>
+      <input message='tns:extractorRequestMessage' name='extractorInput' />
+      <output message='tns:extractorResponseMessage' name='extractorOutput' />
+    </operation>
+  </portType>
+  <binding name='contentExtractionBinding' type='tns:contentExtractionPortType'>
+    <operation name='extractor'>
+      <soap12:operation soapAction='http://extractor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='contentExtraction'>
+    <documentation>this API extracts the key information from a web site including meta data language data http status and content text</documentation>
+    <port name='contentExtractionPort' binding='tns:contentExtractionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://contentExtraction' />
+    </port>
+  </service>
+</definitions>

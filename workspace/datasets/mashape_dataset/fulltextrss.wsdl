@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fullTextRss/' name='fullTextRss' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fullTextRss/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fullTextRss/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fullTextRss/'>
+      <xsd:element name='convertFeedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accept' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='content' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='links' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='max' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='parser' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='summary' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useextractedtitle' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='xss' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertFeedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractArticleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='effective_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='excerpt' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertFeedRequestMessage'>
+    <part name='parameters' element='tns:convertFeedParameters' />
+  </message>
+  <message name='convertFeedResponseMessage'>
+    <part name='response' element='tns:convertFeedResponse' />
+  </message>
+  <message name='extractArticleRequestMessage' />
+  <message name='extractArticleResponseMessage'>
+    <part name='response' element='tns:extractArticleResponse' />
+  </message>
+  <portType name='fullTextRssPortType'>
+    <operation name='convertFeed'>
+      <documentation>convert a partial feed to a full text feed Outputs an RSS feed XML or JSON containing the full content extracted from the input URL The input URL can be a partial feed or a web page</documentation>
+      <input message='tns:convertFeedRequestMessage' name='convertFeedInput' />
+      <output message='tns:convertFeedResponseMessage' name='convertFeedOutput' />
+    </operation>
+    <operation name='extractArticle'>
+      <documentation>extract article from a web page Outputs JSON containing the full content extracted from the input URL or the input HTML</documentation>
+      <input message='tns:extractArticleRequestMessage' name='extractArticleInput' />
+      <output message='tns:extractArticleResponseMessage' name='extractArticleOutput' />
+    </operation>
+  </portType>
+  <binding name='fullTextRssBinding' type='tns:fullTextRssPortType'>
+    <operation name='convertFeed'>
+      <soap12:operation soapAction='http://convertFeed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractArticle'>
+      <soap12:operation soapAction='http://extractArticle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fullTextRss'>
+    <documentation>full Text RSS can extract article content from a web page and transform partial web feeds into full text feeds Get results in RSS or JSON You can use our hosted service via Mashape test for free and you can also visit our site to buy our self hosted version</documentation>
+    <port name='fullTextRssPort' binding='tns:fullTextRssBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fullTextRss' />
+    </port>
+  </service>
+</definitions>

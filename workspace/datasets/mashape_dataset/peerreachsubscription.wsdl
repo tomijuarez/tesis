@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/peerreachSubscription/' name='peerreachSubscription' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/peerreachSubscription/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/peerreachSubscription/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/peerreachSubscription/'>
+      <xsd:element name='userLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='screenname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='followers' type='xsd:int' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='screen_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='profiles' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='peergroups' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rank' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='lastupdate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='friends' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='userLookupRequestMessage'>
+    <part name='parameters' element='tns:userLookupParameters' />
+  </message>
+  <message name='userLookupResponseMessage'>
+    <part name='response' element='tns:userLookupResponse' />
+  </message>
+  <portType name='peerreachSubscriptionPortType'>
+    <operation name='userLookup'>
+      <documentation>returns a detailed overview of available PeerReach data for the user</documentation>
+      <input message='tns:userLookupRequestMessage' name='userLookupInput' />
+      <output message='tns:userLookupResponseMessage' name='userLookupOutput' />
+    </operation>
+  </portType>
+  <binding name='peerreachSubscriptionBinding' type='tns:peerreachSubscriptionPortType'>
+    <operation name='userLookup'>
+      <soap12:operation soapAction='http://userLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='peerreachSubscription'>
+    <documentation>the PeerReach API allows you to give context to the content produced by any Twitter profile PeerReach has analysed over a million accounts and can return information like expertise area s interests gender age and location</documentation>
+    <port name='peerreachSubscriptionPort' binding='tns:peerreachSubscriptionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://peerreachSubscription' />
+    </port>
+  </service>
+</definitions>

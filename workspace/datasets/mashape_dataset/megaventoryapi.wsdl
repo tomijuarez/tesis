@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/megaventoryApi/' name='megaventoryApi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/megaventoryApi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/megaventoryApi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/megaventoryApi/'>
+      <xsd:element name='productgetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='myapikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productgetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ResponseStatus' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ErrorCode' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='mvProducts' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ProductSKU' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProductCustomField2' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductCustomField3' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductHeight' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProductBreadth' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductComments' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductMainSupplierPrice' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductMainSupplierID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductVersion' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductPurchasePrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ProductWeight' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductEAN' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductCustomField1' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductSellingPrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ProductCreationDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProductImageURL' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductCategoryID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductDescription' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProductLongDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductUnitOfMeasurement' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ProductLength' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='productgetRequestMessage'>
+    <part name='parameters' element='tns:productgetParameters' />
+  </message>
+  <message name='productgetResponseMessage'>
+    <part name='response' element='tns:productgetResponse' />
+  </message>
+  <portType name='megaventoryApiPortType'>
+    <operation name='productget'>
+      <documentation>gets Products</documentation>
+      <input message='tns:productgetRequestMessage' name='productgetInput' />
+      <output message='tns:productgetResponseMessage' name='productgetOutput' />
+    </operation>
+  </portType>
+  <binding name='megaventoryApiBinding' type='tns:megaventoryApiPortType'>
+    <operation name='productget'>
+      <soap12:operation soapAction='http://productget' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='megaventoryApi'>
+    <documentation>leading web based inventory and order management system</documentation>
+    <port name='megaventoryApiPort' binding='tns:megaventoryApiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://megaventoryApi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dthRechargeOptionsIndia/' name='dthRechargeOptionsIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dthRechargeOptionsIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dthRechargeOptionsIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dthRechargeOptionsIndia/'>
+      <xsd:element name='requestDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='circle' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='operator' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Circles' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_short_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rtype' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='is_Prepaid' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_talktime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_description' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_validity' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='blacklist' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='All_Channels' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='operator' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='requestDataRequestMessage'>
+    <part name='parameters' element='tns:requestDataParameters' />
+  </message>
+  <message name='requestDataResponseMessage'>
+    <part name='response' element='tns:requestDataResponse' />
+  </message>
+  <portType name='dthRechargeOptionsIndiaPortType'>
+    <operation name='requestData'>
+      <documentation></documentation>
+      <input message='tns:requestDataRequestMessage' name='requestDataInput' />
+      <output message='tns:requestDataResponseMessage' name='requestDataOutput' />
+    </operation>
+  </portType>
+  <binding name='dthRechargeOptionsIndiaBinding' type='tns:dthRechargeOptionsIndiaPortType'>
+    <operation name='requestData'>
+      <soap12:operation soapAction='http://requestData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dthRechargeOptionsIndia'>
+    <documentation>this data API provides details of all DTH recharge options available with various operators across all circles in India</documentation>
+    <port name='dthRechargeOptionsIndiaPort' binding='tns:dthRechargeOptionsIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dthRechargeOptionsIndia' />
+    </port>
+  </service>
+</definitions>

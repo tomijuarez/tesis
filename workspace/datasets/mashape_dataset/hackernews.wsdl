@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hackerNews/' name='hackerNews' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hackerNews/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hackerNews/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hackerNews/'>
+      <xsd:element name='changedItemsAndProfilesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='profiles' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='items' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='itemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='itemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:int' minOccurs='0' />
+            <xsd:element name='by' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='kids' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='maxItemIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topStoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='karma' type='xsd:int' minOccurs='0' />
+            <xsd:element name='delay' type='xsd:int' minOccurs='0' />
+            <xsd:element name='submitted' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='about' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='changedItemsAndProfilesRequestMessage' />
+  <message name='changedItemsAndProfilesResponseMessage'>
+    <part name='response' element='tns:changedItemsAndProfilesResponse' />
+  </message>
+  <message name='itemsRequestMessage'>
+    <part name='parameters' element='tns:itemsParameters' />
+  </message>
+  <message name='itemsResponseMessage'>
+    <part name='response' element='tns:itemsResponse' />
+  </message>
+  <message name='maxItemIdRequestMessage' />
+  <message name='maxItemIdResponseMessage'>
+    <part name='response' element='tns:maxItemIdResponse' />
+  </message>
+  <message name='topStoriesRequestMessage' />
+  <message name='topStoriesResponseMessage'>
+    <part name='response' element='tns:topStoriesResponse' />
+  </message>
+  <message name='usersRequestMessage'>
+    <part name='parameters' element='tns:usersParameters' />
+  </message>
+  <message name='usersResponseMessage'>
+    <part name='response' element='tns:usersResponse' />
+  </message>
+  <portType name='hackerNewsPortType'>
+    <operation name='changedItemsAndProfiles'>
+      <documentation>returns the item and profile changes</documentation>
+      <input message='tns:changedItemsAndProfilesRequestMessage' name='changedItemsAndProfilesInput' />
+      <output message='tns:changedItemsAndProfilesResponseMessage' name='changedItemsAndProfilesOutput' />
+    </operation>
+    <operation name='items'>
+      <documentation>stories comments Ask HNs and polls are considered items identified by ids unique integers</documentation>
+      <input message='tns:itemsRequestMessage' name='itemsInput' />
+      <output message='tns:itemsResponseMessage' name='itemsOutput' />
+    </operation>
+    <operation name='maxItemId'>
+      <documentation>returns the current largest item id</documentation>
+      <input message='tns:maxItemIdRequestMessage' name='maxItemIdInput' />
+      <output message='tns:maxItemIdResponseMessage' name='maxItemIdOutput' />
+    </operation>
+    <operation name='topStories'>
+      <documentation>returns the current top stories</documentation>
+      <input message='tns:topStoriesRequestMessage' name='topStoriesInput' />
+      <output message='tns:topStoriesResponseMessage' name='topStoriesOutput' />
+    </operation>
+    <operation name='users'>
+      <documentation>users are identified by case sensitive ids</documentation>
+      <input message='tns:usersRequestMessage' name='usersInput' />
+      <output message='tns:usersResponseMessage' name='usersOutput' />
+    </operation>
+  </portType>
+  <binding name='hackerNewsBinding' type='tns:hackerNewsPortType'>
+    <operation name='changedItemsAndProfiles'>
+      <soap12:operation soapAction='http://changedItemsAndProfiles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='items'>
+      <soap12:operation soapAction='http://items' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='maxItemId'>
+      <soap12:operation soapAction='http://maxItemId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='topStories'>
+      <soap12:operation soapAction='http://topStories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='users'>
+      <soap12:operation soapAction='http://users' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hackerNews'>
+    <documentation>this is the first iteration of YCombinator s Hacker News API which provides read only access to Hacker News data near real time including stories comments user data top stories etc</documentation>
+    <port name='hackerNewsPort' binding='tns:hackerNewsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hackerNews' />
+    </port>
+  </service>
+</definitions>

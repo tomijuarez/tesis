@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/faceMatch/' name='faceMatch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/faceMatch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/faceMatch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/faceMatch/'>
+      <xsd:element name='randomFemaleImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomMaleAndFemaleImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='left' type='xsd:string' minOccurs='0' />
+            <xsd:element name='right' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomMaleImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='randomFemaleImageRequestMessage' />
+  <message name='randomFemaleImageResponseMessage'>
+    <part name='response' element='tns:randomFemaleImageResponse' />
+  </message>
+  <message name='randomImageRequestMessage' />
+  <message name='randomImageResponseMessage'>
+    <part name='response' element='tns:randomImageResponse' />
+  </message>
+  <message name='randomMaleAndFemaleImageRequestMessage' />
+  <message name='randomMaleAndFemaleImageResponseMessage'>
+    <part name='response' element='tns:randomMaleAndFemaleImageResponse' />
+  </message>
+  <message name='randomMaleImageRequestMessage' />
+  <message name='randomMaleImageResponseMessage'>
+    <part name='response' element='tns:randomMaleImageResponse' />
+  </message>
+  <portType name='faceMatchPortType'>
+    <operation name='randomFemaleImage'>
+      <documentation>returns a random female K pop star image</documentation>
+      <input message='tns:randomFemaleImageRequestMessage' name='randomFemaleImageInput' />
+      <output message='tns:randomFemaleImageResponseMessage' name='randomFemaleImageOutput' />
+    </operation>
+    <operation name='randomImage'>
+      <documentation>returns a random K pop star picture</documentation>
+      <input message='tns:randomImageRequestMessage' name='randomImageInput' />
+      <output message='tns:randomImageResponseMessage' name='randomImageOutput' />
+    </operation>
+    <operation name='randomMaleAndFemaleImage'>
+      <documentation>returns a pair of random male and female K pop star images</documentation>
+      <input message='tns:randomMaleAndFemaleImageRequestMessage' name='randomMaleAndFemaleImageInput' />
+      <output message='tns:randomMaleAndFemaleImageResponseMessage' name='randomMaleAndFemaleImageOutput' />
+    </operation>
+    <operation name='randomMaleImage'>
+      <documentation>returns a random male K pop star image</documentation>
+      <input message='tns:randomMaleImageRequestMessage' name='randomMaleImageInput' />
+      <output message='tns:randomMaleImageResponseMessage' name='randomMaleImageOutput' />
+    </operation>
+  </portType>
+  <binding name='faceMatchBinding' type='tns:faceMatchPortType'>
+    <operation name='randomFemaleImage'>
+      <soap12:operation soapAction='http://randomFemaleImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='randomImage'>
+      <soap12:operation soapAction='http://randomImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='randomMaleAndFemaleImage'>
+      <soap12:operation soapAction='http://randomMaleAndFemaleImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='randomMaleImage'>
+      <soap12:operation soapAction='http://randomMaleImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='faceMatch'>
+    <documentation>this API collects pictures of K pop stars from all over the world and return random pictures according to user s request</documentation>
+    <port name='faceMatchPort' binding='tns:faceMatchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://faceMatch' />
+    </port>
+  </service>
+</definitions>

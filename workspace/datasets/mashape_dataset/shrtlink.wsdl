@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shrtlink/' name='shrtlink' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shrtlink/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shrtlink/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shrtlink/'>
+      <xsd:element name='newShortlinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='published_by' type='xsd:string' minOccurs='0' />
+            <xsd:element name='registration_method' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='complete_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='times_visited' type='xsd:int' minOccurs='0' />
+            <xsd:element name='shorted_link' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='newShortlinkRequestMessage' />
+  <message name='newShortlinkResponseMessage'>
+    <part name='response' element='tns:newShortlinkResponse' />
+  </message>
+  <portType name='shrtlinkPortType'>
+    <operation name='newShortlink'>
+      <documentation>create a new shortlink</documentation>
+      <input message='tns:newShortlinkRequestMessage' name='newShortlinkInput' />
+      <output message='tns:newShortlinkResponseMessage' name='newShortlinkOutput' />
+    </operation>
+  </portType>
+  <binding name='shrtlinkBinding' type='tns:shrtlinkPortType'>
+    <operation name='newShortlink'>
+      <soap12:operation soapAction='http://newShortlink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shrtlink'>
+    <documentation>short links made easy</documentation>
+    <port name='shrtlinkPort' binding='tns:shrtlinkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shrtlink' />
+    </port>
+  </service>
+</definitions>

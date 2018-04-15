@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/inteltechSms/' name='inteltechSms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/inteltechSms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/inteltechSms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/inteltechSms/'>
+      <xsd:element name='checkCreditResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkCreditRequestMessage' />
+  <message name='checkCreditResponseMessage'>
+    <part name='response' element='tns:checkCreditResponse' />
+  </message>
+  <message name='sendSmsRequestMessage' />
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='inteltechSmsPortType'>
+    <operation name='checkCredit'>
+      <documentation>returns Prepaid Account Balance</documentation>
+      <input message='tns:checkCreditRequestMessage' name='checkCreditInput' />
+      <output message='tns:checkCreditResponseMessage' name='checkCreditOutput' />
+    </operation>
+    <operation name='sendSms'>
+      <documentation>send an SMS with the Inteltech API</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='inteltechSmsBinding' type='tns:inteltechSmsPortType'>
+    <operation name='checkCredit'>
+      <soap12:operation soapAction='http://checkCredit' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='inteltechSms'>
+    <documentation>intelligent Technologies SMS API Allows sending and receiving of SMS messages An account is required Sign up for free at http inteltech com au Send messages to any country in the world</documentation>
+    <port name='inteltechSmsPort' binding='tns:inteltechSmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://inteltechSms' />
+    </port>
+  </service>
+</definitions>

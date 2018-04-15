@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/farooWebSearch/' name='farooWebSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/farooWebSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/farooWebSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/farooWebSearch/'>
+      <xsd:element name='webParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='webResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='start' type='xsd:int' minOccurs='0' />
+            <xsd:element name='length' type='xsd:int' minOccurs='0' />
+            <xsd:element name='time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='news' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='date' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='kwic' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='author' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='iurl' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='votes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='webRequestMessage'>
+    <part name='parameters' element='tns:webParameters' />
+  </message>
+  <message name='webResponseMessage'>
+    <part name='response' element='tns:webResponse' />
+  </message>
+  <portType name='farooWebSearchPortType'>
+    <operation name='web'>
+      <documentation>web search</documentation>
+      <input message='tns:webRequestMessage' name='webInput' />
+      <output message='tns:webResponseMessage' name='webOutput' />
+    </operation>
+  </portType>
+  <binding name='farooWebSearchBinding' type='tns:farooWebSearchPortType'>
+    <operation name='web'>
+      <soap12:operation soapAction='http://web' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='farooWebSearch'>
+    <documentation>free Search API with million free queries per month Web Search More than billion pages indexed English German and Chinese results Sorted by relevancy News Search News articles from newspapers magazines and blogs Sorted by publishing date with author and article image Trending News Trending news grouped by topic Topics sorted by buzz number of sources reporting on same topic One main article per topic related links Trending Topics Trending news grouped by topic Topics sorted by buzz number of sources reporting on same topic All full articles per topic sorted by publishing time Suggestions Suggestions with auto completes for query substrings and corrections for misspelled terms</documentation>
+    <port name='farooWebSearchPort' binding='tns:farooWebSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://farooWebSearch' />
+    </port>
+  </service>
+</definitions>

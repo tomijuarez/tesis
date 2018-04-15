@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/quotes/' name='quotes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/quotes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/quotes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/quotes/'>
+      <xsd:element name='widgetSearchJsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='search' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='widgetSearchJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='quote' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='by' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='pic' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='widgetSearchJsonRequestMessage'>
+    <part name='parameters' element='tns:widgetSearchJsonParameters' />
+  </message>
+  <message name='widgetSearchJsonResponseMessage'>
+    <part name='response' element='tns:widgetSearchJsonResponse' />
+  </message>
+  <portType name='quotesPortType'>
+    <operation name='widgetSearchJson'>
+      <documentation>search or get a random quote</documentation>
+      <input message='tns:widgetSearchJsonRequestMessage' name='widgetSearchJsonInput' />
+      <output message='tns:widgetSearchJsonResponseMessage' name='widgetSearchJsonOutput' />
+    </operation>
+  </portType>
+  <binding name='quotesBinding' type='tns:quotesPortType'>
+    <operation name='widgetSearchJson'>
+      <soap12:operation soapAction='http://widgetSearchJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='quotes'>
+    <documentation>this is a simple API for use with bot integration or to create wordpress or other CMS plugins to show relevant quotes and quotations to display to the user Coming soon will be an ability to curate quotes and even add your own that will be available via the same API</documentation>
+    <port name='quotesPort' binding='tns:quotesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://quotes' />
+    </port>
+  </service>
+</definitions>

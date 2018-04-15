@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/browserobject/' name='browserobject' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/browserobject/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/browserobject/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/browserobject/'>
+      <xsd:element name='browserobjectApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='license' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useragentstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='browserobjectApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='browserobjectApiRequestMessage'>
+    <part name='parameters' element='tns:browserobjectApiParameters' />
+  </message>
+  <message name='browserobjectApiResponseMessage'>
+    <part name='response' element='tns:browserobjectApiResponse' />
+  </message>
+  <portType name='browserobjectPortType'>
+    <operation name='browserobjectApi'>
+      <documentation>browser Detection API</documentation>
+      <input message='tns:browserobjectApiRequestMessage' name='browserobjectApiInput' />
+      <output message='tns:browserobjectApiResponseMessage' name='browserobjectApiOutput' />
+    </operation>
+  </portType>
+  <binding name='browserobjectBinding' type='tns:browserobjectPortType'>
+    <operation name='browserobjectApi'>
+      <soap12:operation soapAction='http://browserobjectApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='browserobject'>
+    <documentation>the BrowserObject Browser Detection Web Service allows instant detection of online visitor s Web Browser information Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</documentation>
+    <port name='browserobjectPort' binding='tns:browserobjectBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://browserobject' />
+    </port>
+  </service>
+</definitions>

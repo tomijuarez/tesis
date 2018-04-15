@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/makexyz/' name='makexyz' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/makexyz/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/makexyz/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/makexyz/'>
+      <xsd:element name='uploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='uploadRequestMessage' />
+  <message name='uploadResponseMessage'>
+    <part name='response' element='tns:uploadResponse' />
+  </message>
+  <portType name='makexyzPortType'>
+    <operation name='upload'>
+      <documentation>the user s file will be uploaded to makexyz and the API will return a link to the page where the file has been uploaded The user can then proceed to makexyz to checkout and enjoy the wonders of printing locally</documentation>
+      <input message='tns:uploadRequestMessage' name='uploadInput' />
+      <output message='tns:uploadResponseMessage' name='uploadOutput' />
+    </operation>
+  </portType>
+  <binding name='makexyzBinding' type='tns:makexyzPortType'>
+    <operation name='upload'>
+      <soap12:operation soapAction='http://upload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='makexyz'>
+    <documentation>with a few lines of code your customers can start printing their or your designs locally at D printers in their neighborhood Add the following to your site where desired</documentation>
+    <port name='makexyzPort' binding='tns:makexyzBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://makexyz' />
+    </port>
+  </service>
+</definitions>

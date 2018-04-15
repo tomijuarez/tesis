@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/esaSemanticRelatedness/' name='esaSemanticRelatedness' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/esaSemanticRelatedness/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/esaSemanticRelatedness/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/esaSemanticRelatedness/'>
+      <xsd:element name='relatednessParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='relatednessResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='t1' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='t2' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='relatednessRequestMessage'>
+    <part name='parameters' element='tns:relatednessParameters' />
+  </message>
+  <message name='relatednessResponseMessage'>
+    <part name='response' element='tns:relatednessResponse' />
+  </message>
+  <portType name='esaSemanticRelatednessPortType'>
+    <operation name='relatedness'>
+      <documentation>calculates the semantic relatedness between pairs of text excerpts based on the likeness of their meaning or semantic content</documentation>
+      <input message='tns:relatednessRequestMessage' name='relatednessInput' />
+      <output message='tns:relatednessResponseMessage' name='relatednessOutput' />
+    </operation>
+  </portType>
+  <binding name='esaSemanticRelatednessBinding' type='tns:esaSemanticRelatednessPortType'>
+    <operation name='relatedness'>
+      <soap12:operation soapAction='http://relatedness' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='esaSemanticRelatedness'>
+    <documentation>calculates the semantic relatedness between pairs of text excerpts based on the likeness of their meaning or semantic content</documentation>
+    <port name='esaSemanticRelatednessPort' binding='tns:esaSemanticRelatednessBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://esaSemanticRelatedness' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/binlist/' name='binlist' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/binlist/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/binlist/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/binlist/'>
+      <xsd:element name='csvParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='csvResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='bank' type='xsd:string' minOccurs='0' />
+            <xsd:element name='bin' type='xsd:int' minOccurs='0' />
+            <xsd:element name='card_category' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='country_name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='brand' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='xmlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='xmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='csvRequestMessage'>
+    <part name='parameters' element='tns:csvParameters' />
+  </message>
+  <message name='csvResponseMessage'>
+    <part name='response' element='tns:csvResponse' />
+  </message>
+  <message name='jsonRequestMessage'>
+    <part name='parameters' element='tns:jsonParameters' />
+  </message>
+  <message name='jsonResponseMessage'>
+    <part name='response' element='tns:jsonResponse' />
+  </message>
+  <message name='xmlRequestMessage'>
+    <part name='parameters' element='tns:xmlParameters' />
+  </message>
+  <message name='xmlResponseMessage'>
+    <part name='response' element='tns:xmlResponse' />
+  </message>
+  <portType name='binlistPortType'>
+    <operation name='csv'>
+      <documentation>get issuing bank information in CSV format</documentation>
+      <input message='tns:csvRequestMessage' name='csvInput' />
+      <output message='tns:csvResponseMessage' name='csvOutput' />
+    </operation>
+    <operation name='json'>
+      <documentation>get issuing bank information in JSON format</documentation>
+      <input message='tns:jsonRequestMessage' name='jsonInput' />
+      <output message='tns:jsonResponseMessage' name='jsonOutput' />
+    </operation>
+    <operation name='xml'>
+      <documentation>get issuing bank information in XML format</documentation>
+      <input message='tns:xmlRequestMessage' name='xmlInput' />
+      <output message='tns:xmlResponseMessage' name='xmlOutput' />
+    </operation>
+  </portType>
+  <binding name='binlistBinding' type='tns:binlistPortType'>
+    <operation name='csv'>
+      <soap12:operation soapAction='http://csv' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='json'>
+      <soap12:operation soapAction='http://json' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='xml'>
+      <soap12:operation soapAction='http://xml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='binlist'>
+    <documentation>binlist net is a public web service for searching Issuer Identification Numbers IIN The first digits of a credit card number are known as the Issuer Identification Number IIN previously known as Bank Identification Number BIN These identify the institution that issued the card to the card holder</documentation>
+    <port name='binlistPort' binding='tns:binlistBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://binlist' />
+    </port>
+  </service>
+</definitions>

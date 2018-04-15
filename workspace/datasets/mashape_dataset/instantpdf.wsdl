@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/instantPdf/' name='instantPdf' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/instantPdf/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/instantPdf/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/instantPdf/'>
+      <xsd:element name='generatingAPdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generatingAPdfRequestMessage' />
+  <message name='generatingAPdfResponseMessage'>
+    <part name='response' element='tns:generatingAPdfResponse' />
+  </message>
+  <portType name='instantPdfPortType'>
+    <operation name='generatingAPdf'>
+      <documentation></documentation>
+      <input message='tns:generatingAPdfRequestMessage' name='generatingAPdfInput' />
+      <output message='tns:generatingAPdfResponseMessage' name='generatingAPdfOutput' />
+    </operation>
+  </portType>
+  <binding name='instantPdfBinding' type='tns:instantPdfPortType'>
+    <operation name='generatingAPdf'>
+      <soap12:operation soapAction='http://generatingAPdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='instantPdf'>
+    <documentation>this API allows generating PDFs using JSON markup The API accepts HTTP POST requests and returns PDF documents Further documentation is available at https github com yogthos instant pdf</documentation>
+    <port name='instantPdfPort' binding='tns:instantPdfBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://instantPdf' />
+    </port>
+  </service>
+</definitions>

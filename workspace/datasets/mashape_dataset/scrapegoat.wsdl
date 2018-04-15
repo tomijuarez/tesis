@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/scrapegoat/' name='scrapegoat' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/scrapegoat/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/scrapegoat/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/scrapegoat/'>
+      <xsd:element name='scrapeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='flags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='regexp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='selector' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scrapeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='payload' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scrapeprerenderedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='flags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='regexp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='selector' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scrapeprerenderedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='payload' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='screendumpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='screendumpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='screendumpprerenderedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='screendumpprerenderedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='scrapeRequestMessage'>
+    <part name='parameters' element='tns:scrapeParameters' />
+  </message>
+  <message name='scrapeResponseMessage'>
+    <part name='response' element='tns:scrapeResponse' />
+  </message>
+  <message name='scrapeprerenderedRequestMessage'>
+    <part name='parameters' element='tns:scrapeprerenderedParameters' />
+  </message>
+  <message name='scrapeprerenderedResponseMessage'>
+    <part name='response' element='tns:scrapeprerenderedResponse' />
+  </message>
+  <message name='screendumpRequestMessage'>
+    <part name='parameters' element='tns:screendumpParameters' />
+  </message>
+  <message name='screendumpResponseMessage'>
+    <part name='response' element='tns:screendumpResponse' />
+  </message>
+  <message name='screendumpprerenderedRequestMessage'>
+    <part name='parameters' element='tns:screendumpprerenderedParameters' />
+  </message>
+  <message name='screendumpprerenderedResponseMessage'>
+    <part name='response' element='tns:screendumpprerenderedResponse' />
+  </message>
+  <portType name='scrapegoatPortType'>
+    <operation name='scrape'>
+      <documentation>fetch some html from the page with selectors</documentation>
+      <input message='tns:scrapeRequestMessage' name='scrapeInput' />
+      <output message='tns:scrapeResponseMessage' name='scrapeOutput' />
+    </operation>
+    <operation name='scrapeprerendered'>
+      <documentation>fetch some html from the page with selectors but let javascript be executed first</documentation>
+      <input message='tns:scrapeprerenderedRequestMessage' name='scrapeprerenderedInput' />
+      <output message='tns:scrapeprerenderedResponseMessage' name='scrapeprerenderedOutput' />
+    </operation>
+    <operation name='screendump'>
+      <documentation></documentation>
+      <input message='tns:screendumpRequestMessage' name='screendumpInput' />
+      <output message='tns:screendumpResponseMessage' name='screendumpOutput' />
+    </operation>
+    <operation name='screendumpprerendered'>
+      <documentation></documentation>
+      <input message='tns:screendumpprerenderedRequestMessage' name='screendumpprerenderedInput' />
+      <output message='tns:screendumpprerenderedResponseMessage' name='screendumpprerenderedOutput' />
+    </operation>
+  </portType>
+  <binding name='scrapegoatBinding' type='tns:scrapegoatPortType'>
+    <operation name='scrape'>
+      <soap12:operation soapAction='http://scrape' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='scrapeprerendered'>
+      <soap12:operation soapAction='http://scrapeprerendered' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='screendump'>
+      <soap12:operation soapAction='http://screendump' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='screendumpprerendered'>
+      <soap12:operation soapAction='http://screendumpprerendered' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='scrapegoat'>
+    <documentation>this is an api that let s you specify an url and a CSS selector or an regexp and get the result as a JSON object The API can also take screenshots of a webpage prerendered with javascript or not and return it as a PNG image</documentation>
+    <port name='scrapegoatPort' binding='tns:scrapegoatBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://scrapegoat' />
+    </port>
+  </service>
+</definitions>

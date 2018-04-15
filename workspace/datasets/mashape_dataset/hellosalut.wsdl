@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hellosalut/' name='hellosalut' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hellosalut/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hellosalut/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hellosalut/'>
+      <xsd:element name='hellosalutParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hellosalutResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hello' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='hellosalutRequestMessage'>
+    <part name='parameters' element='tns:hellosalutParameters' />
+  </message>
+  <message name='hellosalutResponseMessage'>
+    <part name='response' element='tns:hellosalutResponse' />
+  </message>
+  <portType name='hellosalutPortType'>
+    <operation name='hellosalut'>
+      <documentation></documentation>
+      <input message='tns:hellosalutRequestMessage' name='hellosalutInput' />
+      <output message='tns:hellosalutResponseMessage' name='hellosalutOutput' />
+    </operation>
+  </portType>
+  <binding name='hellosalutBinding' type='tns:hellosalutPortType'>
+    <operation name='hellosalut'>
+      <soap12:operation soapAction='http://hellosalut' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hellosalut'>
+    <documentation>say hello to your visitors in their native language</documentation>
+    <port name='hellosalutPort' binding='tns:hellosalutBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hellosalut' />
+    </port>
+  </service>
+</definitions>

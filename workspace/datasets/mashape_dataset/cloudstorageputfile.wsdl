@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cloudStoragePutFile/' name='cloudStoragePutFile' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cloudStoragePutFile/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cloudStoragePutFile/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cloudStoragePutFile/'>
+      <xsd:element name='uploadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='content' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='content' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='p' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='path' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='u' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sc' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='error_string' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='error_code' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='uploadRequestMessage'>
+    <part name='parameters' element='tns:uploadParameters' />
+  </message>
+  <message name='uploadResponseMessage'>
+    <part name='response' element='tns:uploadResponse' />
+  </message>
+  <portType name='cloudStoragePutFilePortType'>
+    <operation name='upload'>
+      <documentation>with this API you can upload a file to your online account using a simple rest call If you don t have an account yet go on www memopal com download the software and create one Or create a free GB account here https apps memopal com l activate trial php</documentation>
+      <input message='tns:uploadRequestMessage' name='uploadInput' />
+      <output message='tns:uploadResponseMessage' name='uploadOutput' />
+    </operation>
+  </portType>
+  <binding name='cloudStoragePutFileBinding' type='tns:cloudStoragePutFilePortType'>
+    <operation name='upload'>
+      <soap12:operation soapAction='http://upload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cloudStoragePutFile'>
+    <documentation>fast and inexpensive cloud storage Great alternative to Amazon S GB for free GB for year Requires a Memopal account You can create one downloading the Memopal client from www memopal com</documentation>
+    <port name='cloudStoragePutFilePort' binding='tns:cloudStoragePutFileBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cloudStoragePutFile' />
+    </port>
+  </service>
+</definitions>

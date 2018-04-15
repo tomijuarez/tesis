@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/addressVerifyAndGeocode/' name='addressVerifyAndGeocode' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/addressVerifyAndGeocode/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/addressVerifyAndGeocode/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/addressVerifyAndGeocode/'>
+      <xsd:element name='processAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='addr' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='admn' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ctry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lcty' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lqtkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxresults' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='opts' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orgn' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outputfields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='p' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pcde' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='prem' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tfre' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='processAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='processAddressRequestMessage'>
+    <part name='parameters' element='tns:processAddressParameters' />
+  </message>
+  <message name='processAddressResponseMessage'>
+    <part name='response' element='tns:processAddressResponse' />
+  </message>
+  <portType name='addressVerifyAndGeocodePortType'>
+    <operation name='processAddress'>
+      <documentation>this service accepts one address record per call and returns an Address Verihttps www mashape com loqate address verify and geocodefication Code see Readme along with both the standardized and verified address fields values To use this resource you must first sign up for an everythinglocation com account and obtain an API key Please visit everythinglocation com to get started now</documentation>
+      <input message='tns:processAddressRequestMessage' name='processAddressInput' />
+      <output message='tns:processAddressResponseMessage' name='processAddressOutput' />
+    </operation>
+  </portType>
+  <binding name='addressVerifyAndGeocodeBinding' type='tns:addressVerifyAndGeocodePortType'>
+    <operation name='processAddress'>
+      <soap12:operation soapAction='http://processAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='addressVerifyAndGeocode'>
+    <documentation>our RESTful web service allows developers to access all of the transactional functionality that exists within the core engine provided by Loqate This includes processing for address validation one in one out geocoding and address suggestion or look up To use any everythinglocation com resource you must first sign up for an everythinglocation com account and obtain an API key Please visit everythinglocation com to get started now</documentation>
+    <port name='addressVerifyAndGeocodePort' binding='tns:addressVerifyAndGeocodeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://addressVerifyAndGeocode' />
+    </port>
+  </service>
+</definitions>

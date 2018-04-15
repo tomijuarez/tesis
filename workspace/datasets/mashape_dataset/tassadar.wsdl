@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tassadar/' name='tassadar' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tassadar/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tassadar/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tassadar/'>
+      <xsd:element name='uploadreplayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='replay' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='game' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='winner' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='actual_race' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='color' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='red' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='green' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='blue' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='alpha' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='handicap' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='won' type='xsd:boolean' minOccurs='0' />
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='chosen_race' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='map' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='speed' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='players' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='player' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='actual_race' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='color' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='red' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='green' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='blue' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='alpha' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='handicap' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='won' type='xsd:boolean' minOccurs='0' />
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='chosen_race' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='uploadreplayRequestMessage' />
+  <message name='uploadreplayResponseMessage'>
+    <part name='response' element='tns:uploadreplayResponse' />
+  </message>
+  <portType name='tassadarPortType'>
+    <operation name='uploadreplay'>
+      <documentation>analyze the contents of an SC Replay file Analyzed replays are discarded immediately</documentation>
+      <input message='tns:uploadreplayRequestMessage' name='uploadreplayInput' />
+      <output message='tns:uploadreplayResponseMessage' name='uploadreplayOutput' />
+    </operation>
+  </portType>
+  <binding name='tassadarBinding' type='tns:tassadarPortType'>
+    <operation name='uploadreplay'>
+      <soap12:operation soapAction='http://uploadreplay' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tassadar'>
+    <documentation>a simple Starcraft II replay parser in the cloud Upload a replay to retrieve the map name player info win loss results and more Easily integrate SC replay data into your projects</documentation>
+    <port name='tassadarPort' binding='tns:tassadarBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tassadar' />
+    </port>
+  </service>
+</definitions>

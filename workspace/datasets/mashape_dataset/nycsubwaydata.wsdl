@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nycSubwayData/' name='nycSubwayData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nycSubwayData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nycSubwayData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nycSubwayData/'>
+      <xsd:element name='arrivalTimesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='arrivalTimesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='arrivals' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subwayStationCodesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subwayStationDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subwayStationDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hour' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minute' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='arrival' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='arrivalTimesRequestMessage'>
+    <part name='parameters' element='tns:arrivalTimesParameters' />
+  </message>
+  <message name='arrivalTimesResponseMessage'>
+    <part name='response' element='tns:arrivalTimesResponse' />
+  </message>
+  <message name='subwayStationCodesRequestMessage' />
+  <message name='subwayStationCodesResponseMessage'>
+    <part name='response' element='tns:subwayStationCodesResponse' />
+  </message>
+  <message name='subwayStationDataRequestMessage'>
+    <part name='parameters' element='tns:subwayStationDataParameters' />
+  </message>
+  <message name='subwayStationDataResponseMessage'>
+    <part name='response' element='tns:subwayStationDataResponse' />
+  </message>
+  <message name='timesRequestMessage'>
+    <part name='parameters' element='tns:timesParameters' />
+  </message>
+  <message name='timesResponseMessage'>
+    <part name='response' element='tns:timesResponse' />
+  </message>
+  <portType name='nycSubwayDataPortType'>
+    <operation name='arrivalTimes'>
+      <documentation>this endpoint provides all subway arrival times at a given station</documentation>
+      <input message='tns:arrivalTimesRequestMessage' name='arrivalTimesInput' />
+      <output message='tns:arrivalTimesResponseMessage' name='arrivalTimesOutput' />
+    </operation>
+    <operation name='subwayStationCodes'>
+      <documentation>the MTA uses a set of codes to refer to subway stations in New York In order to use these codes for other requests in this API make the request</documentation>
+      <input message='tns:subwayStationCodesRequestMessage' name='subwayStationCodesInput' />
+      <output message='tns:subwayStationCodesResponseMessage' name='subwayStationCodesOutput' />
+    </operation>
+    <operation name='subwayStationData'>
+      <documentation>given a station code see above get name and coordinates of every station</documentation>
+      <input message='tns:subwayStationDataRequestMessage' name='subwayStationDataInput' />
+      <output message='tns:subwayStationDataResponseMessage' name='subwayStationDataOutput' />
+    </operation>
+    <operation name='times'>
+      <documentation>this endpoint provides all subway stations where a train is stopping at the time specified</documentation>
+      <input message='tns:timesRequestMessage' name='timesInput' />
+      <output message='tns:timesResponseMessage' name='timesOutput' />
+    </operation>
+  </portType>
+  <binding name='nycSubwayDataBinding' type='tns:nycSubwayDataPortType'>
+    <operation name='arrivalTimes'>
+      <soap12:operation soapAction='http://arrivalTimes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='subwayStationCodes'>
+      <soap12:operation soapAction='http://subwayStationCodes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='subwayStationData'>
+      <soap12:operation soapAction='http://subwayStationData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='times'>
+      <soap12:operation soapAction='http://times' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nycSubwayData'>
+    <documentation>no description</documentation>
+    <port name='nycSubwayDataPort' binding='tns:nycSubwayDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nycSubwayData' />
+    </port>
+  </service>
+</definitions>

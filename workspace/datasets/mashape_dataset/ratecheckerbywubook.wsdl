@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rateCheckerByWubook/' name='rateCheckerByWubook' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rateCheckerByWubook/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rateCheckerByWubook/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rateCheckerByWubook/'>
+      <xsd:element name='monitoredCompetitorsFromAGivenUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='monitoredCompetitorsFromAGivenUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='competitor_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='snapshotsAvailableFromAGivenStayParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stayid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='snapshotsAvailableFromAGivenStayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='staysFromAGivenCompetitorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='competitorid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='staysFromAGivenCompetitorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='stay_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='stay' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='monitoredCompetitorsFromAGivenUserRequestMessage'>
+    <part name='parameters' element='tns:monitoredCompetitorsFromAGivenUserParameters' />
+  </message>
+  <message name='monitoredCompetitorsFromAGivenUserResponseMessage'>
+    <part name='response' element='tns:monitoredCompetitorsFromAGivenUserResponse' />
+  </message>
+  <message name='snapshotsAvailableFromAGivenStayRequestMessage'>
+    <part name='parameters' element='tns:snapshotsAvailableFromAGivenStayParameters' />
+  </message>
+  <message name='snapshotsAvailableFromAGivenStayResponseMessage'>
+    <part name='response' element='tns:snapshotsAvailableFromAGivenStayResponse' />
+  </message>
+  <message name='staysFromAGivenCompetitorRequestMessage'>
+    <part name='parameters' element='tns:staysFromAGivenCompetitorParameters' />
+  </message>
+  <message name='staysFromAGivenCompetitorResponseMessage'>
+    <part name='response' element='tns:staysFromAGivenCompetitorResponse' />
+  </message>
+  <portType name='rateCheckerByWubookPortType'>
+    <operation name='monitoredCompetitorsFromAGivenUser'>
+      <documentation></documentation>
+      <input message='tns:monitoredCompetitorsFromAGivenUserRequestMessage' name='monitoredCompetitorsFromAGivenUserInput' />
+      <output message='tns:monitoredCompetitorsFromAGivenUserResponseMessage' name='monitoredCompetitorsFromAGivenUserOutput' />
+    </operation>
+    <operation name='snapshotsAvailableFromAGivenStay'>
+      <documentation></documentation>
+      <input message='tns:snapshotsAvailableFromAGivenStayRequestMessage' name='snapshotsAvailableFromAGivenStayInput' />
+      <output message='tns:snapshotsAvailableFromAGivenStayResponseMessage' name='snapshotsAvailableFromAGivenStayOutput' />
+    </operation>
+    <operation name='staysFromAGivenCompetitor'>
+      <documentation></documentation>
+      <input message='tns:staysFromAGivenCompetitorRequestMessage' name='staysFromAGivenCompetitorInput' />
+      <output message='tns:staysFromAGivenCompetitorResponseMessage' name='staysFromAGivenCompetitorOutput' />
+    </operation>
+  </portType>
+  <binding name='rateCheckerByWubookBinding' type='tns:rateCheckerByWubookPortType'>
+    <operation name='monitoredCompetitorsFromAGivenUser'>
+      <soap12:operation soapAction='http://monitoredCompetitorsFromAGivenUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='snapshotsAvailableFromAGivenStay'>
+      <soap12:operation soapAction='http://snapshotsAvailableFromAGivenStay' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='staysFromAGivenCompetitor'>
+      <soap12:operation soapAction='http://staysFromAGivenCompetitor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rateCheckerByWubook'>
+    <documentation>rate Checker compare the rates of your competitor hotels Compare prices and keep on eye on the availability of your competitor hotels Before choosing trade policies of your hotel or your bed and breakfast compare prices and availability at your competitor hotels The WuBook Rate Checker allows you to keep monitored the prices and availability of competitors in your market</documentation>
+    <port name='rateCheckerByWubookPort' binding='tns:rateCheckerByWubookBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rateCheckerByWubook' />
+    </port>
+  </service>
+</definitions>

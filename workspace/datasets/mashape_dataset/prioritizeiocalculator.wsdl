@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/prioritizeIoCalculator/' name='prioritizeIoCalculator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/prioritizeIoCalculator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/prioritizeIoCalculator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/prioritizeIoCalculator/'>
+      <xsd:element name='calculateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='calculateRequestMessage' />
+  <message name='calculateResponseMessage'>
+    <part name='response' element='tns:calculateResponse' />
+  </message>
+  <portType name='prioritizeIoCalculatorPortType'>
+    <operation name='calculate'>
+      <documentation>takes in a subject to prioritize and returns a Json prioritized list</documentation>
+      <input message='tns:calculateRequestMessage' name='calculateInput' />
+      <output message='tns:calculateResponseMessage' name='calculateOutput' />
+    </operation>
+  </portType>
+  <binding name='prioritizeIoCalculatorBinding' type='tns:prioritizeIoCalculatorPortType'>
+    <operation name='calculate'>
+      <soap12:operation soapAction='http://calculate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='prioritizeIoCalculator'>
+    <documentation>prioritization as a Service We focus on the aspects of creating a quality prioritized result and provide the tools as developer services This allows you keep your ecosystem and brand while still improving the results We hope to empower better decisions with prioritization</documentation>
+    <port name='prioritizeIoCalculatorPort' binding='tns:prioritizeIoCalculatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://prioritizeIoCalculator' />
+    </port>
+  </service>
+</definitions>

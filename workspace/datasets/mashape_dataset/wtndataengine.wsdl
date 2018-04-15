@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wtnDataEngine/' name='wtnDataEngine' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wtnDataEngine/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wtnDataEngine/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wtnDataEngine/'>
+      <xsd:element name='searchByNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchinput' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='websites' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='img' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='icon' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='abstract' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='category' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='cover_img' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchByNameRequestMessage'>
+    <part name='parameters' element='tns:searchByNameParameters' />
+  </message>
+  <message name='searchByNameResponseMessage'>
+    <part name='response' element='tns:searchByNameResponse' />
+  </message>
+  <portType name='wtnDataEnginePortType'>
+    <operation name='searchByName'>
+      <documentation></documentation>
+      <input message='tns:searchByNameRequestMessage' name='searchByNameInput' />
+      <output message='tns:searchByNameResponseMessage' name='searchByNameOutput' />
+    </operation>
+  </portType>
+  <binding name='wtnDataEngineBinding' type='tns:wtnDataEnginePortType'>
+    <operation name='searchByName'>
+      <soap12:operation soapAction='http://searchByName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wtnDataEngine'>
+    <documentation>world wide contact information provider Could extract from the name of a store a link or a given paragraph For an question please contact us at contact storysensecomputing com</documentation>
+    <port name='wtnDataEnginePort' binding='tns:wtnDataEngineBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wtnDataEngine' />
+    </port>
+  </service>
+</definitions>

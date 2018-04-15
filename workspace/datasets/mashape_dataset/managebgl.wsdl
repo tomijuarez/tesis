@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/managebgl/' name='managebgl' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/managebgl/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/managebgl/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/managebgl/'>
+      <xsd:element name='addLogParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='logtype' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='notes' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='other' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addLogResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='rows' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='logs' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='log_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='other' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='logtype_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='points' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserSUnitsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserSUnitsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='carb_units' type='xsd:int' minOccurs='0' />
+            <xsd:element name='carb_units_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='bgl_units_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='dimensional_units' type='xsd:int' minOccurs='0' />
+            <xsd:element name='bgl_units' type='xsd:int' minOccurs='0' />
+            <xsd:element name='dimensional_units_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='time_zone_offset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logRangeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logRangeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='end_date' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='start_date' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginOauthStyleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addLogRequestMessage'>
+    <part name='parameters' element='tns:addLogParameters' />
+  </message>
+  <message name='addLogResponseMessage'>
+    <part name='response' element='tns:addLogResponse' />
+  </message>
+  <message name='extractDataRequestMessage'>
+    <part name='parameters' element='tns:extractDataParameters' />
+  </message>
+  <message name='extractDataResponseMessage'>
+    <part name='response' element='tns:extractDataResponse' />
+  </message>
+  <message name='getUserSUnitsRequestMessage'>
+    <part name='parameters' element='tns:getUserSUnitsParameters' />
+  </message>
+  <message name='getUserSUnitsResponseMessage'>
+    <part name='response' element='tns:getUserSUnitsResponse' />
+  </message>
+  <message name='logRangeRequestMessage'>
+    <part name='parameters' element='tns:logRangeParameters' />
+  </message>
+  <message name='logRangeResponseMessage'>
+    <part name='response' element='tns:logRangeResponse' />
+  </message>
+  <message name='loginRequestMessage'>
+    <part name='parameters' element='tns:loginParameters' />
+  </message>
+  <message name='loginResponseMessage'>
+    <part name='response' element='tns:loginResponse' />
+  </message>
+  <message name='loginOauthStyleRequestMessage' />
+  <message name='loginOauthStyleResponseMessage'>
+    <part name='response' element='tns:loginOauthStyleResponse' />
+  </message>
+  <message name='pingRequestMessage' />
+  <message name='pingResponseMessage'>
+    <part name='response' element='tns:pingResponse' />
+  </message>
+  <portType name='managebglPortType'>
+    <operation name='addLog'>
+      <documentation>add a log entry</documentation>
+      <input message='tns:addLogRequestMessage' name='addLogInput' />
+      <output message='tns:addLogResponseMessage' name='addLogOutput' />
+    </operation>
+    <operation name='extractData'>
+      <documentation>extract data</documentation>
+      <input message='tns:extractDataRequestMessage' name='extractDataInput' />
+      <output message='tns:extractDataResponseMessage' name='extractDataOutput' />
+    </operation>
+    <operation name='getUserSUnits'>
+      <documentation>get the units that the user has for BGLs height weight etc</documentation>
+      <input message='tns:getUserSUnitsRequestMessage' name='getUserSUnitsInput' />
+      <output message='tns:getUserSUnitsResponseMessage' name='getUserSUnitsOutput' />
+    </operation>
+    <operation name='logRange'>
+      <documentation>get date range for user s data</documentation>
+      <input message='tns:logRangeRequestMessage' name='logRangeInput' />
+      <output message='tns:logRangeResponseMessage' name='logRangeOutput' />
+    </operation>
+    <operation name='login'>
+      <documentation>login and obtain an access token for future API calls</documentation>
+      <input message='tns:loginRequestMessage' name='loginInput' />
+      <output message='tns:loginResponseMessage' name='loginOutput' />
+    </operation>
+    <operation name='loginOauthStyle'>
+      <documentation>you can also obtain an API Token via a POST request to an OAuth style interface</documentation>
+      <input message='tns:loginOauthStyleRequestMessage' name='loginOauthStyleInput' />
+      <output message='tns:loginOauthStyleResponseMessage' name='loginOauthStyleOutput' />
+    </operation>
+    <operation name='ping'>
+      <documentation>check if the endpoint is operating</documentation>
+      <input message='tns:pingRequestMessage' name='pingInput' />
+      <output message='tns:pingResponseMessage' name='pingOutput' />
+    </operation>
+  </portType>
+  <binding name='managebglBinding' type='tns:managebglPortType'>
+    <operation name='addLog'>
+      <soap12:operation soapAction='http://addLog' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractData'>
+      <soap12:operation soapAction='http://extractData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUserSUnits'>
+      <soap12:operation soapAction='http://getUserSUnits' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logRange'>
+      <soap12:operation soapAction='http://logRange' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='login'>
+      <soap12:operation soapAction='http://login' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='loginOauthStyle'>
+      <soap12:operation soapAction='http://loginOauthStyle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ping'>
+      <soap12:operation soapAction='http://ping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='managebgl'>
+    <documentation>cloud based diabetes management platform Calculates doses and tracks insulin on board just like an insulin pump would Predicts blood sugars up to eight hours ahead and provides historical data like a Continuous Glucose Monitor Real time coach provides real time dose adjustment advice and warnings of pending low blood sugars Live sharing with parents teachers healthcare providers and other care givers Accepts data from different meters pumps and CGMS devices RESTful API default formats are XML JSON RSS and Atom Prediction the game changer in diabetes analytics</documentation>
+    <port name='managebglPort' binding='tns:managebglBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://managebgl' />
+    </port>
+  </service>
+</definitions>

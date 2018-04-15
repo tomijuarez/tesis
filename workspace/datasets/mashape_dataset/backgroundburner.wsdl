@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/backgroundBurner/' name='backgroundBurner' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/backgroundBurner/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/backgroundBurner/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/backgroundBurner/'>
+      <xsd:element name='createResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='access_token' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='burn_user_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='background_burns' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='final_result_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='masks' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='position_in_queue' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='complete' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='selected_mask_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='action' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createRequestMessage' />
+  <message name='createResponseMessage'>
+    <part name='response' element='tns:createResponse' />
+  </message>
+  <message name='showRequestMessage'>
+    <part name='parameters' element='tns:showParameters' />
+  </message>
+  <message name='showResponseMessage'>
+    <part name='response' element='tns:showResponse' />
+  </message>
+  <message name='updateRequestMessage'>
+    <part name='parameters' element='tns:updateParameters' />
+  </message>
+  <message name='updateResponseMessage'>
+    <part name='response' element='tns:updateResponse' />
+  </message>
+  <message name='indexRequestMessage'>
+    <part name='parameters' element='tns:indexParameters' />
+  </message>
+  <message name='indexResponseMessage'>
+    <part name='response' element='tns:indexResponse' />
+  </message>
+  <portType name='backgroundBurnerPortType'>
+    <operation name='create'>
+      <documentation>queue a new background burn</documentation>
+      <input message='tns:createRequestMessage' name='createInput' />
+      <output message='tns:createResponseMessage' name='createOutput' />
+    </operation>
+    <operation name='show'>
+      <documentation>get the progress of a specific background burn</documentation>
+      <input message='tns:showRequestMessage' name='showInput' />
+      <output message='tns:showResponseMessage' name='showOutput' />
+    </operation>
+    <operation name='update'>
+      <documentation>select the final mask for a specific background burn</documentation>
+      <input message='tns:updateRequestMessage' name='updateInput' />
+      <output message='tns:updateResponseMessage' name='updateOutput' />
+    </operation>
+    <operation name='index'>
+      <documentation>list the most recent burns for a specific user</documentation>
+      <input message='tns:indexRequestMessage' name='indexInput' />
+      <output message='tns:indexResponseMessage' name='indexOutput' />
+    </operation>
+  </portType>
+  <binding name='backgroundBurnerBinding' type='tns:backgroundBurnerPortType'>
+    <operation name='create'>
+      <soap12:operation soapAction='http://create' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='show'>
+      <soap12:operation soapAction='http://show' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='update'>
+      <soap12:operation soapAction='http://update' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='index'>
+      <soap12:operation soapAction='http://index' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='backgroundBurner'>
+    <documentation>remove backgrounds from images The Background Burner quickly removes the background from any image or photo Our patent pending technology does all the work for you automatically</documentation>
+    <port name='backgroundBurnerPort' binding='tns:backgroundBurnerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://backgroundBurner' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/magentoQuickViewExtension/' name='magentoQuickViewExtension' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/magentoQuickViewExtension/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/magentoQuickViewExtension/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/magentoQuickViewExtension/'>
+      <xsd:element name='docsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='docsRequestMessage' />
+  <message name='docsResponseMessage'>
+    <part name='response' element='tns:docsResponse' />
+  </message>
+  <portType name='magentoQuickViewExtensionPortType'>
+    <operation name='docs'>
+      <documentation></documentation>
+      <input message='tns:docsRequestMessage' name='docsInput' />
+      <output message='tns:docsResponseMessage' name='docsOutput' />
+    </operation>
+  </portType>
+  <binding name='magentoQuickViewExtensionBinding' type='tns:magentoQuickViewExtensionPortType'>
+    <operation name='docs'>
+      <soap12:operation soapAction='http://docs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='magentoQuickViewExtension'>
+    <documentation>magento Quick View Extension enables your customers to view product details and checkout from home page or category page without visiting product page This module also enables you to browse other products within same lightbox Customers can checkout as well</documentation>
+    <port name='magentoQuickViewExtensionPort' binding='tns:magentoQuickViewExtensionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://magentoQuickViewExtension' />
+    </port>
+  </service>
+</definitions>

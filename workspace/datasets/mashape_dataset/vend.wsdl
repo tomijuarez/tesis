@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vend/' name='vend' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vend/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vend/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vend/'>
+      <xsd:element name='listAllProductsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='after' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='before' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllProductsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listAllProductsRequestMessage'>
+    <part name='parameters' element='tns:listAllProductsParameters' />
+  </message>
+  <message name='listAllProductsResponseMessage'>
+    <part name='response' element='tns:listAllProductsResponse' />
+  </message>
+  <portType name='vendPortType'>
+    <operation name='listAllProducts'>
+      <documentation></documentation>
+      <input message='tns:listAllProductsRequestMessage' name='listAllProductsInput' />
+      <output message='tns:listAllProductsResponseMessage' name='listAllProductsOutput' />
+    </operation>
+  </portType>
+  <binding name='vendBinding' type='tns:vendPortType'>
+    <operation name='listAllProducts'>
+      <soap12:operation soapAction='http://listAllProducts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vend'>
+    <documentation>vend is web based POS and retail management software for store owners to have visibility and centralized control of their retail stores Vend REST API</documentation>
+    <port name='vendPort' binding='tns:vendBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vend' />
+    </port>
+  </service>
+</definitions>

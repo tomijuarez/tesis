@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/weatherAndForecast/' name='weatherAndForecast' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/weatherAndForecast/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/weatherAndForecast/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/weatherAndForecast/'>
+      <xsd:element name='getWeatherParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='locationlat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='locationlng' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getWeatherResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta' type='xsd:string' minOccurs='0' />
+            <xsd:element name='objects' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='geo' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='coordinates' type='xsd:decimal' maxOccurs='unbounded' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='weather' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='icon' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='locality' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sun_altitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getWeatherRequestMessage'>
+    <part name='parameters' element='tns:getWeatherParameters' />
+  </message>
+  <message name='getWeatherResponseMessage'>
+    <part name='response' element='tns:getWeatherResponse' />
+  </message>
+  <portType name='weatherAndForecastPortType'>
+    <operation name='getWeather'>
+      <documentation>return current real time weather and forecast in a location</documentation>
+      <input message='tns:getWeatherRequestMessage' name='getWeatherInput' />
+      <output message='tns:getWeatherResponseMessage' name='getWeatherOutput' />
+    </operation>
+  </portType>
+  <binding name='weatherAndForecastBinding' type='tns:weatherAndForecastPortType'>
+    <operation name='getWeather'>
+      <soap12:operation soapAction='http://getWeather' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='weatherAndForecast'>
+    <documentation>howdy Developer if you are looking for a weather API then you search is over Metwit born as a crowdsourced platform for gathering real time weather reports from real people After more then ten thousand users started to using our apps and send a massive amount of reports we decided to release those precious reports through our APIs And that s not all we re also offering a single gateway for multiple hard to parse sources of forecasts like NOAA and we re enhancing them with social data like photos tweets etc that we leverage from existing social networks If you want to try it without a credit card please go to http metwit com weather api</documentation>
+    <port name='weatherAndForecastPort' binding='tns:weatherAndForecastBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://weatherAndForecast' />
+    </port>
+  </service>
+</definitions>

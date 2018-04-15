@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/opencageGeocoder/' name='opencageGeocoder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/opencageGeocoder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/opencageGeocoder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/opencageGeocoder/'>
+      <xsd:element name='geocodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geocodeRequestMessage'>
+    <part name='parameters' element='tns:geocodeParameters' />
+  </message>
+  <message name='geocodeResponseMessage'>
+    <part name='response' element='tns:geocodeResponse' />
+  </message>
+  <portType name='opencageGeocoderPortType'>
+    <operation name='geocode'>
+      <documentation>geocode an address</documentation>
+      <input message='tns:geocodeRequestMessage' name='geocodeInput' />
+      <output message='tns:geocodeResponseMessage' name='geocodeOutput' />
+    </operation>
+  </portType>
+  <binding name='opencageGeocoderBinding' type='tns:opencageGeocoderPortType'>
+    <operation name='geocode'>
+      <soap12:operation soapAction='http://geocode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='opencageGeocoder'>
+    <documentation>worldwide forward and reverse address geocoding Uses multiple geocoders based on open data</documentation>
+    <port name='opencageGeocoderPort' binding='tns:opencageGeocoderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://opencageGeocoder' />
+    </port>
+  </service>
+</definitions>

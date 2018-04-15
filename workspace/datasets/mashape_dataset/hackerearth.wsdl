@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hackerEarth/' name='hackerEarth' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hackerEarth/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hackerEarth/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hackerEarth/'>
+      <xsd:element name='apiToCompileSourceCodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='async' type='xsd:int' minOccurs='0' />
+            <xsd:element name='compile_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='web_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='run_status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='output' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='async' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='time_limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='memory_used' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='memory_limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_html' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='time_used' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='status_detail' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='errors' type='xsd:string' minOccurs='0' />
+            <xsd:element name='code_id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiToRunProgramCodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='async' type='xsd:int' minOccurs='0' />
+            <xsd:element name='compile_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='web_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='run_status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='output' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='async' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='time_limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='memory_used' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='memory_limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_html' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='time_used' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='status_detail' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='errors' type='xsd:string' minOccurs='0' />
+            <xsd:element name='code_id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiToCompileSourceCodeRequestMessage' />
+  <message name='apiToCompileSourceCodeResponseMessage'>
+    <part name='response' element='tns:apiToCompileSourceCodeResponse' />
+  </message>
+  <message name='apiToRunProgramCodeRequestMessage' />
+  <message name='apiToRunProgramCodeResponseMessage'>
+    <part name='response' element='tns:apiToRunProgramCodeResponse' />
+  </message>
+  <portType name='hackerEarthPortType'>
+    <operation name='apiToCompileSourceCode'>
+      <documentation></documentation>
+      <input message='tns:apiToCompileSourceCodeRequestMessage' name='apiToCompileSourceCodeInput' />
+      <output message='tns:apiToCompileSourceCodeResponseMessage' name='apiToCompileSourceCodeOutput' />
+    </operation>
+    <operation name='apiToRunProgramCode'>
+      <documentation></documentation>
+      <input message='tns:apiToRunProgramCodeRequestMessage' name='apiToRunProgramCodeInput' />
+      <output message='tns:apiToRunProgramCodeResponseMessage' name='apiToRunProgramCodeOutput' />
+    </operation>
+  </portType>
+  <binding name='hackerEarthBinding' type='tns:hackerEarthPortType'>
+    <operation name='apiToCompileSourceCode'>
+      <soap12:operation soapAction='http://apiToCompileSourceCode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiToRunProgramCode'>
+      <soap12:operation soapAction='http://apiToRunProgramCode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hackerEarth'>
+    <documentation>this API allows us to compile and run the source code programs This API supports multiple programming languages Possible values of lang argument are C CPP CPP CLOJURE CSHARP JAVA JAVASCRIPT HASKELL PERL PHP PYTHON RUBY The correspondi</documentation>
+    <port name='hackerEarthPort' binding='tns:hackerEarthBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hackerEarth' />
+    </port>
+  </service>
+</definitions>

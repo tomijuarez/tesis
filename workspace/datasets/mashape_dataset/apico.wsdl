@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/apico/' name='apico' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/apico/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/apico/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/apico/'>
+      <xsd:element name='balanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='subscriberid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='balanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='access_token' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scope' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='token_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='expires_in' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logoutParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logoutResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showSubscriberInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='subscriberid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showSubscriberInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='balanceRequestMessage'>
+    <part name='parameters' element='tns:balanceParameters' />
+  </message>
+  <message name='balanceResponseMessage'>
+    <part name='response' element='tns:balanceResponse' />
+  </message>
+  <message name='loginRequestMessage' />
+  <message name='loginResponseMessage'>
+    <part name='response' element='tns:loginResponse' />
+  </message>
+  <message name='logoutRequestMessage'>
+    <part name='parameters' element='tns:logoutParameters' />
+  </message>
+  <message name='logoutResponseMessage'>
+    <part name='response' element='tns:logoutResponse' />
+  </message>
+  <message name='showSubscriberInfoRequestMessage'>
+    <part name='parameters' element='tns:showSubscriberInfoParameters' />
+  </message>
+  <message name='showSubscriberInfoResponseMessage'>
+    <part name='response' element='tns:showSubscriberInfoResponse' />
+  </message>
+  <portType name='apicoPortType'>
+    <operation name='balance'>
+      <input message='tns:balanceRequestMessage' name='balanceInput' />
+      <output message='tns:balanceResponseMessage' name='balanceOutput' />
+    </operation>
+    <operation name='login'>
+      <documentation></documentation>
+      <input message='tns:loginRequestMessage' name='loginInput' />
+      <output message='tns:loginResponseMessage' name='loginOutput' />
+    </operation>
+    <operation name='logout'>
+      <input message='tns:logoutRequestMessage' name='logoutInput' />
+      <output message='tns:logoutResponseMessage' name='logoutOutput' />
+    </operation>
+    <operation name='showSubscriberInfo'>
+      <input message='tns:showSubscriberInfoRequestMessage' name='showSubscriberInfoInput' />
+      <output message='tns:showSubscriberInfoResponseMessage' name='showSubscriberInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='apicoBinding' type='tns:apicoPortType'>
+    <operation name='balance'>
+      <soap12:operation soapAction='http://balance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='login'>
+      <soap12:operation soapAction='http://login' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logout'>
+      <soap12:operation soapAction='http://logout' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showSubscriberInfo'>
+      <soap12:operation soapAction='http://showSubscriberInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='apico'>
+    <documentation>with APICO API you can add voice calls to your already existing applications The APICO REST API allows you to add communication to your applications It s very easy to interact with the API and query about your subscriber s account your applications phone numbers call history call recordings and call redirect settings</documentation>
+    <port name='apicoPort' binding='tns:apicoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://apico' />
+    </port>
+  </service>
+</definitions>

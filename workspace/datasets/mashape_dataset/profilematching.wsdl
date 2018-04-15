@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/profilematching/' name='profilematching' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/profilematching/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/profilematching/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/profilematching/'>
+      <xsd:element name='matchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='match' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='cadidate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='priors' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='matchRequestMessage' />
+  <message name='matchResponseMessage'>
+    <part name='response' element='tns:matchResponse' />
+  </message>
+  <portType name='profilematchingPortType'>
+    <operation name='match'>
+      <documentation></documentation>
+      <input message='tns:matchRequestMessage' name='matchInput' />
+      <output message='tns:matchResponseMessage' name='matchOutput' />
+    </operation>
+  </portType>
+  <binding name='profilematchingBinding' type='tns:profilematchingPortType'>
+    <operation name='match'>
+      <soap12:operation soapAction='http://match' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='profilematching'>
+    <documentation>online social networks profile matcher helps you identify an individual through different social networks Is there a correlation between usernames on different SNS connecting real individuals This API let you find this correlation based on behavioural patterns user displayed while selecting their usernames and information redundancies The correlation is found with a classifier trained over a large number of different social network services profiles More info about how this is done on the website</documentation>
+    <port name='profilematchingPort' binding='tns:profilematchingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://profilematching' />
+    </port>
+  </service>
+</definitions>

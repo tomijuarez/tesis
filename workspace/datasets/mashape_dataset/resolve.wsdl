@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/resolve/' name='resolve' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/resolve/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/resolve/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/resolve/'>
+      <xsd:element name='myIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveDomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='myIpRequestMessage' />
+  <message name='myIpResponseMessage'>
+    <part name='response' element='tns:myIpResponse' />
+  </message>
+  <message name='resolveDomainRequestMessage'>
+    <part name='parameters' element='tns:resolveDomainParameters' />
+  </message>
+  <message name='resolveDomainResponseMessage'>
+    <part name='response' element='tns:resolveDomainResponse' />
+  </message>
+  <message name='resolveIpRequestMessage'>
+    <part name='parameters' element='tns:resolveIpParameters' />
+  </message>
+  <message name='resolveIpResponseMessage'>
+    <part name='response' element='tns:resolveIpResponse' />
+  </message>
+  <portType name='resolvePortType'>
+    <operation name='myIp'>
+      <documentation>get your IP address</documentation>
+      <input message='tns:myIpRequestMessage' name='myIpInput' />
+      <output message='tns:myIpResponseMessage' name='myIpOutput' />
+    </operation>
+    <operation name='resolveDomain'>
+      <documentation>resolve domain name to a list of IP addresses if possible</documentation>
+      <input message='tns:resolveDomainRequestMessage' name='resolveDomainInput' />
+      <output message='tns:resolveDomainResponseMessage' name='resolveDomainOutput' />
+    </operation>
+    <operation name='resolveIp'>
+      <documentation>resolve given IP address to a domain name if possible</documentation>
+      <input message='tns:resolveIpRequestMessage' name='resolveIpInput' />
+      <output message='tns:resolveIpResponseMessage' name='resolveIpOutput' />
+    </operation>
+  </portType>
+  <binding name='resolveBinding' type='tns:resolvePortType'>
+    <operation name='myIp'>
+      <soap12:operation soapAction='http://myIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resolveDomain'>
+      <soap12:operation soapAction='http://resolveDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resolveIp'>
+      <soap12:operation soapAction='http://resolveIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='resolve'>
+    <documentation>perform quick domain name or IP address resolution Also lets you find your IP</documentation>
+    <port name='resolvePort' binding='tns:resolveBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://resolve' />
+    </port>
+  </service>
+</definitions>

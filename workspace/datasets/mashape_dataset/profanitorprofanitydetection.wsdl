@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/profanitorProfanityDetection/' name='profanitorProfanityDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/profanitorProfanityDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/profanitorProfanityDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/profanitorProfanityDetection/'>
+      <xsd:element name='profanityCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='profane' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='scorecard' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='profanityRemovalResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='profanityCheckRequestMessage' />
+  <message name='profanityCheckResponseMessage'>
+    <part name='response' element='tns:profanityCheckResponse' />
+  </message>
+  <message name='profanityRemovalRequestMessage' />
+  <message name='profanityRemovalResponseMessage'>
+    <part name='response' element='tns:profanityRemovalResponse' />
+  </message>
+  <portType name='profanitorProfanityDetectionPortType'>
+    <operation name='profanityCheck'>
+      <documentation>checks the input text for profanity</documentation>
+      <input message='tns:profanityCheckRequestMessage' name='profanityCheckInput' />
+      <output message='tns:profanityCheckResponseMessage' name='profanityCheckOutput' />
+    </operation>
+    <operation name='profanityRemoval'>
+      <documentation>strip profanity out of text</documentation>
+      <input message='tns:profanityRemovalRequestMessage' name='profanityRemovalInput' />
+      <output message='tns:profanityRemovalResponseMessage' name='profanityRemovalOutput' />
+    </operation>
+  </portType>
+  <binding name='profanitorProfanityDetectionBinding' type='tns:profanitorProfanityDetectionPortType'>
+    <operation name='profanityCheck'>
+      <soap12:operation soapAction='http://profanityCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='profanityRemoval'>
+      <soap12:operation soapAction='http://profanityRemoval' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='profanitorProfanityDetection'>
+    <documentation>profanity detection and analysis API Scan analyze and remove profanity from text</documentation>
+    <port name='profanitorProfanityDetectionPort' binding='tns:profanitorProfanityDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://profanitorProfanityDetection' />
+    </port>
+  </service>
+</definitions>

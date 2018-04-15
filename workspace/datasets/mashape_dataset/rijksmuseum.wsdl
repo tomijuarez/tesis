@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rijksmuseum/' name='rijksmuseum' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rijksmuseum/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rijksmuseum/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rijksmuseum/'>
+      <xsd:element name='collectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='culture' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='collectionRequestMessage'>
+    <part name='parameters' element='tns:collectionParameters' />
+  </message>
+  <message name='collectionResponseMessage'>
+    <part name='response' element='tns:collectionResponse' />
+  </message>
+  <portType name='rijksmuseumPortType'>
+    <operation name='collection'>
+      <documentation>gET api culture collection gives the full collection with brief information about each work This results are split up in result pages By using the p and ps parameters you can fetch more results All of the other parameters are identical to the search page on the Rijksmuseum website You can use that to find out what s the best query to use</documentation>
+      <input message='tns:collectionRequestMessage' name='collectionInput' />
+      <output message='tns:collectionResponseMessage' name='collectionOutput' />
+    </operation>
+  </portType>
+  <binding name='rijksmuseumBinding' type='tns:rijksmuseumPortType'>
+    <operation name='collection'>
+      <soap12:operation soapAction='http://collection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rijksmuseum'>
+    <documentation>the Rijksmuseum is a Dutch national museum dedicated to arts and history in Amsterdam in the Netherlands</documentation>
+    <port name='rijksmuseumPort' binding='tns:rijksmuseumBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rijksmuseum' />
+    </port>
+  </service>
+</definitions>

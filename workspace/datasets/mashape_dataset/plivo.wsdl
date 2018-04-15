@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/plivo/' name='plivo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/plivo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/plivo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/plivo/'>
+      <xsd:element name='sendAMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='authid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendAMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='api_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message_uuid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeAnOutboundCallParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='authid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeAnOutboundCallResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='api_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request_uuid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendAMessageRequestMessage'>
+    <part name='parameters' element='tns:sendAMessageParameters' />
+  </message>
+  <message name='sendAMessageResponseMessage'>
+    <part name='response' element='tns:sendAMessageResponse' />
+  </message>
+  <message name='makeAnOutboundCallRequestMessage'>
+    <part name='parameters' element='tns:makeAnOutboundCallParameters' />
+  </message>
+  <message name='makeAnOutboundCallResponseMessage'>
+    <part name='response' element='tns:makeAnOutboundCallResponse' />
+  </message>
+  <portType name='plivoPortType'>
+    <operation name='sendAMessage'>
+      <documentation>this API enables you to send messages via Plivo s SMS service The API supports Unicode UTF encoded texts so you can send messages in any language The API also handles long SMS automatically by splitting it into standard SMS sized chunks and sending them Delivery reports are automatically supported in networks where they are provided by the operator You can read more at http plivo com docs api message</documentation>
+      <input message='tns:sendAMessageRequestMessage' name='sendAMessageInput' />
+      <output message='tns:sendAMessageResponseMessage' name='sendAMessageOutput' />
+    </operation>
+    <operation name='makeAnOutboundCall'>
+      <documentation>the following API enables you to make a single call or bulk outbound calls to real phone s or SIP endpoint s You can find out more at http plivo com docs api call</documentation>
+      <input message='tns:makeAnOutboundCallRequestMessage' name='makeAnOutboundCallInput' />
+      <output message='tns:makeAnOutboundCallResponseMessage' name='makeAnOutboundCallOutput' />
+    </operation>
+  </portType>
+  <binding name='plivoBinding' type='tns:plivoPortType'>
+    <operation name='sendAMessage'>
+      <soap12:operation soapAction='http://sendAMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='makeAnOutboundCall'>
+      <soap12:operation soapAction='http://makeAnOutboundCall' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='plivo'>
+    <documentation>we at Plivo make it easier for businesses and software developers to use cloud powered Voice and SMS communications We offer HTTP APIs that let you can build Voice and SMS applications or integrate such capabilities into your web or mobile application in any web standard language We simplify the notorious complexity of the telephony business into a simple infrastructure service for you we take care of everything from carriers contracts to call quality and messaging deliverability to technical support</documentation>
+    <port name='plivoPort' binding='tns:plivoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://plivo' />
+    </port>
+  </service>
+</definitions>

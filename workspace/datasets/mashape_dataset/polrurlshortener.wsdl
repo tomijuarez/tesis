@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/polrUrlShortener/' name='polrUrlShortener' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/polrUrlShortener/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/polrUrlShortener/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/polrUrlShortener/'>
+      <xsd:element name='polrApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='polrApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='polrApiRequestMessage'>
+    <part name='parameters' element='tns:polrApiParameters' />
+  </message>
+  <message name='polrApiResponseMessage'>
+    <part name='response' element='tns:polrApiResponse' />
+  </message>
+  <portType name='polrUrlShortenerPortType'>
+    <operation name='polrApi'>
+      <documentation>the Polr API can be used to shorten URLs or lookup URLs shortened with Polr</documentation>
+      <input message='tns:polrApiRequestMessage' name='polrApiInput' />
+      <output message='tns:polrApiResponseMessage' name='polrApiOutput' />
+    </operation>
+  </portType>
+  <binding name='polrUrlShortenerBinding' type='tns:polrUrlShortenerPortType'>
+    <operation name='polrApi'>
+      <soap12:operation soapAction='http://polrApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='polrUrlShortener'>
+    <documentation>polr is a free URL Shortener API You may include our API in any application that supports HTTP GET</documentation>
+    <port name='polrUrlShortenerPort' binding='tns:polrUrlShortenerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://polrUrlShortener' />
+    </port>
+  </service>
+</definitions>

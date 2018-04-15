@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlText/' name='htmlText' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlText/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlText/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlText/'>
+      <xsd:element name='htmlToTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='htmlToTextRequestMessage' />
+  <message name='htmlToTextResponseMessage'>
+    <part name='response' element='tns:htmlToTextResponse' />
+  </message>
+  <portType name='htmlTextPortType'>
+    <operation name='htmlToText'>
+      <documentation></documentation>
+      <input message='tns:htmlToTextRequestMessage' name='htmlToTextInput' />
+      <output message='tns:htmlToTextResponseMessage' name='htmlToTextOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlTextBinding' type='tns:htmlTextPortType'>
+    <operation name='htmlToText'>
+      <soap12:operation soapAction='http://htmlToText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlText'>
+    <documentation>the HTML to text tool tries to extract text content out of an HTML document It ignores non text HTML content like script object and applet tags Feedback on this tool is welcomed on our blog at http blog partsmagic com text html converter online tool api</documentation>
+    <port name='htmlTextPort' binding='tns:htmlTextBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlText' />
+    </port>
+  </service>
+</definitions>

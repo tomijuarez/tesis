@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/repustateSentimentAndTextAnalytics/' name='repustateSentimentAndTextAnalytics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/repustateSentimentAndTextAnalytics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/repustateSentimentAndTextAnalytics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/repustateSentimentAndTextAnalytics/'>
+      <xsd:element name='adjectivesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='adjectivesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bulkLanguageDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bulkLanguageDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categorizationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categorizationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accommodations' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='chunk' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='food' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='chunk' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chunkingWithSentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chunkingWithSentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='chunks' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='chunk' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cleanHtmlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cleanHtmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='correctionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='correctionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dataExtractionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dataExtractionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dates' type='xsd:date' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errors' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='field' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nGramsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='freq' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='max' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='min' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stopwords' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nGramsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ngrams' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='freq' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ngram' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nounsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nounsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='powerpointSlidesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='powerpointSlidesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentBulkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentBulkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verbsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verbsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='adjectivesRequestMessage'>
+    <part name='parameters' element='tns:adjectivesParameters' />
+  </message>
+  <message name='adjectivesResponseMessage'>
+    <part name='response' element='tns:adjectivesResponse' />
+  </message>
+  <message name='bulkLanguageDetectionRequestMessage'>
+    <part name='parameters' element='tns:bulkLanguageDetectionParameters' />
+  </message>
+  <message name='bulkLanguageDetectionResponseMessage'>
+    <part name='response' element='tns:bulkLanguageDetectionResponse' />
+  </message>
+  <message name='categorizationsRequestMessage'>
+    <part name='parameters' element='tns:categorizationsParameters' />
+  </message>
+  <message name='categorizationsResponseMessage'>
+    <part name='response' element='tns:categorizationsResponse' />
+  </message>
+  <message name='chunkingWithSentimentRequestMessage'>
+    <part name='parameters' element='tns:chunkingWithSentimentParameters' />
+  </message>
+  <message name='chunkingWithSentimentResponseMessage'>
+    <part name='response' element='tns:chunkingWithSentimentResponse' />
+  </message>
+  <message name='cleanHtmlRequestMessage'>
+    <part name='parameters' element='tns:cleanHtmlParameters' />
+  </message>
+  <message name='cleanHtmlResponseMessage'>
+    <part name='response' element='tns:cleanHtmlResponse' />
+  </message>
+  <message name='correctionRequestMessage'>
+    <part name='parameters' element='tns:correctionParameters' />
+  </message>
+  <message name='correctionResponseMessage'>
+    <part name='response' element='tns:correctionResponse' />
+  </message>
+  <message name='dataExtractionRequestMessage'>
+    <part name='parameters' element='tns:dataExtractionParameters' />
+  </message>
+  <message name='dataExtractionResponseMessage'>
+    <part name='response' element='tns:dataExtractionResponse' />
+  </message>
+  <message name='languageDetectionRequestMessage'>
+    <part name='parameters' element='tns:languageDetectionParameters' />
+  </message>
+  <message name='languageDetectionResponseMessage'>
+    <part name='response' element='tns:languageDetectionResponse' />
+  </message>
+  <message name='nGramsRequestMessage'>
+    <part name='parameters' element='tns:nGramsParameters' />
+  </message>
+  <message name='nGramsResponseMessage'>
+    <part name='response' element='tns:nGramsResponse' />
+  </message>
+  <message name='nounsRequestMessage'>
+    <part name='parameters' element='tns:nounsParameters' />
+  </message>
+  <message name='nounsResponseMessage'>
+    <part name='response' element='tns:nounsResponse' />
+  </message>
+  <message name='powerpointSlidesRequestMessage'>
+    <part name='parameters' element='tns:powerpointSlidesParameters' />
+  </message>
+  <message name='powerpointSlidesResponseMessage'>
+    <part name='response' element='tns:powerpointSlidesResponse' />
+  </message>
+  <message name='sentimentRequestMessage'>
+    <part name='parameters' element='tns:sentimentParameters' />
+  </message>
+  <message name='sentimentResponseMessage'>
+    <part name='response' element='tns:sentimentResponse' />
+  </message>
+  <message name='sentimentBulkRequestMessage'>
+    <part name='parameters' element='tns:sentimentBulkParameters' />
+  </message>
+  <message name='sentimentBulkResponseMessage'>
+    <part name='response' element='tns:sentimentBulkResponse' />
+  </message>
+  <message name='verbsRequestMessage'>
+    <part name='parameters' element='tns:verbsParameters' />
+  </message>
+  <message name='verbsResponseMessage'>
+    <part name='response' element='tns:verbsResponse' />
+  </message>
+  <portType name='repustateSentimentAndTextAnalyticsPortType'>
+    <operation name='adjectives'>
+      <documentation>with Repustate s natural language toolkit you can extract key adjectives from data all over the world Find out which words people are using to describe a particular brand person or idea You must specify at least one of url or text otherwise you will receive an error for providing insufficient arguments</documentation>
+      <input message='tns:adjectivesRequestMessage' name='adjectivesInput' />
+      <output message='tns:adjectivesResponseMessage' name='adjectivesOutput' />
+    </operation>
+    <operation name='bulkLanguageDetection'>
+      <documentation>similar to language detection but works on many pieces of text all at once Structured similarly to the bulk sentiment call</documentation>
+      <input message='tns:bulkLanguageDetectionRequestMessage' name='bulkLanguageDetectionInput' />
+      <output message='tns:bulkLanguageDetectionResponseMessage' name='bulkLanguageDetectionOutput' />
+    </operation>
+    <operation name='categorizations'>
+      <documentation>sometimes sentiment alone isn t enough you want to know which aspects of a particular subject carry sentiment For example if you re a hotel you might be interested in knowing people s opinions on your staff as well as your amenities and the food offerings This API call automically categorizes text according to industry specific categories Below you ll find imformation on which industry verticals are supported as well as the categories for each hotel food price location accommodations amenities staff airline price staff in flight loyalty restaurant price food staff location atmosphere events telecom price service products</documentation>
+      <input message='tns:categorizationsRequestMessage' name='categorizationsInput' />
+      <output message='tns:categorizationsResponseMessage' name='categorizationsOutput' />
+    </operation>
+    <operation name='chunkingWithSentiment'>
+      <documentation>often you might be interested in the individual portions of a document s sentiment rather than the overall sentiment Chunking is the process of breaking up a document into its more interesting parts and evaluating the sentiment on it This API call chunks and returns the sentiment for each chunk Note that one of text or url must be included but not both If both are included the text value will be used</documentation>
+      <input message='tns:chunkingWithSentimentRequestMessage' name='chunkingWithSentimentInput' />
+      <output message='tns:chunkingWithSentimentResponseMessage' name='chunkingWithSentimentOutput' />
+    </operation>
+    <operation name='cleanHtml'>
+      <documentation>this API call will extract out the most important part of a web page removing all tags and any common header or footer content For those familiar with Readability js this API call replicates Readability s functionality You can also pass in a URL to a PDF and obtain just the text from this PDF If the article has a main image the URL to this image will also be returned</documentation>
+      <input message='tns:cleanHtmlRequestMessage' name='cleanHtmlInput' />
+      <output message='tns:cleanHtmlResponseMessage' name='cleanHtmlOutput' />
+    </operation>
+    <operation name='correction'>
+      <documentation>if you feel our sentiment engine is incorrect you can issue a correction using this API call This correction will only affect your data and cannot be influenced by others In other words if another Repustate user submits a correction stating that I love hockey is negative that will only affect their scoring going forward not anybody else s</documentation>
+      <input message='tns:correctionRequestMessage' name='correctionInput' />
+      <output message='tns:correctionResponseMessage' name='correctionOutput' />
+    </operation>
+    <operation name='dataExtraction'>
+      <documentation>returns any mention of a date in english in form of YYYY MM DD For example I m going to school next week would have result in next week being converted into a date string</documentation>
+      <input message='tns:dataExtractionRequestMessage' name='dataExtractionInput' />
+      <output message='tns:dataExtractionResponseMessage' name='dataExtractionOutput' />
+    </operation>
+    <operation name='languageDetection'>
+      <documentation>given a piece of text or a URL to a website this API call will determine the language of the text in question The response will contain a two letter code representing the language identified Possible languages are english en french fr german de spanish es dutch nl and italian it If a language cannot be accurately detected an empty string will be returned as the language code</documentation>
+      <input message='tns:languageDetectionRequestMessage' name='languageDetectionInput' />
+      <output message='tns:languageDetectionResponseMessage' name='languageDetectionOutput' />
+    </operation>
+    <operation name='nGrams'>
+      <documentation>this API call generates all n grams within a block of text or URL and returns the frequency of their occurrence For more information about n grams check out the Wikipedia entry You can specify up to what length n you want generated but anything higher than probably won t return anything useful Optional arguments include the ability to filter on a minimum frequency of occurrence as well as a minimum number of n gram terms e g only show bi grams or more and skip all unigrams Please note that if you are using HTTP GET any optional arguments need to be URL encoded If you are using HTTP POST any optional arguments should be part of your POST ed data</documentation>
+      <input message='tns:nGramsRequestMessage' name='nGramsInput' />
+      <output message='tns:nGramsResponseMessage' name='nGramsOutput' />
+    </operation>
+    <operation name='nouns'>
+      <documentation>with Repustate s natural language toolkit you can extract nouns or people places and things from data all over the world Find the topics that are of importance to your customers with this API call</documentation>
+      <input message='tns:nounsRequestMessage' name='nounsInput' />
+      <output message='tns:nounsResponseMessage' name='nounsOutput' />
+    </operation>
+    <operation name='powerpointSlides'>
+      <documentation>repustate allows you to programmatically create PowerPoint slides with a simple API call This API call can be really useful for automating reports that need to be generated regularly You can supply a title for each slide and an image The image must be base encoded Currently all slides can contain only a title and an image and the slides are all on a simple white background We intend to add the ability to make the slides more dynamic as well as suppling a custom template to use</documentation>
+      <input message='tns:powerpointSlidesRequestMessage' name='powerpointSlidesInput' />
+      <output message='tns:powerpointSlidesResponseMessage' name='powerpointSlidesOutput' />
+    </operation>
+    <operation name='sentiment'>
+      <documentation>repustate s sentiment analysis allows you to determine the sentiment how people feel about a particular topic from any data source you have access to Like most of Repustate s API calls you have a choice of how to specify your arguments You can supply one of a block of text a single URL or a list of URLs Note that one of text or url must be included but not both If both are included the text value will be used</documentation>
+      <input message='tns:sentimentRequestMessage' name='sentimentInput' />
+      <output message='tns:sentimentResponseMessage' name='sentimentOutput' />
+    </operation>
+    <operation name='sentimentBulk'>
+      <documentation>if you plan on analyzing a large number of text documents i e you already have the text and you re not relying on Repustate to grab the content via a URL then we suggest utilizing our bulk API With this API call you can POST up to pieces of text a time when using English and pieces of text at a time for other languages and Repustate will return an XML or JSON list with a score for each block of text All languages can be analyzed in bulk EXCEPT for Arabic Only one piece of Arabic text will be analyzed per request</documentation>
+      <input message='tns:sentimentBulkRequestMessage' name='sentimentBulkInput' />
+      <output message='tns:sentimentBulkResponseMessage' name='sentimentBulkOutput' />
+    </operation>
+    <operation name='verbs'>
+      <documentation>with Repustate s natural language toolkit you can extract key verbs or action words from data all over the world Find the words that connote an intent to act on a certain product or trend</documentation>
+      <input message='tns:verbsRequestMessage' name='verbsInput' />
+      <output message='tns:verbsResponseMessage' name='verbsOutput' />
+    </operation>
+  </portType>
+  <binding name='repustateSentimentAndTextAnalyticsBinding' type='tns:repustateSentimentAndTextAnalyticsPortType'>
+    <operation name='adjectives'>
+      <soap12:operation soapAction='http://adjectives' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='bulkLanguageDetection'>
+      <soap12:operation soapAction='http://bulkLanguageDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categorizations'>
+      <soap12:operation soapAction='http://categorizations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='chunkingWithSentiment'>
+      <soap12:operation soapAction='http://chunkingWithSentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cleanHtml'>
+      <soap12:operation soapAction='http://cleanHtml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='correction'>
+      <soap12:operation soapAction='http://correction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dataExtraction'>
+      <soap12:operation soapAction='http://dataExtraction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='languageDetection'>
+      <soap12:operation soapAction='http://languageDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nGrams'>
+      <soap12:operation soapAction='http://nGrams' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nouns'>
+      <soap12:operation soapAction='http://nouns' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='powerpointSlides'>
+      <soap12:operation soapAction='http://powerpointSlides' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentiment'>
+      <soap12:operation soapAction='http://sentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentimentBulk'>
+      <soap12:operation soapAction='http://sentimentBulk' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verbs'>
+      <soap12:operation soapAction='http://verbs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='repustateSentimentAndTextAnalytics'>
+    <documentation>repustate s sentiment analysis and text analytics API allows you to extract key words and phrases and determine social media sentiment in one of many languages These languages include English Arabic German French and Spanish Monitor social media as well using our API and retrieve your data all with simple API calls</documentation>
+    <port name='repustateSentimentAndTextAnalyticsPort' binding='tns:repustateSentimentAndTextAnalyticsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://repustateSentimentAndTextAnalytics' />
+    </port>
+  </service>
+</definitions>

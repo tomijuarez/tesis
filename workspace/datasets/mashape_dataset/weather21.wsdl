@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/weather/' name='weather' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/weather/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/weather/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/weather/'>
+      <xsd:element name='weekForecastRequestByCityAndStateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cityname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stateabbreviation' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekForecastRequestByCityAndStateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='temperatureHigh' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='temperatureLowCelcius' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='temperatureLow' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='regionAffected' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='forecastDesc' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='forecastLengthInHours' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='conditions' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='display' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='tag' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='headline' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='temperatureHighCelcius' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='startDate' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='revision' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekForecastRequestByLatitudeAndLongitudeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekForecastRequestByLatitudeAndLongitudeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekForecastRequestByZipCodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekForecastRequestByZipCodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='weekForecastRequestByCityAndStateRequestMessage'>
+    <part name='parameters' element='tns:weekForecastRequestByCityAndStateParameters' />
+  </message>
+  <message name='weekForecastRequestByCityAndStateResponseMessage'>
+    <part name='response' element='tns:weekForecastRequestByCityAndStateResponse' />
+  </message>
+  <message name='weekForecastRequestByLatitudeAndLongitudeRequestMessage'>
+    <part name='parameters' element='tns:weekForecastRequestByLatitudeAndLongitudeParameters' />
+  </message>
+  <message name='weekForecastRequestByLatitudeAndLongitudeResponseMessage'>
+    <part name='response' element='tns:weekForecastRequestByLatitudeAndLongitudeResponse' />
+  </message>
+  <message name='weekForecastRequestByZipCodeRequestMessage'>
+    <part name='parameters' element='tns:weekForecastRequestByZipCodeParameters' />
+  </message>
+  <message name='weekForecastRequestByZipCodeResponseMessage'>
+    <part name='response' element='tns:weekForecastRequestByZipCodeResponse' />
+  </message>
+  <portType name='weatherPortType'>
+    <operation name='weekForecastRequestByCityAndState'>
+      <documentation>using City and State this returns an array of weekly forecast objects</documentation>
+      <input message='tns:weekForecastRequestByCityAndStateRequestMessage' name='weekForecastRequestByCityAndStateInput' />
+      <output message='tns:weekForecastRequestByCityAndStateResponseMessage' name='weekForecastRequestByCityAndStateOutput' />
+    </operation>
+    <operation name='weekForecastRequestByLatitudeAndLongitude'>
+      <documentation>using Latitude and Longitude this returns an array of weekly forecast objects</documentation>
+      <input message='tns:weekForecastRequestByLatitudeAndLongitudeRequestMessage' name='weekForecastRequestByLatitudeAndLongitudeInput' />
+      <output message='tns:weekForecastRequestByLatitudeAndLongitudeResponseMessage' name='weekForecastRequestByLatitudeAndLongitudeOutput' />
+    </operation>
+    <operation name='weekForecastRequestByZipCode'>
+      <documentation>using Zip Code this returns an array of weekly forecast objects</documentation>
+      <input message='tns:weekForecastRequestByZipCodeRequestMessage' name='weekForecastRequestByZipCodeInput' />
+      <output message='tns:weekForecastRequestByZipCodeResponseMessage' name='weekForecastRequestByZipCodeOutput' />
+    </operation>
+  </portType>
+  <binding name='weatherBinding' type='tns:weatherPortType'>
+    <operation name='weekForecastRequestByCityAndState'>
+      <soap12:operation soapAction='http://weekForecastRequestByCityAndState' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='weekForecastRequestByLatitudeAndLongitude'>
+      <soap12:operation soapAction='http://weekForecastRequestByLatitudeAndLongitude' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='weekForecastRequestByZipCode'>
+      <soap12:operation soapAction='http://weekForecastRequestByZipCode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='weather'>
+    <documentation>weather is the most popular long range weather forecast API available Used by popular mobile apps like Weather and already serving over million forecasts a day the Weather long range weather forecasts give you something new and unique for your weather travel or outdoor applications Created by famed meteorologist Gary Lezak our forecasts are powered by the most accurate long range weather model known as the LRC For the first time ever give your users a reliable and accurate long range weather forecast</documentation>
+    <port name='weatherPort' binding='tns:weatherBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://weather' />
+    </port>
+  </service>
+</definitions>

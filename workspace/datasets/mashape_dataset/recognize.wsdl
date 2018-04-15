@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/recognize/' name='recognize' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/recognize/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/recognize/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/recognize/'>
+      <xsd:element name='recognizeObjectsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='genre' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recognizeObjectsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='recognizeObjectsRequestMessage'>
+    <part name='parameters' element='tns:recognizeObjectsParameters' />
+  </message>
+  <message name='recognizeObjectsResponseMessage'>
+    <part name='response' element='tns:recognizeObjectsResponse' />
+  </message>
+  <portType name='recognizePortType'>
+    <operation name='recognizeObjects'>
+      <documentation>recognize different genres in photos fashion landmark scene etc</documentation>
+      <input message='tns:recognizeObjectsRequestMessage' name='recognizeObjectsInput' />
+      <output message='tns:recognizeObjectsResponseMessage' name='recognizeObjectsOutput' />
+    </operation>
+  </portType>
+  <binding name='recognizeBinding' type='tns:recognizePortType'>
+    <operation name='recognizeObjects'>
+      <soap12:operation soapAction='http://recognizeObjects' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='recognize'>
+    <documentation>vufind Recognize is a real time image recognition API for classification and monetization of photos and videos Recognize uses object recognition to uncover meaning and metadata of photos and videos for contextual image commerce and advertising Object types can be landmarks scenes apparel decor food products etc We re continuously adding objects and will prioritize adding objects in genres where customer demand is high</documentation>
+    <port name='recognizePort' binding='tns:recognizeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://recognize' />
+    </port>
+  </service>
+</definitions>

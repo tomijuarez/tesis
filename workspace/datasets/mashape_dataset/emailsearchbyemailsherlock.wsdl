@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailSearchByEmailsherlock/' name='emailSearchByEmailsherlock' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailSearchByEmailsherlock/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailSearchByEmailsherlock/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailSearchByEmailsherlock/'>
+      <xsd:element name='emailsherlockParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientref' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emailsherlockResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='emailsherlockRequestMessage'>
+    <part name='parameters' element='tns:emailsherlockParameters' />
+  </message>
+  <message name='emailsherlockResponseMessage'>
+    <part name='response' element='tns:emailsherlockResponse' />
+  </message>
+  <portType name='emailSearchByEmailsherlockPortType'>
+    <operation name='emailsherlock'>
+      <documentation>emailSherlock api</documentation>
+      <input message='tns:emailsherlockRequestMessage' name='emailsherlockInput' />
+      <output message='tns:emailsherlockResponseMessage' name='emailsherlockOutput' />
+    </operation>
+  </portType>
+  <binding name='emailSearchByEmailsherlockBinding' type='tns:emailSearchByEmailsherlockPortType'>
+    <operation name='emailsherlock'>
+      <soap12:operation soapAction='http://emailsherlock' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailSearchByEmailsherlock'>
+    <documentation>a reverse email search conducted at EmailSherlock com can help determine the identity of the owner of an unknown address that shows up in your inbox You can also use this free email search service to learn more about an address you found in your address book or perhaps in connection with an online ad you re considering responding to</documentation>
+    <port name='emailSearchByEmailsherlockPort' binding='tns:emailSearchByEmailsherlockBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailSearchByEmailsherlock' />
+    </port>
+  </service>
+</definitions>

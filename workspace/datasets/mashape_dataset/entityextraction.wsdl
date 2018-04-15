@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/entityExtraction/' name='entityExtraction' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/entityExtraction/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/entityExtraction/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/entityExtraction/'>
+      <xsd:element name='autocompleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='client' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='prefix' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='autocompleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='client' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='autocompleteRequestMessage'>
+    <part name='parameters' element='tns:autocompleteParameters' />
+  </message>
+  <message name='autocompleteResponseMessage'>
+    <part name='response' element='tns:autocompleteResponse' />
+  </message>
+  <message name='extractRequestMessage'>
+    <part name='parameters' element='tns:extractParameters' />
+  </message>
+  <message name='extractResponseMessage'>
+    <part name='response' element='tns:extractResponse' />
+  </message>
+  <portType name='entityExtractionPortType'>
+    <operation name='autocomplete'>
+      <documentation></documentation>
+      <input message='tns:autocompleteRequestMessage' name='autocompleteInput' />
+      <output message='tns:autocompleteResponseMessage' name='autocompleteOutput' />
+    </operation>
+    <operation name='extract'>
+      <documentation>extract entities from a document</documentation>
+      <input message='tns:extractRequestMessage' name='extractInput' />
+      <output message='tns:extractResponseMessage' name='extractOutput' />
+    </operation>
+  </portType>
+  <binding name='entityExtractionBinding' type='tns:entityExtractionPortType'>
+    <operation name='autocomplete'>
+      <soap12:operation soapAction='http://autocomplete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extract'>
+      <soap12:operation soapAction='http://extract' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='entityExtraction'>
+    <documentation>entity extraction Named Entity Recognition This API annotates text and returns identified entities such as people locations dates products etc The text also gets classified into predefined or custom categories such as politics entertainment music technology etc We are using a huge database of entities addresses celebrities etc and combining it with pattern recognition approaches Please contact us if you need custom entities or topics</documentation>
+    <port name='entityExtractionPort' binding='tns:entityExtractionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://entityExtraction' />
+    </port>
+  </service>
+</definitions>

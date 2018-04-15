@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/justvisualFurniture/' name='justvisualFurniture' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/justvisualFurniture/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/justvisualFurniture/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/justvisualFurniture/'>
+      <xsd:element name='searchByUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='images' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='keywords' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='imageUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='pageUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='searchId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchByUrlRequestMessage'>
+    <part name='parameters' element='tns:searchByUrlParameters' />
+  </message>
+  <message name='searchByUrlResponseMessage'>
+    <part name='response' element='tns:searchByUrlResponse' />
+  </message>
+  <portType name='justvisualFurniturePortType'>
+    <operation name='searchByUrl'>
+      <input message='tns:searchByUrlRequestMessage' name='searchByUrlInput' />
+      <output message='tns:searchByUrlResponseMessage' name='searchByUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='justvisualFurnitureBinding' type='tns:justvisualFurniturePortType'>
+    <operation name='searchByUrl'>
+      <soap12:operation soapAction='http://searchByUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='justvisualFurniture'>
+    <documentation>find visually similar furniture from US merchants Each result has a direct link to that product with more information and purchase options on the original merchant site</documentation>
+    <port name='justvisualFurniturePort' binding='tns:justvisualFurnitureBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://justvisualFurniture' />
+    </port>
+  </service>
+</definitions>

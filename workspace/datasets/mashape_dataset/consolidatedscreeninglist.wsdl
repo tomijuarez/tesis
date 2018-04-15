@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/consolidatedScreeningList/' name='consolidatedScreeningList' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/consolidatedScreeningList/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/consolidatedScreeningList/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/consolidatedScreeningList/'>
+      <xsd:element name='apiTradeGovVConsolidatedScreeningListSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTradeGovVConsolidatedScreeningListSearchRequestMessage' />
+  <message name='apiTradeGovVConsolidatedScreeningListSearchResponseMessage'>
+    <part name='response' element='tns:apiTradeGovVConsolidatedScreeningListSearchResponse' />
+  </message>
+  <portType name='consolidatedScreeningListPortType'>
+    <operation name='apiTradeGovVConsolidatedScreeningListSearch'>
+      <input message='tns:apiTradeGovVConsolidatedScreeningListSearchRequestMessage' name='apiTradeGovVConsolidatedScreeningListSearchInput' />
+      <output message='tns:apiTradeGovVConsolidatedScreeningListSearchResponseMessage' name='apiTradeGovVConsolidatedScreeningListSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='consolidatedScreeningListBinding' type='tns:consolidatedScreeningListPortType'>
+    <operation name='apiTradeGovVConsolidatedScreeningListSearch'>
+      <soap12:operation soapAction='http://apiTradeGovVConsolidatedScreeningListSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='consolidatedScreeningList'>
+    <documentation>the Consolidated Screening List API consolidates nine export screening lists of the Departments of Commerce State and the Treasury into a single data feed as an aide to industry in conducting electronic screens of potential parties to regulated transactions In the event that a company entity or person on the list appears to match a party potentially involved in an export transaction additional due diligence should be conducted before proceeding There may be a strict export prohibition requirement for seeking a license application evaluation of the end use or user to ensure it does not result in an activity prohibited by any U S export regulations or other restriction</documentation>
+    <port name='consolidatedScreeningListPort' binding='tns:consolidatedScreeningListBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://consolidatedScreeningList' />
+    </port>
+  </service>
+</definitions>

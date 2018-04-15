@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/skgaGolfHandicap/' name='skgaGolfHandicap' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/skgaGolfHandicap/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/skgaGolfHandicap/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/skgaGolfHandicap/'>
+      <xsd:element name='handicapParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='handicapResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchbynameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchbynameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='handicapRequestMessage'>
+    <part name='parameters' element='tns:handicapParameters' />
+  </message>
+  <message name='handicapResponseMessage'>
+    <part name='response' element='tns:handicapResponse' />
+  </message>
+  <message name='searchbynameRequestMessage'>
+    <part name='parameters' element='tns:searchbynameParameters' />
+  </message>
+  <message name='searchbynameResponseMessage'>
+    <part name='response' element='tns:searchbynameResponse' />
+  </message>
+  <portType name='skgaGolfHandicapPortType'>
+    <operation name='handicap'>
+      <documentation>golf handicap of player</documentation>
+      <input message='tns:handicapRequestMessage' name='handicapInput' />
+      <output message='tns:handicapResponseMessage' name='handicapOutput' />
+    </operation>
+    <operation name='searchbyname'>
+      <documentation>search by name</documentation>
+      <input message='tns:searchbynameRequestMessage' name='searchbynameInput' />
+      <output message='tns:searchbynameResponseMessage' name='searchbynameOutput' />
+    </operation>
+  </portType>
+  <binding name='skgaGolfHandicapBinding' type='tns:skgaGolfHandicapPortType'>
+    <operation name='handicap'>
+      <soap12:operation soapAction='http://handicap' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchbyname'>
+      <soap12:operation soapAction='http://searchbyname' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='skgaGolfHandicap'>
+    <documentation>handicap of golf player in Slovakia or the Czech republic</documentation>
+    <port name='skgaGolfHandicapPort' binding='tns:skgaGolfHandicapBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://skgaGolfHandicap' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/messente/' name='messente' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/messente/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/messente/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/messente/'>
+      <xsd:element name='accountFullPricelistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countryPricingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countryPricingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='syncronousDeliveryReportDlrParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='smsuniqueid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='syncronousDeliveryReportDlrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountFullPricelistRequestMessage' />
+  <message name='accountFullPricelistResponseMessage'>
+    <part name='response' element='tns:accountFullPricelistResponse' />
+  </message>
+  <message name='countryPricingRequestMessage'>
+    <part name='parameters' element='tns:countryPricingParameters' />
+  </message>
+  <message name='countryPricingResponseMessage'>
+    <part name='response' element='tns:countryPricingResponse' />
+  </message>
+  <message name='sendSmsRequestMessage' />
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <message name='syncronousDeliveryReportDlrRequestMessage'>
+    <part name='parameters' element='tns:syncronousDeliveryReportDlrParameters' />
+  </message>
+  <message name='syncronousDeliveryReportDlrResponseMessage'>
+    <part name='response' element='tns:syncronousDeliveryReportDlrResponse' />
+  </message>
+  <portType name='messentePortType'>
+    <operation name='accountFullPricelist'>
+      <documentation>get the full Messente pricelist in CSV format</documentation>
+      <input message='tns:accountFullPricelistRequestMessage' name='accountFullPricelistInput' />
+      <output message='tns:accountFullPricelistResponseMessage' name='accountFullPricelistOutput' />
+    </operation>
+    <operation name='countryPricing'>
+      <documentation>get the prices to all operators in this country</documentation>
+      <input message='tns:countryPricingRequestMessage' name='countryPricingInput' />
+      <output message='tns:countryPricingResponseMessage' name='countryPricingOutput' />
+    </operation>
+    <operation name='sendSms'>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+    <operation name='syncronousDeliveryReportDlr'>
+      <documentation>ask for current SMS Delivery Report DLR</documentation>
+      <input message='tns:syncronousDeliveryReportDlrRequestMessage' name='syncronousDeliveryReportDlrInput' />
+      <output message='tns:syncronousDeliveryReportDlrResponseMessage' name='syncronousDeliveryReportDlrOutput' />
+    </operation>
+  </portType>
+  <binding name='messenteBinding' type='tns:messentePortType'>
+    <operation name='accountFullPricelist'>
+      <soap12:operation soapAction='http://accountFullPricelist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='countryPricing'>
+      <soap12:operation soapAction='http://countryPricing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='syncronousDeliveryReportDlr'>
+      <soap12:operation soapAction='http://syncronousDeliveryReportDlr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='messente'>
+    <documentation>messente group messaging platform provides an HTTP based PushSMS interface additionally to the web based message sending tools In order to use the HTTP based interface please activate your API account on the Messente web page</documentation>
+    <port name='messentePort' binding='tns:messenteBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://messente' />
+    </port>
+  </service>
+</definitions>

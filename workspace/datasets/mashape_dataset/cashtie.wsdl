@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cashtie/' name='cashtie' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cashtie/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cashtie/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cashtie/'>
+      <xsd:element name='getMerchantsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='merchants' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='logo_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='stores' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hours' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='address' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='formatted_address' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='address2' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='address1' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='county' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='zip_code' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='coordinates' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='latitude' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='longitude' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='phones' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkAmountOfPaymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paymentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkAmountOfPaymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkAnAccountStatusAndBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkAnAccountStatusAndBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='closeAnAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='closeAnAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='account' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='settings' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='account_number_format' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='multiuse' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='payments' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='amount' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='min' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='max' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='upc' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='currency_code' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='account_number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='balance' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='payments' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='openAnAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='account' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='settings' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='account_number_format' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='multiuse' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='payments' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='amount' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='fixed' type='xsd:decimal' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='upc' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='expiration_date' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='currency_code' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='account_number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='external_account_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='balance' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reopenAnAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='suspendAnAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='suspendAnAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getMerchantsRequestMessage' />
+  <message name='getMerchantsResponseMessage'>
+    <part name='response' element='tns:getMerchantsResponse' />
+  </message>
+  <message name='checkAmountOfPaymentRequestMessage'>
+    <part name='parameters' element='tns:checkAmountOfPaymentParameters' />
+  </message>
+  <message name='checkAmountOfPaymentResponseMessage'>
+    <part name='response' element='tns:checkAmountOfPaymentResponse' />
+  </message>
+  <message name='checkAnAccountStatusAndBalanceRequestMessage'>
+    <part name='parameters' element='tns:checkAnAccountStatusAndBalanceParameters' />
+  </message>
+  <message name='checkAnAccountStatusAndBalanceResponseMessage'>
+    <part name='response' element='tns:checkAnAccountStatusAndBalanceResponse' />
+  </message>
+  <message name='closeAnAccountRequestMessage'>
+    <part name='parameters' element='tns:closeAnAccountParameters' />
+  </message>
+  <message name='closeAnAccountResponseMessage'>
+    <part name='response' element='tns:closeAnAccountResponse' />
+  </message>
+  <message name='openAnAccountRequestMessage' />
+  <message name='openAnAccountResponseMessage'>
+    <part name='response' element='tns:openAnAccountResponse' />
+  </message>
+  <message name='reopenAnAccountRequestMessage' />
+  <message name='reopenAnAccountResponseMessage'>
+    <part name='response' element='tns:reopenAnAccountResponse' />
+  </message>
+  <message name='suspendAnAccountRequestMessage'>
+    <part name='parameters' element='tns:suspendAnAccountParameters' />
+  </message>
+  <message name='suspendAnAccountResponseMessage'>
+    <part name='response' element='tns:suspendAnAccountResponse' />
+  </message>
+  <portType name='cashtiePortType'>
+    <operation name='getMerchants'>
+      <documentation>in order to let your consumers make a payment for a particular Account your system should be able to provide information about stores where payments are accepted Cashtie API provides this information via Merchant resource</documentation>
+      <input message='tns:getMerchantsRequestMessage' name='getMerchantsInput' />
+      <output message='tns:getMerchantsResponseMessage' name='getMerchantsOutput' />
+    </operation>
+    <operation name='checkAmountOfPayment'>
+      <documentation>once you receive a webhook notification that a payment is made your application should send a request to the Cashtie API to check the amount of payment</documentation>
+      <input message='tns:checkAmountOfPaymentRequestMessage' name='checkAmountOfPaymentInput' />
+      <output message='tns:checkAmountOfPaymentResponseMessage' name='checkAmountOfPaymentOutput' />
+    </operation>
+    <operation name='checkAnAccountStatusAndBalance'>
+      <documentation>any time your application needs to check the Account status balance or related payments the following request should be made</documentation>
+      <input message='tns:checkAnAccountStatusAndBalanceRequestMessage' name='checkAnAccountStatusAndBalanceInput' />
+      <output message='tns:checkAnAccountStatusAndBalanceResponseMessage' name='checkAnAccountStatusAndBalanceOutput' />
+    </operation>
+    <operation name='closeAnAccount'>
+      <documentation>an Account can be closed at any time To close an Account use the following request</documentation>
+      <input message='tns:closeAnAccountRequestMessage' name='closeAnAccountInput' />
+      <output message='tns:closeAnAccountResponseMessage' name='closeAnAccountOutput' />
+    </operation>
+    <operation name='openAnAccount'>
+      <documentation>an Account is represented by unique digital Account number issued by Cashtie upon request by your application To open an Account with a fixed amount the following request should be sent</documentation>
+      <input message='tns:openAnAccountRequestMessage' name='openAnAccountInput' />
+      <output message='tns:openAnAccountResponseMessage' name='openAnAccountOutput' />
+    </operation>
+    <operation name='reopenAnAccount'>
+      <documentation>any suspended Account can be reopened To reopen suspended Account use the following request</documentation>
+      <input message='tns:reopenAnAccountRequestMessage' name='reopenAnAccountInput' />
+      <output message='tns:reopenAnAccountResponseMessage' name='reopenAnAccountOutput' />
+    </operation>
+    <operation name='suspendAnAccount'>
+      <documentation>it s possible to suspend an opened Account Suspended Account can t accept payment transaction s To suspend an Account use the following request</documentation>
+      <input message='tns:suspendAnAccountRequestMessage' name='suspendAnAccountInput' />
+      <output message='tns:suspendAnAccountResponseMessage' name='suspendAnAccountOutput' />
+    </operation>
+  </portType>
+  <binding name='cashtieBinding' type='tns:cashtiePortType'>
+    <operation name='getMerchants'>
+      <soap12:operation soapAction='http://getMerchants' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkAmountOfPayment'>
+      <soap12:operation soapAction='http://checkAmountOfPayment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkAnAccountStatusAndBalance'>
+      <soap12:operation soapAction='http://checkAnAccountStatusAndBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='closeAnAccount'>
+      <soap12:operation soapAction='http://closeAnAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='openAnAccount'>
+      <soap12:operation soapAction='http://openAnAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reopenAnAccount'>
+      <soap12:operation soapAction='http://reopenAnAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='suspendAnAccount'>
+      <soap12:operation soapAction='http://suspendAnAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cashtie'>
+    <documentation>cashtie is a powerful web service that links retail cash payments to software applications You will be able to provide new in lane bill payment solutions to your client base and integrate cash payments into your existing applications with just a few lines of code</documentation>
+    <port name='cashtiePort' binding='tns:cashtieBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cashtie' />
+    </port>
+  </service>
+</definitions>

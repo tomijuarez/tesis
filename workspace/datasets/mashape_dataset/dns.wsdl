@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dns/' name='dns' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dns/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dns/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dns/'>
+      <xsd:element name='dnsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dns_entries' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='RData' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dnsRequestMessage'>
+    <part name='parameters' element='tns:dnsParameters' />
+  </message>
+  <message name='dnsResponseMessage'>
+    <part name='response' element='tns:dnsResponse' />
+  </message>
+  <portType name='dnsPortType'>
+    <operation name='dns'>
+      <documentation>dNS record</documentation>
+      <input message='tns:dnsRequestMessage' name='dnsInput' />
+      <output message='tns:dnsResponseMessage' name='dnsOutput' />
+    </operation>
+  </portType>
+  <binding name='dnsBinding' type='tns:dnsPortType'>
+    <operation name='dns'>
+      <soap12:operation soapAction='http://dns' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dns'>
+    <documentation>this API takes a URL or domain as input and returns back DNS data</documentation>
+    <port name='dnsPort' binding='tns:dnsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dns' />
+    </port>
+  </service>
+</definitions>

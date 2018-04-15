@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/recipe/' name='recipe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/recipe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/recipe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/recipe/'>
+      <xsd:element name='classifyCuisineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='cuisine' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cuisines' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='computeDailyMealPlanParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='targetcalories' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='computeDailyMealPlanResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='nutrients' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='carbohydrates' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='protein' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='fat' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='calories' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='meals' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='imageUrls' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createRecipeCardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractRecipeDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='forceextraction' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractRecipeDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='sustainable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='veryHealthy' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='glutenFree' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='veryPopular' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='vegan' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cheap' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='extendedIngredients' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='unitShort' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='originalString' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='unitLong' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='metaInformation' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='aisle' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='aggregateLikes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sourceUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='dairyFree' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='servings' type='xsd:int' minOccurs='0' />
+            <xsd:element name='imageUrls' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='vegetarian' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='spoonacularSourceUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findByIngredientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ingredients' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findByIngredientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='missedIngredientCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='usedIngredientCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='likes' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findByNutrientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='maxcalories' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxcarbs' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxfat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxprotein' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mincalories' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mincarbs' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minfat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minprotein' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findByNutrientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findSimilarRecipesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findSimilarRecipesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='imageUrls' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mapIngredientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ingredientImage' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='originalString' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='metaInformation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='products' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parseIngredientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='unitShort' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='original' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='unitLong' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='aisle' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quickAnswerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quickAnswerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='answer' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recipeInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recipeInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sustainable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='veryHealthy' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='glutenFree' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='veryPopular' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='vegan' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='cheap' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='extendedIngredients' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='unitShort' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='unitLong' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='originalString' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='aggregateLikes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sourceUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='dairyFree' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='servings' type='xsd:int' minOccurs='0' />
+            <xsd:element name='imageUrls' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='vegetarian' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='spoonacularSourceUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchRecipesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cuisine' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='diet' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='excludeingredients' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='intolerances' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchRecipesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='expires' type='xsd:int' minOccurs='0' />
+            <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='processingTimeMs' type='xsd:int' minOccurs='0' />
+            <xsd:element name='isStale' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='imageUrls' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summarizeRecipeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summarizeRecipeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizeIngredientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizeNutritionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizePriceBreakdownResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifyCuisineRequestMessage' />
+  <message name='classifyCuisineResponseMessage'>
+    <part name='response' element='tns:classifyCuisineResponse' />
+  </message>
+  <message name='computeDailyMealPlanRequestMessage'>
+    <part name='parameters' element='tns:computeDailyMealPlanParameters' />
+  </message>
+  <message name='computeDailyMealPlanResponseMessage'>
+    <part name='response' element='tns:computeDailyMealPlanResponse' />
+  </message>
+  <message name='createRecipeCardRequestMessage' />
+  <message name='createRecipeCardResponseMessage'>
+    <part name='response' element='tns:createRecipeCardResponse' />
+  </message>
+  <message name='extractRecipeDataRequestMessage'>
+    <part name='parameters' element='tns:extractRecipeDataParameters' />
+  </message>
+  <message name='extractRecipeDataResponseMessage'>
+    <part name='response' element='tns:extractRecipeDataResponse' />
+  </message>
+  <message name='findByIngredientsRequestMessage'>
+    <part name='parameters' element='tns:findByIngredientsParameters' />
+  </message>
+  <message name='findByIngredientsResponseMessage'>
+    <part name='response' element='tns:findByIngredientsResponse' />
+  </message>
+  <message name='findByNutrientsRequestMessage'>
+    <part name='parameters' element='tns:findByNutrientsParameters' />
+  </message>
+  <message name='findByNutrientsResponseMessage'>
+    <part name='response' element='tns:findByNutrientsResponse' />
+  </message>
+  <message name='findSimilarRecipesRequestMessage'>
+    <part name='parameters' element='tns:findSimilarRecipesParameters' />
+  </message>
+  <message name='findSimilarRecipesResponseMessage'>
+    <part name='response' element='tns:findSimilarRecipesResponse' />
+  </message>
+  <message name='mapIngredientsRequestMessage' />
+  <message name='mapIngredientsResponseMessage'>
+    <part name='response' element='tns:mapIngredientsResponse' />
+  </message>
+  <message name='parseIngredientsRequestMessage' />
+  <message name='parseIngredientsResponseMessage'>
+    <part name='response' element='tns:parseIngredientsResponse' />
+  </message>
+  <message name='quickAnswerRequestMessage'>
+    <part name='parameters' element='tns:quickAnswerParameters' />
+  </message>
+  <message name='quickAnswerResponseMessage'>
+    <part name='response' element='tns:quickAnswerResponse' />
+  </message>
+  <message name='recipeInformationRequestMessage'>
+    <part name='parameters' element='tns:recipeInformationParameters' />
+  </message>
+  <message name='recipeInformationResponseMessage'>
+    <part name='response' element='tns:recipeInformationResponse' />
+  </message>
+  <message name='searchRecipesRequestMessage'>
+    <part name='parameters' element='tns:searchRecipesParameters' />
+  </message>
+  <message name='searchRecipesResponseMessage'>
+    <part name='response' element='tns:searchRecipesResponse' />
+  </message>
+  <message name='summarizeRecipeRequestMessage'>
+    <part name='parameters' element='tns:summarizeRecipeParameters' />
+  </message>
+  <message name='summarizeRecipeResponseMessage'>
+    <part name='response' element='tns:summarizeRecipeResponse' />
+  </message>
+  <message name='visualizeIngredientsRequestMessage' />
+  <message name='visualizeIngredientsResponseMessage'>
+    <part name='response' element='tns:visualizeIngredientsResponse' />
+  </message>
+  <message name='visualizeNutritionRequestMessage' />
+  <message name='visualizeNutritionResponseMessage'>
+    <part name='response' element='tns:visualizeNutritionResponse' />
+  </message>
+  <message name='visualizePriceBreakdownRequestMessage' />
+  <message name='visualizePriceBreakdownResponseMessage'>
+    <part name='response' element='tns:visualizePriceBreakdownResponse' />
+  </message>
+  <portType name='recipePortType'>
+    <operation name='classifyCuisine'>
+      <documentation>classify the recipe s cuisine</documentation>
+      <input message='tns:classifyCuisineRequestMessage' name='classifyCuisineInput' />
+      <output message='tns:classifyCuisineResponseMessage' name='classifyCuisineOutput' />
+    </operation>
+    <operation name='computeDailyMealPlan'>
+      <documentation>compute a meal plan for a day</documentation>
+      <input message='tns:computeDailyMealPlanRequestMessage' name='computeDailyMealPlanInput' />
+      <output message='tns:computeDailyMealPlanResponseMessage' name='computeDailyMealPlanOutput' />
+    </operation>
+    <operation name='createRecipeCard'>
+      <documentation>create a recipe card given a recipe This widget is basically free of charge</documentation>
+      <input message='tns:createRecipeCardRequestMessage' name='createRecipeCardInput' />
+      <output message='tns:createRecipeCardResponseMessage' name='createRecipeCardOutput' />
+    </operation>
+    <operation name='extractRecipeData'>
+      <documentation>extract recipe data from a recipe blog or Web page</documentation>
+      <input message='tns:extractRecipeDataRequestMessage' name='extractRecipeDataInput' />
+      <output message='tns:extractRecipeDataResponseMessage' name='extractRecipeDataOutput' />
+    </operation>
+    <operation name='findByIngredients'>
+      <documentation>find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients</documentation>
+      <input message='tns:findByIngredientsRequestMessage' name='findByIngredientsInput' />
+      <output message='tns:findByIngredientsResponseMessage' name='findByIngredientsOutput' />
+    </operation>
+    <operation name='findByNutrients'>
+      <documentation>find a set of recipes that adhere to the given nutrient limits All the found recipes will have macro nutrients within the calories protein fat and carbohydrate limits</documentation>
+      <input message='tns:findByNutrientsRequestMessage' name='findByNutrientsInput' />
+      <output message='tns:findByNutrientsResponseMessage' name='findByNutrientsOutput' />
+    </operation>
+    <operation name='findSimilarRecipes'>
+      <documentation>find recipes which are similar to the given one</documentation>
+      <input message='tns:findSimilarRecipesRequestMessage' name='findSimilarRecipesInput' />
+      <output message='tns:findSimilarRecipesResponseMessage' name='findSimilarRecipesOutput' />
+    </operation>
+    <operation name='mapIngredients'>
+      <documentation>map ingredients to products</documentation>
+      <input message='tns:mapIngredientsRequestMessage' name='mapIngredientsInput' />
+      <output message='tns:mapIngredientsResponseMessage' name='mapIngredientsOutput' />
+    </operation>
+    <operation name='parseIngredients'>
+      <documentation>parse ingredient descriptions</documentation>
+      <input message='tns:parseIngredientsRequestMessage' name='parseIngredientsInput' />
+      <output message='tns:parseIngredientsResponseMessage' name='parseIngredientsOutput' />
+    </operation>
+    <operation name='quickAnswer'>
+      <documentation>answer a nutrition related natural language question</documentation>
+      <input message='tns:quickAnswerRequestMessage' name='quickAnswerInput' />
+      <output message='tns:quickAnswerResponseMessage' name='quickAnswerOutput' />
+    </operation>
+    <operation name='recipeInformation'>
+      <documentation>get information about a recipe</documentation>
+      <input message='tns:recipeInformationRequestMessage' name='recipeInformationInput' />
+      <output message='tns:recipeInformationResponseMessage' name='recipeInformationOutput' />
+    </operation>
+    <operation name='searchRecipes'>
+      <documentation>search recipes in natural language</documentation>
+      <input message='tns:searchRecipesRequestMessage' name='searchRecipesInput' />
+      <output message='tns:searchRecipesResponseMessage' name='searchRecipesOutput' />
+    </operation>
+    <operation name='summarizeRecipe'>
+      <documentation>summarize the recipe in a short text</documentation>
+      <input message='tns:summarizeRecipeRequestMessage' name='summarizeRecipeInput' />
+      <output message='tns:summarizeRecipeResponseMessage' name='summarizeRecipeOutput' />
+    </operation>
+    <operation name='visualizeIngredients'>
+      <documentation>visualize ingredients of a recipe This widget is basically free of charge</documentation>
+      <input message='tns:visualizeIngredientsRequestMessage' name='visualizeIngredientsInput' />
+      <output message='tns:visualizeIngredientsResponseMessage' name='visualizeIngredientsOutput' />
+    </operation>
+    <operation name='visualizeNutrition'>
+      <documentation>visualize a recipe s nutritional information</documentation>
+      <input message='tns:visualizeNutritionRequestMessage' name='visualizeNutritionInput' />
+      <output message='tns:visualizeNutritionResponseMessage' name='visualizeNutritionOutput' />
+    </operation>
+    <operation name='visualizePriceBreakdown'>
+      <documentation>visualize the price breakdown of a recipe This widget is basically free of charge</documentation>
+      <input message='tns:visualizePriceBreakdownRequestMessage' name='visualizePriceBreakdownInput' />
+      <output message='tns:visualizePriceBreakdownResponseMessage' name='visualizePriceBreakdownOutput' />
+    </operation>
+  </portType>
+  <binding name='recipeBinding' type='tns:recipePortType'>
+    <operation name='classifyCuisine'>
+      <soap12:operation soapAction='http://classifyCuisine' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='computeDailyMealPlan'>
+      <soap12:operation soapAction='http://computeDailyMealPlan' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createRecipeCard'>
+      <soap12:operation soapAction='http://createRecipeCard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractRecipeData'>
+      <soap12:operation soapAction='http://extractRecipeData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findByIngredients'>
+      <soap12:operation soapAction='http://findByIngredients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findByNutrients'>
+      <soap12:operation soapAction='http://findByNutrients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findSimilarRecipes'>
+      <soap12:operation soapAction='http://findSimilarRecipes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='mapIngredients'>
+      <soap12:operation soapAction='http://mapIngredients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='parseIngredients'>
+      <soap12:operation soapAction='http://parseIngredients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='quickAnswer'>
+      <soap12:operation soapAction='http://quickAnswer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='recipeInformation'>
+      <soap12:operation soapAction='http://recipeInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchRecipes'>
+      <soap12:operation soapAction='http://searchRecipes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='summarizeRecipe'>
+      <soap12:operation soapAction='http://summarizeRecipe' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizeIngredients'>
+      <soap12:operation soapAction='http://visualizeIngredients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizeNutrition'>
+      <soap12:operation soapAction='http://visualizeNutrition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizePriceBreakdown'>
+      <soap12:operation soapAction='http://visualizePriceBreakdown' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='recipe'>
+    <documentation>the WebKnox Recipe API allows you to access over recipes It allows users to search for recipes using natural language such as gluten free brownies without sugar Furthermore several widgets to visualize ingredient lists price breakdowns This Food API also contains thousands of information bits about ingredients such as nutrition prices tips and more</documentation>
+    <port name='recipePort' binding='tns:recipeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://recipe' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartLearning/' name='smartLearning' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartLearning/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartLearning/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartLearning/'>
+      <xsd:element name='classifyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text_input' type='xsd:string' minOccurs='0' />
+            <xsd:element name='service_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='song' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='action' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifyRequestMessage' />
+  <message name='classifyResponseMessage'>
+    <part name='response' element='tns:classifyResponse' />
+  </message>
+  <portType name='smartLearningPortType'>
+    <operation name='classify'>
+      <documentation>task Classification enter a short text request get back the type of action you requested and a set of entities extracted from your request</documentation>
+      <input message='tns:classifyRequestMessage' name='classifyInput' />
+      <output message='tns:classifyResponseMessage' name='classifyOutput' />
+    </operation>
+  </portType>
+  <binding name='smartLearningBinding' type='tns:smartLearningPortType'>
+    <operation name='classify'>
+      <soap12:operation soapAction='http://classify' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartLearning'>
+    <documentation>categorize a list of intents or actions and extract entities from a short sentence or query such as in an intelligent personal assistant Data Ninja Services which focus on natural language understanding are developed by Docomo Innovations</documentation>
+    <port name='smartLearningPort' binding='tns:smartLearningBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartLearning' />
+    </port>
+  </service>
+</definitions>

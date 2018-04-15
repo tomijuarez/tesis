@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/knowledga/' name='knowledga' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/knowledga/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/knowledga/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/knowledga/'>
+      <xsd:element name='companyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='companyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='internal_bureaucracy' type='xsd:int' minOccurs='0' />
+            <xsd:element name='startup_adoption' type='xsd:int' minOccurs='0' />
+            <xsd:element name='financial_strength' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='purchassing_power_of_individual' type='xsd:int' minOccurs='0' />
+            <xsd:element name='company_size' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='individualParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='individualResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dependence_on_paycheck' type='xsd:int' minOccurs='0' />
+            <xsd:element name='est_salary' type='xsd:int' minOccurs='0' />
+            <xsd:element name='next_pay_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='est_net_worth' type='xsd:int' minOccurs='0' />
+            <xsd:element name='job_title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='companyRequestMessage'>
+    <part name='parameters' element='tns:companyParameters' />
+  </message>
+  <message name='companyResponseMessage'>
+    <part name='response' element='tns:companyResponse' />
+  </message>
+  <message name='individualRequestMessage'>
+    <part name='parameters' element='tns:individualParameters' />
+  </message>
+  <message name='individualResponseMessage'>
+    <part name='response' element='tns:individualResponse' />
+  </message>
+  <portType name='knowledgaPortType'>
+    <operation name='company'>
+      <documentation>endpoint to process an email address to return information in regards to the company that the individual email address is issued at</documentation>
+      <input message='tns:companyRequestMessage' name='companyInput' />
+      <output message='tns:companyResponseMessage' name='companyOutput' />
+    </operation>
+    <operation name='individual'>
+      <documentation>endpoint to process an email address to return information in regards to the owner of that email</documentation>
+      <input message='tns:individualRequestMessage' name='individualInput' />
+      <output message='tns:individualResponseMessage' name='individualOutput' />
+    </operation>
+  </portType>
+  <binding name='knowledgaBinding' type='tns:knowledgaPortType'>
+    <operation name='company'>
+      <soap12:operation soapAction='http://company' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='individual'>
+      <soap12:operation soapAction='http://individual' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='knowledga'>
+    <documentation>knowledga is an API that turns an email address into actionable data Currently in private beta Please email m knowledga com for a key</documentation>
+    <port name='knowledgaPort' binding='tns:knowledgaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://knowledga' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/decimalsSearch/' name='decimalsSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/decimalsSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/decimalsSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/decimalsSearch/'>
+      <xsd:element name='inaudiPhpNumberNumberCountCountStartStartEndEndParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='end' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inaudiPhpNumberNumberCountCountStartStartEndEndResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='time' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decimal' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='display' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decimals' type='xsd:int' minOccurs='0' />
+            <xsd:element name='time' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='decimal' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inaudiPhpNumberNumberSearchSearchStartStartEndEndParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='end' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='search' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inaudiPhpNumberNumberSearchSearchStartStartEndEndResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='position' type='xsd:int' minOccurs='0' />
+            <xsd:element name='time' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='inaudiPhpNumberNumberCountCountStartStartEndEndRequestMessage'>
+    <part name='parameters' element='tns:inaudiPhpNumberNumberCountCountStartStartEndEndParameters' />
+  </message>
+  <message name='inaudiPhpNumberNumberCountCountStartStartEndEndResponseMessage'>
+    <part name='response' element='tns:inaudiPhpNumberNumberCountCountStartStartEndEndResponse' />
+  </message>
+  <message name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayRequestMessage'>
+    <part name='parameters' element='tns:inaudiPhpNumberNumberDecimalDecimalDisplayDisplayParameters' />
+  </message>
+  <message name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayResponseMessage'>
+    <part name='response' element='tns:inaudiPhpNumberNumberDecimalDecimalDisplayDisplayResponse' />
+  </message>
+  <message name='inaudiPhpNumberNumberSearchSearchStartStartEndEndRequestMessage'>
+    <part name='parameters' element='tns:inaudiPhpNumberNumberSearchSearchStartStartEndEndParameters' />
+  </message>
+  <message name='inaudiPhpNumberNumberSearchSearchStartStartEndEndResponseMessage'>
+    <part name='response' element='tns:inaudiPhpNumberNumberSearchSearchStartStartEndEndResponse' />
+  </message>
+  <portType name='decimalsSearchPortType'>
+    <operation name='inaudiPhpNumberNumberCountCountStartStartEndEnd'>
+      <documentation>count your number in decimals between start and end</documentation>
+      <input message='tns:inaudiPhpNumberNumberCountCountStartStartEndEndRequestMessage' name='inaudiPhpNumberNumberCountCountStartStartEndEndInput' />
+      <output message='tns:inaudiPhpNumberNumberCountCountStartStartEndEndResponseMessage' name='inaudiPhpNumberNumberCountCountStartStartEndEndOutput' />
+    </operation>
+    <operation name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplay'>
+      <documentation>get any decimal</documentation>
+      <input message='tns:inaudiPhpNumberNumberDecimalDecimalDisplayDisplayRequestMessage' name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayInput' />
+      <output message='tns:inaudiPhpNumberNumberDecimalDecimalDisplayDisplayResponseMessage' name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplayOutput' />
+    </operation>
+    <operation name='inaudiPhpNumberNumberSearchSearchStartStartEndEnd'>
+      <documentation>get the first position of any numeric string</documentation>
+      <input message='tns:inaudiPhpNumberNumberSearchSearchStartStartEndEndRequestMessage' name='inaudiPhpNumberNumberSearchSearchStartStartEndEndInput' />
+      <output message='tns:inaudiPhpNumberNumberSearchSearchStartStartEndEndResponseMessage' name='inaudiPhpNumberNumberSearchSearchStartStartEndEndOutput' />
+    </operation>
+  </portType>
+  <binding name='decimalsSearchBinding' type='tns:decimalsSearchPortType'>
+    <operation name='inaudiPhpNumberNumberCountCountStartStartEndEnd'>
+      <soap12:operation soapAction='http://inaudiPhpNumberNumberCountCountStartStartEndEnd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inaudiPhpNumberNumberDecimalDecimalDisplayDisplay'>
+      <soap12:operation soapAction='http://inaudiPhpNumberNumberDecimalDecimalDisplayDisplay' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inaudiPhpNumberNumberSearchSearchStartStartEndEnd'>
+      <soap12:operation soapAction='http://inaudiPhpNumberNumberSearchSearchStartStartEndEnd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='decimalsSearch'>
+    <documentation>decimals Search is an irrational number search engine It provides billions decimals of irrational numbers pi e sqrt golden ratio ln ln apery s constant euler mascheroni s constant You can search a numeric string count decimals and get any decimals</documentation>
+    <port name='decimalsSearchPort' binding='tns:decimalsSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://decimalsSearch' />
+    </port>
+  </service>
+</definitions>

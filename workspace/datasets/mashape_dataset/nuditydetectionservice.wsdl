@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nudityDetectionService/' name='nudityDetectionService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nudityDetectionService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nudityDetectionService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nudityDetectionService/'>
+      <xsd:element name='detectParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+            <xsd:element name='is_nude' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectRequestMessage'>
+    <part name='parameters' element='tns:detectParameters' />
+  </message>
+  <message name='detectResponseMessage'>
+    <part name='response' element='tns:detectResponse' />
+  </message>
+  <portType name='nudityDetectionServicePortType'>
+    <operation name='detect'>
+      <documentation>detects nudity in an image</documentation>
+      <input message='tns:detectRequestMessage' name='detectInput' />
+      <output message='tns:detectResponseMessage' name='detectOutput' />
+    </operation>
+  </portType>
+  <binding name='nudityDetectionServiceBinding' type='tns:nudityDetectionServicePortType'>
+    <operation name='detect'>
+      <soap12:operation soapAction='http://detect' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nudityDetectionService'>
+    <documentation>the NDS API allows developers to check for nudity in images in real time If you have a very high usage feel free to message me for a private plan</documentation>
+    <port name='nudityDetectionServicePort' binding='tns:nudityDetectionServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nudityDetectionService' />
+    </port>
+  </service>
+</definitions>

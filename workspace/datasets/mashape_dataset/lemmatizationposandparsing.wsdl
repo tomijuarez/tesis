@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lemmatizationPosAndParsing/' name='lemmatizationPosAndParsing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lemmatizationPosAndParsing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lemmatizationPosAndParsing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lemmatizationPosAndParsing/'>
+      <xsd:element name='parserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='of' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='rs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='rt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeref' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txtf' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ud' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uw' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='verbose' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='parserRequestMessage'>
+    <part name='parameters' element='tns:parserParameters' />
+  </message>
+  <message name='parserResponseMessage'>
+    <part name='response' element='tns:parserResponse' />
+  </message>
+  <portType name='lemmatizationPosAndParsingPortType'>
+    <operation name='parser'>
+      <documentation>lemmatization POS and parsing of texts</documentation>
+      <input message='tns:parserRequestMessage' name='parserInput' />
+      <output message='tns:parserResponseMessage' name='parserOutput' />
+    </operation>
+  </portType>
+  <binding name='lemmatizationPosAndParsingBinding' type='tns:lemmatizationPosAndParsingPortType'>
+    <operation name='parser'>
+      <soap12:operation soapAction='http://parser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lemmatizationPosAndParsing'>
+    <documentation>this service provides detailed linguistic information for a given text in English Spanish French Italian Portuguese and Catalan There are three operating modes that cover different aspects of the morphosyntactic and semantic analysis Lemmatization which provides the lemmas of the different words in a text PoS tagging which provides not only the grammatical category of a word including semantic information about that word Syntactic analysis that provides a thorough syntactic analysis giving a complete syntactic tree where the leaves represent the most basic elements and their morphological and semantic analyses</documentation>
+    <port name='lemmatizationPosAndParsingPort' binding='tns:lemmatizationPosAndParsingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lemmatizationPosAndParsing' />
+    </port>
+  </service>
+</definitions>

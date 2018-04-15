@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eazitaCom/' name='eazitaCom' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eazitaCom/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eazitaCom/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eazitaCom/'>
+      <xsd:element name='checkAccountBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deliveryReportsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='delivery' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentdate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='donedate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='gsmerror' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='remaincredit' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='totalprice' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='messages' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='gsm' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='messageid' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalgsm' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkAccountBalanceRequestMessage' />
+  <message name='checkAccountBalanceResponseMessage'>
+    <part name='response' element='tns:checkAccountBalanceResponse' />
+  </message>
+  <message name='deliveryReportsRequestMessage' />
+  <message name='deliveryReportsResponseMessage'>
+    <part name='response' element='tns:deliveryReportsResponse' />
+  </message>
+  <message name='sendSmsRequestMessage' />
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='eazitaComPortType'>
+    <operation name='checkAccountBalance'>
+      <documentation>retrieve your current eazita account balance</documentation>
+      <input message='tns:checkAccountBalanceRequestMessage' name='checkAccountBalanceInput' />
+      <output message='tns:checkAccountBalanceResponseMessage' name='checkAccountBalanceOutput' />
+    </operation>
+    <operation name='deliveryReports'>
+      <documentation>the option to receive message delivery reports DLR via PULL method</documentation>
+      <input message='tns:deliveryReportsRequestMessage' name='deliveryReportsInput' />
+      <output message='tns:deliveryReportsResponseMessage' name='deliveryReportsOutput' />
+    </operation>
+    <operation name='sendSms'>
+      <documentation>send a new outgoing message</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='eazitaComBinding' type='tns:eazitaComPortType'>
+    <operation name='checkAccountBalance'>
+      <soap12:operation soapAction='http://checkAccountBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deliveryReports'>
+      <soap12:operation soapAction='http://deliveryReports' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eazitaCom'>
+    <documentation>eazita s application programming interface API provides the communication link between your application and Eazita s SMS Gateway allowing you to send and receive text messages and to check the delivery status of text messages you ve already sent</documentation>
+    <port name='eazitaComPort' binding='tns:eazitaComBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eazitaCom' />
+    </port>
+  </service>
+</definitions>

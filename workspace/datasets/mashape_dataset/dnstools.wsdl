@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dnsTools/' name='dnsTools' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dnsTools/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dnsTools/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dnsTools/'>
+      <xsd:element name='chkprtParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='port' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chkprtResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dns' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipDnsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipDnsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='chkprtRequestMessage'>
+    <part name='parameters' element='tns:chkprtParameters' />
+  </message>
+  <message name='chkprtResponseMessage'>
+    <part name='response' element='tns:chkprtResponse' />
+  </message>
+  <message name='dnsIpRequestMessage'>
+    <part name='parameters' element='tns:dnsIpParameters' />
+  </message>
+  <message name='dnsIpResponseMessage'>
+    <part name='response' element='tns:dnsIpResponse' />
+  </message>
+  <message name='ipDnsRequestMessage'>
+    <part name='parameters' element='tns:ipDnsParameters' />
+  </message>
+  <message name='ipDnsResponseMessage'>
+    <part name='response' element='tns:ipDnsResponse' />
+  </message>
+  <portType name='dnsToolsPortType'>
+    <operation name='chkprt'>
+      <documentation>check if a port is open on a remote host</documentation>
+      <input message='tns:chkprtRequestMessage' name='chkprtInput' />
+      <output message='tns:chkprtResponseMessage' name='chkprtOutput' />
+    </operation>
+    <operation name='dnsIp'>
+      <documentation>it returns the IP address of a given DNS address</documentation>
+      <input message='tns:dnsIpRequestMessage' name='dnsIpInput' />
+      <output message='tns:dnsIpResponseMessage' name='dnsIpOutput' />
+    </operation>
+    <operation name='ipDns'>
+      <documentation>it returns the hostname of a given IP address</documentation>
+      <input message='tns:ipDnsRequestMessage' name='ipDnsInput' />
+      <output message='tns:ipDnsResponseMessage' name='ipDnsOutput' />
+    </operation>
+  </portType>
+  <binding name='dnsToolsBinding' type='tns:dnsToolsPortType'>
+    <operation name='chkprt'>
+      <soap12:operation soapAction='http://chkprt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dnsIp'>
+      <soap12:operation soapAction='http://dnsIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ipDns'>
+      <soap12:operation soapAction='http://ipDns' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dnsTools'>
+    <documentation>resolve DNS addresses into IP addresses and vice versa New method check if a port is open on a given host</documentation>
+    <port name='dnsToolsPort' binding='tns:dnsToolsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dnsTools' />
+    </port>
+  </service>
+</definitions>

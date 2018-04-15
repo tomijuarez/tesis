@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipBlocklist/' name='ipBlocklist' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipBlocklist/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipBlocklist/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipBlocklist/'>
+      <xsd:element name='ipBlocklistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is-hijacked' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-spider' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-tor' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-dshield' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-bot' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-vpn' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='list-count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='is-spyware' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-spam-bot' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-proxy' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-listed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is-exploit-bot' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipBlocklistRequestMessage' />
+  <message name='ipBlocklistResponseMessage'>
+    <part name='response' element='tns:ipBlocklistResponse' />
+  </message>
+  <portType name='ipBlocklistPortType'>
+    <operation name='ipBlocklist'>
+      <documentation></documentation>
+      <input message='tns:ipBlocklistRequestMessage' name='ipBlocklistInput' />
+      <output message='tns:ipBlocklistResponseMessage' name='ipBlocklistOutput' />
+    </operation>
+  </portType>
+  <binding name='ipBlocklistBinding' type='tns:ipBlocklistPortType'>
+    <operation name='ipBlocklist'>
+      <soap12:operation soapAction='http://ipBlocklist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipBlocklist'>
+    <documentation>the IP Blocklist API will detect potentially malicious or dangerous IP addresses This API is ideal for systems that need to either block filter or flag certain types of Internet users or automated systems We currently detect the following types of IPs Web proxies TOR nodes VPN providers Spyware and malware Hijacked IPs Web spiders Bots and exploit scanners These lists are updated on a daily basis</documentation>
+    <port name='ipBlocklistPort' binding='tns:ipBlocklistBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipBlocklist' />
+    </port>
+  </service>
+</definitions>

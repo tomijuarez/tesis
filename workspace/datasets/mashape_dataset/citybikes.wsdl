@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/citybikes/' name='citybikes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/citybikes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/citybikes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/citybikes/'>
+      <xsd:element name='networksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lng' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='radius' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='systemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='system' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='systemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='bikes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lng' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='coordinates' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='station_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='idx' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='free' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='networksRequestMessage' />
+  <message name='networksResponseMessage'>
+    <part name='response' element='tns:networksResponse' />
+  </message>
+  <message name='systemRequestMessage'>
+    <part name='parameters' element='tns:systemParameters' />
+  </message>
+  <message name='systemResponseMessage'>
+    <part name='response' element='tns:systemResponse' />
+  </message>
+  <portType name='citybikesPortType'>
+    <operation name='networks'>
+      <documentation>this call provides a list of the networks supported in CityBikes</documentation>
+      <input message='tns:networksRequestMessage' name='networksInput' />
+      <output message='tns:networksResponseMessage' name='networksOutput' />
+    </operation>
+    <operation name='system'>
+      <documentation>this call given a system name id see Networks endpoint provides the list of stations and availability</documentation>
+      <input message='tns:systemRequestMessage' name='systemInput' />
+      <output message='tns:systemResponseMessage' name='systemOutput' />
+    </operation>
+  </portType>
+  <binding name='citybikesBinding' type='tns:citybikesPortType'>
+    <operation name='networks'>
+      <soap12:operation soapAction='http://networks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='system'>
+      <soap12:operation soapAction='http://system' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='citybikes'>
+    <documentation>bike Sharing Networks Around the World This project started in Barcelona when I was unable to get a decent client for the Android to work with the Bicing system We figured out the same problem would apply for the rest of the world thus solving it for us locally could also work globally Then we also found out how important was this data for everyone and that there s no reason for companies to keep it private Most of these bike sharing systems are built using public money we believe this data should be available to their own citizens The main reason for this project to be is for people to realize the benefits of providing free data</documentation>
+    <port name='citybikesPort' binding='tns:citybikesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://citybikes' />
+    </port>
+  </service>
+</definitions>

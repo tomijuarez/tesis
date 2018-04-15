@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rapleaf/' name='rapleaf' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rapleaf/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rapleaf/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rapleaf/'>
+      <xsd:element name='personalizationApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='personalizationApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='marital_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='home_market_value' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='length_of_residence' type='xsd:string' minOccurs='0' />
+            <xsd:element name='children' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='home_property_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='household_income' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='home_owner_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='age' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='personalizationApiRequestMessage'>
+    <part name='parameters' element='tns:personalizationApiParameters' />
+  </message>
+  <message name='personalizationApiResponseMessage'>
+    <part name='response' element='tns:personalizationApiResponse' />
+  </message>
+  <portType name='rapleafPortType'>
+    <operation name='personalizationApi'>
+      <documentation>use the Rapleaf Personalization API to get demographic data tied to a specific email In addition we will have a higher match rate if you provide one or more of the following First Name Last Name Street City State all three Zip Code with optional digit extension</documentation>
+      <input message='tns:personalizationApiRequestMessage' name='personalizationApiInput' />
+      <output message='tns:personalizationApiResponseMessage' name='personalizationApiOutput' />
+    </operation>
+  </portType>
+  <binding name='rapleafBinding' type='tns:rapleafPortType'>
+    <operation name='personalizationApi'>
+      <soap12:operation soapAction='http://personalizationApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rapleaf'>
+    <documentation>rapleaf s Personlization API provides rich demographic data about email addresses in real time You will need an Rapleaf API key in order to use this service You can get one for free here https www rapleaf com developers api access With an API key you will have free unlimited access to age gender and city state country data Additionally we provide many other premium fields for a small price Please visit our website or email us at info rapleaf com to get more info on pricing and our premium fields</documentation>
+    <port name='rapleafPort' binding='tns:rapleafBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rapleaf' />
+    </port>
+  </service>
+</definitions>

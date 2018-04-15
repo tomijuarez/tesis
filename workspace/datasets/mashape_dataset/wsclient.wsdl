@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wsclient/' name='wsclient' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wsclient/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wsclient/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wsclient/'>
+      <xsd:element name='createParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='outputpackage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outputprefix' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outputtarget' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outputtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='triggerurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='wsdl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllJobsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createRequestMessage'>
+    <part name='parameters' element='tns:createParameters' />
+  </message>
+  <message name='createResponseMessage'>
+    <part name='response' element='tns:createResponse' />
+  </message>
+  <message name='listAllJobsRequestMessage'>
+    <part name='parameters' element='tns:listAllJobsParameters' />
+  </message>
+  <message name='listAllJobsResponseMessage'>
+    <part name='response' element='tns:listAllJobsResponse' />
+  </message>
+  <message name='statusRequestMessage'>
+    <part name='parameters' element='tns:statusParameters' />
+  </message>
+  <message name='statusResponseMessage'>
+    <part name='response' element='tns:statusResponse' />
+  </message>
+  <portType name='wsclientPortType'>
+    <operation name='create'>
+      <documentation>create new Code Generation Job and use Status End Point to retrieve status of given Job ID or simply click List All Jobs to retrieve recent queued jobs</documentation>
+      <input message='tns:createRequestMessage' name='createInput' />
+      <output message='tns:createResponseMessage' name='createOutput' />
+    </operation>
+    <operation name='listAllJobs'>
+      <documentation>retrieve all jobs along with status and Result URL use start and size to configure paging</documentation>
+      <input message='tns:listAllJobsRequestMessage' name='listAllJobsInput' />
+      <output message='tns:listAllJobsResponseMessage' name='listAllJobsOutput' />
+    </operation>
+    <operation name='status'>
+      <documentation>retrieve Status and Thus result zip file</documentation>
+      <input message='tns:statusRequestMessage' name='statusInput' />
+      <output message='tns:statusResponseMessage' name='statusOutput' />
+    </operation>
+  </portType>
+  <binding name='wsclientBinding' type='tns:wsclientPortType'>
+    <operation name='create'>
+      <soap12:operation soapAction='http://create' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllJobs'>
+      <soap12:operation soapAction='http://listAllJobs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='status'>
+      <soap12:operation soapAction='http://status' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wsclient'>
+    <documentation>android iPhone iPad Blackberry XML SOAP Web Service Client Code Generator</documentation>
+    <port name='wsclientPort' binding='tns:wsclientBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wsclient' />
+    </port>
+  </service>
+</definitions>

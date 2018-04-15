@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianPhoneNumberInfo/' name='indianPhoneNumberInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianPhoneNumberInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianPhoneNumberInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianPhoneNumberInfo/'>
+      <xsd:element name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='thefirstfourdigitsofthemobilenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='location' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mobile_number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='operator' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberRequestMessage'>
+    <part name='parameters' element='tns:getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberParameters' />
+  </message>
+  <message name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberResponseMessage'>
+    <part name='response' element='tns:getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberResponse' />
+  </message>
+  <portType name='indianPhoneNumberInfoPortType'>
+    <operation name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumber'>
+      <input message='tns:getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberRequestMessage' name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberInput' />
+      <output message='tns:getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberResponseMessage' name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumberOutput' />
+    </operation>
+  </portType>
+  <binding name='indianPhoneNumberInfoBinding' type='tns:indianPhoneNumberInfoPortType'>
+    <operation name='getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumber'>
+      <soap12:operation soapAction='http://getphoneinfoMobileNumberTheFirstFourDigitsOfTheMobileNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianPhoneNumberInfo'>
+    <documentation>get the connection type circle name and operator name using this API Mobile number portability not supported as of now Please get in touch with me if you would like to improve this api in any way or would like some other feature added to it See you around</documentation>
+    <port name='indianPhoneNumberInfoPort' binding='tns:indianPhoneNumberInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianPhoneNumberInfo' />
+    </port>
+  </service>
+</definitions>

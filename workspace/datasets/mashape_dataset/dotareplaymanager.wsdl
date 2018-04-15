@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dotaReplayManager/' name='dotaReplayManager' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dotaReplayManager/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dotaReplayManager/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dotaReplayManager/'>
+      <xsd:element name='matchDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='matchid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='matchDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='matchDetailsRequestMessage'>
+    <part name='parameters' element='tns:matchDetailsParameters' />
+  </message>
+  <message name='matchDetailsResponseMessage'>
+    <part name='response' element='tns:matchDetailsResponse' />
+  </message>
+  <portType name='dotaReplayManagerPortType'>
+    <operation name='matchDetails'>
+      <documentation></documentation>
+      <input message='tns:matchDetailsRequestMessage' name='matchDetailsInput' />
+      <output message='tns:matchDetailsResponseMessage' name='matchDetailsOutput' />
+    </operation>
+  </portType>
+  <binding name='dotaReplayManagerBinding' type='tns:dotaReplayManagerPortType'>
+    <operation name='matchDetails'>
+      <soap12:operation soapAction='http://matchDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dotaReplayManager'>
+    <documentation>aPI that I use with my Dota Replay Manager for retrieving match info</documentation>
+    <port name='dotaReplayManagerPort' binding='tns:dotaReplayManagerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dotaReplayManager' />
+    </port>
+  </service>
+</definitions>

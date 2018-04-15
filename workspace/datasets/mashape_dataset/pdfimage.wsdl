@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfImage/' name='pdfImage' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfImage/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfImage/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfImage/'>
+      <xsd:element name='convertFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertFileRequestMessage' />
+  <message name='convertFileResponseMessage'>
+    <part name='response' element='tns:convertFileResponse' />
+  </message>
+  <portType name='pdfImagePortType'>
+    <operation name='convertFile'>
+      <documentation>convert File</documentation>
+      <input message='tns:convertFileRequestMessage' name='convertFileInput' />
+      <output message='tns:convertFileResponseMessage' name='convertFileOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfImageBinding' type='tns:pdfImagePortType'>
+    <operation name='convertFile'>
+      <soap12:operation soapAction='http://convertFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfImage'>
+    <documentation>the API for saving PDF pages to Image files PDF pages can be extracted to jpg png or tiff images</documentation>
+    <port name='pdfImagePort' binding='tns:pdfImageBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfImage' />
+    </port>
+  </service>
+</definitions>

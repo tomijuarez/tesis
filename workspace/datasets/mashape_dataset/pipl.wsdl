@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pipl/' name='pipl' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pipl/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pipl/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pipl/'>
+      <xsd:element name='nameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rawname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thumbnailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='favicondomain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imageurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thumbnailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nameRequestMessage'>
+    <part name='parameters' element='tns:nameParameters' />
+  </message>
+  <message name='nameResponseMessage'>
+    <part name='response' element='tns:nameResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='thumbnailRequestMessage'>
+    <part name='parameters' element='tns:thumbnailParameters' />
+  </message>
+  <message name='thumbnailResponseMessage'>
+    <part name='response' element='tns:thumbnailResponse' />
+  </message>
+  <portType name='piplPortType'>
+    <operation name='name'>
+      <documentation>http dev pipl com docs read name api getstarted</documentation>
+      <input message='tns:nameRequestMessage' name='nameInput' />
+      <output message='tns:nameResponseMessage' name='nameOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>http dev pipl com docs read search api request</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='thumbnail'>
+      <documentation>http dev pipl com docs read thumbnail api getstarted</documentation>
+      <input message='tns:thumbnailRequestMessage' name='thumbnailInput' />
+      <output message='tns:thumbnailResponseMessage' name='thumbnailOutput' />
+    </operation>
+  </portType>
+  <binding name='piplBinding' type='tns:piplPortType'>
+    <operation name='name'>
+      <soap12:operation soapAction='http://name' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='thumbnail'>
+      <soap12:operation soapAction='http://thumbnail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pipl'>
+    <documentation>access rich people data from millions of sources with one robust easy to use API</documentation>
+    <port name='piplPort' binding='tns:piplBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pipl' />
+    </port>
+  </service>
+</definitions>

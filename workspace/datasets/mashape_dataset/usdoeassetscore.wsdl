@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/usDoeAssetScore/' name='usDoeAssetScore' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/usDoeAssetScore/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/usDoeAssetScore/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/usDoeAssetScore/'>
+      <xsd:element name='viewUserInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewUserInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='updated_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='pm_uid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='role_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='organization_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='viewUserInfoRequestMessage'>
+    <part name='parameters' element='tns:viewUserInfoParameters' />
+  </message>
+  <message name='viewUserInfoResponseMessage'>
+    <part name='response' element='tns:viewUserInfoResponse' />
+  </message>
+  <portType name='usDoeAssetScorePortType'>
+    <operation name='viewUserInfo'>
+      <documentation></documentation>
+      <input message='tns:viewUserInfoRequestMessage' name='viewUserInfoInput' />
+      <output message='tns:viewUserInfoResponseMessage' name='viewUserInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='usDoeAssetScoreBinding' type='tns:usDoeAssetScorePortType'>
+    <operation name='viewUserInfo'>
+      <soap12:operation soapAction='http://viewUserInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='usDoeAssetScore'>
+    <documentation>the Office of Energy Efficiency and Renewable Energy of the United States Department of Energy provides this API to help rate commercial buildings on energy efficiency according to its national standards Using a variety of physical characteristics and likely usage the tool can rate a building s energy efficiency including evaluating its systems and identifying areas for possible upgrades Documentation can be found at https assetscoreapi pnnl gov api NOTE The API is currently in BETA and the buildings created may disappear when it moves to public release</documentation>
+    <port name='usDoeAssetScorePort' binding='tns:usDoeAssetScoreBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://usDoeAssetScore' />
+    </port>
+  </service>
+</definitions>

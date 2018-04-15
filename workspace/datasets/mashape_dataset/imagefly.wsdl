@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imagefly/' name='imagefly' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imagefly/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imagefly/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imagefly/'>
+      <xsd:element name='convertsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='thumb' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertsRequestMessage'>
+    <part name='parameters' element='tns:convertsParameters' />
+  </message>
+  <message name='convertsResponseMessage'>
+    <part name='response' element='tns:convertsResponse' />
+  </message>
+  <portType name='imageflyPortType'>
+    <operation name='converts'>
+      <documentation></documentation>
+      <input message='tns:convertsRequestMessage' name='convertsInput' />
+      <output message='tns:convertsResponseMessage' name='convertsOutput' />
+    </operation>
+  </portType>
+  <binding name='imageflyBinding' type='tns:imageflyPortType'>
+    <operation name='converts'>
+      <soap12:operation soapAction='http://converts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imagefly'>
+    <documentation>convert images on the fly</documentation>
+    <port name='imageflyPort' binding='tns:imageflyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imagefly' />
+    </port>
+  </service>
+</definitions>

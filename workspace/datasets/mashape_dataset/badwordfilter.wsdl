@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/badWordFilter/' name='badWordFilter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/badWordFilter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/badWordFilter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/badWordFilter/'>
+      <xsd:element name='badWordFilterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='censored-content' type='xsd:string' minOccurs='0' />
+            <xsd:element name='is-bad' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='bad-words-total' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='badWordFilterRequestMessage' />
+  <message name='badWordFilterResponseMessage'>
+    <part name='response' element='tns:badWordFilterResponse' />
+  </message>
+  <portType name='badWordFilterPortType'>
+    <operation name='badWordFilter'>
+      <documentation></documentation>
+      <input message='tns:badWordFilterRequestMessage' name='badWordFilterInput' />
+      <output message='tns:badWordFilterResponseMessage' name='badWordFilterOutput' />
+    </operation>
+  </portType>
+  <binding name='badWordFilterBinding' type='tns:badWordFilterPortType'>
+    <operation name='badWordFilter'>
+      <soap12:operation soapAction='http://badWordFilter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='badWordFilter'>
+    <documentation>detect and censor bad words swear words and profanity in a given text Currently works with an English only database which includes leetspeak</documentation>
+    <port name='badWordFilterPort' binding='tns:badWordFilterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://badWordFilter' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/minebans/' name='minebans' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/minebans/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/minebans/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/minebans/'>
+      <xsd:element name='playerBansParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='playeruuid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='playerBansResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='serverBansResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='serverModeratorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='playerBansRequestMessage'>
+    <part name='parameters' element='tns:playerBansParameters' />
+  </message>
+  <message name='playerBansResponseMessage'>
+    <part name='response' element='tns:playerBansResponse' />
+  </message>
+  <message name='serverBansRequestMessage' />
+  <message name='serverBansResponseMessage'>
+    <part name='response' element='tns:serverBansResponse' />
+  </message>
+  <message name='serverModeratorsRequestMessage' />
+  <message name='serverModeratorsResponseMessage'>
+    <part name='response' element='tns:serverModeratorsResponse' />
+  </message>
+  <portType name='minebansPortType'>
+    <operation name='playerBans'>
+      <documentation></documentation>
+      <input message='tns:playerBansRequestMessage' name='playerBansInput' />
+      <output message='tns:playerBansResponseMessage' name='playerBansOutput' />
+    </operation>
+    <operation name='serverBans'>
+      <documentation></documentation>
+      <input message='tns:serverBansRequestMessage' name='serverBansInput' />
+      <output message='tns:serverBansResponseMessage' name='serverBansOutput' />
+    </operation>
+    <operation name='serverModerators'>
+      <documentation></documentation>
+      <input message='tns:serverModeratorsRequestMessage' name='serverModeratorsInput' />
+      <output message='tns:serverModeratorsResponseMessage' name='serverModeratorsOutput' />
+    </operation>
+  </portType>
+  <binding name='minebansBinding' type='tns:minebansPortType'>
+    <operation name='playerBans'>
+      <soap12:operation soapAction='http://playerBans' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='serverBans'>
+      <soap12:operation soapAction='http://serverBans' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='serverModerators'>
+      <soap12:operation soapAction='http://serverModerators' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='minebans'>
+    <documentation>mineBans is a global banning system for Minecraft servers We offer a way for server admins to publish the player bans they make on their servers to our database The owners of other servers can then use this information to decide if a player that just joined their server should be allowed to stay All of this is done automatically and is completely configurable using a custom plugin for Bukkit servers</documentation>
+    <port name='minebansPort' binding='tns:minebansBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://minebans' />
+    </port>
+  </service>
+</definitions>

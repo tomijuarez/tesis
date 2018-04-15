@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/netflixRoulette/' name='netflixRoulette' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/netflixRoulette/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/netflixRoulette/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/netflixRoulette/'>
+      <xsd:element name='rouletteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='director' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rouletteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+            <xsd:element name='unit' type='xsd:int' minOccurs='0' />
+            <xsd:element name='show_cast' type='xsd:string' minOccurs='0' />
+            <xsd:element name='show_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='show_title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='director' type='xsd:string' minOccurs='0' />
+            <xsd:element name='release_year' type='xsd:int' minOccurs='0' />
+            <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='runtime' type='xsd:string' minOccurs='0' />
+            <xsd:element name='category' type='xsd:string' minOccurs='0' />
+            <xsd:element name='poster' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='mediatype' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='rouletteRequestMessage'>
+    <part name='parameters' element='tns:rouletteParameters' />
+  </message>
+  <message name='rouletteResponseMessage'>
+    <part name='response' element='tns:rouletteResponse' />
+  </message>
+  <portType name='netflixRoulettePortType'>
+    <operation name='roulette'>
+      <documentation></documentation>
+      <input message='tns:rouletteRequestMessage' name='rouletteInput' />
+      <output message='tns:rouletteResponseMessage' name='rouletteOutput' />
+    </operation>
+  </portType>
+  <binding name='netflixRouletteBinding' type='tns:netflixRoulettePortType'>
+    <operation name='roulette'>
+      <soap12:operation soapAction='http://roulette' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='netflixRoulette'>
+    <documentation>from the beginning I ve planned on giving developers access to the Netflix Roulette Database simply because its so much useful information being used on such a simple web application With Netflixs official API no longer giving out new keys I ve decided to do away with all of that and make this an Open API You re free to query as much information as you d like Just be sure to mind our bandwith</documentation>
+    <port name='netflixRoulettePort' binding='tns:netflixRouletteBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://netflixRoulette' />
+    </port>
+  </service>
+</definitions>

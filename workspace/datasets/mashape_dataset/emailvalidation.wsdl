@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailValidation/' name='emailValidation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailValidation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailValidation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailValidation/'>
+      <xsd:element name='validateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='validateRequestMessage'>
+    <part name='parameters' element='tns:validateParameters' />
+  </message>
+  <message name='validateResponseMessage'>
+    <part name='response' element='tns:validateResponse' />
+  </message>
+  <portType name='emailValidationPortType'>
+    <operation name='validate'>
+      <documentation></documentation>
+      <input message='tns:validateRequestMessage' name='validateInput' />
+      <output message='tns:validateResponseMessage' name='validateOutput' />
+    </operation>
+  </portType>
+  <binding name='emailValidationBinding' type='tns:emailValidationPortType'>
+    <operation name='validate'>
+      <soap12:operation soapAction='http://validate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailValidation'>
+    <documentation>validates an email address based on syntax and dns Includes common spelling mistakes</documentation>
+    <port name='emailValidationPort' binding='tns:emailValidationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailValidation' />
+    </port>
+  </service>
+</definitions>

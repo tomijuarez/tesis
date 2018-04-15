@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/weather/' name='weather' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/weather/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/weather/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/weather/'>
+      <xsd:element name='weatherParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weatherResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='weatherRequestMessage'>
+    <part name='parameters' element='tns:weatherParameters' />
+  </message>
+  <message name='weatherResponseMessage'>
+    <part name='response' element='tns:weatherResponse' />
+  </message>
+  <portType name='weatherPortType'>
+    <operation name='weather'>
+      <documentation>get weather forecast by specific location</documentation>
+      <input message='tns:weatherRequestMessage' name='weatherInput' />
+      <output message='tns:weatherResponseMessage' name='weatherOutput' />
+    </operation>
+  </portType>
+  <binding name='weatherBinding' type='tns:weatherPortType'>
+    <operation name='weather'>
+      <soap12:operation soapAction='http://weather' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='weather'>
+    <documentation>get weather forecast for a specific location WOEID</documentation>
+    <port name='weatherPort' binding='tns:weatherBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://weather' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shorticle/' name='shorticle' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shorticle/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shorticle/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shorticle/'>
+      <xsd:element name='articleSummaryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='returncontent' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='showimages' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='socialshares' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='articleSummaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='articleSummaryRequestMessage'>
+    <part name='parameters' element='tns:articleSummaryParameters' />
+  </message>
+  <message name='articleSummaryResponseMessage'>
+    <part name='response' element='tns:articleSummaryResponse' />
+  </message>
+  <portType name='shorticlePortType'>
+    <operation name='articleSummary'>
+      <documentation>endpoint to fetch article summary main image and social shares</documentation>
+      <input message='tns:articleSummaryRequestMessage' name='articleSummaryInput' />
+      <output message='tns:articleSummaryResponseMessage' name='articleSummaryOutput' />
+    </operation>
+  </portType>
+  <binding name='shorticleBinding' type='tns:shorticlePortType'>
+    <operation name='articleSummary'>
+      <soap12:operation soapAction='http://articleSummary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shorticle'>
+    <documentation>shorticle is an article summarization tool capable of summarising web articles to a custom variable length picking article s title and main image fetching article s social shares and detecting language Shorticle can work with shortened URLs Shorticle uses advanced algorithms to determine sentence value based on article keywords and sentence relationship to ensure that sentences used in summary are comprehensible and cover the entire scope of the article</documentation>
+    <port name='shorticlePort' binding='tns:shorticleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shorticle' />
+    </port>
+  </service>
+</definitions>

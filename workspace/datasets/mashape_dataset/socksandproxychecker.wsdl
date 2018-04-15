@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/socksAndProxyChecker/' name='socksAndProxyChecker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/socksAndProxyChecker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/socksAndProxyChecker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/socksAndProxyChecker/'>
+      <xsd:element name='socksProxyCheckerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='proxies' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='socksProxyCheckerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='socksProxyCheckerRequestMessage'>
+    <part name='parameters' element='tns:socksProxyCheckerParameters' />
+  </message>
+  <message name='socksProxyCheckerResponseMessage'>
+    <part name='response' element='tns:socksProxyCheckerResponse' />
+  </message>
+  <portType name='socksAndProxyCheckerPortType'>
+    <operation name='socksProxyChecker'>
+      <documentation>socks Proxy Checker</documentation>
+      <input message='tns:socksProxyCheckerRequestMessage' name='socksProxyCheckerInput' />
+      <output message='tns:socksProxyCheckerResponseMessage' name='socksProxyCheckerOutput' />
+    </operation>
+  </portType>
+  <binding name='socksAndProxyCheckerBinding' type='tns:socksAndProxyCheckerPortType'>
+    <operation name='socksProxyChecker'>
+      <soap12:operation soapAction='http://socksProxyChecker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='socksAndProxyChecker'>
+    <documentation>all proxy checker for your need support HTTP proxy HTTPS proxy socks socks speed status live or die</documentation>
+    <port name='socksAndProxyCheckerPort' binding='tns:socksAndProxyCheckerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://socksAndProxyChecker' />
+    </port>
+  </service>
+</definitions>

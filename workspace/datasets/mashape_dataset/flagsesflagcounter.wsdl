@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/flagsEsFlagCounter/' name='flagsEsFlagCounter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/flagsEsFlagCounter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/flagsEsFlagCounter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/flagsEsFlagCounter/'>
+      <xsd:element name='cgiBinGeoipAmiipPlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='curl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cgiBinGeoipAmiipPlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='javascriptCodePageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cgiBinGeoipAmiipPlRequestMessage'>
+    <part name='parameters' element='tns:cgiBinGeoipAmiipPlParameters' />
+  </message>
+  <message name='cgiBinGeoipAmiipPlResponseMessage'>
+    <part name='response' element='tns:cgiBinGeoipAmiipPlResponse' />
+  </message>
+  <message name='javascriptCodePageRequestMessage' />
+  <message name='javascriptCodePageResponseMessage'>
+    <part name='response' element='tns:javascriptCodePageResponse' />
+  </message>
+  <portType name='flagsEsFlagCounterPortType'>
+    <operation name='cgiBinGeoipAmiipPl'>
+      <documentation>access the flags es API without Javascript</documentation>
+      <input message='tns:cgiBinGeoipAmiipPlRequestMessage' name='cgiBinGeoipAmiipPlInput' />
+      <output message='tns:cgiBinGeoipAmiipPlResponseMessage' name='cgiBinGeoipAmiipPlOutput' />
+    </operation>
+    <operation name='javascriptCodePage'>
+      <documentation>javascript accessable Api at www flags es</documentation>
+      <input message='tns:javascriptCodePageRequestMessage' name='javascriptCodePageInput' />
+      <output message='tns:javascriptCodePageResponseMessage' name='javascriptCodePageOutput' />
+    </operation>
+  </portType>
+  <binding name='flagsEsFlagCounterBinding' type='tns:flagsEsFlagCounterPortType'>
+    <operation name='cgiBinGeoipAmiipPl'>
+      <soap12:operation soapAction='http://cgiBinGeoipAmiipPl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='javascriptCodePage'>
+      <soap12:operation soapAction='http://javascriptCodePage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='flagsEsFlagCounter'>
+    <documentation>flag es provides a visitor counting widget that shows the most recent visitors the flags of their countries and the names of their cities as determined by their IP addresses This widget can be embedded on the user s website by copying and pasting some JavaScript code This code can be edited to alter the counter s general appearance the information displayed and the number of seconds that must pass before an old visitor can be counted again The Flag es Flag Counter uses GeoLite data provided by MaxMind</documentation>
+    <port name='flagsEsFlagCounterPort' binding='tns:flagsEsFlagCounterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://flagsEsFlagCounter' />
+    </port>
+  </service>
+</definitions>

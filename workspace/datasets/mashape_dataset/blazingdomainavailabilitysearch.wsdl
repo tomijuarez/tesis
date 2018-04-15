@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/blazingDomainAvailabilitySearch/' name='blazingDomainAvailabilitySearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/blazingDomainAvailabilitySearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/blazingDomainAvailabilitySearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/blazingDomainAvailabilitySearch/'>
+      <xsd:element name='blazingDomainAvailabilitySearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='blazingDomainAvailabilitySearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mashape.net' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mashape.com' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mashape.mobi' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mashape.co' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mashape.org' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mashape.biz' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='blazingDomainAvailabilitySearchRequestMessage'>
+    <part name='parameters' element='tns:blazingDomainAvailabilitySearchParameters' />
+  </message>
+  <message name='blazingDomainAvailabilitySearchResponseMessage'>
+    <part name='response' element='tns:blazingDomainAvailabilitySearchResponse' />
+  </message>
+  <portType name='blazingDomainAvailabilitySearchPortType'>
+    <operation name='blazingDomainAvailabilitySearch'>
+      <documentation>check domain name availability at blazing speeds</documentation>
+      <input message='tns:blazingDomainAvailabilitySearchRequestMessage' name='blazingDomainAvailabilitySearchInput' />
+      <output message='tns:blazingDomainAvailabilitySearchResponseMessage' name='blazingDomainAvailabilitySearchOutput' />
+    </operation>
+  </portType>
+  <binding name='blazingDomainAvailabilitySearchBinding' type='tns:blazingDomainAvailabilitySearchPortType'>
+    <operation name='blazingDomainAvailabilitySearch'>
+      <soap12:operation soapAction='http://blazingDomainAvailabilitySearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='blazingDomainAvailabilitySearch'>
+    <documentation>check domain name s availability at blazing speeds using this free API Currently we support com net org biz mobi and co domain search will be adding more soon</documentation>
+    <port name='blazingDomainAvailabilitySearchPort' binding='tns:blazingDomainAvailabilitySearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://blazingDomainAvailabilitySearch' />
+    </port>
+  </service>
+</definitions>

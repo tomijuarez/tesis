@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vatme/' name='vatme' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vatme/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vatme/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vatme/'>
+      <xsd:element name='atcConnectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dateend' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datestart' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fir' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='position' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='total' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='atcConnectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAirportInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='icao' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAirportInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventsInVatmeForACertainMonthParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventsInVatmeForACertainMonthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='start_time' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='eventdescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='created_on' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='end_time' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='event_image' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='vacc' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='eventname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='eventdate' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='eventlink' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMemberApprovedAtcPositionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='vatsimid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMemberApprovedAtcPositionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='approved_for' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='vacc' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMemberInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vacc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMemberInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getVatsimOnlineDataForVatmeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getVatsimOnlineDataForVatmeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Callsign' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Rating' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Frequency' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Login_Time' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='CID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topAtcParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dateend' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datestart' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vacc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topAtcResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='vatsimid' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total_minutes' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='atcConnectionRequestMessage'>
+    <part name='parameters' element='tns:atcConnectionParameters' />
+  </message>
+  <message name='atcConnectionResponseMessage'>
+    <part name='response' element='tns:atcConnectionResponse' />
+  </message>
+  <message name='getAirportInfoRequestMessage'>
+    <part name='parameters' element='tns:getAirportInfoParameters' />
+  </message>
+  <message name='getAirportInfoResponseMessage'>
+    <part name='response' element='tns:getAirportInfoResponse' />
+  </message>
+  <message name='getEventsInVatmeForACertainMonthRequestMessage'>
+    <part name='parameters' element='tns:getEventsInVatmeForACertainMonthParameters' />
+  </message>
+  <message name='getEventsInVatmeForACertainMonthResponseMessage'>
+    <part name='response' element='tns:getEventsInVatmeForACertainMonthResponse' />
+  </message>
+  <message name='getMemberApprovedAtcPositionsRequestMessage'>
+    <part name='parameters' element='tns:getMemberApprovedAtcPositionsParameters' />
+  </message>
+  <message name='getMemberApprovedAtcPositionsResponseMessage'>
+    <part name='response' element='tns:getMemberApprovedAtcPositionsResponse' />
+  </message>
+  <message name='getMemberInfoRequestMessage'>
+    <part name='parameters' element='tns:getMemberInfoParameters' />
+  </message>
+  <message name='getMemberInfoResponseMessage'>
+    <part name='response' element='tns:getMemberInfoResponse' />
+  </message>
+  <message name='getVatsimOnlineDataForVatmeRequestMessage'>
+    <part name='parameters' element='tns:getVatsimOnlineDataForVatmeParameters' />
+  </message>
+  <message name='getVatsimOnlineDataForVatmeResponseMessage'>
+    <part name='response' element='tns:getVatsimOnlineDataForVatmeResponse' />
+  </message>
+  <message name='topAtcRequestMessage'>
+    <part name='parameters' element='tns:topAtcParameters' />
+  </message>
+  <message name='topAtcResponseMessage'>
+    <part name='response' element='tns:topAtcResponse' />
+  </message>
+  <portType name='vatmePortType'>
+    <operation name='atcConnection'>
+      <documentation>get ATC connection history by CID or vACC If no date is given then the last months of ATC connections will be given</documentation>
+      <input message='tns:atcConnectionRequestMessage' name='atcConnectionInput' />
+      <output message='tns:atcConnectionResponseMessage' name='atcConnectionOutput' />
+    </operation>
+    <operation name='getAirportInfo'>
+      <documentation>get airport information with frequencies used at the airport Uses data from ourairports com data</documentation>
+      <input message='tns:getAirportInfoRequestMessage' name='getAirportInfoInput' />
+      <output message='tns:getAirportInfoResponseMessage' name='getAirportInfoOutput' />
+    </operation>
+    <operation name='getEventsInVatmeForACertainMonth'>
+      <documentation>returns all the events in VATME for the year and month passed in Date must be passed in the format of YYYY MM such as meaning September</documentation>
+      <input message='tns:getEventsInVatmeForACertainMonthRequestMessage' name='getEventsInVatmeForACertainMonthInput' />
+      <output message='tns:getEventsInVatmeForACertainMonthResponseMessage' name='getEventsInVatmeForACertainMonthOutput' />
+    </operation>
+    <operation name='getMemberApprovedAtcPositions'>
+      <documentation>this will return all the positions in a vACC that the member is allowed to control</documentation>
+      <input message='tns:getMemberApprovedAtcPositionsRequestMessage' name='getMemberApprovedAtcPositionsInput' />
+      <output message='tns:getMemberApprovedAtcPositionsResponseMessage' name='getMemberApprovedAtcPositionsOutput' />
+    </operation>
+    <operation name='getMemberInfo'>
+      <documentation>gets the member information based on the user s VATSIM ID or can be searched by the vACC</documentation>
+      <input message='tns:getMemberInfoRequestMessage' name='getMemberInfoInput' />
+      <output message='tns:getMemberInfoResponseMessage' name='getMemberInfoOutput' />
+    </operation>
+    <operation name='getVatsimOnlineDataForVatme'>
+      <documentation>type can be either atc or pilot without quotes Returns all the ATC that are online in VATME if atc is given Returns all the pilots flying to from an airport in VATME if pilot is given</documentation>
+      <input message='tns:getVatsimOnlineDataForVatmeRequestMessage' name='getVatsimOnlineDataForVatmeInput' />
+      <output message='tns:getVatsimOnlineDataForVatmeResponseMessage' name='getVatsimOnlineDataForVatmeOutput' />
+    </operation>
+    <operation name='topAtc'>
+      <documentation>get the top ATC for a vACC with given date range</documentation>
+      <input message='tns:topAtcRequestMessage' name='topAtcInput' />
+      <output message='tns:topAtcResponseMessage' name='topAtcOutput' />
+    </operation>
+  </portType>
+  <binding name='vatmeBinding' type='tns:vatmePortType'>
+    <operation name='atcConnection'>
+      <soap12:operation soapAction='http://atcConnection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAirportInfo'>
+      <soap12:operation soapAction='http://getAirportInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEventsInVatmeForACertainMonth'>
+      <soap12:operation soapAction='http://getEventsInVatmeForACertainMonth' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getMemberApprovedAtcPositions'>
+      <soap12:operation soapAction='http://getMemberApprovedAtcPositions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getMemberInfo'>
+      <soap12:operation soapAction='http://getMemberInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getVatsimOnlineDataForVatme'>
+      <soap12:operation soapAction='http://getVatsimOnlineDataForVatme' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='topAtc'>
+      <soap12:operation soapAction='http://topAtc' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vatme'>
+    <documentation>vATSIM Middle East API Used to query the VATME HQ database for information about members or vACCs</documentation>
+    <port name='vatmePort' binding='tns:vatmeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vatme' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/plotly/' name='plotly' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/plotly/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/plotly/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/plotly/'>
+      <xsd:element name='graphResponseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='graphResponseRequestMessage' />
+  <message name='graphResponseResponseMessage'>
+    <part name='response' element='tns:graphResponseResponse' />
+  </message>
+  <portType name='plotlyPortType'>
+    <operation name='graphResponse'>
+      <documentation>make graphs in your browser Send data to your Plotly account and receive a url where you can visit and share you graph See https plot ly api rest for more details</documentation>
+      <input message='tns:graphResponseRequestMessage' name='graphResponseInput' />
+      <output message='tns:graphResponseResponseMessage' name='graphResponseOutput' />
+    </operation>
+  </portType>
+  <binding name='plotlyBinding' type='tns:plotlyPortType'>
+    <operation name='graphResponse'>
+      <soap12:operation soapAction='http://graphResponse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='plotly'>
+    <documentation>scientific graphing and plotting libraries for making interactive web ready publication quality graphs Your data and graphs are always together This means you can code analyze store share and collaborate in Plotly Available for Python R MATLAB Arduino REST Julia and Perl</documentation>
+    <port name='plotlyPort' binding='tns:plotlyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://plotly' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianTelecomDataRechargePlans/' name='indianTelecomDataRechargePlans' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianTelecomDataRechargePlans/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianTelecomDataRechargePlans/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianTelecomDataRechargePlans/'>
+      <xsd:element name='rechargeOptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='circle' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='opcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rechargeOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='recharge_amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_talktime' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='recharge_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_validity' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_circle' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_isRecommended' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_operator' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='rechargeOptionsRequestMessage'>
+    <part name='parameters' element='tns:rechargeOptionsParameters' />
+  </message>
+  <message name='rechargeOptionsResponseMessage'>
+    <part name='response' element='tns:rechargeOptionsResponse' />
+  </message>
+  <portType name='indianTelecomDataRechargePlansPortType'>
+    <operation name='rechargeOptions'>
+      <documentation>grab Telecom Recharge Options New Version available http www datayuge in API recharge plans api telecom data india</documentation>
+      <input message='tns:rechargeOptionsRequestMessage' name='rechargeOptionsInput' />
+      <output message='tns:rechargeOptionsResponseMessage' name='rechargeOptionsOutput' />
+    </operation>
+  </portType>
+  <binding name='indianTelecomDataRechargePlansBinding' type='tns:indianTelecomDataRechargePlansPortType'>
+    <operation name='rechargeOptions'>
+      <soap12:operation soapAction='http://rechargeOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianTelecomDataRechargePlans'>
+    <documentation>this API will give details of recharge for various mobile operators in India You can integrate into your mobile recharging sites or apps The data is pullled from official telecom operator site For Commercial purpose contact www datayuge in Keywords indian recharge tariff telecom data recharge plans</documentation>
+    <port name='indianTelecomDataRechargePlansPort' binding='tns:indianTelecomDataRechargePlansBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianTelecomDataRechargePlans' />
+    </port>
+  </service>
+</definitions>

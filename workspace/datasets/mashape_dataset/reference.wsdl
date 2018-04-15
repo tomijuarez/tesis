@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/reference/' name='reference' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/reference/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/reference/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/reference/'>
+      <xsd:element name='categoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='categories' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='group_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='group_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryGroupsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='category_groups' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dataSourcesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sources' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationLookupsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='autotoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='code' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationLookupsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='county' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='level' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='locality' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxlat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxlong' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='metro' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minlat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minlong' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='categoriesRequestMessage' />
+  <message name='categoriesResponseMessage'>
+    <part name='response' element='tns:categoriesResponse' />
+  </message>
+  <message name='categoryGroupsRequestMessage' />
+  <message name='categoryGroupsResponseMessage'>
+    <part name='response' element='tns:categoryGroupsResponse' />
+  </message>
+  <message name='dataSourcesRequestMessage' />
+  <message name='dataSourcesResponseMessage'>
+    <part name='response' element='tns:dataSourcesResponse' />
+  </message>
+  <message name='locationLookupsRequestMessage'>
+    <part name='parameters' element='tns:locationLookupsParameters' />
+  </message>
+  <message name='locationLookupsResponseMessage'>
+    <part name='response' element='tns:locationLookupsResponse' />
+  </message>
+  <message name='locationsRequestMessage'>
+    <part name='parameters' element='tns:locationsParameters' />
+  </message>
+  <message name='locationsResponseMessage'>
+    <part name='response' element='tns:locationsResponse' />
+  </message>
+  <portType name='referencePortType'>
+    <operation name='categories'>
+      <documentation>to obtain a list of categories</documentation>
+      <input message='tns:categoriesRequestMessage' name='categoriesInput' />
+      <output message='tns:categoriesResponseMessage' name='categoriesOutput' />
+    </operation>
+    <operation name='categoryGroups'>
+      <documentation>to obtain a list of category groups</documentation>
+      <input message='tns:categoryGroupsRequestMessage' name='categoryGroupsInput' />
+      <output message='tns:categoryGroupsResponseMessage' name='categoryGroupsOutput' />
+    </operation>
+    <operation name='dataSources'>
+      <documentation>to obtain a list of data sources</documentation>
+      <input message='tns:dataSourcesRequestMessage' name='dataSourcesInput' />
+      <output message='tns:dataSourcesResponseMessage' name='dataSourcesOutput' />
+    </operation>
+    <operation name='locationLookups'>
+      <documentation></documentation>
+      <input message='tns:locationLookupsRequestMessage' name='locationLookupsInput' />
+      <output message='tns:locationLookupsResponseMessage' name='locationLookupsOutput' />
+    </operation>
+    <operation name='locations'>
+      <documentation>to obtain a list of locations</documentation>
+      <input message='tns:locationsRequestMessage' name='locationsInput' />
+      <output message='tns:locationsResponseMessage' name='locationsOutput' />
+    </operation>
+  </portType>
+  <binding name='referenceBinding' type='tns:referencePortType'>
+    <operation name='categories'>
+      <soap12:operation soapAction='http://categories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryGroups'>
+      <soap12:operation soapAction='http://categoryGroups' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dataSources'>
+      <soap12:operation soapAction='http://dataSources' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='locationLookups'>
+      <soap12:operation soapAction='http://locationLookups' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='locations'>
+      <soap12:operation soapAction='http://locations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='reference'>
+    <documentation>the taps Reference API provides information about the data sources categories and locations available within the taps system This information can be used by external systems to do things such as displaying a pick list of available categories translating location codes into location names etc</documentation>
+    <port name='referencePort' binding='tns:referenceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://reference' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/unwiredLabsLocationapi/' name='unwiredLabsLocationapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/unwiredLabsLocationapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/unwiredLabsLocationapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/unwiredLabsLocationapi/'>
+      <xsd:element name='unwiredlabsLocationApiVResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='unwiredlabsLocationApiVRequestMessage' />
+  <message name='unwiredlabsLocationApiVResponseMessage'>
+    <part name='response' element='tns:unwiredlabsLocationApiVResponse' />
+  </message>
+  <portType name='unwiredLabsLocationapiPortType'>
+    <operation name='unwiredlabsLocationApiV'>
+      <documentation>primary end point for our Triangulation API</documentation>
+      <input message='tns:unwiredlabsLocationApiVRequestMessage' name='unwiredlabsLocationApiVInput' />
+      <output message='tns:unwiredlabsLocationApiVResponseMessage' name='unwiredlabsLocationApiVOutput' />
+    </operation>
+  </portType>
+  <binding name='unwiredLabsLocationapiBinding' type='tns:unwiredLabsLocationapiPortType'>
+    <operation name='unwiredlabsLocationApiV'>
+      <soap12:operation soapAction='http://unwiredlabsLocationApiV' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='unwiredLabsLocationapi'>
+    <documentation>unwired Labs offers cost effective mobile positioning technologies as a LaaS API Location as a Service to developers and companies primarily based out of Europe and North America We have s of developers on our platform and receive over a million hits to our service each day</documentation>
+    <port name='unwiredLabsLocationapiPort' binding='tns:unwiredLabsLocationapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://unwiredLabsLocationapi' />
+    </port>
+  </service>
+</definitions>

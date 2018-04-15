@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/transitfeeds/' name='transitfeeds' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/transitfeeds/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/transitfeeds/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/transitfeeds/'>
+      <xsd:element name='getfeedversionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='feed' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getfeedversionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getlatestfeedversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='feed' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getlatestfeedversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getfeedversionsRequestMessage'>
+    <part name='parameters' element='tns:getfeedversionsParameters' />
+  </message>
+  <message name='getfeedversionsResponseMessage'>
+    <part name='response' element='tns:getfeedversionsResponse' />
+  </message>
+  <message name='getlatestfeedversionRequestMessage'>
+    <part name='parameters' element='tns:getlatestfeedversionParameters' />
+  </message>
+  <message name='getlatestfeedversionResponseMessage'>
+    <part name='response' element='tns:getlatestfeedversionResponse' />
+  </message>
+  <portType name='transitfeedsPortType'>
+    <operation name='getfeedversions'>
+      <documentation>retrieve a list of feed versions This list can be filtered by a number of input parameters</documentation>
+      <input message='tns:getfeedversionsRequestMessage' name='getfeedversionsInput' />
+      <output message='tns:getfeedversionsResponseMessage' name='getfeedversionsOutput' />
+    </operation>
+    <operation name='getlatestfeedversion'>
+      <documentation></documentation>
+      <input message='tns:getlatestfeedversionRequestMessage' name='getlatestfeedversionInput' />
+      <output message='tns:getlatestfeedversionResponseMessage' name='getlatestfeedversionOutput' />
+    </operation>
+  </portType>
+  <binding name='transitfeedsBinding' type='tns:transitfeedsPortType'>
+    <operation name='getfeedversions'>
+      <soap12:operation soapAction='http://getfeedversions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getlatestfeedversion'>
+      <soap12:operation soapAction='http://getlatestfeedversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='transitfeeds'>
+    <documentation>an extensive collection of official public transit data from around the world including GTFS GTFS RealTime and more</documentation>
+    <port name='transitfeedsPort' binding='tns:transitfeedsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://transitfeeds' />
+    </port>
+  </service>
+</definitions>

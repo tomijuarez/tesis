@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dndStatsCheckerIndia/' name='dndStatsCheckerIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dndStatsCheckerIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dndStatsCheckerIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dndStatsCheckerIndia/'>
+      <xsd:element name='dndStatsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dndStatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Registered_in_NCPR_Since' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Provided_By' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DND_Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Phone_Number' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dndStatsRequestMessage'>
+    <part name='parameters' element='tns:dndStatsParameters' />
+  </message>
+  <message name='dndStatsResponseMessage'>
+    <part name='response' element='tns:dndStatsResponse' />
+  </message>
+  <portType name='dndStatsCheckerIndiaPortType'>
+    <operation name='dndStats'>
+      <documentation>check the dnd status online</documentation>
+      <input message='tns:dndStatsRequestMessage' name='dndStatsInput' />
+      <output message='tns:dndStatsResponseMessage' name='dndStatsOutput' />
+    </operation>
+  </portType>
+  <binding name='dndStatsCheckerIndiaBinding' type='tns:dndStatsCheckerIndiaPortType'>
+    <operation name='dndStats'>
+      <soap12:operation soapAction='http://dndStats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dndStatsCheckerIndia'>
+    <documentation>a simple But powerful DND Stats Checker This API will lookup in NCPR National Customer Preference Register and return value as JSON response Keywords Dnd checker Dnd check api Dnd check online dnd check india</documentation>
+    <port name='dndStatsCheckerIndiaPort' binding='tns:dndStatsCheckerIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dndStatsCheckerIndia' />
+    </port>
+  </service>
+</definitions>

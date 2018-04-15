@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/streak/' name='streak' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/streak/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/streak/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/streak/'>
+      <xsd:element name='createACommentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='boxkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createACommentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='commentKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='permissionSetName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='orgWide' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='numberOfOrgWideOnlyCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='stages' type='xsd:string' minOccurs='0' />
+            <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='numberOfTotalCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAStageInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAStageInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteAPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteAPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteASpecificStageInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stagekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteASpecificStageInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editAPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editAPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='permissionSetName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='orgWide' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='numberOfOrgWideOnlyCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='stages' type='xsd:string' minOccurs='0' />
+            <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='validSinceTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='numberOfTotalCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='endOfWaitingPeriod' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editASpecificStageInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stagekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editASpecificStageInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificBoxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='boxkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificBoxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lastEmailUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='followerKeys' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gmailThreadCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='freshness' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='assignedToSharingEntries' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='fileCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='commentCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='emailAddresses' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='reminderCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lastStageChangeTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='stageKey' type='xsd:int' minOccurs='0' />
+            <xsd:element name='fields' type='xsd:string' minOccurs='0' />
+            <xsd:element name='followerCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owner' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='permissionSetName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='orgWide' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='numberOfOrgWideOnlyCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='stageOrder' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='stages' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n5003' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='n5004' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='n5001' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='n5002' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='fields' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='validSinceTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='numberOfTotalCollaborators' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='endOfWaitingPeriod' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificStageInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stagekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASpecificStageInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllSnippetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='snippetName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='snippetText' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='partOfPipeline' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='snippetType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='snippetKeyShortcut' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCurrentUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='experiments' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reports' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='AutoInvoiceMailing' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='NEW_GMAIL_API' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='NEW_SEND_LATER' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='bumpLater' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='formulaFields' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='threadBreaker' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='evalDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='randValue' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='experimentName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='inExperiment' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='contextIOStatus' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lastSeenTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='userSettingsKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tourId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='orgKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='isOauthComplete' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewsfeedForBoxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='boxkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewsfeedForBoxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userText' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='detailText' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedEntryKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='storyTextBox' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='newsfeedEntryOperation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='specificVariables' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='STORY_AUTHOR_DISPLAY_NAME' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='BOX_NAME' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='COMMENT' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='PIPELINE_NAME' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='newsfeedEntryScope' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedEntrySpecific' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='storyTextPipeline' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedItemKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='storyTextGlobal' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewsfeedForPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewsfeedForPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userText' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='detailText' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedEntryKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='storyTextBox' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='newsfeedEntryOperation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='specificVariables' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='STORY_AUTHOR_DISPLAY_NAME' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='BOX_NAME' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='COMMENT' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='PIPELINE_NAME' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='newsfeedEntryScope' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedEntrySpecific' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='storyTextPipeline' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='newsfeedItemKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='storyTextGlobal' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSpecificSnippetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='snippetkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSpecificSnippetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='snippetName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='snippetText' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='partOfPipeline' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='snippetType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='snippetKeyShortcut' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllBoxesInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllBoxesInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastEmailUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='followerKeys' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='gmailThreadCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='freshness' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='assignedToSharingEntries' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fileCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='commentCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='emailAddresses' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='reminderCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastStageChangeTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='stageKey' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fields' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='followerCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllBoxesOfUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastEmailUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='followerKeys' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='gmailThreadCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='freshness' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='assignedToSharingEntries' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fileCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='commentCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='emailAddresses' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='reminderCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastStageChangeTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='boxKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='stageKey' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fields' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='followerCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllPipelinesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='owner' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='permissionSetName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='isOwner' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='displayName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='userKey' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='lastUpdatedTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pipelineKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='creatorKey' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='orgWide' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='numberOfOrgWideOnlyCollaborators' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='stageOrder' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='stages' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n5003' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='n5004' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='n5001' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='n5002' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='creationTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fields' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='validSinceTimestamp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='numberOfTotalCollaborators' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='endOfWaitingPeriod' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllStagesInPipelineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pipelinekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllStagesInPipelineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='n5003' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='n5004' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='n5001' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='n5002' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchForBoxesPipelinesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchForBoxesPipelinesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createACommentRequestMessage'>
+    <part name='parameters' element='tns:createACommentParameters' />
+  </message>
+  <message name='createACommentResponseMessage'>
+    <part name='response' element='tns:createACommentResponse' />
+  </message>
+  <message name='createAPipelineRequestMessage' />
+  <message name='createAPipelineResponseMessage'>
+    <part name='response' element='tns:createAPipelineResponse' />
+  </message>
+  <message name='createAStageInPipelineRequestMessage'>
+    <part name='parameters' element='tns:createAStageInPipelineParameters' />
+  </message>
+  <message name='createAStageInPipelineResponseMessage'>
+    <part name='response' element='tns:createAStageInPipelineResponse' />
+  </message>
+  <message name='deleteAPipelineRequestMessage'>
+    <part name='parameters' element='tns:deleteAPipelineParameters' />
+  </message>
+  <message name='deleteAPipelineResponseMessage'>
+    <part name='response' element='tns:deleteAPipelineResponse' />
+  </message>
+  <message name='deleteASpecificStageInPipelineRequestMessage'>
+    <part name='parameters' element='tns:deleteASpecificStageInPipelineParameters' />
+  </message>
+  <message name='deleteASpecificStageInPipelineResponseMessage'>
+    <part name='response' element='tns:deleteASpecificStageInPipelineResponse' />
+  </message>
+  <message name='editAPipelineRequestMessage'>
+    <part name='parameters' element='tns:editAPipelineParameters' />
+  </message>
+  <message name='editAPipelineResponseMessage'>
+    <part name='response' element='tns:editAPipelineResponse' />
+  </message>
+  <message name='editASpecificStageInPipelineRequestMessage'>
+    <part name='parameters' element='tns:editASpecificStageInPipelineParameters' />
+  </message>
+  <message name='editASpecificStageInPipelineResponseMessage'>
+    <part name='response' element='tns:editASpecificStageInPipelineResponse' />
+  </message>
+  <message name='getASpecificBoxRequestMessage'>
+    <part name='parameters' element='tns:getASpecificBoxParameters' />
+  </message>
+  <message name='getASpecificBoxResponseMessage'>
+    <part name='response' element='tns:getASpecificBoxResponse' />
+  </message>
+  <message name='getASpecificPipelineRequestMessage'>
+    <part name='parameters' element='tns:getASpecificPipelineParameters' />
+  </message>
+  <message name='getASpecificPipelineResponseMessage'>
+    <part name='response' element='tns:getASpecificPipelineResponse' />
+  </message>
+  <message name='getASpecificStageInPipelineRequestMessage'>
+    <part name='parameters' element='tns:getASpecificStageInPipelineParameters' />
+  </message>
+  <message name='getASpecificStageInPipelineResponseMessage'>
+    <part name='response' element='tns:getASpecificStageInPipelineResponse' />
+  </message>
+  <message name='getAllSnippetsRequestMessage' />
+  <message name='getAllSnippetsResponseMessage'>
+    <part name='response' element='tns:getAllSnippetsResponse' />
+  </message>
+  <message name='getCurrentUserRequestMessage' />
+  <message name='getCurrentUserResponseMessage'>
+    <part name='response' element='tns:getCurrentUserResponse' />
+  </message>
+  <message name='getNewsfeedForBoxRequestMessage'>
+    <part name='parameters' element='tns:getNewsfeedForBoxParameters' />
+  </message>
+  <message name='getNewsfeedForBoxResponseMessage'>
+    <part name='response' element='tns:getNewsfeedForBoxResponse' />
+  </message>
+  <message name='getNewsfeedForPipelineRequestMessage'>
+    <part name='parameters' element='tns:getNewsfeedForPipelineParameters' />
+  </message>
+  <message name='getNewsfeedForPipelineResponseMessage'>
+    <part name='response' element='tns:getNewsfeedForPipelineResponse' />
+  </message>
+  <message name='getSpecificSnippetRequestMessage'>
+    <part name='parameters' element='tns:getSpecificSnippetParameters' />
+  </message>
+  <message name='getSpecificSnippetResponseMessage'>
+    <part name='response' element='tns:getSpecificSnippetResponse' />
+  </message>
+  <message name='listAllBoxesInPipelineRequestMessage'>
+    <part name='parameters' element='tns:listAllBoxesInPipelineParameters' />
+  </message>
+  <message name='listAllBoxesInPipelineResponseMessage'>
+    <part name='response' element='tns:listAllBoxesInPipelineResponse' />
+  </message>
+  <message name='listAllBoxesOfUserRequestMessage' />
+  <message name='listAllBoxesOfUserResponseMessage'>
+    <part name='response' element='tns:listAllBoxesOfUserResponse' />
+  </message>
+  <message name='listAllPipelinesRequestMessage' />
+  <message name='listAllPipelinesResponseMessage'>
+    <part name='response' element='tns:listAllPipelinesResponse' />
+  </message>
+  <message name='listAllStagesInPipelineRequestMessage'>
+    <part name='parameters' element='tns:listAllStagesInPipelineParameters' />
+  </message>
+  <message name='listAllStagesInPipelineResponseMessage'>
+    <part name='response' element='tns:listAllStagesInPipelineResponse' />
+  </message>
+  <message name='searchForBoxesPipelinesRequestMessage'>
+    <part name='parameters' element='tns:searchForBoxesPipelinesParameters' />
+  </message>
+  <message name='searchForBoxesPipelinesResponseMessage'>
+    <part name='response' element='tns:searchForBoxesPipelinesResponse' />
+  </message>
+  <portType name='streakPortType'>
+    <operation name='createAComment'>
+      <documentation>this call lets you create a comment associated with a particular box</documentation>
+      <input message='tns:createACommentRequestMessage' name='createACommentInput' />
+      <output message='tns:createACommentResponseMessage' name='createACommentOutput' />
+    </operation>
+    <operation name='createAPipeline'>
+      <documentation>this will give you a single pipeline given the key</documentation>
+      <input message='tns:createAPipelineRequestMessage' name='createAPipelineInput' />
+      <output message='tns:createAPipelineResponseMessage' name='createAPipelineOutput' />
+    </operation>
+    <operation name='createAStageInPipeline'>
+      <documentation>this lets you create a stage defined in a pipeline</documentation>
+      <input message='tns:createAStageInPipelineRequestMessage' name='createAStageInPipelineInput' />
+      <output message='tns:createAStageInPipelineResponseMessage' name='createAStageInPipelineOutput' />
+    </operation>
+    <operation name='deleteAPipeline'>
+      <documentation>this lets you delete a pipeline All associated data of a pipeline like boxes will be deleted as well</documentation>
+      <input message='tns:deleteAPipelineRequestMessage' name='deleteAPipelineInput' />
+      <output message='tns:deleteAPipelineResponseMessage' name='deleteAPipelineOutput' />
+    </operation>
+    <operation name='deleteASpecificStageInPipeline'>
+      <documentation>this call lets you delete a stage defined in a pipeline This call will only suceed if there are no boxes tagged with the key of this stage else it throws a</documentation>
+      <input message='tns:deleteASpecificStageInPipelineRequestMessage' name='deleteASpecificStageInPipelineInput' />
+      <output message='tns:deleteASpecificStageInPipelineResponseMessage' name='deleteASpecificStageInPipelineOutput' />
+    </operation>
+    <operation name='editAPipeline'>
+      <documentation>edit the properties of a pipeline</documentation>
+      <input message='tns:editAPipelineRequestMessage' name='editAPipelineInput' />
+      <output message='tns:editAPipelineResponseMessage' name='editAPipelineOutput' />
+    </operation>
+    <operation name='editASpecificStageInPipeline'>
+      <documentation>this lets you edit the name of a stage</documentation>
+      <input message='tns:editASpecificStageInPipelineRequestMessage' name='editASpecificStageInPipelineInput' />
+      <output message='tns:editASpecificStageInPipelineResponseMessage' name='editASpecificStageInPipelineOutput' />
+    </operation>
+    <operation name='getASpecificBox'>
+      <documentation>this gives you a specific box</documentation>
+      <input message='tns:getASpecificBoxRequestMessage' name='getASpecificBoxInput' />
+      <output message='tns:getASpecificBoxResponseMessage' name='getASpecificBoxOutput' />
+    </operation>
+    <operation name='getASpecificPipeline'>
+      <documentation>this will give you a single pipeline given the key</documentation>
+      <input message='tns:getASpecificPipelineRequestMessage' name='getASpecificPipelineInput' />
+      <output message='tns:getASpecificPipelineResponseMessage' name='getASpecificPipelineOutput' />
+    </operation>
+    <operation name='getASpecificStageInPipeline'>
+      <documentation>this gives you a specific stage defined in a pipeline</documentation>
+      <input message='tns:getASpecificStageInPipelineRequestMessage' name='getASpecificStageInPipelineInput' />
+      <output message='tns:getASpecificStageInPipelineResponseMessage' name='getASpecificStageInPipelineOutput' />
+    </operation>
+    <operation name='getAllSnippets'>
+      <documentation>this lets you get all the snippets for a user</documentation>
+      <input message='tns:getAllSnippetsRequestMessage' name='getAllSnippetsInput' />
+      <output message='tns:getAllSnippetsResponseMessage' name='getAllSnippetsOutput' />
+    </operation>
+    <operation name='getCurrentUser'>
+      <documentation>this will give the current user as defined by the API Key</documentation>
+      <input message='tns:getCurrentUserRequestMessage' name='getCurrentUserInput' />
+      <output message='tns:getCurrentUserResponseMessage' name='getCurrentUserOutput' />
+    </operation>
+    <operation name='getNewsfeedForBox'>
+      <documentation></documentation>
+      <input message='tns:getNewsfeedForBoxRequestMessage' name='getNewsfeedForBoxInput' />
+      <output message='tns:getNewsfeedForBoxResponseMessage' name='getNewsfeedForBoxOutput' />
+    </operation>
+    <operation name='getNewsfeedForPipeline'>
+      <documentation>this endpoint will give you not only the historical changes for a particular pipeline but also the historical changes for all boxes contained within the pipeline It is limited to the most recent events</documentation>
+      <input message='tns:getNewsfeedForPipelineRequestMessage' name='getNewsfeedForPipelineInput' />
+      <output message='tns:getNewsfeedForPipelineResponseMessage' name='getNewsfeedForPipelineOutput' />
+    </operation>
+    <operation name='getSpecificSnippet'>
+      <documentation>this lets you get a single snippet</documentation>
+      <input message='tns:getSpecificSnippetRequestMessage' name='getSpecificSnippetInput' />
+      <output message='tns:getSpecificSnippetResponseMessage' name='getSpecificSnippetOutput' />
+    </operation>
+    <operation name='listAllBoxesInPipeline'>
+      <documentation>this lets you get all boxes contained in the specified pipeline</documentation>
+      <input message='tns:listAllBoxesInPipelineRequestMessage' name='listAllBoxesInPipelineInput' />
+      <output message='tns:listAllBoxesInPipelineResponseMessage' name='listAllBoxesInPipelineOutput' />
+    </operation>
+    <operation name='listAllBoxesOfUser'>
+      <documentation>this lets you get all boxes that the current user has access to The boxes returned here are across all pipelines a user has access to This is a fairly expensive call so there is a lower API quota limit If possible get boxes using the pipeline key instead</documentation>
+      <input message='tns:listAllBoxesOfUserRequestMessage' name='listAllBoxesOfUserInput' />
+      <output message='tns:listAllBoxesOfUserResponseMessage' name='listAllBoxesOfUserOutput' />
+    </operation>
+    <operation name='listAllPipelines'>
+      <documentation>this will give you access to all pipelines the user</documentation>
+      <input message='tns:listAllPipelinesRequestMessage' name='listAllPipelinesInput' />
+      <output message='tns:listAllPipelinesResponseMessage' name='listAllPipelinesOutput' />
+    </operation>
+    <operation name='listAllStagesInPipeline'>
+      <documentation>this call lists the stages defined in a pipeline Remember this is only the definition of the stages to change what stage a box is in simply update the box with a new stageKey</documentation>
+      <input message='tns:listAllStagesInPipelineRequestMessage' name='listAllStagesInPipelineInput' />
+      <output message='tns:listAllStagesInPipelineResponseMessage' name='listAllStagesInPipelineOutput' />
+    </operation>
+    <operation name='searchForBoxesPipelines'>
+      <documentation>the Search endpoint allows you to search the contents on pipelines and boxes The search functionality returns a relevance sorted list of pipelines and boxes Pipelines will match on their description while boxes will match on built in and custom field contents</documentation>
+      <input message='tns:searchForBoxesPipelinesRequestMessage' name='searchForBoxesPipelinesInput' />
+      <output message='tns:searchForBoxesPipelinesResponseMessage' name='searchForBoxesPipelinesOutput' />
+    </operation>
+  </portType>
+  <binding name='streakBinding' type='tns:streakPortType'>
+    <operation name='createAComment'>
+      <soap12:operation soapAction='http://createAComment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createAPipeline'>
+      <soap12:operation soapAction='http://createAPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createAStageInPipeline'>
+      <soap12:operation soapAction='http://createAStageInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteAPipeline'>
+      <soap12:operation soapAction='http://deleteAPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteASpecificStageInPipeline'>
+      <soap12:operation soapAction='http://deleteASpecificStageInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editAPipeline'>
+      <soap12:operation soapAction='http://editAPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editASpecificStageInPipeline'>
+      <soap12:operation soapAction='http://editASpecificStageInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getASpecificBox'>
+      <soap12:operation soapAction='http://getASpecificBox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getASpecificPipeline'>
+      <soap12:operation soapAction='http://getASpecificPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getASpecificStageInPipeline'>
+      <soap12:operation soapAction='http://getASpecificStageInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllSnippets'>
+      <soap12:operation soapAction='http://getAllSnippets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getCurrentUser'>
+      <soap12:operation soapAction='http://getCurrentUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getNewsfeedForBox'>
+      <soap12:operation soapAction='http://getNewsfeedForBox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getNewsfeedForPipeline'>
+      <soap12:operation soapAction='http://getNewsfeedForPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSpecificSnippet'>
+      <soap12:operation soapAction='http://getSpecificSnippet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllBoxesInPipeline'>
+      <soap12:operation soapAction='http://listAllBoxesInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllBoxesOfUser'>
+      <soap12:operation soapAction='http://listAllBoxesOfUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllPipelines'>
+      <soap12:operation soapAction='http://listAllPipelines' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllStagesInPipeline'>
+      <soap12:operation soapAction='http://listAllStagesInPipeline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchForBoxesPipelines'>
+      <soap12:operation soapAction='http://searchForBoxesPipelines' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='streak'>
+    <documentation>streak lets you keep track of all your deals right from your inbox We let you group emails from the same customer together into one view and push that customer through your pipeline When a new email comes in you ll have all the context you need</documentation>
+    <port name='streakPort' binding='tns:streakBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://streak' />
+    </port>
+  </service>
+</definitions>

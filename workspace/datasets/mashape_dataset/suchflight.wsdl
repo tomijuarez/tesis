@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/suchFlight/' name='suchFlight' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/suchFlight/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/suchFlight/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/suchFlight/'>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='departdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='returndate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='trip1' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='other' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                              <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='requestedDate' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                              <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='trip2' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='other' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                              <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='requestedDate' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                              <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='airline' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='suchFlightPortType'>
+    <operation name='search'>
+      <documentation>search</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='suchFlightBinding' type='tns:suchFlightPortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='suchFlight'>
+    <documentation>flight Search API Searches in Airblue Other flights coming soon PIA Shaheen Air</documentation>
+    <port name='suchFlightPort' binding='tns:suchFlightBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://suchFlight' />
+    </port>
+  </service>
+</definitions>

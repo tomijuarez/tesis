@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dudu/' name='dudu' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dudu/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dudu/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dudu/'>
+      <xsd:element name='commandParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='applicationid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='json' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mask' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='commandResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='friends' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='gender' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='fullname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='avatar' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='w160h160' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='is_page' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='commandRequestMessage'>
+    <part name='parameters' element='tns:commandParameters' />
+  </message>
+  <message name='commandResponseMessage'>
+    <part name='response' element='tns:commandResponse' />
+  </message>
+  <portType name='duduPortType'>
+    <operation name='command'>
+      <documentation>please check http dudu com docs api command list for the proper parameter and method combinations</documentation>
+      <input message='tns:commandRequestMessage' name='commandInput' />
+      <output message='tns:commandResponseMessage' name='commandOutput' />
+    </operation>
+  </portType>
+  <binding name='duduBinding' type='tns:duduPortType'>
+    <operation name='command'>
+      <soap12:operation soapAction='http://command' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dudu'>
+    <documentation>dudu com multilingual social network with a unique translation technology allowing Internet users that speak different languages to communicate freely without language barriers</documentation>
+    <port name='duduPort' binding='tns:duduBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dudu' />
+    </port>
+  </service>
+</definitions>

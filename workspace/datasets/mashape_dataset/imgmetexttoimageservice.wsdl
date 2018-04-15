@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imgMeTextToImageService/' name='imgMeTextToImageService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imgMeTextToImageService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imgMeTextToImageService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imgMeTextToImageService/'>
+      <xsd:element name='mainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bcolor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fcolor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='font' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mainRequestMessage'>
+    <part name='parameters' element='tns:mainParameters' />
+  </message>
+  <message name='mainResponseMessage'>
+    <part name='response' element='tns:mainResponse' />
+  </message>
+  <portType name='imgMeTextToImageServicePortType'>
+    <operation name='main'>
+      <documentation>the API will return the URL of the image generated</documentation>
+      <input message='tns:mainRequestMessage' name='mainInput' />
+      <output message='tns:mainResponseMessage' name='mainOutput' />
+    </operation>
+  </portType>
+  <binding name='imgMeTextToImageServiceBinding' type='tns:imgMeTextToImageServicePortType'>
+    <operation name='main'>
+      <soap12:operation soapAction='http://main' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imgMeTextToImageService'>
+    <documentation>iMG Me is a free service to convert your text into image You can use this service to prevent crawlers and robots from copying your email address articles or website contents Meanwhile you can handle encoding errors as well if your text is in non English characters</documentation>
+    <port name='imgMeTextToImageServicePort' binding='tns:imgMeTextToImageServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imgMeTextToImageService' />
+    </port>
+  </service>
+</definitions>

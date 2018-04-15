@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/minme/' name='minme' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/minme/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/minme/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/minme/'>
+      <xsd:element name='optimizationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='min' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='trend' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='y_min' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='x_min' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='optimizationRequestMessage' />
+  <message name='optimizationResponseMessage'>
+    <part name='response' element='tns:optimizationResponse' />
+  </message>
+  <portType name='minmePortType'>
+    <operation name='optimization'>
+      <documentation>triggers the optimization algorithm on the server side with the passed parameters and returns the found optimum Specific problem solved depends on auth</documentation>
+      <input message='tns:optimizationRequestMessage' name='optimizationInput' />
+      <output message='tns:optimizationResponseMessage' name='optimizationOutput' />
+    </operation>
+  </portType>
+  <binding name='minmeBinding' type='tns:minmePortType'>
+    <operation name='optimization'>
+      <soap12:operation soapAction='http://optimization' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='minme'>
+    <documentation>minme is an API that makes our advanced home brewed optimization algorithms available to application developers at an acceptable cost Our scalable back end ensures we can keep being responsive while not adding cost overheads minme is offered as a micro service for developers who need to solve optimization problems from within their application and do not want to develop the algorithm themselves Also since minme runs as a service devices with limited processing power will not be overloaded with optimization tasks</documentation>
+    <port name='minmePort' binding='tns:minmeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://minme' />
+    </port>
+  </service>
+</definitions>

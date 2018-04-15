@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stupeflixVideoThumbExtractAFrameImageFromAVideo/' name='stupeflixVideoThumbExtractAFrameImageFromAVideo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stupeflixVideoThumbExtractAFrameImageFromAVideo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stupeflixVideoThumbExtractAFrameImageFromAVideo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stupeflixVideoThumbExtractAFrameImageFromAVideo/'>
+      <xsd:element name='videoThumbCreateFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='videoThumbCreateFileRequestMessage' />
+  <message name='videoThumbCreateFileResponseMessage'>
+    <part name='response' element='tns:videoThumbCreateFileResponse' />
+  </message>
+  <portType name='stupeflixVideoThumbExtractAFrameImageFromAVideoPortType'>
+    <operation name='videoThumbCreateFile'>
+      <documentation>create and queue a video thumb Task block until finished and redirect to output image file Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video thumb Create API keys here http developer stupeflix com dragon keychain new</documentation>
+      <input message='tns:videoThumbCreateFileRequestMessage' name='videoThumbCreateFileInput' />
+      <output message='tns:videoThumbCreateFileResponseMessage' name='videoThumbCreateFileOutput' />
+    </operation>
+  </portType>
+  <binding name='stupeflixVideoThumbExtractAFrameImageFromAVideoBinding' type='tns:stupeflixVideoThumbExtractAFrameImageFromAVideoPortType'>
+    <operation name='videoThumbCreateFile'>
+      <soap12:operation soapAction='http://videoThumbCreateFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stupeflixVideoThumbExtractAFrameImageFromAVideo'>
+    <documentation>create an image thumbnail of custom dimensions extracted from the frames of a video at a specific time Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video thumb</documentation>
+    <port name='stupeflixVideoThumbExtractAFrameImageFromAVideoPort' binding='tns:stupeflixVideoThumbExtractAFrameImageFromAVideoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stupeflixVideoThumbExtractAFrameImageFromAVideo' />
+    </port>
+  </service>
+</definitions>

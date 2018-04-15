@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlPdfApi/' name='htmlPdfApi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlPdfApi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlPdfApi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlPdfApi/'>
+      <xsd:element name='assetCreateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mime' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='assetDeleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='assetDeleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='assetGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='assetGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='assetsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='mime' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='creditsCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='assetCreateRequestMessage' />
+  <message name='assetCreateResponseMessage'>
+    <part name='response' element='tns:assetCreateResponse' />
+  </message>
+  <message name='assetDeleteRequestMessage'>
+    <part name='parameters' element='tns:assetDeleteParameters' />
+  </message>
+  <message name='assetDeleteResponseMessage'>
+    <part name='response' element='tns:assetDeleteResponse' />
+  </message>
+  <message name='assetGetRequestMessage'>
+    <part name='parameters' element='tns:assetGetParameters' />
+  </message>
+  <message name='assetGetResponseMessage'>
+    <part name='response' element='tns:assetGetResponse' />
+  </message>
+  <message name='assetsListRequestMessage' />
+  <message name='assetsListResponseMessage'>
+    <part name='response' element='tns:assetsListResponse' />
+  </message>
+  <message name='creditsCountRequestMessage' />
+  <message name='creditsCountResponseMessage'>
+    <part name='response' element='tns:creditsCountResponse' />
+  </message>
+  <message name='pdfRequestMessage' />
+  <message name='pdfResponseMessage'>
+    <part name='response' element='tns:pdfResponse' />
+  </message>
+  <portType name='htmlPdfApiPortType'>
+    <operation name='assetCreate'>
+      <documentation>upload new assets to server</documentation>
+      <input message='tns:assetCreateRequestMessage' name='assetCreateInput' />
+      <output message='tns:assetCreateResponseMessage' name='assetCreateOutput' />
+    </operation>
+    <operation name='assetDelete'>
+      <documentation>delete asset from server</documentation>
+      <input message='tns:assetDeleteRequestMessage' name='assetDeleteInput' />
+      <output message='tns:assetDeleteResponseMessage' name='assetDeleteOutput' />
+    </operation>
+    <operation name='assetGet'>
+      <documentation>download asset from server as file</documentation>
+      <input message='tns:assetGetRequestMessage' name='assetGetInput' />
+      <output message='tns:assetGetResponseMessage' name='assetGetOutput' />
+    </operation>
+    <operation name='assetsList'>
+      <documentation>get list of all assets uploaded to server</documentation>
+      <input message='tns:assetsListRequestMessage' name='assetsListInput' />
+      <output message='tns:assetsListResponseMessage' name='assetsListOutput' />
+    </operation>
+    <operation name='creditsCount'>
+      <documentation>get the current number of credits</documentation>
+      <input message='tns:creditsCountRequestMessage' name='creditsCountInput' />
+      <output message='tns:creditsCountResponseMessage' name='creditsCountOutput' />
+    </operation>
+    <operation name='pdf'>
+      <documentation>you can send only one of following parameters url file html Full documentation https htmlpdfapi com documentation</documentation>
+      <input message='tns:pdfRequestMessage' name='pdfInput' />
+      <output message='tns:pdfResponseMessage' name='pdfOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlPdfApiBinding' type='tns:htmlPdfApiPortType'>
+    <operation name='assetCreate'>
+      <soap12:operation soapAction='http://assetCreate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='assetDelete'>
+      <soap12:operation soapAction='http://assetDelete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='assetGet'>
+      <soap12:operation soapAction='http://assetGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='assetsList'>
+      <soap12:operation soapAction='http://assetsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='creditsCount'>
+      <soap12:operation soapAction='http://creditsCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pdf'>
+      <soap12:operation soapAction='http://pdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlPdfApi'>
+    <documentation>hTML PDF API is a cloud service that allows you to convert HTML to PDF using standard web technologies</documentation>
+    <port name='htmlPdfApiPort' binding='tns:htmlPdfApiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlPdfApi' />
+    </port>
+  </service>
+</definitions>

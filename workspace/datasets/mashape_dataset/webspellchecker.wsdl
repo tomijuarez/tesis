@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/webspellchecker/' name='webspellchecker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/webspellchecker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/webspellchecker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/webspellchecker/'>
+      <xsd:element name='spellcheckerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spellcheckerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='suggestions' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='spellcheckerRequestMessage'>
+    <part name='parameters' element='tns:spellcheckerParameters' />
+  </message>
+  <message name='spellcheckerResponseMessage'>
+    <part name='response' element='tns:spellcheckerResponse' />
+  </message>
+  <portType name='webspellcheckerPortType'>
+    <operation name='spellchecker'>
+      <documentation>spell check functionality</documentation>
+      <input message='tns:spellcheckerRequestMessage' name='spellcheckerInput' />
+      <output message='tns:spellcheckerResponseMessage' name='spellcheckerOutput' />
+    </operation>
+  </portType>
+  <binding name='webspellcheckerBinding' type='tns:webspellcheckerPortType'>
+    <operation name='spellchecker'>
+      <soap12:operation soapAction='http://spellchecker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='webspellchecker'>
+    <documentation>webSpellchecker net web service provides suggestions for spelling corrections for specified text</documentation>
+    <port name='webspellcheckerPort' binding='tns:webspellcheckerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://webspellchecker' />
+    </port>
+  </service>
+</definitions>

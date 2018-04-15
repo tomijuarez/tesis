@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/checkThatBikeCa/' name='checkThatBikeCa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/checkThatBikeCa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/checkThatBikeCa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/checkThatBikeCa/'>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='check' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='frame' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:int' minOccurs='0' />
+            <xsd:element name='error_number' type='xsd:string' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='checkedURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='checked' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='resultBoolean' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='frame' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='checkThatBikeCaPortType'>
+    <operation name='search'>
+      <documentation></documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='checkThatBikeCaBinding' type='tns:checkThatBikeCaPortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='checkThatBikeCa'>
+    <documentation>allows for the checking of a frame number against several websites</documentation>
+    <port name='checkThatBikeCaPort' binding='tns:checkThatBikeCaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://checkThatBikeCa' />
+    </port>
+  </service>
+</definitions>

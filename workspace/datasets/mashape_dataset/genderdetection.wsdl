@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/genderDetection/' name='genderDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/genderDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/genderDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/genderDetection/'>
+      <xsd:element name='genderByEMailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderByEMailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='duration' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='accuracy' type='xsd:int' minOccurs='0' />
+            <xsd:element name='samples' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderByFirstNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderByFirstNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='duration' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='accuracy' type='xsd:int' minOccurs='0' />
+            <xsd:element name='samples' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderByLocalizationAndFirstNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='loc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderByLocalizationAndFirstNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='duration' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='accuracy' type='xsd:int' minOccurs='0' />
+            <xsd:element name='samples' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='genderByEMailRequestMessage'>
+    <part name='parameters' element='tns:genderByEMailParameters' />
+  </message>
+  <message name='genderByEMailResponseMessage'>
+    <part name='response' element='tns:genderByEMailResponse' />
+  </message>
+  <message name='genderByFirstNameRequestMessage'>
+    <part name='parameters' element='tns:genderByFirstNameParameters' />
+  </message>
+  <message name='genderByFirstNameResponseMessage'>
+    <part name='response' element='tns:genderByFirstNameResponse' />
+  </message>
+  <message name='genderByLocalizationAndFirstNameRequestMessage'>
+    <part name='parameters' element='tns:genderByLocalizationAndFirstNameParameters' />
+  </message>
+  <message name='genderByLocalizationAndFirstNameResponseMessage'>
+    <part name='response' element='tns:genderByLocalizationAndFirstNameResponse' />
+  </message>
+  <portType name='genderDetectionPortType'>
+    <operation name='genderByEMail'>
+      <documentation></documentation>
+      <input message='tns:genderByEMailRequestMessage' name='genderByEMailInput' />
+      <output message='tns:genderByEMailResponseMessage' name='genderByEMailOutput' />
+    </operation>
+    <operation name='genderByFirstName'>
+      <documentation></documentation>
+      <input message='tns:genderByFirstNameRequestMessage' name='genderByFirstNameInput' />
+      <output message='tns:genderByFirstNameResponseMessage' name='genderByFirstNameOutput' />
+    </operation>
+    <operation name='genderByLocalizationAndFirstName'>
+      <documentation></documentation>
+      <input message='tns:genderByLocalizationAndFirstNameRequestMessage' name='genderByLocalizationAndFirstNameInput' />
+      <output message='tns:genderByLocalizationAndFirstNameResponseMessage' name='genderByLocalizationAndFirstNameOutput' />
+    </operation>
+  </portType>
+  <binding name='genderDetectionBinding' type='tns:genderDetectionPortType'>
+    <operation name='genderByEMail'>
+      <soap12:operation soapAction='http://genderByEMail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='genderByFirstName'>
+      <soap12:operation soapAction='http://genderByFirstName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='genderByLocalizationAndFirstName'>
+      <soap12:operation soapAction='http://genderByLocalizationAndFirstName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='genderDetection'>
+    <documentation>largest available database Keep your registration forms simple Optimize your conversions and let us determine the gender of your customers</documentation>
+    <port name='genderDetectionPort' binding='tns:genderDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://genderDetection' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentLy/' name='sentLy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentLy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentLy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentLy/'>
+      <xsd:element name='httpsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='httpsRequestMessage' />
+  <message name='httpsResponseMessage'>
+    <part name='response' element='tns:httpsResponse' />
+  </message>
+  <portType name='sentLyPortType'>
+    <operation name='https'>
+      <documentation>hTTPS web call to access Sent ly</documentation>
+      <input message='tns:httpsRequestMessage' name='httpsInput' />
+      <output message='tns:httpsResponseMessage' name='httpsOutput' />
+    </operation>
+  </portType>
+  <binding name='sentLyBinding' type='tns:sentLyPortType'>
+    <operation name='https'>
+      <soap12:operation soapAction='http://https' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentLy'>
+    <documentation>sent ly is a service that allows you to add SMS send receive capability to your apps Sent ly uses an easy HTTP API in the cloud with an app on your Android phones With your dedicated phones and your own GSM connections you can set up your own unique identity for marketing notification purposes in multiple countries Because the Sent ly phone is always in the target GSM network already SMS send receive reliability is unmatched Sent ly works on a pay per use model freeing you from minimum use quotas or monthly subscription fees Get started with Sent ly in under minutes</documentation>
+    <port name='sentLyPort' binding='tns:sentLyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentLy' />
+    </port>
+  </service>
+</definitions>

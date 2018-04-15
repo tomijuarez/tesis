@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tamuAddressParsing/' name='tamuAddressParsing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tamuAddressParsing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tamuAddressParsing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tamuAddressParsing/'>
+      <xsd:element name='addressParserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addressformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nonparsedcity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nonparsedstate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nonparsedstreetaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nonparsedzip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='notstore' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='responseformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressParserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressParserRequestMessage'>
+    <part name='parameters' element='tns:addressParserParameters' />
+  </message>
+  <message name='addressParserResponseMessage'>
+    <part name='response' element='tns:addressParserResponse' />
+  </message>
+  <portType name='tamuAddressParsingPortType'>
+    <operation name='addressParser'>
+      <documentation></documentation>
+      <input message='tns:addressParserRequestMessage' name='addressParserInput' />
+      <output message='tns:addressParserResponseMessage' name='addressParserOutput' />
+    </operation>
+  </portType>
+  <binding name='tamuAddressParsingBinding' type='tns:tamuAddressParsingPortType'>
+    <operation name='addressParser'>
+      <soap12:operation soapAction='http://addressParser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tamuAddressParsing'>
+    <documentation>parse and normalize street address data Service will return a parsed street address with values normalized to USPS standard</documentation>
+    <port name='tamuAddressParsingPort' binding='tns:tamuAddressParsingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tamuAddressParsing' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languageIdentification/' name='languageIdentification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languageIdentification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languageIdentification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languageIdentification/'>
+      <xsd:element name='langParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='doc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='langResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang_list' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='msg' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='credits' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='remaining_credits' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='langRequestMessage'>
+    <part name='parameters' element='tns:langParameters' />
+  </message>
+  <message name='langResponseMessage'>
+    <part name='response' element='tns:langResponse' />
+  </message>
+  <portType name='languageIdentificationPortType'>
+    <operation name='lang'>
+      <documentation>language identification</documentation>
+      <input message='tns:langRequestMessage' name='langInput' />
+      <output message='tns:langResponseMessage' name='langOutput' />
+    </operation>
+  </portType>
+  <binding name='languageIdentificationBinding' type='tns:languageIdentificationPortType'>
+    <operation name='lang'>
+      <soap12:operation soapAction='http://lang' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languageIdentification'>
+    <documentation>automatic language detection for texts obtained from any kind of source blog twitter online news and so on Through statistic techniques based on N grams evaluation more than languages are correctly identified</documentation>
+    <port name='languageIdentificationPort' binding='tns:languageIdentificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languageIdentification' />
+    </port>
+  </service>
+</definitions>

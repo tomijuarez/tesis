@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qrCode/' name='qrCode' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qrCode/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qrCode/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qrCode/'>
+      <xsd:element name='qrCodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='qrCodeRequestMessage' />
+  <message name='qrCodeResponseMessage'>
+    <part name='response' element='tns:qrCodeResponse' />
+  </message>
+  <portType name='qrCodePortType'>
+    <operation name='qrCode'>
+      <documentation></documentation>
+      <input message='tns:qrCodeRequestMessage' name='qrCodeInput' />
+      <output message='tns:qrCodeResponseMessage' name='qrCodeOutput' />
+    </operation>
+  </portType>
+  <binding name='qrCodeBinding' type='tns:qrCodePortType'>
+    <operation name='qrCode'>
+      <soap12:operation soapAction='http://qrCode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qrCode'>
+    <documentation>generate a QR code image in PNG format You can choose your size and colors</documentation>
+    <port name='qrCodePort' binding='tns:qrCodeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qrCode' />
+    </port>
+  </service>
+</definitions>

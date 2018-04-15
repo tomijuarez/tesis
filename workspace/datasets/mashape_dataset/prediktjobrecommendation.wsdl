@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/prediktJobRecommendation/' name='prediktJobRecommendation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/prediktJobRecommendation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/prediktJobRecommendation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/prediktJobRecommendation/'>
+      <xsd:element name='positionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='positions' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='positionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='positionsRequestMessage'>
+    <part name='parameters' element='tns:positionsParameters' />
+  </message>
+  <message name='positionsResponseMessage'>
+    <part name='response' element='tns:positionsResponse' />
+  </message>
+  <portType name='prediktJobRecommendationPortType'>
+    <operation name='positions'>
+      <documentation>get predictively recommended job positions for a candidate</documentation>
+      <input message='tns:positionsRequestMessage' name='positionsInput' />
+      <output message='tns:positionsResponseMessage' name='positionsOutput' />
+    </operation>
+  </portType>
+  <binding name='prediktJobRecommendationBinding' type='tns:prediktJobRecommendationPortType'>
+    <operation name='positions'>
+      <soap12:operation soapAction='http://positions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='prediktJobRecommendation'>
+    <documentation>predikt s advanced and accurate self learning artificial intelligence algorithms determine the top jobs for every candidate Our technology learns from career paths and recommends the most likely next job job for every candidate This approach is significantly better than keyword and semantic matches which give sub standard matches</documentation>
+    <port name='prediktJobRecommendationPort' binding='tns:prediktJobRecommendationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://prediktJobRecommendation' />
+    </port>
+  </service>
+</definitions>

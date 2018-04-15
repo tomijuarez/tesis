@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/padelfirst/' name='padelfirst' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/padelfirst/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/padelfirst/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/padelfirst/'>
+      <xsd:element name='leagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reglament' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='createdAt' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='closed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='end' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='begin' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updatedAt' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='leagesRequestMessage' />
+  <message name='leagesResponseMessage'>
+    <part name='response' element='tns:leagesResponse' />
+  </message>
+  <portType name='padelfirstPortType'>
+    <operation name='leages'>
+      <documentation>retrieve existing leagues</documentation>
+      <input message='tns:leagesRequestMessage' name='leagesInput' />
+      <output message='tns:leagesResponseMessage' name='leagesOutput' />
+    </operation>
+  </portType>
+  <binding name='padelfirstBinding' type='tns:padelfirstPortType'>
+    <operation name='leages'>
+      <soap12:operation soapAction='http://leages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='padelfirst'>
+    <documentation>an API to setup and manage activity of a Tenis and Padel club create courts make bookings add players and teams define tournamentes keep track of results and provide Rankings</documentation>
+    <port name='padelfirstPort' binding='tns:padelfirstBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://padelfirst' />
+    </port>
+  </service>
+</definitions>

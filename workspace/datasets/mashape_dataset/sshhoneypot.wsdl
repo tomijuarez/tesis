@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sshHoneypot/' name='sshHoneypot' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sshHoneypot/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sshHoneypot/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sshHoneypot/'>
+      <xsd:element name='commandsRunParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='commandsRunResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='command' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='remote_addr' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='proxyRequestsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='proxyRequestsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='data' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Accept-' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Method' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='User-Agent-' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='URI' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Host-' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='commandsRunRequestMessage'>
+    <part name='parameters' element='tns:commandsRunParameters' />
+  </message>
+  <message name='commandsRunResponseMessage'>
+    <part name='response' element='tns:commandsRunResponse' />
+  </message>
+  <message name='loginDataRequestMessage'>
+    <part name='parameters' element='tns:loginDataParameters' />
+  </message>
+  <message name='loginDataResponseMessage'>
+    <part name='response' element='tns:loginDataResponse' />
+  </message>
+  <message name='proxyRequestsRequestMessage'>
+    <part name='parameters' element='tns:proxyRequestsParameters' />
+  </message>
+  <message name='proxyRequestsResponseMessage'>
+    <part name='response' element='tns:proxyRequestsResponse' />
+  </message>
+  <portType name='sshHoneypotPortType'>
+    <operation name='commandsRun'>
+      <documentation>commands being run by honey pot logins</documentation>
+      <input message='tns:commandsRunRequestMessage' name='commandsRunInput' />
+      <output message='tns:commandsRunResponseMessage' name='commandsRunOutput' />
+    </operation>
+    <operation name='loginData'>
+      <input message='tns:loginDataRequestMessage' name='loginDataInput' />
+      <output message='tns:loginDataResponseMessage' name='loginDataOutput' />
+    </operation>
+    <operation name='proxyRequests'>
+      <input message='tns:proxyRequestsRequestMessage' name='proxyRequestsInput' />
+      <output message='tns:proxyRequestsResponseMessage' name='proxyRequestsOutput' />
+    </operation>
+  </portType>
+  <binding name='sshHoneypotBinding' type='tns:sshHoneypotPortType'>
+    <operation name='commandsRun'>
+      <soap12:operation soapAction='http://commandsRun' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='loginData'>
+      <soap12:operation soapAction='http://loginData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='proxyRequests'>
+      <soap12:operation soapAction='http://proxyRequests' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sshHoneypot'>
+    <documentation>sSH honeypot data including logins commands and proxy requests</documentation>
+    <port name='sshHoneypotPort' binding='tns:sshHoneypotBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sshHoneypot' />
+    </port>
+  </service>
+</definitions>

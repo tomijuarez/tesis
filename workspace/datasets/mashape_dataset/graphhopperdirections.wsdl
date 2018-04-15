@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/graphhopperDirections/' name='graphhopperDirections' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/graphhopperDirections/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/graphhopperDirections/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/graphhopperDirections/'>
+      <xsd:element name='geocodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hits' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='osm_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='osm_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='osm_value' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='point' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='took' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='matrixParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='frompoint' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outarray' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='point' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='topoint' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vehicle' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='matrixResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='weights' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:int' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='info' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='took' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='copyrights' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='calcpoints' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='elevation' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='instructions' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='locale' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='point' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pointsencoded' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='vehicle' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='paths' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='instructions' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='distance' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='sign' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='interval' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='time' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='distance' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bbox' type='xsd:decimal' maxOccurs='unbounded' />
+                  <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='points_encoded' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='points' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='info' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='took' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='copyrights' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geocodeRequestMessage'>
+    <part name='parameters' element='tns:geocodeParameters' />
+  </message>
+  <message name='geocodeResponseMessage'>
+    <part name='response' element='tns:geocodeResponse' />
+  </message>
+  <message name='matrixRequestMessage'>
+    <part name='parameters' element='tns:matrixParameters' />
+  </message>
+  <message name='matrixResponseMessage'>
+    <part name='response' element='tns:matrixResponse' />
+  </message>
+  <message name='routeRequestMessage'>
+    <part name='parameters' element='tns:routeParameters' />
+  </message>
+  <message name='routeResponseMessage'>
+    <part name='response' element='tns:routeResponse' />
+  </message>
+  <portType name='graphhopperDirectionsPortType'>
+    <operation name='geocode'>
+      <documentation>geocoding API</documentation>
+      <input message='tns:geocodeRequestMessage' name='geocodeInput' />
+      <output message='tns:geocodeResponseMessage' name='geocodeOutput' />
+    </operation>
+    <operation name='matrix'>
+      <documentation>matrix API</documentation>
+      <input message='tns:matrixRequestMessage' name='matrixInput' />
+      <output message='tns:matrixResponseMessage' name='matrixOutput' />
+    </operation>
+    <operation name='route'>
+      <documentation>routing API</documentation>
+      <input message='tns:routeRequestMessage' name='routeInput' />
+      <output message='tns:routeResponseMessage' name='routeOutput' />
+    </operation>
+  </portType>
+  <binding name='graphhopperDirectionsBinding' type='tns:graphhopperDirectionsPortType'>
+    <operation name='geocode'>
+      <soap12:operation soapAction='http://geocode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='matrix'>
+      <soap12:operation soapAction='http://matrix' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='route'>
+      <soap12:operation soapAction='http://route' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='graphhopperDirections'>
+    <documentation>graphHopper Directions API is a routing service designed to find the fastest route based on OpenStreetMap data It provides worldwide coverage and suggests routes for car bicycle or foot Additionally a Route Optimization and Matrix API is provided The Routing API and Geocoding API end points can be consumed via Mashape all can be consumed directly at graphhopper com where we offer bigger and even custom limits</documentation>
+    <port name='graphhopperDirectionsPort' binding='tns:graphhopperDirectionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://graphhopperDirections' />
+    </port>
+  </service>
+</definitions>

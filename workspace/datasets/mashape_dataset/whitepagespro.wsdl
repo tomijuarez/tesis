@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/whitepagesPro/' name='whitepagesPro' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/whitepagesPro/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/whitepagesPro/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/whitepagesPro/'>
+      <xsd:element name='findBusinessParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findBusinessResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findPersonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='streetline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='streetline' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findPersonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='streetline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='streetline' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reversePhoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reversePhoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findBusinessRequestMessage'>
+    <part name='parameters' element='tns:findBusinessParameters' />
+  </message>
+  <message name='findBusinessResponseMessage'>
+    <part name='response' element='tns:findBusinessResponse' />
+  </message>
+  <message name='findPersonRequestMessage'>
+    <part name='parameters' element='tns:findPersonParameters' />
+  </message>
+  <message name='findPersonResponseMessage'>
+    <part name='response' element='tns:findPersonResponse' />
+  </message>
+  <message name='reverseAddressRequestMessage'>
+    <part name='parameters' element='tns:reverseAddressParameters' />
+  </message>
+  <message name='reverseAddressResponseMessage'>
+    <part name='response' element='tns:reverseAddressResponse' />
+  </message>
+  <message name='reversePhoneRequestMessage'>
+    <part name='parameters' element='tns:reversePhoneParameters' />
+  </message>
+  <message name='reversePhoneResponseMessage'>
+    <part name='response' element='tns:reversePhoneResponse' />
+  </message>
+  <portType name='whitepagesProPortType'>
+    <operation name='findBusiness'>
+      <documentation></documentation>
+      <input message='tns:findBusinessRequestMessage' name='findBusinessInput' />
+      <output message='tns:findBusinessResponseMessage' name='findBusinessOutput' />
+    </operation>
+    <operation name='findPerson'>
+      <documentation>find Person request allow you to identify a single person in the WhitePages databases Using a RESTful GET request with the use of your API Key you ll receive every record related to the name given</documentation>
+      <input message='tns:findPersonRequestMessage' name='findPersonInput' />
+      <output message='tns:findPersonResponseMessage' name='findPersonOutput' />
+    </operation>
+    <operation name='reverseAddress'>
+      <documentation>a Reverse Location request allow you to find all the information about a location in the WhitePages databases</documentation>
+      <input message='tns:reverseAddressRequestMessage' name='reverseAddressInput' />
+      <output message='tns:reverseAddressResponseMessage' name='reverseAddressOutput' />
+    </operation>
+    <operation name='reversePhone'>
+      <documentation>reverse Phone request allow you to find all the locations persons or businesses associated with a phone number in the WhitePages databases</documentation>
+      <input message='tns:reversePhoneRequestMessage' name='reversePhoneInput' />
+      <output message='tns:reversePhoneResponseMessage' name='reversePhoneOutput' />
+    </operation>
+  </portType>
+  <binding name='whitepagesProBinding' type='tns:whitepagesProPortType'>
+    <operation name='findBusiness'>
+      <soap12:operation soapAction='http://findBusiness' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findPerson'>
+      <soap12:operation soapAction='http://findPerson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reverseAddress'>
+      <soap12:operation soapAction='http://reverseAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reversePhone'>
+      <soap12:operation soapAction='http://reversePhone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='whitepagesPro'>
+    <documentation>whitePages PRO provides direct access to the largest and most accurate contact information database for People and Businesses in North America Contact information contains name household members address deliverability age and phone numbers land line and mobile Few of our customers include Sony Vizio Tickets com Oakley Sephora and hundreds more In numbers database includes Coverage of US adults B records added month M links between Phone and People Business Some of the use cases include Fraud Prevention Lead Verification and Enrichment Identity Validation and Normalization Personalization Marketing and Sales Automation WhitePages PRO API consists of the following API methods Person API Business API Reverse Phone Lookup Reverse Address Lookup Entity Retrieval Documentation can found here http developer whitepages com docs</documentation>
+    <port name='whitepagesProPort' binding='tns:whitepagesProBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://whitepagesPro' />
+    </port>
+  </service>
+</definitions>

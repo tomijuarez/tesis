@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rfcGeneratorMexico/' name='rfcGeneratorMexico' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rfcGeneratorMexico/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rfcGeneratorMexico/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rfcGeneratorMexico/'>
+      <xsd:element name='getRfcParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apellidomaterno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apellidopaterno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fecha' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nombre' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='solohomoclave' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getRfcResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rfc' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='nombre_procesado' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getRfcRequestMessage'>
+    <part name='parameters' element='tns:getRfcParameters' />
+  </message>
+  <message name='getRfcResponseMessage'>
+    <part name='response' element='tns:getRfcResponse' />
+  </message>
+  <portType name='rfcGeneratorMexicoPortType'>
+    <operation name='getRfc'>
+      <documentation>regresa el RFC con homoclave o s lo la homoclave</documentation>
+      <input message='tns:getRfcRequestMessage' name='getRfcInput' />
+      <output message='tns:getRfcResponseMessage' name='getRfcOutput' />
+    </operation>
+  </portType>
+  <binding name='rfcGeneratorMexicoBinding' type='tns:rfcGeneratorMexicoPortType'>
+    <operation name='getRfc'>
+      <soap12:operation soapAction='http://getRfc' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rfcGeneratorMexico'>
+    <documentation>generador de RFC con homoclave en base al NOMBRE APELLIDO PATERNO APELLIDO MATERNO FECHA DE NACIMIENTO</documentation>
+    <port name='rfcGeneratorMexicoPort' binding='tns:rfcGeneratorMexicoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rfcGeneratorMexico' />
+    </port>
+  </service>
+</definitions>

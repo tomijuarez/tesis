@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/netlicensingInnovativeLicensingSolution/' name='netlicensingInnovativeLicensingSolution' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/netlicensingInnovativeLicensingSolution/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/netlicensingInnovativeLicensingSolution/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/netlicensingInnovativeLicensingSolution/'>
+      <xsd:element name='licenseesListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateLicenseeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='licenseenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateLicenseeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='licenseesListRequestMessage' />
+  <message name='licenseesListResponseMessage'>
+    <part name='response' element='tns:licenseesListResponse' />
+  </message>
+  <message name='validateLicenseeRequestMessage'>
+    <part name='parameters' element='tns:validateLicenseeParameters' />
+  </message>
+  <message name='validateLicenseeResponseMessage'>
+    <part name='response' element='tns:validateLicenseeResponse' />
+  </message>
+  <portType name='netlicensingInnovativeLicensingSolutionPortType'>
+    <operation name='licenseesList'>
+      <documentation>return a list of all licensees for the current vendor</documentation>
+      <input message='tns:licenseesListRequestMessage' name='licenseesListInput' />
+      <output message='tns:licenseesListResponseMessage' name='licenseesListOutput' />
+    </operation>
+    <operation name='validateLicensee'>
+      <documentation>validates active licenses of the licensee</documentation>
+      <input message='tns:validateLicenseeRequestMessage' name='validateLicenseeInput' />
+      <output message='tns:validateLicenseeResponseMessage' name='validateLicenseeOutput' />
+    </operation>
+  </portType>
+  <binding name='netlicensingInnovativeLicensingSolutionBinding' type='tns:netlicensingInnovativeLicensingSolutionPortType'>
+    <operation name='licenseesList'>
+      <soap12:operation soapAction='http://licenseesList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateLicensee'>
+      <soap12:operation soapAction='http://validateLicensee' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='netlicensingInnovativeLicensingSolution'>
+    <documentation>netLicensing is a first class solution in the Licensing as a Service LaaS sector Based on open standards it provides a cost effective integrated and scalable platform for software vendors and developers who want to concentrate on their product s core functionality instead of spending resources on developing an own license management software NetLicensing allows vendors and developers to enable license management for their new or existing products right away and with minimum effort</documentation>
+    <port name='netlicensingInnovativeLicensingSolutionPort' binding='tns:netlicensingInnovativeLicensingSolutionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://netlicensingInnovativeLicensingSolution' />
+    </port>
+  </service>
+</definitions>

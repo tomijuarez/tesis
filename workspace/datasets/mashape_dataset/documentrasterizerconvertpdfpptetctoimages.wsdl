@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/documentRasterizerConvertPdfPptEtcToImages/' name='documentRasterizerConvertPdfPptEtcToImages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/documentRasterizerConvertPdfPptEtcToImages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/documentRasterizerConvertPdfPptEtcToImages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/documentRasterizerConvertPdfPptEtcToImages/'>
+      <xsd:element name='documentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pageCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pages' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='documentMetadataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='documentMetadataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pageCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pages' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rasteredImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='quality' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='res' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rasteredImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='documentRequestMessage' />
+  <message name='documentResponseMessage'>
+    <part name='response' element='tns:documentResponse' />
+  </message>
+  <message name='documentMetadataRequestMessage'>
+    <part name='parameters' element='tns:documentMetadataParameters' />
+  </message>
+  <message name='documentMetadataResponseMessage'>
+    <part name='response' element='tns:documentMetadataResponse' />
+  </message>
+  <message name='rasteredImageRequestMessage'>
+    <part name='parameters' element='tns:rasteredImageParameters' />
+  </message>
+  <message name='rasteredImageResponseMessage'>
+    <part name='response' element='tns:rasteredImageResponse' />
+  </message>
+  <portType name='documentRasterizerConvertPdfPptEtcToImagesPortType'>
+    <operation name='document'>
+      <documentation>uploads a document to the service for further processing</documentation>
+      <input message='tns:documentRequestMessage' name='documentInput' />
+      <output message='tns:documentResponseMessage' name='documentOutput' />
+    </operation>
+    <operation name='documentMetadata'>
+      <documentation>used to retrieve information about document length and endpoints Same information as returned from POST</documentation>
+      <input message='tns:documentMetadataRequestMessage' name='documentMetadataInput' />
+      <output message='tns:documentMetadataResponseMessage' name='documentMetadataOutput' />
+    </operation>
+    <operation name='rasteredImage'>
+      <documentation>used to generate an actual image of the specific page</documentation>
+      <input message='tns:rasteredImageRequestMessage' name='rasteredImageInput' />
+      <output message='tns:rasteredImageResponseMessage' name='rasteredImageOutput' />
+    </operation>
+  </portType>
+  <binding name='documentRasterizerConvertPdfPptEtcToImagesBinding' type='tns:documentRasterizerConvertPdfPptEtcToImagesPortType'>
+    <operation name='document'>
+      <soap12:operation soapAction='http://document' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='documentMetadata'>
+      <soap12:operation soapAction='http://documentMetadata' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rasteredImage'>
+      <soap12:operation soapAction='http://rasteredImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='documentRasterizerConvertPdfPptEtcToImages'>
+    <documentation>this API consumes documents in various formats and outputs PNG or TIFF images of the pages Input is via a multipart POST Images of the pages can be retrieved individually using a session token Options allow for specifying raster resolution and image quality</documentation>
+    <port name='documentRasterizerConvertPdfPptEtcToImagesPort' binding='tns:documentRasterizerConvertPdfPptEtcToImagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://documentRasterizerConvertPdfPptEtcToImages' />
+    </port>
+  </service>
+</definitions>

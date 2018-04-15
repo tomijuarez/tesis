@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/witAi/' name='witAi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/witAi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/witAi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/witAi/'>
+      <xsd:element name='addEntityValueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='audioFileMeaningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='context' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='msgid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='n' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='audioFileMeaningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='correspondingIntentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='correspondingIntentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='role' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='builtin' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='expressions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deleted' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityValueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityValueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deleted' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteExpressionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expression' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteExpressionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deleted' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitiesListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='values' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='metadata' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='expressions' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='builtin' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='closed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='doc' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exotic' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractMeaningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractMeaningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='values' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='metadata' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='expressions' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='builtin' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='closed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='doc' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exotic' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='intentsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='context' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='msgid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='n' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='outcomes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entities' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='_text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='intent' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='msg_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='_text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='stats' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total_time' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='outcomes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entities' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='_text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='intent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='intent_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='msg_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='_text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='values' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='expressions' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='builtin' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='closed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='doc' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exotic' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newExpressionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='values' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='metadata' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='expressions' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='builtin' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='closed' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='doc' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exotic' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addEntityValueRequestMessage' />
+  <message name='addEntityValueResponseMessage'>
+    <part name='response' element='tns:addEntityValueResponse' />
+  </message>
+  <message name='audioFileMeaningRequestMessage'>
+    <part name='parameters' element='tns:audioFileMeaningParameters' />
+  </message>
+  <message name='audioFileMeaningResponseMessage'>
+    <part name='response' element='tns:audioFileMeaningResponse' />
+  </message>
+  <message name='correspondingIntentRequestMessage'>
+    <part name='parameters' element='tns:correspondingIntentParameters' />
+  </message>
+  <message name='correspondingIntentResponseMessage'>
+    <part name='response' element='tns:correspondingIntentResponse' />
+  </message>
+  <message name='deleteEntityRequestMessage'>
+    <part name='parameters' element='tns:deleteEntityParameters' />
+  </message>
+  <message name='deleteEntityResponseMessage'>
+    <part name='response' element='tns:deleteEntityResponse' />
+  </message>
+  <message name='deleteEntityValueRequestMessage'>
+    <part name='parameters' element='tns:deleteEntityValueParameters' />
+  </message>
+  <message name='deleteEntityValueResponseMessage'>
+    <part name='response' element='tns:deleteEntityValueResponse' />
+  </message>
+  <message name='deleteExpressionRequestMessage'>
+    <part name='parameters' element='tns:deleteExpressionParameters' />
+  </message>
+  <message name='deleteExpressionResponseMessage'>
+    <part name='response' element='tns:deleteExpressionResponse' />
+  </message>
+  <message name='entitiesListRequestMessage' />
+  <message name='entitiesListResponseMessage'>
+    <part name='response' element='tns:entitiesListResponse' />
+  </message>
+  <message name='entityUpdateRequestMessage' />
+  <message name='entityUpdateResponseMessage'>
+    <part name='response' element='tns:entityUpdateResponse' />
+  </message>
+  <message name='extractMeaningRequestMessage'>
+    <part name='parameters' element='tns:extractMeaningParameters' />
+  </message>
+  <message name='extractMeaningResponseMessage'>
+    <part name='response' element='tns:extractMeaningResponse' />
+  </message>
+  <message name='intentsListRequestMessage' />
+  <message name='intentsListResponseMessage'>
+    <part name='response' element='tns:intentsListResponse' />
+  </message>
+  <message name='messageRequestMessage'>
+    <part name='parameters' element='tns:messageParameters' />
+  </message>
+  <message name='messageResponseMessage'>
+    <part name='response' element='tns:messageResponse' />
+  </message>
+  <message name='messageIdRequestMessage'>
+    <part name='parameters' element='tns:messageIdParameters' />
+  </message>
+  <message name='messageIdResponseMessage'>
+    <part name='response' element='tns:messageIdResponse' />
+  </message>
+  <message name='newEntityRequestMessage' />
+  <message name='newEntityResponseMessage'>
+    <part name='response' element='tns:newEntityResponse' />
+  </message>
+  <message name='newExpressionRequestMessage' />
+  <message name='newExpressionResponseMessage'>
+    <part name='response' element='tns:newExpressionResponse' />
+  </message>
+  <portType name='witAiPortType'>
+    <operation name='addEntityValue'>
+      <documentation>add a possible value into the list of values for the entity</documentation>
+      <input message='tns:addEntityValueRequestMessage' name='addEntityValueInput' />
+      <output message='tns:addEntityValueResponseMessage' name='addEntityValueOutput' />
+    </operation>
+    <operation name='audioFileMeaning'>
+      <documentation>returns the meaning extracted from an audio file or stream</documentation>
+      <input message='tns:audioFileMeaningRequestMessage' name='audioFileMeaningInput' />
+      <output message='tns:audioFileMeaningResponseMessage' name='audioFileMeaningOutput' />
+    </operation>
+    <operation name='correspondingIntent'>
+      <documentation>returns the corresponding intent with all its entities and expressions</documentation>
+      <input message='tns:correspondingIntentRequestMessage' name='correspondingIntentInput' />
+      <output message='tns:correspondingIntentResponseMessage' name='correspondingIntentOutput' />
+    </operation>
+    <operation name='deleteEntity'>
+      <documentation>permanently remove the entity</documentation>
+      <input message='tns:deleteEntityRequestMessage' name='deleteEntityInput' />
+      <output message='tns:deleteEntityResponseMessage' name='deleteEntityOutput' />
+    </operation>
+    <operation name='deleteEntityValue'>
+      <documentation>delete a canonical value from the entity</documentation>
+      <input message='tns:deleteEntityValueRequestMessage' name='deleteEntityValueInput' />
+      <output message='tns:deleteEntityValueResponseMessage' name='deleteEntityValueOutput' />
+    </operation>
+    <operation name='deleteExpression'>
+      <documentation>delete an expression of the canonical value of the entity</documentation>
+      <input message='tns:deleteExpressionRequestMessage' name='deleteExpressionInput' />
+      <output message='tns:deleteExpressionResponseMessage' name='deleteExpressionOutput' />
+    </operation>
+    <operation name='entitiesList'>
+      <documentation>returns a list of available entities for the instance</documentation>
+      <input message='tns:entitiesListRequestMessage' name='entitiesListInput' />
+      <output message='tns:entitiesListResponseMessage' name='entitiesListOutput' />
+    </operation>
+    <operation name='entityUpdate'>
+      <documentation>updates an entity with the given attributes</documentation>
+      <input message='tns:entityUpdateRequestMessage' name='entityUpdateInput' />
+      <output message='tns:entityUpdateResponseMessage' name='entityUpdateOutput' />
+    </operation>
+    <operation name='extractMeaning'>
+      <documentation>returns the extracted meaning from a sentence based on instance data</documentation>
+      <input message='tns:extractMeaningRequestMessage' name='extractMeaningInput' />
+      <output message='tns:extractMeaningResponseMessage' name='extractMeaningOutput' />
+    </operation>
+    <operation name='intentsList'>
+      <documentation>returns a list of all intents without their expressions</documentation>
+      <input message='tns:intentsListRequestMessage' name='intentsListInput' />
+      <output message='tns:intentsListResponseMessage' name='intentsListOutput' />
+    </operation>
+    <operation name='message'>
+      <documentation>returns the extracted meaning from a sentence based on instance data</documentation>
+      <input message='tns:messageRequestMessage' name='messageInput' />
+      <output message='tns:messageResponseMessage' name='messageOutput' />
+    </operation>
+    <operation name='messageId'>
+      <documentation>returns the stored message for a specific id</documentation>
+      <input message='tns:messageIdRequestMessage' name='messageIdInput' />
+      <output message='tns:messageIdResponseMessage' name='messageIdOutput' />
+    </operation>
+    <operation name='newEntity'>
+      <documentation>creates a new entity with the given attributes</documentation>
+      <input message='tns:newEntityRequestMessage' name='newEntityInput' />
+      <output message='tns:newEntityResponseMessage' name='newEntityOutput' />
+    </operation>
+    <operation name='newExpression'>
+      <documentation>create a new expression of the canonical value of the entity</documentation>
+      <input message='tns:newExpressionRequestMessage' name='newExpressionInput' />
+      <output message='tns:newExpressionResponseMessage' name='newExpressionOutput' />
+    </operation>
+  </portType>
+  <binding name='witAiBinding' type='tns:witAiPortType'>
+    <operation name='addEntityValue'>
+      <soap12:operation soapAction='http://addEntityValue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='audioFileMeaning'>
+      <soap12:operation soapAction='http://audioFileMeaning' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='correspondingIntent'>
+      <soap12:operation soapAction='http://correspondingIntent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteEntity'>
+      <soap12:operation soapAction='http://deleteEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteEntityValue'>
+      <soap12:operation soapAction='http://deleteEntityValue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteExpression'>
+      <soap12:operation soapAction='http://deleteExpression' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entitiesList'>
+      <soap12:operation soapAction='http://entitiesList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entityUpdate'>
+      <soap12:operation soapAction='http://entityUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractMeaning'>
+      <soap12:operation soapAction='http://extractMeaning' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='intentsList'>
+      <soap12:operation soapAction='http://intentsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='message'>
+      <soap12:operation soapAction='http://message' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='messageId'>
+      <soap12:operation soapAction='http://messageId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='newEntity'>
+      <soap12:operation soapAction='http://newEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='newExpression'>
+      <soap12:operation soapAction='http://newExpression' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='witAi'>
+    <documentation>wit is a natural language interface for applications capable of turning sentences into structured data The Wit API allows HTTP GET calls returning the extracted meaning from a given sentence based on examples</documentation>
+    <port name='witAiPort' binding='tns:witAiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://witAi' />
+    </port>
+  </service>
+</definitions>

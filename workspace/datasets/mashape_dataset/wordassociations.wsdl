@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordAssociations/' name='wordAssociations' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordAssociations/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordAssociations/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordAssociations/'>
+      <xsd:element name='wordAssociationsGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordAssociationsGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordAssociationsPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='associations' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sound' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='associations_array' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='associations_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='voice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='tone' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ring' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='vocal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='din' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='echo' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='scream' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='radio' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hiss' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='music' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bang' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='noise' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='growl' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hearing' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='speak' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='talk' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='roar' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='quiet' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='shout' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='hear' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='loud' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='song' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='acoustic' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='say' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='angry' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bell' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='resounding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='whisper' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sing' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='wordAssociationsGetRequestMessage'>
+    <part name='parameters' element='tns:wordAssociationsGetParameters' />
+  </message>
+  <message name='wordAssociationsGetResponseMessage'>
+    <part name='response' element='tns:wordAssociationsGetResponse' />
+  </message>
+  <message name='wordAssociationsPostRequestMessage' />
+  <message name='wordAssociationsPostResponseMessage'>
+    <part name='response' element='tns:wordAssociationsPostResponse' />
+  </message>
+  <portType name='wordAssociationsPortType'>
+    <operation name='wordAssociationsGet'>
+      <documentation>get word associations with semantic distance score</documentation>
+      <input message='tns:wordAssociationsGetRequestMessage' name='wordAssociationsGetInput' />
+      <output message='tns:wordAssociationsGetResponseMessage' name='wordAssociationsGetOutput' />
+    </operation>
+    <operation name='wordAssociationsPost'>
+      <documentation>get word associations with semantic distance score</documentation>
+      <input message='tns:wordAssociationsPostRequestMessage' name='wordAssociationsPostInput' />
+      <output message='tns:wordAssociationsPostResponseMessage' name='wordAssociationsPostOutput' />
+    </operation>
+  </portType>
+  <binding name='wordAssociationsBinding' type='tns:wordAssociationsPortType'>
+    <operation name='wordAssociationsGet'>
+      <soap12:operation soapAction='http://wordAssociationsGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordAssociationsPost'>
+      <soap12:operation soapAction='http://wordAssociationsPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordAssociations'>
+    <documentation>what s another word for this word phrase or paragraph More than just synonyms related words too</documentation>
+    <port name='wordAssociationsPort' binding='tns:wordAssociationsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordAssociations' />
+    </port>
+  </service>
+</definitions>

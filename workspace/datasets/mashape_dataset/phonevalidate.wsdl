@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/phoneValidate/' name='phoneValidate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/phoneValidate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/phoneValidate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/phoneValidate/'>
+      <xsd:element name='phoneValidateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='country-code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='international-number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='local-number' type='xsd:string' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='international-calling-code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='is-mobile' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='phoneValidateRequestMessage' />
+  <message name='phoneValidateResponseMessage'>
+    <part name='response' element='tns:phoneValidateResponse' />
+  </message>
+  <portType name='phoneValidatePortType'>
+    <operation name='phoneValidate'>
+      <documentation></documentation>
+      <input message='tns:phoneValidateRequestMessage' name='phoneValidateInput' />
+      <output message='tns:phoneValidateResponseMessage' name='phoneValidateOutput' />
+    </operation>
+  </portType>
+  <binding name='phoneValidateBinding' type='tns:phoneValidatePortType'>
+    <operation name='phoneValidate'>
+      <soap12:operation soapAction='http://phoneValidate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='phoneValidate'>
+    <documentation>parse validate and get location information about a phone number Use this API to validate local and international phone numbers You can determine what kind of number this is e g fixed line or mobile the location of the number and also reformat the number into local and international dialing formats</documentation>
+    <port name='phoneValidatePort' binding='tns:phoneValidateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://phoneValidate' />
+    </port>
+  </service>
+</definitions>

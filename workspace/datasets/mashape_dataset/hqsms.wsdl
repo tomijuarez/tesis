@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hqsms/' name='hqsms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hqsms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hqsms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hqsms/'>
+      <xsd:element name='sendSmsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='message' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendSmsRequestMessage'>
+    <part name='parameters' element='tns:sendSmsParameters' />
+  </message>
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='hqsmsPortType'>
+    <operation name='sendSms'>
+      <documentation></documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='hqsmsBinding' type='tns:hqsmsPortType'>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hqsms'>
+    <documentation>hQSMS is a global SMS provider offering SMS gateway and specializing in SMS text messaging solutions SMS notices bulk SMS and HLR lookup service HTTPS API interface allows you to inegrate most of on line applications</documentation>
+    <port name='hqsmsPort' binding='tns:hqsmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hqsms' />
+    </port>
+  </service>
+</definitions>

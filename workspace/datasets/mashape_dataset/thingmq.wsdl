@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/thingmq/' name='thingmq' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/thingmq/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/thingmq/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/thingmq/'>
+      <xsd:element name='consumeMessagesFromDeviceThingIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='thingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='consumeMessagesFromDeviceThingIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='temperature' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='humidity' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='publishMessageToBrokerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='thingid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='publishMessageToBrokerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='temperature' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='humidity' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='consumeMessagesFromDeviceThingIdRequestMessage'>
+    <part name='parameters' element='tns:consumeMessagesFromDeviceThingIdParameters' />
+  </message>
+  <message name='consumeMessagesFromDeviceThingIdResponseMessage'>
+    <part name='response' element='tns:consumeMessagesFromDeviceThingIdResponse' />
+  </message>
+  <message name='publishMessageToBrokerRequestMessage'>
+    <part name='parameters' element='tns:publishMessageToBrokerParameters' />
+  </message>
+  <message name='publishMessageToBrokerResponseMessage'>
+    <part name='response' element='tns:publishMessageToBrokerResponse' />
+  </message>
+  <portType name='thingmqPortType'>
+    <operation name='consumeMessagesFromDeviceThingId'>
+      <documentation>consume messages published on any given MQTT topic or CoAP resource</documentation>
+      <input message='tns:consumeMessagesFromDeviceThingIdRequestMessage' name='consumeMessagesFromDeviceThingIdInput' />
+      <output message='tns:consumeMessagesFromDeviceThingIdResponseMessage' name='consumeMessagesFromDeviceThingIdOutput' />
+    </operation>
+    <operation name='publishMessageToBroker'>
+      <documentation>publishes a message to the message broker</documentation>
+      <input message='tns:publishMessageToBrokerRequestMessage' name='publishMessageToBrokerInput' />
+      <output message='tns:publishMessageToBrokerResponseMessage' name='publishMessageToBrokerOutput' />
+    </operation>
+  </portType>
+  <binding name='thingmqBinding' type='tns:thingmqPortType'>
+    <operation name='consumeMessagesFromDeviceThingId'>
+      <soap12:operation soapAction='http://consumeMessagesFromDeviceThingId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='publishMessageToBroker'>
+      <soap12:operation soapAction='http://publishMessageToBroker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='thingmq'>
+    <documentation>thingMQ is a carrier grade multi protocol message broker for the Internet of Things This REST API allows developers to communicate with devices and sensors that use the MQTT and CoAP protocols</documentation>
+    <port name='thingmqPort' binding='tns:thingmqBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://thingmq' />
+    </port>
+  </service>
+</definitions>

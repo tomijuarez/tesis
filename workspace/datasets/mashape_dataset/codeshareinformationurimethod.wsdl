@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/codeShareInformationUriMethod/' name='codeShareInformationUriMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/codeShareInformationUriMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/codeShareInformationUriMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/codeShareInformationUriMethod/'>
+      <xsd:element name='codeshareParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='airline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='flightnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='codeshareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='codeshareRequestMessage'>
+    <part name='parameters' element='tns:codeshareParameters' />
+  </message>
+  <message name='codeshareResponseMessage'>
+    <part name='response' element='tns:codeshareResponse' />
+  </message>
+  <portType name='codeShareInformationUriMethodPortType'>
+    <operation name='codeshare'>
+      <documentation>this method returns Codeshare information for a single flight on a single airline on a specified date</documentation>
+      <input message='tns:codeshareRequestMessage' name='codeshareInput' />
+      <output message='tns:codeshareResponseMessage' name='codeshareOutput' />
+    </operation>
+  </portType>
+  <binding name='codeShareInformationUriMethodBinding' type='tns:codeShareInformationUriMethodPortType'>
+    <operation name='codeshare'>
+      <soap12:operation soapAction='http://codeshare' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='codeShareInformationUriMethod'>
+    <documentation>flightLookup Codeshare Need to know who is operating a flight to let your customers where to check in or if they can upgrade this is a quick lookup service Operating carrier information based on Marketing Flight Number Operating Carrier IATA code Operating Carrier Flight Number</documentation>
+    <port name='codeShareInformationUriMethodPort' binding='tns:codeShareInformationUriMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://codeShareInformationUriMethod' />
+    </port>
+  </service>
+</definitions>

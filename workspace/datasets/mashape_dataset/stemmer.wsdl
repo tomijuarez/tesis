@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stemmer/' name='stemmer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stemmer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stemmer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stemmer/'>
+      <xsd:element name='stemmerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stemmerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='uea_stem' type='xsd:string' minOccurs='0' />
+            <xsd:element name='snowball_stem' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='porter_stem' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='stemmerRequestMessage'>
+    <part name='parameters' element='tns:stemmerParameters' />
+  </message>
+  <message name='stemmerResponseMessage'>
+    <part name='response' element='tns:stemmerResponse' />
+  </message>
+  <portType name='stemmerPortType'>
+    <operation name='stemmer'>
+      <documentation>given a text paragraph this function returns the stemmed text</documentation>
+      <input message='tns:stemmerRequestMessage' name='stemmerInput' />
+      <output message='tns:stemmerResponseMessage' name='stemmerOutput' />
+    </operation>
+  </portType>
+  <binding name='stemmerBinding' type='tns:stemmerPortType'>
+    <operation name='stemmer'>
+      <soap12:operation soapAction='http://stemmer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stemmer'>
+    <documentation>this API takes a paragraph and returns the text with each word stemmed using porter stemmer snowball stemmer or UEA stemmer</documentation>
+    <port name='stemmerPort' binding='tns:stemmerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stemmer' />
+    </port>
+  </service>
+</definitions>

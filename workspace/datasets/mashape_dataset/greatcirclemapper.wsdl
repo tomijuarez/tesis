@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/greatCircleMapper/' name='greatCircleMapper' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/greatCircleMapper/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/greatCircleMapper/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/greatCircleMapper/'>
+      <xsd:element name='airRouteCalculationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='route' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='speed' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='airRouteCalculationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='legs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='distance_km' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='flight_time_min' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='distance_nm' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='origin' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='icao_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='iata_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='longitude_minsec' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='longitude_deg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='ident' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='elevation_ft' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='latitude_deg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='latitude_minsec' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='alias' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='destination' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='icao_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='iata_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='longitude_minsec' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='longitude_deg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='ident' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='elevation_ft' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='latitude_deg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='latitude_minsec' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='alias' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='heading_deg' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='heading_compass' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totals' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='speed_kmh' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='distance_km' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='flight_time_min' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='distance_nm' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='speed_kts' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aircraftTypeReadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='icaoiata' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aircraftTypeReadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mtow_kg' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='iata_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='passengers' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ceiling_m' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='speed_kts' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='manufacturer' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='speed_kmh' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='icao_code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='range_nm' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='range_km' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='alias' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mtow_lbs' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='ceiling_ft' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='airportReadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='icaoiata' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='airportReadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='icao_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='iata_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ident' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='municipality' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='airportSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='airportSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='icao_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='iata_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ident' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='municipality' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='airRouteCalculationRequestMessage'>
+    <part name='parameters' element='tns:airRouteCalculationParameters' />
+  </message>
+  <message name='airRouteCalculationResponseMessage'>
+    <part name='response' element='tns:airRouteCalculationResponse' />
+  </message>
+  <message name='aircraftTypeReadRequestMessage'>
+    <part name='parameters' element='tns:aircraftTypeReadParameters' />
+  </message>
+  <message name='aircraftTypeReadResponseMessage'>
+    <part name='response' element='tns:aircraftTypeReadResponse' />
+  </message>
+  <message name='airportReadRequestMessage'>
+    <part name='parameters' element='tns:airportReadParameters' />
+  </message>
+  <message name='airportReadResponseMessage'>
+    <part name='response' element='tns:airportReadResponse' />
+  </message>
+  <message name='airportSearchRequestMessage'>
+    <part name='parameters' element='tns:airportSearchParameters' />
+  </message>
+  <message name='airportSearchResponseMessage'>
+    <part name='response' element='tns:airportSearchResponse' />
+  </message>
+  <portType name='greatCircleMapperPortType'>
+    <operation name='airRouteCalculation'>
+      <documentation>calculate distance and flight time for any airports and any speed</documentation>
+      <input message='tns:airRouteCalculationRequestMessage' name='airRouteCalculationInput' />
+      <output message='tns:airRouteCalculationResponseMessage' name='airRouteCalculationOutput' />
+    </operation>
+    <operation name='aircraftTypeRead'>
+      <documentation>get aircraft type data by IATA or ICAO code</documentation>
+      <input message='tns:aircraftTypeReadRequestMessage' name='aircraftTypeReadInput' />
+      <output message='tns:aircraftTypeReadResponseMessage' name='aircraftTypeReadOutput' />
+    </operation>
+    <operation name='airportRead'>
+      <documentation>get airport by IATA code or ICAO code</documentation>
+      <input message='tns:airportReadRequestMessage' name='airportReadInput' />
+      <output message='tns:airportReadResponseMessage' name='airportReadOutput' />
+    </operation>
+    <operation name='airportSearch'>
+      <documentation>get a list of airport records</documentation>
+      <input message='tns:airportSearchRequestMessage' name='airportSearchInput' />
+      <output message='tns:airportSearchResponseMessage' name='airportSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='greatCircleMapperBinding' type='tns:greatCircleMapperPortType'>
+    <operation name='airRouteCalculation'>
+      <soap12:operation soapAction='http://airRouteCalculation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='aircraftTypeRead'>
+      <soap12:operation soapAction='http://aircraftTypeRead' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='airportRead'>
+      <soap12:operation soapAction='http://airportRead' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='airportSearch'>
+      <soap12:operation soapAction='http://airportSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='greatCircleMapper'>
+    <documentation>use Great Circle Mapper to calculate the air distance and flight time between all airports worldwide</documentation>
+    <port name='greatCircleMapperPort' binding='tns:greatCircleMapperBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://greatCircleMapper' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onlineEmailValidationAndDiscovery/' name='onlineEmailValidationAndDiscovery' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onlineEmailValidationAndDiscovery/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onlineEmailValidationAndDiscovery/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onlineEmailValidationAndDiscovery/'>
+      <xsd:element name='discoverEmailsByDomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='discoverEmailsByDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='emails' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guessEmailFromNameAndDomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guessEmailFromNameAndDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='found' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='onlineValidateEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='onlineValidateEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='discoverEmailsByDomainRequestMessage'>
+    <part name='parameters' element='tns:discoverEmailsByDomainParameters' />
+  </message>
+  <message name='discoverEmailsByDomainResponseMessage'>
+    <part name='response' element='tns:discoverEmailsByDomainResponse' />
+  </message>
+  <message name='guessEmailFromNameAndDomainRequestMessage'>
+    <part name='parameters' element='tns:guessEmailFromNameAndDomainParameters' />
+  </message>
+  <message name='guessEmailFromNameAndDomainResponseMessage'>
+    <part name='response' element='tns:guessEmailFromNameAndDomainResponse' />
+  </message>
+  <message name='onlineValidateEmailRequestMessage'>
+    <part name='parameters' element='tns:onlineValidateEmailParameters' />
+  </message>
+  <message name='onlineValidateEmailResponseMessage'>
+    <part name='response' element='tns:onlineValidateEmailResponse' />
+  </message>
+  <portType name='onlineEmailValidationAndDiscoveryPortType'>
+    <operation name='discoverEmailsByDomain'>
+      <documentation>find emails belonging to a domain Useful to guess the address pattern used in a company</documentation>
+      <input message='tns:discoverEmailsByDomainRequestMessage' name='discoverEmailsByDomainInput' />
+      <output message='tns:discoverEmailsByDomainResponseMessage' name='discoverEmailsByDomainOutput' />
+    </operation>
+    <operation name='guessEmailFromNameAndDomain'>
+      <documentation>enter a first name last name and domain We will check common email patterns and test if they are correct</documentation>
+      <input message='tns:guessEmailFromNameAndDomainRequestMessage' name='guessEmailFromNameAndDomainInput' />
+      <output message='tns:guessEmailFromNameAndDomainResponseMessage' name='guessEmailFromNameAndDomainOutput' />
+    </operation>
+    <operation name='onlineValidateEmail'>
+      <documentation>online validation of email address</documentation>
+      <input message='tns:onlineValidateEmailRequestMessage' name='onlineValidateEmailInput' />
+      <output message='tns:onlineValidateEmailResponseMessage' name='onlineValidateEmailOutput' />
+    </operation>
+  </portType>
+  <binding name='onlineEmailValidationAndDiscoveryBinding' type='tns:onlineEmailValidationAndDiscoveryPortType'>
+    <operation name='discoverEmailsByDomain'>
+      <soap12:operation soapAction='http://discoverEmailsByDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='guessEmailFromNameAndDomain'>
+      <soap12:operation soapAction='http://guessEmailFromNameAndDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='onlineValidateEmail'>
+      <soap12:operation soapAction='http://onlineValidateEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onlineEmailValidationAndDiscovery'>
+    <documentation>this API will do online validation and discovery of email addresses You can either test if an existing address is correct or give a first and last name to test common patterns</documentation>
+    <port name='onlineEmailValidationAndDiscoveryPort' binding='tns:onlineEmailValidationAndDiscoveryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onlineEmailValidationAndDiscovery' />
+    </port>
+  </service>
+</definitions>

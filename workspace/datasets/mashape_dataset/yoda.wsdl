@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/yoda/' name='yoda' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/yoda/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/yoda/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/yoda/'>
+      <xsd:element name='demoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='demoRequestMessage' />
+  <message name='demoResponseMessage'>
+    <part name='response' element='tns:demoResponse' />
+  </message>
+  <portType name='yodaPortType'>
+    <operation name='demo'>
+      <documentation>demo API</documentation>
+      <input message='tns:demoRequestMessage' name='demoInput' />
+      <output message='tns:demoResponseMessage' name='demoOutput' />
+    </operation>
+  </portType>
+  <binding name='yodaBinding' type='tns:yodaPortType'>
+    <operation name='demo'>
+      <soap12:operation soapAction='http://demo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='yoda'>
+    <documentation>demo API</documentation>
+    <port name='yodaPort' binding='tns:yodaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://yoda' />
+    </port>
+  </service>
+</definitions>

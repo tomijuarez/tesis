@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/videoGameInformation/' name='videoGameInformation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/videoGameInformation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/videoGameInformation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/videoGameInformation/'>
+      <xsd:element name='apiVInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='console' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='gamename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiVInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='thumbnail' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='gamesradar' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='criticScore' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rating' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='metacritic' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='criticScore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='userScore' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='platform' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='gamespot' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='criticScore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='userScore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='averageScore' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ign' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='criticScore' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='userScore' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rlsdate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='availablePlatform' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='genre' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reasonForRating' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='publisher' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='websites' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='developer' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiVSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='console' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='gamename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiVSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiVInformationRequestMessage'>
+    <part name='parameters' element='tns:apiVInformationParameters' />
+  </message>
+  <message name='apiVInformationResponseMessage'>
+    <part name='response' element='tns:apiVInformationResponse' />
+  </message>
+  <message name='apiVSearchRequestMessage'>
+    <part name='parameters' element='tns:apiVSearchParameters' />
+  </message>
+  <message name='apiVSearchResponseMessage'>
+    <part name='response' element='tns:apiVSearchResponse' />
+  </message>
+  <portType name='videoGameInformationPortType'>
+    <operation name='apiVInformation'>
+      <documentation>this if for getting information about a specific game</documentation>
+      <input message='tns:apiVInformationRequestMessage' name='apiVInformationInput' />
+      <output message='tns:apiVInformationResponseMessage' name='apiVInformationOutput' />
+    </operation>
+    <operation name='apiVSearch'>
+      <documentation>this is for searching a game Search for a game name and it will return the list of possible games that have similar names</documentation>
+      <input message='tns:apiVSearchRequestMessage' name='apiVSearchInput' />
+      <output message='tns:apiVSearchResponseMessage' name='apiVSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='videoGameInformationBinding' type='tns:videoGameInformationPortType'>
+    <operation name='apiVInformation'>
+      <soap12:operation soapAction='http://apiVInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiVSearch'>
+      <soap12:operation soapAction='http://apiVSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='videoGameInformation'>
+    <documentation>this api will search any game on ign gamespot and metacritic and will give you the reviews of the critic and the users It can also give you information about the game such as publisher developer genre summary release date and more</documentation>
+    <port name='videoGameInformationPort' binding='tns:videoGameInformationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://videoGameInformation' />
+    </port>
+  </service>
+</definitions>

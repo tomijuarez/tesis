@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/freeprobeapi/' name='freeprobeapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/freeprobeapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/freeprobeapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/freeprobeapi/'>
+      <xsd:element name='getcountriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='GetCountriesResult' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='CountryFlag' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='CountryName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CountryCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProbesCount' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnetworksbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnetworksbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='networkid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getprobesbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cache' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qclass' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recurse' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='retries' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='server' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tcp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='tries' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qclass' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recurse' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='retries' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='server' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tcp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='tries' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qclass' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recurse' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='retries' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='server' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='statecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tcp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='tries' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='networkid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qclass' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recurse' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='retries' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='server' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tcp' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='tries' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startdigtestbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxbyte' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxbytes' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxbytes' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxbytes' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='networkid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starthttpgettestbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='commandtimeout' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='networkid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpageloadtestbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='StartPingTestByCountryResult' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='LoginDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DIGDns' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PingTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TRACERoute' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='HTTPGet' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Network' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='NetworkName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='LogoURL' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='NetworkID' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='Ping' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Destination' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='PingTime' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='DateTimeStamp' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Country' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='CountryFlag' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='CountryName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='CountryCode' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ASN' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='AsnName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='AsnID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='PAGELoad' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='networkid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startpingtestbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbyasnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asnid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxfailedhops' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttlstart' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbyasnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbyboundingboxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxfailedhops' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttlstart' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbyboundingboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbycountryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxfailedhops' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttlstart' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbycountryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='StartTracertTestByCountryResult' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='LoginDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DIGDns' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PingTime' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='TRACERoute' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Destination' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Tracert' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Ping1' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Ping2' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Ping3' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Url' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='HTTPGet' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Network' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='NetworkName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='LogoURL' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='NetworkID' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='Ping' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DateTimeStamp' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Country' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='CountryFlag' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='CountryName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='CountryCode' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ASN' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='AsnName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='AsnID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='PAGELoad' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='buffersize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='commandtimeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fragment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ipvonly' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxfailedhops' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='networkid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='probeslimit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resolve' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sleep' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ttlstart' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='starttracerttestbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getcountriesRequestMessage' />
+  <message name='getcountriesResponseMessage'>
+    <part name='response' element='tns:getcountriesResponse' />
+  </message>
+  <message name='getnetworksbycountryRequestMessage'>
+    <part name='parameters' element='tns:getnetworksbycountryParameters' />
+  </message>
+  <message name='getnetworksbycountryResponseMessage'>
+    <part name='response' element='tns:getnetworksbycountryResponse' />
+  </message>
+  <message name='getprobesbyasnRequestMessage'>
+    <part name='parameters' element='tns:getprobesbyasnParameters' />
+  </message>
+  <message name='getprobesbyasnResponseMessage'>
+    <part name='response' element='tns:getprobesbyasnResponse' />
+  </message>
+  <message name='getprobesbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:getprobesbyboundingboxParameters' />
+  </message>
+  <message name='getprobesbyboundingboxResponseMessage'>
+    <part name='response' element='tns:getprobesbyboundingboxResponse' />
+  </message>
+  <message name='getprobesbycountryRequestMessage'>
+    <part name='parameters' element='tns:getprobesbycountryParameters' />
+  </message>
+  <message name='getprobesbycountryResponseMessage'>
+    <part name='response' element='tns:getprobesbycountryResponse' />
+  </message>
+  <message name='getprobesbynetworkRequestMessage'>
+    <part name='parameters' element='tns:getprobesbynetworkParameters' />
+  </message>
+  <message name='getprobesbynetworkResponseMessage'>
+    <part name='response' element='tns:getprobesbynetworkResponse' />
+  </message>
+  <message name='startdigtestbyasnRequestMessage'>
+    <part name='parameters' element='tns:startdigtestbyasnParameters' />
+  </message>
+  <message name='startdigtestbyasnResponseMessage'>
+    <part name='response' element='tns:startdigtestbyasnResponse' />
+  </message>
+  <message name='startdigtestbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:startdigtestbyboundingboxParameters' />
+  </message>
+  <message name='startdigtestbyboundingboxResponseMessage'>
+    <part name='response' element='tns:startdigtestbyboundingboxResponse' />
+  </message>
+  <message name='startdigtestbycountryRequestMessage'>
+    <part name='parameters' element='tns:startdigtestbycountryParameters' />
+  </message>
+  <message name='startdigtestbycountryResponseMessage'>
+    <part name='response' element='tns:startdigtestbycountryResponse' />
+  </message>
+  <message name='startdigtestbynetworkRequestMessage'>
+    <part name='parameters' element='tns:startdigtestbynetworkParameters' />
+  </message>
+  <message name='startdigtestbynetworkResponseMessage'>
+    <part name='response' element='tns:startdigtestbynetworkResponse' />
+  </message>
+  <message name='starthttpgettestbyasnRequestMessage'>
+    <part name='parameters' element='tns:starthttpgettestbyasnParameters' />
+  </message>
+  <message name='starthttpgettestbyasnResponseMessage'>
+    <part name='response' element='tns:starthttpgettestbyasnResponse' />
+  </message>
+  <message name='starthttpgettestbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:starthttpgettestbyboundingboxParameters' />
+  </message>
+  <message name='starthttpgettestbyboundingboxResponseMessage'>
+    <part name='response' element='tns:starthttpgettestbyboundingboxResponse' />
+  </message>
+  <message name='starthttpgettestbycountryRequestMessage'>
+    <part name='parameters' element='tns:starthttpgettestbycountryParameters' />
+  </message>
+  <message name='starthttpgettestbycountryResponseMessage'>
+    <part name='response' element='tns:starthttpgettestbycountryResponse' />
+  </message>
+  <message name='starthttpgettestbynetworkRequestMessage'>
+    <part name='parameters' element='tns:starthttpgettestbynetworkParameters' />
+  </message>
+  <message name='starthttpgettestbynetworkResponseMessage'>
+    <part name='response' element='tns:starthttpgettestbynetworkResponse' />
+  </message>
+  <message name='startpageloadbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:startpageloadbyboundingboxParameters' />
+  </message>
+  <message name='startpageloadbyboundingboxResponseMessage'>
+    <part name='response' element='tns:startpageloadbyboundingboxResponse' />
+  </message>
+  <message name='startpageloadtestbyasnRequestMessage'>
+    <part name='parameters' element='tns:startpageloadtestbyasnParameters' />
+  </message>
+  <message name='startpageloadtestbyasnResponseMessage'>
+    <part name='response' element='tns:startpageloadtestbyasnResponse' />
+  </message>
+  <message name='startpageloadtestbycountryRequestMessage'>
+    <part name='parameters' element='tns:startpageloadtestbycountryParameters' />
+  </message>
+  <message name='startpageloadtestbycountryResponseMessage'>
+    <part name='response' element='tns:startpageloadtestbycountryResponse' />
+  </message>
+  <message name='startpageloadtestbynetworkRequestMessage'>
+    <part name='parameters' element='tns:startpageloadtestbynetworkParameters' />
+  </message>
+  <message name='startpageloadtestbynetworkResponseMessage'>
+    <part name='response' element='tns:startpageloadtestbynetworkResponse' />
+  </message>
+  <message name='startpingtestbyasnRequestMessage'>
+    <part name='parameters' element='tns:startpingtestbyasnParameters' />
+  </message>
+  <message name='startpingtestbyasnResponseMessage'>
+    <part name='response' element='tns:startpingtestbyasnResponse' />
+  </message>
+  <message name='startpingtestbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:startpingtestbyboundingboxParameters' />
+  </message>
+  <message name='startpingtestbyboundingboxResponseMessage'>
+    <part name='response' element='tns:startpingtestbyboundingboxResponse' />
+  </message>
+  <message name='startpingtestbycountryRequestMessage'>
+    <part name='parameters' element='tns:startpingtestbycountryParameters' />
+  </message>
+  <message name='startpingtestbycountryResponseMessage'>
+    <part name='response' element='tns:startpingtestbycountryResponse' />
+  </message>
+  <message name='startpingtestbynetworkRequestMessage'>
+    <part name='parameters' element='tns:startpingtestbynetworkParameters' />
+  </message>
+  <message name='startpingtestbynetworkResponseMessage'>
+    <part name='response' element='tns:startpingtestbynetworkResponse' />
+  </message>
+  <message name='starttracerttestbyasnRequestMessage'>
+    <part name='parameters' element='tns:starttracerttestbyasnParameters' />
+  </message>
+  <message name='starttracerttestbyasnResponseMessage'>
+    <part name='response' element='tns:starttracerttestbyasnResponse' />
+  </message>
+  <message name='starttracerttestbyboundingboxRequestMessage'>
+    <part name='parameters' element='tns:starttracerttestbyboundingboxParameters' />
+  </message>
+  <message name='starttracerttestbyboundingboxResponseMessage'>
+    <part name='response' element='tns:starttracerttestbyboundingboxResponse' />
+  </message>
+  <message name='starttracerttestbycountryRequestMessage'>
+    <part name='parameters' element='tns:starttracerttestbycountryParameters' />
+  </message>
+  <message name='starttracerttestbycountryResponseMessage'>
+    <part name='response' element='tns:starttracerttestbycountryResponse' />
+  </message>
+  <message name='starttracerttestbynetworkRequestMessage'>
+    <part name='parameters' element='tns:starttracerttestbynetworkParameters' />
+  </message>
+  <message name='starttracerttestbynetworkResponseMessage'>
+    <part name='response' element='tns:starttracerttestbynetworkResponse' />
+  </message>
+  <portType name='freeprobeapiPortType'>
+    <operation name='getcountries'>
+      <documentation>gets list of countries with number of active probes Lists only countries with active probes</documentation>
+      <input message='tns:getcountriesRequestMessage' name='getcountriesInput' />
+      <output message='tns:getcountriesResponseMessage' name='getcountriesOutput' />
+    </operation>
+    <operation name='getnetworksbycountry'>
+      <documentation>gets list of networks in country with number of active probes Lists only networks with active probes</documentation>
+      <input message='tns:getnetworksbycountryRequestMessage' name='getnetworksbycountryInput' />
+      <output message='tns:getnetworksbycountryResponseMessage' name='getnetworksbycountryOutput' />
+    </operation>
+    <operation name='getprobesbyasn'>
+      <documentation>gets active probes for Asn</documentation>
+      <input message='tns:getprobesbyasnRequestMessage' name='getprobesbyasnInput' />
+      <output message='tns:getprobesbyasnResponseMessage' name='getprobesbyasnOutput' />
+    </operation>
+    <operation name='getprobesbyboundingbox'>
+      <documentation>gets active probes in selected area</documentation>
+      <input message='tns:getprobesbyboundingboxRequestMessage' name='getprobesbyboundingboxInput' />
+      <output message='tns:getprobesbyboundingboxResponseMessage' name='getprobesbyboundingboxOutput' />
+    </operation>
+    <operation name='getprobesbycountry'>
+      <documentation>gets active probes in country</documentation>
+      <input message='tns:getprobesbycountryRequestMessage' name='getprobesbycountryInput' />
+      <output message='tns:getprobesbycountryResponseMessage' name='getprobesbycountryOutput' />
+    </operation>
+    <operation name='getprobesbynetwork'>
+      <documentation>gets active probes in network ISP</documentation>
+      <input message='tns:getprobesbynetworkRequestMessage' name='getprobesbynetworkInput' />
+      <output message='tns:getprobesbynetworkResponseMessage' name='getprobesbynetworkOutput' />
+    </operation>
+    <operation name='startdigtestbyasn'>
+      <documentation>starts DIG test from probes selected by ASN IDs DNS query is using user s DNS server as the DNS Resolver server and returns the Query time in miliseconds Query type A Query class IN Cache Recurse Protocol UDP Tries Time Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startdigtestbyasnRequestMessage' name='startdigtestbyasnInput' />
+      <output message='tns:startdigtestbyasnResponseMessage' name='startdigtestbyasnOutput' />
+    </operation>
+    <operation name='startdigtestbyboundingbox'>
+      <documentation>starts DIG test from probes in selected area DNS query is using user s DNS server as the DNS Resolver server and returns the Query time in miliseconds Query type A Query class IN Cache Recurse Protocol UDP Tries Time Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startdigtestbyboundingboxRequestMessage' name='startdigtestbyboundingboxInput' />
+      <output message='tns:startdigtestbyboundingboxResponseMessage' name='startdigtestbyboundingboxOutput' />
+    </operation>
+    <operation name='startdigtestbycountry'>
+      <documentation>starts DIG test from probes in selected countries DNS query is using user s DNS server as the DNS Resolver server and returns the Query time in miliseconds Query type A Query class IN Cache Recurse Protocol UDP Tries Time Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startdigtestbycountryRequestMessage' name='startdigtestbycountryInput' />
+      <output message='tns:startdigtestbycountryResponseMessage' name='startdigtestbycountryOutput' />
+    </operation>
+    <operation name='startdigtestbynetwork'>
+      <documentation>starts DIG test from probes in selected network ISP DNS query is using user s DNS server as the DNS Resolver server and returns the Query time in miliseconds Query type A Query class IN Cache Recurse Protocol UDP Tries Time Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startdigtestbynetworkRequestMessage' name='startdigtestbynetworkInput' />
+      <output message='tns:startdigtestbynetworkResponseMessage' name='startdigtestbynetworkOutput' />
+    </operation>
+    <operation name='starthttpgettestbyasn'>
+      <documentation>starts http get test from probes selected by ASN IDs Returns list of probes from which tests were performed</documentation>
+      <input message='tns:starthttpgettestbyasnRequestMessage' name='starthttpgettestbyasnInput' />
+      <output message='tns:starthttpgettestbyasnResponseMessage' name='starthttpgettestbyasnOutput' />
+    </operation>
+    <operation name='starthttpgettestbyboundingbox'>
+      <documentation>starts http get test from probes in selected area Returns list of probes from which tests were performed</documentation>
+      <input message='tns:starthttpgettestbyboundingboxRequestMessage' name='starthttpgettestbyboundingboxInput' />
+      <output message='tns:starthttpgettestbyboundingboxResponseMessage' name='starthttpgettestbyboundingboxOutput' />
+    </operation>
+    <operation name='starthttpgettestbycountry'>
+      <documentation>starts http get test from probes in selected countries Returns list of probes from which tests were performed</documentation>
+      <input message='tns:starthttpgettestbycountryRequestMessage' name='starthttpgettestbycountryInput' />
+      <output message='tns:starthttpgettestbycountryResponseMessage' name='starthttpgettestbycountryOutput' />
+    </operation>
+    <operation name='starthttpgettestbynetwork'>
+      <documentation>starts http get test from probes in selected network ISP Returns list of probes from which tests were performed</documentation>
+      <input message='tns:starthttpgettestbynetworkRequestMessage' name='starthttpgettestbynetworkInput' />
+      <output message='tns:starthttpgettestbynetworkResponseMessage' name='starthttpgettestbynetworkOutput' />
+    </operation>
+    <operation name='startpageloadbyboundingbox'>
+      <documentation>starts page load test from probes in selected area Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startpageloadbyboundingboxRequestMessage' name='startpageloadbyboundingboxInput' />
+      <output message='tns:startpageloadbyboundingboxResponseMessage' name='startpageloadbyboundingboxOutput' />
+    </operation>
+    <operation name='startpageloadtestbyasn'>
+      <documentation>starts page load test from probes selected by ASN IDs Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startpageloadtestbyasnRequestMessage' name='startpageloadtestbyasnInput' />
+      <output message='tns:startpageloadtestbyasnResponseMessage' name='startpageloadtestbyasnOutput' />
+    </operation>
+    <operation name='startpageloadtestbycountry'>
+      <documentation>starts page load test from probes in selected countries Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startpageloadtestbycountryRequestMessage' name='startpageloadtestbycountryInput' />
+      <output message='tns:startpageloadtestbycountryResponseMessage' name='startpageloadtestbycountryOutput' />
+    </operation>
+    <operation name='startpageloadtestbynetwork'>
+      <documentation>starts page load test from probes in selected network ISP Returns list of probes from which tests were performed</documentation>
+      <input message='tns:startpageloadtestbynetworkRequestMessage' name='startpageloadtestbynetworkInput' />
+      <output message='tns:startpageloadtestbynetworkResponseMessage' name='startpageloadtestbynetworkOutput' />
+    </operation>
+    <operation name='startpingtestbyasn'>
+      <documentation>starts ping test from probes selected by ASN Each probe up to probeslimit parameter value will execute multiple ping tests default can be changed in count parameter with delay of s between each ping can be changed in sleep parameter Response will contain ping results from multiple probes Each probe result is calculated average of the individual pings executed from that particular probe</documentation>
+      <input message='tns:startpingtestbyasnRequestMessage' name='startpingtestbyasnInput' />
+      <output message='tns:startpingtestbyasnResponseMessage' name='startpingtestbyasnOutput' />
+    </operation>
+    <operation name='startpingtestbyboundingbox'>
+      <documentation>starts ping test from probes in selected area Each probe up to probeslimit parameter value will execute multiple ping tests default can be changed in count parameter with delay of s between each ping can be changed in sleep parameter Response will contain ping results from multiple probes Each probe result is calculated average of the individual pings executed from that particular probe</documentation>
+      <input message='tns:startpingtestbyboundingboxRequestMessage' name='startpingtestbyboundingboxInput' />
+      <output message='tns:startpingtestbyboundingboxResponseMessage' name='startpingtestbyboundingboxOutput' />
+    </operation>
+    <operation name='startpingtestbycountry'>
+      <documentation>starts ping test from probes in selected countries Each probe up to probeslimit parameter value will execute multiple ping tests default can be changed in count parameter with delay of s between each ping can be changed in sleep parameter Response will contain ping results from multiple probes Each probe result is calculated average of the individual pings executed from that particular probe</documentation>
+      <input message='tns:startpingtestbycountryRequestMessage' name='startpingtestbycountryInput' />
+      <output message='tns:startpingtestbycountryResponseMessage' name='startpingtestbycountryOutput' />
+    </operation>
+    <operation name='startpingtestbynetwork'>
+      <documentation>starts ping test from probes in selected network ISP Each probe up to probeslimit parameter value will execute multiple ping tests default can be changed in count parameter with delay of s between each ping can be changed in sleep parameter Response will contain ping results from multiple probes Each probe result is calculated average of the individual pings executed from that particular probe</documentation>
+      <input message='tns:startpingtestbynetworkRequestMessage' name='startpingtestbynetworkInput' />
+      <output message='tns:startpingtestbynetworkResponseMessage' name='startpingtestbynetworkOutput' />
+    </operation>
+    <operation name='starttracerttestbyasn'>
+      <documentation>starts traceroute test from probes selected by ASN IDs Returns list of probes from which tests were performed Timeout parameter may need increasing if your test does not contain all the hops up to the destination</documentation>
+      <input message='tns:starttracerttestbyasnRequestMessage' name='starttracerttestbyasnInput' />
+      <output message='tns:starttracerttestbyasnResponseMessage' name='starttracerttestbyasnOutput' />
+    </operation>
+    <operation name='starttracerttestbyboundingbox'>
+      <documentation>starts traceroute test from probes in selected area Returns list of probes from which tests were performed Timeout parameter may need increasing if your test does not contain all the hops up to the destination</documentation>
+      <input message='tns:starttracerttestbyboundingboxRequestMessage' name='starttracerttestbyboundingboxInput' />
+      <output message='tns:starttracerttestbyboundingboxResponseMessage' name='starttracerttestbyboundingboxOutput' />
+    </operation>
+    <operation name='starttracerttestbycountry'>
+      <documentation>starts traceroute test from probes in selected countries Returns list of probes from which tests were performed Timeout parameter may need increasing if your test does not contain all the hops up to the destination</documentation>
+      <input message='tns:starttracerttestbycountryRequestMessage' name='starttracerttestbycountryInput' />
+      <output message='tns:starttracerttestbycountryResponseMessage' name='starttracerttestbycountryOutput' />
+    </operation>
+    <operation name='starttracerttestbynetwork'>
+      <documentation>starts traceroute test from probes in selected network ISP Returns list of probes from which tests were performed Timeout parameter may need increasing if your test does not contain all the hops up to the destination</documentation>
+      <input message='tns:starttracerttestbynetworkRequestMessage' name='starttracerttestbynetworkInput' />
+      <output message='tns:starttracerttestbynetworkResponseMessage' name='starttracerttestbynetworkOutput' />
+    </operation>
+  </portType>
+  <binding name='freeprobeapiBinding' type='tns:freeprobeapiPortType'>
+    <operation name='getcountries'>
+      <soap12:operation soapAction='http://getcountries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getnetworksbycountry'>
+      <soap12:operation soapAction='http://getnetworksbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getprobesbyasn'>
+      <soap12:operation soapAction='http://getprobesbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getprobesbyboundingbox'>
+      <soap12:operation soapAction='http://getprobesbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getprobesbycountry'>
+      <soap12:operation soapAction='http://getprobesbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getprobesbynetwork'>
+      <soap12:operation soapAction='http://getprobesbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startdigtestbyasn'>
+      <soap12:operation soapAction='http://startdigtestbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startdigtestbyboundingbox'>
+      <soap12:operation soapAction='http://startdigtestbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startdigtestbycountry'>
+      <soap12:operation soapAction='http://startdigtestbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startdigtestbynetwork'>
+      <soap12:operation soapAction='http://startdigtestbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starthttpgettestbyasn'>
+      <soap12:operation soapAction='http://starthttpgettestbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starthttpgettestbyboundingbox'>
+      <soap12:operation soapAction='http://starthttpgettestbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starthttpgettestbycountry'>
+      <soap12:operation soapAction='http://starthttpgettestbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starthttpgettestbynetwork'>
+      <soap12:operation soapAction='http://starthttpgettestbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpageloadbyboundingbox'>
+      <soap12:operation soapAction='http://startpageloadbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpageloadtestbyasn'>
+      <soap12:operation soapAction='http://startpageloadtestbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpageloadtestbycountry'>
+      <soap12:operation soapAction='http://startpageloadtestbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpageloadtestbynetwork'>
+      <soap12:operation soapAction='http://startpageloadtestbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpingtestbyasn'>
+      <soap12:operation soapAction='http://startpingtestbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpingtestbyboundingbox'>
+      <soap12:operation soapAction='http://startpingtestbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpingtestbycountry'>
+      <soap12:operation soapAction='http://startpingtestbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startpingtestbynetwork'>
+      <soap12:operation soapAction='http://startpingtestbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starttracerttestbyasn'>
+      <soap12:operation soapAction='http://starttracerttestbyasn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starttracerttestbyboundingbox'>
+      <soap12:operation soapAction='http://starttracerttestbyboundingbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starttracerttestbycountry'>
+      <soap12:operation soapAction='http://starttracerttestbycountry' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='starttracerttestbynetwork'>
+      <soap12:operation soapAction='http://starttracerttestbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='freeprobeapi'>
+    <documentation>probe API offers direct access to our monitoring network that consists of tens of thousands of monitoring probes distributed across the whole World We are able to test network parameters such as latencies routing and throughput from most of the consumer ISPs</documentation>
+    <port name='freeprobeapiPort' binding='tns:freeprobeapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://freeprobeapi' />
+    </port>
+  </service>
+</definitions>

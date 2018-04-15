@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/systemet/' name='systemet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/systemet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/systemet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/systemet/'>
+      <xsd:element name='countriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='alcoholfrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='alcoholto' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='apkfrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='apkto' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ecological' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='koscher' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='order' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pricefrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='priceperliterfrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='priceperliterto' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='priceto' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startdatefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdateto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tag' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='yearfrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='yearto' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tagsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='countriesRequestMessage' />
+  <message name='countriesResponseMessage'>
+    <part name='response' element='tns:countriesResponse' />
+  </message>
+  <message name='productsRequestMessage'>
+    <part name='parameters' element='tns:productsParameters' />
+  </message>
+  <message name='productsResponseMessage'>
+    <part name='response' element='tns:productsResponse' />
+  </message>
+  <message name='tagsRequestMessage' />
+  <message name='tagsResponseMessage'>
+    <part name='response' element='tns:tagsResponse' />
+  </message>
+  <portType name='systemetPortType'>
+    <operation name='countries'>
+      <documentation></documentation>
+      <input message='tns:countriesRequestMessage' name='countriesInput' />
+      <output message='tns:countriesResponseMessage' name='countriesOutput' />
+    </operation>
+    <operation name='products'>
+      <documentation>fetches products</documentation>
+      <input message='tns:productsRequestMessage' name='productsInput' />
+      <output message='tns:productsResponseMessage' name='productsOutput' />
+    </operation>
+    <operation name='tags'>
+      <documentation>product tags</documentation>
+      <input message='tns:tagsRequestMessage' name='tagsInput' />
+      <output message='tns:tagsResponseMessage' name='tagsOutput' />
+    </operation>
+  </portType>
+  <binding name='systemetBinding' type='tns:systemetPortType'>
+    <operation name='countries'>
+      <soap12:operation soapAction='http://countries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='products'>
+      <soap12:operation soapAction='http://products' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tags'>
+      <soap12:operation soapAction='http://tags' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='systemet'>
+    <documentation>systemet API is an unofficial API for accessing the Swedish alcohol monopoly Systembolaget product data</documentation>
+    <port name='systemetPort' binding='tns:systemetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://systemet' />
+    </port>
+  </service>
+</definitions>

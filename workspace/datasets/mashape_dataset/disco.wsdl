@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/disco/' name='disco' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/disco/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/disco/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/disco/'>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='password' type='xsd:int' minOccurs='0' />
+            <xsd:element name='keyword' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='operation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datetime' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keywords' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage' />
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='userRequestMessage' />
+  <message name='userResponseMessage'>
+    <part name='response' element='tns:userResponse' />
+  </message>
+  <portType name='discoPortType'>
+    <operation name='search'>
+      <documentation>for social searching</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='user'>
+      <documentation>for managing your account</documentation>
+      <input message='tns:userRequestMessage' name='userInput' />
+      <output message='tns:userResponseMessage' name='userOutput' />
+    </operation>
+  </portType>
+  <binding name='discoBinding' type='tns:discoPortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='user'>
+      <soap12:operation soapAction='http://user' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='disco'>
+    <documentation>multiple Social Networks One API Build applications access data from the major social networks easily through our consolidated Social Discovery API</documentation>
+    <port name='discoPort' binding='tns:discoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://disco' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mindpulpy/' name='mindpulpy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mindpulpy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mindpulpy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mindpulpy/'>
+      <xsd:element name='restCommonxmlSimplifyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleConfigurationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='restCommonxmlSimplifyRequestMessage' />
+  <message name='restCommonxmlSimplifyResponseMessage'>
+    <part name='response' element='tns:restCommonxmlSimplifyResponse' />
+  </message>
+  <message name='singleConfigurationRequestMessage' />
+  <message name='singleConfigurationResponseMessage'>
+    <part name='response' element='tns:singleConfigurationResponse' />
+  </message>
+  <portType name='mindpulpyPortType'>
+    <operation name='restCommonxmlSimplify'>
+      <documentation>combine many apis and aggregate and simpilify the output</documentation>
+      <input message='tns:restCommonxmlSimplifyRequestMessage' name='restCommonxmlSimplifyInput' />
+      <output message='tns:restCommonxmlSimplifyResponseMessage' name='restCommonxmlSimplifyOutput' />
+    </operation>
+    <operation name='singleConfiguration'>
+      <documentation>simplified Output</documentation>
+      <input message='tns:singleConfigurationRequestMessage' name='singleConfigurationInput' />
+      <output message='tns:singleConfigurationResponseMessage' name='singleConfigurationOutput' />
+    </operation>
+  </portType>
+  <binding name='mindpulpyBinding' type='tns:mindpulpyPortType'>
+    <operation name='restCommonxmlSimplify'>
+      <soap12:operation soapAction='http://restCommonxmlSimplify' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleConfiguration'>
+      <soap12:operation soapAction='http://singleConfiguration' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mindpulpy'>
+    <documentation>mindPulpy is a platform to aggregate manipulate simplify and mashup content from around the web api Get data from any web protocol Authentication method and convert into a developer friendly urls and built apps for multiple devices using Apps builder Combine many apis into one and Build custom connectors for cloud platform http mindapp pulpy rhcloud com ApiDoc jsp</documentation>
+    <port name='mindpulpyPort' binding='tns:mindpulpyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mindpulpy' />
+    </port>
+  </service>
+</definitions>

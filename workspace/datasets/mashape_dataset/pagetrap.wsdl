@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pagetrap/' name='pagetrap' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pagetrap/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pagetrap/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pagetrap/'>
+      <xsd:element name='apiImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiImageRequestMessage' />
+  <message name='apiImageResponseMessage'>
+    <part name='response' element='tns:apiImageResponse' />
+  </message>
+  <message name='apiPdfRequestMessage' />
+  <message name='apiPdfResponseMessage'>
+    <part name='response' element='tns:apiPdfResponse' />
+  </message>
+  <portType name='pagetrapPortType'>
+    <operation name='apiImage'>
+      <documentation>convert url or html to jpeg or png</documentation>
+      <input message='tns:apiImageRequestMessage' name='apiImageInput' />
+      <output message='tns:apiImageResponseMessage' name='apiImageOutput' />
+    </operation>
+    <operation name='apiPdf'>
+      <documentation>convert html or a url to pdf</documentation>
+      <input message='tns:apiPdfRequestMessage' name='apiPdfInput' />
+      <output message='tns:apiPdfResponseMessage' name='apiPdfOutput' />
+    </operation>
+  </portType>
+  <binding name='pagetrapBinding' type='tns:pagetrapPortType'>
+    <operation name='apiImage'>
+      <soap12:operation soapAction='http://apiImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiPdf'>
+      <soap12:operation soapAction='http://apiPdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pagetrap'>
+    <documentation>the pageTrap com API lets you easily convert a given URL or POSTed HTML to an accurately rendered PDF or a JPG PNG file pageTrap com is an easy to use conversion service that powers this API The service renders HTML as a PDF or an Image This API is free but if you become a member at pageTrap com you will receive free credits that will unlock all features those features being the removal of the pageTrap logo from the results and the ability to use many other parameters like Orientation Size Margins ImageFormat jQuery selector etc</documentation>
+    <port name='pagetrapPort' binding='tns:pagetrapBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pagetrap' />
+    </port>
+  </service>
+</definitions>

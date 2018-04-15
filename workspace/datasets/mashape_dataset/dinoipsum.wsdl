@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dinoIpsum/' name='dinoIpsum' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dinoIpsum/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dinoIpsum/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dinoIpsum/'>
+      <xsd:element name='dinosListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paragraphs' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='words' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dinosListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dinosListRequestMessage'>
+    <part name='parameters' element='tns:dinosListParameters' />
+  </message>
+  <message name='dinosListResponseMessage'>
+    <part name='response' element='tns:dinosListResponse' />
+  </message>
+  <portType name='dinoIpsumPortType'>
+    <operation name='dinosList'>
+      <documentation></documentation>
+      <input message='tns:dinosListRequestMessage' name='dinosListInput' />
+      <output message='tns:dinosListResponseMessage' name='dinosListOutput' />
+    </operation>
+  </portType>
+  <binding name='dinoIpsumBinding' type='tns:dinoIpsumPortType'>
+    <operation name='dinosList'>
+      <soap12:operation soapAction='http://dinosList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dinoIpsum'>
+    <documentation>dino Ipsum is a lorem ipsum for dinosaur lovers and anyone who needs meaningless filler text for prototyping web pages</documentation>
+    <port name='dinoIpsumPort' binding='tns:dinoIpsumBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dinoIpsum' />
+    </port>
+  </service>
+</definitions>

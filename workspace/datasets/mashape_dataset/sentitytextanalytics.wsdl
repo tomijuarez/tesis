@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentityTextAnalytics/' name='sentityTextAnalytics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentityTextAnalytics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentityTextAnalytics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentityTextAnalytics/'>
+      <xsd:element name='languageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageBulkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='posTaggingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='neg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='pos' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentsBulkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='neg' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pos' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='languageRequestMessage'>
+    <part name='parameters' element='tns:languageParameters' />
+  </message>
+  <message name='languageResponseMessage'>
+    <part name='response' element='tns:languageResponse' />
+  </message>
+  <message name='languageBulkRequestMessage' />
+  <message name='languageBulkResponseMessage'>
+    <part name='response' element='tns:languageBulkResponse' />
+  </message>
+  <message name='posTaggingRequestMessage' />
+  <message name='posTaggingResponseMessage'>
+    <part name='response' element='tns:posTaggingResponse' />
+  </message>
+  <message name='sentimentsRequestMessage'>
+    <part name='parameters' element='tns:sentimentsParameters' />
+  </message>
+  <message name='sentimentsResponseMessage'>
+    <part name='response' element='tns:sentimentsResponse' />
+  </message>
+  <message name='sentimentsBulkRequestMessage' />
+  <message name='sentimentsBulkResponseMessage'>
+    <part name='response' element='tns:sentimentsBulkResponse' />
+  </message>
+  <portType name='sentityTextAnalyticsPortType'>
+    <operation name='language'>
+      <documentation>detect language of text sent in url If a language cannot be detected unknown string will be returned as language code and unknown string as language name</documentation>
+      <input message='tns:languageRequestMessage' name='languageInput' />
+      <output message='tns:languageResponseMessage' name='languageOutput' />
+    </operation>
+    <operation name='languageBulk'>
+      <documentation>detect language of text sent as JSON array Every item will be processed separately and returned in exactly the same order it was sent If a language cannot be detected unknown string will be returned as language code and unknown string as language name</documentation>
+      <input message='tns:languageBulkRequestMessage' name='languageBulkInput' />
+      <output message='tns:languageBulkResponseMessage' name='languageBulkOutput' />
+    </operation>
+    <operation name='posTagging'>
+      <documentation>returns all words of text with corresponding POST tags</documentation>
+      <input message='tns:posTaggingRequestMessage' name='posTaggingInput' />
+      <output message='tns:posTaggingResponseMessage' name='posTaggingOutput' />
+    </operation>
+    <operation name='sentiments'>
+      <documentation>extract sentiments from provided text</documentation>
+      <input message='tns:sentimentsRequestMessage' name='sentimentsInput' />
+      <output message='tns:sentimentsResponseMessage' name='sentimentsOutput' />
+    </operation>
+    <operation name='sentimentsBulk'>
+      <documentation>get sentiments of text sent in JSON array Every item will be processed separately and returned in exactly the same order it was sent</documentation>
+      <input message='tns:sentimentsBulkRequestMessage' name='sentimentsBulkInput' />
+      <output message='tns:sentimentsBulkResponseMessage' name='sentimentsBulkOutput' />
+    </operation>
+  </portType>
+  <binding name='sentityTextAnalyticsBinding' type='tns:sentityTextAnalyticsPortType'>
+    <operation name='language'>
+      <soap12:operation soapAction='http://language' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='languageBulk'>
+      <soap12:operation soapAction='http://languageBulk' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='posTagging'>
+      <soap12:operation soapAction='http://posTagging' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentiments'>
+      <soap12:operation soapAction='http://sentiments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentimentsBulk'>
+      <soap12:operation soapAction='http://sentimentsBulk' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentityTextAnalytics'>
+    <documentation>using Sentity API you can analyze sentiments of short messages or comments determine their language and parts of speech of individual words in a sentence</documentation>
+    <port name='sentityTextAnalyticsPort' binding='tns:sentityTextAnalyticsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentityTextAnalytics' />
+    </port>
+  </service>
+</definitions>

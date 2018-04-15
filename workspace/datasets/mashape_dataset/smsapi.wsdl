@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smsapi/' name='smsapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smsapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smsapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smsapi/'>
+      <xsd:element name='smsDoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='smsDoRequestMessage' />
+  <message name='smsDoResponseMessage'>
+    <part name='response' element='tns:smsDoResponse' />
+  </message>
+  <portType name='smsapiPortType'>
+    <operation name='smsDo'>
+      <documentation></documentation>
+      <input message='tns:smsDoRequestMessage' name='smsDoInput' />
+      <output message='tns:smsDoResponseMessage' name='smsDoOutput' />
+    </operation>
+  </portType>
+  <binding name='smsapiBinding' type='tns:smsapiPortType'>
+    <operation name='smsDo'>
+      <soap12:operation soapAction='http://smsDo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smsapi'>
+    <documentation>sMSAPI is a global SMS provider offering High Quality SMS services BULK SMS HLR lookup for companies to nearly mobile networks in countries Read more here https www smsapi com rest</documentation>
+    <port name='smsapiPort' binding='tns:smsapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smsapi' />
+    </port>
+  </service>
+</definitions>

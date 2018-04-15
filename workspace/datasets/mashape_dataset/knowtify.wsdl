@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/knowtify/' name='knowtify' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/knowtify/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/knowtify/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/knowtify/'>
+      <xsd:element name='addContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='successes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='contacts' type='xsd:int' minOccurs='0' />
+            <xsd:element name='errors' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='successes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='contacts' type='xsd:int' minOccurs='0' />
+            <xsd:element name='errors' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='successes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='contacts' type='xsd:int' minOccurs='0' />
+            <xsd:element name='errors' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editGlobalDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addContactsRequestMessage' />
+  <message name='addContactsResponseMessage'>
+    <part name='response' element='tns:addContactsResponse' />
+  </message>
+  <message name='deleteContactsRequestMessage' />
+  <message name='deleteContactsResponseMessage'>
+    <part name='response' element='tns:deleteContactsResponse' />
+  </message>
+  <message name='editContactsRequestMessage' />
+  <message name='editContactsResponseMessage'>
+    <part name='response' element='tns:editContactsResponse' />
+  </message>
+  <message name='editGlobalDataRequestMessage' />
+  <message name='editGlobalDataResponseMessage'>
+    <part name='response' element='tns:editGlobalDataResponse' />
+  </message>
+  <portType name='knowtifyPortType'>
+    <operation name='addContacts'>
+      <documentation>your JSON object should have a single attribute named contacts which will contain an array of contact objects</documentation>
+      <input message='tns:addContactsRequestMessage' name='addContactsInput' />
+      <output message='tns:addContactsResponseMessage' name='addContactsOutput' />
+    </operation>
+    <operation name='deleteContacts'>
+      <documentation>batch deletes require the contacts array to be strings of emails to be deleted</documentation>
+      <input message='tns:deleteContactsRequestMessage' name='deleteContactsInput' />
+      <output message='tns:deleteContactsResponseMessage' name='deleteContactsOutput' />
+    </operation>
+    <operation name='editContacts'>
+      <documentation>batch edits are formatted exactly the same as batch adds We will find the contact in our database associated with your API key and email then update the name and data attributes</documentation>
+      <input message='tns:editContactsRequestMessage' name='editContactsInput' />
+      <output message='tns:editContactsResponseMessage' name='editContactsOutput' />
+    </operation>
+    <operation name='editGlobalData'>
+      <documentation>global data can be used in digest blocks by using double curly braces users</documentation>
+      <input message='tns:editGlobalDataRequestMessage' name='editGlobalDataInput' />
+      <output message='tns:editGlobalDataResponseMessage' name='editGlobalDataOutput' />
+    </operation>
+  </portType>
+  <binding name='knowtifyBinding' type='tns:knowtifyPortType'>
+    <operation name='addContacts'>
+      <soap12:operation soapAction='http://addContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteContacts'>
+      <soap12:operation soapAction='http://deleteContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editContacts'>
+      <soap12:operation soapAction='http://editContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editGlobalData'>
+      <soap12:operation soapAction='http://editGlobalData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='knowtify'>
+    <documentation>the Knowtify API is designed to help you send smart emails</documentation>
+    <port name='knowtifyPort' binding='tns:knowtifyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://knowtify' />
+    </port>
+  </service>
+</definitions>

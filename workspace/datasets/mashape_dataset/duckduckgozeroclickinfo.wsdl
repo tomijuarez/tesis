@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/duckduckgoZeroClickInfo/' name='duckduckgoZeroClickInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/duckduckgoZeroClickInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/duckduckgoZeroClickInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/duckduckgoZeroClickInfo/'>
+      <xsd:element name='zeroClickInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nohtml' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='noredirect' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skipdisambig' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zeroClickInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='DefinitionSource' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Heading' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='RelatedTopics' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Icon' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Height' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='URL' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='FirstURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='Result' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Abstract' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AbstractURL' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Definition' type='xsd:string' minOccurs='0' />
+            <xsd:element name='DefinitionURL' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='AbstractText' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Redirect' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Answer' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Icon' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Height' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='URL' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='FirstURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='Result' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='AbstractSource' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='AnswerType' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='zeroClickInfoRequestMessage'>
+    <part name='parameters' element='tns:zeroClickInfoParameters' />
+  </message>
+  <message name='zeroClickInfoResponseMessage'>
+    <part name='response' element='tns:zeroClickInfoResponse' />
+  </message>
+  <portType name='duckduckgoZeroClickInfoPortType'>
+    <operation name='zeroClickInfo'>
+      <documentation>our Zero click Info API gives you free access to much of our topic summaries categories disambiguation bang redirects definitions and more</documentation>
+      <input message='tns:zeroClickInfoRequestMessage' name='zeroClickInfoInput' />
+      <output message='tns:zeroClickInfoResponseMessage' name='zeroClickInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='duckduckgoZeroClickInfoBinding' type='tns:duckduckgoZeroClickInfoPortType'>
+    <operation name='zeroClickInfo'>
+      <soap12:operation soapAction='http://zeroClickInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='duckduckgoZeroClickInfo'>
+    <documentation>duckDuckGo Zero click Info includes topic summaries categories disambiguation official sites bang redirects definitions and more You can use this API for many things e g define people places things words and concepts provides direct links to other services via bang syntax list related topics and gives official sites when available</documentation>
+    <port name='duckduckgoZeroClickInfoPort' binding='tns:duckduckgoZeroClickInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://duckduckgoZeroClickInfo' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dateAndTimeAssistant/' name='dateAndTimeAssistant' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dateAndTimeAssistant/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dateAndTimeAssistant/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dateAndTimeAssistant/'>
+      <xsd:element name='dateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ISO_8601' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='english' type='xsd:string' minOccurs='0' />
+            <xsd:element name='mysql' type='xsd:string' minOccurs='0' />
+            <xsd:element name='international' type='xsd:date' minOccurs='0' />
+            <xsd:element name='shorthand' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='relative' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='time' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='standard' type='xsd:string' minOccurs='0' />
+            <xsd:element name='military' type='xsd:int' minOccurs='0' />
+            <xsd:element name='international' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dateRequestMessage'>
+    <part name='parameters' element='tns:dateParameters' />
+  </message>
+  <message name='dateResponseMessage'>
+    <part name='response' element='tns:dateResponse' />
+  </message>
+  <message name='timeRequestMessage'>
+    <part name='parameters' element='tns:timeParameters' />
+  </message>
+  <message name='timeResponseMessage'>
+    <part name='response' element='tns:timeResponse' />
+  </message>
+  <portType name='dateAndTimeAssistantPortType'>
+    <operation name='date'>
+      <documentation></documentation>
+      <input message='tns:dateRequestMessage' name='dateInput' />
+      <output message='tns:dateResponseMessage' name='dateOutput' />
+    </operation>
+    <operation name='time'>
+      <documentation>format Time</documentation>
+      <input message='tns:timeRequestMessage' name='timeInput' />
+      <output message='tns:timeResponseMessage' name='timeOutput' />
+    </operation>
+  </portType>
+  <binding name='dateAndTimeAssistantBinding' type='tns:dateAndTimeAssistantPortType'>
+    <operation name='date'>
+      <soap12:operation soapAction='http://date' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='time'>
+      <soap12:operation soapAction='http://time' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dateAndTimeAssistant'>
+    <documentation>convert dates and times into common formats such as ISO mysql relative etc</documentation>
+    <port name='dateAndTimeAssistantPort' binding='tns:dateAndTimeAssistantBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dateAndTimeAssistant' />
+    </port>
+  </service>
+</definitions>

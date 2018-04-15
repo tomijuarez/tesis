@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/howtospeak/' name='howtospeak' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/howtospeak/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/howtospeak/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/howtospeak/'>
+      <xsd:element name='englishChineseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='notrans' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='englishChineseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='japaneseChineseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='notrans' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='japaneseChineseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='koreanChineseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='notrans' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='koreanChineseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='korean' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='chinglish' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='englishChineseRequestMessage'>
+    <part name='parameters' element='tns:englishChineseParameters' />
+  </message>
+  <message name='englishChineseResponseMessage'>
+    <part name='response' element='tns:englishChineseResponse' />
+  </message>
+  <message name='japaneseChineseRequestMessage'>
+    <part name='parameters' element='tns:japaneseChineseParameters' />
+  </message>
+  <message name='japaneseChineseResponseMessage'>
+    <part name='response' element='tns:japaneseChineseResponse' />
+  </message>
+  <message name='koreanChineseRequestMessage'>
+    <part name='parameters' element='tns:koreanChineseParameters' />
+  </message>
+  <message name='koreanChineseResponseMessage'>
+    <part name='response' element='tns:koreanChineseResponse' />
+  </message>
+  <portType name='howtospeakPortType'>
+    <operation name='englishChinese'>
+      <documentation>translate your English into Chinese character phonetically</documentation>
+      <input message='tns:englishChineseRequestMessage' name='englishChineseInput' />
+      <output message='tns:englishChineseResponseMessage' name='englishChineseOutput' />
+    </operation>
+    <operation name='japaneseChinese'>
+      <documentation>translate Japanese into Chinese character phonetically</documentation>
+      <input message='tns:japaneseChineseRequestMessage' name='japaneseChineseInput' />
+      <output message='tns:japaneseChineseResponseMessage' name='japaneseChineseOutput' />
+    </operation>
+    <operation name='koreanChinese'>
+      <documentation>translate Korean into Chinese character phonetically</documentation>
+      <input message='tns:koreanChineseRequestMessage' name='koreanChineseInput' />
+      <output message='tns:koreanChineseResponseMessage' name='koreanChineseOutput' />
+    </operation>
+  </portType>
+  <binding name='howtospeakBinding' type='tns:howtospeakPortType'>
+    <operation name='englishChinese'>
+      <soap12:operation soapAction='http://englishChinese' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='japaneseChinese'>
+      <soap12:operation soapAction='http://japaneseChinese' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='koreanChinese'>
+      <soap12:operation soapAction='http://koreanChinese' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='howtospeak'>
+    <documentation>we provide phonetical translation to Chinese</documentation>
+    <port name='howtospeakPort' binding='tns:howtospeakBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://howtospeak' />
+    </port>
+  </service>
+</definitions>

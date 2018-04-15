@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/euromillions/' name='euromillions' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/euromillions/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/euromillions/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/euromillions/'>
+      <xsd:element name='findbyyearwithoutpricesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findbyyearwithoutpricesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='finddrawParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rafflenumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='finddrawResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findlastResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findbyyearwithoutpricesRequestMessage'>
+    <part name='parameters' element='tns:findbyyearwithoutpricesParameters' />
+  </message>
+  <message name='findbyyearwithoutpricesResponseMessage'>
+    <part name='response' element='tns:findbyyearwithoutpricesResponse' />
+  </message>
+  <message name='finddrawRequestMessage'>
+    <part name='parameters' element='tns:finddrawParameters' />
+  </message>
+  <message name='finddrawResponseMessage'>
+    <part name='response' element='tns:finddrawResponse' />
+  </message>
+  <message name='findlastRequestMessage' />
+  <message name='findlastResponseMessage'>
+    <part name='response' element='tns:findlastResponse' />
+  </message>
+  <portType name='euromillionsPortType'>
+    <operation name='findbyyearwithoutprices'>
+      <documentation>returns all draw results in a given year but without the prize table</documentation>
+      <input message='tns:findbyyearwithoutpricesRequestMessage' name='findbyyearwithoutpricesInput' />
+      <output message='tns:findbyyearwithoutpricesResponseMessage' name='findbyyearwithoutpricesOutput' />
+    </operation>
+    <operation name='finddraw'>
+      <documentation>returns the draw result with the prize table</documentation>
+      <input message='tns:finddrawRequestMessage' name='finddrawInput' />
+      <output message='tns:finddrawResponseMessage' name='finddrawOutput' />
+    </operation>
+    <operation name='findlast'>
+      <documentation>returns the last draw result with or without the prize table</documentation>
+      <input message='tns:findlastRequestMessage' name='findlastInput' />
+      <output message='tns:findlastResponseMessage' name='findlastOutput' />
+    </operation>
+  </portType>
+  <binding name='euromillionsBinding' type='tns:euromillionsPortType'>
+    <operation name='findbyyearwithoutprices'>
+      <soap12:operation soapAction='http://findbyyearwithoutprices' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='finddraw'>
+      <soap12:operation soapAction='http://finddraw' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findlast'>
+      <soap12:operation soapAction='http://findlast' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='euromillions'>
+    <documentation>euromillions results Tuesday and Friday Euromillions Results Check the Latest Euromillions Results here as soon as the numbers are drawn</documentation>
+    <port name='euromillionsPort' binding='tns:euromillionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://euromillions' />
+    </port>
+  </service>
+</definitions>

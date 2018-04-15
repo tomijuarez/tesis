@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bookMyShow/' name='bookMyShow' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bookMyShow/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bookMyShow/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bookMyShow/'>
+      <xsd:element name='getTokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+            <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getRegionListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getRegionListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+            <xsd:element name='topCities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='RegionCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='RegionName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='RegionLong' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='RegionLat' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SubRegionCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SubRegionName' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='regioncode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='events' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EventTitle' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Seq' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEventDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='eventsDetails' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Event_MessageTitle' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EventType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Event_AvgRatings' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EventMusic' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EventCensor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='FShareURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Ratings' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Event_Message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CanUserRate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='IsComingSoon' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ImageCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ProducerCode' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='BannerURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='EventTitle' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EventReleaseDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EventVoice' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Director' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='arrDates' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='ShowDateDisplay' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='ShowDateCode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='EventIsGlobal' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Actors' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Event_UserRatingsCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Event_UserReviewCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EventWriter' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Event_CriticsRatingsCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Length' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EventSynopsis' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ReleaseDateCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Genre' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Censor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='TrailerURL' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='Seq' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='GenreArray' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='strMessage' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDateListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='regioncode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDateListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dateList' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='SubRegionCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ShowDateDisplay' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShowDateCode' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTimeListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='regioncode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdatecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTimeListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timeList' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EventTitle' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueAddress' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShowTimeNumeric' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='VenueName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShowTimeDisplay' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SessionId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ShowDateCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='strMessage' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTimeByVenueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdatecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='venuecode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTimeByVenueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timeList' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EventTitle' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueAddress' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShowTimeNumeric' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='VenueName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShowTimeDisplay' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SessionId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ShowDateCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='strMessage' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='venueDetail' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='VenueLong' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VenueAddress' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueLegends' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VenueName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VenueLat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getShowInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sessionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='venuecode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getShowInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='showInfo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PriceCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='VenueHasETicket' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SpecialCode' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VenueMaxLimit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='alternateName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VenueCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CategoryRange' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='intCategoryMaxTickets' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='strHasMTTicket' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PriceDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='SeatLayoutType' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='AreaCatCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='PriceSquence' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SessAC_intSeatsAvail' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ShowTimeDisplay' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='SeatLayout' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='AltPrice' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ShowDateDisplay' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='SessionId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SeatsAvail' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='venueDetail' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Venue_strName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Venue_strID' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Venue_strAddress' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Venue_intMaxLimit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Venue_strLegends' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='strIsMultiCategory' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='eventDetail' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='strLanguage' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EventDirector' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Censor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EventCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EventActors' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='strMessage' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getTokenRequestMessage' />
+  <message name='getTokenResponseMessage'>
+    <part name='response' element='tns:getTokenResponse' />
+  </message>
+  <message name='getRegionListRequestMessage'>
+    <part name='parameters' element='tns:getRegionListParameters' />
+  </message>
+  <message name='getRegionListResponseMessage'>
+    <part name='response' element='tns:getRegionListResponse' />
+  </message>
+  <message name='getEventListRequestMessage'>
+    <part name='parameters' element='tns:getEventListParameters' />
+  </message>
+  <message name='getEventListResponseMessage'>
+    <part name='response' element='tns:getEventListResponse' />
+  </message>
+  <message name='getEventDetailsRequestMessage'>
+    <part name='parameters' element='tns:getEventDetailsParameters' />
+  </message>
+  <message name='getEventDetailsResponseMessage'>
+    <part name='response' element='tns:getEventDetailsResponse' />
+  </message>
+  <message name='getDateListRequestMessage'>
+    <part name='parameters' element='tns:getDateListParameters' />
+  </message>
+  <message name='getDateListResponseMessage'>
+    <part name='response' element='tns:getDateListResponse' />
+  </message>
+  <message name='getTimeListRequestMessage'>
+    <part name='parameters' element='tns:getTimeListParameters' />
+  </message>
+  <message name='getTimeListResponseMessage'>
+    <part name='response' element='tns:getTimeListResponse' />
+  </message>
+  <message name='getTimeByVenueRequestMessage'>
+    <part name='parameters' element='tns:getTimeByVenueParameters' />
+  </message>
+  <message name='getTimeByVenueResponseMessage'>
+    <part name='response' element='tns:getTimeByVenueResponse' />
+  </message>
+  <message name='getShowInfoRequestMessage'>
+    <part name='parameters' element='tns:getShowInfoParameters' />
+  </message>
+  <message name='getShowInfoResponseMessage'>
+    <part name='response' element='tns:getShowInfoResponse' />
+  </message>
+  <portType name='bookMyShowPortType'>
+    <operation name='getToken'>
+      <documentation>gET Token Token is required for all requests</documentation>
+      <input message='tns:getTokenRequestMessage' name='getTokenInput' />
+      <output message='tns:getTokenResponseMessage' name='getTokenOutput' />
+    </operation>
+    <operation name='getRegionList'>
+      <documentation></documentation>
+      <input message='tns:getRegionListRequestMessage' name='getRegionListInput' />
+      <output message='tns:getRegionListResponseMessage' name='getRegionListOutput' />
+    </operation>
+    <operation name='getEventList'>
+      <documentation>get all events in given region</documentation>
+      <input message='tns:getEventListRequestMessage' name='getEventListInput' />
+      <output message='tns:getEventListResponseMessage' name='getEventListOutput' />
+    </operation>
+    <operation name='getEventDetails'>
+      <documentation></documentation>
+      <input message='tns:getEventDetailsRequestMessage' name='getEventDetailsInput' />
+      <output message='tns:getEventDetailsResponseMessage' name='getEventDetailsOutput' />
+    </operation>
+    <operation name='getDateList'>
+      <documentation>get all dates of show</documentation>
+      <input message='tns:getDateListRequestMessage' name='getDateListInput' />
+      <output message='tns:getDateListResponseMessage' name='getDateListOutput' />
+    </operation>
+    <operation name='getTimeList'>
+      <documentation>gET time of Show</documentation>
+      <input message='tns:getTimeListRequestMessage' name='getTimeListInput' />
+      <output message='tns:getTimeListResponseMessage' name='getTimeListOutput' />
+    </operation>
+    <operation name='getTimeByVenue'>
+      <documentation>gET time by Venue</documentation>
+      <input message='tns:getTimeByVenueRequestMessage' name='getTimeByVenueInput' />
+      <output message='tns:getTimeByVenueResponseMessage' name='getTimeByVenueOutput' />
+    </operation>
+    <operation name='getShowInfo'>
+      <documentation>get Show Info like price</documentation>
+      <input message='tns:getShowInfoRequestMessage' name='getShowInfoInput' />
+      <output message='tns:getShowInfoResponseMessage' name='getShowInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='bookMyShowBinding' type='tns:bookMyShowPortType'>
+    <operation name='getToken'>
+      <soap12:operation soapAction='http://getToken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getRegionList'>
+      <soap12:operation soapAction='http://getRegionList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEventList'>
+      <soap12:operation soapAction='http://getEventList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEventDetails'>
+      <soap12:operation soapAction='http://getEventDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDateList'>
+      <soap12:operation soapAction='http://getDateList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTimeList'>
+      <soap12:operation soapAction='http://getTimeList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTimeByVenue'>
+      <soap12:operation soapAction='http://getTimeByVenue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getShowInfo'>
+      <soap12:operation soapAction='http://getShowInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bookMyShow'>
+    <documentation>get information about upcoming movies and events show timings venue details and artist bios This is unofficial API of BookMyShow com</documentation>
+    <port name='bookMyShowPort' binding='tns:bookMyShowBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bookMyShow' />
+    </port>
+  </service>
+</definitions>

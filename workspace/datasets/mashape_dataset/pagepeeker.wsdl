@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pagepeeker/' name='pagepeeker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pagepeeker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pagepeeker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pagepeeker/'>
+      <xsd:element name='shootThumbnailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='refresh' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shootThumbnailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thumbnailReadyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thumbnailReadyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='shootThumbnailRequestMessage'>
+    <part name='parameters' element='tns:shootThumbnailParameters' />
+  </message>
+  <message name='shootThumbnailResponseMessage'>
+    <part name='response' element='tns:shootThumbnailResponse' />
+  </message>
+  <message name='thumbnailReadyRequestMessage'>
+    <part name='parameters' element='tns:thumbnailReadyParameters' />
+  </message>
+  <message name='thumbnailReadyResponseMessage'>
+    <part name='response' element='tns:thumbnailReadyResponse' />
+  </message>
+  <portType name='pagepeekerPortType'>
+    <operation name='shootThumbnail'>
+      <documentation>issues a reset API call if refresh is set to Else it will download if the image is ready see endpoint</documentation>
+      <input message='tns:shootThumbnailRequestMessage' name='shootThumbnailInput' />
+      <output message='tns:shootThumbnailResponseMessage' name='shootThumbnailOutput' />
+    </operation>
+    <operation name='thumbnailReady'>
+      <documentation>poll this API until it returns that the image is available If available you can download through endpoint Rendering an image depends largely on how fast a particular web page is loaded and if it contains Flash Average waiting time is around seconds</documentation>
+      <input message='tns:thumbnailReadyRequestMessage' name='thumbnailReadyInput' />
+      <output message='tns:thumbnailReadyResponseMessage' name='thumbnailReadyOutput' />
+    </operation>
+  </portType>
+  <binding name='pagepeekerBinding' type='tns:pagepeekerPortType'>
+    <operation name='shootThumbnail'>
+      <soap12:operation soapAction='http://shootThumbnail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='thumbnailReady'>
+      <soap12:operation soapAction='http://thumbnailReady' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pagepeeker'>
+    <documentation>automate website screenshots creation Generate screenshots in a matter of seconds Never busy so there s no waiting in line Rendering starts immediately and is finished quickly</documentation>
+    <port name='pagepeekerPort' binding='tns:pagepeekerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pagepeeker' />
+    </port>
+  </service>
+</definitions>

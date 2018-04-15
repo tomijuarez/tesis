@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/restaurantsMenu/' name='restaurantsMenu' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/restaurantsMenu/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/restaurantsMenu/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/restaurantsMenu/'>
+      <xsd:element name='getmenusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='area' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getmenusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='area' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='foodtype' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='logo' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='orderlink' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='menus' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='foodname' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='isveg' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getmenusRequestMessage'>
+    <part name='parameters' element='tns:getmenusParameters' />
+  </message>
+  <message name='getmenusResponseMessage'>
+    <part name='response' element='tns:getmenusResponse' />
+  </message>
+  <portType name='restaurantsMenuPortType'>
+    <operation name='getmenus'>
+      <input message='tns:getmenusRequestMessage' name='getmenusInput' />
+      <output message='tns:getmenusResponseMessage' name='getmenusOutput' />
+    </operation>
+  </portType>
+  <binding name='restaurantsMenuBinding' type='tns:restaurantsMenuPortType'>
+    <operation name='getmenus'>
+      <soap12:operation soapAction='http://getmenus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='restaurantsMenu'>
+    <documentation>get menus of all restaurants of major Indian cities</documentation>
+    <port name='restaurantsMenuPort' binding='tns:restaurantsMenuBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://restaurantsMenu' />
+    </port>
+  </service>
+</definitions>

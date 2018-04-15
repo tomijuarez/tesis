@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fowizTextMessaging/' name='fowizTextMessaging' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fowizTextMessaging/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fowizTextMessaging/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fowizTextMessaging/'>
+      <xsd:element name='sendingMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phonenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendingMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendingMessageRequestMessage'>
+    <part name='parameters' element='tns:sendingMessageParameters' />
+  </message>
+  <message name='sendingMessageResponseMessage'>
+    <part name='response' element='tns:sendingMessageResponse' />
+  </message>
+  <portType name='fowizTextMessagingPortType'>
+    <operation name='sendingMessage'>
+      <documentation>sending message using FOWiz text messaging API</documentation>
+      <input message='tns:sendingMessageRequestMessage' name='sendingMessageInput' />
+      <output message='tns:sendingMessageResponseMessage' name='sendingMessageOutput' />
+    </operation>
+  </portType>
+  <binding name='fowizTextMessagingBinding' type='tns:fowizTextMessagingPortType'>
+    <operation name='sendingMessage'>
+      <soap12:operation soapAction='http://sendingMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fowizTextMessaging'>
+    <documentation>fOWiz an Android based API allows to send text messages from applications</documentation>
+    <port name='fowizTextMessagingPort' binding='tns:fowizTextMessagingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fowizTextMessaging' />
+    </port>
+  </service>
+</definitions>

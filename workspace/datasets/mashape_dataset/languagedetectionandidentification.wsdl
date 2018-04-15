@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languageDetectionAndIdentification/' name='languageDetectionAndIdentification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languageDetectionAndIdentification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languageDetectionAndIdentification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languageDetectionAndIdentification/'>
+      <xsd:element name='detectLanguageGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguageGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='isReliable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguagePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='isReliable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectLanguageGetRequestMessage'>
+    <part name='parameters' element='tns:detectLanguageGetParameters' />
+  </message>
+  <message name='detectLanguageGetResponseMessage'>
+    <part name='response' element='tns:detectLanguageGetResponse' />
+  </message>
+  <message name='detectLanguagePostRequestMessage' />
+  <message name='detectLanguagePostResponseMessage'>
+    <part name='response' element='tns:detectLanguagePostResponse' />
+  </message>
+  <portType name='languageDetectionAndIdentificationPortType'>
+    <operation name='detectLanguageGet'>
+      <documentation>send GET request with the text in the URL param and get back the language</documentation>
+      <input message='tns:detectLanguageGetRequestMessage' name='detectLanguageGetInput' />
+      <output message='tns:detectLanguageGetResponseMessage' name='detectLanguageGetOutput' />
+    </operation>
+    <operation name='detectLanguagePost'>
+      <documentation>send text in POST body and get back its lanuage</documentation>
+      <input message='tns:detectLanguagePostRequestMessage' name='detectLanguagePostInput' />
+      <output message='tns:detectLanguagePostResponseMessage' name='detectLanguagePostOutput' />
+    </operation>
+  </portType>
+  <binding name='languageDetectionAndIdentificationBinding' type='tns:languageDetectionAndIdentificationPortType'>
+    <operation name='detectLanguageGet'>
+      <soap12:operation soapAction='http://detectLanguageGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectLanguagePost'>
+      <soap12:operation soapAction='http://detectLanguagePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languageDetectionAndIdentification'>
+    <documentation>need to detect text s language language identification api makes this task simple fast reliable send the text get back the language languages supported</documentation>
+    <port name='languageDetectionAndIdentificationPort' binding='tns:languageDetectionAndIdentificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languageDetectionAndIdentification' />
+    </port>
+  </service>
+</definitions>

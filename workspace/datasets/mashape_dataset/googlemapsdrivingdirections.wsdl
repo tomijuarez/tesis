@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/googleMapsDrivingDirections/' name='googleMapsDrivingDirections' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/googleMapsDrivingDirections/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/googleMapsDrivingDirections/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/googleMapsDrivingDirections/'>
+      <xsd:element name='directionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ending' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='starting' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='directionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='duration' type='xsd:string' minOccurs='0' />
+            <xsd:element name='start_location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='distance' type='xsd:string' minOccurs='0' />
+            <xsd:element name='directions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='duration' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='distance' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='direction' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='end_location' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='directionsRequestMessage'>
+    <part name='parameters' element='tns:directionsParameters' />
+  </message>
+  <message name='directionsResponseMessage'>
+    <part name='response' element='tns:directionsResponse' />
+  </message>
+  <portType name='googleMapsDrivingDirectionsPortType'>
+    <operation name='directions'>
+      <documentation>step by step directions between any two addresses</documentation>
+      <input message='tns:directionsRequestMessage' name='directionsInput' />
+      <output message='tns:directionsResponseMessage' name='directionsOutput' />
+    </operation>
+  </portType>
+  <binding name='googleMapsDrivingDirectionsBinding' type='tns:googleMapsDrivingDirectionsPortType'>
+    <operation name='directions'>
+      <soap12:operation soapAction='http://directions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='googleMapsDrivingDirections'>
+    <documentation>unofficial barebones wrapper of the google maps API provides basic driving directions between two points</documentation>
+    <port name='googleMapsDrivingDirectionsPort' binding='tns:googleMapsDrivingDirectionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://googleMapsDrivingDirections' />
+    </port>
+  </service>
+</definitions>

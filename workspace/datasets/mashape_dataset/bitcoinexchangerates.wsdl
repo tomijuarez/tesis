@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bitcoinExchangeRates/' name='bitcoinExchangeRates' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bitcoinExchangeRates/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bitcoinExchangeRates/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bitcoinExchangeRates/'>
+      <xsd:element name='buyPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='buyPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='currencyExchangeRateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sellPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qty' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sellPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spotPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currency' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spotPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='buyPriceRequestMessage'>
+    <part name='parameters' element='tns:buyPriceParameters' />
+  </message>
+  <message name='buyPriceResponseMessage'>
+    <part name='response' element='tns:buyPriceResponse' />
+  </message>
+  <message name='currencyExchangeRateRequestMessage' />
+  <message name='currencyExchangeRateResponseMessage'>
+    <part name='response' element='tns:currencyExchangeRateResponse' />
+  </message>
+  <message name='sellPriceRequestMessage'>
+    <part name='parameters' element='tns:sellPriceParameters' />
+  </message>
+  <message name='sellPriceResponseMessage'>
+    <part name='response' element='tns:sellPriceResponse' />
+  </message>
+  <message name='spotPriceRequestMessage'>
+    <part name='parameters' element='tns:spotPriceParameters' />
+  </message>
+  <message name='spotPriceResponseMessage'>
+    <part name='response' element='tns:spotPriceResponse' />
+  </message>
+  <portType name='bitcoinExchangeRatesPortType'>
+    <operation name='buyPrice'>
+      <documentation>current buying price of Bitcoin in USD</documentation>
+      <input message='tns:buyPriceRequestMessage' name='buyPriceInput' />
+      <output message='tns:buyPriceResponseMessage' name='buyPriceOutput' />
+    </operation>
+    <operation name='currencyExchangeRate'>
+      <documentation>current Bitcoin exchange rates for major international currencies</documentation>
+      <input message='tns:currencyExchangeRateRequestMessage' name='currencyExchangeRateInput' />
+      <output message='tns:currencyExchangeRateResponseMessage' name='currencyExchangeRateOutput' />
+    </operation>
+    <operation name='sellPrice'>
+      <documentation>current selling price of Bitcoin in USD</documentation>
+      <input message='tns:sellPriceRequestMessage' name='sellPriceInput' />
+      <output message='tns:sellPriceResponseMessage' name='sellPriceOutput' />
+    </operation>
+    <operation name='spotPrice'>
+      <documentation>the spot price is in between the buy and sell price and the best current price of a bitcoin</documentation>
+      <input message='tns:spotPriceRequestMessage' name='spotPriceInput' />
+      <output message='tns:spotPriceResponseMessage' name='spotPriceOutput' />
+    </operation>
+  </portType>
+  <binding name='bitcoinExchangeRatesBinding' type='tns:bitcoinExchangeRatesPortType'>
+    <operation name='buyPrice'>
+      <soap12:operation soapAction='http://buyPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='currencyExchangeRate'>
+      <soap12:operation soapAction='http://currencyExchangeRate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sellPrice'>
+      <soap12:operation soapAction='http://sellPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='spotPrice'>
+      <soap12:operation soapAction='http://spotPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bitcoinExchangeRates'>
+    <documentation>bitcoin API that is free reliable and accurate</documentation>
+    <port name='bitcoinExchangeRatesPort' binding='tns:bitcoinExchangeRatesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bitcoinExchangeRates' />
+    </port>
+  </service>
+</definitions>

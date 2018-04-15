@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailVerification/' name='emailVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailVerification/'>
+      <xsd:element name='verifyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='reason' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='role' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='accept_all' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='disposable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='did_you_mean' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sendex' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='free' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='user' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyLegacyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyLegacyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='reason' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='role' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='accept_all' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='disposable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='did_you_mean' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sendex' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='free' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='user' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='verifyRequestMessage'>
+    <part name='parameters' element='tns:verifyParameters' />
+  </message>
+  <message name='verifyResponseMessage'>
+    <part name='response' element='tns:verifyResponse' />
+  </message>
+  <message name='verifyLegacyRequestMessage'>
+    <part name='parameters' element='tns:verifyLegacyParameters' />
+  </message>
+  <message name='verifyLegacyResponseMessage'>
+    <part name='response' element='tns:verifyLegacyResponse' />
+  </message>
+  <portType name='emailVerificationPortType'>
+    <operation name='verify'>
+      <documentation>verify if an email is deliverable</documentation>
+      <input message='tns:verifyRequestMessage' name='verifyInput' />
+      <output message='tns:verifyResponseMessage' name='verifyOutput' />
+    </operation>
+    <operation name='verifyLegacy'>
+      <documentation>verify if an email is valid and exists</documentation>
+      <input message='tns:verifyLegacyRequestMessage' name='verifyLegacyInput' />
+      <output message='tns:verifyLegacyResponseMessage' name='verifyLegacyOutput' />
+    </operation>
+  </portType>
+  <binding name='emailVerificationBinding' type='tns:emailVerificationPortType'>
+    <operation name='verify'>
+      <soap12:operation soapAction='http://verify' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verifyLegacy'>
+      <soap12:operation soapAction='http://verifyLegacy' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailVerification'>
+    <documentation>kickbox determines if an email address is not only valid but associated with an actual user</documentation>
+    <port name='emailVerificationPort' binding='tns:emailVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailVerification' />
+    </port>
+  </service>
+</definitions>

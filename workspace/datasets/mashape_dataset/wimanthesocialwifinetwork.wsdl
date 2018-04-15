@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wimanTheSocialWiFiNetwork/' name='wimanTheSocialWiFiNetwork' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wimanTheSocialWiFiNetwork/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wimanTheSocialWiFiNetwork/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wimanTheSocialWiFiNetwork/'>
+      <xsd:element name='venueSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='radius' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='venueSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='venueSearchRequestMessage'>
+    <part name='parameters' element='tns:venueSearchParameters' />
+  </message>
+  <message name='venueSearchResponseMessage'>
+    <part name='response' element='tns:venueSearchResponse' />
+  </message>
+  <portType name='wimanTheSocialWiFiNetworkPortType'>
+    <operation name='venueSearch'>
+      <documentation></documentation>
+      <input message='tns:venueSearchRequestMessage' name='venueSearchInput' />
+      <output message='tns:venueSearchResponseMessage' name='venueSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='wimanTheSocialWiFiNetworkBinding' type='tns:wimanTheSocialWiFiNetworkPortType'>
+    <operation name='venueSearch'>
+      <soap12:operation soapAction='http://venueSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wimanTheSocialWiFiNetwork'>
+    <documentation>get informations about wiman hotspots like name city coordinates etc</documentation>
+    <port name='wimanTheSocialWiFiNetworkPort' binding='tns:wimanTheSocialWiFiNetworkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wimanTheSocialWiFiNetwork' />
+    </port>
+  </service>
+</definitions>

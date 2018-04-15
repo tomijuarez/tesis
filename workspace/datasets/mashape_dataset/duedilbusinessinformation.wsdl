@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/duedilBusinessInformation/' name='duedilBusinessInformation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/duedilBusinessInformation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/duedilBusinessInformation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/duedilBusinessInformation/'>
+      <xsd:element name='companyProfileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companynumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='companyProfileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name_formatted' type='xsd:string' minOccurs='0' />
+            <xsd:element name='registered_address' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='string' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='full_address' type='xsd:string' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='duedil_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='locale' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sic_codes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='company_number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='returns' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='last_returns_date' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='previous_names' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name_formatted' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ended_date' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='accounts' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='accounts_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='accounts_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='category' type='xsd:string' minOccurs='0' />
+            <xsd:element name='incorporation_date' type='xsd:date' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pagination' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='data' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='company_number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='locale' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='companyProfileRequestMessage'>
+    <part name='parameters' element='tns:companyProfileParameters' />
+  </message>
+  <message name='companyProfileResponseMessage'>
+    <part name='response' element='tns:companyProfileResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='duedilBusinessInformationPortType'>
+    <operation name='companyProfile'>
+      <documentation>the uk company endpoint returns information about companies registered in the UK</documentation>
+      <input message='tns:companyProfileRequestMessage' name='companyProfileInput' />
+      <output message='tns:companyProfileResponseMessage' name='companyProfileOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for companies in the UK and Ireland</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='duedilBusinessInformationBinding' type='tns:duedilBusinessInformationPortType'>
+    <operation name='companyProfile'>
+      <soap12:operation soapAction='http://companyProfile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='duedilBusinessInformation'>
+    <documentation>duedil is a provider of private company information for due diligence Duedil allows users to identify compare and screen potential suppliers and clients and track private company performance The Duedil API allows developers to access and integrate the Duedil functionality and data with other applications Some example API methods include searching companies and retrieving company information</documentation>
+    <port name='duedilBusinessInformationPort' binding='tns:duedilBusinessInformationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://duedilBusinessInformation' />
+    </port>
+  </service>
+</definitions>

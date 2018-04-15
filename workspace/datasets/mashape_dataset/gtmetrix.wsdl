@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gtmetrix/' name='gtmetrix' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gtmetrix/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gtmetrix/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gtmetrix/'>
+      <xsd:element name='accountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='api_topup' type='xsd:int' minOccurs='0' />
+            <xsd:element name='api_credits' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='browserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='browserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='features' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='http_auth' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='throttle' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='adblock' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='video' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='filtering' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='cookies' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='browser' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='device' type='xsd:string' minOccurs='0' />
+            <xsd:element name='platform' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='browsersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='features' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='http_auth' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='throttle' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='adblock' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='video' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='filtering' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='cookies' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='browser' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='device' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='platform' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='default' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='browsers' type='xsd:int' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resourcesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='resource' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resourcesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='report_pdf' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='pagespeed_files' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='yslow' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='har' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='screenshot' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='pagespeed' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='resources' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='report_pdf' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='pagespeed_files' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='yslow' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='har' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='video' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='screenshot' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='pagespeed' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='page_load_time' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page_elements' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='yslow_score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page_bytes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pagespeed_score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='html_bytes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='report_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='html_load_time' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='testResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poll_state_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='test_id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountRequestMessage' />
+  <message name='accountResponseMessage'>
+    <part name='response' element='tns:accountResponse' />
+  </message>
+  <message name='browserRequestMessage'>
+    <part name='parameters' element='tns:browserParameters' />
+  </message>
+  <message name='browserResponseMessage'>
+    <part name='response' element='tns:browserResponse' />
+  </message>
+  <message name='browsersRequestMessage' />
+  <message name='browsersResponseMessage'>
+    <part name='response' element='tns:browsersResponse' />
+  </message>
+  <message name='locationsRequestMessage' />
+  <message name='locationsResponseMessage'>
+    <part name='response' element='tns:locationsResponse' />
+  </message>
+  <message name='resourcesRequestMessage'>
+    <part name='parameters' element='tns:resourcesParameters' />
+  </message>
+  <message name='resourcesResponseMessage'>
+    <part name='response' element='tns:resourcesResponse' />
+  </message>
+  <message name='resultsRequestMessage'>
+    <part name='parameters' element='tns:resultsParameters' />
+  </message>
+  <message name='resultsResponseMessage'>
+    <part name='response' element='tns:resultsResponse' />
+  </message>
+  <message name='testRequestMessage' />
+  <message name='testResponseMessage'>
+    <part name='response' element='tns:testResponse' />
+  </message>
+  <portType name='gtmetrixPortType'>
+    <operation name='account'>
+      <documentation>check your account credit status and next refill date</documentation>
+      <input message='tns:accountRequestMessage' name='accountInput' />
+      <output message='tns:accountResponseMessage' name='accountOutput' />
+    </operation>
+    <operation name='browser'>
+      <documentation>fetch a browser s details and supported features</documentation>
+      <input message='tns:browserRequestMessage' name='browserInput' />
+      <output message='tns:browserResponseMessage' name='browserOutput' />
+    </operation>
+    <operation name='browsers'>
+      <documentation>retrieve a list of available browsers</documentation>
+      <input message='tns:browsersRequestMessage' name='browsersInput' />
+      <output message='tns:browsersResponseMessage' name='browsersOutput' />
+    </operation>
+    <operation name='locations'>
+      <documentation>retrieve a list of possible testing locations</documentation>
+      <input message='tns:locationsRequestMessage' name='locationsInput' />
+      <output message='tns:locationsResponseMessage' name='locationsOutput' />
+    </operation>
+    <operation name='resources'>
+      <documentation>access the test resource files Note that the resources are only kept for days They should be downloaded on job completion if you wish to save them</documentation>
+      <input message='tns:resourcesRequestMessage' name='resourcesInput' />
+      <output message='tns:resourcesResponseMessage' name='resourcesOutput' />
+    </operation>
+    <operation name='results'>
+      <documentation>fetch the results of a launched test and when complete access the test data and resources</documentation>
+      <input message='tns:resultsRequestMessage' name='resultsInput' />
+      <output message='tns:resultsResponseMessage' name='resultsOutput' />
+    </operation>
+    <operation name='test'>
+      <documentation>launch a real browser and begin performance test</documentation>
+      <input message='tns:testRequestMessage' name='testInput' />
+      <output message='tns:testResponseMessage' name='testOutput' />
+    </operation>
+  </portType>
+  <binding name='gtmetrixBinding' type='tns:gtmetrixPortType'>
+    <operation name='account'>
+      <soap12:operation soapAction='http://account' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='browser'>
+      <soap12:operation soapAction='http://browser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='browsers'>
+      <soap12:operation soapAction='http://browsers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='locations'>
+      <soap12:operation soapAction='http://locations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resources'>
+      <soap12:operation soapAction='http://resources' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='results'>
+      <soap12:operation soapAction='http://results' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='test'>
+      <soap12:operation soapAction='http://test' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gtmetrix'>
+    <documentation>full page performance and speed analysis with a real browser using Google PageSpeed and Yahoo YSlow Using the GTmetrix API you can integrate performance testing into your development environment or into your application The GTmetrix API is based on the Web Testing Framework WTF Testing Service API which is RESTful API Please contact us if you have any questions or comments about the API or if you end up using it in a cool and interesting way Signup instantly for free and get your API key at http gtmetrix com</documentation>
+    <port name='gtmetrixPort' binding='tns:gtmetrixBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gtmetrix' />
+    </port>
+  </service>
+</definitions>

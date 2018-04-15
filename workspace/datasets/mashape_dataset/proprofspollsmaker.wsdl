@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/proprofsPollsMaker/' name='proprofsPollsMaker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/proprofsPollsMaker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/proprofsPollsMaker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/proprofsPollsMaker/'>
+      <xsd:element name='pollSoftwareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pollSoftwareRequestMessage' />
+  <message name='pollSoftwareResponseMessage'>
+    <part name='response' element='tns:pollSoftwareResponse' />
+  </message>
+  <portType name='proprofsPollsMakerPortType'>
+    <operation name='pollSoftware'>
+      <documentation>create online polls</documentation>
+      <input message='tns:pollSoftwareRequestMessage' name='pollSoftwareInput' />
+      <output message='tns:pollSoftwareResponseMessage' name='pollSoftwareOutput' />
+    </operation>
+  </portType>
+  <binding name='proprofsPollsMakerBinding' type='tns:proprofsPollsMakerPortType'>
+    <operation name='pollSoftware'>
+      <soap12:operation soapAction='http://pollSoftware' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='proprofsPollsMaker'>
+    <documentation>proProfs Poll Software offers instructors educators and organizations advanced options for creating effective online polls in a matter of minutes With ProProfs anyone can create different kinds of polls using multiple choices checkboxes and essay question types Users can create text based polls image based polls and even polls with a combination of text images and videos A set of advanced customization features allows users to create polls using different themes adding comment sections shuffling answers and even adding an expiry date to the polls Along with this ProProfs offers powerful security features for blocking repeat voting and creating password protected polls Users also get detailed reports for their polls and get visual representation of statistics in the form of pie charts</documentation>
+    <port name='proprofsPollsMakerPort' binding='tns:proprofsPollsMakerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://proprofsPollsMaker' />
+    </port>
+  </service>
+</definitions>

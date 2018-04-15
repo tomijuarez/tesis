@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlClean/' name='htmlClean' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlClean/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlClean/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlClean/'>
+      <xsd:element name='htmlCleanResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='htmlCleanRequestMessage' />
+  <message name='htmlCleanResponseMessage'>
+    <part name='response' element='tns:htmlCleanResponse' />
+  </message>
+  <portType name='htmlCleanPortType'>
+    <operation name='htmlClean'>
+      <documentation></documentation>
+      <input message='tns:htmlCleanRequestMessage' name='htmlCleanInput' />
+      <output message='tns:htmlCleanResponseMessage' name='htmlCleanOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlCleanBinding' type='tns:htmlCleanPortType'>
+    <operation name='htmlClean'>
+      <soap12:operation soapAction='http://htmlClean' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlClean'>
+    <documentation>clean and sanitize untrusted HTML This can be used to make user supplied content safe and prevent cross site scripting attacks XSS The scrubbing method used is immune to XSS evasion techniques by using an HTML whitelist approach</documentation>
+    <port name='htmlCleanPort' binding='tns:htmlCleanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlClean' />
+    </port>
+  </service>
+</definitions>

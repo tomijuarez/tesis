@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/convert/' name='convert' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/convert/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/convert/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/convert/'>
+      <xsd:element name='apiParseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiViewIdExtParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiViewIdExtResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiViewIdInfoExtParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiViewIdInfoExtResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiParseRequestMessage' />
+  <message name='apiParseResponseMessage'>
+    <part name='response' element='tns:apiParseResponse' />
+  </message>
+  <message name='apiViewIdExtRequestMessage'>
+    <part name='parameters' element='tns:apiViewIdExtParameters' />
+  </message>
+  <message name='apiViewIdExtResponseMessage'>
+    <part name='response' element='tns:apiViewIdExtResponse' />
+  </message>
+  <message name='apiViewIdInfoExtRequestMessage'>
+    <part name='parameters' element='tns:apiViewIdInfoExtParameters' />
+  </message>
+  <message name='apiViewIdInfoExtResponseMessage'>
+    <part name='response' element='tns:apiViewIdInfoExtResponse' />
+  </message>
+  <portType name='convertPortType'>
+    <operation name='apiParse'>
+      <documentation>convert documents from source to output depending on language results can be returned in XML or JSON depending on content type header</documentation>
+      <input message='tns:apiParseRequestMessage' name='apiParseInput' />
+      <output message='tns:apiParseResponseMessage' name='apiParseOutput' />
+    </operation>
+    <operation name='apiViewIdExt'>
+      <documentation>view conversion document output Extension determines response format Supported json jsonp and xml</documentation>
+      <input message='tns:apiViewIdExtRequestMessage' name='apiViewIdExtInput' />
+      <output message='tns:apiViewIdExtResponseMessage' name='apiViewIdExtOutput' />
+    </operation>
+    <operation name='apiViewIdInfoExt'>
+      <documentation>view analytics and in depth information regarding a conversion document Extension determines response format Supported json jsonp xml</documentation>
+      <input message='tns:apiViewIdInfoExtRequestMessage' name='apiViewIdInfoExtInput' />
+      <output message='tns:apiViewIdInfoExtResponseMessage' name='apiViewIdInfoExtOutput' />
+    </operation>
+  </portType>
+  <binding name='convertBinding' type='tns:convertPortType'>
+    <operation name='apiParse'>
+      <soap12:operation soapAction='http://apiParse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiViewIdExt'>
+      <soap12:operation soapAction='http://apiViewIdExt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiViewIdInfoExt'>
+      <soap12:operation soapAction='http://apiViewIdInfoExt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='convert'>
+    <documentation>platform agnostic API to compile and convert markup styling and templating documents on the fly complete with caching and analytics premium feature Currently languages supported include markdown textile less sass jade hogan dust ejs handlebars jazz swig stylus and whiskers If you d like to talk about better pricing more features or ideas send us an email at support parsify co</documentation>
+    <port name='convertPort' binding='tns:convertBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://convert' />
+    </port>
+  </service>
+</definitions>

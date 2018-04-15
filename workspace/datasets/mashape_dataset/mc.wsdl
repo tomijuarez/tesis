@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mC/' name='mC' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mC/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mC/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mC/'>
+      <xsd:element name='imageEnhancementResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='miniatureMakerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='redEyeCorrectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageEnhancementRequestMessage' />
+  <message name='imageEnhancementResponseMessage'>
+    <part name='response' element='tns:imageEnhancementResponse' />
+  </message>
+  <message name='miniatureMakerRequestMessage' />
+  <message name='miniatureMakerResponseMessage'>
+    <part name='response' element='tns:miniatureMakerResponse' />
+  </message>
+  <message name='redEyeCorrectionRequestMessage' />
+  <message name='redEyeCorrectionResponseMessage'>
+    <part name='response' element='tns:redEyeCorrectionResponse' />
+  </message>
+  <portType name='mCPortType'>
+    <operation name='imageEnhancement'>
+      <documentation>implementing state of the art algorithms to enhance color contrast and dynamic range this is an easy to use image processing tool that will automatically improve digital images</documentation>
+      <input message='tns:imageEnhancementRequestMessage' name='imageEnhancementInput' />
+      <output message='tns:imageEnhancementResponseMessage' name='imageEnhancementOutput' />
+    </operation>
+    <operation name='miniatureMaker'>
+      <documentation>a filter that will make your real world picture look like a miniature</documentation>
+      <input message='tns:miniatureMakerRequestMessage' name='miniatureMakerInput' />
+      <output message='tns:miniatureMakerResponseMessage' name='miniatureMakerOutput' />
+    </operation>
+    <operation name='redEyeCorrection'>
+      <documentation>it has never been so easy to remove red eye from digital images The focus of this function is to provide painless and error free results each and every time</documentation>
+      <input message='tns:redEyeCorrectionRequestMessage' name='redEyeCorrectionInput' />
+      <output message='tns:redEyeCorrectionResponseMessage' name='redEyeCorrectionOutput' />
+    </operation>
+  </portType>
+  <binding name='mCBinding' type='tns:mCPortType'>
+    <operation name='imageEnhancement'>
+      <soap12:operation soapAction='http://imageEnhancement' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='miniatureMaker'>
+      <soap12:operation soapAction='http://miniatureMaker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='redEyeCorrection'>
+      <soap12:operation soapAction='http://redEyeCorrection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mC'>
+    <documentation>a RESTful API implementing state of the art image processing and computer vision tools</documentation>
+    <port name='mCPort' binding='tns:mCBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mC' />
+    </port>
+  </service>
+</definitions>

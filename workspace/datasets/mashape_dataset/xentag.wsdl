@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/xentag/' name='xentag' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/xentag/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/xentag/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/xentag/'>
+      <xsd:element name='jobDataStreamsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jobDataStreamsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jobDataUrlsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='urlsrc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jobDataUrlsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='jobDataStreamsRequestMessage'>
+    <part name='parameters' element='tns:jobDataStreamsParameters' />
+  </message>
+  <message name='jobDataStreamsResponseMessage'>
+    <part name='response' element='tns:jobDataStreamsResponse' />
+  </message>
+  <message name='jobDataUrlsRequestMessage'>
+    <part name='parameters' element='tns:jobDataUrlsParameters' />
+  </message>
+  <message name='jobDataUrlsResponseMessage'>
+    <part name='response' element='tns:jobDataUrlsResponse' />
+  </message>
+  <portType name='xentagPortType'>
+    <operation name='jobDataStreams'>
+      <documentation>upload multi part job stream files media code data etc Possibly compressed</documentation>
+      <input message='tns:jobDataStreamsRequestMessage' name='jobDataStreamsInput' />
+      <output message='tns:jobDataStreamsResponseMessage' name='jobDataStreamsOutput' />
+    </operation>
+    <operation name='jobDataUrls'>
+      <documentation>input CSV list of urls for job source locations</documentation>
+      <input message='tns:jobDataUrlsRequestMessage' name='jobDataUrlsInput' />
+      <output message='tns:jobDataUrlsResponseMessage' name='jobDataUrlsOutput' />
+    </operation>
+  </portType>
+  <binding name='xentagBinding' type='tns:xentagPortType'>
+    <operation name='jobDataStreams'>
+      <soap12:operation soapAction='http://jobDataStreams' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='jobDataUrls'>
+      <soap12:operation soapAction='http://jobDataUrls' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='xentag'>
+    <documentation>xenTag s image recognition engine will auto tag your media images using a collection of standard and custom models Media Model Tag Use a sample of our standard models Library Multi class Concept for free When you re ready for a subscription we ll create a custom variation of one or more of those models or others to complete your workfow Try use out for practical accurate state of the art flexible and cost effective image recognition</documentation>
+    <port name='xentagPort' binding='tns:xentagBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://xentag' />
+    </port>
+  </service>
+</definitions>

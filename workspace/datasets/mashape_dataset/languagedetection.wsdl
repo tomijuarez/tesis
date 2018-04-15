@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languageDetection/' name='languageDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languageDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languageDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languageDetection/'>
+      <xsd:element name='basicDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='detections' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='isReliable' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='basicDetectionRequestMessage' />
+  <message name='basicDetectionResponseMessage'>
+    <part name='response' element='tns:basicDetectionResponse' />
+  </message>
+  <portType name='languageDetectionPortType'>
+    <operation name='basicDetection'>
+      <documentation>this is a language detection webservice It accepts text and produces result with detected language code and score Currently detects languages</documentation>
+      <input message='tns:basicDetectionRequestMessage' name='basicDetectionInput' />
+      <output message='tns:basicDetectionResponseMessage' name='basicDetectionOutput' />
+    </operation>
+  </portType>
+  <binding name='languageDetectionBinding' type='tns:languageDetectionPortType'>
+    <operation name='basicDetection'>
+      <soap12:operation soapAction='http://basicDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languageDetection'>
+    <documentation>this is a language detection webservice It accepts text and produces result with detected language code and score Currently detects languages</documentation>
+    <port name='languageDetectionPort' binding='tns:languageDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languageDetection' />
+    </port>
+  </service>
+</definitions>

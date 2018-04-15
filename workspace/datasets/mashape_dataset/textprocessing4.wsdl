@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textProcessing/' name='textProcessing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textProcessing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textProcessing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textProcessing/'>
+      <xsd:element name='detectErrorsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectErrorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='model2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='model1' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectPartOfSpeechParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectPartOfSpeechResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='taggedText' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectSentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contextwords' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectSentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentences' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='document' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='averageConfidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sentimentWithNeutral' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectSentimentPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentences' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='document' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='averageConfidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sentimentWithNeutral' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractDatesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractDatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='originalDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='normalizedDate' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractEntitiesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractEntitiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='normalizedEntity' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='entity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractLocationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractLocationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='countryCode' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rateTheQualityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='numberOfWords' type='xsd:int' minOccurs='0' />
+            <xsd:element name='skimmability' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mainscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='total' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='totalPossible' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='subscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='highlightedWordRatioScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='bulletPointRatioScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='paragraphHeadlineRatioScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='videoScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='imageScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='paragraphScore' type='xsd:int' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='readability' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mainscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='total' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='totalPossible' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='subscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='forcast' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='flesch' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='smog' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='colemanLiau' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='ari' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='lix' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='kincaid' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='fog' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='interestingness' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mainscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='total' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='totalPossible' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='subscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='googleHitsScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='linkScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='quoteScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='titleRatingScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='lengthScore' type='xsd:int' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='numberOfSentences' type='xsd:int' minOccurs='0' />
+            <xsd:element name='style' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mainscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='totalPossible' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='subscores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='abbreviationScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='styleScore' type='xsd:int' maxOccurs='unbounded' />
+                        <xsd:element name='spellingScore' type='xsd:int' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalScore' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='detectedTitle' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='splitSentencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='splitSentencesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='splitSentencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summarizeTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keepratio' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summarizeTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectErrorsRequestMessage'>
+    <part name='parameters' element='tns:detectErrorsParameters' />
+  </message>
+  <message name='detectErrorsResponseMessage'>
+    <part name='response' element='tns:detectErrorsResponse' />
+  </message>
+  <message name='detectLanguageRequestMessage'>
+    <part name='parameters' element='tns:detectLanguageParameters' />
+  </message>
+  <message name='detectLanguageResponseMessage'>
+    <part name='response' element='tns:detectLanguageResponse' />
+  </message>
+  <message name='detectPartOfSpeechRequestMessage'>
+    <part name='parameters' element='tns:detectPartOfSpeechParameters' />
+  </message>
+  <message name='detectPartOfSpeechResponseMessage'>
+    <part name='response' element='tns:detectPartOfSpeechResponse' />
+  </message>
+  <message name='detectSentimentRequestMessage'>
+    <part name='parameters' element='tns:detectSentimentParameters' />
+  </message>
+  <message name='detectSentimentResponseMessage'>
+    <part name='response' element='tns:detectSentimentResponse' />
+  </message>
+  <message name='detectSentimentPostRequestMessage' />
+  <message name='detectSentimentPostResponseMessage'>
+    <part name='response' element='tns:detectSentimentPostResponse' />
+  </message>
+  <message name='extractDatesRequestMessage'>
+    <part name='parameters' element='tns:extractDatesParameters' />
+  </message>
+  <message name='extractDatesResponseMessage'>
+    <part name='response' element='tns:extractDatesResponse' />
+  </message>
+  <message name='extractEntitiesRequestMessage'>
+    <part name='parameters' element='tns:extractEntitiesParameters' />
+  </message>
+  <message name='extractEntitiesResponseMessage'>
+    <part name='response' element='tns:extractEntitiesResponse' />
+  </message>
+  <message name='extractLocationsRequestMessage'>
+    <part name='parameters' element='tns:extractLocationsParameters' />
+  </message>
+  <message name='extractLocationsResponseMessage'>
+    <part name='response' element='tns:extractLocationsResponse' />
+  </message>
+  <message name='rateTheQualityRequestMessage' />
+  <message name='rateTheQualityResponseMessage'>
+    <part name='response' element='tns:rateTheQualityResponse' />
+  </message>
+  <message name='splitSentencesRequestMessage' />
+  <message name='splitSentencesResponseMessage'>
+    <part name='response' element='tns:splitSentencesResponse' />
+  </message>
+  <message name='splitSentencesRequestMessage'>
+    <part name='parameters' element='tns:splitSentencesParameters' />
+  </message>
+  <message name='splitSentencesResponseMessage'>
+    <part name='response' element='tns:splitSentencesResponse' />
+  </message>
+  <message name='summarizeTextRequestMessage'>
+    <part name='parameters' element='tns:summarizeTextParameters' />
+  </message>
+  <message name='summarizeTextResponseMessage'>
+    <part name='response' element='tns:summarizeTextResponse' />
+  </message>
+  <portType name='textProcessingPortType'>
+    <operation name='detectErrors'>
+      <documentation>detect spelling errors in the text</documentation>
+      <input message='tns:detectErrorsRequestMessage' name='detectErrorsInput' />
+      <output message='tns:detectErrorsResponseMessage' name='detectErrorsOutput' />
+    </operation>
+    <operation name='detectLanguage'>
+      <documentation>detect the language of a natural language text</documentation>
+      <input message='tns:detectLanguageRequestMessage' name='detectLanguageInput' />
+      <output message='tns:detectLanguageResponseMessage' name='detectLanguageOutput' />
+    </operation>
+    <operation name='detectPartOfSpeech'>
+      <documentation>tag a given text with part of speech tags POS tags</documentation>
+      <input message='tns:detectPartOfSpeechRequestMessage' name='detectPartOfSpeechInput' />
+      <output message='tns:detectPartOfSpeechResponseMessage' name='detectPartOfSpeechOutput' />
+    </operation>
+    <operation name='detectSentiment'>
+      <documentation>detect the sentiment positive or negative of a given text The detection works for English and German texts</documentation>
+      <input message='tns:detectSentimentRequestMessage' name='detectSentimentInput' />
+      <output message='tns:detectSentimentResponseMessage' name='detectSentimentOutput' />
+    </operation>
+    <operation name='detectSentimentPost'>
+      <documentation>detect the sentiment of a text</documentation>
+      <input message='tns:detectSentimentPostRequestMessage' name='detectSentimentPostInput' />
+      <output message='tns:detectSentimentPostResponseMessage' name='detectSentimentPostOutput' />
+    </operation>
+    <operation name='extractDates'>
+      <documentation>extract dates from a given text</documentation>
+      <input message='tns:extractDatesRequestMessage' name='extractDatesInput' />
+      <output message='tns:extractDatesResponseMessage' name='extractDatesOutput' />
+    </operation>
+    <operation name='extractEntities'>
+      <documentation>extract entities such as movies or people in a given text</documentation>
+      <input message='tns:extractEntitiesRequestMessage' name='extractEntitiesInput' />
+      <output message='tns:extractEntitiesResponseMessage' name='extractEntitiesOutput' />
+    </operation>
+    <operation name='extractLocations'>
+      <documentation>extract names of locations in the given text</documentation>
+      <input message='tns:extractLocationsRequestMessage' name='extractLocationsInput' />
+      <output message='tns:extractLocationsResponseMessage' name='extractLocationsOutput' />
+    </operation>
+    <operation name='rateTheQuality'>
+      <documentation>determine the quality of an article</documentation>
+      <input message='tns:rateTheQualityRequestMessage' name='rateTheQualityInput' />
+      <output message='tns:rateTheQualityResponseMessage' name='rateTheQualityOutput' />
+    </operation>
+    <operation name='splitSentences'>
+      <documentation>split a given text into sentences</documentation>
+      <input message='tns:splitSentencesRequestMessage' name='splitSentencesInput' />
+      <output message='tns:splitSentencesResponseMessage' name='splitSentencesOutput' />
+    </operation>
+    <operation name='splitSentences'>
+      <documentation>split a given text into sentences</documentation>
+      <input message='tns:splitSentencesRequestMessage' name='splitSentencesInput' />
+      <output message='tns:splitSentencesResponseMessage' name='splitSentencesOutput' />
+    </operation>
+    <operation name='summarizeText'>
+      <documentation>extract a summary of a text</documentation>
+      <input message='tns:summarizeTextRequestMessage' name='summarizeTextInput' />
+      <output message='tns:summarizeTextResponseMessage' name='summarizeTextOutput' />
+    </operation>
+  </portType>
+  <binding name='textProcessingBinding' type='tns:textProcessingPortType'>
+    <operation name='detectErrors'>
+      <soap12:operation soapAction='http://detectErrors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectLanguage'>
+      <soap12:operation soapAction='http://detectLanguage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectPartOfSpeech'>
+      <soap12:operation soapAction='http://detectPartOfSpeech' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectSentiment'>
+      <soap12:operation soapAction='http://detectSentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectSentimentPost'>
+      <soap12:operation soapAction='http://detectSentimentPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractDates'>
+      <soap12:operation soapAction='http://extractDates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractEntities'>
+      <soap12:operation soapAction='http://extractEntities' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractLocations'>
+      <soap12:operation soapAction='http://extractLocations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rateTheQuality'>
+      <soap12:operation soapAction='http://rateTheQuality' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='splitSentences'>
+      <soap12:operation soapAction='http://splitSentences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='splitSentences'>
+      <soap12:operation soapAction='http://splitSentences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='summarizeText'>
+      <soap12:operation soapAction='http://summarizeText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textProcessing'>
+    <documentation>the WebKnox text processing API lets you process natural language texts You can detect the text s language the quality of the writing find entity mentions tag part of speech extract dates extract locations or determine the sentiment of the text</documentation>
+    <port name='textProcessingPort' binding='tns:textProcessingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textProcessing' />
+    </port>
+  </service>
+</definitions>

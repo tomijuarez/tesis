@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kred/' name='kred' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kred/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kred/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kred/'>
+      <xsd:element name='kredScoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredScoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='outreach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='influence' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='kredScoreRequestMessage'>
+    <part name='parameters' element='tns:kredScoreParameters' />
+  </message>
+  <message name='kredScoreResponseMessage'>
+    <part name='response' element='tns:kredScoreResponse' />
+  </message>
+  <portType name='kredPortType'>
+    <operation name='kredScore'>
+      <documentation>returns Kred Influence Outreach by community for any Twitter name Default community is currently set to the Global Kred Community Update to specify communities will be released soon</documentation>
+      <input message='tns:kredScoreRequestMessage' name='kredScoreInput' />
+      <output message='tns:kredScoreResponseMessage' name='kredScoreOutput' />
+    </operation>
+  </portType>
+  <binding name='kredBinding' type='tns:kredPortType'>
+    <operation name='kredScore'>
+      <soap12:operation soapAction='http://kredScore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kred'>
+    <documentation>kred created by PeopleBrowsr measures influence in online communities connected by interest Kred values audience quality and engagement over audience size It assesses the ability to inspire action Influence and propensity to engage with others Outreach</documentation>
+    <port name='kredPort' binding='tns:kredBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kred' />
+    </port>
+  </service>
+</definitions>

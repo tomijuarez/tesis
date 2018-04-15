@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/spellcheck/' name='spellcheck' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/spellcheck/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/spellcheck/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/spellcheck/'>
+      <xsd:element name='checkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='original' type='xsd:string' minOccurs='0' />
+            <xsd:element name='corrections' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='probblems' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='sentnce' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='suggestion' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkRequestMessage'>
+    <part name='parameters' element='tns:checkParameters' />
+  </message>
+  <message name='checkResponseMessage'>
+    <part name='response' element='tns:checkResponse' />
+  </message>
+  <portType name='spellcheckPortType'>
+    <operation name='check'>
+      <documentation>checks for spelling errors</documentation>
+      <input message='tns:checkRequestMessage' name='checkInput' />
+      <output message='tns:checkResponseMessage' name='checkOutput' />
+    </operation>
+  </portType>
+  <binding name='spellcheckBinding' type='tns:spellcheckPortType'>
+    <operation name='check'>
+      <soap12:operation soapAction='http://check' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='spellcheck'>
+    <documentation>fix spelling mistakes with the opensource Spellcheck API The dictionary is continually growing and becoming smarter</documentation>
+    <port name='spellcheckPort' binding='tns:spellcheckBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://spellcheck' />
+    </port>
+  </service>
+</definitions>

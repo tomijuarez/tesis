@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/holyBible/' name='holyBible' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/holyBible/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/holyBible/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/holyBible/'>
+      <xsd:element name='getbooksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='The_New_Testament' type='xsd:string' minOccurs='0' />
+            <xsd:element name='The_Old_Testament' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getchapterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='book' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='chapter' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getchapterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Book' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Chapter' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getfromtwoversesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='book' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='chapter' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='versefrom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='verseto' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getfromtwoversesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Book' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='VerseFrom' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Chapter' type='xsd:int' minOccurs='0' />
+            <xsd:element name='VerseTo' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getverseofachapterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='book' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='chapter' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='verse' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getverseofachapterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Book' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Chapter' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Verse' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getbooksRequestMessage' />
+  <message name='getbooksResponseMessage'>
+    <part name='response' element='tns:getbooksResponse' />
+  </message>
+  <message name='getchapterRequestMessage'>
+    <part name='parameters' element='tns:getchapterParameters' />
+  </message>
+  <message name='getchapterResponseMessage'>
+    <part name='response' element='tns:getchapterResponse' />
+  </message>
+  <message name='getfromtwoversesRequestMessage'>
+    <part name='parameters' element='tns:getfromtwoversesParameters' />
+  </message>
+  <message name='getfromtwoversesResponseMessage'>
+    <part name='response' element='tns:getfromtwoversesResponse' />
+  </message>
+  <message name='getverseofachapterRequestMessage'>
+    <part name='parameters' element='tns:getverseofachapterParameters' />
+  </message>
+  <message name='getverseofachapterResponseMessage'>
+    <part name='response' element='tns:getverseofachapterResponse' />
+  </message>
+  <portType name='holyBiblePortType'>
+    <operation name='getbooks'>
+      <documentation>get List Of All Books</documentation>
+      <input message='tns:getbooksRequestMessage' name='getbooksInput' />
+      <output message='tns:getbooksResponseMessage' name='getbooksOutput' />
+    </operation>
+    <operation name='getchapter'>
+      <documentation></documentation>
+      <input message='tns:getchapterRequestMessage' name='getchapterInput' />
+      <output message='tns:getchapterResponseMessage' name='getchapterOutput' />
+    </operation>
+    <operation name='getfromtwoverses'>
+      <documentation></documentation>
+      <input message='tns:getfromtwoversesRequestMessage' name='getfromtwoversesInput' />
+      <output message='tns:getfromtwoversesResponseMessage' name='getfromtwoversesOutput' />
+    </operation>
+    <operation name='getverseofachapter'>
+      <documentation></documentation>
+      <input message='tns:getverseofachapterRequestMessage' name='getverseofachapterInput' />
+      <output message='tns:getverseofachapterResponseMessage' name='getverseofachapterOutput' />
+    </operation>
+  </portType>
+  <binding name='holyBibleBinding' type='tns:holyBiblePortType'>
+    <operation name='getbooks'>
+      <soap12:operation soapAction='http://getbooks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getchapter'>
+      <soap12:operation soapAction='http://getchapter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getfromtwoverses'>
+      <soap12:operation soapAction='http://getfromtwoverses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getverseofachapter'>
+      <soap12:operation soapAction='http://getverseofachapter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='holyBible'>
+    <documentation>retrieve The oldTestament and The New Testament based on chapter or selected verse</documentation>
+    <port name='holyBiblePort' binding='tns:holyBibleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://holyBible' />
+    </port>
+  </service>
+</definitions>

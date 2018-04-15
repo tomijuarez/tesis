@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ribbet/' name='ribbet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ribbet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ribbet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ribbet/'>
+      <xsd:element name='editAPhotoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='export' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='exporttitle' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='import' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editAPhotoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='editAPhotoRequestMessage'>
+    <part name='parameters' element='tns:editAPhotoParameters' />
+  </message>
+  <message name='editAPhotoResponseMessage'>
+    <part name='response' element='tns:editAPhotoResponse' />
+  </message>
+  <portType name='ribbetPortType'>
+    <operation name='editAPhoto'>
+      <documentation></documentation>
+      <input message='tns:editAPhotoRequestMessage' name='editAPhotoInput' />
+      <output message='tns:editAPhotoResponseMessage' name='editAPhotoOutput' />
+    </operation>
+  </portType>
+  <binding name='ribbetBinding' type='tns:ribbetPortType'>
+    <operation name='editAPhoto'>
+      <soap12:operation soapAction='http://editAPhoto' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ribbet'>
+    <documentation>ribbet is an online photo editor with free cloud storage complete editing history thousands of effects filters hand picked shapes designer fonts and borders Ribbet also has bookmarking to allow favorite effects to be stored With the Ribbet API developers can integrate the full functionality of Ribbet into their application or website</documentation>
+    <port name='ribbetPort' binding='tns:ribbetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ribbet' />
+    </port>
+  </service>
+</definitions>

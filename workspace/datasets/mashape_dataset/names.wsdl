@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/names/' name='names' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/names/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/names/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/names/'>
+      <xsd:element name='genderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='genderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='similar' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='genderRequestMessage'>
+    <part name='parameters' element='tns:genderParameters' />
+  </message>
+  <message name='genderResponseMessage'>
+    <part name='response' element='tns:genderResponse' />
+  </message>
+  <message name='similarRequestMessage'>
+    <part name='parameters' element='tns:similarParameters' />
+  </message>
+  <message name='similarResponseMessage'>
+    <part name='response' element='tns:similarResponse' />
+  </message>
+  <portType name='namesPortType'>
+    <operation name='gender'>
+      <documentation>get gender of name</documentation>
+      <input message='tns:genderRequestMessage' name='genderInput' />
+      <output message='tns:genderResponseMessage' name='genderOutput' />
+    </operation>
+    <operation name='similar'>
+      <documentation>get similar name</documentation>
+      <input message='tns:similarRequestMessage' name='similarInput' />
+      <output message='tns:similarResponseMessage' name='similarOutput' />
+    </operation>
+  </portType>
+  <binding name='namesBinding' type='tns:namesPortType'>
+    <operation name='gender'>
+      <soap12:operation soapAction='http://gender' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='similar'>
+      <soap12:operation soapAction='http://similar' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='names'>
+    <documentation>detect the gender of a person by name and find similar names</documentation>
+    <port name='namesPort' binding='tns:namesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://names' />
+    </port>
+  </service>
+</definitions>

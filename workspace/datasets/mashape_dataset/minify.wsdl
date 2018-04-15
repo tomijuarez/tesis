@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/minify/' name='minify' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/minify/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/minify/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/minify/'>
+      <xsd:element name='minifyCssResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='minifyJsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='minifyCssRequestMessage' />
+  <message name='minifyCssResponseMessage'>
+    <part name='response' element='tns:minifyCssResponse' />
+  </message>
+  <message name='minifyJsRequestMessage' />
+  <message name='minifyJsResponseMessage'>
+    <part name='response' element='tns:minifyJsResponse' />
+  </message>
+  <portType name='minifyPortType'>
+    <operation name='minifyCss'>
+      <documentation>minify Compress a CSS style sheet contents for bandwidth and performance considerations</documentation>
+      <input message='tns:minifyCssRequestMessage' name='minifyCssInput' />
+      <output message='tns:minifyCssResponseMessage' name='minifyCssOutput' />
+    </operation>
+    <operation name='minifyJs'>
+      <documentation>minify Compress a javascript contents for bandwidth and performance considerations</documentation>
+      <input message='tns:minifyJsRequestMessage' name='minifyJsInput' />
+      <output message='tns:minifyJsResponseMessage' name='minifyJsOutput' />
+    </operation>
+  </portType>
+  <binding name='minifyBinding' type='tns:minifyPortType'>
+    <operation name='minifyCss'>
+      <soap12:operation soapAction='http://minifyCss' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='minifyJs'>
+      <soap12:operation soapAction='http://minifyJs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='minify'>
+    <documentation>minify a CSS Java Script by removing unneeded whitespace character comments empty blocks and empty declarations</documentation>
+    <port name='minifyPort' binding='tns:minifyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://minify' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/timecamp/' name='timecamp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/timecamp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/timecamp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/timecamp/'>
+      <xsd:element name='timecampComResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='timecampComRequestMessage' />
+  <message name='timecampComResponseMessage'>
+    <part name='response' element='tns:timecampComResponse' />
+  </message>
+  <portType name='timecampPortType'>
+    <operation name='timecampCom'>
+      <documentation>timeCamp time tracking and invoicing software It s cloud based and multiplatform Windows Linux Mac iPhone iPad Android</documentation>
+      <input message='tns:timecampComRequestMessage' name='timecampComInput' />
+      <output message='tns:timecampComResponseMessage' name='timecampComOutput' />
+    </operation>
+  </portType>
+  <binding name='timecampBinding' type='tns:timecampPortType'>
+    <operation name='timecampCom'>
+      <soap12:operation soapAction='http://timecampCom' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='timecamp'>
+    <documentation>timeCamp time tracking and invoicing software It s cloud based and multiplatform Windows Linux Mac iPhone iPad Android TimeCamp tracks time that users spend on tasks You can see precisely how much time you spent on each task and project thanks to this you can accurately bill your clients estimate time and costs of next projects and measure employees engagement</documentation>
+    <port name='timecampPort' binding='tns:timecampBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://timecamp' />
+    </port>
+  </service>
+</definitions>

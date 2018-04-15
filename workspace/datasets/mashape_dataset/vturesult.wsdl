@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vtuResult/' name='vtuResult' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vtuResult/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vtuResult/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vtuResult/'>
+      <xsd:element name='rapidVtuResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='module' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usn' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rapidVtuResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usn' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='totalAllSubjectMarks' type='xsd:int' minOccurs='0' />
+            <xsd:element name='subject' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='intMarks' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='extMarks' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='totalMarks' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='studentName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sem' type='xsd:int' minOccurs='0' />
+            <xsd:element name='passingClass' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='rapidVtuResultsRequestMessage'>
+    <part name='parameters' element='tns:rapidVtuResultsParameters' />
+  </message>
+  <message name='rapidVtuResultsResponseMessage'>
+    <part name='response' element='tns:rapidVtuResultsResponse' />
+  </message>
+  <portType name='vtuResultPortType'>
+    <operation name='rapidVtuResults'>
+      <documentation>usn</documentation>
+      <input message='tns:rapidVtuResultsRequestMessage' name='rapidVtuResultsInput' />
+      <output message='tns:rapidVtuResultsResponseMessage' name='rapidVtuResultsOutput' />
+    </operation>
+  </portType>
+  <binding name='vtuResultBinding' type='tns:vtuResultPortType'>
+    <operation name='rapidVtuResults'>
+      <soap12:operation soapAction='http://rapidVtuResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vtuResult'>
+    <documentation>get your VTU result in JSON format All the data scrapping part is done at the back end</documentation>
+    <port name='vtuResultPort' binding='tns:vtuResultBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vtuResult' />
+    </port>
+  </service>
+</definitions>

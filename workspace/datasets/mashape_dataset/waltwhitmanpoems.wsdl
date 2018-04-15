@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/waltWhitmanPoems/' name='waltWhitmanPoems' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/waltWhitmanPoems/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/waltWhitmanPoems/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/waltWhitmanPoems/'>
+      <xsd:element name='poemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='poemname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='poemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='index' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='poemsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='poemRequestMessage'>
+    <part name='parameters' element='tns:poemParameters' />
+  </message>
+  <message name='poemResponseMessage'>
+    <part name='response' element='tns:poemResponse' />
+  </message>
+  <message name='poemsListRequestMessage' />
+  <message name='poemsListResponseMessage'>
+    <part name='response' element='tns:poemsListResponse' />
+  </message>
+  <portType name='waltWhitmanPoemsPortType'>
+    <operation name='poem'>
+      <documentation></documentation>
+      <input message='tns:poemRequestMessage' name='poemInput' />
+      <output message='tns:poemResponseMessage' name='poemOutput' />
+    </operation>
+    <operation name='poemsList'>
+      <documentation></documentation>
+      <input message='tns:poemsListRequestMessage' name='poemsListInput' />
+      <output message='tns:poemsListResponseMessage' name='poemsListOutput' />
+    </operation>
+  </portType>
+  <binding name='waltWhitmanPoemsBinding' type='tns:waltWhitmanPoemsPortType'>
+    <operation name='poem'>
+      <soap12:operation soapAction='http://poem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='poemsList'>
+      <soap12:operation soapAction='http://poemsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='waltWhitmanPoems'>
+    <documentation>poems by Walt Whitman contained in Leaves of Grass from the Project Gutemberg</documentation>
+    <port name='waltWhitmanPoemsPort' binding='tns:waltWhitmanPoemsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://waltWhitmanPoems' />
+    </port>
+  </service>
+</definitions>

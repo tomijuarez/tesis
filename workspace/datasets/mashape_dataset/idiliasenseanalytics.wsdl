@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/idiliaSenseAnalytics/' name='idiliaSenseAnalytics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/idiliaSenseAnalytics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/idiliaSenseAnalytics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/idiliaSenseAnalytics/'>
+      <xsd:element name='httpsApiIdiliaComParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='textmime' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='httpsApiIdiliaComResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='httpsApiIdiliaComRequestMessage'>
+    <part name='parameters' element='tns:httpsApiIdiliaComParameters' />
+  </message>
+  <message name='httpsApiIdiliaComResponseMessage'>
+    <part name='response' element='tns:httpsApiIdiliaComResponse' />
+  </message>
+  <portType name='idiliaSenseAnalyticsPortType'>
+    <operation name='httpsApiIdiliaCom'>
+      <documentation></documentation>
+      <input message='tns:httpsApiIdiliaComRequestMessage' name='httpsApiIdiliaComInput' />
+      <output message='tns:httpsApiIdiliaComResponseMessage' name='httpsApiIdiliaComOutput' />
+    </operation>
+  </portType>
+  <binding name='idiliaSenseAnalyticsBinding' type='tns:idiliaSenseAnalyticsPortType'>
+    <operation name='httpsApiIdiliaCom'>
+      <soap12:operation soapAction='http://httpsApiIdiliaCom' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='idiliaSenseAnalytics'>
+    <documentation>precisely annotate text with fine senses using the world s only API that disambiguates both common words all parts of speech and proper nouns NEs with near human accuracy Use specialized recipes for well formed text queries and social media e g tweets Get lexical annotation statistical confidence scores external links wikipedia twitter verified accounts etc and precise classification of NEs Tags disambiguation wsd text analytics language sense annotation semantic extraction For more documentation see at http idilia com docs rest api text disambiguate Developer forum at http groups google com forum fromgroups forum idilia developers</documentation>
+    <port name='idiliaSenseAnalyticsPort' binding='tns:idiliaSenseAnalyticsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://idiliaSenseAnalytics' />
+    </port>
+  </service>
+</definitions>

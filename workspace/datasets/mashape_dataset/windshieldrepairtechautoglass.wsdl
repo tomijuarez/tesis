@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/windshieldRepairTechAutoGlass/' name='windshieldRepairTechAutoGlass' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/windshieldRepairTechAutoGlass/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/windshieldRepairTechAutoGlass/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/windshieldRepairTechAutoGlass/'>
+      <xsd:element name='makesLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makesLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='yearLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='yearLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='makesLookupRequestMessage'>
+    <part name='parameters' element='tns:makesLookupParameters' />
+  </message>
+  <message name='makesLookupResponseMessage'>
+    <part name='response' element='tns:makesLookupResponse' />
+  </message>
+  <message name='yearLookupRequestMessage'>
+    <part name='parameters' element='tns:yearLookupParameters' />
+  </message>
+  <message name='yearLookupResponseMessage'>
+    <part name='response' element='tns:yearLookupResponse' />
+  </message>
+  <portType name='windshieldRepairTechAutoGlassPortType'>
+    <operation name='makesLookup'>
+      <documentation>use the makes endpoint to request a list of makes for a given year</documentation>
+      <input message='tns:makesLookupRequestMessage' name='makesLookupInput' />
+      <output message='tns:makesLookupResponseMessage' name='makesLookupOutput' />
+    </operation>
+    <operation name='yearLookup'>
+      <documentation>use the years endpoint to request a list of years that vehicles were produced in</documentation>
+      <input message='tns:yearLookupRequestMessage' name='yearLookupInput' />
+      <output message='tns:yearLookupResponseMessage' name='yearLookupOutput' />
+    </operation>
+  </portType>
+  <binding name='windshieldRepairTechAutoGlassBinding' type='tns:windshieldRepairTechAutoGlassPortType'>
+    <operation name='makesLookup'>
+      <soap12:operation soapAction='http://makesLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='yearLookup'>
+      <soap12:operation soapAction='http://yearLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='windshieldRepairTechAutoGlass'>
+    <documentation>the restful webservice provided by WindshieldRepairTech can be used to access vehicle year make model and body style information Assuming you ve requested and received access requests are made using HTTP GET with an API KEY included as a GET parameter</documentation>
+    <port name='windshieldRepairTechAutoGlassPort' binding='tns:windshieldRepairTechAutoGlassBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://windshieldRepairTechAutoGlass' />
+    </port>
+  </service>
+</definitions>

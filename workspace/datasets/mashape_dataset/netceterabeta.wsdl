@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/netceteraBeta/' name='netceteraBeta' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/netceteraBeta/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/netceteraBeta/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/netceteraBeta/'>
+      <xsd:element name='domainsListdomainsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='domainsWhoisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domainname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='domainsWhoisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='domainsListdomainsRequestMessage' />
+  <message name='domainsListdomainsResponseMessage'>
+    <part name='response' element='tns:domainsListdomainsResponse' />
+  </message>
+  <message name='domainsWhoisRequestMessage'>
+    <part name='parameters' element='tns:domainsWhoisParameters' />
+  </message>
+  <message name='domainsWhoisResponseMessage'>
+    <part name='response' element='tns:domainsWhoisResponse' />
+  </message>
+  <message name='sayRequestMessage'>
+    <part name='parameters' element='tns:sayParameters' />
+  </message>
+  <message name='sayResponseMessage'>
+    <part name='response' element='tns:sayResponse' />
+  </message>
+  <portType name='netceteraBetaPortType'>
+    <operation name='domainsListdomains'>
+      <documentation>list Domains</documentation>
+      <input message='tns:domainsListdomainsRequestMessage' name='domainsListdomainsInput' />
+      <output message='tns:domainsListdomainsResponseMessage' name='domainsListdomainsOutput' />
+    </operation>
+    <operation name='domainsWhois'>
+      <documentation>check whether a Domain is available</documentation>
+      <input message='tns:domainsWhoisRequestMessage' name='domainsWhoisInput' />
+      <output message='tns:domainsWhoisResponseMessage' name='domainsWhoisOutput' />
+    </operation>
+    <operation name='say'>
+      <documentation>checks your Login details and replies with your text</documentation>
+      <input message='tns:sayRequestMessage' name='sayInput' />
+      <output message='tns:sayResponseMessage' name='sayOutput' />
+    </operation>
+  </portType>
+  <binding name='netceteraBetaBinding' type='tns:netceteraBetaPortType'>
+    <operation name='domainsListdomains'>
+      <soap12:operation soapAction='http://domainsListdomains' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='domainsWhois'>
+      <soap12:operation soapAction='http://domainsWhois' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='say'>
+      <soap12:operation soapAction='http://say' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='netceteraBeta'>
+    <documentation>cloud Hosting API and Domain Name Registration Service</documentation>
+    <port name='netceteraBetaPort' binding='tns:netceteraBetaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://netceteraBeta' />
+    </port>
+  </service>
+</definitions>

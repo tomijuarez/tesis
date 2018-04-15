@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jsonpRo/' name='jsonpRo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jsonpRo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jsonpRo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jsonpRo/'>
+      <xsd:element name='geoipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='delay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nocors' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='continentCode' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipAsnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='delay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nocors' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipAsnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='asn' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='delay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='nocors' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+            <xsd:element name='countryCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='regionName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='countryName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='continentCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='delay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='nocors' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geoipRequestMessage'>
+    <part name='parameters' element='tns:geoipParameters' />
+  </message>
+  <message name='geoipResponseMessage'>
+    <part name='response' element='tns:geoipResponse' />
+  </message>
+  <message name='geoipAsnRequestMessage'>
+    <part name='parameters' element='tns:geoipAsnParameters' />
+  </message>
+  <message name='geoipAsnResponseMessage'>
+    <part name='response' element='tns:geoipAsnResponse' />
+  </message>
+  <message name='geoipLocationRequestMessage'>
+    <part name='parameters' element='tns:geoipLocationParameters' />
+  </message>
+  <message name='geoipLocationResponseMessage'>
+    <part name='response' element='tns:geoipLocationResponse' />
+  </message>
+  <message name='ipRequestMessage'>
+    <part name='parameters' element='tns:ipParameters' />
+  </message>
+  <message name='ipResponseMessage'>
+    <part name='response' element='tns:ipResponse' />
+  </message>
+  <portType name='jsonpRoPortType'>
+    <operation name='geoip'>
+      <documentation>geoIP Country Data</documentation>
+      <input message='tns:geoipRequestMessage' name='geoipInput' />
+      <output message='tns:geoipResponseMessage' name='geoipOutput' />
+    </operation>
+    <operation name='geoipAsn'>
+      <documentation>geoIP ASN Data</documentation>
+      <input message='tns:geoipAsnRequestMessage' name='geoipAsnInput' />
+      <output message='tns:geoipAsnResponseMessage' name='geoipAsnOutput' />
+    </operation>
+    <operation name='geoipLocation'>
+      <documentation>geoIP Location Data</documentation>
+      <input message='tns:geoipLocationRequestMessage' name='geoipLocationInput' />
+      <output message='tns:geoipLocationResponseMessage' name='geoipLocationOutput' />
+    </operation>
+    <operation name='ip'>
+      <documentation>return Client s Ip Address</documentation>
+      <input message='tns:ipRequestMessage' name='ipInput' />
+      <output message='tns:ipResponseMessage' name='ipOutput' />
+    </operation>
+  </portType>
+  <binding name='jsonpRoBinding' type='tns:jsonpRoPortType'>
+    <operation name='geoip'>
+      <soap12:operation soapAction='http://geoip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='geoipAsn'>
+      <soap12:operation soapAction='http://geoipAsn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='geoipLocation'>
+      <soap12:operation soapAction='http://geoipLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ip'>
+      <soap12:operation soapAction='http://ip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jsonpRo'>
+    <documentation>jsonp ro is a testing platform for services that use JSON api for fast prototyping testing of a web app</documentation>
+    <port name='jsonpRoPort' binding='tns:jsonpRoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jsonpRo' />
+    </port>
+  </service>
+</definitions>

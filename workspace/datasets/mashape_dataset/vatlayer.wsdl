@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vatlayer/' name='vatlayer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vatlayer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vatlayer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vatlayer/'>
+      <xsd:element name='calculateEuVatCompliantPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='incl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useclientip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='calculateEuVatCompliantPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestAllEuVatRatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestListOfTypesOfGoodsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleEuVatRateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useclientip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleEuVatRateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateVatNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='vatnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateVatNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='calculateEuVatCompliantPriceRequestMessage'>
+    <part name='parameters' element='tns:calculateEuVatCompliantPriceParameters' />
+  </message>
+  <message name='calculateEuVatCompliantPriceResponseMessage'>
+    <part name='response' element='tns:calculateEuVatCompliantPriceResponse' />
+  </message>
+  <message name='requestAllEuVatRatesRequestMessage' />
+  <message name='requestAllEuVatRatesResponseMessage'>
+    <part name='response' element='tns:requestAllEuVatRatesResponse' />
+  </message>
+  <message name='requestListOfTypesOfGoodsRequestMessage' />
+  <message name='requestListOfTypesOfGoodsResponseMessage'>
+    <part name='response' element='tns:requestListOfTypesOfGoodsResponse' />
+  </message>
+  <message name='singleEuVatRateRequestMessage'>
+    <part name='parameters' element='tns:singleEuVatRateParameters' />
+  </message>
+  <message name='singleEuVatRateResponseMessage'>
+    <part name='response' element='tns:singleEuVatRateResponse' />
+  </message>
+  <message name='validateVatNumberRequestMessage'>
+    <part name='parameters' element='tns:validateVatNumberParameters' />
+  </message>
+  <message name='validateVatNumberResponseMessage'>
+    <part name='response' element='tns:validateVatNumberResponse' />
+  </message>
+  <portType name='vatlayerPortType'>
+    <operation name='calculateEuVatCompliantPrice'>
+      <documentation>use the price endpoint you may request the API to calculate a country specific VAT compliant price on your behalf Important There are options to define a country choose only one</documentation>
+      <input message='tns:calculateEuVatCompliantPriceRequestMessage' name='calculateEuVatCompliantPriceInput' />
+      <output message='tns:calculateEuVatCompliantPriceResponseMessage' name='calculateEuVatCompliantPriceOutput' />
+    </operation>
+    <operation name='requestAllEuVatRates'>
+      <documentation>use the API s rate list endpoint to obtain standard reduced VAT rates for all current member states</documentation>
+      <input message='tns:requestAllEuVatRatesRequestMessage' name='requestAllEuVatRatesInput' />
+      <output message='tns:requestAllEuVatRatesResponseMessage' name='requestAllEuVatRatesOutput' />
+    </operation>
+    <operation name='requestListOfTypesOfGoods'>
+      <documentation>request an entire list of all available types of goods which fall into reduced VAT categories in specific EU member states</documentation>
+      <input message='tns:requestListOfTypesOfGoodsRequestMessage' name='requestListOfTypesOfGoodsInput' />
+      <output message='tns:requestListOfTypesOfGoodsResponseMessage' name='requestListOfTypesOfGoodsOutput' />
+    </operation>
+    <operation name='singleEuVatRate'>
+      <documentation>using the rate endpoint you may request the API to return standard and reduced VAT rates for a EU member state you specify Important Only one of the following three parameters for defining the country is allowed</documentation>
+      <input message='tns:singleEuVatRateRequestMessage' name='singleEuVatRateInput' />
+      <output message='tns:singleEuVatRateResponseMessage' name='singleEuVatRateOutput' />
+    </operation>
+    <operation name='validateVatNumber'>
+      <documentation>using the validate endpoint you may request the API to validate any EU VAT number and obtain information about the company it is assigned to</documentation>
+      <input message='tns:validateVatNumberRequestMessage' name='validateVatNumberInput' />
+      <output message='tns:validateVatNumberResponseMessage' name='validateVatNumberOutput' />
+    </operation>
+  </portType>
+  <binding name='vatlayerBinding' type='tns:vatlayerPortType'>
+    <operation name='calculateEuVatCompliantPrice'>
+      <soap12:operation soapAction='http://calculateEuVatCompliantPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='requestAllEuVatRates'>
+      <soap12:operation soapAction='http://requestAllEuVatRates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='requestListOfTypesOfGoods'>
+      <soap12:operation soapAction='http://requestListOfTypesOfGoods' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleEuVatRate'>
+      <soap12:operation soapAction='http://singleEuVatRate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateVatNumber'>
+      <soap12:operation soapAction='http://validateVatNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vatlayer'>
+    <documentation>vatlayer is a simple REST based JSON API offering instant EU VAT number validation VAT compliant price calculations and VAT rates for all current member states of the European Union Its system is secured by HTTPS and focused on ease of use integration delivering all VAT data in lightweight and highly portable JSON format This level of compatibility paired with startup and developer friendly pricing and a full stack of features makes the vatlayer API a perfect VAT rate automation and number validation tool for individuals businesses and merchants selling and buying goods in and around the European Union</documentation>
+    <port name='vatlayerPort' binding='tns:vatlayerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vatlayer' />
+    </port>
+  </service>
+</definitions>

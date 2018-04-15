@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfJpg/' name='pdfJpg' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfJpg/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfJpg/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfJpg/'>
+      <xsd:element name='getTheStatusOfAConversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTheStatusOfAConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip_file' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='pictures' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postAPdfToBeConvertedToJpgResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getTheStatusOfAConversionRequestMessage'>
+    <part name='parameters' element='tns:getTheStatusOfAConversionParameters' />
+  </message>
+  <message name='getTheStatusOfAConversionResponseMessage'>
+    <part name='response' element='tns:getTheStatusOfAConversionResponse' />
+  </message>
+  <message name='postAPdfToBeConvertedToJpgRequestMessage' />
+  <message name='postAPdfToBeConvertedToJpgResponseMessage'>
+    <part name='response' element='tns:postAPdfToBeConvertedToJpgResponse' />
+  </message>
+  <portType name='pdfJpgPortType'>
+    <operation name='getTheStatusOfAConversion'>
+      <documentation>get the status of an existing conversion and the URLs of the converted pictures and or zip file</documentation>
+      <input message='tns:getTheStatusOfAConversionRequestMessage' name='getTheStatusOfAConversionInput' />
+      <output message='tns:getTheStatusOfAConversionResponseMessage' name='getTheStatusOfAConversionOutput' />
+    </operation>
+    <operation name='postAPdfToBeConvertedToJpg'>
+      <documentation>initiate a conversion by posting a PDF and the expected conversion quality</documentation>
+      <input message='tns:postAPdfToBeConvertedToJpgRequestMessage' name='postAPdfToBeConvertedToJpgInput' />
+      <output message='tns:postAPdfToBeConvertedToJpgResponseMessage' name='postAPdfToBeConvertedToJpgOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfJpgBinding' type='tns:pdfJpgPortType'>
+    <operation name='getTheStatusOfAConversion'>
+      <soap12:operation soapAction='http://getTheStatusOfAConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postAPdfToBeConvertedToJpg'>
+      <soap12:operation soapAction='http://postAPdfToBeConvertedToJpg' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfJpg'>
+    <documentation>convert PDF to JPG with our API It s fast reliable and produce high quality pictures</documentation>
+    <port name='pdfJpgPort' binding='tns:pdfJpgBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfJpg' />
+    </port>
+  </service>
+</definitions>

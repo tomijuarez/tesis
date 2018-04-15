@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textToSpeech/' name='textToSpeech' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textToSpeech/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+      <xsd:element name='vTtsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='voice' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTtsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTtsLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTtsVoicesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTtsVoicesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vTtsRequestMessage'>
+    <part name='parameters' element='tns:vTtsParameters' />
+  </message>
+  <message name='vTtsResponseMessage'>
+    <part name='response' element='tns:vTtsResponse' />
+  </message>
+  <message name='vTtsLanguagesRequestMessage' />
+  <message name='vTtsLanguagesResponseMessage'>
+    <part name='response' element='tns:vTtsLanguagesResponse' />
+  </message>
+  <message name='vTtsVoicesRequestMessage'>
+    <part name='parameters' element='tns:vTtsVoicesParameters' />
+  </message>
+  <message name='vTtsVoicesResponseMessage'>
+    <part name='response' element='tns:vTtsVoicesResponse' />
+  </message>
+  <portType name='textToSpeechPortType'>
+    <operation name='vTts'>
+      <documentation>converts text into high quality speech</documentation>
+      <input message='tns:vTtsRequestMessage' name='vTtsInput' />
+      <output message='tns:vTtsResponseMessage' name='vTtsOutput' />
+    </operation>
+    <operation name='vTtsLanguages'>
+      <documentation>list the available languages</documentation>
+      <input message='tns:vTtsLanguagesRequestMessage' name='vTtsLanguagesInput' />
+      <output message='tns:vTtsLanguagesResponseMessage' name='vTtsLanguagesOutput' />
+    </operation>
+    <operation name='vTtsVoices'>
+      <documentation>list the available voices</documentation>
+      <input message='tns:vTtsVoicesRequestMessage' name='vTtsVoicesInput' />
+      <output message='tns:vTtsVoicesResponseMessage' name='vTtsVoicesOutput' />
+    </operation>
+  </portType>
+  <binding name='textToSpeechBinding' type='tns:textToSpeechPortType'>
+    <operation name='vTts'>
+      <soap12:operation soapAction='http://vTts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vTtsLanguages'>
+      <soap12:operation soapAction='http://vTtsLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vTtsVoices'>
+      <soap12:operation soapAction='http://vTtsVoices' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textToSpeech'>
+    <documentation>this API instantly generates high quality speech from text Simply send a request with the text you want read and we ll instantly return a wav mp or ogg with it been spoken</documentation>
+    <port name='textToSpeechPort' binding='tns:textToSpeechBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textToSpeech' />
+    </port>
+  </service>
+</definitions>

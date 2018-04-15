@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/meanpath/' name='meanpath' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/meanpath/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/meanpath/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/meanpath/'>
+      <xsd:element name='Parameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='_shards' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='failed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='successful' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='hits' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='hits' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='_index' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='_score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='fields' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='redirect' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='date' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='domain_ip' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='spf' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='as_path' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='bgp' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='redirect_ip' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='mx' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='max_score' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='took' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timed_out' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage'>
+    <part name='parameters' element='tns:Parameters' />
+  </message>
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='meanpathPortType'>
+    <operation name=''>
+      <documentation></documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='meanpathBinding' type='tns:meanpathPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='meanpath'>
+    <documentation>meanpath is a source code search engine Every day meanpath crawls over million websites capturing the visible text HTML source code CSS and Javascript This data is fully API accessible and used by many companies to power innovative web search services</documentation>
+    <port name='meanpathPort' binding='tns:meanpathBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://meanpath' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/detectLanguageOfAText/' name='detectLanguageOfAText' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/detectLanguageOfAText/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/detectLanguageOfAText/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/detectLanguageOfAText/'>
+      <xsd:element name='detectlanguageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectlanguageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectlanguageRequestMessage'>
+    <part name='parameters' element='tns:detectlanguageParameters' />
+  </message>
+  <message name='detectlanguageResponseMessage'>
+    <part name='response' element='tns:detectlanguageResponse' />
+  </message>
+  <portType name='detectLanguageOfATextPortType'>
+    <operation name='detectlanguage'>
+      <documentation>detect the language of a given text</documentation>
+      <input message='tns:detectlanguageRequestMessage' name='detectlanguageInput' />
+      <output message='tns:detectlanguageResponseMessage' name='detectlanguageOutput' />
+    </operation>
+  </portType>
+  <binding name='detectLanguageOfATextBinding' type='tns:detectLanguageOfATextPortType'>
+    <operation name='detectlanguage'>
+      <soap12:operation soapAction='http://detectlanguage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='detectLanguageOfAText'>
+    <documentation>using this API you can easily detect which language a certain text is written in Works best with sentences</documentation>
+    <port name='detectLanguageOfATextPort' binding='tns:detectLanguageOfATextBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://detectLanguageOfAText' />
+    </port>
+  </service>
+</definitions>

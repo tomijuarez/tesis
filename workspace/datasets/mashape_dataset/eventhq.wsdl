@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eventhq/' name='eventhq' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eventhq/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eventhq/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eventhq/'>
+      <xsd:element name='listEventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listEventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='events' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='registration_opens' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='test' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='registration_closes' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='attendee_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sold_out' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='event_ends' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='event_starts' type='xsd:date' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listEventsRequestMessage'>
+    <part name='parameters' element='tns:listEventsParameters' />
+  </message>
+  <message name='listEventsResponseMessage'>
+    <part name='response' element='tns:listEventsResponse' />
+  </message>
+  <portType name='eventhqPortType'>
+    <operation name='listEvents'>
+      <documentation>list all events in the account</documentation>
+      <input message='tns:listEventsRequestMessage' name='listEventsInput' />
+      <output message='tns:listEventsResponseMessage' name='listEventsOutput' />
+    </operation>
+  </portType>
+  <binding name='eventhqBinding' type='tns:eventhqPortType'>
+    <operation name='listEvents'>
+      <soap12:operation soapAction='http://listEvents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eventhq'>
+    <documentation>retrieve events attendee and order details from your existing EventHQ account</documentation>
+    <port name='eventhqPort' binding='tns:eventhqBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eventhq' />
+    </port>
+  </service>
+</definitions>

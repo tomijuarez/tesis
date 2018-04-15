@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geocode/' name='geocode' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geocode/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geocode/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geocode/'>
+      <xsd:element name='solveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='solveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='grade' type='xsd:string' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='solveRequestMessage'>
+    <part name='parameters' element='tns:solveParameters' />
+  </message>
+  <message name='solveResponseMessage'>
+    <part name='response' element='tns:solveResponse' />
+  </message>
+  <portType name='geocodePortType'>
+    <operation name='solve'>
+      <documentation>the API takes the provided address and returns the latitude and longitude for the desired location</documentation>
+      <input message='tns:solveRequestMessage' name='solveInput' />
+      <output message='tns:solveResponseMessage' name='solveOutput' />
+    </operation>
+  </portType>
+  <binding name='geocodeBinding' type='tns:geocodePortType'>
+    <operation name='solve'>
+      <soap12:operation soapAction='http://solve' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geocode'>
+    <documentation>metropolis Geocode finds the associated geographic coordinates latitude and longitude from a given worldwide address provided Metropolis can turn any address data of yours into latitude longitude values Plain and Simple</documentation>
+    <port name='geocodePort' binding='tns:geocodeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geocode' />
+    </port>
+  </service>
+</definitions>

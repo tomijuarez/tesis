@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/passbook/' name='passbook' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/passbook/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/passbook/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/passbook/'>
+      <xsd:element name='createPassFromTemplateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPassFromTemplateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='serialNumber' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadPassParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passtypeidentifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadPassResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emailPassParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passtypeidentifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emailPassResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPassesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='serialNumber' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passtypeidentifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='memberSince' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createPassFromTemplateRequestMessage'>
+    <part name='parameters' element='tns:createPassFromTemplateParameters' />
+  </message>
+  <message name='createPassFromTemplateResponseMessage'>
+    <part name='response' element='tns:createPassFromTemplateResponse' />
+  </message>
+  <message name='downloadPassRequestMessage'>
+    <part name='parameters' element='tns:downloadPassParameters' />
+  </message>
+  <message name='downloadPassResponseMessage'>
+    <part name='response' element='tns:downloadPassResponse' />
+  </message>
+  <message name='emailPassRequestMessage'>
+    <part name='parameters' element='tns:emailPassParameters' />
+  </message>
+  <message name='emailPassResponseMessage'>
+    <part name='response' element='tns:emailPassResponse' />
+  </message>
+  <message name='listPassesRequestMessage' />
+  <message name='listPassesResponseMessage'>
+    <part name='response' element='tns:listPassesResponse' />
+  </message>
+  <message name='updatePassRequestMessage'>
+    <part name='parameters' element='tns:updatePassParameters' />
+  </message>
+  <message name='updatePassResponseMessage'>
+    <part name='response' element='tns:updatePassResponse' />
+  </message>
+  <portType name='passbookPortType'>
+    <operation name='createPassFromTemplate'>
+      <input message='tns:createPassFromTemplateRequestMessage' name='createPassFromTemplateInput' />
+      <output message='tns:createPassFromTemplateResponseMessage' name='createPassFromTemplateOutput' />
+    </operation>
+    <operation name='downloadPass'>
+      <documentation></documentation>
+      <input message='tns:downloadPassRequestMessage' name='downloadPassInput' />
+      <output message='tns:downloadPassResponseMessage' name='downloadPassOutput' />
+    </operation>
+    <operation name='emailPass'>
+      <documentation></documentation>
+      <input message='tns:emailPassRequestMessage' name='emailPassInput' />
+      <output message='tns:emailPassResponseMessage' name='emailPassOutput' />
+    </operation>
+    <operation name='listPasses'>
+      <documentation></documentation>
+      <input message='tns:listPassesRequestMessage' name='listPassesInput' />
+      <output message='tns:listPassesResponseMessage' name='listPassesOutput' />
+    </operation>
+    <operation name='updatePass'>
+      <documentation>http www passslot com developer api resources updatePassValues</documentation>
+      <input message='tns:updatePassRequestMessage' name='updatePassInput' />
+      <output message='tns:updatePassResponseMessage' name='updatePassOutput' />
+    </operation>
+  </portType>
+  <binding name='passbookBinding' type='tns:passbookPortType'>
+    <operation name='createPassFromTemplate'>
+      <soap12:operation soapAction='http://createPassFromTemplate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadPass'>
+      <soap12:operation soapAction='http://downloadPass' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='emailPass'>
+      <soap12:operation soapAction='http://emailPass' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPasses'>
+      <soap12:operation soapAction='http://listPasses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatePass'>
+      <soap12:operation soapAction='http://updatePass' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='passbook'>
+    <documentation>passSlot is a free service for developers that aims to make Passbook integration easy Really easy</documentation>
+    <port name='passbookPort' binding='tns:passbookBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://passbook' />
+    </port>
+  </service>
+</definitions>

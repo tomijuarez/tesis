@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipinfoIo/' name='ipinfoIo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipinfoIo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipinfoIo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipinfoIo/'>
+      <xsd:element name='fullIpDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='loc' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hostname' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='org' type='xsd:string' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='postal' type='xsd:int' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fullIpDetailsRequestMessage' />
+  <message name='fullIpDetailsResponseMessage'>
+    <part name='response' element='tns:fullIpDetailsResponse' />
+  </message>
+  <portType name='ipinfoIoPortType'>
+    <operation name='fullIpDetails'>
+      <documentation></documentation>
+      <input message='tns:fullIpDetailsRequestMessage' name='fullIpDetailsInput' />
+      <output message='tns:fullIpDetailsResponseMessage' name='fullIpDetailsOutput' />
+    </operation>
+  </portType>
+  <binding name='ipinfoIoBinding' type='tns:ipinfoIoPortType'>
+    <operation name='fullIpDetails'>
+      <soap12:operation soapAction='http://fullIpDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipinfoIo'>
+    <documentation>ipinfo io is a free IP information web service providing geolocation hostname organization and other data types The ipinfo io API returns a JSON response containing data fields describing the specified IP The API supports JSONP callbacks and can provide additional information through a paid service such as proxy detection scraping prevention and improved geolocation accuracy</documentation>
+    <port name='ipinfoIoPort' binding='tns:ipinfoIoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipinfoIo' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/scrapeWebsiteEmail/' name='scrapeWebsiteEmail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/scrapeWebsiteEmail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/scrapeWebsiteEmail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/scrapeWebsiteEmail/'>
+      <xsd:element name='scrapeEmailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mustinclude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='website' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scrapeEmailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='scrapeEmailsRequestMessage'>
+    <part name='parameters' element='tns:scrapeEmailsParameters' />
+  </message>
+  <message name='scrapeEmailsResponseMessage'>
+    <part name='response' element='tns:scrapeEmailsResponse' />
+  </message>
+  <portType name='scrapeWebsiteEmailPortType'>
+    <operation name='scrapeEmails'>
+      <documentation>returns a list of emails scraped by priority ie e mails appear on top level pages are first Please note that subsequent calls to the same url will be fetched from the cache day flush Will also parse patterns such as hello at site com hello at site dot com hello at site com hello at site dot com hello site com hello site com Please do note we cannot parse sites that require a login for now so for some Facebook pages it is not possible at the moment to fetch the e mail Finally please note that the api will fetch links for up to minutes After that time it will start analysing the pages which have been scraped Therefore please ensure that your client has a timeout of at least greater than seconds mins to fetch and the rest to parse Please note that due to the fact that the api goes out to fetch the pages the server allows only concurrent request ip Requests which are made while the request is still processing will result in a code</documentation>
+      <input message='tns:scrapeEmailsRequestMessage' name='scrapeEmailsInput' />
+      <output message='tns:scrapeEmailsResponseMessage' name='scrapeEmailsOutput' />
+    </operation>
+  </portType>
+  <binding name='scrapeWebsiteEmailBinding' type='tns:scrapeWebsiteEmailPortType'>
+    <operation name='scrapeEmails'>
+      <soap12:operation soapAction='http://scrapeEmails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='scrapeWebsiteEmail'>
+    <documentation>scrape emails from a website programmatically We are an api that scrapes emails from websites What it does Scrapes a website for you We go through the website and scrapes the main page and any sub pages for e mails and returns those to you in json Parses common e mail patterns We parse e mails such as tom at site com or tom at site dot com Let us handle it Easy API Just provide a website address as input and you re all set Excellent Support Let us know if you have issues We ll be on call We also have monitor on our API About the endpoint Please note that subsequent calls to the same url will be fetched from the cache flushed weekly Please do note we cannot parse sites that require a login for now so for some Facebook pages it is not possible at the moment to fetch the e mail Finally please note that a scrape will be terminated after minutes if data cannot be fetched at that time More Detailed Information Returns a list of emails scraped by priority ie e mails appear on top level pages are first Please note that subsequent calls to the same url will be fetched from the cache day flush Will also parse patterns such as hello at site com hello at site dot com hello at site com hello at site dot com hello site com hello site com Please do note we cannot parse sites that require a login for now so for some Facebook pages it is not possible at the moment to fetch the e mail Finally please note that the api will fetch links for up to minutes After that time it will start analysing the pages which have been scraped Therefore please ensure that your client has a timeout of at least seconds mins to fetch and the rest to parse Please note that due to the fact that the api goes out to fetch the pages the server allows only concurrent request ip Requests which are made while the request is still processing will result in a code</documentation>
+    <port name='scrapeWebsiteEmailPort' binding='tns:scrapeWebsiteEmailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://scrapeWebsiteEmail' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imdbInternationalMovieDatabase/' name='imdbInternationalMovieDatabase' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imdbInternationalMovieDatabase/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imdbInternationalMovieDatabase/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imdbInternationalMovieDatabase/'>
+      <xsd:element name='movieTvSeriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieTvSeriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='website' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='languages' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='rottentomato' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='tomato_rotten' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tomato_consensus' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tomato_rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='tomato_meter' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tomato_image' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tomato_reviews' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tomato_usermeter' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tomato_userreviews' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tomato_fresh' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tomato_userrating' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='year' type='xsd:int' minOccurs='0' />
+            <xsd:element name='production' type='xsd:string' minOccurs='0' />
+            <xsd:element name='imdbID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='runtime' type='xsd:string' minOccurs='0' />
+            <xsd:element name='imdbRating' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='imdbVotes' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='boxoffice' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cast' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actors' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='directors' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='writers' type='xsd:string' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='dvd' type='xsd:string' minOccurs='0' />
+            <xsd:element name='rate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='plot' type='xsd:string' minOccurs='0' />
+            <xsd:element name='genres' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='awards' type='xsd:string' minOccurs='0' />
+            <xsd:element name='poster' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='released' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='imdb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='movieTvSeriesRequestMessage'>
+    <part name='parameters' element='tns:movieTvSeriesParameters' />
+  </message>
+  <message name='movieTvSeriesResponseMessage'>
+    <part name='response' element='tns:movieTvSeriesResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='imdbInternationalMovieDatabasePortType'>
+    <operation name='movieTvSeries'>
+      <documentation>retrive information of an IMDB Movie or TV Series along with Rotten Tomato results</documentation>
+      <input message='tns:movieTvSeriesRequestMessage' name='movieTvSeriesInput' />
+      <output message='tns:movieTvSeriesResponseMessage' name='movieTvSeriesOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for Movies TV Series and Games</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='imdbInternationalMovieDatabaseBinding' type='tns:imdbInternationalMovieDatabasePortType'>
+    <operation name='movieTvSeries'>
+      <soap12:operation soapAction='http://movieTvSeries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imdbInternationalMovieDatabase'>
+    <documentation>an API for Movies TV Series and Games This API allows you to search for Movies TV series Games and gather information of Movies TV series Games such as Title Year Rating Released Date Run time Genres Cast Directores Writers Actors Plot Languages Country Awards Poster Votes DVD Released Date Box Office Production Studio Website along with Rotten Tomato information</documentation>
+    <port name='imdbInternationalMovieDatabasePort' binding='tns:imdbInternationalMovieDatabaseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imdbInternationalMovieDatabase' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hackerleagueSearch/' name='hackerleagueSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hackerleagueSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hackerleagueSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hackerleagueSearch/'>
+      <xsd:element name='hacksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hacksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='hacksRequestMessage'>
+    <part name='parameters' element='tns:hacksParameters' />
+  </message>
+  <message name='hacksResponseMessage'>
+    <part name='response' element='tns:hacksResponse' />
+  </message>
+  <portType name='hackerleagueSearchPortType'>
+    <operation name='hacks'>
+      <documentation>lets you search for specific hack projects in Hacker League</documentation>
+      <input message='tns:hacksRequestMessage' name='hacksInput' />
+      <output message='tns:hacksResponseMessage' name='hacksOutput' />
+    </operation>
+  </portType>
+  <binding name='hackerleagueSearchBinding' type='tns:hackerleagueSearchPortType'>
+    <operation name='hacks'>
+      <soap12:operation soapAction='http://hacks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hackerleagueSearch'>
+    <documentation>hacker League is a hackathon planning and organization tool This API allows you to search hackathons and hacks from the Hacker League website If you want to find more APIs for your hacks check out https www mashape com explore</documentation>
+    <port name='hackerleagueSearchPort' binding='tns:hackerleagueSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hackerleagueSearch' />
+    </port>
+  </service>
+</definitions>

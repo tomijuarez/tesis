@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ubiplug/' name='ubiplug' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ubiplug/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ubiplug/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ubiplug/'>
+      <xsd:element name='userInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='userInformationRequestMessage'>
+    <part name='parameters' element='tns:userInformationParameters' />
+  </message>
+  <message name='userInformationResponseMessage'>
+    <part name='response' element='tns:userInformationResponse' />
+  </message>
+  <portType name='ubiplugPortType'>
+    <operation name='userInformation'>
+      <documentation>get user s information</documentation>
+      <input message='tns:userInformationRequestMessage' name='userInformationInput' />
+      <output message='tns:userInformationResponseMessage' name='userInformationOutput' />
+    </operation>
+  </portType>
+  <binding name='ubiplugBinding' type='tns:ubiplugPortType'>
+    <operation name='userInformation'>
+      <soap12:operation soapAction='http://userInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ubiplug'>
+    <documentation>create awesome products using our data API It can help you to visualize data of a house appliances and represent them beautifully before users</documentation>
+    <port name='ubiplugPort' binding='tns:ubiplugBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ubiplug' />
+    </port>
+  </service>
+</definitions>

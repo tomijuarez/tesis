@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/brazilianDataOfPersonsAndCompanies/' name='brazilianDataOfPersonsAndCompanies' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/brazilianDataOfPersonsAndCompanies/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/brazilianDataOfPersonsAndCompanies/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/brazilianDataOfPersonsAndCompanies/'>
+      <xsd:element name='apiPersonGetpersonDocumentidParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPersonGetpersonDocumentidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='DocumentStatus' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Status' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='Message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocumentID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DigitVerification' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Protocol' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DateOfVerification' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiPersonGetpersonDocumentidRequestMessage'>
+    <part name='parameters' element='tns:apiPersonGetpersonDocumentidParameters' />
+  </message>
+  <message name='apiPersonGetpersonDocumentidResponseMessage'>
+    <part name='response' element='tns:apiPersonGetpersonDocumentidResponse' />
+  </message>
+  <portType name='brazilianDataOfPersonsAndCompaniesPortType'>
+    <operation name='apiPersonGetpersonDocumentid'>
+      <documentation>getPerson</documentation>
+      <input message='tns:apiPersonGetpersonDocumentidRequestMessage' name='apiPersonGetpersonDocumentidInput' />
+      <output message='tns:apiPersonGetpersonDocumentidResponseMessage' name='apiPersonGetpersonDocumentidOutput' />
+    </operation>
+  </portType>
+  <binding name='brazilianDataOfPersonsAndCompaniesBinding' type='tns:brazilianDataOfPersonsAndCompaniesPortType'>
+    <operation name='apiPersonGetpersonDocumentid'>
+      <soap12:operation soapAction='http://apiPersonGetpersonDocumentid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='brazilianDataOfPersonsAndCompanies'>
+    <documentation>before start doing business in Brazil try our API to identify Persons and Companies</documentation>
+    <port name='brazilianDataOfPersonsAndCompaniesPort' binding='tns:brazilianDataOfPersonsAndCompaniesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://brazilianDataOfPersonsAndCompanies' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fsmForcecodeSocialMiner/' name='fsmForcecodeSocialMiner' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fsmForcecodeSocialMiner/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fsmForcecodeSocialMiner/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fsmForcecodeSocialMiner/'>
+      <xsd:element name='forceSocialMinerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forceSocialMinerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='forceSocialMinerRequestMessage'>
+    <part name='parameters' element='tns:forceSocialMinerParameters' />
+  </message>
+  <message name='forceSocialMinerResponseMessage'>
+    <part name='response' element='tns:forceSocialMinerResponse' />
+  </message>
+  <portType name='fsmForcecodeSocialMinerPortType'>
+    <operation name='forceSocialMiner'>
+      <documentation>search for user s facebook link address by email</documentation>
+      <input message='tns:forceSocialMinerRequestMessage' name='forceSocialMinerInput' />
+      <output message='tns:forceSocialMinerResponseMessage' name='forceSocialMinerOutput' />
+    </operation>
+  </portType>
+  <binding name='fsmForcecodeSocialMinerBinding' type='tns:fsmForcecodeSocialMinerPortType'>
+    <operation name='forceSocialMiner'>
+      <soap12:operation soapAction='http://forceSocialMiner' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fsmForcecodeSocialMiner'>
+    <documentation>gET FACEBOOK USER BY E MAIL ADDRESS You are a marketing company or the new bright CRM system developer in the world and need to know the facebook s username by e mail address so you take a look to the facebook s API and bang It is impossible Not for us because we have the answer FSM Our API can found any username with e mail public in Facebook</documentation>
+    <port name='fsmForcecodeSocialMinerPort' binding='tns:fsmForcecodeSocialMinerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fsmForcecodeSocialMiner' />
+    </port>
+  </service>
+</definitions>

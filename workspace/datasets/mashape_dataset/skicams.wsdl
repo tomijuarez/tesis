@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/skicams/' name='skicams' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/skicams/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/skicams/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/skicams/'>
+      <xsd:element name='camsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='camsRequestMessage' />
+  <message name='camsResponseMessage'>
+    <part name='response' element='tns:camsResponse' />
+  </message>
+  <portType name='skicamsPortType'>
+    <operation name='cams'>
+      <documentation>a sample GET method</documentation>
+      <input message='tns:camsRequestMessage' name='camsInput' />
+      <output message='tns:camsResponseMessage' name='camsOutput' />
+    </operation>
+  </portType>
+  <binding name='skicamsBinding' type='tns:skicamsPortType'>
+    <operation name='cams'>
+      <soap12:operation soapAction='http://cams' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='skicams'>
+    <documentation>italian Ski Webcam Database API more at http skicams it api italian</documentation>
+    <port name='skicamsPort' binding='tns:skicamsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://skicams' />
+    </port>
+  </service>
+</definitions>

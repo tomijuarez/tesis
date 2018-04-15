@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion/' name='pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion/'>
+      <xsd:element name='forPdfUploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forPublicPdfUrlsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='file' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='res' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forPublicPdfUrlsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='forPdfUploadRequestMessage' />
+  <message name='forPdfUploadResponseMessage'>
+    <part name='response' element='tns:forPdfUploadResponse' />
+  </message>
+  <message name='forPublicPdfUrlsRequestMessage'>
+    <part name='parameters' element='tns:forPublicPdfUrlsParameters' />
+  </message>
+  <message name='forPublicPdfUrlsResponseMessage'>
+    <part name='response' element='tns:forPublicPdfUrlsResponse' />
+  </message>
+  <portType name='pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersionPortType'>
+    <operation name='forPdfUpload'>
+      <documentation></documentation>
+      <input message='tns:forPdfUploadRequestMessage' name='forPdfUploadInput' />
+      <output message='tns:forPdfUploadResponseMessage' name='forPdfUploadOutput' />
+    </operation>
+    <operation name='forPublicPdfUrls'>
+      <documentation>extract images by passing the URL of a publicly accessible PDF file</documentation>
+      <input message='tns:forPublicPdfUrlsRequestMessage' name='forPublicPdfUrlsInput' />
+      <output message='tns:forPublicPdfUrlsResponseMessage' name='forPublicPdfUrlsOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersionBinding' type='tns:pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersionPortType'>
+    <operation name='forPdfUpload'>
+      <soap12:operation soapAction='http://forPdfUpload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='forPublicPdfUrls'>
+      <soap12:operation soapAction='http://forPublicPdfUrls' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion'>
+    <documentation>this API consumes PDFs and outputs PNG images of the pages Input can be via a POST upload or you may use a GET request and pass the URL of a publicly accessible PDF PNGs of the pages can be retrieved individually using a session token or all at once as Base data in JSON or HTML For more input and output options we will soon release a paid version of this API</documentation>
+    <port name='pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersionPort' binding='tns:pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfToPngRasterizerConvertPdfDocumentsToImagesFreeVersion' />
+    </port>
+  </service>
+</definitions>

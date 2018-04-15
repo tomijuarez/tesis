@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/proprofsLearningManagementSystem/' name='proprofsLearningManagementSystem' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/proprofsLearningManagementSystem/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/proprofsLearningManagementSystem/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/proprofsLearningManagementSystem/'>
+      <xsd:element name='lmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='lmsRequestMessage' />
+  <message name='lmsResponseMessage'>
+    <part name='response' element='tns:lmsResponse' />
+  </message>
+  <portType name='proprofsLearningManagementSystemPortType'>
+    <operation name='lms'>
+      <input message='tns:lmsRequestMessage' name='lmsInput' />
+      <output message='tns:lmsResponseMessage' name='lmsOutput' />
+    </operation>
+  </portType>
+  <binding name='proprofsLearningManagementSystemBinding' type='tns:proprofsLearningManagementSystemPortType'>
+    <operation name='lms'>
+      <soap12:operation soapAction='http://lms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='proprofsLearningManagementSystem'>
+    <documentation>proProfs is a powerful learning management system that helps instructors to create and deliver online training courses The LMS offers both businesses and educational institutions comprehensive training solutions by allowing them to create online courses complemented by tests surveys polls and even a knowledgebase Used by over million learners ProProfs LMS offers powerful features such as Facility to create courses using existing learning materials which include videos PDFs PPTs and even online content Advanced reporting learner tracking with SCORM Tin Can API compliance Compatibility with multiple platforms devices and browsers Custom branding security with full data backup Simple and flexible pricing which suits everyone s needs Free E commerce integration for buying and selling courses quizzes</documentation>
+    <port name='proprofsLearningManagementSystemPort' binding='tns:proprofsLearningManagementSystemBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://proprofsLearningManagementSystem' />
+    </port>
+  </service>
+</definitions>

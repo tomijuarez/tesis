@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/invoice/' name='invoice' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/invoice/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/invoice/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/invoice/'>
+      <xsd:element name='invoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='invoiceRequestMessage' />
+  <message name='invoiceResponseMessage'>
+    <part name='response' element='tns:invoiceResponse' />
+  </message>
+  <portType name='invoicePortType'>
+    <operation name='invoice'>
+      <documentation>an invoice is created by sending an http POST to https bips me api v invoice</documentation>
+      <input message='tns:invoiceRequestMessage' name='invoiceInput' />
+      <output message='tns:invoiceResponseMessage' name='invoiceOutput' />
+    </operation>
+  </portType>
+  <binding name='invoiceBinding' type='tns:invoicePortType'>
+    <operation name='invoice'>
+      <soap12:operation soapAction='http://invoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='invoice'>
+    <documentation>an invoice is created by sending an http POST to https bips me api v invoice containing the details of your product or service price and the currency On a successful POST an invoice URL will be received in the response Your system should redirect to this URL to allow the customer to pay</documentation>
+    <port name='invoicePort' binding='tns:invoiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://invoice' />
+    </port>
+  </service>
+</definitions>

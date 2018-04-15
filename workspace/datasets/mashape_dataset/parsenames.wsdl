@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/parseNames/' name='parseNames' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/parseNames/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/parseNames/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/parseNames/'>
+      <xsd:element name='parsenameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fullname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parsenameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parsenamegeoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countryiso' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fullname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parsenamegeoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parsenameslistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='names' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='firstName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='nameFormat' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='midName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='fullName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='countryIso2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='parsenameRequestMessage'>
+    <part name='parameters' element='tns:parsenameParameters' />
+  </message>
+  <message name='parsenameResponseMessage'>
+    <part name='response' element='tns:parsenameResponse' />
+  </message>
+  <message name='parsenamegeoRequestMessage'>
+    <part name='parameters' element='tns:parsenamegeoParameters' />
+  </message>
+  <message name='parsenamegeoResponseMessage'>
+    <part name='response' element='tns:parsenamegeoResponse' />
+  </message>
+  <message name='parsenameslistRequestMessage' />
+  <message name='parsenameslistResponseMessage'>
+    <part name='response' element='tns:parsenameslistResponse' />
+  </message>
+  <portType name='parseNamesPortType'>
+    <operation name='parsename'>
+      <documentation>parse a name into its likely firstName lastName components</documentation>
+      <input message='tns:parsenameRequestMessage' name='parsenameInput' />
+      <output message='tns:parsenameResponseMessage' name='parsenameOutput' />
+    </operation>
+    <operation name='parsenamegeo'>
+      <documentation>parse a name knowing a local context country ISO code into its likely first name last name components</documentation>
+      <input message='tns:parsenamegeoRequestMessage' name='parsenamegeoInput' />
+      <output message='tns:parsenamegeoResponseMessage' name='parsenamegeoOutput' />
+    </operation>
+    <operation name='parsenameslist'>
+      <documentation>determine the likely structure of up to names at a time When a large list of names is processed names you can specify how the list of names should be handled using nameFormatTip Possible values ORDER FNLN firstName first ORDER LNFN lastName first ORDER FNLN OR LNFN make best guess individually name by name ORDER FNLN OR LNFN ALLSAME make best guess and apply to ALL the names if most names are FNLN then ALL names will be considered FNLN</documentation>
+      <input message='tns:parsenameslistRequestMessage' name='parsenameslistInput' />
+      <output message='tns:parsenameslistResponseMessage' name='parsenameslistOutput' />
+    </operation>
+  </portType>
+  <binding name='parseNamesBinding' type='tns:parseNamesPortType'>
+    <operation name='parsename'>
+      <soap12:operation soapAction='http://parsename' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='parsenamegeo'>
+      <soap12:operation soapAction='http://parsenamegeo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='parsenameslist'>
+      <soap12:operation soapAction='http://parsenameslist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='parseNames'>
+    <documentation>namSor Parse API detects the likely structure of international names it will determine the most likely order and splitting of a personal name as first name and last name It takes into account culture language and origin</documentation>
+    <port name='parseNamesPort' binding='tns:parseNamesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://parseNames' />
+    </port>
+  </service>
+</definitions>

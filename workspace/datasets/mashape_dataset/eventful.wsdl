@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eventful/' name='eventful' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eventful/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eventful/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eventful/'>
+      <xsd:element name='eventsSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keywords' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='eventsSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='venuesSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keywords' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='venuesSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='eventsSearchRequestMessage'>
+    <part name='parameters' element='tns:eventsSearchParameters' />
+  </message>
+  <message name='eventsSearchResponseMessage'>
+    <part name='response' element='tns:eventsSearchResponse' />
+  </message>
+  <message name='venuesSearchRequestMessage'>
+    <part name='parameters' element='tns:venuesSearchParameters' />
+  </message>
+  <message name='venuesSearchResponseMessage'>
+    <part name='response' element='tns:venuesSearchResponse' />
+  </message>
+  <portType name='eventfulPortType'>
+    <operation name='eventsSearch'>
+      <documentation></documentation>
+      <input message='tns:eventsSearchRequestMessage' name='eventsSearchInput' />
+      <output message='tns:eventsSearchResponseMessage' name='eventsSearchOutput' />
+    </operation>
+    <operation name='venuesSearch'>
+      <documentation></documentation>
+      <input message='tns:venuesSearchRequestMessage' name='venuesSearchInput' />
+      <output message='tns:venuesSearchResponseMessage' name='venuesSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='eventfulBinding' type='tns:eventfulPortType'>
+    <operation name='eventsSearch'>
+      <soap12:operation soapAction='http://eventsSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='venuesSearch'>
+      <soap12:operation soapAction='http://venuesSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eventful'>
+    <documentation>iMPORTANT Eventful API is a Paid Usage model and requires a licensing agreement directly with Eventful Eventful is a leading digital media company connecting consumers with entertainment movies and local events Over million people rely on Eventful to find out what s happening and decide what to do from movies concerts and sports to family fun and nightlife With millions of local events to choose from Eventful provides the world s most comprehensive selection of local entertainment content and serves its users across multiple platforms including online mobile and email delivering highly personalized content and recommendations to each of Eventful s million registered users</documentation>
+    <port name='eventfulPort' binding='tns:eventfulBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eventful' />
+    </port>
+  </service>
+</definitions>

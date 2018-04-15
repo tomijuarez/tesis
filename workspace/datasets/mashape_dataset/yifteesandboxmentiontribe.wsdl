@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/yifteeSandboxMentiontribe/' name='yifteeSandboxMentiontribe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/yifteeSandboxMentiontribe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/yifteeSandboxMentiontribe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/yifteeSandboxMentiontribe/'>
+      <xsd:element name='balanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='giftStatusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='auditnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='giftStatusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='balanceRequestMessage' />
+  <message name='balanceResponseMessage'>
+    <part name='response' element='tns:balanceResponse' />
+  </message>
+  <message name='giftStatusRequestMessage'>
+    <part name='parameters' element='tns:giftStatusParameters' />
+  </message>
+  <message name='giftStatusResponseMessage'>
+    <part name='response' element='tns:giftStatusResponse' />
+  </message>
+  <portType name='yifteeSandboxMentiontribePortType'>
+    <operation name='balance'>
+      <documentation>retrieve account balance</documentation>
+      <input message='tns:balanceRequestMessage' name='balanceInput' />
+      <output message='tns:balanceResponseMessage' name='balanceOutput' />
+    </operation>
+    <operation name='giftStatus'>
+      <documentation></documentation>
+      <input message='tns:giftStatusRequestMessage' name='giftStatusInput' />
+      <output message='tns:giftStatusResponseMessage' name='giftStatusOutput' />
+    </operation>
+  </portType>
+  <binding name='yifteeSandboxMentiontribeBinding' type='tns:yifteeSandboxMentiontribePortType'>
+    <operation name='balance'>
+      <soap12:operation soapAction='http://balance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='giftStatus'>
+      <soap12:operation soapAction='http://giftStatus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='yifteeSandboxMentiontribe'>
+    <documentation>send gift cards through a single simple REST API Access thousands of local and national merchants USA through our Gifting Platform From customer love to internal employee rewards developers are using the API to create solutions that could only be accomplished before by physically buying and shipping plastic gift cards Gifts can be tied to a specific location perfect for converting online engagement to in store traffic via measurable marketing campaigns We are always looking for new use cases and case studies to feature so if you have any questions comments or general feedback drop us a line at developers yiftee com This API points to our sandbox server and no real gifts will be issues</documentation>
+    <port name='yifteeSandboxMentiontribePort' binding='tns:yifteeSandboxMentiontribeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://yifteeSandboxMentiontribe' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordsapi/' name='wordsapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordsapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordsapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordsapi/'>
+      <xsd:element name='alsoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='alsoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='also' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='antonymsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='antonymsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='antonyms' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='definitionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='definitions' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='partOfSpeech' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='definition' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entails' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='examplesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='examplesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='examples' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='frequencyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='frequencyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='frequency' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='diversity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='perMillion' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='zipf' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasCategoriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasCategories' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasInstancesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasInstancesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasInstances' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasMembersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasMembersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hasMembers' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasPartsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasPartsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hasParts' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasSubstancesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasSubstancesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasSubstances' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasTypesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasTypes' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasUsagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hasUsagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasUsages' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inCategoryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inCategoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='inCategory' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inRegionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inRegionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='inRegion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isATypeOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isATypeOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='typeOf' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isAnInstanceOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isAnInstanceOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='instanceOf' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='memberOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='memberOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='memberOf' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='partOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='partOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='partOf' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pertainsToParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='words' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pertainsToResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pertainsTo' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pronunciationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pronunciationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pronunciation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='all' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='noun' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='synonyms' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='partOfSpeech' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='definition' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='typeOf' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='regionOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='regionOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='regionOf' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rhymesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rhymesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rhymes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='all' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='pronunciation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='all' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='simplified' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='frequencymax' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='frequencymin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hasdetails' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='letterpattern' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='letters' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lettersmax' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lettersmin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='partofspeech' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pronunciationpattern' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sounds' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='soundsmax' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='soundsmin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='syllables' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='syllablesmax' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='syllablesmin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pronunciationPattern' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='letterPattern' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='page' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='data' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarToParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarToResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='similarTo' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='substanceOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='substanceOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='substanceOf' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='syllablesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='syllablesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='syllables' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='list' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='synonymsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='synonymsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='synonyms' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usageOfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usageOfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='usageOf' type='xsd:string' minOccurs='0' />
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pronunciation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='all' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='hasTypes' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='examples' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='synonyms' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='partOfSpeech' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='definition' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='derivation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='typeOf' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='syllables' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='list' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='alsoRequestMessage'>
+    <part name='parameters' element='tns:alsoParameters' />
+  </message>
+  <message name='alsoResponseMessage'>
+    <part name='response' element='tns:alsoResponse' />
+  </message>
+  <message name='antonymsRequestMessage'>
+    <part name='parameters' element='tns:antonymsParameters' />
+  </message>
+  <message name='antonymsResponseMessage'>
+    <part name='response' element='tns:antonymsResponse' />
+  </message>
+  <message name='definitionsRequestMessage'>
+    <part name='parameters' element='tns:definitionsParameters' />
+  </message>
+  <message name='definitionsResponseMessage'>
+    <part name='response' element='tns:definitionsResponse' />
+  </message>
+  <message name='entailsRequestMessage'>
+    <part name='parameters' element='tns:entailsParameters' />
+  </message>
+  <message name='entailsResponseMessage'>
+    <part name='response' element='tns:entailsResponse' />
+  </message>
+  <message name='examplesRequestMessage'>
+    <part name='parameters' element='tns:examplesParameters' />
+  </message>
+  <message name='examplesResponseMessage'>
+    <part name='response' element='tns:examplesResponse' />
+  </message>
+  <message name='frequencyRequestMessage'>
+    <part name='parameters' element='tns:frequencyParameters' />
+  </message>
+  <message name='frequencyResponseMessage'>
+    <part name='response' element='tns:frequencyResponse' />
+  </message>
+  <message name='hasCategoriesRequestMessage'>
+    <part name='parameters' element='tns:hasCategoriesParameters' />
+  </message>
+  <message name='hasCategoriesResponseMessage'>
+    <part name='response' element='tns:hasCategoriesResponse' />
+  </message>
+  <message name='hasInstancesRequestMessage'>
+    <part name='parameters' element='tns:hasInstancesParameters' />
+  </message>
+  <message name='hasInstancesResponseMessage'>
+    <part name='response' element='tns:hasInstancesResponse' />
+  </message>
+  <message name='hasMembersRequestMessage'>
+    <part name='parameters' element='tns:hasMembersParameters' />
+  </message>
+  <message name='hasMembersResponseMessage'>
+    <part name='response' element='tns:hasMembersResponse' />
+  </message>
+  <message name='hasPartsRequestMessage'>
+    <part name='parameters' element='tns:hasPartsParameters' />
+  </message>
+  <message name='hasPartsResponseMessage'>
+    <part name='response' element='tns:hasPartsResponse' />
+  </message>
+  <message name='hasSubstancesRequestMessage'>
+    <part name='parameters' element='tns:hasSubstancesParameters' />
+  </message>
+  <message name='hasSubstancesResponseMessage'>
+    <part name='response' element='tns:hasSubstancesResponse' />
+  </message>
+  <message name='hasTypesRequestMessage'>
+    <part name='parameters' element='tns:hasTypesParameters' />
+  </message>
+  <message name='hasTypesResponseMessage'>
+    <part name='response' element='tns:hasTypesResponse' />
+  </message>
+  <message name='hasUsagesRequestMessage'>
+    <part name='parameters' element='tns:hasUsagesParameters' />
+  </message>
+  <message name='hasUsagesResponseMessage'>
+    <part name='response' element='tns:hasUsagesResponse' />
+  </message>
+  <message name='inCategoryRequestMessage'>
+    <part name='parameters' element='tns:inCategoryParameters' />
+  </message>
+  <message name='inCategoryResponseMessage'>
+    <part name='response' element='tns:inCategoryResponse' />
+  </message>
+  <message name='inRegionRequestMessage'>
+    <part name='parameters' element='tns:inRegionParameters' />
+  </message>
+  <message name='inRegionResponseMessage'>
+    <part name='response' element='tns:inRegionResponse' />
+  </message>
+  <message name='isATypeOfRequestMessage'>
+    <part name='parameters' element='tns:isATypeOfParameters' />
+  </message>
+  <message name='isATypeOfResponseMessage'>
+    <part name='response' element='tns:isATypeOfResponse' />
+  </message>
+  <message name='isAnInstanceOfRequestMessage'>
+    <part name='parameters' element='tns:isAnInstanceOfParameters' />
+  </message>
+  <message name='isAnInstanceOfResponseMessage'>
+    <part name='response' element='tns:isAnInstanceOfResponse' />
+  </message>
+  <message name='memberOfRequestMessage'>
+    <part name='parameters' element='tns:memberOfParameters' />
+  </message>
+  <message name='memberOfResponseMessage'>
+    <part name='response' element='tns:memberOfResponse' />
+  </message>
+  <message name='partOfRequestMessage'>
+    <part name='parameters' element='tns:partOfParameters' />
+  </message>
+  <message name='partOfResponseMessage'>
+    <part name='response' element='tns:partOfResponse' />
+  </message>
+  <message name='pertainsToRequestMessage'>
+    <part name='parameters' element='tns:pertainsToParameters' />
+  </message>
+  <message name='pertainsToResponseMessage'>
+    <part name='response' element='tns:pertainsToResponse' />
+  </message>
+  <message name='pronunciationRequestMessage'>
+    <part name='parameters' element='tns:pronunciationParameters' />
+  </message>
+  <message name='pronunciationResponseMessage'>
+    <part name='response' element='tns:pronunciationResponse' />
+  </message>
+  <message name='randomRequestMessage' />
+  <message name='randomResponseMessage'>
+    <part name='response' element='tns:randomResponse' />
+  </message>
+  <message name='regionOfRequestMessage'>
+    <part name='parameters' element='tns:regionOfParameters' />
+  </message>
+  <message name='regionOfResponseMessage'>
+    <part name='response' element='tns:regionOfResponse' />
+  </message>
+  <message name='rhymesRequestMessage'>
+    <part name='parameters' element='tns:rhymesParameters' />
+  </message>
+  <message name='rhymesResponseMessage'>
+    <part name='response' element='tns:rhymesResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='similarToRequestMessage'>
+    <part name='parameters' element='tns:similarToParameters' />
+  </message>
+  <message name='similarToResponseMessage'>
+    <part name='response' element='tns:similarToResponse' />
+  </message>
+  <message name='substanceOfRequestMessage'>
+    <part name='parameters' element='tns:substanceOfParameters' />
+  </message>
+  <message name='substanceOfResponseMessage'>
+    <part name='response' element='tns:substanceOfResponse' />
+  </message>
+  <message name='syllablesRequestMessage'>
+    <part name='parameters' element='tns:syllablesParameters' />
+  </message>
+  <message name='syllablesResponseMessage'>
+    <part name='response' element='tns:syllablesResponse' />
+  </message>
+  <message name='synonymsRequestMessage'>
+    <part name='parameters' element='tns:synonymsParameters' />
+  </message>
+  <message name='synonymsResponseMessage'>
+    <part name='response' element='tns:synonymsResponse' />
+  </message>
+  <message name='usageOfRequestMessage'>
+    <part name='parameters' element='tns:usageOfParameters' />
+  </message>
+  <message name='usageOfResponseMessage'>
+    <part name='response' element='tns:usageOfResponse' />
+  </message>
+  <message name='wordRequestMessage'>
+    <part name='parameters' element='tns:wordParameters' />
+  </message>
+  <message name='wordResponseMessage'>
+    <part name='response' element='tns:wordResponse' />
+  </message>
+  <portType name='wordsapiPortType'>
+    <operation name='also'>
+      <documentation>phrases of which the word is a part</documentation>
+      <input message='tns:alsoRequestMessage' name='alsoInput' />
+      <output message='tns:alsoResponseMessage' name='alsoOutput' />
+    </operation>
+    <operation name='antonyms'>
+      <documentation>get antonyms opposites of a word</documentation>
+      <input message='tns:antonymsRequestMessage' name='antonymsInput' />
+      <output message='tns:antonymsResponseMessage' name='antonymsOutput' />
+    </operation>
+    <operation name='definitions'>
+      <documentation>get definitions of a word including the part of speech</documentation>
+      <input message='tns:definitionsRequestMessage' name='definitionsInput' />
+      <output message='tns:definitionsResponseMessage' name='definitionsOutput' />
+    </operation>
+    <operation name='entails'>
+      <documentation>words that are implied by the original word Usually used for verbs</documentation>
+      <input message='tns:entailsRequestMessage' name='entailsInput' />
+      <output message='tns:entailsResponseMessage' name='entailsOutput' />
+    </operation>
+    <operation name='examples'>
+      <documentation>get examples of how the word is used</documentation>
+      <input message='tns:examplesRequestMessage' name='examplesInput' />
+      <output message='tns:examplesResponseMessage' name='examplesOutput' />
+    </operation>
+    <operation name='frequency'>
+      <documentation>expands upon the frequeny score returned by the main words word endpoint Returns zipf a score indicating how common the word is in the English language with a range of to perMillion the number of times the word is likely to appear in a corpus of one million English words and diversity a scale the shows the likelyhood of the word appearing in an English document that is part of a corpus</documentation>
+      <input message='tns:frequencyRequestMessage' name='frequencyInput' />
+      <output message='tns:frequencyResponseMessage' name='frequencyOutput' />
+    </operation>
+    <operation name='hasCategories'>
+      <documentation>categories of the parameter word</documentation>
+      <input message='tns:hasCategoriesRequestMessage' name='hasCategoriesInput' />
+      <output message='tns:hasCategoriesResponseMessage' name='hasCategoriesOutput' />
+    </operation>
+    <operation name='hasInstances'>
+      <documentation>words that are examples of the parameter word</documentation>
+      <input message='tns:hasInstancesRequestMessage' name='hasInstancesInput' />
+      <output message='tns:hasInstancesResponseMessage' name='hasInstancesOutput' />
+    </operation>
+    <operation name='hasMembers'>
+      <documentation>words that belong to the group defined by the parameter word</documentation>
+      <input message='tns:hasMembersRequestMessage' name='hasMembersInput' />
+      <output message='tns:hasMembersResponseMessage' name='hasMembersOutput' />
+    </operation>
+    <operation name='hasParts'>
+      <documentation>words that are parts of the original word</documentation>
+      <input message='tns:hasPartsRequestMessage' name='hasPartsInput' />
+      <output message='tns:hasPartsResponseMessage' name='hasPartsOutput' />
+    </operation>
+    <operation name='hasSubstances'>
+      <documentation>words that are substances of the parameter word</documentation>
+      <input message='tns:hasSubstancesRequestMessage' name='hasSubstancesInput' />
+      <output message='tns:hasSubstancesResponseMessage' name='hasSubstancesOutput' />
+    </operation>
+    <operation name='hasTypes'>
+      <documentation>get more specific examples of types of this word</documentation>
+      <input message='tns:hasTypesRequestMessage' name='hasTypesInput' />
+      <output message='tns:hasTypesResponseMessage' name='hasTypesOutput' />
+    </operation>
+    <operation name='hasUsages'>
+      <documentation>words that are examples of the domain the original word defines</documentation>
+      <input message='tns:hasUsagesRequestMessage' name='hasUsagesInput' />
+      <output message='tns:hasUsagesResponseMessage' name='hasUsagesOutput' />
+    </operation>
+    <operation name='inCategory'>
+      <documentation>the domain category to which the original word belongs</documentation>
+      <input message='tns:inCategoryRequestMessage' name='inCategoryInput' />
+      <output message='tns:inCategoryResponseMessage' name='inCategoryOutput' />
+    </operation>
+    <operation name='inRegion'>
+      <documentation>geographical areas where the word is used</documentation>
+      <input message='tns:inRegionRequestMessage' name='inRegionInput' />
+      <output message='tns:inRegionResponseMessage' name='inRegionOutput' />
+    </operation>
+    <operation name='isATypeOf'>
+      <documentation>finds word that are more general than the given word</documentation>
+      <input message='tns:isATypeOfRequestMessage' name='isATypeOfInput' />
+      <output message='tns:isATypeOfResponseMessage' name='isATypeOfOutput' />
+    </operation>
+    <operation name='isAnInstanceOf'>
+      <documentation>words that the parameter word is an example of</documentation>
+      <input message='tns:isAnInstanceOfRequestMessage' name='isAnInstanceOfInput' />
+      <output message='tns:isAnInstanceOfResponseMessage' name='isAnInstanceOfOutput' />
+    </operation>
+    <operation name='memberOf'>
+      <documentation>a group to which the word belongs</documentation>
+      <input message='tns:memberOfRequestMessage' name='memberOfInput' />
+      <output message='tns:memberOfResponseMessage' name='memberOfOutput' />
+    </operation>
+    <operation name='partOf'>
+      <documentation>the larger whole to which the word belongs</documentation>
+      <input message='tns:partOfRequestMessage' name='partOfInput' />
+      <output message='tns:partOfResponseMessage' name='partOfOutput' />
+    </operation>
+    <operation name='pertainsTo'>
+      <documentation>words to which the original word is relevant</documentation>
+      <input message='tns:pertainsToRequestMessage' name='pertainsToInput' />
+      <output message='tns:pertainsToResponseMessage' name='pertainsToOutput' />
+    </operation>
+    <operation name='pronunciation'>
+      <documentation>how to pronounce a word according to the International Phonetic Alphabet May include multiple results if the word is pronounced differently depending on its part of speech</documentation>
+      <input message='tns:pronunciationRequestMessage' name='pronunciationInput' />
+      <output message='tns:pronunciationResponseMessage' name='pronunciationOutput' />
+    </operation>
+    <operation name='random'>
+      <documentation>retrieve a random word optionally matching a search criteria You can use the same search criteria as the Search endpoint</documentation>
+      <input message='tns:randomRequestMessage' name='randomInput' />
+      <output message='tns:randomResponseMessage' name='randomOutput' />
+    </operation>
+    <operation name='regionOf'>
+      <documentation>words used in the specified geographical area</documentation>
+      <input message='tns:regionOfRequestMessage' name='regionOfInput' />
+      <output message='tns:regionOfResponseMessage' name='regionOfOutput' />
+    </operation>
+    <operation name='rhymes'>
+      <documentation>get a list of words that rhyme with the given word</documentation>
+      <input message='tns:rhymesRequestMessage' name='rhymesInput' />
+      <output message='tns:rhymesResponseMessage' name='rhymesOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for words matching the parameters you provide For more examples please see the documentation on the website https www wordsapi com docs search</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='similarTo'>
+      <documentation>words that similar to the original word but are not synonyms</documentation>
+      <input message='tns:similarToRequestMessage' name='similarToInput' />
+      <output message='tns:similarToResponseMessage' name='similarToOutput' />
+    </operation>
+    <operation name='substanceOf'>
+      <documentation>substances to which the original word is a part of</documentation>
+      <input message='tns:substanceOfRequestMessage' name='substanceOfInput' />
+      <output message='tns:substanceOfResponseMessage' name='substanceOfOutput' />
+    </operation>
+    <operation name='syllables'>
+      <documentation>returns the word broken down into syllables</documentation>
+      <input message='tns:syllablesRequestMessage' name='syllablesInput' />
+      <output message='tns:syllablesResponseMessage' name='syllablesOutput' />
+    </operation>
+    <operation name='synonyms'>
+      <documentation>get synonyms of a word</documentation>
+      <input message='tns:synonymsRequestMessage' name='synonymsInput' />
+      <output message='tns:synonymsResponseMessage' name='synonymsOutput' />
+    </operation>
+    <operation name='usageOf'>
+      <documentation>words that the original word is a domain usage of</documentation>
+      <input message='tns:usageOfRequestMessage' name='usageOfInput' />
+      <output message='tns:usageOfResponseMessage' name='usageOfOutput' />
+    </operation>
+    <operation name='word'>
+      <documentation>retrieve information about a word Results can include definitions part of speech synonyms related words syllables and pronunciation This method is useful to see which relationships are attached to which definition and part of speech of a word</documentation>
+      <input message='tns:wordRequestMessage' name='wordInput' />
+      <output message='tns:wordResponseMessage' name='wordOutput' />
+    </operation>
+  </portType>
+  <binding name='wordsapiBinding' type='tns:wordsapiPortType'>
+    <operation name='also'>
+      <soap12:operation soapAction='http://also' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='antonyms'>
+      <soap12:operation soapAction='http://antonyms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='definitions'>
+      <soap12:operation soapAction='http://definitions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entails'>
+      <soap12:operation soapAction='http://entails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='examples'>
+      <soap12:operation soapAction='http://examples' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='frequency'>
+      <soap12:operation soapAction='http://frequency' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasCategories'>
+      <soap12:operation soapAction='http://hasCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasInstances'>
+      <soap12:operation soapAction='http://hasInstances' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasMembers'>
+      <soap12:operation soapAction='http://hasMembers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasParts'>
+      <soap12:operation soapAction='http://hasParts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasSubstances'>
+      <soap12:operation soapAction='http://hasSubstances' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasTypes'>
+      <soap12:operation soapAction='http://hasTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hasUsages'>
+      <soap12:operation soapAction='http://hasUsages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inCategory'>
+      <soap12:operation soapAction='http://inCategory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inRegion'>
+      <soap12:operation soapAction='http://inRegion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='isATypeOf'>
+      <soap12:operation soapAction='http://isATypeOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='isAnInstanceOf'>
+      <soap12:operation soapAction='http://isAnInstanceOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='memberOf'>
+      <soap12:operation soapAction='http://memberOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='partOf'>
+      <soap12:operation soapAction='http://partOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pertainsTo'>
+      <soap12:operation soapAction='http://pertainsTo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pronunciation'>
+      <soap12:operation soapAction='http://pronunciation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='random'>
+      <soap12:operation soapAction='http://random' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='regionOf'>
+      <soap12:operation soapAction='http://regionOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rhymes'>
+      <soap12:operation soapAction='http://rhymes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='similarTo'>
+      <soap12:operation soapAction='http://similarTo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='substanceOf'>
+      <soap12:operation soapAction='http://substanceOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='syllables'>
+      <soap12:operation soapAction='http://syllables' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='synonyms'>
+      <soap12:operation soapAction='http://synonyms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='usageOf'>
+      <soap12:operation soapAction='http://usageOf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='word'>
+      <soap12:operation soapAction='http://word' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordsapi'>
+    <documentation>words API lets you retrieve information about English words including definitions synonyms rhymes pronunciation syllables and frequency of usage It also can tell you about relationships between words for instance that math has categories like algebra and geometry or that a finger is part of a hand</documentation>
+    <port name='wordsapiPort' binding='tns:wordsapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordsapi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/videoOcr/' name='videoOcr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/videoOcr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/videoOcr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/videoOcr/'>
+      <xsd:element name='videoOcrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='videoOcrRequestMessage' />
+  <message name='videoOcrResponseMessage'>
+    <part name='response' element='tns:videoOcrResponse' />
+  </message>
+  <portType name='videoOcrPortType'>
+    <operation name='videoOcr'>
+      <documentation>video OCR is an analysis cascade which includes video segmentation hard cut video text detection recognition and named entity recognition from video text NER is a free add on feature The analysis result of this method enables automatic video retrieval and indexing as well as content based video search in video archives A detailed example can be found in our demo website</documentation>
+      <input message='tns:videoOcrRequestMessage' name='videoOcrInput' />
+      <output message='tns:videoOcrResponseMessage' name='videoOcrOutput' />
+    </operation>
+  </portType>
+  <binding name='videoOcrBinding' type='tns:videoOcrPortType'>
+    <operation name='videoOcr'>
+      <soap12:operation soapAction='http://videoOcr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='videoOcr'>
+    <documentation>video OCR is an analysis cascade which includes video segmentation hard cut video text detection recognition and named entity recognition from video text NER is a free add on feature The analysis result of this method enables automatic video retrieval and indexing as well as content based video search in video archives A detailed example can be found in our demo website https www semamediadata com demo video ocr</documentation>
+    <port name='videoOcrPort' binding='tns:videoOcrBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://videoOcr' />
+    </port>
+  </service>
+</definitions>

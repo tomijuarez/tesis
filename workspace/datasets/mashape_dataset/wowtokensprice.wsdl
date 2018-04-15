@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wowTokensPrice/' name='wowTokensPrice' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wowTokensPrice/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wowTokensPrice/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wowTokensPrice/'>
+      <xsd:element name='showAllResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='regions' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='eu' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='tw' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='na' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='kr' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='cn' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showOneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='regioncode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showOneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='region' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='token_price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='token_price_string' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='showAllRequestMessage' />
+  <message name='showAllResponseMessage'>
+    <part name='response' element='tns:showAllResponse' />
+  </message>
+  <message name='showOneRequestMessage'>
+    <part name='parameters' element='tns:showOneParameters' />
+  </message>
+  <message name='showOneResponseMessage'>
+    <part name='response' element='tns:showOneResponse' />
+  </message>
+  <portType name='wowTokensPricePortType'>
+    <operation name='showAll'>
+      <documentation>get for all regions</documentation>
+      <input message='tns:showAllRequestMessage' name='showAllInput' />
+      <output message='tns:showAllResponseMessage' name='showAllOutput' />
+    </operation>
+    <operation name='showOne'>
+      <documentation>get data for specific region</documentation>
+      <input message='tns:showOneRequestMessage' name='showOneInput' />
+      <output message='tns:showOneResponseMessage' name='showOneOutput' />
+    </operation>
+  </portType>
+  <binding name='wowTokensPriceBinding' type='tns:wowTokensPricePortType'>
+    <operation name='showAll'>
+      <soap12:operation soapAction='http://showAll' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showOne'>
+      <soap12:operation soapAction='http://showOne' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wowTokensPrice'>
+    <documentation>get the price of World of Warcraft Tokens</documentation>
+    <port name='wowTokensPricePort' binding='tns:wowTokensPriceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wowTokensPrice' />
+    </port>
+  </service>
+</definitions>

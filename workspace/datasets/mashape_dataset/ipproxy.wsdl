@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipProxy/' name='ipProxy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipProxy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipProxy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipProxy/'>
+      <xsd:element name='ipProxyApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='license' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipProxyApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipProxyApiRequestMessage'>
+    <part name='parameters' element='tns:ipProxyApiParameters' />
+  </message>
+  <message name='ipProxyApiResponseMessage'>
+    <part name='response' element='tns:ipProxyApiResponse' />
+  </message>
+  <portType name='ipProxyPortType'>
+    <operation name='ipProxyApi'>
+      <documentation>proxy Detection API</documentation>
+      <input message='tns:ipProxyApiRequestMessage' name='ipProxyApiInput' />
+      <output message='tns:ipProxyApiResponseMessage' name='ipProxyApiOutput' />
+    </operation>
+  </portType>
+  <binding name='ipProxyBinding' type='tns:ipProxyPortType'>
+    <operation name='ipProxyApi'>
+      <soap12:operation soapAction='http://ipProxyApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipProxy'>
+    <documentation>the IP Proxy Proxy Detection Web Service allows instant detection of anonymous proxy by IP address The IP Proxy Proxy Detection Web Service enables you to check proxy servers for anonymity Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</documentation>
+    <port name='ipProxyPort' binding='tns:ipProxyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipProxy' />
+    </port>
+  </service>
+</definitions>

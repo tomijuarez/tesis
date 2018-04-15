@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordQuiz/' name='wordQuiz' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordQuiz/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordQuiz/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordQuiz/'>
+      <xsd:element name='typeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='area' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='level' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='typeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='area' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='level' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='quizlist' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='quiz' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='correct' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='option' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='typeRequestMessage'>
+    <part name='parameters' element='tns:typeParameters' />
+  </message>
+  <message name='typeResponseMessage'>
+    <part name='response' element='tns:typeResponse' />
+  </message>
+  <portType name='wordQuizPortType'>
+    <operation name='type'>
+      <documentation>customized word association quiz for game and e learning software</documentation>
+      <input message='tns:typeRequestMessage' name='typeInput' />
+      <output message='tns:typeResponseMessage' name='typeOutput' />
+    </operation>
+  </portType>
+  <binding name='wordQuizBinding' type='tns:wordQuizPortType'>
+    <operation name='type'>
+      <soap12:operation soapAction='http://type' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordQuiz'>
+    <documentation>vocabulary test with levels and exam specific words SAT GMAT etc Customized word association quiz for game and e learning software</documentation>
+    <port name='wordQuizPort' binding='tns:wordQuizBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordQuiz' />
+    </port>
+  </service>
+</definitions>

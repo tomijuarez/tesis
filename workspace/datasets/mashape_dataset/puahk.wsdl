@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/puahk/' name='puahk' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/puahk/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/puahk/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/puahk/'>
+      <xsd:element name='getAllPlaylistParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='details' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllPlaylistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tracks' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='release_date' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='part' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='length' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='filesize' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCoverArtParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCoverArtResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlaylistParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlaylistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='track_ids' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTrackParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTrackResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='release_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='part' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='length' type='xsd:int' minOccurs='0' />
+            <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='filesize' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='playTrackParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='playTrackResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchTrackParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='day' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='month' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchTrackResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='release_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='part' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='length' type='xsd:int' minOccurs='0' />
+            <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='filesize' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getAllPlaylistRequestMessage'>
+    <part name='parameters' element='tns:getAllPlaylistParameters' />
+  </message>
+  <message name='getAllPlaylistResponseMessage'>
+    <part name='response' element='tns:getAllPlaylistResponse' />
+  </message>
+  <message name='getCoverArtRequestMessage'>
+    <part name='parameters' element='tns:getCoverArtParameters' />
+  </message>
+  <message name='getCoverArtResponseMessage'>
+    <part name='response' element='tns:getCoverArtResponse' />
+  </message>
+  <message name='getPlaylistRequestMessage'>
+    <part name='parameters' element='tns:getPlaylistParameters' />
+  </message>
+  <message name='getPlaylistResponseMessage'>
+    <part name='response' element='tns:getPlaylistResponse' />
+  </message>
+  <message name='getTrackRequestMessage'>
+    <part name='parameters' element='tns:getTrackParameters' />
+  </message>
+  <message name='getTrackResponseMessage'>
+    <part name='response' element='tns:getTrackResponse' />
+  </message>
+  <message name='playTrackRequestMessage'>
+    <part name='parameters' element='tns:playTrackParameters' />
+  </message>
+  <message name='playTrackResponseMessage'>
+    <part name='response' element='tns:playTrackResponse' />
+  </message>
+  <message name='searchTrackRequestMessage'>
+    <part name='parameters' element='tns:searchTrackParameters' />
+  </message>
+  <message name='searchTrackResponseMessage'>
+    <part name='response' element='tns:searchTrackResponse' />
+  </message>
+  <portType name='puahkPortType'>
+    <operation name='getAllPlaylist'>
+      <documentation></documentation>
+      <input message='tns:getAllPlaylistRequestMessage' name='getAllPlaylistInput' />
+      <output message='tns:getAllPlaylistResponseMessage' name='getAllPlaylistOutput' />
+    </operation>
+    <operation name='getCoverArt'>
+      <documentation></documentation>
+      <input message='tns:getCoverArtRequestMessage' name='getCoverArtInput' />
+      <output message='tns:getCoverArtResponseMessage' name='getCoverArtOutput' />
+    </operation>
+    <operation name='getPlaylist'>
+      <documentation></documentation>
+      <input message='tns:getPlaylistRequestMessage' name='getPlaylistInput' />
+      <output message='tns:getPlaylistResponseMessage' name='getPlaylistOutput' />
+    </operation>
+    <operation name='getTrack'>
+      <documentation></documentation>
+      <input message='tns:getTrackRequestMessage' name='getTrackInput' />
+      <output message='tns:getTrackResponseMessage' name='getTrackOutput' />
+    </operation>
+    <operation name='playTrack'>
+      <documentation></documentation>
+      <input message='tns:playTrackRequestMessage' name='playTrackInput' />
+      <output message='tns:playTrackResponseMessage' name='playTrackOutput' />
+    </operation>
+    <operation name='searchTrack'>
+      <documentation></documentation>
+      <input message='tns:searchTrackRequestMessage' name='searchTrackInput' />
+      <output message='tns:searchTrackResponseMessage' name='searchTrackOutput' />
+    </operation>
+  </portType>
+  <binding name='puahkBinding' type='tns:puahkPortType'>
+    <operation name='getAllPlaylist'>
+      <soap12:operation soapAction='http://getAllPlaylist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getCoverArt'>
+      <soap12:operation soapAction='http://getCoverArt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPlaylist'>
+      <soap12:operation soapAction='http://getPlaylist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTrack'>
+      <soap12:operation soapAction='http://getTrack' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='playTrack'>
+      <soap12:operation soapAction='http://playTrack' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchTrack'>
+      <soap12:operation soapAction='http://searchTrack' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='puahk'>
+    <documentation>access all playlist of PUAHK podcast List out all the tracks by playlist</documentation>
+    <port name='puahkPort' binding='tns:puahkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://puahk' />
+    </port>
+  </service>
+</definitions>

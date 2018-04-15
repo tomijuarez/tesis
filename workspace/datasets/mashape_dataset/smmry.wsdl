@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smmry/' name='smmry' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smmry/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smmry/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smmry/'>
+      <xsd:element name='summarizeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='smkeywordcount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='smlength' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='smquoteavoid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='smurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='smwithbreak' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summarizeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='summarizeRequestMessage'>
+    <part name='parameters' element='tns:summarizeParameters' />
+  </message>
+  <message name='summarizeResponseMessage'>
+    <part name='response' element='tns:summarizeResponse' />
+  </message>
+  <portType name='smmryPortType'>
+    <operation name='summarize'>
+      <documentation></documentation>
+      <input message='tns:summarizeRequestMessage' name='summarizeInput' />
+      <output message='tns:summarizeResponseMessage' name='summarizeOutput' />
+    </operation>
+  </portType>
+  <binding name='smmryBinding' type='tns:smmryPortType'>
+    <operation name='summarize'>
+      <soap12:operation soapAction='http://summarize' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smmry'>
+    <documentation>sMMRY is an automatic summary generator SMMRY is accessible by an API Developers are able to implement SMMRY into applications that may require a summary of a webpage or variable Developers need to generate an API key to access this feature</documentation>
+    <port name='smmryPort' binding='tns:smmryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smmry' />
+    </port>
+  </service>
+</definitions>

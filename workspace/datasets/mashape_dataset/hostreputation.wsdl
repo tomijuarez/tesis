@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hostReputation/' name='hostReputation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hostReputation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hostReputation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hostReputation/'>
+      <xsd:element name='hostReputationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lists' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='list-host' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='is-listed' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='list-name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='txt-record' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='list-count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='is-listed' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='hostReputationRequestMessage' />
+  <message name='hostReputationResponseMessage'>
+    <part name='response' element='tns:hostReputationResponse' />
+  </message>
+  <portType name='hostReputationPortType'>
+    <operation name='hostReputation'>
+      <documentation></documentation>
+      <input message='tns:hostReputationRequestMessage' name='hostReputationInput' />
+      <output message='tns:hostReputationResponseMessage' name='hostReputationOutput' />
+    </operation>
+  </portType>
+  <binding name='hostReputationBinding' type='tns:hostReputationPortType'>
+    <operation name='hostReputation'>
+      <soap12:operation soapAction='http://hostReputation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hostReputation'>
+    <documentation>check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists DNSBLs We currently check DNSBLs and URI DNSBLs This API can take anywhere from seconds to seconds to run depending on the current response times of the active DNSBLs Please Note you should not call this API repeatedly or concurrently in short periods of time or you may get blocked for list abuse</documentation>
+    <port name='hostReputationPort' binding='tns:hostReputationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hostReputation' />
+    </port>
+  </service>
+</definitions>

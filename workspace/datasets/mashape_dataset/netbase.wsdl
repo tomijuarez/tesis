@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/netbase/' name='netbase' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/netbase/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/netbase/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/netbase/'>
+      <xsd:element name='fullJsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullJsonResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullJsonResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='statementCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='statements' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='predicate' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='pid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='oid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='object' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sid' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullXmlResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fullXmlResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fullJsonRequestMessage'>
+    <part name='parameters' element='tns:fullJsonParameters' />
+  </message>
+  <message name='fullJsonResponseMessage'>
+    <part name='response' element='tns:fullJsonResponse' />
+  </message>
+  <message name='fullJsonResultsRequestMessage'>
+    <part name='parameters' element='tns:fullJsonResultsParameters' />
+  </message>
+  <message name='fullJsonResultsResponseMessage'>
+    <part name='response' element='tns:fullJsonResultsResponse' />
+  </message>
+  <message name='fullResultsRequestMessage'>
+    <part name='parameters' element='tns:fullResultsParameters' />
+  </message>
+  <message name='fullResultsResponseMessage'>
+    <part name='response' element='tns:fullResultsResponse' />
+  </message>
+  <message name='fullXmlResultsRequestMessage'>
+    <part name='parameters' element='tns:fullXmlResultsParameters' />
+  </message>
+  <message name='fullXmlResultsResponseMessage'>
+    <part name='response' element='tns:fullXmlResultsResponse' />
+  </message>
+  <portType name='netbasePortType'>
+    <operation name='fullJson'>
+      <documentation>full JSON</documentation>
+      <input message='tns:fullJsonRequestMessage' name='fullJsonInput' />
+      <output message='tns:fullJsonResponseMessage' name='fullJsonOutput' />
+    </operation>
+    <operation name='fullJsonResults'>
+      <documentation>complete json results for query including statements see limit</documentation>
+      <input message='tns:fullJsonResultsRequestMessage' name='fullJsonResultsInput' />
+      <output message='tns:fullJsonResultsResponseMessage' name='fullJsonResultsOutput' />
+    </operation>
+    <operation name='fullResults'>
+      <documentation>full results</documentation>
+      <input message='tns:fullResultsRequestMessage' name='fullResultsInput' />
+      <output message='tns:fullResultsResponseMessage' name='fullResultsOutput' />
+    </operation>
+    <operation name='fullXmlResults'>
+      <documentation>full XML for entity id query or statement</documentation>
+      <input message='tns:fullXmlResultsRequestMessage' name='fullXmlResultsInput' />
+      <output message='tns:fullXmlResultsResponseMessage' name='fullXmlResultsOutput' />
+    </operation>
+  </portType>
+  <binding name='netbaseBinding' type='tns:netbasePortType'>
+    <operation name='fullJson'>
+      <soap12:operation soapAction='http://fullJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fullJsonResults'>
+      <soap12:operation soapAction='http://fullJsonResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fullResults'>
+      <soap12:operation soapAction='http://fullResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fullXmlResults'>
+      <soap12:operation soapAction='http://fullXmlResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='netbase'>
+    <documentation>netbase your semantic web database Knowledge Graph containing over nodes and statements from all the Internet s finest sources including Freebase DBPedia Yago Wordnet babelnet as well as many custom GraphDBs From simple entities to complex queries this is by far the fastest db of its kind</documentation>
+    <port name='netbasePort' binding='tns:netbaseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://netbase' />
+    </port>
+  </service>
+</definitions>

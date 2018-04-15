@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/foodFork/' name='foodFork' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/foodFork/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/foodFork/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/foodFork/'>
+      <xsd:element name='getRecipeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getRecipeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='recipe' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='social_rank' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='f2f_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='recipe_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='publisher_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='publisher' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ingredients' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='source_url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='recipes' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='social_rank' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='f2f_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='recipe_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='publisher_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='publisher' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='source_url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getRecipeRequestMessage'>
+    <part name='parameters' element='tns:getRecipeParameters' />
+  </message>
+  <message name='getRecipeResponseMessage'>
+    <part name='response' element='tns:getRecipeResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='foodForkPortType'>
+    <operation name='getRecipe'>
+      <documentation></documentation>
+      <input message='tns:getRecipeRequestMessage' name='getRecipeInput' />
+      <output message='tns:getRecipeResponseMessage' name='getRecipeOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation></documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='foodForkBinding' type='tns:foodForkPortType'>
+    <operation name='getRecipe'>
+      <soap12:operation soapAction='http://getRecipe' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='foodFork'>
+    <documentation>food Fork is a place to find top socially ranked recipes from tons of recipe blogs and websites</documentation>
+    <port name='foodForkPort' binding='tns:foodForkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://foodFork' />
+    </port>
+  </service>
+</definitions>

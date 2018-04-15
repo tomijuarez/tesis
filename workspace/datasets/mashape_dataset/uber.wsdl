@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/uber/' name='uber' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/uber/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/uber/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/uber/'>
+      <xsd:element name='estimatedPriceRangeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='endlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='endlongitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startlongitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='estimatedPriceRangeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productEtasParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='customeruuid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='productid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startlatitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startlongitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productEtasResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLifetimeActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLifetimeActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='estimatedPriceRangeRequestMessage'>
+    <part name='parameters' element='tns:estimatedPriceRangeParameters' />
+  </message>
+  <message name='estimatedPriceRangeResponseMessage'>
+    <part name='response' element='tns:estimatedPriceRangeResponse' />
+  </message>
+  <message name='productEtasRequestMessage'>
+    <part name='parameters' element='tns:productEtasParameters' />
+  </message>
+  <message name='productEtasResponseMessage'>
+    <part name='response' element='tns:productEtasResponse' />
+  </message>
+  <message name='productInformationRequestMessage'>
+    <part name='parameters' element='tns:productInformationParameters' />
+  </message>
+  <message name='productInformationResponseMessage'>
+    <part name='response' element='tns:productInformationResponse' />
+  </message>
+  <message name='userInformationRequestMessage' />
+  <message name='userInformationResponseMessage'>
+    <part name='response' element='tns:userInformationResponse' />
+  </message>
+  <message name='userLifetimeActivityRequestMessage'>
+    <part name='parameters' element='tns:userLifetimeActivityParameters' />
+  </message>
+  <message name='userLifetimeActivityResponseMessage'>
+    <part name='response' element='tns:userLifetimeActivityResponse' />
+  </message>
+  <portType name='uberPortType'>
+    <operation name='estimatedPriceRange'>
+      <documentation>the Price Estimates endpoint returns an estimated price range for each product offered at a given location The price estimate is provided as a formatted string with the full price range and the localized currency symbol</documentation>
+      <input message='tns:estimatedPriceRangeRequestMessage' name='estimatedPriceRangeInput' />
+      <output message='tns:estimatedPriceRangeResponseMessage' name='estimatedPriceRangeOutput' />
+    </operation>
+    <operation name='productEtas'>
+      <documentation>the Time Estimates endpoint returns ETAs for all products offered at a given location with the responses expressed as integers in seconds We recommend that this endpoint be called every minute to provide the most accurate up to date ETAs</documentation>
+      <input message='tns:productEtasRequestMessage' name='productEtasInput' />
+      <output message='tns:productEtasResponseMessage' name='productEtasOutput' />
+    </operation>
+    <operation name='productInformation'>
+      <documentation>the Products endpoint returns information about the Uber products offered at a given location The response includes the display name and other details about each product and lists the products in the proper display order</documentation>
+      <input message='tns:productInformationRequestMessage' name='productInformationInput' />
+      <output message='tns:productInformationResponseMessage' name='productInformationOutput' />
+    </operation>
+    <operation name='userInformation'>
+      <documentation>the User Profile endpoint returns information about the Uber user that has authorized with the application</documentation>
+      <input message='tns:userInformationRequestMessage' name='userInformationInput' />
+      <output message='tns:userInformationResponseMessage' name='userInformationOutput' />
+    </operation>
+    <operation name='userLifetimeActivity'>
+      <documentation>the User Activity endpoint returns data about a user s lifetime activity with Uber The response will include pickup locations and times dropoff locations and times the distance of past requests and information about which products were requested</documentation>
+      <input message='tns:userLifetimeActivityRequestMessage' name='userLifetimeActivityInput' />
+      <output message='tns:userLifetimeActivityResponseMessage' name='userLifetimeActivityOutput' />
+    </operation>
+  </portType>
+  <binding name='uberBinding' type='tns:uberPortType'>
+    <operation name='estimatedPriceRange'>
+      <soap12:operation soapAction='http://estimatedPriceRange' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productEtas'>
+      <soap12:operation soapAction='http://productEtas' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productInformation'>
+      <soap12:operation soapAction='http://productInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='userInformation'>
+      <soap12:operation soapAction='http://userInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='userLifetimeActivity'>
+      <soap12:operation soapAction='http://userLifetimeActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='uber'>
+    <documentation>an API to call an Uber car to your location</documentation>
+    <port name='uberPort' binding='tns:uberBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://uber' />
+    </port>
+  </service>
+</definitions>

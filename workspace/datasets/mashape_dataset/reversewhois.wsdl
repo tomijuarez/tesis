@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/reverseWhois/' name='reverseWhois' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/reverseWhois/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/reverseWhois/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/reverseWhois/'>
+      <xsd:element name='reverseWhoisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseWhoisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='search_terms' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='include' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='max_search_terms' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='records' type='xsd:int' minOccurs='0' />
+            <xsd:element name='stats' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='history_total_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='current_total_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='history_report_price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='current_price_discount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='historic_price_discount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='current_report_price' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='domains' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='search_type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='reverseWhoisRequestMessage'>
+    <part name='parameters' element='tns:reverseWhoisParameters' />
+  </message>
+  <message name='reverseWhoisResponseMessage'>
+    <part name='response' element='tns:reverseWhoisResponse' />
+  </message>
+  <portType name='reverseWhoisPortType'>
+    <operation name='reverseWhois'>
+      <documentation></documentation>
+      <input message='tns:reverseWhoisRequestMessage' name='reverseWhoisInput' />
+      <output message='tns:reverseWhoisResponseMessage' name='reverseWhoisOutput' />
+    </operation>
+  </portType>
+  <binding name='reverseWhoisBinding' type='tns:reverseWhoisPortType'>
+    <operation name='reverseWhois'>
+      <soap12:operation soapAction='http://reverseWhois' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='reverseWhois'>
+    <documentation>reverse Whois Registrant Search lets you perform the most comprehensive wild card search on all whois records Whether you know a name an email address or other identifying information now you can see all the domain names ever owned by any specific company or individual</documentation>
+    <port name='reverseWhoisPort' binding='tns:reverseWhoisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://reverseWhois' />
+    </port>
+  </service>
+</definitions>

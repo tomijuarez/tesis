@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textSentimentAnalysisMethod/' name='textSentimentAnalysisMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textSentimentAnalysisMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textSentimentAnalysisMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textSentimentAnalysisMethod/'>
+      <xsd:element name='analyzeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='neg' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pos' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pos_percent' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='totalLines' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='neg_percent' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='mid_percent' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='analyzeRequestMessage' />
+  <message name='analyzeResponseMessage'>
+    <part name='response' element='tns:analyzeResponse' />
+  </message>
+  <portType name='textSentimentAnalysisMethodPortType'>
+    <operation name='analyze'>
+      <documentation>analyze the sentiment of a text by passing in a text or paragraphs</documentation>
+      <input message='tns:analyzeRequestMessage' name='analyzeInput' />
+      <output message='tns:analyzeResponseMessage' name='analyzeOutput' />
+    </operation>
+  </portType>
+  <binding name='textSentimentAnalysisMethodBinding' type='tns:textSentimentAnalysisMethodPortType'>
+    <operation name='analyze'>
+      <soap12:operation soapAction='http://analyze' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textSentimentAnalysisMethod'>
+    <documentation>analysing text sentiment by passing text or paragraphs in single line or multiple lines and get back with the sentiment analysis report to get how many of lines be analysed how many positive negative middle sentiment for the lines of text</documentation>
+    <port name='textSentimentAnalysisMethodPort' binding='tns:textSentimentAnalysisMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textSentimentAnalysisMethod' />
+    </port>
+  </service>
+</definitions>

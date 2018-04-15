@@ -1,0 +1,1641 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/drillster/' name='drillster' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/drillster/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/drillster/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/drillster/'>
+      <xsd:element name='addDrillToCourseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='courseid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addDrillToCourseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addDrillToGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addDrillToGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addDrillToRepertoireParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addDrillToRepertoireResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createBasicUserAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createCourseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewDrillResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drills' type='xsd:int' minOccurs='0' />
+            <xsd:element name='members' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='defineGroupObjectiveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='defineGroupObjectiveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAccountAccessParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAccountAccessResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inviteGroupMemberByEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useremail' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inviteGroupMemberByEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inviteGroupMemberByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inviteGroupMemberByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modifyPracticePreferencesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modifyPracticePreferencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='obtainAccountUpgradeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='obtainPasswordResetEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='emailaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='obtainPasswordResetEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromCourseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='courseid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromCourseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromRepertoireParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeDrillFromRepertoireResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeGroupMemberByEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useremail' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeGroupMemberByEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeGroupMemberByUserIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeGroupMemberByUserIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestTestTicketParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='requestTestTicketResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ticket' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveDrillDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveDrillDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='practice' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='highestProficiency' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='expectedDuration' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='proficiency' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupDrillsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupDrillsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drills' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupMembersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupMembersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='members' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='realName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupObjectivesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupObjectivesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGroupResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='members' type='xsd:int' minOccurs='0' />
+            <xsd:element name='averageDrillResults' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='drillResults' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='proficiency' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='proficiency' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='averageProficiency' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='memberResults' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='drillResults' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='proficiency' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='averageProficiency' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='userId' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveListOfGroupsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drills' type='xsd:int' minOccurs='0' />
+            <xsd:element name='members' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveObjectivesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveOwnTestResultParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveOwnTestResultResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:int' minOccurs='0' />
+            <xsd:element name='correctlyAnswered' type='xsd:int' minOccurs='0' />
+            <xsd:element name='size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='drills' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='drill' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='questions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='answered' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='correct' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='question' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='answerColumn' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='questionColumn' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='givenAnswer' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='correctAnswer' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='progress' type='xsd:int' minOccurs='0' />
+            <xsd:element name='style' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='started' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='includedColumnNames' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveOwnUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='realName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='memberSince' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='avatarUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='timeZone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='biography' type='xsd:string' minOccurs='0' />
+            <xsd:element name='locale' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePracticePreferencesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePracticePreferencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='useIntroductions' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='unknownColumns' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='style' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='direction' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePracticeQuestionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePracticeQuestionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='question' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reference' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sequenceNr' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tell' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='composition' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='terms' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ask' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='term' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTestQuestionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTestQuestionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='question' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reference' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sequenceNr' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tell' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='composition' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='terms' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ask' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='term' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTestResultParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='testid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useridorticket' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTestResultResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:int' minOccurs='0' />
+            <xsd:element name='correctlyAnswered' type='xsd:int' minOccurs='0' />
+            <xsd:element name='size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='drills' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='drill' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='questions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='answered' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='correct' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='question' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='answerColumn' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='questionColumn' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='givenAnswer' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='correctAnswer' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='progress' type='xsd:int' minOccurs='0' />
+            <xsd:element name='style' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='started' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='includedColumnNames' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='realName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='memberSince' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='avatarUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='timeZone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='biography' type='xsd:string' minOccurs='0' />
+            <xsd:element name='locale' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchInDrillStoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='resultsize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='resultstart' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchfield' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchInDrillStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='drills' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='practice' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='highestProficiency' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='expectedDuration' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='proficiency' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchInRepertoireParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='resultsize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='resultstart' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchfield' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortdirection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortfield' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchInRepertoireResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='drills' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='practice' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='highestProficiency' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='expectedDuration' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='proficiency' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='subject' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitPracticeAnswerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='reference' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitPracticeAnswerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='evaluation' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='termEvaluations' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='proficiency' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='productive' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='overall' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='receptive' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitTestAnswerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='reference' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitTestAnswerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDrillDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drillid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDrillDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addDrillToCourseRequestMessage'>
+    <part name='parameters' element='tns:addDrillToCourseParameters' />
+  </message>
+  <message name='addDrillToCourseResponseMessage'>
+    <part name='response' element='tns:addDrillToCourseResponse' />
+  </message>
+  <message name='addDrillToGroupRequestMessage'>
+    <part name='parameters' element='tns:addDrillToGroupParameters' />
+  </message>
+  <message name='addDrillToGroupResponseMessage'>
+    <part name='response' element='tns:addDrillToGroupResponse' />
+  </message>
+  <message name='addDrillToRepertoireRequestMessage'>
+    <part name='parameters' element='tns:addDrillToRepertoireParameters' />
+  </message>
+  <message name='addDrillToRepertoireResponseMessage'>
+    <part name='response' element='tns:addDrillToRepertoireResponse' />
+  </message>
+  <message name='createBasicUserAccountRequestMessage' />
+  <message name='createBasicUserAccountResponseMessage'>
+    <part name='response' element='tns:createBasicUserAccountResponse' />
+  </message>
+  <message name='createCourseRequestMessage' />
+  <message name='createCourseResponseMessage'>
+    <part name='response' element='tns:createCourseResponse' />
+  </message>
+  <message name='createNewDrillRequestMessage' />
+  <message name='createNewDrillResponseMessage'>
+    <part name='response' element='tns:createNewDrillResponse' />
+  </message>
+  <message name='createNewGroupRequestMessage' />
+  <message name='createNewGroupResponseMessage'>
+    <part name='response' element='tns:createNewGroupResponse' />
+  </message>
+  <message name='defineGroupObjectiveRequestMessage'>
+    <part name='parameters' element='tns:defineGroupObjectiveParameters' />
+  </message>
+  <message name='defineGroupObjectiveResponseMessage'>
+    <part name='response' element='tns:defineGroupObjectiveResponse' />
+  </message>
+  <message name='getAccountAccessRequestMessage'>
+    <part name='parameters' element='tns:getAccountAccessParameters' />
+  </message>
+  <message name='getAccountAccessResponseMessage'>
+    <part name='response' element='tns:getAccountAccessResponse' />
+  </message>
+  <message name='inviteGroupMemberByEmailRequestMessage'>
+    <part name='parameters' element='tns:inviteGroupMemberByEmailParameters' />
+  </message>
+  <message name='inviteGroupMemberByEmailResponseMessage'>
+    <part name='response' element='tns:inviteGroupMemberByEmailResponse' />
+  </message>
+  <message name='inviteGroupMemberByIdRequestMessage'>
+    <part name='parameters' element='tns:inviteGroupMemberByIdParameters' />
+  </message>
+  <message name='inviteGroupMemberByIdResponseMessage'>
+    <part name='response' element='tns:inviteGroupMemberByIdResponse' />
+  </message>
+  <message name='modifyPracticePreferencesRequestMessage'>
+    <part name='parameters' element='tns:modifyPracticePreferencesParameters' />
+  </message>
+  <message name='modifyPracticePreferencesResponseMessage'>
+    <part name='response' element='tns:modifyPracticePreferencesResponse' />
+  </message>
+  <message name='obtainAccountUpgradeRequestMessage' />
+  <message name='obtainAccountUpgradeResponseMessage'>
+    <part name='response' element='tns:obtainAccountUpgradeResponse' />
+  </message>
+  <message name='obtainPasswordResetEmailRequestMessage'>
+    <part name='parameters' element='tns:obtainPasswordResetEmailParameters' />
+  </message>
+  <message name='obtainPasswordResetEmailResponseMessage'>
+    <part name='response' element='tns:obtainPasswordResetEmailResponse' />
+  </message>
+  <message name='removeDrillFromCourseRequestMessage'>
+    <part name='parameters' element='tns:removeDrillFromCourseParameters' />
+  </message>
+  <message name='removeDrillFromCourseResponseMessage'>
+    <part name='response' element='tns:removeDrillFromCourseResponse' />
+  </message>
+  <message name='removeDrillFromGroupRequestMessage'>
+    <part name='parameters' element='tns:removeDrillFromGroupParameters' />
+  </message>
+  <message name='removeDrillFromGroupResponseMessage'>
+    <part name='response' element='tns:removeDrillFromGroupResponse' />
+  </message>
+  <message name='removeDrillFromRepertoireRequestMessage'>
+    <part name='parameters' element='tns:removeDrillFromRepertoireParameters' />
+  </message>
+  <message name='removeDrillFromRepertoireResponseMessage'>
+    <part name='response' element='tns:removeDrillFromRepertoireResponse' />
+  </message>
+  <message name='removeGroupMemberByEmailRequestMessage'>
+    <part name='parameters' element='tns:removeGroupMemberByEmailParameters' />
+  </message>
+  <message name='removeGroupMemberByEmailResponseMessage'>
+    <part name='response' element='tns:removeGroupMemberByEmailResponse' />
+  </message>
+  <message name='removeGroupMemberByUserIdRequestMessage'>
+    <part name='parameters' element='tns:removeGroupMemberByUserIdParameters' />
+  </message>
+  <message name='removeGroupMemberByUserIdResponseMessage'>
+    <part name='response' element='tns:removeGroupMemberByUserIdResponse' />
+  </message>
+  <message name='requestTestTicketRequestMessage'>
+    <part name='parameters' element='tns:requestTestTicketParameters' />
+  </message>
+  <message name='requestTestTicketResponseMessage'>
+    <part name='response' element='tns:requestTestTicketResponse' />
+  </message>
+  <message name='retrieveDrillDetailsRequestMessage'>
+    <part name='parameters' element='tns:retrieveDrillDetailsParameters' />
+  </message>
+  <message name='retrieveDrillDetailsResponseMessage'>
+    <part name='response' element='tns:retrieveDrillDetailsResponse' />
+  </message>
+  <message name='retrieveGroupDrillsRequestMessage'>
+    <part name='parameters' element='tns:retrieveGroupDrillsParameters' />
+  </message>
+  <message name='retrieveGroupDrillsResponseMessage'>
+    <part name='response' element='tns:retrieveGroupDrillsResponse' />
+  </message>
+  <message name='retrieveGroupMembersRequestMessage'>
+    <part name='parameters' element='tns:retrieveGroupMembersParameters' />
+  </message>
+  <message name='retrieveGroupMembersResponseMessage'>
+    <part name='response' element='tns:retrieveGroupMembersResponse' />
+  </message>
+  <message name='retrieveGroupObjectivesRequestMessage'>
+    <part name='parameters' element='tns:retrieveGroupObjectivesParameters' />
+  </message>
+  <message name='retrieveGroupObjectivesResponseMessage'>
+    <part name='response' element='tns:retrieveGroupObjectivesResponse' />
+  </message>
+  <message name='retrieveGroupResultsRequestMessage'>
+    <part name='parameters' element='tns:retrieveGroupResultsParameters' />
+  </message>
+  <message name='retrieveGroupResultsResponseMessage'>
+    <part name='response' element='tns:retrieveGroupResultsResponse' />
+  </message>
+  <message name='retrieveListOfGroupsRequestMessage' />
+  <message name='retrieveListOfGroupsResponseMessage'>
+    <part name='response' element='tns:retrieveListOfGroupsResponse' />
+  </message>
+  <message name='retrieveObjectivesRequestMessage' />
+  <message name='retrieveObjectivesResponseMessage'>
+    <part name='response' element='tns:retrieveObjectivesResponse' />
+  </message>
+  <message name='retrieveOwnTestResultRequestMessage'>
+    <part name='parameters' element='tns:retrieveOwnTestResultParameters' />
+  </message>
+  <message name='retrieveOwnTestResultResponseMessage'>
+    <part name='response' element='tns:retrieveOwnTestResultResponse' />
+  </message>
+  <message name='retrieveOwnUserRequestMessage' />
+  <message name='retrieveOwnUserResponseMessage'>
+    <part name='response' element='tns:retrieveOwnUserResponse' />
+  </message>
+  <message name='retrievePracticePreferencesRequestMessage'>
+    <part name='parameters' element='tns:retrievePracticePreferencesParameters' />
+  </message>
+  <message name='retrievePracticePreferencesResponseMessage'>
+    <part name='response' element='tns:retrievePracticePreferencesResponse' />
+  </message>
+  <message name='retrievePracticeQuestionRequestMessage'>
+    <part name='parameters' element='tns:retrievePracticeQuestionParameters' />
+  </message>
+  <message name='retrievePracticeQuestionResponseMessage'>
+    <part name='response' element='tns:retrievePracticeQuestionResponse' />
+  </message>
+  <message name='retrieveTestQuestionRequestMessage'>
+    <part name='parameters' element='tns:retrieveTestQuestionParameters' />
+  </message>
+  <message name='retrieveTestQuestionResponseMessage'>
+    <part name='response' element='tns:retrieveTestQuestionResponse' />
+  </message>
+  <message name='retrieveTestResultRequestMessage'>
+    <part name='parameters' element='tns:retrieveTestResultParameters' />
+  </message>
+  <message name='retrieveTestResultResponseMessage'>
+    <part name='response' element='tns:retrieveTestResultResponse' />
+  </message>
+  <message name='retrieveUserRequestMessage'>
+    <part name='parameters' element='tns:retrieveUserParameters' />
+  </message>
+  <message name='retrieveUserResponseMessage'>
+    <part name='response' element='tns:retrieveUserResponse' />
+  </message>
+  <message name='searchInDrillStoreRequestMessage'>
+    <part name='parameters' element='tns:searchInDrillStoreParameters' />
+  </message>
+  <message name='searchInDrillStoreResponseMessage'>
+    <part name='response' element='tns:searchInDrillStoreResponse' />
+  </message>
+  <message name='searchInRepertoireRequestMessage'>
+    <part name='parameters' element='tns:searchInRepertoireParameters' />
+  </message>
+  <message name='searchInRepertoireResponseMessage'>
+    <part name='response' element='tns:searchInRepertoireResponse' />
+  </message>
+  <message name='submitPracticeAnswerRequestMessage'>
+    <part name='parameters' element='tns:submitPracticeAnswerParameters' />
+  </message>
+  <message name='submitPracticeAnswerResponseMessage'>
+    <part name='response' element='tns:submitPracticeAnswerResponse' />
+  </message>
+  <message name='submitTestAnswerRequestMessage'>
+    <part name='parameters' element='tns:submitTestAnswerParameters' />
+  </message>
+  <message name='submitTestAnswerResponseMessage'>
+    <part name='response' element='tns:submitTestAnswerResponse' />
+  </message>
+  <message name='updateDrillDetailsRequestMessage'>
+    <part name='parameters' element='tns:updateDrillDetailsParameters' />
+  </message>
+  <message name='updateDrillDetailsResponseMessage'>
+    <part name='response' element='tns:updateDrillDetailsResponse' />
+  </message>
+  <message name='updateUserRequestMessage' />
+  <message name='updateUserResponseMessage'>
+    <part name='response' element='tns:updateUserResponse' />
+  </message>
+  <portType name='drillsterPortType'>
+    <operation name='addDrillToCourse'>
+      <documentation>adds a drill to an existing course</documentation>
+      <input message='tns:addDrillToCourseRequestMessage' name='addDrillToCourseInput' />
+      <output message='tns:addDrillToCourseResponseMessage' name='addDrillToCourseOutput' />
+    </operation>
+    <operation name='addDrillToGroup'>
+      <documentation>adds a drill or course to a given group</documentation>
+      <input message='tns:addDrillToGroupRequestMessage' name='addDrillToGroupInput' />
+      <output message='tns:addDrillToGroupResponseMessage' name='addDrillToGroupOutput' />
+    </operation>
+    <operation name='addDrillToRepertoire'>
+      <documentation>adds a public drill or course from the Drill Store to the user s repertoire</documentation>
+      <input message='tns:addDrillToRepertoireRequestMessage' name='addDrillToRepertoireInput' />
+      <output message='tns:addDrillToRepertoireResponseMessage' name='addDrillToRepertoireOutput' />
+    </operation>
+    <operation name='createBasicUserAccount'>
+      <documentation>creates a new basic user account</documentation>
+      <input message='tns:createBasicUserAccountRequestMessage' name='createBasicUserAccountInput' />
+      <output message='tns:createBasicUserAccountResponseMessage' name='createBasicUserAccountOutput' />
+    </operation>
+    <operation name='createCourse'>
+      <documentation>creates a new and empty course</documentation>
+      <input message='tns:createCourseRequestMessage' name='createCourseInput' />
+      <output message='tns:createCourseResponseMessage' name='createCourseOutput' />
+    </operation>
+    <operation name='createNewDrill'>
+      <documentation>creates a new and empty drill</documentation>
+      <input message='tns:createNewDrillRequestMessage' name='createNewDrillInput' />
+      <output message='tns:createNewDrillResponseMessage' name='createNewDrillOutput' />
+    </operation>
+    <operation name='createNewGroup'>
+      <documentation>creates a new group The group is created empty it will have no drills or members</documentation>
+      <input message='tns:createNewGroupRequestMessage' name='createNewGroupInput' />
+      <output message='tns:createNewGroupResponseMessage' name='createNewGroupOutput' />
+    </operation>
+    <operation name='defineGroupObjective'>
+      <documentation>defines a new practice objective for a group</documentation>
+      <input message='tns:defineGroupObjectiveRequestMessage' name='defineGroupObjectiveInput' />
+      <output message='tns:defineGroupObjectiveResponseMessage' name='defineGroupObjectiveOutput' />
+    </operation>
+    <operation name='getAccountAccess'>
+      <documentation>requests an organization login</documentation>
+      <input message='tns:getAccountAccessRequestMessage' name='getAccountAccessInput' />
+      <output message='tns:getAccountAccessResponseMessage' name='getAccountAccessOutput' />
+    </operation>
+    <operation name='inviteGroupMemberByEmail'>
+      <documentation>invites a user to a group by email address</documentation>
+      <input message='tns:inviteGroupMemberByEmailRequestMessage' name='inviteGroupMemberByEmailInput' />
+      <output message='tns:inviteGroupMemberByEmailResponseMessage' name='inviteGroupMemberByEmailOutput' />
+    </operation>
+    <operation name='inviteGroupMemberById'>
+      <documentation>adds or invites a new member to a group using a reference to a user ID</documentation>
+      <input message='tns:inviteGroupMemberByIdRequestMessage' name='inviteGroupMemberByIdInput' />
+      <output message='tns:inviteGroupMemberByIdResponseMessage' name='inviteGroupMemberByIdOutput' />
+    </operation>
+    <operation name='modifyPracticePreferences'>
+      <documentation>modifies the user s practice preferences for the specified drill</documentation>
+      <input message='tns:modifyPracticePreferencesRequestMessage' name='modifyPracticePreferencesInput' />
+      <output message='tns:modifyPracticePreferencesResponseMessage' name='modifyPracticePreferencesOutput' />
+    </operation>
+    <operation name='obtainAccountUpgrade'>
+      <documentation>upgrades a basic user account to a premium account</documentation>
+      <input message='tns:obtainAccountUpgradeRequestMessage' name='obtainAccountUpgradeInput' />
+      <output message='tns:obtainAccountUpgradeResponseMessage' name='obtainAccountUpgradeOutput' />
+    </operation>
+    <operation name='obtainPasswordResetEmail'>
+      <documentation>sends a change password email to a user</documentation>
+      <input message='tns:obtainPasswordResetEmailRequestMessage' name='obtainPasswordResetEmailInput' />
+      <output message='tns:obtainPasswordResetEmailResponseMessage' name='obtainPasswordResetEmailOutput' />
+    </operation>
+    <operation name='removeDrillFromCourse'>
+      <documentation>removes a drill from a course</documentation>
+      <input message='tns:removeDrillFromCourseRequestMessage' name='removeDrillFromCourseInput' />
+      <output message='tns:removeDrillFromCourseResponseMessage' name='removeDrillFromCourseOutput' />
+    </operation>
+    <operation name='removeDrillFromGroup'>
+      <documentation>removes a given drill or course from a group</documentation>
+      <input message='tns:removeDrillFromGroupRequestMessage' name='removeDrillFromGroupInput' />
+      <output message='tns:removeDrillFromGroupResponseMessage' name='removeDrillFromGroupOutput' />
+    </operation>
+    <operation name='removeDrillFromRepertoire'>
+      <documentation>removes a drill or course from the user s repertoire Removing it will discard all drill progress and statistics the user has for it</documentation>
+      <input message='tns:removeDrillFromRepertoireRequestMessage' name='removeDrillFromRepertoireInput' />
+      <output message='tns:removeDrillFromRepertoireResponseMessage' name='removeDrillFromRepertoireOutput' />
+    </operation>
+    <operation name='removeGroupMemberByEmail'>
+      <documentation>removes a group member</documentation>
+      <input message='tns:removeGroupMemberByEmailRequestMessage' name='removeGroupMemberByEmailInput' />
+      <output message='tns:removeGroupMemberByEmailResponseMessage' name='removeGroupMemberByEmailOutput' />
+    </operation>
+    <operation name='removeGroupMemberByUserId'>
+      <documentation>removes a group member</documentation>
+      <input message='tns:removeGroupMemberByUserIdRequestMessage' name='removeGroupMemberByUserIdInput' />
+      <output message='tns:removeGroupMemberByUserIdResponseMessage' name='removeGroupMemberByUserIdOutput' />
+    </operation>
+    <operation name='requestTestTicket'>
+      <documentation>requests a new ticket for an anonymous test</documentation>
+      <input message='tns:requestTestTicketRequestMessage' name='requestTestTicketInput' />
+      <output message='tns:requestTestTicketResponseMessage' name='requestTestTicketOutput' />
+    </operation>
+    <operation name='retrieveDrillDetails'>
+      <documentation>retrieves drill or course details</documentation>
+      <input message='tns:retrieveDrillDetailsRequestMessage' name='retrieveDrillDetailsInput' />
+      <output message='tns:retrieveDrillDetailsResponseMessage' name='retrieveDrillDetailsOutput' />
+    </operation>
+    <operation name='retrieveGroupDrills'>
+      <documentation>retrieves all drills of a specific group These can be regular drills and courses A course is a collection of regular drills</documentation>
+      <input message='tns:retrieveGroupDrillsRequestMessage' name='retrieveGroupDrillsInput' />
+      <output message='tns:retrieveGroupDrillsResponseMessage' name='retrieveGroupDrillsOutput' />
+    </operation>
+    <operation name='retrieveGroupMembers'>
+      <documentation>retrieves all members of a specific group</documentation>
+      <input message='tns:retrieveGroupMembersRequestMessage' name='retrieveGroupMembersInput' />
+      <output message='tns:retrieveGroupMembersResponseMessage' name='retrieveGroupMembersOutput' />
+    </operation>
+    <operation name='retrieveGroupObjectives'>
+      <documentation>retrieves all objectives that have been defined for a group</documentation>
+      <input message='tns:retrieveGroupObjectivesRequestMessage' name='retrieveGroupObjectivesInput' />
+      <output message='tns:retrieveGroupObjectivesResponseMessage' name='retrieveGroupObjectivesOutput' />
+    </operation>
+    <operation name='retrieveGroupResults'>
+      <documentation>retrieves the up to date results for a group</documentation>
+      <input message='tns:retrieveGroupResultsRequestMessage' name='retrieveGroupResultsInput' />
+      <output message='tns:retrieveGroupResultsResponseMessage' name='retrieveGroupResultsOutput' />
+    </operation>
+    <operation name='retrieveListOfGroups'>
+      <documentation>retrieves a list of all groups the calling user has access to</documentation>
+      <input message='tns:retrieveListOfGroupsRequestMessage' name='retrieveListOfGroupsInput' />
+      <output message='tns:retrieveListOfGroupsResponseMessage' name='retrieveListOfGroupsOutput' />
+    </operation>
+    <operation name='retrieveObjectives'>
+      <documentation>retrieves the objectives that have been defined for the calling user</documentation>
+      <input message='tns:retrieveObjectivesRequestMessage' name='retrieveObjectivesInput' />
+      <output message='tns:retrieveObjectivesResponseMessage' name='retrieveObjectivesOutput' />
+    </operation>
+    <operation name='retrieveOwnTestResult'>
+      <documentation>retrieves an individual test result for a specific test instance for the calling user</documentation>
+      <input message='tns:retrieveOwnTestResultRequestMessage' name='retrieveOwnTestResultInput' />
+      <output message='tns:retrieveOwnTestResultResponseMessage' name='retrieveOwnTestResultOutput' />
+    </operation>
+    <operation name='retrieveOwnUser'>
+      <documentation>requests own user details</documentation>
+      <input message='tns:retrieveOwnUserRequestMessage' name='retrieveOwnUserInput' />
+      <output message='tns:retrieveOwnUserResponseMessage' name='retrieveOwnUserOutput' />
+    </operation>
+    <operation name='retrievePracticePreferences'>
+      <documentation>retrieves the user s practice preferences for a given drill</documentation>
+      <input message='tns:retrievePracticePreferencesRequestMessage' name='retrievePracticePreferencesInput' />
+      <output message='tns:retrievePracticePreferencesResponseMessage' name='retrievePracticePreferencesOutput' />
+    </operation>
+    <operation name='retrievePracticeQuestion'>
+      <documentation>retrieves the next question for the specified drill or collection of drills</documentation>
+      <input message='tns:retrievePracticeQuestionRequestMessage' name='retrievePracticeQuestionInput' />
+      <output message='tns:retrievePracticeQuestionResponseMessage' name='retrievePracticeQuestionOutput' />
+    </operation>
+    <operation name='retrieveTestQuestion'>
+      <documentation>returns the next question for a predefined test</documentation>
+      <input message='tns:retrieveTestQuestionRequestMessage' name='retrieveTestQuestionInput' />
+      <output message='tns:retrieveTestQuestionResponseMessage' name='retrieveTestQuestionOutput' />
+    </operation>
+    <operation name='retrieveTestResult'>
+      <documentation>retrieves an individual test result for a specific test instance</documentation>
+      <input message='tns:retrieveTestResultRequestMessage' name='retrieveTestResultInput' />
+      <output message='tns:retrieveTestResultResponseMessage' name='retrieveTestResultOutput' />
+    </operation>
+    <operation name='retrieveUser'>
+      <documentation>retrieves other user details</documentation>
+      <input message='tns:retrieveUserRequestMessage' name='retrieveUserInput' />
+      <output message='tns:retrieveUserResponseMessage' name='retrieveUserOutput' />
+    </operation>
+    <operation name='searchInDrillStore'>
+      <documentation>search the Drill Store for available drills and courses</documentation>
+      <input message='tns:searchInDrillStoreRequestMessage' name='searchInDrillStoreInput' />
+      <output message='tns:searchInDrillStoreResponseMessage' name='searchInDrillStoreOutput' />
+    </operation>
+    <operation name='searchInRepertoire'>
+      <documentation>retrieves the user s repertoire or searches in it using a search query</documentation>
+      <input message='tns:searchInRepertoireRequestMessage' name='searchInRepertoireInput' />
+      <output message='tns:searchInRepertoireResponseMessage' name='searchInRepertoireOutput' />
+    </operation>
+    <operation name='submitPracticeAnswer'>
+      <documentation>submits the answer to a drill question and receives the evaluation of the answer</documentation>
+      <input message='tns:submitPracticeAnswerRequestMessage' name='submitPracticeAnswerInput' />
+      <output message='tns:submitPracticeAnswerResponseMessage' name='submitPracticeAnswerOutput' />
+    </operation>
+    <operation name='submitTestAnswer'>
+      <documentation>submits the answer to a question as part of a predefined test</documentation>
+      <input message='tns:submitTestAnswerRequestMessage' name='submitTestAnswerInput' />
+      <output message='tns:submitTestAnswerResponseMessage' name='submitTestAnswerOutput' />
+    </operation>
+    <operation name='updateDrillDetails'>
+      <documentation>updates specific drill details</documentation>
+      <input message='tns:updateDrillDetailsRequestMessage' name='updateDrillDetailsInput' />
+      <output message='tns:updateDrillDetailsResponseMessage' name='updateDrillDetailsOutput' />
+    </operation>
+    <operation name='updateUser'>
+      <documentation>updates specific user details Users can only update their own user account not the account of others</documentation>
+      <input message='tns:updateUserRequestMessage' name='updateUserInput' />
+      <output message='tns:updateUserResponseMessage' name='updateUserOutput' />
+    </operation>
+  </portType>
+  <binding name='drillsterBinding' type='tns:drillsterPortType'>
+    <operation name='addDrillToCourse'>
+      <soap12:operation soapAction='http://addDrillToCourse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addDrillToGroup'>
+      <soap12:operation soapAction='http://addDrillToGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addDrillToRepertoire'>
+      <soap12:operation soapAction='http://addDrillToRepertoire' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createBasicUserAccount'>
+      <soap12:operation soapAction='http://createBasicUserAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createCourse'>
+      <soap12:operation soapAction='http://createCourse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createNewDrill'>
+      <soap12:operation soapAction='http://createNewDrill' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createNewGroup'>
+      <soap12:operation soapAction='http://createNewGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='defineGroupObjective'>
+      <soap12:operation soapAction='http://defineGroupObjective' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAccountAccess'>
+      <soap12:operation soapAction='http://getAccountAccess' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inviteGroupMemberByEmail'>
+      <soap12:operation soapAction='http://inviteGroupMemberByEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inviteGroupMemberById'>
+      <soap12:operation soapAction='http://inviteGroupMemberById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='modifyPracticePreferences'>
+      <soap12:operation soapAction='http://modifyPracticePreferences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='obtainAccountUpgrade'>
+      <soap12:operation soapAction='http://obtainAccountUpgrade' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='obtainPasswordResetEmail'>
+      <soap12:operation soapAction='http://obtainPasswordResetEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeDrillFromCourse'>
+      <soap12:operation soapAction='http://removeDrillFromCourse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeDrillFromGroup'>
+      <soap12:operation soapAction='http://removeDrillFromGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeDrillFromRepertoire'>
+      <soap12:operation soapAction='http://removeDrillFromRepertoire' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeGroupMemberByEmail'>
+      <soap12:operation soapAction='http://removeGroupMemberByEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeGroupMemberByUserId'>
+      <soap12:operation soapAction='http://removeGroupMemberByUserId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='requestTestTicket'>
+      <soap12:operation soapAction='http://requestTestTicket' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveDrillDetails'>
+      <soap12:operation soapAction='http://retrieveDrillDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveGroupDrills'>
+      <soap12:operation soapAction='http://retrieveGroupDrills' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveGroupMembers'>
+      <soap12:operation soapAction='http://retrieveGroupMembers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveGroupObjectives'>
+      <soap12:operation soapAction='http://retrieveGroupObjectives' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveGroupResults'>
+      <soap12:operation soapAction='http://retrieveGroupResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveListOfGroups'>
+      <soap12:operation soapAction='http://retrieveListOfGroups' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveObjectives'>
+      <soap12:operation soapAction='http://retrieveObjectives' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveOwnTestResult'>
+      <soap12:operation soapAction='http://retrieveOwnTestResult' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveOwnUser'>
+      <soap12:operation soapAction='http://retrieveOwnUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrievePracticePreferences'>
+      <soap12:operation soapAction='http://retrievePracticePreferences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrievePracticeQuestion'>
+      <soap12:operation soapAction='http://retrievePracticeQuestion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveTestQuestion'>
+      <soap12:operation soapAction='http://retrieveTestQuestion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveTestResult'>
+      <soap12:operation soapAction='http://retrieveTestResult' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveUser'>
+      <soap12:operation soapAction='http://retrieveUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchInDrillStore'>
+      <soap12:operation soapAction='http://searchInDrillStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchInRepertoire'>
+      <soap12:operation soapAction='http://searchInRepertoire' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitPracticeAnswer'>
+      <soap12:operation soapAction='http://submitPracticeAnswer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitTestAnswer'>
+      <soap12:operation soapAction='http://submitTestAnswer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateDrillDetails'>
+      <soap12:operation soapAction='http://updateDrillDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateUser'>
+      <soap12:operation soapAction='http://updateUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='drillster'>
+    <documentation>drillster is an open cloud based memorization platform that helps users learn more in less time Use our API to integrate with Drillster or to create your own memorization solution For detailed information about this API please refer to http www drillster com info api</documentation>
+    <port name='drillsterPort' binding='tns:drillsterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://drillster' />
+    </port>
+  </service>
+</definitions>

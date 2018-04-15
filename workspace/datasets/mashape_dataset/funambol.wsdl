@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/funambol/' name='funambol' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/funambol/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/funambol/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/funambol/'>
+      <xsd:element name='getContactsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='contactid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contacts' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='firstname' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='street_address' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='t' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='notes' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='v' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='prefix' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='middlename' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='orgs' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='org' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='email' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='t' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='v' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='lastname' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getContactsRequestMessage'>
+    <part name='parameters' element='tns:getContactsParameters' />
+  </message>
+  <message name='getContactsResponseMessage'>
+    <part name='response' element='tns:getContactsResponse' />
+  </message>
+  <portType name='funambolPortType'>
+    <operation name='getContacts'>
+      <documentation>get the list of my contacts from my address book in myFunambol</documentation>
+      <input message='tns:getContactsRequestMessage' name='getContactsInput' />
+      <output message='tns:getContactsResponseMessage' name='getContactsOutput' />
+    </operation>
+  </portType>
+  <binding name='funambolBinding' type='tns:funambolPortType'>
+    <operation name='getContacts'>
+      <soap12:operation soapAction='http://getContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='funambol'>
+    <documentation>funambol Cloud API to myFUNAMBOL a cloud synchronization service to sync contacts calendar pictures videos and files on multiple devices PC Mac iPhone iPad Android BlackBerry Windows Mobile Symbian and more</documentation>
+    <port name='funambolPort' binding='tns:funambolBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://funambol' />
+    </port>
+  </service>
+</definitions>

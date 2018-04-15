@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hitbtc/' name='hitbtc' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hitbtc/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hitbtc/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hitbtc/'>
+      <xsd:element name='apiPublicSymbolOrderbookParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='formatamount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='formatamountunit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='formatprice' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolOrderbookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asks' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='bids' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolTickerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolTickerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolTradesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='by' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxresults' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startindex' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolTradesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='trades' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:int' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicSymbolsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbols' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lot' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='step' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiPublicTimeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiPublicSymbolOrderbookRequestMessage'>
+    <part name='parameters' element='tns:apiPublicSymbolOrderbookParameters' />
+  </message>
+  <message name='apiPublicSymbolOrderbookResponseMessage'>
+    <part name='response' element='tns:apiPublicSymbolOrderbookResponse' />
+  </message>
+  <message name='apiPublicSymbolTickerRequestMessage'>
+    <part name='parameters' element='tns:apiPublicSymbolTickerParameters' />
+  </message>
+  <message name='apiPublicSymbolTickerResponseMessage'>
+    <part name='response' element='tns:apiPublicSymbolTickerResponse' />
+  </message>
+  <message name='apiPublicSymbolTradesRequestMessage'>
+    <part name='parameters' element='tns:apiPublicSymbolTradesParameters' />
+  </message>
+  <message name='apiPublicSymbolTradesResponseMessage'>
+    <part name='response' element='tns:apiPublicSymbolTradesResponse' />
+  </message>
+  <message name='apiPublicSymbolsRequestMessage' />
+  <message name='apiPublicSymbolsResponseMessage'>
+    <part name='response' element='tns:apiPublicSymbolsResponse' />
+  </message>
+  <message name='apiPublicTimeRequestMessage' />
+  <message name='apiPublicTimeResponseMessage'>
+    <part name='response' element='tns:apiPublicTimeResponse' />
+  </message>
+  <portType name='hitbtcPortType'>
+    <operation name='apiPublicSymbolOrderbook'>
+      <documentation></documentation>
+      <input message='tns:apiPublicSymbolOrderbookRequestMessage' name='apiPublicSymbolOrderbookInput' />
+      <output message='tns:apiPublicSymbolOrderbookResponseMessage' name='apiPublicSymbolOrderbookOutput' />
+    </operation>
+    <operation name='apiPublicSymbolTicker'>
+      <documentation>h means last h last incomplete minute high highest trade price h low lowest trade price h volume volume h</documentation>
+      <input message='tns:apiPublicSymbolTickerRequestMessage' name='apiPublicSymbolTickerInput' />
+      <output message='tns:apiPublicSymbolTickerResponseMessage' name='apiPublicSymbolTickerOutput' />
+    </operation>
+    <operation name='apiPublicSymbolTrades'>
+      <documentation></documentation>
+      <input message='tns:apiPublicSymbolTradesRequestMessage' name='apiPublicSymbolTradesInput' />
+      <output message='tns:apiPublicSymbolTradesResponseMessage' name='apiPublicSymbolTradesOutput' />
+    </operation>
+    <operation name='apiPublicSymbols'>
+      <documentation></documentation>
+      <input message='tns:apiPublicSymbolsRequestMessage' name='apiPublicSymbolsInput' />
+      <output message='tns:apiPublicSymbolsResponseMessage' name='apiPublicSymbolsOutput' />
+    </operation>
+    <operation name='apiPublicTime'>
+      <documentation></documentation>
+      <input message='tns:apiPublicTimeRequestMessage' name='apiPublicTimeInput' />
+      <output message='tns:apiPublicTimeResponseMessage' name='apiPublicTimeOutput' />
+    </operation>
+  </portType>
+  <binding name='hitbtcBinding' type='tns:hitbtcPortType'>
+    <operation name='apiPublicSymbolOrderbook'>
+      <soap12:operation soapAction='http://apiPublicSymbolOrderbook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiPublicSymbolTicker'>
+      <soap12:operation soapAction='http://apiPublicSymbolTicker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiPublicSymbolTrades'>
+      <soap12:operation soapAction='http://apiPublicSymbolTrades' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiPublicSymbols'>
+      <soap12:operation soapAction='http://apiPublicSymbols' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiPublicTime'>
+      <soap12:operation soapAction='http://apiPublicTime' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hitbtc'>
+    <documentation>it s a place where both newcomers and trading professionals will be able to trade with ease hitbtc was built on top of modern technologies to provide fast secure and reliable service Customers will appreciate fast order execution convenient ways to add deposit and withdraw and competitive client service Newcomers will like intuitive user friendly interface and easy to start platform Our key focus is client funds safety Daily backups of everything distributed all over the world servers step authentication based on your mobile device and much more for your security For professional traders we have quite a number of features WebSocket subscription for prices and trades Asynchronous WebSocket based trading interface FOK and IOC orders</documentation>
+    <port name='hitbtcPort' binding='tns:hitbtcBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hitbtc' />
+    </port>
+  </service>
+</definitions>

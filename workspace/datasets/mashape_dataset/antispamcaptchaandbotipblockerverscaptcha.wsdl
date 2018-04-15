@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/antiSpamCaptchaAndBotIpBlockerVerscaptcha/' name='antiSpamCaptchaAndBotIpBlockerVerscaptcha' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/antiSpamCaptchaAndBotIpBlockerVerscaptcha/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/antiSpamCaptchaAndBotIpBlockerVerscaptcha/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/antiSpamCaptchaAndBotIpBlockerVerscaptcha/'>
+      <xsd:element name='generateCaptchaParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='theme' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateCaptchaResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyAnIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyAnIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyCaptchaParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='answer' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='leaveblank' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='question' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyCaptchaResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='whiteListAnIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='whiteListAnIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generateCaptchaRequestMessage'>
+    <part name='parameters' element='tns:generateCaptchaParameters' />
+  </message>
+  <message name='generateCaptchaResponseMessage'>
+    <part name='response' element='tns:generateCaptchaResponse' />
+  </message>
+  <message name='verifyAnIpRequestMessage'>
+    <part name='parameters' element='tns:verifyAnIpParameters' />
+  </message>
+  <message name='verifyAnIpResponseMessage'>
+    <part name='response' element='tns:verifyAnIpResponse' />
+  </message>
+  <message name='verifyCaptchaRequestMessage'>
+    <part name='parameters' element='tns:verifyCaptchaParameters' />
+  </message>
+  <message name='verifyCaptchaResponseMessage'>
+    <part name='response' element='tns:verifyCaptchaResponse' />
+  </message>
+  <message name='whiteListAnIpRequestMessage'>
+    <part name='parameters' element='tns:whiteListAnIpParameters' />
+  </message>
+  <message name='whiteListAnIpResponseMessage'>
+    <part name='response' element='tns:whiteListAnIpResponse' />
+  </message>
+  <portType name='antiSpamCaptchaAndBotIpBlockerVerscaptchaPortType'>
+    <operation name='generateCaptcha'>
+      <documentation>render captcha from our functions file available at https gist github com VersatilityWerks</documentation>
+      <input message='tns:generateCaptchaRequestMessage' name='generateCaptchaInput' />
+      <output message='tns:generateCaptchaResponseMessage' name='generateCaptchaOutput' />
+    </operation>
+    <operation name='verifyAnIp'>
+      <documentation>verify IP from our functions file available at https gist github com VersatilityWerks</documentation>
+      <input message='tns:verifyAnIpRequestMessage' name='verifyAnIpInput' />
+      <output message='tns:verifyAnIpResponseMessage' name='verifyAnIpOutput' />
+    </operation>
+    <operation name='verifyCaptcha'>
+      <documentation>verify captcha from our functions file available at https gist github com VersatilityWerks</documentation>
+      <input message='tns:verifyCaptchaRequestMessage' name='verifyCaptchaInput' />
+      <output message='tns:verifyCaptchaResponseMessage' name='verifyCaptchaOutput' />
+    </operation>
+    <operation name='whiteListAnIp'>
+      <documentation>whitelist IP from our functions file available at https gist github com VersatilityWerks</documentation>
+      <input message='tns:whiteListAnIpRequestMessage' name='whiteListAnIpInput' />
+      <output message='tns:whiteListAnIpResponseMessage' name='whiteListAnIpOutput' />
+    </operation>
+  </portType>
+  <binding name='antiSpamCaptchaAndBotIpBlockerVerscaptchaBinding' type='tns:antiSpamCaptchaAndBotIpBlockerVerscaptchaPortType'>
+    <operation name='generateCaptcha'>
+      <soap12:operation soapAction='http://generateCaptcha' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verifyAnIp'>
+      <soap12:operation soapAction='http://verifyAnIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verifyCaptcha'>
+      <soap12:operation soapAction='http://verifyCaptcha' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='whiteListAnIp'>
+      <soap12:operation soapAction='http://whiteListAnIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='antiSpamCaptchaAndBotIpBlockerVerscaptcha'>
+    <documentation>easy anti spam measure which takes it one step further by blocking potentially bad IP address from using your resources</documentation>
+    <port name='antiSpamCaptchaAndBotIpBlockerVerscaptchaPort' binding='tns:antiSpamCaptchaAndBotIpBlockerVerscaptchaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://antiSpamCaptchaAndBotIpBlockerVerscaptcha' />
+    </port>
+  </service>
+</definitions>

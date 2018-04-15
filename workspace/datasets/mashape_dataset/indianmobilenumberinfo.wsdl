@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianMobileNumberInfo/' name='indianMobileNumberInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianMobileNumberInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianMobileNumberInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianMobileNumberInfo/'>
+      <xsd:element name='indianMobileNumberInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobilenos' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indianMobileNumberInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Operator' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Series' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Corporation' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='MobileNumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='OwnerName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='AreaDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='AreaCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='NetworkCode' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='indianMobileNumberInfoRequestMessage'>
+    <part name='parameters' element='tns:indianMobileNumberInfoParameters' />
+  </message>
+  <message name='indianMobileNumberInfoResponseMessage'>
+    <part name='response' element='tns:indianMobileNumberInfoResponse' />
+  </message>
+  <portType name='indianMobileNumberInfoPortType'>
+    <operation name='indianMobileNumberInfo'>
+      <documentation>check any Indian Mobile Number s Information</documentation>
+      <input message='tns:indianMobileNumberInfoRequestMessage' name='indianMobileNumberInfoInput' />
+      <output message='tns:indianMobileNumberInfoResponseMessage' name='indianMobileNumberInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='indianMobileNumberInfoBinding' type='tns:indianMobileNumberInfoPortType'>
+    <operation name='indianMobileNumberInfo'>
+      <soap12:operation soapAction='http://indianMobileNumberInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianMobileNumberInfo'>
+    <documentation>just give any indian digit mobile number and get its information easily via this api Currently not supported now also supports mnp status checking in few major networks</documentation>
+    <port name='indianMobileNumberInfoPort' binding='tns:indianMobileNumberInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianMobileNumberInfo' />
+    </port>
+  </service>
+</definitions>

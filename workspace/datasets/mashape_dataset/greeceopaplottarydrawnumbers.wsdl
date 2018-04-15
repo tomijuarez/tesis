@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/greeceOpapLottaryDrawNumbers/' name='greeceOpapLottaryDrawNumbers' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/greeceOpapLottaryDrawNumbers/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/greeceOpapLottaryDrawNumbers/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/greeceOpapLottaryDrawNumbers/'>
+      <xsd:element name='opapiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='drawnum' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='game' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='levelofdetail' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opapiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TotalColumns1' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Type' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TotalColumns' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Results' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ColumnPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='DrawDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ResultType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DrawNumber' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='opapiRequestMessage'>
+    <part name='parameters' element='tns:opapiParameters' />
+  </message>
+  <message name='opapiResponseMessage'>
+    <part name='response' element='tns:opapiResponse' />
+  </message>
+  <portType name='greeceOpapLottaryDrawNumbersPortType'>
+    <operation name='opapi'>
+      <documentation></documentation>
+      <input message='tns:opapiRequestMessage' name='opapiInput' />
+      <output message='tns:opapiResponseMessage' name='opapiOutput' />
+    </operation>
+  </portType>
+  <binding name='greeceOpapLottaryDrawNumbersBinding' type='tns:greeceOpapLottaryDrawNumbersPortType'>
+    <operation name='opapi'>
+      <soap12:operation soapAction='http://opapi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='greeceOpapLottaryDrawNumbers'>
+    <documentation>a public unofficial API for Greek lottery numbers games Super Extra Lotto Proto Tzoker Always up to date and extremely fast mongodb used for caching</documentation>
+    <port name='greeceOpapLottaryDrawNumbersPort' binding='tns:greeceOpapLottaryDrawNumbersBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://greeceOpapLottaryDrawNumbers' />
+    </port>
+  </service>
+</definitions>

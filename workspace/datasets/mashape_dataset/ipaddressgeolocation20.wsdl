@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipAddressGeolocation/' name='ipAddressGeolocation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipAddressGeolocation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipAddressGeolocation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipAddressGeolocation/'>
+      <xsd:element name='locateipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='compact' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locateipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='locateipRequestMessage'>
+    <part name='parameters' element='tns:locateipParameters' />
+  </message>
+  <message name='locateipResponseMessage'>
+    <part name='response' element='tns:locateipResponse' />
+  </message>
+  <portType name='ipAddressGeolocationPortType'>
+    <operation name='locateip'>
+      <documentation>geolocates an IP address Please check our documentation at www IPAddressLabs com</documentation>
+      <input message='tns:locateipRequestMessage' name='locateipInput' />
+      <output message='tns:locateipResponseMessage' name='locateipOutput' />
+    </operation>
+  </portType>
+  <binding name='ipAddressGeolocationBinding' type='tns:ipAddressGeolocationPortType'>
+    <operation name='locateip'>
+      <soap12:operation soapAction='http://locateip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipAddressGeolocation'>
+    <documentation>iP Address Geolocation Service to Identify the Continent Country Code Country Name Region State County Province Region Territory District etc City Postal ZIP Code Metro Code Area Code Latitude Longitude Internet Service Provider ISP and Organization</documentation>
+    <port name='ipAddressGeolocationPort' binding='tns:ipAddressGeolocationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipAddressGeolocation' />
+    </port>
+  </service>
+</definitions>

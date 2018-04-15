@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfTxt/' name='pdfTxt' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfTxt/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfTxt/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfTxt/'>
+      <xsd:element name='pdfTxtResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pdfTxtRequestMessage' />
+  <message name='pdfTxtResponseMessage'>
+    <part name='response' element='tns:pdfTxtResponse' />
+  </message>
+  <portType name='pdfTxtPortType'>
+    <operation name='pdfTxt'>
+      <documentation>pdf txt</documentation>
+      <input message='tns:pdfTxtRequestMessage' name='pdfTxtInput' />
+      <output message='tns:pdfTxtResponseMessage' name='pdfTxtOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfTxtBinding' type='tns:pdfTxtPortType'>
+    <operation name='pdfTxt'>
+      <soap12:operation soapAction='http://pdfTxt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfTxt'>
+    <documentation>convert PDF to text</documentation>
+    <port name='pdfTxtPort' binding='tns:pdfTxtBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfTxt' />
+    </port>
+  </service>
+</definitions>

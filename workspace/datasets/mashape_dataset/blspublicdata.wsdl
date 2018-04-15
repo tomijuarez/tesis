@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/blsPublicData/' name='blsPublicData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/blsPublicData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/blsPublicData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/blsPublicData/'>
+      <xsd:element name='singleSeriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='seriesid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleSeriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='series' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='data' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='period' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='periodName' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='footnotes' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='seriesID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='responseTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='multipleSeriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Results' type='xsd:string' minOccurs='0' />
+            <xsd:element name='responseTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='singleSeriesRequestMessage'>
+    <part name='parameters' element='tns:singleSeriesParameters' />
+  </message>
+  <message name='singleSeriesResponseMessage'>
+    <part name='response' element='tns:singleSeriesResponse' />
+  </message>
+  <message name='multipleSeriesRequestMessage' />
+  <message name='multipleSeriesResponseMessage'>
+    <part name='response' element='tns:multipleSeriesResponse' />
+  </message>
+  <portType name='blsPublicDataPortType'>
+    <operation name='singleSeries'>
+      <documentation>use this signature to retrieve data for a single time series for the past three years Be sure to include the specific series ID at the end of the URL</documentation>
+      <input message='tns:singleSeriesRequestMessage' name='singleSeriesInput' />
+      <output message='tns:singleSeriesResponseMessage' name='singleSeriesOutput' />
+    </operation>
+    <operation name='multipleSeries'>
+      <documentation>use this signature to retrieve data for more than one timeseries for the past three years You can include up to series IDs each separated with a comma in the body of your request</documentation>
+      <input message='tns:multipleSeriesRequestMessage' name='multipleSeriesInput' />
+      <output message='tns:multipleSeriesResponseMessage' name='multipleSeriesOutput' />
+    </operation>
+  </portType>
+  <binding name='blsPublicDataBinding' type='tns:blsPublicDataPortType'>
+    <operation name='singleSeries'>
+      <soap12:operation soapAction='http://singleSeries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='multipleSeries'>
+      <soap12:operation soapAction='http://multipleSeries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='blsPublicData'>
+    <documentation>in an effort to create transparency and encourage technological innovation the Bureau of Labor Statistics BLS is releasing its Application Programming Interface API to the public The BLS Public Data API gives the public access to raw economic data from all BLS programs It is the Bureau s hope that talented developers and programmers will use the BLS Public Data API to create original inventive applications with published BLS data</documentation>
+    <port name='blsPublicDataPort' binding='tns:blsPublicDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://blsPublicData' />
+    </port>
+  </service>
+</definitions>

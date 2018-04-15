@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rssAndAtomFeedDetection/' name='rssAndAtomFeedDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rssAndAtomFeedDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rssAndAtomFeedDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rssAndAtomFeedDetection/'>
+      <xsd:element name='detectWebpageFeedsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectWebpageFeedsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='feedtype' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectWebpageFeedsRequestMessage'>
+    <part name='parameters' element='tns:detectWebpageFeedsParameters' />
+  </message>
+  <message name='detectWebpageFeedsResponseMessage'>
+    <part name='response' element='tns:detectWebpageFeedsResponse' />
+  </message>
+  <portType name='rssAndAtomFeedDetectionPortType'>
+    <operation name='detectWebpageFeeds'>
+      <documentation>finds any RSS and ATOM feeds on webpage provided</documentation>
+      <input message='tns:detectWebpageFeedsRequestMessage' name='detectWebpageFeedsInput' />
+      <output message='tns:detectWebpageFeedsResponseMessage' name='detectWebpageFeedsOutput' />
+    </operation>
+  </portType>
+  <binding name='rssAndAtomFeedDetectionBinding' type='tns:rssAndAtomFeedDetectionPortType'>
+    <operation name='detectWebpageFeeds'>
+      <soap12:operation soapAction='http://detectWebpageFeeds' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rssAndAtomFeedDetection'>
+    <documentation>this API helps with feed detection It not only parses head section of webpage for feeds written as link tags but also it processes whole page and detects any other feeds mentioned</documentation>
+    <port name='rssAndAtomFeedDetectionPort' binding='tns:rssAndAtomFeedDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rssAndAtomFeedDetection' />
+    </port>
+  </service>
+</definitions>

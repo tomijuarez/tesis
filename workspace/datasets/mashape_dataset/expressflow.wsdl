@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/expressflow/' name='expressflow' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/expressflow/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/expressflow/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/expressflow/'>
+      <xsd:element name='decryptResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decrypt_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='keyId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='encryptResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decrypt_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='keyId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='decryptRequestMessage' />
+  <message name='decryptResponseMessage'>
+    <part name='response' element='tns:decryptResponse' />
+  </message>
+  <message name='encryptRequestMessage' />
+  <message name='encryptResponseMessage'>
+    <part name='response' element='tns:encryptResponse' />
+  </message>
+  <portType name='expressflowPortType'>
+    <operation name='decrypt'>
+      <documentation>the expressFlow Decrypt API operates cloud enabled That means that you do not need to upload PUT or POST the file you want to decrypt to the expressFlow Decrypt API You just need to send over the link referring to the encrypted resource you want to decrypt expressFlow does all the rest for you</documentation>
+      <input message='tns:decryptRequestMessage' name='decryptInput' />
+      <output message='tns:decryptResponseMessage' name='decryptOutput' />
+    </operation>
+    <operation name='encrypt'>
+      <documentation>the expressFlow Encrypt API operates cloud enabled That means that you do not need to upload PUT or POST the file you want to encrypt to the expressFlow Encrypt API You just need to send over the link referring to the resource you want to encrypt expressFlow does all the rest for you</documentation>
+      <input message='tns:encryptRequestMessage' name='encryptInput' />
+      <output message='tns:encryptResponseMessage' name='encryptOutput' />
+    </operation>
+  </portType>
+  <binding name='expressflowBinding' type='tns:expressflowPortType'>
+    <operation name='decrypt'>
+      <soap12:operation soapAction='http://decrypt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='encrypt'>
+      <soap12:operation soapAction='http://encrypt' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='expressflow'>
+    <documentation>after you uploaded your files the expressFlow servers encrypt and secure your files and enable you to push it forward to your favorite cloud storage</documentation>
+    <port name='expressflowPort' binding='tns:expressflowBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://expressflow' />
+    </port>
+  </service>
+</definitions>

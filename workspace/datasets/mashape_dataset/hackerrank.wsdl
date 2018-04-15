@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hackerrank/' name='hackerrank' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hackerrank/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hackerrank/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hackerrank/'>
+      <xsd:element name='codeCheckerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='server' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='diff_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='memory' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='stdout' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='custom_score' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='custom_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='stderr' type='xsd:boolean' maxOccurs='unbounded' />
+                  <xsd:element name='callback_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='result' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='compilemessage' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='codechecker_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:decimal' maxOccurs='unbounded' />
+                  <xsd:element name='censored_compile_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='censored_stderr' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='codeCheckerRequestMessage' />
+  <message name='codeCheckerResponseMessage'>
+    <part name='response' element='tns:codeCheckerResponse' />
+  </message>
+  <message name='languagesRequestMessage' />
+  <message name='languagesResponseMessage'>
+    <part name='response' element='tns:languagesResponse' />
+  </message>
+  <portType name='hackerrankPortType'>
+    <operation name='codeChecker'>
+      <documentation>allows users to use the HackerRank code checker for their own purposes Submit source code which is compiled and run against a list of provided test cases</documentation>
+      <input message='tns:codeCheckerRequestMessage' name='codeCheckerInput' />
+      <output message='tns:codeCheckerResponseMessage' name='codeCheckerOutput' />
+    </operation>
+    <operation name='languages'>
+      <documentation>this method provides you with information regarding the language codes which our code checker supports</documentation>
+      <input message='tns:languagesRequestMessage' name='languagesInput' />
+      <output message='tns:languagesResponseMessage' name='languagesOutput' />
+    </operation>
+  </portType>
+  <binding name='hackerrankBinding' type='tns:hackerrankPortType'>
+    <operation name='codeChecker'>
+      <soap12:operation soapAction='http://codeChecker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='languages'>
+      <soap12:operation soapAction='http://languages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hackerrank'>
+    <documentation>with HackerRank s API you can run codes in many different languages</documentation>
+    <port name='hackerrankPort' binding='tns:hackerrankBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hackerrank' />
+    </port>
+  </service>
+</definitions>

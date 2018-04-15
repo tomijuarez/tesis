@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/militaryVerification/' name='militaryVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/militaryVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/militaryVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/militaryVerification/'>
+      <xsd:element name='activeDutyVeteranResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='component' type='xsd:string' minOccurs='0' />
+            <xsd:element name='is_active' type='xsd:int' minOccurs='0' />
+            <xsd:element name='active_start' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='is_veteran' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='activeDutyVeteranRequestMessage' />
+  <message name='activeDutyVeteranResponseMessage'>
+    <part name='response' element='tns:activeDutyVeteranResponse' />
+  </message>
+  <portType name='militaryVerificationPortType'>
+    <operation name='activeDutyVeteran'>
+      <documentation>verify Active Duty and Veterans Use SSN or DOB not both Last name is always required Date of service is required when verifying Veterans no longer on Active Duty</documentation>
+      <input message='tns:activeDutyVeteranRequestMessage' name='activeDutyVeteranInput' />
+      <output message='tns:activeDutyVeteranResponseMessage' name='activeDutyVeteranOutput' />
+    </operation>
+  </portType>
+  <binding name='militaryVerificationBinding' type='tns:militaryVerificationPortType'>
+    <operation name='activeDutyVeteran'>
+      <soap12:operation soapAction='http://activeDutyVeteran' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='militaryVerification'>
+    <documentation>this API allows you to verify military affiliation by last name date of birth or SSN</documentation>
+    <port name='militaryVerificationPort' binding='tns:militaryVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://militaryVerification' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/favicon/' name='favicon' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/favicon/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/favicon/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/favicon/'>
+      <xsd:element name='Parameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage'>
+    <part name='parameters' element='tns:Parameters' />
+  </message>
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='faviconPortType'>
+    <operation name=''>
+      <documentation></documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='faviconBinding' type='tns:faviconPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='favicon'>
+    <documentation>get the favicon image of any given website in png format x pixel</documentation>
+    <port name='faviconPort' binding='tns:faviconBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://favicon' />
+    </port>
+  </service>
+</definitions>

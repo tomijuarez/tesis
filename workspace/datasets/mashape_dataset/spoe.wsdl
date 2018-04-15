@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/spoe/' name='spoe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/spoe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/spoe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/spoe/'>
+      <xsd:element name='getscenariosParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getscenariosResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='GetCareScenariosResult' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Category' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Prompts' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Action' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='Active' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='Question' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='OverallMatchScore' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='MatchedTerms' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getscenariosRequestMessage'>
+    <part name='parameters' element='tns:getscenariosParameters' />
+  </message>
+  <message name='getscenariosResponseMessage'>
+    <part name='response' element='tns:getscenariosResponse' />
+  </message>
+  <portType name='spoePortType'>
+    <operation name='getscenarios'>
+      <documentation>returns one or more care scenarios based on the query</documentation>
+      <input message='tns:getscenariosRequestMessage' name='getscenariosInput' />
+      <output message='tns:getscenariosResponseMessage' name='getscenariosOutput' />
+    </operation>
+  </portType>
+  <binding name='spoeBinding' type='tns:spoePortType'>
+    <operation name='getscenarios'>
+      <soap12:operation soapAction='http://getscenarios' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='spoe'>
+    <documentation>sPoE is a service that discovers and retrieves care scenarios and their care prompts that are similar to a natural language description of a care note by matching content of a care note to descriptions and terms of care scenarios The best matched care scenario is returned to the user for further processing</documentation>
+    <port name='spoePort' binding='tns:spoeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://spoe' />
+    </port>
+  </service>
+</definitions>

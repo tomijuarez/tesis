@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imageColorExtraction/' name='imageColorExtraction' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imageColorExtraction/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imageColorExtraction/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imageColorExtraction/'>
+      <xsd:element name='retrieveColorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveColorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hsl' type='xsd:decimal' maxOccurs='unbounded' />
+            <xsd:element name='lch' type='xsd:decimal' maxOccurs='unbounded' />
+            <xsd:element name='rgba' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='css' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hsv' type='xsd:decimal' maxOccurs='unbounded' />
+            <xsd:element name='rgb' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lab' type='xsd:decimal' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePaletteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievePaletteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='hsl' type='xsd:decimal' maxOccurs='unbounded' />
+                  <xsd:element name='lch' type='xsd:decimal' maxOccurs='unbounded' />
+                  <xsd:element name='rgba' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='css' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hsv' type='xsd:decimal' maxOccurs='unbounded' />
+                  <xsd:element name='rgb' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='lab' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveColorRequestMessage'>
+    <part name='parameters' element='tns:retrieveColorParameters' />
+  </message>
+  <message name='retrieveColorResponseMessage'>
+    <part name='response' element='tns:retrieveColorResponse' />
+  </message>
+  <message name='retrievePaletteRequestMessage'>
+    <part name='parameters' element='tns:retrievePaletteParameters' />
+  </message>
+  <message name='retrievePaletteResponseMessage'>
+    <part name='response' element='tns:retrievePaletteResponse' />
+  </message>
+  <portType name='imageColorExtractionPortType'>
+    <operation name='retrieveColor'>
+      <documentation>retrieves primary dominant color from the specified image url</documentation>
+      <input message='tns:retrieveColorRequestMessage' name='retrieveColorInput' />
+      <output message='tns:retrieveColorResponseMessage' name='retrieveColorOutput' />
+    </operation>
+    <operation name='retrievePalette'>
+      <documentation>retrieves color palette from a specified image url</documentation>
+      <input message='tns:retrievePaletteRequestMessage' name='retrievePaletteInput' />
+      <output message='tns:retrievePaletteResponseMessage' name='retrievePaletteOutput' />
+    </operation>
+  </portType>
+  <binding name='imageColorExtractionBinding' type='tns:imageColorExtractionPortType'>
+    <operation name='retrieveColor'>
+      <soap12:operation soapAction='http://retrieveColor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrievePalette'>
+      <soap12:operation soapAction='http://retrievePalette' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imageColorExtraction'>
+    <documentation>grab and retrieve colors from an image with this simple api returns colors in multiple formats RGB HEX RGBA HSL HSV HSB LAB and more Color extraction works for PNG JPEG ICO BMP GIF No longer worry about CORS or dealing with complex color and image manipulation libraries</documentation>
+    <port name='imageColorExtractionPort' binding='tns:imageColorExtractionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imageColorExtraction' />
+    </port>
+  </service>
+</definitions>

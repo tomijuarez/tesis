@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/advancedPornNudityAndAdultContentDetection/' name='advancedPornNudityAndAdultContentDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/advancedPornNudityAndAdultContentDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/advancedPornNudityAndAdultContentDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/advancedPornNudityAndAdultContentDetection/'>
+      <xsd:element name='nudityCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nudityCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Is_Porn' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Provided_By' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Is_Contain_Bad_Words' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Skin_Colors' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Reason' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nudityCheckRequestMessage'>
+    <part name='parameters' element='tns:nudityCheckParameters' />
+  </message>
+  <message name='nudityCheckResponseMessage'>
+    <part name='response' element='tns:nudityCheckResponse' />
+  </message>
+  <portType name='advancedPornNudityAndAdultContentDetectionPortType'>
+    <operation name='nudityCheck'>
+      <documentation>find the nudity rate by analysing the skin tone and bad words</documentation>
+      <input message='tns:nudityCheckRequestMessage' name='nudityCheckInput' />
+      <output message='tns:nudityCheckResponseMessage' name='nudityCheckOutput' />
+    </operation>
+  </portType>
+  <binding name='advancedPornNudityAndAdultContentDetectionBinding' type='tns:advancedPornNudityAndAdultContentDetectionPortType'>
+    <operation name='nudityCheck'>
+      <soap12:operation soapAction='http://nudityCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='advancedPornNudityAndAdultContentDetection'>
+    <documentation>advanced porn and Nudity detection from submitted image Urls Find if the skin tone present in the image is high than a normal level Also detect if the url contains a bad keyword in it Keywords nude nudity detection nudity recognition nudity filter porn detection porn filter image protection image analysis image detection adult filter bad image kids protection</documentation>
+    <port name='advancedPornNudityAndAdultContentDetectionPort' binding='tns:advancedPornNudityAndAdultContentDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://advancedPornNudityAndAdultContentDetection' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/soapToJson/' name='soapToJson' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/soapToJson/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/soapToJson/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/soapToJson/'>
+      <xsd:element name='generateProxyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateProxyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='metadata' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='invokeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generateProxyRequestMessage'>
+    <part name='parameters' element='tns:generateProxyParameters' />
+  </message>
+  <message name='generateProxyResponseMessage'>
+    <part name='response' element='tns:generateProxyResponse' />
+  </message>
+  <message name='invokeRequestMessage' />
+  <message name='invokeResponseMessage'>
+    <part name='response' element='tns:invokeResponse' />
+  </message>
+  <portType name='soapToJsonPortType'>
+    <operation name='generateProxy'>
+      <documentation>you can generate proxy code to invoke methods target web service this method will return generated code that you can analyze</documentation>
+      <input message='tns:generateProxyRequestMessage' name='generateProxyInput' />
+      <output message='tns:generateProxyResponseMessage' name='generateProxyOutput' />
+    </operation>
+    <operation name='invoke'>
+      <documentation>invokes executes specified method for given WSDL url Please note if SOAP Proxy does not exist it will be created If WSDL url starts with https you will be billed for Invoke Secure</documentation>
+      <input message='tns:invokeRequestMessage' name='invokeInput' />
+      <output message='tns:invokeResponseMessage' name='invokeOutput' />
+    </operation>
+  </portType>
+  <binding name='soapToJsonBinding' type='tns:soapToJsonPortType'>
+    <operation name='generateProxy'>
+      <soap12:operation soapAction='http://generateProxy' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='invoke'>
+      <soap12:operation soapAction='http://invoke' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='soapToJson'>
+    <documentation>soap to JSON online proxy gateway API enables calling SOAP web services with JSON format</documentation>
+    <port name='soapToJsonPort' binding='tns:soapToJsonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://soapToJson' />
+    </port>
+  </service>
+</definitions>

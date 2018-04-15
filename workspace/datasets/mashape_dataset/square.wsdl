@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/square/' name='square' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/square/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/square/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/square/'>
+      <xsd:element name='retrieveYourPaymentHistoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveYourPaymentHistoryRequestMessage' />
+  <message name='retrieveYourPaymentHistoryResponseMessage'>
+    <part name='response' element='tns:retrieveYourPaymentHistoryResponse' />
+  </message>
+  <portType name='squarePortType'>
+    <operation name='retrieveYourPaymentHistory'>
+      <documentation></documentation>
+      <input message='tns:retrieveYourPaymentHistoryRequestMessage' name='retrieveYourPaymentHistoryInput' />
+      <output message='tns:retrieveYourPaymentHistoryResponseMessage' name='retrieveYourPaymentHistoryOutput' />
+    </operation>
+  </portType>
+  <binding name='squareBinding' type='tns:squarePortType'>
+    <operation name='retrieveYourPaymentHistory'>
+      <soap12:operation soapAction='http://retrieveYourPaymentHistory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='square'>
+    <documentation>sell on the Go Accept credit cards and run your business on an iPhone iPad or Android device As a Square merchant you can retrieve activity reports for your processed payments refunds and deposits with the Square Connect API Pull these reports into your own custom made applications to help you manage your business</documentation>
+    <port name='squarePort' binding='tns:squareBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://square' />
+    </port>
+  </service>
+</definitions>

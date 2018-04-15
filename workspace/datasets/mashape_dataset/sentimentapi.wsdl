@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentimentapi/' name='sentimentapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentimentapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentimentapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentimentapi/'>
+      <xsd:element name='sentimentEngineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentEngineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentEngineForPostParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentEngineForPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sentimentEngineRequestMessage'>
+    <part name='parameters' element='tns:sentimentEngineParameters' />
+  </message>
+  <message name='sentimentEngineResponseMessage'>
+    <part name='response' element='tns:sentimentEngineResponse' />
+  </message>
+  <message name='sentimentEngineForPostRequestMessage'>
+    <part name='parameters' element='tns:sentimentEngineForPostParameters' />
+  </message>
+  <message name='sentimentEngineForPostResponseMessage'>
+    <part name='response' element='tns:sentimentEngineForPostResponse' />
+  </message>
+  <portType name='sentimentapiPortType'>
+    <operation name='sentimentEngine'>
+      <documentation>extracts sentiment from a given text Result range from to While represents the least sentiment and represent the best sentiment This version is implemented for English language only</documentation>
+      <input message='tns:sentimentEngineRequestMessage' name='sentimentEngineInput' />
+      <output message='tns:sentimentEngineResponseMessage' name='sentimentEngineOutput' />
+    </operation>
+    <operation name='sentimentEngineForPost'>
+      <documentation>extracts sentiment from a given text Result range from to While represents the least sentiment and represent the best sentiment This version is implemented for English language only</documentation>
+      <input message='tns:sentimentEngineForPostRequestMessage' name='sentimentEngineForPostInput' />
+      <output message='tns:sentimentEngineForPostResponseMessage' name='sentimentEngineForPostOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentapiBinding' type='tns:sentimentapiPortType'>
+    <operation name='sentimentEngine'>
+      <soap12:operation soapAction='http://sentimentEngine' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentimentEngineForPost'>
+      <soap12:operation soapAction='http://sentimentEngineForPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentimentapi'>
+    <documentation>we have developed this API using machine learning algorithm with over lakh training samples</documentation>
+    <port name='sentimentapiPort' binding='tns:sentimentapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentimentapi' />
+    </port>
+  </service>
+</definitions>

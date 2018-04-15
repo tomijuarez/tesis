@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/italianTextSentimentAnalysis/' name='italianTextSentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/italianTextSentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/italianTextSentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/italianTextSentimentAnalysis/'>
+      <xsd:element name='apiItaResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiItaRequestMessage' />
+  <message name='apiItaResponseMessage'>
+    <part name='response' element='tns:apiItaResponse' />
+  </message>
+  <portType name='italianTextSentimentAnalysisPortType'>
+    <operation name='apiIta'>
+      <documentation>analyzer endpoint</documentation>
+      <input message='tns:apiItaRequestMessage' name='apiItaInput' />
+      <output message='tns:apiItaResponseMessage' name='apiItaOutput' />
+    </operation>
+  </portType>
+  <binding name='italianTextSentimentAnalysisBinding' type='tns:italianTextSentimentAnalysisPortType'>
+    <operation name='apiIta'>
+      <soap12:operation soapAction='http://apiIta' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='italianTextSentimentAnalysis'>
+    <documentation>this tool extract sentiment for text in Italian You can determine if a text has a positive negative or neutral opinion polarity Result range from very negative to very positive</documentation>
+    <port name='italianTextSentimentAnalysisPort' binding='tns:italianTextSentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://italianTextSentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

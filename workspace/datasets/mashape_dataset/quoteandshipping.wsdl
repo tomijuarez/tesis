@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/quoteAndShipping/' name='quoteAndShipping' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/quoteAndShipping/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/quoteAndShipping/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/quoteAndShipping/'>
+      <xsd:element name='quoteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='origin_zip_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='additional_information' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='extra_cost_absolute' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='identification' type='xsd:string' minOccurs='0' />
+            <xsd:element name='volumes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='volume_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cost_of_goods' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='width' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='length' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='destination_zip_code' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='quoteRequestMessage' />
+  <message name='quoteResponseMessage'>
+    <part name='response' element='tns:quoteResponse' />
+  </message>
+  <portType name='quoteAndShippingPortType'>
+    <operation name='quote'>
+      <documentation></documentation>
+      <input message='tns:quoteRequestMessage' name='quoteInput' />
+      <output message='tns:quoteResponseMessage' name='quoteOutput' />
+    </operation>
+  </portType>
+  <binding name='quoteAndShippingBinding' type='tns:quoteAndShippingPortType'>
+    <operation name='quote'>
+      <soap12:operation soapAction='http://quote' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='quoteAndShipping'>
+    <documentation>quote volumes to ecommerce stores</documentation>
+    <port name='quoteAndShippingPort' binding='tns:quoteAndShippingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://quoteAndShipping' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fullcontactPerson/' name='fullcontactPerson' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fullcontactPerson/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fullcontactPerson/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fullcontactPerson/'>
+      <xsd:element name='vPersonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vPersonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='likelihood' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='contactInfo' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='givenName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='chats' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='client' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='handle' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fullName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='websites' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='digitalFootprint' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='scores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='provider' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='topics' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='provider' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='requestId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='socialProfiles' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='typeName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='typeId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='organizations' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='isPrimary' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='photos' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='isPrimary' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='typeName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='typeId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+            <xsd:element name='demographics' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ageRange' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='locationGeneral' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='age' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vPersonRequestMessage'>
+    <part name='parameters' element='tns:vPersonParameters' />
+  </message>
+  <message name='vPersonResponseMessage'>
+    <part name='response' element='tns:vPersonResponse' />
+  </message>
+  <portType name='fullcontactPersonPortType'>
+    <operation name='vPerson'>
+      <documentation>find out more about a person</documentation>
+      <input message='tns:vPersonRequestMessage' name='vPersonInput' />
+      <output message='tns:vPersonResponseMessage' name='vPersonOutput' />
+    </operation>
+  </portType>
+  <binding name='fullcontactPersonBinding' type='tns:fullcontactPersonPortType'>
+    <operation name='vPerson'>
+      <soap12:operation soapAction='http://vPerson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fullcontactPerson'>
+    <documentation>the FullContact Person API takes a piece of contact information such as an email address and adds information such as name job title and social profile data from more than different social networks including Facebook Twitter LinkedIn and more It then returns the enhanced information in XML JSON or vCard format You will need a FullContact API key in order to use this service It s free to try to sign up for a key please visit https www fullcontact com developer</documentation>
+    <port name='fullcontactPersonPort' binding='tns:fullcontactPersonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fullcontactPerson' />
+    </port>
+  </service>
+</definitions>

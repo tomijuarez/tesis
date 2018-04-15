@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bart/' name='bart' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bart/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bart/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bart/'>
+      <xsd:element name='advisoryInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='advisoryInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='realTimeInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='realTimeInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scheduleInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dest' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orig' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scheduleInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stationInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stationInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='advisoryInformationRequestMessage'>
+    <part name='parameters' element='tns:advisoryInformationParameters' />
+  </message>
+  <message name='advisoryInformationResponseMessage'>
+    <part name='response' element='tns:advisoryInformationResponse' />
+  </message>
+  <message name='realTimeInformationRequestMessage'>
+    <part name='parameters' element='tns:realTimeInformationParameters' />
+  </message>
+  <message name='realTimeInformationResponseMessage'>
+    <part name='response' element='tns:realTimeInformationResponse' />
+  </message>
+  <message name='routeInformationRequestMessage'>
+    <part name='parameters' element='tns:routeInformationParameters' />
+  </message>
+  <message name='routeInformationResponseMessage'>
+    <part name='response' element='tns:routeInformationResponse' />
+  </message>
+  <message name='scheduleInformationRequestMessage'>
+    <part name='parameters' element='tns:scheduleInformationParameters' />
+  </message>
+  <message name='scheduleInformationResponseMessage'>
+    <part name='response' element='tns:scheduleInformationResponse' />
+  </message>
+  <message name='stationInformationRequestMessage'>
+    <part name='parameters' element='tns:stationInformationParameters' />
+  </message>
+  <message name='stationInformationResponseMessage'>
+    <part name='response' element='tns:stationInformationResponse' />
+  </message>
+  <portType name='bartPortType'>
+    <operation name='advisoryInformation'>
+      <documentation></documentation>
+      <input message='tns:advisoryInformationRequestMessage' name='advisoryInformationInput' />
+      <output message='tns:advisoryInformationResponseMessage' name='advisoryInformationOutput' />
+    </operation>
+    <operation name='realTimeInformation'>
+      <documentation></documentation>
+      <input message='tns:realTimeInformationRequestMessage' name='realTimeInformationInput' />
+      <output message='tns:realTimeInformationResponseMessage' name='realTimeInformationOutput' />
+    </operation>
+    <operation name='routeInformation'>
+      <documentation></documentation>
+      <input message='tns:routeInformationRequestMessage' name='routeInformationInput' />
+      <output message='tns:routeInformationResponseMessage' name='routeInformationOutput' />
+    </operation>
+    <operation name='scheduleInformation'>
+      <documentation></documentation>
+      <input message='tns:scheduleInformationRequestMessage' name='scheduleInformationInput' />
+      <output message='tns:scheduleInformationResponseMessage' name='scheduleInformationOutput' />
+    </operation>
+    <operation name='stationInformation'>
+      <documentation></documentation>
+      <input message='tns:stationInformationRequestMessage' name='stationInformationInput' />
+      <output message='tns:stationInformationResponseMessage' name='stationInformationOutput' />
+    </operation>
+  </portType>
+  <binding name='bartBinding' type='tns:bartPortType'>
+    <operation name='advisoryInformation'>
+      <soap12:operation soapAction='http://advisoryInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='realTimeInformation'>
+      <soap12:operation soapAction='http://realTimeInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='routeInformation'>
+      <soap12:operation soapAction='http://routeInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='scheduleInformation'>
+      <soap12:operation soapAction='http://scheduleInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='stationInformation'>
+      <soap12:operation soapAction='http://stationInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bart'>
+    <documentation>the BART API gives you access to pretty much all of the BART service and station data available on the BART website</documentation>
+    <port name='bartPort' binding='tns:bartBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bart' />
+    </port>
+  </service>
+</definitions>

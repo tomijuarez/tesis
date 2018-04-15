@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/contentAnalysis/' name='contentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/contentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/contentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/contentAnalysis/'>
+      <xsd:element name='contentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='contentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta_description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='companies' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domain_words' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='meta_keywords' type='xsd:string' minOccurs='0' />
+            <xsd:element name='redirect_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='contentRequestMessage'>
+    <part name='parameters' element='tns:contentParameters' />
+  </message>
+  <message name='contentResponseMessage'>
+    <part name='response' element='tns:contentResponse' />
+  </message>
+  <portType name='contentAnalysisPortType'>
+    <operation name='content'>
+      <documentation></documentation>
+      <input message='tns:contentRequestMessage' name='contentInput' />
+      <output message='tns:contentResponseMessage' name='contentOutput' />
+    </operation>
+  </portType>
+  <binding name='contentAnalysisBinding' type='tns:contentAnalysisPortType'>
+    <operation name='content'>
+      <soap12:operation soapAction='http://content' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='contentAnalysis'>
+    <documentation>this API performs a basic content analysis for a given domain It extracts category Language URL redirect URL meta keywords meta description company phone and email information</documentation>
+    <port name='contentAnalysisPort' binding='tns:contentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://contentAnalysis' />
+    </port>
+  </service>
+</definitions>

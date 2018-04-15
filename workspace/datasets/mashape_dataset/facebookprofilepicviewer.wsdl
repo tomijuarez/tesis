@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/facebookProfilePicViewer/' name='facebookProfilePicViewer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/facebookProfilePicViewer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/facebookProfilePicViewer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/facebookProfilePicViewer/'>
+      <xsd:element name='getProfilePicUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProfilePicUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='FB_Username' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='FB_Pic_URL' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewPrivatePicsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewPrivatePicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='FB_Username' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='FB_Pic_URL' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getProfilePicUrlRequestMessage'>
+    <part name='parameters' element='tns:getProfilePicUrlParameters' />
+  </message>
+  <message name='getProfilePicUrlResponseMessage'>
+    <part name='response' element='tns:getProfilePicUrlResponse' />
+  </message>
+  <message name='viewPrivatePicsRequestMessage'>
+    <part name='parameters' element='tns:viewPrivatePicsParameters' />
+  </message>
+  <message name='viewPrivatePicsResponseMessage'>
+    <part name='response' element='tns:viewPrivatePicsResponse' />
+  </message>
+  <portType name='facebookProfilePicViewerPortType'>
+    <operation name='getProfilePicUrl'>
+      <documentation>get the short URL for fb profile pic</documentation>
+      <input message='tns:getProfilePicUrlRequestMessage' name='getProfilePicUrlInput' />
+      <output message='tns:getProfilePicUrlResponseMessage' name='getProfilePicUrlOutput' />
+    </operation>
+    <operation name='viewPrivatePics'>
+      <documentation>view the users private Pics</documentation>
+      <input message='tns:viewPrivatePicsRequestMessage' name='viewPrivatePicsInput' />
+      <output message='tns:viewPrivatePicsResponseMessage' name='viewPrivatePicsOutput' />
+    </operation>
+  </portType>
+  <binding name='facebookProfilePicViewerBinding' type='tns:facebookProfilePicViewerPortType'>
+    <operation name='getProfilePicUrl'>
+      <soap12:operation soapAction='http://getProfilePicUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='viewPrivatePics'>
+      <soap12:operation soapAction='http://viewPrivatePics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='facebookProfilePicViewer'>
+    <documentation>view your friends fb profile picture even if they have blocked you or applied privacy to their profile Picture This API is only for fun purpose Now also supports viewing your friends private albums Enjoy fellas Note Only for educational purpose</documentation>
+    <port name='facebookProfilePicViewerPort' binding='tns:facebookProfilePicViewerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://facebookProfilePicViewer' />
+    </port>
+  </service>
+</definitions>

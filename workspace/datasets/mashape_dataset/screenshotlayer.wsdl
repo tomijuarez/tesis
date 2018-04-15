@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/screenshotlayer/' name='screenshotlayer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/screenshotlayer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/screenshotlayer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/screenshotlayer/'>
+      <xsd:element name='mainEndpointCaptureScreenshotParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='acceptlang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cssurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='delay' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='export' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='force' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fullpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='placeholder' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='secretkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ttl' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useragent' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='viewport' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mainEndpointCaptureScreenshotResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mainEndpointCaptureScreenshotRequestMessage'>
+    <part name='parameters' element='tns:mainEndpointCaptureScreenshotParameters' />
+  </message>
+  <message name='mainEndpointCaptureScreenshotResponseMessage'>
+    <part name='response' element='tns:mainEndpointCaptureScreenshotResponse' />
+  </message>
+  <portType name='screenshotlayerPortType'>
+    <operation name='mainEndpointCaptureScreenshot'>
+      <documentation></documentation>
+      <input message='tns:mainEndpointCaptureScreenshotRequestMessage' name='mainEndpointCaptureScreenshotInput' />
+      <output message='tns:mainEndpointCaptureScreenshotResponseMessage' name='mainEndpointCaptureScreenshotOutput' />
+    </operation>
+  </portType>
+  <binding name='screenshotlayerBinding' type='tns:screenshotlayerPortType'>
+    <operation name='mainEndpointCaptureScreenshot'>
+      <soap12:operation soapAction='http://mainEndpointCaptureScreenshot' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='screenshotlayer'>
+    <documentation>screenshotlayer is a lighweight REST API built to deliver high quality PNG JPEG GIF website screenshots at unparalleled speeds and through a simple interface Its architecture is focused on ease of use and integration making for a high level of compatibility with any application framework and programming language</documentation>
+    <port name='screenshotlayerPort' binding='tns:screenshotlayerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://screenshotlayer' />
+    </port>
+  </service>
+</definitions>

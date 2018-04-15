@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/telizeJsonIpAndGeoip/' name='telizeJsonIpAndGeoip' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/telizeJsonIpAndGeoip/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/telizeJsonIpAndGeoip/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/telizeJsonIpAndGeoip/'>
+      <xsd:element name='geoipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipWithSpecificIpAsParameterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoipWithSpecificIpAsParameterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsonIpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsonIpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geoipRequestMessage'>
+    <part name='parameters' element='tns:geoipParameters' />
+  </message>
+  <message name='geoipResponseMessage'>
+    <part name='response' element='tns:geoipResponse' />
+  </message>
+  <message name='geoipWithSpecificIpAsParameterRequestMessage'>
+    <part name='parameters' element='tns:geoipWithSpecificIpAsParameterParameters' />
+  </message>
+  <message name='geoipWithSpecificIpAsParameterResponseMessage'>
+    <part name='response' element='tns:geoipWithSpecificIpAsParameterResponse' />
+  </message>
+  <message name='ipRequestMessage' />
+  <message name='ipResponseMessage'>
+    <part name='response' element='tns:ipResponse' />
+  </message>
+  <message name='jsonIpRequestMessage'>
+    <part name='parameters' element='tns:jsonIpParameters' />
+  </message>
+  <message name='jsonIpResponseMessage'>
+    <part name='response' element='tns:jsonIpResponse' />
+  </message>
+  <portType name='telizeJsonIpAndGeoipPortType'>
+    <operation name='geoip'>
+      <documentation>get IP address location in JSON format</documentation>
+      <input message='tns:geoipRequestMessage' name='geoipInput' />
+      <output message='tns:geoipResponseMessage' name='geoipOutput' />
+    </operation>
+    <operation name='geoipWithSpecificIpAsParameter'>
+      <documentation></documentation>
+      <input message='tns:geoipWithSpecificIpAsParameterRequestMessage' name='geoipWithSpecificIpAsParameterInput' />
+      <output message='tns:geoipWithSpecificIpAsParameterResponseMessage' name='geoipWithSpecificIpAsParameterOutput' />
+    </operation>
+    <operation name='ip'>
+      <documentation>get IP address in plain text format Returns the visitor IP address IPv or IPv in plain text useful for shell scripts or to find the external Internet routable address</documentation>
+      <input message='tns:ipRequestMessage' name='ipInput' />
+      <output message='tns:ipResponseMessage' name='ipOutput' />
+    </operation>
+    <operation name='jsonIp'>
+      <documentation>get IP address in JSON format Returns the visitor IP address IPv or IPv in a JSON object</documentation>
+      <input message='tns:jsonIpRequestMessage' name='jsonIpInput' />
+      <output message='tns:jsonIpResponseMessage' name='jsonIpOutput' />
+    </operation>
+  </portType>
+  <binding name='telizeJsonIpAndGeoipBinding' type='tns:telizeJsonIpAndGeoipPortType'>
+    <operation name='geoip'>
+      <soap12:operation soapAction='http://geoip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='geoipWithSpecificIpAsParameter'>
+      <soap12:operation soapAction='http://geoipWithSpecificIpAsParameter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ip'>
+      <soap12:operation soapAction='http://ip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='jsonIp'>
+      <soap12:operation soapAction='http://jsonIp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='telizeJsonIpAndGeoip'>
+    <documentation>this service offers a REST API allowing to get a visitor IP address and to query location information from any IP address It outputs JSON encoded IP geolocation data and supports both JSON and JSONP There is no rate limit of any sort at the moment and the service is free for everyone to use</documentation>
+    <port name='telizeJsonIpAndGeoipPort' binding='tns:telizeJsonIpAndGeoipBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://telizeJsonIpAndGeoip' />
+    </port>
+  </service>
+</definitions>

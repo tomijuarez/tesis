@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/leagueOfLegendsLolinformer/' name='leagueOfLegendsLolinformer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/leagueOfLegendsLolinformer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/leagueOfLegendsLolinformer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/leagueOfLegendsLolinformer/'>
+      <xsd:element name='skinSalesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='normal_price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='skin' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sale_price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='champion' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='skinSalesRequestMessage' />
+  <message name='skinSalesResponseMessage'>
+    <part name='response' element='tns:skinSalesResponse' />
+  </message>
+  <portType name='leagueOfLegendsLolinformerPortType'>
+    <operation name='skinSales'>
+      <documentation>get different type of current sales</documentation>
+      <input message='tns:skinSalesRequestMessage' name='skinSalesInput' />
+      <output message='tns:skinSalesResponseMessage' name='skinSalesOutput' />
+    </operation>
+  </portType>
+  <binding name='leagueOfLegendsLolinformerBinding' type='tns:leagueOfLegendsLolinformerPortType'>
+    <operation name='skinSales'>
+      <soap12:operation soapAction='http://skinSales' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='leagueOfLegendsLolinformer'>
+    <documentation>loLInformer custom API This API returns current champions skin sales</documentation>
+    <port name='leagueOfLegendsLolinformerPort' binding='tns:leagueOfLegendsLolinformerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://leagueOfLegendsLolinformer' />
+    </port>
+  </service>
+</definitions>

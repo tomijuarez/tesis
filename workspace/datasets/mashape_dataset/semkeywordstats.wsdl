@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/semKeywordStats/' name='semKeywordStats' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/semKeywordStats/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/semKeywordStats/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/semKeywordStats/'>
+      <xsd:element name='keywordStatsRetrievalParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keyword' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='keywordStatsRetrievalResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='searched' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='keywordStatsRetrievalRequestMessage'>
+    <part name='parameters' element='tns:keywordStatsRetrievalParameters' />
+  </message>
+  <message name='keywordStatsRetrievalResponseMessage'>
+    <part name='response' element='tns:keywordStatsRetrievalResponse' />
+  </message>
+  <portType name='semKeywordStatsPortType'>
+    <operation name='keywordStatsRetrieval'>
+      <documentation>this endpoint will allow you to retrieve Monthly Search Volume CPC and Competition Rating</documentation>
+      <input message='tns:keywordStatsRetrievalRequestMessage' name='keywordStatsRetrievalInput' />
+      <output message='tns:keywordStatsRetrievalResponseMessage' name='keywordStatsRetrievalOutput' />
+    </operation>
+  </portType>
+  <binding name='semKeywordStatsBinding' type='tns:semKeywordStatsPortType'>
+    <operation name='keywordStatsRetrieval'>
+      <soap12:operation soapAction='http://keywordStatsRetrieval' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='semKeywordStats'>
+    <documentation>sEM SEO keyword Statistics to generate Google search request keyword competition and CPC Cost Per Click</documentation>
+    <port name='semKeywordStatsPort' binding='tns:semKeywordStatsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://semKeywordStats' />
+    </port>
+  </service>
+</definitions>

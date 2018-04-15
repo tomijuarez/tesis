@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/telecomRechargeOptionsIndia/' name='telecomRechargeOptionsIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/telecomRechargeOptionsIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/telecomRechargeOptionsIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/telecomRechargeOptionsIndia/'>
+      <xsd:element name='getRechargeOptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='circle' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='operator' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getRechargeOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='recharge_short_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_talktime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='product_type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_description_more' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_validity' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='circle_master' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='is_prepaid' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='operator_master' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_master' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getRechargeOptionsRequestMessage'>
+    <part name='parameters' element='tns:getRechargeOptionsParameters' />
+  </message>
+  <message name='getRechargeOptionsResponseMessage'>
+    <part name='response' element='tns:getRechargeOptionsResponse' />
+  </message>
+  <portType name='telecomRechargeOptionsIndiaPortType'>
+    <operation name='getRechargeOptions'>
+      <documentation>get Recharge Options</documentation>
+      <input message='tns:getRechargeOptionsRequestMessage' name='getRechargeOptionsInput' />
+      <output message='tns:getRechargeOptionsResponseMessage' name='getRechargeOptionsOutput' />
+    </operation>
+  </portType>
+  <binding name='telecomRechargeOptionsIndiaBinding' type='tns:telecomRechargeOptionsIndiaPortType'>
+    <operation name='getRechargeOptions'>
+      <soap12:operation soapAction='http://getRechargeOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='telecomRechargeOptionsIndia'>
+    <documentation>this data API provides details of all recharge options available with various telecom operators across all circles The data is aggregated from the websites of all telecom operators</documentation>
+    <port name='telecomRechargeOptionsIndiaPort' binding='tns:telecomRechargeOptionsIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://telecomRechargeOptionsIndia' />
+    </port>
+  </service>
+</definitions>

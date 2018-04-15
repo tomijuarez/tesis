@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ticketbud/' name='ticketbud' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ticketbud/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ticketbud/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ticketbud/'>
+      <xsd:element name='aSingleEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aSingleEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aSingleTicketParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aSingleTicketResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ticket' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ticket_type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='barcode_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='event_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='checked_in' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='purchaser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='full_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='price_paid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='total_quantity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='custom_fields' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='response' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='barcode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name_on_ticket' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='meResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='full_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='default_subdomain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='event_ids' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ticketsForAnEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ticketsForAnEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ticket' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ticket_type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='barcode_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='event_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='checked_in' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='purchaser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='full_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='price_paid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='total_quantity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='custom_fields' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='response' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='barcode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name_on_ticket' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='yourEventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='aSingleEventRequestMessage'>
+    <part name='parameters' element='tns:aSingleEventParameters' />
+  </message>
+  <message name='aSingleEventResponseMessage'>
+    <part name='response' element='tns:aSingleEventResponse' />
+  </message>
+  <message name='aSingleTicketRequestMessage'>
+    <part name='parameters' element='tns:aSingleTicketParameters' />
+  </message>
+  <message name='aSingleTicketResponseMessage'>
+    <part name='response' element='tns:aSingleTicketResponse' />
+  </message>
+  <message name='meRequestMessage' />
+  <message name='meResponseMessage'>
+    <part name='response' element='tns:meResponse' />
+  </message>
+  <message name='ticketsForAnEventRequestMessage'>
+    <part name='parameters' element='tns:ticketsForAnEventParameters' />
+  </message>
+  <message name='ticketsForAnEventResponseMessage'>
+    <part name='response' element='tns:ticketsForAnEventResponse' />
+  </message>
+  <message name='yourEventsRequestMessage' />
+  <message name='yourEventsResponseMessage'>
+    <part name='response' element='tns:yourEventsResponse' />
+  </message>
+  <portType name='ticketbudPortType'>
+    <operation name='aSingleEvent'>
+      <documentation>information about a single event you have access to</documentation>
+      <input message='tns:aSingleEventRequestMessage' name='aSingleEventInput' />
+      <output message='tns:aSingleEventResponseMessage' name='aSingleEventOutput' />
+    </operation>
+    <operation name='aSingleTicket'>
+      <documentation>information about a single ticket</documentation>
+      <input message='tns:aSingleTicketRequestMessage' name='aSingleTicketInput' />
+      <output message='tns:aSingleTicketResponseMessage' name='aSingleTicketOutput' />
+    </operation>
+    <operation name='me'>
+      <documentation>information about the current token holder</documentation>
+      <input message='tns:meRequestMessage' name='meInput' />
+      <output message='tns:meResponseMessage' name='meOutput' />
+    </operation>
+    <operation name='ticketsForAnEvent'>
+      <documentation>all tickets for an event that you have access to</documentation>
+      <input message='tns:ticketsForAnEventRequestMessage' name='ticketsForAnEventInput' />
+      <output message='tns:ticketsForAnEventResponseMessage' name='ticketsForAnEventOutput' />
+    </operation>
+    <operation name='yourEvents'>
+      <documentation>a list of events owned or accessible by the current token holder</documentation>
+      <input message='tns:yourEventsRequestMessage' name='yourEventsInput' />
+      <output message='tns:yourEventsResponseMessage' name='yourEventsOutput' />
+    </operation>
+  </portType>
+  <binding name='ticketbudBinding' type='tns:ticketbudPortType'>
+    <operation name='aSingleEvent'>
+      <soap12:operation soapAction='http://aSingleEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='aSingleTicket'>
+      <soap12:operation soapAction='http://aSingleTicket' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='me'>
+      <soap12:operation soapAction='http://me' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ticketsForAnEvent'>
+      <soap12:operation soapAction='http://ticketsForAnEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='yourEvents'>
+      <soap12:operation soapAction='http://yourEvents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ticketbud'>
+    <documentation>events happening globally on ticketbud Access to ticket sales event locations and event attendees</documentation>
+    <port name='ticketbudPort' binding='tns:ticketbudBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ticketbud' />
+    </port>
+  </service>
+</definitions>

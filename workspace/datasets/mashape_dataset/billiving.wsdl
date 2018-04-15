@@ -1,0 +1,2406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/billiving/' name='billiving' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/billiving/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/billiving/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/billiving/'>
+      <xsd:element name='accountStatusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ExpDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='PlanType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StatusId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='UserLimit' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='accountSummaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Status' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ClientsEstimates' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ColumnHeader' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ClientsBilled' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VendorOutstanding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ClientsOutstanding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ClientsReceived' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VendorBilled' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VendorPOs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VendorReceived' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ClientsPastDue' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VendorPastDue' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveClientParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='archiveProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='doctype' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CompanyId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocItems' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ItemQuantity' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ItemPrice' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ItemDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId1' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ReferenceNumber' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IssueDate' type='xsd:date' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ClientNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ClientId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='doctype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cloneInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createBankAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='BankName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='RoutingNumber' type='xsd:string' minOccurs='0' />
+            <xsd:element name='BranchNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='HoldersName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AccountAddress' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Notes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Nickname' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AccountNumber' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='OrganizationName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ZipCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Address2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Website' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='TaxId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Address1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='City' type='xsd:string' minOccurs='0' />
+            <xsd:element name='DiscountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPriorInDays' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone1' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone2' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StatusId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Fax' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ContactName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Cell' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPastInDays' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CompanyId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocItems' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ItemQuantity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ItemPrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ItemDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId1' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ReferenceNumber' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ClientNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ClientId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CompanyId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocItems' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ItemQuantity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ItemPrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ItemDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId1' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ReferenceNumber' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ClientNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ClientId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createTaxSettingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteClientParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTaxSettingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTaxSettingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBankAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBankAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='BankName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='RoutingNumber' type='xsd:string' minOccurs='0' />
+            <xsd:element name='BranchNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='HoldersName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='AccountAddress' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Notes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Nickname' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AccountNumber' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClientParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='OrganizationName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ZipCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Address2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Website' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='TaxId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Address1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='City' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DiscountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPriorInDays' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone1' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone2' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StatusId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Fax' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ContactName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Cell' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPastInDays' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CompanyId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocItems' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ItemQuantity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ItemPrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ItemDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId1' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ReferenceNumber' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ClientNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ClientId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMailSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='MailFrom' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Signature' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='StockQty' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Price' type='xsd:int' minOccurs='0' />
+            <xsd:element name='AlertQty' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Published' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='ItemId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='FullDescription' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Tags' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ShortDescription' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='DefaultText' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Estimate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Invoice' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='PurchaseOrder' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Precision' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DateFormatId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TemplateId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='TaxId1' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='inviteVendorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listBankAccountsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='BankName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='RoutingNumber' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='BranchNumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='HoldersName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='AccountAddress' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Nickname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='AccountNumber' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCatalogDiscountsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount1' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Discount2' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Discount3' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listClientsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='freetext' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statusid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listClientsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='OrganizationName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ZipCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Address2' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Website' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Address1' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='City' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DiscountId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='InvoiceReminderPriorInDays' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Telephone1' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Due' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Telephone2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='StatusId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Fax' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ContactName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Cell' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='InvoiceReminderPastInDays' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCountriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCurrenciesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDateFormatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Value' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDocumentTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDueDaysOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Text' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listEstimatesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='datefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dateto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='filetype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='organizationname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='refno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listEstimatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='OrganizationName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Status' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Tax2' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Tax1' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='PayStatus' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='LastSent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Total' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='LastViewed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Outstanding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='DueDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listFrequencyOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listInvoicesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='companyid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='datefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dateto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='filetype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='organizationname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='refno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listInvoicesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='OrganizationName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Status' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Tax2' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Tax1' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='PayStatus' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='LastSent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Total' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='LastViewed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Outstanding' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='DueDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EnglishName' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPayStatusOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Value' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPaymentMethodsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listProductsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='freesearch' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='statusid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listProductsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Published' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ShortDescription' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listStatusOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Value' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Key' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTaxSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Rate' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTemplateStylesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='publishProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='publishProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreClientParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restoreProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setEstimateUnviewedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setEstimateUnviewedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setInvoiceUnviewedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setInvoiceUnviewedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unpublishProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unpublishProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateBankAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateBankAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateCatalogDiscountsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateClientParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateClientResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='OrganizationName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ZipCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Address2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Website' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='TaxId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Address1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='City' type='xsd:string' minOccurs='0' />
+            <xsd:element name='DiscountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPriorInDays' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone1' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone2' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StatusId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Fax' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ContactName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Cell' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InvoiceReminderPastInDays' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateEstimateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateEstimateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Discount' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CompanyId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DocItems' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ItemQuantity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ItemPrice' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TaxId2' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ItemId' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ItemDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TaxId1' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ReferenceNumber' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IssueDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='InternalNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='ClientNotes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CurrencyId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Due' type='xsd:int' minOccurs='0' />
+            <xsd:element name='BankAccountId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ClientId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Shipping' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='LanguageId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateInvoiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateInvoiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateMailSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateProductParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateSettingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTaxSettingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTaxSettingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountStatusRequestMessage' />
+  <message name='accountStatusResponseMessage'>
+    <part name='response' element='tns:accountStatusResponse' />
+  </message>
+  <message name='accountSummaryRequestMessage' />
+  <message name='accountSummaryResponseMessage'>
+    <part name='response' element='tns:accountSummaryResponse' />
+  </message>
+  <message name='archiveClientRequestMessage'>
+    <part name='parameters' element='tns:archiveClientParameters' />
+  </message>
+  <message name='archiveClientResponseMessage'>
+    <part name='response' element='tns:archiveClientResponse' />
+  </message>
+  <message name='archiveEstimateRequestMessage'>
+    <part name='parameters' element='tns:archiveEstimateParameters' />
+  </message>
+  <message name='archiveEstimateResponseMessage'>
+    <part name='response' element='tns:archiveEstimateResponse' />
+  </message>
+  <message name='archiveInvoiceRequestMessage'>
+    <part name='parameters' element='tns:archiveInvoiceParameters' />
+  </message>
+  <message name='archiveInvoiceResponseMessage'>
+    <part name='response' element='tns:archiveInvoiceResponse' />
+  </message>
+  <message name='archiveProductRequestMessage'>
+    <part name='parameters' element='tns:archiveProductParameters' />
+  </message>
+  <message name='archiveProductResponseMessage'>
+    <part name='response' element='tns:archiveProductResponse' />
+  </message>
+  <message name='cloneEstimateRequestMessage'>
+    <part name='parameters' element='tns:cloneEstimateParameters' />
+  </message>
+  <message name='cloneEstimateResponseMessage'>
+    <part name='response' element='tns:cloneEstimateResponse' />
+  </message>
+  <message name='cloneInvoiceRequestMessage'>
+    <part name='parameters' element='tns:cloneInvoiceParameters' />
+  </message>
+  <message name='cloneInvoiceResponseMessage'>
+    <part name='response' element='tns:cloneInvoiceResponse' />
+  </message>
+  <message name='createBankAccountRequestMessage' />
+  <message name='createBankAccountResponseMessage'>
+    <part name='response' element='tns:createBankAccountResponse' />
+  </message>
+  <message name='createClientRequestMessage' />
+  <message name='createClientResponseMessage'>
+    <part name='response' element='tns:createClientResponse' />
+  </message>
+  <message name='createEstimateRequestMessage' />
+  <message name='createEstimateResponseMessage'>
+    <part name='response' element='tns:createEstimateResponse' />
+  </message>
+  <message name='createInvoiceRequestMessage' />
+  <message name='createInvoiceResponseMessage'>
+    <part name='response' element='tns:createInvoiceResponse' />
+  </message>
+  <message name='createProductRequestMessage' />
+  <message name='createProductResponseMessage'>
+    <part name='response' element='tns:createProductResponse' />
+  </message>
+  <message name='createTaxSettingRequestMessage' />
+  <message name='createTaxSettingResponseMessage'>
+    <part name='response' element='tns:createTaxSettingResponse' />
+  </message>
+  <message name='deleteClientRequestMessage'>
+    <part name='parameters' element='tns:deleteClientParameters' />
+  </message>
+  <message name='deleteClientResponseMessage'>
+    <part name='response' element='tns:deleteClientResponse' />
+  </message>
+  <message name='deleteEstimateRequestMessage'>
+    <part name='parameters' element='tns:deleteEstimateParameters' />
+  </message>
+  <message name='deleteEstimateResponseMessage'>
+    <part name='response' element='tns:deleteEstimateResponse' />
+  </message>
+  <message name='deleteInvoiceRequestMessage'>
+    <part name='parameters' element='tns:deleteInvoiceParameters' />
+  </message>
+  <message name='deleteInvoiceResponseMessage'>
+    <part name='response' element='tns:deleteInvoiceResponse' />
+  </message>
+  <message name='deleteProductRequestMessage'>
+    <part name='parameters' element='tns:deleteProductParameters' />
+  </message>
+  <message name='deleteProductResponseMessage'>
+    <part name='response' element='tns:deleteProductResponse' />
+  </message>
+  <message name='deleteTaxSettingRequestMessage'>
+    <part name='parameters' element='tns:deleteTaxSettingParameters' />
+  </message>
+  <message name='deleteTaxSettingResponseMessage'>
+    <part name='response' element='tns:deleteTaxSettingResponse' />
+  </message>
+  <message name='getBankAccountRequestMessage'>
+    <part name='parameters' element='tns:getBankAccountParameters' />
+  </message>
+  <message name='getBankAccountResponseMessage'>
+    <part name='response' element='tns:getBankAccountResponse' />
+  </message>
+  <message name='getClientRequestMessage'>
+    <part name='parameters' element='tns:getClientParameters' />
+  </message>
+  <message name='getClientResponseMessage'>
+    <part name='response' element='tns:getClientResponse' />
+  </message>
+  <message name='getEstimateRequestMessage'>
+    <part name='parameters' element='tns:getEstimateParameters' />
+  </message>
+  <message name='getEstimateResponseMessage'>
+    <part name='response' element='tns:getEstimateResponse' />
+  </message>
+  <message name='getInvoiceRequestMessage'>
+    <part name='parameters' element='tns:getInvoiceParameters' />
+  </message>
+  <message name='getInvoiceResponseMessage'>
+    <part name='response' element='tns:getInvoiceResponse' />
+  </message>
+  <message name='getMailSettingsRequestMessage' />
+  <message name='getMailSettingsResponseMessage'>
+    <part name='response' element='tns:getMailSettingsResponse' />
+  </message>
+  <message name='getProductRequestMessage'>
+    <part name='parameters' element='tns:getProductParameters' />
+  </message>
+  <message name='getProductResponseMessage'>
+    <part name='response' element='tns:getProductResponse' />
+  </message>
+  <message name='getSettingsRequestMessage' />
+  <message name='getSettingsResponseMessage'>
+    <part name='response' element='tns:getSettingsResponse' />
+  </message>
+  <message name='inviteVendorsRequestMessage' />
+  <message name='inviteVendorsResponseMessage'>
+    <part name='response' element='tns:inviteVendorsResponse' />
+  </message>
+  <message name='listBankAccountsRequestMessage' />
+  <message name='listBankAccountsResponseMessage'>
+    <part name='response' element='tns:listBankAccountsResponse' />
+  </message>
+  <message name='listCatalogDiscountsRequestMessage' />
+  <message name='listCatalogDiscountsResponseMessage'>
+    <part name='response' element='tns:listCatalogDiscountsResponse' />
+  </message>
+  <message name='listClientsRequestMessage'>
+    <part name='parameters' element='tns:listClientsParameters' />
+  </message>
+  <message name='listClientsResponseMessage'>
+    <part name='response' element='tns:listClientsResponse' />
+  </message>
+  <message name='listCountriesRequestMessage' />
+  <message name='listCountriesResponseMessage'>
+    <part name='response' element='tns:listCountriesResponse' />
+  </message>
+  <message name='listCurrenciesRequestMessage' />
+  <message name='listCurrenciesResponseMessage'>
+    <part name='response' element='tns:listCurrenciesResponse' />
+  </message>
+  <message name='listDateFormatsRequestMessage' />
+  <message name='listDateFormatsResponseMessage'>
+    <part name='response' element='tns:listDateFormatsResponse' />
+  </message>
+  <message name='listDocumentTypesRequestMessage' />
+  <message name='listDocumentTypesResponseMessage'>
+    <part name='response' element='tns:listDocumentTypesResponse' />
+  </message>
+  <message name='listDueDaysOptionsRequestMessage' />
+  <message name='listDueDaysOptionsResponseMessage'>
+    <part name='response' element='tns:listDueDaysOptionsResponse' />
+  </message>
+  <message name='listEstimatesRequestMessage'>
+    <part name='parameters' element='tns:listEstimatesParameters' />
+  </message>
+  <message name='listEstimatesResponseMessage'>
+    <part name='response' element='tns:listEstimatesResponse' />
+  </message>
+  <message name='listFrequencyOptionsRequestMessage' />
+  <message name='listFrequencyOptionsResponseMessage'>
+    <part name='response' element='tns:listFrequencyOptionsResponse' />
+  </message>
+  <message name='listInvoicesRequestMessage'>
+    <part name='parameters' element='tns:listInvoicesParameters' />
+  </message>
+  <message name='listInvoicesResponseMessage'>
+    <part name='response' element='tns:listInvoicesResponse' />
+  </message>
+  <message name='listLanguagesRequestMessage' />
+  <message name='listLanguagesResponseMessage'>
+    <part name='response' element='tns:listLanguagesResponse' />
+  </message>
+  <message name='listPayStatusOptionsRequestMessage' />
+  <message name='listPayStatusOptionsResponseMessage'>
+    <part name='response' element='tns:listPayStatusOptionsResponse' />
+  </message>
+  <message name='listPaymentMethodsRequestMessage' />
+  <message name='listPaymentMethodsResponseMessage'>
+    <part name='response' element='tns:listPaymentMethodsResponse' />
+  </message>
+  <message name='listProductsRequestMessage'>
+    <part name='parameters' element='tns:listProductsParameters' />
+  </message>
+  <message name='listProductsResponseMessage'>
+    <part name='response' element='tns:listProductsResponse' />
+  </message>
+  <message name='listStatusOptionsRequestMessage' />
+  <message name='listStatusOptionsResponseMessage'>
+    <part name='response' element='tns:listStatusOptionsResponse' />
+  </message>
+  <message name='listTaxSettingsRequestMessage' />
+  <message name='listTaxSettingsResponseMessage'>
+    <part name='response' element='tns:listTaxSettingsResponse' />
+  </message>
+  <message name='listTemplateStylesRequestMessage' />
+  <message name='listTemplateStylesResponseMessage'>
+    <part name='response' element='tns:listTemplateStylesResponse' />
+  </message>
+  <message name='publishProductRequestMessage'>
+    <part name='parameters' element='tns:publishProductParameters' />
+  </message>
+  <message name='publishProductResponseMessage'>
+    <part name='response' element='tns:publishProductResponse' />
+  </message>
+  <message name='restoreClientRequestMessage'>
+    <part name='parameters' element='tns:restoreClientParameters' />
+  </message>
+  <message name='restoreClientResponseMessage'>
+    <part name='response' element='tns:restoreClientResponse' />
+  </message>
+  <message name='restoreEstimateRequestMessage'>
+    <part name='parameters' element='tns:restoreEstimateParameters' />
+  </message>
+  <message name='restoreEstimateResponseMessage'>
+    <part name='response' element='tns:restoreEstimateResponse' />
+  </message>
+  <message name='restoreInvoiceRequestMessage'>
+    <part name='parameters' element='tns:restoreInvoiceParameters' />
+  </message>
+  <message name='restoreInvoiceResponseMessage'>
+    <part name='response' element='tns:restoreInvoiceResponse' />
+  </message>
+  <message name='restoreProductRequestMessage'>
+    <part name='parameters' element='tns:restoreProductParameters' />
+  </message>
+  <message name='restoreProductResponseMessage'>
+    <part name='response' element='tns:restoreProductResponse' />
+  </message>
+  <message name='sendEstimateRequestMessage'>
+    <part name='parameters' element='tns:sendEstimateParameters' />
+  </message>
+  <message name='sendEstimateResponseMessage'>
+    <part name='response' element='tns:sendEstimateResponse' />
+  </message>
+  <message name='sendInvoiceRequestMessage'>
+    <part name='parameters' element='tns:sendInvoiceParameters' />
+  </message>
+  <message name='sendInvoiceResponseMessage'>
+    <part name='response' element='tns:sendInvoiceResponse' />
+  </message>
+  <message name='setEstimateUnviewedRequestMessage'>
+    <part name='parameters' element='tns:setEstimateUnviewedParameters' />
+  </message>
+  <message name='setEstimateUnviewedResponseMessage'>
+    <part name='response' element='tns:setEstimateUnviewedResponse' />
+  </message>
+  <message name='setInvoiceUnviewedRequestMessage'>
+    <part name='parameters' element='tns:setInvoiceUnviewedParameters' />
+  </message>
+  <message name='setInvoiceUnviewedResponseMessage'>
+    <part name='response' element='tns:setInvoiceUnviewedResponse' />
+  </message>
+  <message name='unpublishProductRequestMessage'>
+    <part name='parameters' element='tns:unpublishProductParameters' />
+  </message>
+  <message name='unpublishProductResponseMessage'>
+    <part name='response' element='tns:unpublishProductResponse' />
+  </message>
+  <message name='updateBankAccountRequestMessage'>
+    <part name='parameters' element='tns:updateBankAccountParameters' />
+  </message>
+  <message name='updateBankAccountResponseMessage'>
+    <part name='response' element='tns:updateBankAccountResponse' />
+  </message>
+  <message name='updateCatalogDiscountsRequestMessage' />
+  <message name='updateCatalogDiscountsResponseMessage'>
+    <part name='response' element='tns:updateCatalogDiscountsResponse' />
+  </message>
+  <message name='updateClientRequestMessage'>
+    <part name='parameters' element='tns:updateClientParameters' />
+  </message>
+  <message name='updateClientResponseMessage'>
+    <part name='response' element='tns:updateClientResponse' />
+  </message>
+  <message name='updateEstimateRequestMessage'>
+    <part name='parameters' element='tns:updateEstimateParameters' />
+  </message>
+  <message name='updateEstimateResponseMessage'>
+    <part name='response' element='tns:updateEstimateResponse' />
+  </message>
+  <message name='updateInvoiceRequestMessage'>
+    <part name='parameters' element='tns:updateInvoiceParameters' />
+  </message>
+  <message name='updateInvoiceResponseMessage'>
+    <part name='response' element='tns:updateInvoiceResponse' />
+  </message>
+  <message name='updateMailSettingsRequestMessage' />
+  <message name='updateMailSettingsResponseMessage'>
+    <part name='response' element='tns:updateMailSettingsResponse' />
+  </message>
+  <message name='updateProductRequestMessage'>
+    <part name='parameters' element='tns:updateProductParameters' />
+  </message>
+  <message name='updateProductResponseMessage'>
+    <part name='response' element='tns:updateProductResponse' />
+  </message>
+  <message name='updateSettingsRequestMessage' />
+  <message name='updateSettingsResponseMessage'>
+    <part name='response' element='tns:updateSettingsResponse' />
+  </message>
+  <message name='updateTaxSettingRequestMessage'>
+    <part name='parameters' element='tns:updateTaxSettingParameters' />
+  </message>
+  <message name='updateTaxSettingResponseMessage'>
+    <part name='response' element='tns:updateTaxSettingResponse' />
+  </message>
+  <portType name='billivingPortType'>
+    <operation name='accountStatus'>
+      <documentation>retrieve account information i e plan type expiration date etc</documentation>
+      <input message='tns:accountStatusRequestMessage' name='accountStatusInput' />
+      <output message='tns:accountStatusResponseMessage' name='accountStatusOutput' />
+    </operation>
+    <operation name='accountSummary'>
+      <documentation>dashboard data</documentation>
+      <input message='tns:accountSummaryRequestMessage' name='accountSummaryInput' />
+      <output message='tns:accountSummaryResponseMessage' name='accountSummaryOutput' />
+    </operation>
+    <operation name='archiveClient'>
+      <documentation>archive a client</documentation>
+      <input message='tns:archiveClientRequestMessage' name='archiveClientInput' />
+      <output message='tns:archiveClientResponseMessage' name='archiveClientOutput' />
+    </operation>
+    <operation name='archiveEstimate'>
+      <documentation>archive an estimate</documentation>
+      <input message='tns:archiveEstimateRequestMessage' name='archiveEstimateInput' />
+      <output message='tns:archiveEstimateResponseMessage' name='archiveEstimateOutput' />
+    </operation>
+    <operation name='archiveInvoice'>
+      <documentation>archive an invoice</documentation>
+      <input message='tns:archiveInvoiceRequestMessage' name='archiveInvoiceInput' />
+      <output message='tns:archiveInvoiceResponseMessage' name='archiveInvoiceOutput' />
+    </operation>
+    <operation name='archiveProduct'>
+      <documentation>archive a product</documentation>
+      <input message='tns:archiveProductRequestMessage' name='archiveProductInput' />
+      <output message='tns:archiveProductResponseMessage' name='archiveProductOutput' />
+    </operation>
+    <operation name='cloneEstimate'>
+      <documentation>clone an estimate</documentation>
+      <input message='tns:cloneEstimateRequestMessage' name='cloneEstimateInput' />
+      <output message='tns:cloneEstimateResponseMessage' name='cloneEstimateOutput' />
+    </operation>
+    <operation name='cloneInvoice'>
+      <documentation>clone an invoice</documentation>
+      <input message='tns:cloneInvoiceRequestMessage' name='cloneInvoiceInput' />
+      <output message='tns:cloneInvoiceResponseMessage' name='cloneInvoiceOutput' />
+    </operation>
+    <operation name='createBankAccount'>
+      <documentation>add a new bank account</documentation>
+      <input message='tns:createBankAccountRequestMessage' name='createBankAccountInput' />
+      <output message='tns:createBankAccountResponseMessage' name='createBankAccountOutput' />
+    </operation>
+    <operation name='createClient'>
+      <documentation>create a client</documentation>
+      <input message='tns:createClientRequestMessage' name='createClientInput' />
+      <output message='tns:createClientResponseMessage' name='createClientOutput' />
+    </operation>
+    <operation name='createEstimate'>
+      <documentation>create an estimate</documentation>
+      <input message='tns:createEstimateRequestMessage' name='createEstimateInput' />
+      <output message='tns:createEstimateResponseMessage' name='createEstimateOutput' />
+    </operation>
+    <operation name='createInvoice'>
+      <documentation>create an invoice</documentation>
+      <input message='tns:createInvoiceRequestMessage' name='createInvoiceInput' />
+      <output message='tns:createInvoiceResponseMessage' name='createInvoiceOutput' />
+    </operation>
+    <operation name='createProduct'>
+      <documentation>create a new product</documentation>
+      <input message='tns:createProductRequestMessage' name='createProductInput' />
+      <output message='tns:createProductResponseMessage' name='createProductOutput' />
+    </operation>
+    <operation name='createTaxSetting'>
+      <documentation>add a new tax setting</documentation>
+      <input message='tns:createTaxSettingRequestMessage' name='createTaxSettingInput' />
+      <output message='tns:createTaxSettingResponseMessage' name='createTaxSettingOutput' />
+    </operation>
+    <operation name='deleteClient'>
+      <documentation>delete a client</documentation>
+      <input message='tns:deleteClientRequestMessage' name='deleteClientInput' />
+      <output message='tns:deleteClientResponseMessage' name='deleteClientOutput' />
+    </operation>
+    <operation name='deleteEstimate'>
+      <documentation>delete an estimate</documentation>
+      <input message='tns:deleteEstimateRequestMessage' name='deleteEstimateInput' />
+      <output message='tns:deleteEstimateResponseMessage' name='deleteEstimateOutput' />
+    </operation>
+    <operation name='deleteInvoice'>
+      <documentation>delete an invoice</documentation>
+      <input message='tns:deleteInvoiceRequestMessage' name='deleteInvoiceInput' />
+      <output message='tns:deleteInvoiceResponseMessage' name='deleteInvoiceOutput' />
+    </operation>
+    <operation name='deleteProduct'>
+      <documentation>delete an existing product</documentation>
+      <input message='tns:deleteProductRequestMessage' name='deleteProductInput' />
+      <output message='tns:deleteProductResponseMessage' name='deleteProductOutput' />
+    </operation>
+    <operation name='deleteTaxSetting'>
+      <documentation>delete tax setting</documentation>
+      <input message='tns:deleteTaxSettingRequestMessage' name='deleteTaxSettingInput' />
+      <output message='tns:deleteTaxSettingResponseMessage' name='deleteTaxSettingOutput' />
+    </operation>
+    <operation name='getBankAccount'>
+      <documentation>retrieve bank account information</documentation>
+      <input message='tns:getBankAccountRequestMessage' name='getBankAccountInput' />
+      <output message='tns:getBankAccountResponseMessage' name='getBankAccountOutput' />
+    </operation>
+    <operation name='getClient'>
+      <documentation>get a single client</documentation>
+      <input message='tns:getClientRequestMessage' name='getClientInput' />
+      <output message='tns:getClientResponseMessage' name='getClientOutput' />
+    </operation>
+    <operation name='getEstimate'>
+      <documentation>retrieve a single estimate</documentation>
+      <input message='tns:getEstimateRequestMessage' name='getEstimateInput' />
+      <output message='tns:getEstimateResponseMessage' name='getEstimateOutput' />
+    </operation>
+    <operation name='getInvoice'>
+      <documentation>get an existing invoice</documentation>
+      <input message='tns:getInvoiceRequestMessage' name='getInvoiceInput' />
+      <output message='tns:getInvoiceResponseMessage' name='getInvoiceOutput' />
+    </operation>
+    <operation name='getMailSettings'>
+      <documentation>retrieve mail settings</documentation>
+      <input message='tns:getMailSettingsRequestMessage' name='getMailSettingsInput' />
+      <output message='tns:getMailSettingsResponseMessage' name='getMailSettingsOutput' />
+    </operation>
+    <operation name='getProduct'>
+      <documentation>retrieve an existing product</documentation>
+      <input message='tns:getProductRequestMessage' name='getProductInput' />
+      <output message='tns:getProductResponseMessage' name='getProductOutput' />
+    </operation>
+    <operation name='getSettings'>
+      <documentation>retrieve account settings</documentation>
+      <input message='tns:getSettingsRequestMessage' name='getSettingsInput' />
+      <output message='tns:getSettingsResponseMessage' name='getSettingsOutput' />
+    </operation>
+    <operation name='inviteVendors'>
+      <documentation>sends a vendors invitation to a list of recipients</documentation>
+      <input message='tns:inviteVendorsRequestMessage' name='inviteVendorsInput' />
+      <output message='tns:inviteVendorsResponseMessage' name='inviteVendorsOutput' />
+    </operation>
+    <operation name='listBankAccounts'>
+      <documentation>retrieve a collection of bank accounts</documentation>
+      <input message='tns:listBankAccountsRequestMessage' name='listBankAccountsInput' />
+      <output message='tns:listBankAccountsResponseMessage' name='listBankAccountsOutput' />
+    </operation>
+    <operation name='listCatalogDiscounts'>
+      <documentation>retrieve catalog discounts i e Bronze Silver Gold</documentation>
+      <input message='tns:listCatalogDiscountsRequestMessage' name='listCatalogDiscountsInput' />
+      <output message='tns:listCatalogDiscountsResponseMessage' name='listCatalogDiscountsOutput' />
+    </operation>
+    <operation name='listClients'>
+      <documentation>retrieve a collection of clients</documentation>
+      <input message='tns:listClientsRequestMessage' name='listClientsInput' />
+      <output message='tns:listClientsResponseMessage' name='listClientsOutput' />
+    </operation>
+    <operation name='listCountries'>
+      <documentation>retrieve a collection of supported countries</documentation>
+      <input message='tns:listCountriesRequestMessage' name='listCountriesInput' />
+      <output message='tns:listCountriesResponseMessage' name='listCountriesOutput' />
+    </operation>
+    <operation name='listCurrencies'>
+      <documentation>retrieve a collection of supported currencies</documentation>
+      <input message='tns:listCurrenciesRequestMessage' name='listCurrenciesInput' />
+      <output message='tns:listCurrenciesResponseMessage' name='listCurrenciesOutput' />
+    </operation>
+    <operation name='listDateFormats'>
+      <documentation>retrieve a collection of date formats</documentation>
+      <input message='tns:listDateFormatsRequestMessage' name='listDateFormatsInput' />
+      <output message='tns:listDateFormatsResponseMessage' name='listDateFormatsOutput' />
+    </operation>
+    <operation name='listDocumentTypes'>
+      <documentation>retrieve document type collection</documentation>
+      <input message='tns:listDocumentTypesRequestMessage' name='listDocumentTypesInput' />
+      <output message='tns:listDocumentTypesResponseMessage' name='listDocumentTypesOutput' />
+    </operation>
+    <operation name='listDueDaysOptions'>
+      <documentation>retrieve a collection of supported due days</documentation>
+      <input message='tns:listDueDaysOptionsRequestMessage' name='listDueDaysOptionsInput' />
+      <output message='tns:listDueDaysOptionsResponseMessage' name='listDueDaysOptionsOutput' />
+    </operation>
+    <operation name='listEstimates'>
+      <documentation>list estimates</documentation>
+      <input message='tns:listEstimatesRequestMessage' name='listEstimatesInput' />
+      <output message='tns:listEstimatesResponseMessage' name='listEstimatesOutput' />
+    </operation>
+    <operation name='listFrequencyOptions'>
+      <documentation>retrieve a collection of frequency i e weekly monthly yearly etc</documentation>
+      <input message='tns:listFrequencyOptionsRequestMessage' name='listFrequencyOptionsInput' />
+      <output message='tns:listFrequencyOptionsResponseMessage' name='listFrequencyOptionsOutput' />
+    </operation>
+    <operation name='listInvoices'>
+      <documentation>list invoices</documentation>
+      <input message='tns:listInvoicesRequestMessage' name='listInvoicesInput' />
+      <output message='tns:listInvoicesResponseMessage' name='listInvoicesOutput' />
+    </operation>
+    <operation name='listLanguages'>
+      <documentation>retrieve a collection of supported languages</documentation>
+      <input message='tns:listLanguagesRequestMessage' name='listLanguagesInput' />
+      <output message='tns:listLanguagesResponseMessage' name='listLanguagesOutput' />
+    </operation>
+    <operation name='listPayStatusOptions'>
+      <documentation>retrieve a collection of pay status</documentation>
+      <input message='tns:listPayStatusOptionsRequestMessage' name='listPayStatusOptionsInput' />
+      <output message='tns:listPayStatusOptionsResponseMessage' name='listPayStatusOptionsOutput' />
+    </operation>
+    <operation name='listPaymentMethods'>
+      <documentation>retrieve a collection of payment methods i e cash check credit card etc</documentation>
+      <input message='tns:listPaymentMethodsRequestMessage' name='listPaymentMethodsInput' />
+      <output message='tns:listPaymentMethodsResponseMessage' name='listPaymentMethodsOutput' />
+    </operation>
+    <operation name='listProducts'>
+      <documentation>retrieve a collection of products</documentation>
+      <input message='tns:listProductsRequestMessage' name='listProductsInput' />
+      <output message='tns:listProductsResponseMessage' name='listProductsOutput' />
+    </operation>
+    <operation name='listStatusOptions'>
+      <documentation>retrieve a collection of statuses used for all entities i e clients invoices etc</documentation>
+      <input message='tns:listStatusOptionsRequestMessage' name='listStatusOptionsInput' />
+      <output message='tns:listStatusOptionsResponseMessage' name='listStatusOptionsOutput' />
+    </operation>
+    <operation name='listTaxSettings'>
+      <documentation>retrieve a collection of tax settings</documentation>
+      <input message='tns:listTaxSettingsRequestMessage' name='listTaxSettingsInput' />
+      <output message='tns:listTaxSettingsResponseMessage' name='listTaxSettingsOutput' />
+    </operation>
+    <operation name='listTemplateStyles'>
+      <documentation>retrieve template style collection</documentation>
+      <input message='tns:listTemplateStylesRequestMessage' name='listTemplateStylesInput' />
+      <output message='tns:listTemplateStylesResponseMessage' name='listTemplateStylesOutput' />
+    </operation>
+    <operation name='publishProduct'>
+      <documentation>publish a product</documentation>
+      <input message='tns:publishProductRequestMessage' name='publishProductInput' />
+      <output message='tns:publishProductResponseMessage' name='publishProductOutput' />
+    </operation>
+    <operation name='restoreClient'>
+      <documentation>restore a deleted archived client</documentation>
+      <input message='tns:restoreClientRequestMessage' name='restoreClientInput' />
+      <output message='tns:restoreClientResponseMessage' name='restoreClientOutput' />
+    </operation>
+    <operation name='restoreEstimate'>
+      <documentation>restore a deleted archived estimate</documentation>
+      <input message='tns:restoreEstimateRequestMessage' name='restoreEstimateInput' />
+      <output message='tns:restoreEstimateResponseMessage' name='restoreEstimateOutput' />
+    </operation>
+    <operation name='restoreInvoice'>
+      <documentation>restore a deleted or archived invoice</documentation>
+      <input message='tns:restoreInvoiceRequestMessage' name='restoreInvoiceInput' />
+      <output message='tns:restoreInvoiceResponseMessage' name='restoreInvoiceOutput' />
+    </operation>
+    <operation name='restoreProduct'>
+      <documentation>restore a product</documentation>
+      <input message='tns:restoreProductRequestMessage' name='restoreProductInput' />
+      <output message='tns:restoreProductResponseMessage' name='restoreProductOutput' />
+    </operation>
+    <operation name='sendEstimate'>
+      <documentation>send an estimate</documentation>
+      <input message='tns:sendEstimateRequestMessage' name='sendEstimateInput' />
+      <output message='tns:sendEstimateResponseMessage' name='sendEstimateOutput' />
+    </operation>
+    <operation name='sendInvoice'>
+      <documentation>send an invoice</documentation>
+      <input message='tns:sendInvoiceRequestMessage' name='sendInvoiceInput' />
+      <output message='tns:sendInvoiceResponseMessage' name='sendInvoiceOutput' />
+    </operation>
+    <operation name='setEstimateUnviewed'>
+      <documentation>restores document back to its unviewed state</documentation>
+      <input message='tns:setEstimateUnviewedRequestMessage' name='setEstimateUnviewedInput' />
+      <output message='tns:setEstimateUnviewedResponseMessage' name='setEstimateUnviewedOutput' />
+    </operation>
+    <operation name='setInvoiceUnviewed'>
+      <documentation>restores document back to its unviewed state</documentation>
+      <input message='tns:setInvoiceUnviewedRequestMessage' name='setInvoiceUnviewedInput' />
+      <output message='tns:setInvoiceUnviewedResponseMessage' name='setInvoiceUnviewedOutput' />
+    </operation>
+    <operation name='unpublishProduct'>
+      <documentation>unpublish a product</documentation>
+      <input message='tns:unpublishProductRequestMessage' name='unpublishProductInput' />
+      <output message='tns:unpublishProductResponseMessage' name='unpublishProductOutput' />
+    </operation>
+    <operation name='updateBankAccount'>
+      <documentation>update bank account</documentation>
+      <input message='tns:updateBankAccountRequestMessage' name='updateBankAccountInput' />
+      <output message='tns:updateBankAccountResponseMessage' name='updateBankAccountOutput' />
+    </operation>
+    <operation name='updateCatalogDiscounts'>
+      <documentation>update catalog discounts i e Bronze Silver Gold</documentation>
+      <input message='tns:updateCatalogDiscountsRequestMessage' name='updateCatalogDiscountsInput' />
+      <output message='tns:updateCatalogDiscountsResponseMessage' name='updateCatalogDiscountsOutput' />
+    </operation>
+    <operation name='updateClient'>
+      <documentation>update a client</documentation>
+      <input message='tns:updateClientRequestMessage' name='updateClientInput' />
+      <output message='tns:updateClientResponseMessage' name='updateClientOutput' />
+    </operation>
+    <operation name='updateEstimate'>
+      <documentation>update an estimate</documentation>
+      <input message='tns:updateEstimateRequestMessage' name='updateEstimateInput' />
+      <output message='tns:updateEstimateResponseMessage' name='updateEstimateOutput' />
+    </operation>
+    <operation name='updateInvoice'>
+      <documentation>update an invoice</documentation>
+      <input message='tns:updateInvoiceRequestMessage' name='updateInvoiceInput' />
+      <output message='tns:updateInvoiceResponseMessage' name='updateInvoiceOutput' />
+    </operation>
+    <operation name='updateMailSettings'>
+      <documentation>update mail settings</documentation>
+      <input message='tns:updateMailSettingsRequestMessage' name='updateMailSettingsInput' />
+      <output message='tns:updateMailSettingsResponseMessage' name='updateMailSettingsOutput' />
+    </operation>
+    <operation name='updateProduct'>
+      <documentation>update an existing product</documentation>
+      <input message='tns:updateProductRequestMessage' name='updateProductInput' />
+      <output message='tns:updateProductResponseMessage' name='updateProductOutput' />
+    </operation>
+    <operation name='updateSettings'>
+      <documentation>update account settings</documentation>
+      <input message='tns:updateSettingsRequestMessage' name='updateSettingsInput' />
+      <output message='tns:updateSettingsResponseMessage' name='updateSettingsOutput' />
+    </operation>
+    <operation name='updateTaxSetting'>
+      <documentation>update tax setting</documentation>
+      <input message='tns:updateTaxSettingRequestMessage' name='updateTaxSettingInput' />
+      <output message='tns:updateTaxSettingResponseMessage' name='updateTaxSettingOutput' />
+    </operation>
+  </portType>
+  <binding name='billivingBinding' type='tns:billivingPortType'>
+    <operation name='accountStatus'>
+      <soap12:operation soapAction='http://accountStatus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='accountSummary'>
+      <soap12:operation soapAction='http://accountSummary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='archiveClient'>
+      <soap12:operation soapAction='http://archiveClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='archiveEstimate'>
+      <soap12:operation soapAction='http://archiveEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='archiveInvoice'>
+      <soap12:operation soapAction='http://archiveInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='archiveProduct'>
+      <soap12:operation soapAction='http://archiveProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cloneEstimate'>
+      <soap12:operation soapAction='http://cloneEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cloneInvoice'>
+      <soap12:operation soapAction='http://cloneInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createBankAccount'>
+      <soap12:operation soapAction='http://createBankAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createClient'>
+      <soap12:operation soapAction='http://createClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createEstimate'>
+      <soap12:operation soapAction='http://createEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createInvoice'>
+      <soap12:operation soapAction='http://createInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createProduct'>
+      <soap12:operation soapAction='http://createProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createTaxSetting'>
+      <soap12:operation soapAction='http://createTaxSetting' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteClient'>
+      <soap12:operation soapAction='http://deleteClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteEstimate'>
+      <soap12:operation soapAction='http://deleteEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteInvoice'>
+      <soap12:operation soapAction='http://deleteInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteProduct'>
+      <soap12:operation soapAction='http://deleteProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteTaxSetting'>
+      <soap12:operation soapAction='http://deleteTaxSetting' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getBankAccount'>
+      <soap12:operation soapAction='http://getBankAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getClient'>
+      <soap12:operation soapAction='http://getClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEstimate'>
+      <soap12:operation soapAction='http://getEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getInvoice'>
+      <soap12:operation soapAction='http://getInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getMailSettings'>
+      <soap12:operation soapAction='http://getMailSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getProduct'>
+      <soap12:operation soapAction='http://getProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSettings'>
+      <soap12:operation soapAction='http://getSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='inviteVendors'>
+      <soap12:operation soapAction='http://inviteVendors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listBankAccounts'>
+      <soap12:operation soapAction='http://listBankAccounts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCatalogDiscounts'>
+      <soap12:operation soapAction='http://listCatalogDiscounts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listClients'>
+      <soap12:operation soapAction='http://listClients' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCountries'>
+      <soap12:operation soapAction='http://listCountries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCurrencies'>
+      <soap12:operation soapAction='http://listCurrencies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDateFormats'>
+      <soap12:operation soapAction='http://listDateFormats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDocumentTypes'>
+      <soap12:operation soapAction='http://listDocumentTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDueDaysOptions'>
+      <soap12:operation soapAction='http://listDueDaysOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listEstimates'>
+      <soap12:operation soapAction='http://listEstimates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listFrequencyOptions'>
+      <soap12:operation soapAction='http://listFrequencyOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listInvoices'>
+      <soap12:operation soapAction='http://listInvoices' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listLanguages'>
+      <soap12:operation soapAction='http://listLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPayStatusOptions'>
+      <soap12:operation soapAction='http://listPayStatusOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPaymentMethods'>
+      <soap12:operation soapAction='http://listPaymentMethods' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listProducts'>
+      <soap12:operation soapAction='http://listProducts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listStatusOptions'>
+      <soap12:operation soapAction='http://listStatusOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTaxSettings'>
+      <soap12:operation soapAction='http://listTaxSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTemplateStyles'>
+      <soap12:operation soapAction='http://listTemplateStyles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='publishProduct'>
+      <soap12:operation soapAction='http://publishProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='restoreClient'>
+      <soap12:operation soapAction='http://restoreClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='restoreEstimate'>
+      <soap12:operation soapAction='http://restoreEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='restoreInvoice'>
+      <soap12:operation soapAction='http://restoreInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='restoreProduct'>
+      <soap12:operation soapAction='http://restoreProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendEstimate'>
+      <soap12:operation soapAction='http://sendEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendInvoice'>
+      <soap12:operation soapAction='http://sendInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setEstimateUnviewed'>
+      <soap12:operation soapAction='http://setEstimateUnviewed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setInvoiceUnviewed'>
+      <soap12:operation soapAction='http://setInvoiceUnviewed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unpublishProduct'>
+      <soap12:operation soapAction='http://unpublishProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateBankAccount'>
+      <soap12:operation soapAction='http://updateBankAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateCatalogDiscounts'>
+      <soap12:operation soapAction='http://updateCatalogDiscounts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateClient'>
+      <soap12:operation soapAction='http://updateClient' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateEstimate'>
+      <soap12:operation soapAction='http://updateEstimate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateInvoice'>
+      <soap12:operation soapAction='http://updateInvoice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateMailSettings'>
+      <soap12:operation soapAction='http://updateMailSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateProduct'>
+      <soap12:operation soapAction='http://updateProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateSettings'>
+      <soap12:operation soapAction='http://updateSettings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateTaxSetting'>
+      <soap12:operation soapAction='http://updateTaxSetting' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='billiving'>
+    <documentation>professional online invoicing service designed for small businesses and freelancers</documentation>
+    <port name='billivingPort' binding='tns:billivingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://billiving' />
+    </port>
+  </service>
+</definitions>

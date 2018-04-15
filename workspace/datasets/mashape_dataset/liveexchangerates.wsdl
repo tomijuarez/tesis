@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/liveExchangeRates/' name='liveExchangeRates' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/liveExchangeRates/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/liveExchangeRates/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/liveExchangeRates/'>
+      <xsd:element name='latestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currencypair' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='latestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='latestRequestMessage'>
+    <part name='parameters' element='tns:latestParameters' />
+  </message>
+  <message name='latestResponseMessage'>
+    <part name='response' element='tns:latestResponse' />
+  </message>
+  <portType name='liveExchangeRatesPortType'>
+    <operation name='latest'>
+      <documentation>latest currency exchange rate of given currency pair</documentation>
+      <input message='tns:latestRequestMessage' name='latestInput' />
+      <output message='tns:latestResponseMessage' name='latestOutput' />
+    </operation>
+  </portType>
+  <binding name='liveExchangeRatesBinding' type='tns:liveExchangeRatesPortType'>
+    <operation name='latest'>
+      <soap12:operation soapAction='http://latest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='liveExchangeRates'>
+    <documentation>latest currency exchange rates update every second</documentation>
+    <port name='liveExchangeRatesPort' binding='tns:liveExchangeRatesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://liveExchangeRates' />
+    </port>
+  </service>
+</definitions>

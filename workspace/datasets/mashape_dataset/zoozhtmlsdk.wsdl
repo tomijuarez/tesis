@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zoozHtmlSdk/' name='zoozHtmlSdk' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zoozHtmlSdk/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zoozHtmlSdk/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zoozHtmlSdk/'>
+      <xsd:element name='openOrVerifyTransactionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cmd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='currencycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='transactiondisplayid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='transactionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='openOrVerifyTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zoozCheckoutParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cancelurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='issandbox' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='returnurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uniqueid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zoozCheckoutResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='openOrVerifyTransactionRequestMessage'>
+    <part name='parameters' element='tns:openOrVerifyTransactionParameters' />
+  </message>
+  <message name='openOrVerifyTransactionResponseMessage'>
+    <part name='response' element='tns:openOrVerifyTransactionResponse' />
+  </message>
+  <message name='zoozCheckoutRequestMessage'>
+    <part name='parameters' element='tns:zoozCheckoutParameters' />
+  </message>
+  <message name='zoozCheckoutResponseMessage'>
+    <part name='response' element='tns:zoozCheckoutResponse' />
+  </message>
+  <portType name='zoozHtmlSdkPortType'>
+    <operation name='openOrVerifyTransaction'>
+      <documentation>open transaction on a secured channel to ZooZ server This call returns a token that will be used to uniquely identify the transaction</documentation>
+      <input message='tns:openOrVerifyTransactionRequestMessage' name='openOrVerifyTransactionInput' />
+      <output message='tns:openOrVerifyTransactionResponseMessage' name='openOrVerifyTransactionOutput' />
+    </operation>
+    <operation name='zoozCheckout'>
+      <documentation>open the ZooZ checkout window and start the payment process</documentation>
+      <input message='tns:zoozCheckoutRequestMessage' name='zoozCheckoutInput' />
+      <output message='tns:zoozCheckoutResponseMessage' name='zoozCheckoutOutput' />
+    </operation>
+  </portType>
+  <binding name='zoozHtmlSdkBinding' type='tns:zoozHtmlSdkPortType'>
+    <operation name='openOrVerifyTransaction'>
+      <soap12:operation soapAction='http://openOrVerifyTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='zoozCheckout'>
+      <soap12:operation soapAction='http://zoozCheckout' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zoozHtmlSdk'>
+    <documentation>we value your time and make it our mission to deliver a simple SDK which wraps up everything you need in one place The Zooz SDK is designed to facilitate all your payment needs with minimal effort Integrating our code into your app or site should take only a few minutes</documentation>
+    <port name='zoozHtmlSdkPort' binding='tns:zoozHtmlSdkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zoozHtmlSdk' />
+    </port>
+  </service>
+</definitions>

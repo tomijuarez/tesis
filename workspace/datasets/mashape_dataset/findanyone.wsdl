@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/findAnyone/' name='findAnyone' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/findAnyone/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/findAnyone/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/findAnyone/'>
+      <xsd:element name='emailAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emailAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='emailAddressRequestMessage'>
+    <part name='parameters' element='tns:emailAddressParameters' />
+  </message>
+  <message name='emailAddressResponseMessage'>
+    <part name='response' element='tns:emailAddressResponse' />
+  </message>
+  <portType name='findAnyonePortType'>
+    <operation name='emailAddress'>
+      <documentation>find anyone by email address</documentation>
+      <input message='tns:emailAddressRequestMessage' name='emailAddressInput' />
+      <output message='tns:emailAddressResponseMessage' name='emailAddressOutput' />
+    </operation>
+  </portType>
+  <binding name='findAnyoneBinding' type='tns:findAnyonePortType'>
+    <operation name='emailAddress'>
+      <soap12:operation soapAction='http://emailAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='findAnyone'>
+    <documentation>find anyone given his email address built for Augusto</documentation>
+    <port name='findAnyonePort' binding='tns:findAnyoneBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://findAnyone' />
+    </port>
+  </service>
+</definitions>

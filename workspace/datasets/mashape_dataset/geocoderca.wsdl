@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geocoderCa/' name='geocoderCa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geocoderCa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geocoderCa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geocoderCa/'>
+      <xsd:element name='geocodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addresst' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='decimal' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='geoit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='jsonp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='locate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postal' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='prov' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showpostal' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='standard' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='stno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='strict' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='strictmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='topmatches' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='utm' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geocodeRequestMessage'>
+    <part name='parameters' element='tns:geocodeParameters' />
+  </message>
+  <message name='geocodeResponseMessage'>
+    <part name='response' element='tns:geocodeResponse' />
+  </message>
+  <portType name='geocoderCaPortType'>
+    <operation name='geocode'>
+      <documentation></documentation>
+      <input message='tns:geocodeRequestMessage' name='geocodeInput' />
+      <output message='tns:geocodeResponseMessage' name='geocodeOutput' />
+    </operation>
+  </portType>
+  <binding name='geocoderCaBinding' type='tns:geocoderCaPortType'>
+    <operation name='geocode'>
+      <soap12:operation soapAction='http://geocode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geocoderCa'>
+    <documentation>geocoder ca provides a simple XML interface to do real time automated geocoding for your application</documentation>
+    <port name='geocoderCaPort' binding='tns:geocoderCaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geocoderCa' />
+    </port>
+  </service>
+</definitions>

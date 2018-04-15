@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textocatBeta/' name='textocatBeta' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textocatBeta/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textocatBeta/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textocatBeta/'>
+      <xsd:element name='entityQueueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='body' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityQueueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityRetrieveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='batchid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityRetrieveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitySearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='searchquery' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entitySearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='entityQueueRequestMessage'>
+    <part name='parameters' element='tns:entityQueueParameters' />
+  </message>
+  <message name='entityQueueResponseMessage'>
+    <part name='response' element='tns:entityQueueResponse' />
+  </message>
+  <message name='entityRetrieveRequestMessage'>
+    <part name='parameters' element='tns:entityRetrieveParameters' />
+  </message>
+  <message name='entityRetrieveResponseMessage'>
+    <part name='response' element='tns:entityRetrieveResponse' />
+  </message>
+  <message name='entitySearchRequestMessage'>
+    <part name='parameters' element='tns:entitySearchParameters' />
+  </message>
+  <message name='entitySearchResponseMessage'>
+    <part name='response' element='tns:entitySearchResponse' />
+  </message>
+  <message name='statusRequestMessage' />
+  <message name='statusResponseMessage'>
+    <part name='response' element='tns:statusResponse' />
+  </message>
+  <portType name='textocatBetaPortType'>
+    <operation name='entityQueue'>
+      <input message='tns:entityQueueRequestMessage' name='entityQueueInput' />
+      <output message='tns:entityQueueResponseMessage' name='entityQueueOutput' />
+    </operation>
+    <operation name='entityRetrieve'>
+      <input message='tns:entityRetrieveRequestMessage' name='entityRetrieveInput' />
+      <output message='tns:entityRetrieveResponseMessage' name='entityRetrieveOutput' />
+    </operation>
+    <operation name='entitySearch'>
+      <documentation>full text search over all the user s documents Entity search is featured</documentation>
+      <input message='tns:entitySearchRequestMessage' name='entitySearchInput' />
+      <output message='tns:entitySearchResponseMessage' name='entitySearchOutput' />
+    </operation>
+    <operation name='status'>
+      <documentation>check the API status</documentation>
+      <input message='tns:statusRequestMessage' name='statusInput' />
+      <output message='tns:statusResponseMessage' name='statusOutput' />
+    </operation>
+  </portType>
+  <binding name='textocatBetaBinding' type='tns:textocatBetaPortType'>
+    <operation name='entityQueue'>
+      <soap12:operation soapAction='http://entityQueue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entityRetrieve'>
+      <soap12:operation soapAction='http://entityRetrieve' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entitySearch'>
+      <soap12:operation soapAction='http://entitySearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='status'>
+      <soap12:operation soapAction='http://status' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textocatBeta'>
+    <documentation>textocat API enables scalable state of the art NLP search in your favorite language</documentation>
+    <port name='textocatBetaPort' binding='tns:textocatBetaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textocatBeta' />
+    </port>
+  </service>
+</definitions>

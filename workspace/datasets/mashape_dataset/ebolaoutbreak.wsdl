@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ebolaOutbreak/' name='ebolaOutbreak' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ebolaOutbreak/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ebolaOutbreak/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ebolaOutbreak/'>
+      <xsd:element name='casesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='casesRequestMessage' />
+  <message name='casesResponseMessage'>
+    <part name='response' element='tns:casesResponse' />
+  </message>
+  <message name='rateRequestMessage' />
+  <message name='rateResponseMessage'>
+    <part name='response' element='tns:rateResponse' />
+  </message>
+  <portType name='ebolaOutbreakPortType'>
+    <operation name='cases'>
+      <documentation>returns confirmed case and death counts</documentation>
+      <input message='tns:casesRequestMessage' name='casesInput' />
+      <output message='tns:casesResponseMessage' name='casesOutput' />
+    </operation>
+    <operation name='rate'>
+      <documentation>returns the growth rate of new infections</documentation>
+      <input message='tns:rateRequestMessage' name='rateInput' />
+      <output message='tns:rateResponseMessage' name='rateOutput' />
+    </operation>
+  </portType>
+  <binding name='ebolaOutbreakBinding' type='tns:ebolaOutbreakPortType'>
+    <operation name='cases'>
+      <soap12:operation soapAction='http://cases' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rate'>
+      <soap12:operation soapAction='http://rate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ebolaOutbreak'>
+    <documentation>ebola cases deaths projections and current growth rates Ebola data provided by the World Health Organization Source code on GitHub</documentation>
+    <port name='ebolaOutbreakPort' binding='tns:ebolaOutbreakBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ebolaOutbreak' />
+    </port>
+  </service>
+</definitions>

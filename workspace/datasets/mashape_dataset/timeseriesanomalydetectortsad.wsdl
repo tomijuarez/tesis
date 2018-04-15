@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/timeSeriesAnomalyDetectorTsad/' name='timeSeriesAnomalyDetectorTsad' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/timeSeriesAnomalyDetectorTsad/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/timeSeriesAnomalyDetectorTsad/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/timeSeriesAnomalyDetectorTsad/'>
+      <xsd:element name='isAnomalousResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is_anomalous' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='isAnomalousRequestMessage' />
+  <message name='isAnomalousResponseMessage'>
+    <part name='response' element='tns:isAnomalousResponse' />
+  </message>
+  <portType name='timeSeriesAnomalyDetectorTsadPortType'>
+    <operation name='isAnomalous'>
+      <documentation>test if a series is anomalous</documentation>
+      <input message='tns:isAnomalousRequestMessage' name='isAnomalousInput' />
+      <output message='tns:isAnomalousResponseMessage' name='isAnomalousOutput' />
+    </operation>
+  </portType>
+  <binding name='timeSeriesAnomalyDetectorTsadBinding' type='tns:timeSeriesAnomalyDetectorTsadPortType'>
+    <operation name='isAnomalous'>
+      <soap12:operation soapAction='http://isAnomalous' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='timeSeriesAnomalyDetectorTsad'>
+    <documentation>send a time series and know if the last data point is anomalous or not</documentation>
+    <port name='timeSeriesAnomalyDetectorTsadPort' binding='tns:timeSeriesAnomalyDetectorTsadBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://timeSeriesAnomalyDetectorTsad' />
+    </port>
+  </service>
+</definitions>

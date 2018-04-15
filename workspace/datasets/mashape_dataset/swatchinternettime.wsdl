@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/swatchInternetTime/' name='swatchInternetTime' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/swatchInternetTime/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/swatchInternetTime/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/swatchInternetTime/'>
+      <xsd:element name='moreAtApiTendersoftPlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vInternettimeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='UnixTimestamp' type='xsd:int' minOccurs='0' />
+            <xsd:element name='DateTimeUtc' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Beats' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vInternettimeBeatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='moreAtApiTendersoftPlRequestMessage' />
+  <message name='moreAtApiTendersoftPlResponseMessage'>
+    <part name='response' element='tns:moreAtApiTendersoftPlResponse' />
+  </message>
+  <message name='vInternettimeRequestMessage' />
+  <message name='vInternettimeResponseMessage'>
+    <part name='response' element='tns:vInternettimeResponse' />
+  </message>
+  <message name='vInternettimeBeatsRequestMessage' />
+  <message name='vInternettimeBeatsResponseMessage'>
+    <part name='response' element='tns:vInternettimeBeatsResponse' />
+  </message>
+  <portType name='swatchInternetTimePortType'>
+    <operation name='moreAtApiTendersoftPl'>
+      <documentation></documentation>
+      <input message='tns:moreAtApiTendersoftPlRequestMessage' name='moreAtApiTendersoftPlInput' />
+      <output message='tns:moreAtApiTendersoftPlResponseMessage' name='moreAtApiTendersoftPlOutput' />
+    </operation>
+    <operation name='vInternettime'>
+      <documentation></documentation>
+      <input message='tns:vInternettimeRequestMessage' name='vInternettimeInput' />
+      <output message='tns:vInternettimeResponseMessage' name='vInternettimeOutput' />
+    </operation>
+    <operation name='vInternettimeBeats'>
+      <documentation></documentation>
+      <input message='tns:vInternettimeBeatsRequestMessage' name='vInternettimeBeatsInput' />
+      <output message='tns:vInternettimeBeatsResponseMessage' name='vInternettimeBeatsOutput' />
+    </operation>
+  </portType>
+  <binding name='swatchInternetTimeBinding' type='tns:swatchInternetTimePortType'>
+    <operation name='moreAtApiTendersoftPl'>
+      <soap12:operation soapAction='http://moreAtApiTendersoftPl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vInternettime'>
+      <soap12:operation soapAction='http://vInternettime' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vInternettimeBeats'>
+      <soap12:operation soapAction='http://vInternettimeBeats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='swatchInternetTime'>
+    <documentation>our Swatch Internet Time API provides you with the ability to quickly synchronize time across the globe using REST completely for free We support timezones GMT offsets and full dates with year month day all that to give you the most flexible platform to build your services on</documentation>
+    <port name='swatchInternetTimePort' binding='tns:swatchInternetTimeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://swatchInternetTime' />
+    </port>
+  </service>
+</definitions>

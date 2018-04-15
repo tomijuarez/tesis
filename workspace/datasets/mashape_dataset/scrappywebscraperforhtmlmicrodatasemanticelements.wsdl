@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/scrappyWebScraperForHtmlMicrodataSemanticElements/' name='scrappyWebScraperForHtmlMicrodataSemanticElements' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/scrappyWebScraperForHtmlMicrodataSemanticElements/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/scrappyWebScraperForHtmlMicrodataSemanticElements/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/scrappyWebScraperForHtmlMicrodataSemanticElements/'>
+      <xsd:element name='scrapMicrodataElementsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='duration' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='actor' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='actors' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+                        <xsd:element name='url' type='xsd:anyURI' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='image' type='xsd:anyURI' maxOccurs='unbounded' />
+                  <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='audience' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='review' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='genre' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='aggregateRating' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='itemType' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='url' type='xsd:anyURI' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='scrapMicrodataElementsRequestMessage' />
+  <message name='scrapMicrodataElementsResponseMessage'>
+    <part name='response' element='tns:scrapMicrodataElementsResponse' />
+  </message>
+  <portType name='scrappyWebScraperForHtmlMicrodataSemanticElementsPortType'>
+    <operation name='scrapMicrodataElements'>
+      <documentation>return all schema org microdata present at given URL</documentation>
+      <input message='tns:scrapMicrodataElementsRequestMessage' name='scrapMicrodataElementsInput' />
+      <output message='tns:scrapMicrodataElementsResponseMessage' name='scrapMicrodataElementsOutput' />
+    </operation>
+  </portType>
+  <binding name='scrappyWebScraperForHtmlMicrodataSemanticElementsBinding' type='tns:scrappyWebScraperForHtmlMicrodataSemanticElementsPortType'>
+    <operation name='scrapMicrodataElements'>
+      <soap12:operation soapAction='http://scrapMicrodataElements' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='scrappyWebScraperForHtmlMicrodataSemanticElements'>
+    <documentation>scrappy is a tool for extract any kind of schema org semantic microdata from any given URL</documentation>
+    <port name='scrappyWebScraperForHtmlMicrodataSemanticElementsPort' binding='tns:scrappyWebScraperForHtmlMicrodataSemanticElementsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://scrappyWebScraperForHtmlMicrodataSemanticElements' />
+    </port>
+  </service>
+</definitions>

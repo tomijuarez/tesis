@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indicative/' name='indicative' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indicative/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indicative/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indicative/'>
+      <xsd:element name='batchedEventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='events' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='batchedEventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='eventname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='eventtime' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='eventuniqueid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='properties' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='batchedEventsRequestMessage'>
+    <part name='parameters' element='tns:batchedEventsParameters' />
+  </message>
+  <message name='batchedEventsResponseMessage'>
+    <part name='response' element='tns:batchedEventsResponse' />
+  </message>
+  <message name='singleEventRequestMessage'>
+    <part name='parameters' element='tns:singleEventParameters' />
+  </message>
+  <message name='singleEventResponseMessage'>
+    <part name='response' element='tns:singleEventResponse' />
+  </message>
+  <portType name='indicativePortType'>
+    <operation name='batchedEvents'>
+      <documentation>to send multiple events at once</documentation>
+      <input message='tns:batchedEventsRequestMessage' name='batchedEventsInput' />
+      <output message='tns:batchedEventsResponseMessage' name='batchedEventsOutput' />
+    </operation>
+    <operation name='singleEvent'>
+      <documentation>submitting one event at a time</documentation>
+      <input message='tns:singleEventRequestMessage' name='singleEventInput' />
+      <output message='tns:singleEventResponseMessage' name='singleEventOutput' />
+    </operation>
+  </portType>
+  <binding name='indicativeBinding' type='tns:indicativePortType'>
+    <operation name='batchedEvents'>
+      <soap12:operation soapAction='http://batchedEvents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleEvent'>
+      <soap12:operation soapAction='http://singleEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indicative'>
+    <documentation>indicative API is the easiest and most intuitive way to visualize web and mobile businesses The goal of the product is to empower everyone in an organization to participate in driving product and marketing decisions with data All of Indicative s event tracking is handled through our REST API which allows you to send us events using simple HTTP requests</documentation>
+    <port name='indicativePort' binding='tns:indicativeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indicative' />
+    </port>
+  </service>
+</definitions>

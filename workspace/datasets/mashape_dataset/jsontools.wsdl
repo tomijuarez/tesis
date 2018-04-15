@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jsonTools/' name='jsonTools' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jsonTools/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jsonTools/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jsonTools/'>
+      <xsd:element name='prettyprintParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='json' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='prettyprintResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='newJson' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validatejsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='json' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validatejsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='isValid' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='prettyprintRequestMessage'>
+    <part name='parameters' element='tns:prettyprintParameters' />
+  </message>
+  <message name='prettyprintResponseMessage'>
+    <part name='response' element='tns:prettyprintResponse' />
+  </message>
+  <message name='validatejsonRequestMessage'>
+    <part name='parameters' element='tns:validatejsonParameters' />
+  </message>
+  <message name='validatejsonResponseMessage'>
+    <part name='response' element='tns:validatejsonResponse' />
+  </message>
+  <portType name='jsonToolsPortType'>
+    <operation name='prettyprint'>
+      <documentation>pretty prints a JSON data with indentation</documentation>
+      <input message='tns:prettyprintRequestMessage' name='prettyprintInput' />
+      <output message='tns:prettyprintResponseMessage' name='prettyprintOutput' />
+    </operation>
+    <operation name='validatejson'>
+      <documentation>validates JSON data</documentation>
+      <input message='tns:validatejsonRequestMessage' name='validatejsonInput' />
+      <output message='tns:validatejsonResponseMessage' name='validatejsonOutput' />
+    </operation>
+  </portType>
+  <binding name='jsonToolsBinding' type='tns:jsonToolsPortType'>
+    <operation name='prettyprint'>
+      <soap12:operation soapAction='http://prettyprint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validatejson'>
+      <soap12:operation soapAction='http://validatejson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jsonTools'>
+    <documentation>this API provides a set of useful features for JSON data Send me a private message to ask for more features Enjoy</documentation>
+    <port name='jsonToolsPort' binding='tns:jsonToolsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jsonTools' />
+    </port>
+  </service>
+</definitions>

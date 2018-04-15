@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cloudfish/' name='cloudfish' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cloudfish/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cloudfish/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cloudfish/'>
+      <xsd:element name='createTextRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasErrors' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateAddressesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasErrors' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createTextRequestRequestMessage' />
+  <message name='createTextRequestResponseMessage'>
+    <part name='response' element='tns:createTextRequestResponse' />
+  </message>
+  <message name='validateAddressesRequestMessage' />
+  <message name='validateAddressesResponseMessage'>
+    <part name='response' element='tns:validateAddressesResponse' />
+  </message>
+  <portType name='cloudfishPortType'>
+    <operation name='createTextRequest'>
+      <documentation>create a text request using posted addresses This is equivalent to a copy paste request in the UI The request is queued for processing results are not instantaneous</documentation>
+      <input message='tns:createTextRequestRequestMessage' name='createTextRequestInput' />
+      <output message='tns:createTextRequestResponseMessage' name='createTextRequestOutput' />
+    </operation>
+    <operation name='validateAddresses'>
+      <documentation>validate a list of addresses max This is the equivalent of a real time request in the UI Results are processed immediately but may take time</documentation>
+      <input message='tns:validateAddressesRequestMessage' name='validateAddressesInput' />
+      <output message='tns:validateAddressesResponseMessage' name='validateAddressesOutput' />
+    </operation>
+  </portType>
+  <binding name='cloudfishBinding' type='tns:cloudfishPortType'>
+    <operation name='createTextRequest'>
+      <soap12:operation soapAction='http://createTextRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateAddresses'>
+      <soap12:operation soapAction='http://validateAddresses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cloudfish'>
+    <documentation>cloudfish provides realtime email validation along with advanced syntax checks IETF standards dea role account checks smtp dns mailbox checks a plethora of checks</documentation>
+    <port name='cloudfishPort' binding='tns:cloudfishBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cloudfish' />
+    </port>
+  </service>
+</definitions>

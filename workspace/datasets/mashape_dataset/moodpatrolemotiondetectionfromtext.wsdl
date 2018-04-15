@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/moodpatrolEmotionDetectionFromText/' name='moodpatrolEmotionDetectionFromText' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/moodpatrolEmotionDetectionFromText/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/moodpatrolEmotionDetectionFromText/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/moodpatrolEmotionDetectionFromText/'>
+      <xsd:element name='getemotionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groups' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='emotions' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ambiguous' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='bullying' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='bullyingPos' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getemotionsRequestMessage' />
+  <message name='getemotionsResponseMessage'>
+    <part name='response' element='tns:getemotionsResponse' />
+  </message>
+  <portType name='moodpatrolEmotionDetectionFromTextPortType'>
+    <operation name='getemotions'>
+      <documentation>detect the emotions from the given text</documentation>
+      <input message='tns:getemotionsRequestMessage' name='getemotionsInput' />
+      <output message='tns:getemotionsResponseMessage' name='getemotionsOutput' />
+    </operation>
+  </portType>
+  <binding name='moodpatrolEmotionDetectionFromTextBinding' type='tns:moodpatrolEmotionDetectionFromTextPortType'>
+    <operation name='getemotions'>
+      <soap12:operation soapAction='http://getemotions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='moodpatrolEmotionDetectionFromText'>
+    <documentation>moodPatrol offers developers a tool to analyze texts and extract the underlying emotions Go beyond simple sentiment analysis and enrich your apps to make them more human centered Easily detect Plutchik s basic emotions and a wide variety of finer emotions from your texts Our API uses sophisticated text analysis to find emotion patterns in text Create more human centered apps by understanding how your users feel</documentation>
+    <port name='moodpatrolEmotionDetectionFromTextPort' binding='tns:moodpatrolEmotionDetectionFromTextBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://moodpatrolEmotionDetectionFromText' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ukBoundariesIo/' name='ukBoundariesIo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ukBoundariesIo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ukBoundariesIo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ukBoundariesIo/'>
+      <xsd:element name='retrieveUkPostalSectorBoundariesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='and' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='district' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='postalarea' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postaldistrict' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalsector' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postalunit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showpostalunits' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='showsectorboundaries' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='ward' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveUkPostalSectorBoundariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='features' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='coordinates' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='array' type='xsd:decimal' maxOccurs='unbounded' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='properties' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='district' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='sector' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveUkPostalSectorBoundariesRequestMessage'>
+    <part name='parameters' element='tns:retrieveUkPostalSectorBoundariesParameters' />
+  </message>
+  <message name='retrieveUkPostalSectorBoundariesResponseMessage'>
+    <part name='response' element='tns:retrieveUkPostalSectorBoundariesResponse' />
+  </message>
+  <portType name='ukBoundariesIoPortType'>
+    <operation name='retrieveUkPostalSectorBoundaries'>
+      <documentation>get UK Postal Unit ex ZE AE Sector District City and wards boundaries in GeoJson Formats The MashAPI UI cannot handle large results we default to limit this API is meant to be used programatically Thanks Copy paste results http geojsonlint com for a quick view</documentation>
+      <input message='tns:retrieveUkPostalSectorBoundariesRequestMessage' name='retrieveUkPostalSectorBoundariesInput' />
+      <output message='tns:retrieveUkPostalSectorBoundariesResponseMessage' name='retrieveUkPostalSectorBoundariesOutput' />
+    </operation>
+  </portType>
+  <binding name='ukBoundariesIoBinding' type='tns:ukBoundariesIoPortType'>
+    <operation name='retrieveUkPostalSectorBoundaries'>
+      <soap12:operation soapAction='http://retrieveUkPostalSectorBoundaries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ukBoundariesIo'>
+    <documentation>uK Postal Code ex ZE AE Sector District City and Wards Boundaries API A simple very fast API that will allow you to integrate multiple GeoJson UK boundaries results into your apps and systems This API is designed to be used programatically for optimal performance When using the MashApe UI for queries expect significant latency issues on large result sets</documentation>
+    <port name='ukBoundariesIoPort' binding='tns:ukBoundariesIoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ukBoundariesIo' />
+    </port>
+  </service>
+</definitions>

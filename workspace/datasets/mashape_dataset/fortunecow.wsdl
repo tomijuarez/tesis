@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fortunecow/' name='fortunecow' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fortunecow/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fortunecow/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fortunecow/'>
+      <xsd:element name='listCowsFacesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCowsTemplatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomFortunecowResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayRandomFortuneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cow' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='face' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayRandomFortuneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cow' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='face' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sayTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thinkTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cow' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='face' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='thinkTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listCowsFacesRequestMessage' />
+  <message name='listCowsFacesResponseMessage'>
+    <part name='response' element='tns:listCowsFacesResponse' />
+  </message>
+  <message name='listCowsTemplatesRequestMessage' />
+  <message name='listCowsTemplatesResponseMessage'>
+    <part name='response' element='tns:listCowsTemplatesResponse' />
+  </message>
+  <message name='randomFortunecowRequestMessage' />
+  <message name='randomFortunecowResponseMessage'>
+    <part name='response' element='tns:randomFortunecowResponse' />
+  </message>
+  <message name='sayRandomFortuneRequestMessage'>
+    <part name='parameters' element='tns:sayRandomFortuneParameters' />
+  </message>
+  <message name='sayRandomFortuneResponseMessage'>
+    <part name='response' element='tns:sayRandomFortuneResponse' />
+  </message>
+  <message name='sayTextRequestMessage'>
+    <part name='parameters' element='tns:sayTextParameters' />
+  </message>
+  <message name='sayTextResponseMessage'>
+    <part name='response' element='tns:sayTextResponse' />
+  </message>
+  <message name='thinkTextRequestMessage'>
+    <part name='parameters' element='tns:thinkTextParameters' />
+  </message>
+  <message name='thinkTextResponseMessage'>
+    <part name='response' element='tns:thinkTextResponse' />
+  </message>
+  <portType name='fortunecowPortType'>
+    <operation name='listCowsFaces'>
+      <documentation>list the available cows faces</documentation>
+      <input message='tns:listCowsFacesRequestMessage' name='listCowsFacesInput' />
+      <output message='tns:listCowsFacesResponseMessage' name='listCowsFacesOutput' />
+    </operation>
+    <operation name='listCowsTemplates'>
+      <documentation>list the available cows templates</documentation>
+      <input message='tns:listCowsTemplatesRequestMessage' name='listCowsTemplatesInput' />
+      <output message='tns:listCowsTemplatesResponseMessage' name='listCowsTemplatesOutput' />
+    </operation>
+    <operation name='randomFortunecow'>
+      <documentation>the cow uses a random template to say a random fortune cookie</documentation>
+      <input message='tns:randomFortunecowRequestMessage' name='randomFortunecowInput' />
+      <output message='tns:randomFortunecowResponseMessage' name='randomFortunecowOutput' />
+    </operation>
+    <operation name='sayRandomFortune'>
+      <documentation>the cow says a random fortune cookie</documentation>
+      <input message='tns:sayRandomFortuneRequestMessage' name='sayRandomFortuneInput' />
+      <output message='tns:sayRandomFortuneResponseMessage' name='sayRandomFortuneOutput' />
+    </operation>
+    <operation name='sayText'>
+      <documentation>the cow says the given text</documentation>
+      <input message='tns:sayTextRequestMessage' name='sayTextInput' />
+      <output message='tns:sayTextResponseMessage' name='sayTextOutput' />
+    </operation>
+    <operation name='thinkText'>
+      <documentation>the cow thinks the given text</documentation>
+      <input message='tns:thinkTextRequestMessage' name='thinkTextInput' />
+      <output message='tns:thinkTextResponseMessage' name='thinkTextOutput' />
+    </operation>
+  </portType>
+  <binding name='fortunecowBinding' type='tns:fortunecowPortType'>
+    <operation name='listCowsFaces'>
+      <soap12:operation soapAction='http://listCowsFaces' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCowsTemplates'>
+      <soap12:operation soapAction='http://listCowsTemplates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='randomFortunecow'>
+      <soap12:operation soapAction='http://randomFortunecow' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sayRandomFortune'>
+      <soap12:operation soapAction='http://sayRandomFortune' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sayText'>
+      <soap12:operation soapAction='http://sayText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='thinkText'>
+      <soap12:operation soapAction='http://thinkText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fortunecow'>
+    <documentation>a fun API combining cowsay and fortune cookies</documentation>
+    <port name='fortunecowPort' binding='tns:fortunecowBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fortunecow' />
+    </port>
+  </service>
+</definitions>

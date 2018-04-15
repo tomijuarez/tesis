@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/purgomalum/' name='purgomalum' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/purgomalum/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/purgomalum/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/purgomalum/'>
+      <xsd:element name='checkIfTextContainsProfanityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkIfTextContainsProfanityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeProfanityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fillchar' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='filltext' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeProfanityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkIfTextContainsProfanityRequestMessage'>
+    <part name='parameters' element='tns:checkIfTextContainsProfanityParameters' />
+  </message>
+  <message name='checkIfTextContainsProfanityResponseMessage'>
+    <part name='response' element='tns:checkIfTextContainsProfanityResponse' />
+  </message>
+  <message name='removeProfanityRequestMessage'>
+    <part name='parameters' element='tns:removeProfanityParameters' />
+  </message>
+  <message name='removeProfanityResponseMessage'>
+    <part name='response' element='tns:removeProfanityResponse' />
+  </message>
+  <portType name='purgomalumPortType'>
+    <operation name='checkIfTextContainsProfanity'>
+      <documentation></documentation>
+      <input message='tns:checkIfTextContainsProfanityRequestMessage' name='checkIfTextContainsProfanityInput' />
+      <output message='tns:checkIfTextContainsProfanityResponseMessage' name='checkIfTextContainsProfanityOutput' />
+    </operation>
+    <operation name='removeProfanity'>
+      <documentation>calling the web service involves a simple HTTP GET request The only two requirements for using PurgoMalum are the text parameter on the query string and the request type name as part of the path in the request</documentation>
+      <input message='tns:removeProfanityRequestMessage' name='removeProfanityInput' />
+      <output message='tns:removeProfanityResponseMessage' name='removeProfanityOutput' />
+    </operation>
+  </portType>
+  <binding name='purgomalumBinding' type='tns:purgomalumPortType'>
+    <operation name='checkIfTextContainsProfanity'>
+      <soap12:operation soapAction='http://checkIfTextContainsProfanity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeProfanity'>
+      <soap12:operation soapAction='http://removeProfanity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='purgomalum'>
+    <documentation>purgoMalum is a simple free RESTful web service for filtering and removing content of profanity obscenity and other unwanted text PurgoMalum s interface accepts several parameters for customization and can return results in plain text XML and JSON PurgoMalum is designed to remove words from input text based on an internal profanity list you may optionally add your own words to the profanity list through a request parameter see Request Parameters below It is designed to recognize character alternates often used in place of standard alphabetic characters e g will be recognized as an a will be recognized as an s and so forth PurgoMalum also utilizes a list of safe words i e innocuous words which contain words from the profanity list class for example These safe words are excluded from the filter</documentation>
+    <port name='purgomalumPort' binding='tns:purgomalumBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://purgomalum' />
+    </port>
+  </service>
+</definitions>

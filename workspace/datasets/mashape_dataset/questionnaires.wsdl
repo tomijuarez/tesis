@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/questionnaires/' name='questionnaires' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/questionnaires/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/questionnaires/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/questionnaires/'>
+      <xsd:element name='getQuestionnaireIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='questionnaireid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getQuestionnaireIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiVersion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tenantName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='asiErrorCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='moreInfo' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getQuestionnairesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postQuestionnaireScoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getQuestionnaireIdRequestMessage'>
+    <part name='parameters' element='tns:getQuestionnaireIdParameters' />
+  </message>
+  <message name='getQuestionnaireIdResponseMessage'>
+    <part name='response' element='tns:getQuestionnaireIdResponse' />
+  </message>
+  <message name='getQuestionnairesRequestMessage' />
+  <message name='getQuestionnairesResponseMessage'>
+    <part name='response' element='tns:getQuestionnairesResponse' />
+  </message>
+  <message name='postQuestionnaireScoreRequestMessage' />
+  <message name='postQuestionnaireScoreResponseMessage'>
+    <part name='response' element='tns:postQuestionnaireScoreResponse' />
+  </message>
+  <portType name='questionnairesPortType'>
+    <operation name='getQuestionnaireId'>
+      <documentation>the Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire s details The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire s ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire s ID If you make a request to https sandbox advisorsoftware com v questionnaires then all questionnaires for the tenant are returned If you include a questionnaire ID in the path then the details just for that questionnaire are returned For example https sandbox advisorsoftware com v questionnaires would return the details for the questionnaire with ID</documentation>
+      <input message='tns:getQuestionnaireIdRequestMessage' name='getQuestionnaireIdInput' />
+      <output message='tns:getQuestionnaireIdResponseMessage' name='getQuestionnaireIdOutput' />
+    </operation>
+    <operation name='getQuestionnaires'>
+      <documentation>the Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire s details The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire s ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire s ID If you make a request to https sandbox advisorsoftware com v questionnaires then all questionnaires for the tenant are returned If you include a questionnaire ID in the path then the details just for that questionnaire are returned For example https sandbox advisorsoftware com v questionnaires would return the details for the questionnaire with ID</documentation>
+      <input message='tns:getQuestionnairesRequestMessage' name='getQuestionnairesInput' />
+      <output message='tns:getQuestionnairesResponseMessage' name='getQuestionnairesOutput' />
+    </operation>
+    <operation name='postQuestionnaireScore'>
+      <documentation></documentation>
+      <input message='tns:postQuestionnaireScoreRequestMessage' name='postQuestionnaireScoreInput' />
+      <output message='tns:postQuestionnaireScoreResponseMessage' name='postQuestionnaireScoreOutput' />
+    </operation>
+  </portType>
+  <binding name='questionnairesBinding' type='tns:questionnairesPortType'>
+    <operation name='getQuestionnaireId'>
+      <soap12:operation soapAction='http://getQuestionnaireId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getQuestionnaires'>
+      <soap12:operation soapAction='http://getQuestionnaires' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postQuestionnaireScore'>
+      <soap12:operation soapAction='http://postQuestionnaireScore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='questionnaires'>
+    <documentation>the Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire s details The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire s ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire s ID If you make a request to https sandbox advisorsoftware com v questionnaires then all questionnaires for the tenant are returned If you include a questionnaire ID in the path then the details just for that questionnaire are returned For example https sandbox advisorsoftware com v questionnaires would return the details for the questionnaire with ID</documentation>
+    <port name='questionnairesPort' binding='tns:questionnairesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://questionnaires' />
+    </port>
+  </service>
+</definitions>

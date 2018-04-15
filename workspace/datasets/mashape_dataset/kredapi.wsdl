@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kredapi/' name='kredapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kredapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kredapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kredapi/'>
+      <xsd:element name='activityStreamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='activityStreamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='friendActivityStreamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='friendActivityStreamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='recipient_user_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='outreach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='action' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sender_user_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='influence' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historicalDailyKredPointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='period' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reverse' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historicalDailyKredPointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='last' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:date' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historicalDailyKredScoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='period' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reverse' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historicalDailyKredScoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='last' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:date' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredCommunityScoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredCommunityScoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='outreach_communities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Alternative_Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Parents' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Automotive' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Recruitment' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tech' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Students' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Education' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sustainability' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Comedy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Advertising' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Golf' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Social_Media' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Actors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CEO' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Podcasters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Surfing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Doctors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Yoga' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='MovieGoers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Charity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Motorbikes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Graphic_Design' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Architects' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mothers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Marketing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mommy_Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Shopaholics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Airlines' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Publishing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='News' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Cat_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Musicians' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Extreme_Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Food' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tennis' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Finance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Biking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fashion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='RealEstate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Religion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Lawyers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Radio' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Football' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Hiking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Photography' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Travel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Investors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Music' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Family' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='C-Suite_Execs' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Politics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artists' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Gaming' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dancers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fitness' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='outreach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='influence_communities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Alternative_Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Parents' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Automotive' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Intel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Recruitment' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tech' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sailing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Students' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Education' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sustainability' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Comedy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Advertising' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Golf' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Social_Media' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Actors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CEO' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Podcasters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Empleos' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='LGBT' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Surfing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Doctors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Business_Owners' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Models' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Yoga' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='MovieGoers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Charity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Beauty' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Motorbikes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Graphic_Design' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Architects' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Padres' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Familia' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CelebrityNews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Basketball' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mothers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Marketing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mommy_Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Shopaholics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Airlines' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Publishing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='IBM' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='News' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporteros' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Cat_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Musicians' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Extreme_Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Food' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tennis' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Astrology' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Finance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Biking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fashion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='RealEstate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Religion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Lawyers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Radio' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dog_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Football' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Hiking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Photography' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Travel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Investors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Estudiantes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Contests' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Music' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Animation' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Family' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='C-Suite_Execs' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Politics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artistas' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artists' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Gaming' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dancers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fitness' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='influence' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredInfluenceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='period' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reverse' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredInfluenceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='last' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='followers' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='numeric_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='outreach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='following' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='influence' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredOutreachParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='period' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reverse' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredOutreachResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='last' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='followers' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='numeric_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='outreach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='following' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='influence' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredRtInfluenceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='first' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='last' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='period' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reverse' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredRtInfluenceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredentialsApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kredentialsApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='external' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='app_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='app_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='outreach_communities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Alternative_Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Parents' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Automotive' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Intel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Recruitment' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tech' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sailing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Students' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Education' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sustainability' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Comedy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Lawyer' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Advertising' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Golf' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Social_Media' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Actors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CEO' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Podcasters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='LGBT' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Surfing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Doctors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Models' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Yoga' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='MovieGoers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Charity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Home_Business' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Beauty' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Motorbikes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Graphic_Design' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Architects' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CelebrityNews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Basketball' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mothers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Marketing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mommy_Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Shopaholics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Airlines' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Publishing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='IBM' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='News' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporteros' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Cat_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Musicians' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Extreme_Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Food' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tennis' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Astrology' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Finance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Biking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fashion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='RealEstate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Religion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Radio' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dog_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Football' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Hiking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Photography' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Travel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Investors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Estudiantes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Contests' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Music' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Animation' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Family' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='C-Suite_Execs' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Politics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artists' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Gaming' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Astronomy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dancers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fitness' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='outreach' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='retweet_out' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reply_out' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='mention_out' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='following' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='links' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='outreach_score' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='words' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:normalizedString' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='userid-mentions' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:normalizedString' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='influence_communities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Alternative_Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Parents' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Automotive' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Intel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Recruitment' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tech' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sailing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Students' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Education' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sustainability' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Comedy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Lawyer' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Advertising' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Golf' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Social_Media' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Actors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CEO' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Podcasters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Empleos' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='LGBT' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Surfing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Doctors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Models' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Yoga' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='MovieGoers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Charity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Home_Business' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Beauty' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Motorbikes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Graphic_Design' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Architects' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Familia' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='CelebrityNews' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Basketball' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mothers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Gamblers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Marketing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Mommy_Bloggers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Shopaholics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Airlines' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Publishing' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='IBM' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='News' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Cat_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Musicians' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Extreme_Sports' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Food' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Tennis' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Astrology' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Health' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Finance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Biking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fashion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='RealEstate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Religion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Radio' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dog_Lovers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Football' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Hiking' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Photography' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Reporters' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Travel' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Investors' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Estudiantes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Contests' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Music' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Animation' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Family' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='C-Suite_Execs' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Politics' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artistas' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Artists' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Gaming' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Astronomy' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Dancers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Fitness' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='links' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:anyURI' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='influence' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='followers' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='retweet_in' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='influence_score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reply_in' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='mention_in' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='tags' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:normalizedString' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='activityStreamRequestMessage'>
+    <part name='parameters' element='tns:activityStreamParameters' />
+  </message>
+  <message name='activityStreamResponseMessage'>
+    <part name='response' element='tns:activityStreamResponse' />
+  </message>
+  <message name='friendActivityStreamRequestMessage'>
+    <part name='parameters' element='tns:friendActivityStreamParameters' />
+  </message>
+  <message name='friendActivityStreamResponseMessage'>
+    <part name='response' element='tns:friendActivityStreamResponse' />
+  </message>
+  <message name='historicalDailyKredPointRequestMessage'>
+    <part name='parameters' element='tns:historicalDailyKredPointParameters' />
+  </message>
+  <message name='historicalDailyKredPointResponseMessage'>
+    <part name='response' element='tns:historicalDailyKredPointResponse' />
+  </message>
+  <message name='historicalDailyKredScoreRequestMessage'>
+    <part name='parameters' element='tns:historicalDailyKredScoreParameters' />
+  </message>
+  <message name='historicalDailyKredScoreResponseMessage'>
+    <part name='response' element='tns:historicalDailyKredScoreResponse' />
+  </message>
+  <message name='kredCommunityScoreRequestMessage'>
+    <part name='parameters' element='tns:kredCommunityScoreParameters' />
+  </message>
+  <message name='kredCommunityScoreResponseMessage'>
+    <part name='response' element='tns:kredCommunityScoreResponse' />
+  </message>
+  <message name='kredInfluenceRequestMessage'>
+    <part name='parameters' element='tns:kredInfluenceParameters' />
+  </message>
+  <message name='kredInfluenceResponseMessage'>
+    <part name='response' element='tns:kredInfluenceResponse' />
+  </message>
+  <message name='kredOutreachRequestMessage'>
+    <part name='parameters' element='tns:kredOutreachParameters' />
+  </message>
+  <message name='kredOutreachResponseMessage'>
+    <part name='response' element='tns:kredOutreachResponse' />
+  </message>
+  <message name='kredRtInfluenceRequestMessage'>
+    <part name='parameters' element='tns:kredRtInfluenceParameters' />
+  </message>
+  <message name='kredRtInfluenceResponseMessage'>
+    <part name='response' element='tns:kredRtInfluenceResponse' />
+  </message>
+  <message name='kredentialsApiRequestMessage'>
+    <part name='parameters' element='tns:kredentialsApiParameters' />
+  </message>
+  <message name='kredentialsApiResponseMessage'>
+    <part name='response' element='tns:kredentialsApiResponse' />
+  </message>
+  <portType name='kredapiPortType'>
+    <operation name='activityStream'>
+      <documentation>the Activity Stream provides an activity statement of a user s activity on Twitter according to a provided date range how their influence outreach changes relative to the action metrics</documentation>
+      <input message='tns:activityStreamRequestMessage' name='activityStreamInput' />
+      <output message='tns:activityStreamResponseMessage' name='activityStreamOutput' />
+    </operation>
+    <operation name='friendActivityStream'>
+      <documentation>the Friend Stream an activity statement of the users a specified user is following on Twitter and how their influence outreach changes relative to the action metrics</documentation>
+      <input message='tns:friendActivityStreamRequestMessage' name='friendActivityStreamInput' />
+      <output message='tns:friendActivityStreamResponseMessage' name='friendActivityStreamOutput' />
+    </operation>
+    <operation name='historicalDailyKredPoint'>
+      <documentation>delivers a histogram of a user s kred points over time range Kred scores are normalized using kred points using our algorithim exposed at kred com rules All histograms default to returning in GMT format</documentation>
+      <input message='tns:historicalDailyKredPointRequestMessage' name='historicalDailyKredPointInput' />
+      <output message='tns:historicalDailyKredPointResponseMessage' name='historicalDailyKredPointOutput' />
+    </operation>
+    <operation name='historicalDailyKredScore'>
+      <documentation>returns a histogram of a user s kred score over a time range specified Ability to visualize increase or decrease in both influence and outreach for a user over a time range All histograms default to returning in GMT format</documentation>
+      <input message='tns:historicalDailyKredScoreRequestMessage' name='historicalDailyKredScoreInput' />
+      <output message='tns:historicalDailyKredScoreResponseMessage' name='historicalDailyKredScoreOutput' />
+    </operation>
+    <operation name='kredCommunityScore'>
+      <documentation>returns Kred Influence Score Outreach Level for all communities within the kred library</documentation>
+      <input message='tns:kredCommunityScoreRequestMessage' name='kredCommunityScoreInput' />
+      <output message='tns:kredCommunityScoreResponseMessage' name='kredCommunityScoreOutput' />
+    </operation>
+    <operation name='kredInfluence'>
+      <documentation>returns names that have posted most recently that have matched what is specified within the term ranked by Kred Influence Score Search functions include a term a user has mentioned keyword phrase hashtag url bio term keyword hashtag url and or location city state country over a specified timeframe</documentation>
+      <input message='tns:kredInfluenceRequestMessage' name='kredInfluenceInput' />
+      <output message='tns:kredInfluenceResponseMessage' name='kredInfluenceOutput' />
+    </operation>
+    <operation name='kredOutreach'>
+      <documentation>returns names ranked by Kred Outreach Level Search functions include a term a user has mentioned bio term keyword hashtag url etc and or location over a specified timeframe</documentation>
+      <input message='tns:kredOutreachRequestMessage' name='kredOutreachInput' />
+      <output message='tns:kredOutreachResponseMessage' name='kredOutreachOutput' />
+    </operation>
+    <operation name='kredRtInfluence'>
+      <documentation>returns names that have posted within the time range specified ranked by those with the most amount of total RTs Search functions include a term a user has mentioned keyword phrase hashtag url bio term keyword hashtag url and or location city state country over a specified timeframe</documentation>
+      <input message='tns:kredRtInfluenceRequestMessage' name='kredRtInfluenceInput' />
+      <output message='tns:kredRtInfluenceResponseMessage' name='kredRtInfluenceOutput' />
+    </operation>
+    <operation name='kredentialsApi'>
+      <documentation>kredentials presents the online history of a user in a comprehensive format that makes it simple to understand the source of your Kred score Internally we refer to this as your identity archive Data from March has been aggregated data make this up and through a simple call you re able to return all of this via API Access to Kredentials is only available when you have signed up for a plan</documentation>
+      <input message='tns:kredentialsApiRequestMessage' name='kredentialsApiInput' />
+      <output message='tns:kredentialsApiResponseMessage' name='kredentialsApiOutput' />
+    </operation>
+  </portType>
+  <binding name='kredapiBinding' type='tns:kredapiPortType'>
+    <operation name='activityStream'>
+      <soap12:operation soapAction='http://activityStream' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='friendActivityStream'>
+      <soap12:operation soapAction='http://friendActivityStream' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='historicalDailyKredPoint'>
+      <soap12:operation soapAction='http://historicalDailyKredPoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='historicalDailyKredScore'>
+      <soap12:operation soapAction='http://historicalDailyKredScore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kredCommunityScore'>
+      <soap12:operation soapAction='http://kredCommunityScore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kredInfluence'>
+      <soap12:operation soapAction='http://kredInfluence' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kredOutreach'>
+      <soap12:operation soapAction='http://kredOutreach' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kredRtInfluence'>
+      <soap12:operation soapAction='http://kredRtInfluence' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kredentialsApi'>
+      <soap12:operation soapAction='http://kredentialsApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kredapi'>
+    <documentation>kred created by PeopleBrowsr measures influence in online communities connected by interest Kred values audience quality and engagement over audience size It assesses the ability to inspire action Influence and propensity to engage with others Outreach</documentation>
+    <port name='kredapiPort' binding='tns:kredapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kredapi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fraudPreventionWebService/' name='fraudPreventionWebService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fraudPreventionWebService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fraudPreventionWebService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fraudPreventionWebService/'>
+      <xsd:element name='fraudlabsProScreenOrderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='avsresult' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='billcity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='billcountry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='billstate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='billzipcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binbankcountry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binbankname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binbankphone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cardhash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='currency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cvvresult' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='department' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='emaildomain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='emailhash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='passwordhash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paymentmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='quantity' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sessionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipaddr' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipcity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipcountry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipstate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipzipcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userorderid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userordermemo' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userphone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='usernamehash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fraudlabsProScreenOrderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fraudlabsProScreenOrderRequestMessage'>
+    <part name='parameters' element='tns:fraudlabsProScreenOrderParameters' />
+  </message>
+  <message name='fraudlabsProScreenOrderResponseMessage'>
+    <part name='response' element='tns:fraudlabsProScreenOrderResponse' />
+  </message>
+  <portType name='fraudPreventionWebServicePortType'>
+    <operation name='fraudlabsProScreenOrder'>
+      <documentation></documentation>
+      <input message='tns:fraudlabsProScreenOrderRequestMessage' name='fraudlabsProScreenOrderInput' />
+      <output message='tns:fraudlabsProScreenOrderResponseMessage' name='fraudlabsProScreenOrderOutput' />
+    </operation>
+  </portType>
+  <binding name='fraudPreventionWebServiceBinding' type='tns:fraudPreventionWebServicePortType'>
+    <operation name='fraudlabsProScreenOrder'>
+      <soap12:operation soapAction='http://fraudlabsProScreenOrder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fraudPreventionWebService'>
+    <documentation>this API help you to screen an order to detect the degree of credit card fraud and therefore protect your business order from losses due to chargebacks The accuracy depends on the number of parameters and previous feedback The more details feedback supplied the higher number of accuracy in return Please visit http www fraudlabspro com developer api for the API details</documentation>
+    <port name='fraudPreventionWebServicePort' binding='tns:fraudPreventionWebServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fraudPreventionWebService' />
+    </port>
+  </service>
+</definitions>

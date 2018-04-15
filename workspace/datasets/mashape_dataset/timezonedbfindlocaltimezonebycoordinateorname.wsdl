@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/timezonedbFindLocalTimeZoneByCoordinateOrName/' name='timezonedbFindLocalTimeZoneByCoordinateOrName' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/timezonedbFindLocalTimeZoneByCoordinateOrName/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/timezonedbFindLocalTimeZoneByCoordinateOrName/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/timezonedbFindLocalTimeZoneByCoordinateOrName/'>
+      <xsd:element name='mainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='zone' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mainRequestMessage'>
+    <part name='parameters' element='tns:mainParameters' />
+  </message>
+  <message name='mainResponseMessage'>
+    <part name='response' element='tns:mainResponse' />
+  </message>
+  <portType name='timezonedbFindLocalTimeZoneByCoordinateOrNamePortType'>
+    <operation name='main'>
+      <documentation>return country code GMT offset daylight saving time time zone name and current timestamp</documentation>
+      <input message='tns:mainRequestMessage' name='mainInput' />
+      <output message='tns:mainResponseMessage' name='mainOutput' />
+    </operation>
+  </portType>
+  <binding name='timezonedbFindLocalTimeZoneByCoordinateOrNameBinding' type='tns:timezonedbFindLocalTimeZoneByCoordinateOrNamePortType'>
+    <operation name='main'>
+      <soap12:operation soapAction='http://main' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='timezonedbFindLocalTimeZoneByCoordinateOrName'>
+    <documentation>timeZoneDB finds you the local time zone of a place by latitude longitude or by the time zone name such as Europe London You get local time in Unix timestamp with GMT offset daylight saving and country code</documentation>
+    <port name='timezonedbFindLocalTimeZoneByCoordinateOrNamePort' binding='tns:timezonedbFindLocalTimeZoneByCoordinateOrNameBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://timezonedbFindLocalTimeZoneByCoordinateOrName' />
+    </port>
+  </service>
+</definitions>

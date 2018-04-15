@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gendreInferGenderFromWorldNames/' name='gendreInferGenderFromWorldNames' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gendreInferGenderFromWorldNames/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gendreInferGenderFromWorldNames/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gendreInferGenderFromWorldNames/'>
+      <xsd:element name='gendreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countryiso' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gendreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gendreworldParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gendreworldResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsongendreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countryiso' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsongendreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scale' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsongendrelistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='names' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='scale' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsongendreworldParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsongendreworldResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scale' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='gendreRequestMessage'>
+    <part name='parameters' element='tns:gendreParameters' />
+  </message>
+  <message name='gendreResponseMessage'>
+    <part name='response' element='tns:gendreResponse' />
+  </message>
+  <message name='gendreworldRequestMessage'>
+    <part name='parameters' element='tns:gendreworldParameters' />
+  </message>
+  <message name='gendreworldResponseMessage'>
+    <part name='response' element='tns:gendreworldResponse' />
+  </message>
+  <message name='jsongendreRequestMessage'>
+    <part name='parameters' element='tns:jsongendreParameters' />
+  </message>
+  <message name='jsongendreResponseMessage'>
+    <part name='response' element='tns:jsongendreResponse' />
+  </message>
+  <message name='jsongendrelistRequestMessage' />
+  <message name='jsongendrelistResponseMessage'>
+    <part name='response' element='tns:jsongendrelistResponse' />
+  </message>
+  <message name='jsongendreworldRequestMessage'>
+    <part name='parameters' element='tns:jsongendreworldParameters' />
+  </message>
+  <message name='jsongendreworldResponseMessage'>
+    <part name='response' element='tns:jsongendreworldResponse' />
+  </message>
+  <portType name='gendreInferGenderFromWorldNamesPortType'>
+    <operation name='gendre'>
+      <documentation>to predict the gender of a personal name on a to scale for a given geography locale</documentation>
+      <input message='tns:gendreRequestMessage' name='gendreInput' />
+      <output message='tns:gendreResponseMessage' name='gendreOutput' />
+    </operation>
+    <operation name='gendreworld'>
+      <documentation>to predict the gender of a personal name on a to scale</documentation>
+      <input message='tns:gendreworldRequestMessage' name='gendreworldInput' />
+      <output message='tns:gendreworldResponseMessage' name='gendreworldOutput' />
+    </operation>
+    <operation name='jsongendre'>
+      <documentation>to predict the gender of a personal name on a to scale for a given geography locale</documentation>
+      <input message='tns:jsongendreRequestMessage' name='jsongendreInput' />
+      <output message='tns:jsongendreResponseMessage' name='jsongendreOutput' />
+    </operation>
+    <operation name='jsongendrelist'>
+      <documentation>genderize up to names at a time for higher throughput</documentation>
+      <input message='tns:jsongendrelistRequestMessage' name='jsongendrelistInput' />
+      <output message='tns:jsongendrelistResponseMessage' name='jsongendrelistOutput' />
+    </operation>
+    <operation name='jsongendreworld'>
+      <documentation>to predict the gender of a personal name on a to scale recognizing the likely origin automatically</documentation>
+      <input message='tns:jsongendreworldRequestMessage' name='jsongendreworldInput' />
+      <output message='tns:jsongendreworldResponseMessage' name='jsongendreworldOutput' />
+    </operation>
+  </portType>
+  <binding name='gendreInferGenderFromWorldNamesBinding' type='tns:gendreInferGenderFromWorldNamesPortType'>
+    <operation name='gendre'>
+      <soap12:operation soapAction='http://gendre' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='gendreworld'>
+      <soap12:operation soapAction='http://gendreworld' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='jsongendre'>
+      <soap12:operation soapAction='http://jsongendre' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='jsongendrelist'>
+      <soap12:operation soapAction='http://jsongendrelist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='jsongendreworld'>
+      <soap12:operation soapAction='http://jsongendreworld' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gendreInferGenderFromWorldNames'>
+    <documentation>gendre is a service to predict the likely gender of a personal name on a convenient to scale Covers the US European names Indian names African names Chinese names in Chinese Hebrew Russian Slavic Cyrillic Arabic and more to come</documentation>
+    <port name='gendreInferGenderFromWorldNamesPort' binding='tns:gendreInferGenderFromWorldNamesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gendreInferGenderFromWorldNames' />
+    </port>
+  </service>
+</definitions>

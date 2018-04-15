@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/companyCheckDocuments/' name='companyCheckDocuments' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/companyCheckDocuments/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/companyCheckDocuments/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/companyCheckDocuments/'>
+      <xsd:element name='companyDocumentListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='companyDocumentListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeDocumentOrderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeDocumentOrderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errorMessage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='errorCode' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='steamPdfDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='docid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expires' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='orderid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='steamPdfDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='companyDocumentListRequestMessage'>
+    <part name='parameters' element='tns:companyDocumentListParameters' />
+  </message>
+  <message name='companyDocumentListResponseMessage'>
+    <part name='response' element='tns:companyDocumentListResponse' />
+  </message>
+  <message name='placeDocumentOrderRequestMessage'>
+    <part name='parameters' element='tns:placeDocumentOrderParameters' />
+  </message>
+  <message name='placeDocumentOrderResponseMessage'>
+    <part name='response' element='tns:placeDocumentOrderResponse' />
+  </message>
+  <message name='steamPdfDocumentRequestMessage'>
+    <part name='parameters' element='tns:steamPdfDocumentParameters' />
+  </message>
+  <message name='steamPdfDocumentResponseMessage'>
+    <part name='response' element='tns:steamPdfDocumentResponse' />
+  </message>
+  <portType name='companyCheckDocumentsPortType'>
+    <operation name='companyDocumentList'>
+      <documentation>see the documents which are available for a given company</documentation>
+      <input message='tns:companyDocumentListRequestMessage' name='companyDocumentListInput' />
+      <output message='tns:companyDocumentListResponseMessage' name='companyDocumentListOutput' />
+    </operation>
+    <operation name='placeDocumentOrder'>
+      <documentation>place an order for a given document The quota incremented will depend on whether it is an AA accounts doc or another type</documentation>
+      <input message='tns:placeDocumentOrderRequestMessage' name='placeDocumentOrderInput' />
+      <output message='tns:placeDocumentOrderResponseMessage' name='placeDocumentOrderOutput' />
+    </operation>
+    <operation name='steamPdfDocument'>
+      <documentation>provide the order details returned by Place Document Order in order to directly download the PDF</documentation>
+      <input message='tns:steamPdfDocumentRequestMessage' name='steamPdfDocumentInput' />
+      <output message='tns:steamPdfDocumentResponseMessage' name='steamPdfDocumentOutput' />
+    </operation>
+  </portType>
+  <binding name='companyCheckDocumentsBinding' type='tns:companyCheckDocumentsPortType'>
+    <operation name='companyDocumentList'>
+      <soap12:operation soapAction='http://companyDocumentList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='placeDocumentOrder'>
+      <soap12:operation soapAction='http://placeDocumentOrder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='steamPdfDocument'>
+      <soap12:operation soapAction='http://steamPdfDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='companyCheckDocuments'>
+    <documentation>instant access to official Companies House documents</documentation>
+    <port name='companyCheckDocumentsPort' binding='tns:companyCheckDocumentsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://companyCheckDocuments' />
+    </port>
+  </service>
+</definitions>

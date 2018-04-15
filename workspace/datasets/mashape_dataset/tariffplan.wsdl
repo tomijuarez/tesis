@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tariffPlan/' name='tariffPlan' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tariffPlan/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tariffPlan/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tariffPlan/'>
+      <xsd:element name='rechargePlansApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='circleid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='operatorid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='rechargetype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rechargePlansApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='recharge_shortdesc' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_talktime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='recharge_type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recharge_validity' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='circleid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='operatorid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recharge_longdesc' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='rechargePlansApiRequestMessage'>
+    <part name='parameters' element='tns:rechargePlansApiParameters' />
+  </message>
+  <message name='rechargePlansApiResponseMessage'>
+    <part name='response' element='tns:rechargePlansApiResponse' />
+  </message>
+  <portType name='tariffPlanPortType'>
+    <operation name='rechargePlansApi'>
+      <documentation>get the latest recharge Plans Info Note This API is only a demo version of the service which we provide</documentation>
+      <input message='tns:rechargePlansApiRequestMessage' name='rechargePlansApiInput' />
+      <output message='tns:rechargePlansApiResponseMessage' name='rechargePlansApiOutput' />
+    </operation>
+  </portType>
+  <binding name='tariffPlanBinding' type='tns:tariffPlanPortType'>
+    <operation name='rechargePlansApi'>
+      <soap12:operation soapAction='http://rechargePlansApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tariffPlan'>
+    <documentation>using this Tariff Plan API telecom data recharge plans API you can find out all the latest plans info of various telecom operators around India Keywords Recharge Plans API Recharge API Mobile Recharge API Mobile recharge info recharge plans telecom data online recharge API tariff plan of bsnl tariff plans of airtel tariff plan of aircel tariff plan of vodafone tariff plans of tata docomo tariff plans of reliance tariff plan of reliance gsm tariff plan bsnl up east tariff plan app tariff plan comparison india tariff plan comparison</documentation>
+    <port name='tariffPlanPort' binding='tns:tariffPlanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tariffPlan' />
+    </port>
+  </service>
+</definitions>

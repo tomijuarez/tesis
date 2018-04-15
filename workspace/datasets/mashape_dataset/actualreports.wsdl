@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/actualReports/' name='actualReports' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/actualReports/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/actualReports/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/actualReports/'>
+      <xsd:element name='getListOfTemplatesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='access' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='breakcache' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getListOfTemplatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='owner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='modified' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tags' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mergeDataWithTemplateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mergeDataWithTemplateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='content-type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='encoding' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showEditorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dataformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='iframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='template' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showEditorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='owner' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='modified' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tags' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getListOfTemplatesRequestMessage'>
+    <part name='parameters' element='tns:getListOfTemplatesParameters' />
+  </message>
+  <message name='getListOfTemplatesResponseMessage'>
+    <part name='response' element='tns:getListOfTemplatesResponse' />
+  </message>
+  <message name='mergeDataWithTemplateRequestMessage'>
+    <part name='parameters' element='tns:mergeDataWithTemplateParameters' />
+  </message>
+  <message name='mergeDataWithTemplateResponseMessage'>
+    <part name='response' element='tns:mergeDataWithTemplateResponse' />
+  </message>
+  <message name='showEditorRequestMessage'>
+    <part name='parameters' element='tns:showEditorParameters' />
+  </message>
+  <message name='showEditorResponseMessage'>
+    <part name='response' element='tns:showEditorResponse' />
+  </message>
+  <portType name='actualReportsPortType'>
+    <operation name='getListOfTemplates'>
+      <documentation>returns list of templates availbale for the user NB This response is cached for minutes</documentation>
+      <input message='tns:getListOfTemplatesRequestMessage' name='getListOfTemplatesInput' />
+      <output message='tns:getListOfTemplatesResponseMessage' name='getListOfTemplatesOutput' />
+    </operation>
+    <operation name='mergeDataWithTemplate'>
+      <documentation>merges data with the template and returns output in specified format You can aquire id using the template request</documentation>
+      <input message='tns:mergeDataWithTemplateRequestMessage' name='mergeDataWithTemplateInput' />
+      <output message='tns:mergeDataWithTemplateResponseMessage' name='mergeDataWithTemplateOutput' />
+    </operation>
+    <operation name='showEditor'>
+      <documentation>redirecting your users to this url allows them to create and edit their templates You can also display it inside the iframe We reccomend you to always send the data parameter to give your user context and preview ability when creating the template</documentation>
+      <input message='tns:showEditorRequestMessage' name='showEditorInput' />
+      <output message='tns:showEditorResponseMessage' name='showEditorOutput' />
+    </operation>
+  </portType>
+  <binding name='actualReportsBinding' type='tns:actualReportsPortType'>
+    <operation name='getListOfTemplates'>
+      <soap12:operation soapAction='http://getListOfTemplates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='mergeDataWithTemplate'>
+      <soap12:operation soapAction='http://mergeDataWithTemplate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showEditor'>
+      <soap12:operation soapAction='http://showEditor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='actualReports'>
+    <documentation>need to create PDF and HTML documents in your software Tired of endless output customization request from your users Looking for an easy and fast solution to your problems With Actual Reports platform your users can easily create and manage different document templates with an easy to use browser based document editor And you can use simple RESTful API calls to merge the templates with data from your own software to generate PDF and HTML documents Or just use Actual Reports platform as an internal tool to manage and generate different outputs needed within your software This way you don t have to waste your time or your developers time on hard coding the output layouts</documentation>
+    <port name='actualReportsPort' binding='tns:actualReportsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://actualReports' />
+    </port>
+  </service>
+</definitions>

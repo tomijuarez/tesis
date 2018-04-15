@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/giftCardRewardsDeprecatedUseRewardsAsAService/' name='giftCardRewardsDeprecatedUseRewardsAsAService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/giftCardRewardsDeprecatedUseRewardsAsAService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/giftCardRewardsDeprecatedUseRewardsAsAService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/giftCardRewardsDeprecatedUseRewardsAsAService/'>
+      <xsd:element name='getavailablebalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='password' type='xsd:string' minOccurs='0' />
+            <xsd:element name='username' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='purchasecardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='password' type='xsd:string' minOccurs='0' />
+            <xsd:element name='giftFrom' type='xsd:string' minOccurs='0' />
+            <xsd:element name='giftMessage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='companyIdentifier' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cardSku' type='xsd:string' minOccurs='0' />
+            <xsd:element name='recipientName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='tcSend' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='cardValue' type='xsd:int' minOccurs='0' />
+            <xsd:element name='recipientEmail' type='xsd:string' minOccurs='0' />
+            <xsd:element name='username' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getavailablebalanceRequestMessage' />
+  <message name='getavailablebalanceResponseMessage'>
+    <part name='response' element='tns:getavailablebalanceResponse' />
+  </message>
+  <message name='purchasecardRequestMessage' />
+  <message name='purchasecardResponseMessage'>
+    <part name='response' element='tns:purchasecardResponse' />
+  </message>
+  <portType name='giftCardRewardsDeprecatedUseRewardsAsAServicePortType'>
+    <operation name='getavailablebalance'>
+      <documentation>gets the available balance in a Tango Card account</documentation>
+      <input message='tns:getavailablebalanceRequestMessage' name='getavailablebalanceInput' />
+      <output message='tns:getavailablebalanceResponseMessage' name='getavailablebalanceOutput' />
+    </operation>
+    <operation name='purchasecard'>
+      <documentation>purchases a gift card against your Tango Card account</documentation>
+      <input message='tns:purchasecardRequestMessage' name='purchasecardInput' />
+      <output message='tns:purchasecardResponseMessage' name='purchasecardOutput' />
+    </operation>
+  </portType>
+  <binding name='giftCardRewardsDeprecatedUseRewardsAsAServiceBinding' type='tns:giftCardRewardsDeprecatedUseRewardsAsAServicePortType'>
+    <operation name='getavailablebalance'>
+      <soap12:operation soapAction='http://getavailablebalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='purchasecard'>
+      <soap12:operation soapAction='http://purchasecard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='giftCardRewardsDeprecatedUseRewardsAsAService'>
+    <documentation>deprecated Use Rewards as a Service at https www mashape com tangocard rewards as a service</documentation>
+    <port name='giftCardRewardsDeprecatedUseRewardsAsAServicePort' binding='tns:giftCardRewardsDeprecatedUseRewardsAsAServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://giftCardRewardsDeprecatedUseRewardsAsAService' />
+    </port>
+  </service>
+</definitions>

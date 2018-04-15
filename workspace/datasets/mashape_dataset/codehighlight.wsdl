@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/codeHighlight/' name='codeHighlight' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/codeHighlight/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/codeHighlight/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/codeHighlight/'>
+      <xsd:element name='codeHighlightParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addkeywordlinks' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='content' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='codeHighlightResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='codeHighlightRequestMessage'>
+    <part name='parameters' element='tns:codeHighlightParameters' />
+  </message>
+  <message name='codeHighlightResponseMessage'>
+    <part name='response' element='tns:codeHighlightResponse' />
+  </message>
+  <portType name='codeHighlightPortType'>
+    <operation name='codeHighlight'>
+      <documentation></documentation>
+      <input message='tns:codeHighlightRequestMessage' name='codeHighlightInput' />
+      <output message='tns:codeHighlightResponseMessage' name='codeHighlightOutput' />
+    </operation>
+  </portType>
+  <binding name='codeHighlightBinding' type='tns:codeHighlightPortType'>
+    <operation name='codeHighlight'>
+      <soap12:operation soapAction='http://codeHighlight' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='codeHighlight'>
+    <documentation>code highlight will take raw source code and convert into nicely formatted HTML with syntax and keyword highlighting Currently supports programming languages data formats and config files This API is ideal for websites that need to regularly maintain and update code examples</documentation>
+    <port name='codeHighlightPort' binding='tns:codeHighlightBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://codeHighlight' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/youtubeViralVideos/' name='youtubeViralVideos' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/youtubeViralVideos/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/youtubeViralVideos/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/youtubeViralVideos/'>
+      <xsd:element name='getcategoriescountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getcategoriescountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='last_update' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getviralvideosParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='categories' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getviralvideosResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='v_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='video_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='thumb' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='author' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creation_date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='publish_date' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchviralvideosParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchviralvideosResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='v_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='video_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='thumb' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='author' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='creation_date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='publish_date' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getcategoriescountRequestMessage'>
+    <part name='parameters' element='tns:getcategoriescountParameters' />
+  </message>
+  <message name='getcategoriescountResponseMessage'>
+    <part name='response' element='tns:getcategoriescountResponse' />
+  </message>
+  <message name='getviralvideosRequestMessage'>
+    <part name='parameters' element='tns:getviralvideosParameters' />
+  </message>
+  <message name='getviralvideosResponseMessage'>
+    <part name='response' element='tns:getviralvideosResponse' />
+  </message>
+  <message name='searchviralvideosRequestMessage'>
+    <part name='parameters' element='tns:searchviralvideosParameters' />
+  </message>
+  <message name='searchviralvideosResponseMessage'>
+    <part name='response' element='tns:searchviralvideosResponse' />
+  </message>
+  <portType name='youtubeViralVideosPortType'>
+    <operation name='getcategoriescount'>
+      <documentation>get categories list videos count last update per category</documentation>
+      <input message='tns:getcategoriescountRequestMessage' name='getcategoriescountInput' />
+      <output message='tns:getcategoriescountResponseMessage' name='getcategoriescountOutput' />
+    </operation>
+    <operation name='getviralvideos'>
+      <documentation>get Youtube viral videos updated every minutes</documentation>
+      <input message='tns:getviralvideosRequestMessage' name='getviralvideosInput' />
+      <output message='tns:getviralvideosResponseMessage' name='getviralvideosOutput' />
+    </operation>
+    <operation name='searchviralvideos'>
+      <documentation>search viral videos by title</documentation>
+      <input message='tns:searchviralvideosRequestMessage' name='searchviralvideosInput' />
+      <output message='tns:searchviralvideosResponseMessage' name='searchviralvideosOutput' />
+    </operation>
+  </portType>
+  <binding name='youtubeViralVideosBinding' type='tns:youtubeViralVideosPortType'>
+    <operation name='getcategoriescount'>
+      <soap12:operation soapAction='http://getcategoriescount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getviralvideos'>
+      <soap12:operation soapAction='http://getviralvideos' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchviralvideos'>
+      <soap12:operation soapAction='http://searchviralvideos' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='youtubeViralVideos'>
+    <documentation>get the most viral videos from YouTube</documentation>
+    <port name='youtubeViralVideosPort' binding='tns:youtubeViralVideosBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://youtubeViralVideos' />
+    </port>
+  </service>
+</definitions>

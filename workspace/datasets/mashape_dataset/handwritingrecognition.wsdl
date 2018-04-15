@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/handwritingRecognition/' name='handwritingRecognition' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/handwritingRecognition/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/handwritingRecognition/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/handwritingRecognition/'>
+      <xsd:element name='recognizeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pinyins' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='recognizeRequestMessage' />
+  <message name='recognizeResponseMessage'>
+    <part name='response' element='tns:recognizeResponse' />
+  </message>
+  <portType name='handwritingRecognitionPortType'>
+    <operation name='recognize'>
+      <documentation>recognize a handwritten character by its coordinates</documentation>
+      <input message='tns:recognizeRequestMessage' name='recognizeInput' />
+      <output message='tns:recognizeResponseMessage' name='recognizeOutput' />
+    </operation>
+  </portType>
+  <binding name='handwritingRecognitionBinding' type='tns:handwritingRecognitionPortType'>
+    <operation name='recognize'>
+      <soap12:operation soapAction='http://recognize' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='handwritingRecognition'>
+    <documentation>handwriting recognition for Chinese from online dictionary Zhonga ru Every day thousands of our visitors use character recognition and are very happy with the accuracy of recognized results You can see a working example on www zhonga ru just click the button with a pen icon and draw something in Chinese Recognition for English and Japanese are coming soon if you need these languages please let us know in the issues</documentation>
+    <port name='handwritingRecognitionPort' binding='tns:handwritingRecognitionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://handwritingRecognition' />
+    </port>
+  </service>
+</definitions>

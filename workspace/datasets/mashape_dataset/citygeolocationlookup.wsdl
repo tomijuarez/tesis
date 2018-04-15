@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cityGeoLocationLookup/' name='cityGeoLocationLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cityGeoLocationLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cityGeoLocationLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cityGeoLocationLookup/'>
+      <xsd:element name='getResultsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getResultsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ll' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='c' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='zmw' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tz' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tzs' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='l' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='powerdBy' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getResultsRequestMessage'>
+    <part name='parameters' element='tns:getResultsParameters' />
+  </message>
+  <message name='getResultsResponseMessage'>
+    <part name='response' element='tns:getResultsResponse' />
+  </message>
+  <portType name='cityGeoLocationLookupPortType'>
+    <operation name='getResults'>
+      <documentation></documentation>
+      <input message='tns:getResultsRequestMessage' name='getResultsInput' />
+      <output message='tns:getResultsResponseMessage' name='getResultsOutput' />
+    </operation>
+  </portType>
+  <binding name='cityGeoLocationLookupBinding' type='tns:cityGeoLocationLookupPortType'>
+    <operation name='getResults'>
+      <soap12:operation soapAction='http://getResults' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cityGeoLocationLookup'>
+    <documentation>this API gives you Latitude Longitude Time Zone of any city</documentation>
+    <port name='cityGeoLocationLookupPort' binding='tns:cityGeoLocationLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cityGeoLocationLookup' />
+    </port>
+  </service>
+</definitions>

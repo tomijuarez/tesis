@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/whatlanguageNet/' name='whatlanguageNet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/whatlanguageNet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/whatlanguageNet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/whatlanguageNet/'>
+      <xsd:element name='detectLanguageOfTextStringSOrUrlSParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='encoding' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='prettyprint' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguageOfTextStringSOrUrlSResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectLanguageOfTextStringSOrUrlSOfFileSResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectLanguageOfTextStringSOrUrlSRequestMessage'>
+    <part name='parameters' element='tns:detectLanguageOfTextStringSOrUrlSParameters' />
+  </message>
+  <message name='detectLanguageOfTextStringSOrUrlSResponseMessage'>
+    <part name='response' element='tns:detectLanguageOfTextStringSOrUrlSResponse' />
+  </message>
+  <message name='detectLanguageOfTextStringSOrUrlSOfFileSRequestMessage' />
+  <message name='detectLanguageOfTextStringSOrUrlSOfFileSResponseMessage'>
+    <part name='response' element='tns:detectLanguageOfTextStringSOrUrlSOfFileSResponse' />
+  </message>
+  <portType name='whatlanguageNetPortType'>
+    <operation name='detectLanguageOfTextStringSOrUrlS'>
+      <documentation>detect the language of one or more text strings</documentation>
+      <input message='tns:detectLanguageOfTextStringSOrUrlSRequestMessage' name='detectLanguageOfTextStringSOrUrlSInput' />
+      <output message='tns:detectLanguageOfTextStringSOrUrlSResponseMessage' name='detectLanguageOfTextStringSOrUrlSOutput' />
+    </operation>
+    <operation name='detectLanguageOfTextStringSOrUrlSOfFileS'>
+      <documentation>detect the language of one or more URLs</documentation>
+      <input message='tns:detectLanguageOfTextStringSOrUrlSOfFileSRequestMessage' name='detectLanguageOfTextStringSOrUrlSOfFileSInput' />
+      <output message='tns:detectLanguageOfTextStringSOrUrlSOfFileSResponseMessage' name='detectLanguageOfTextStringSOrUrlSOfFileSOutput' />
+    </operation>
+  </portType>
+  <binding name='whatlanguageNetBinding' type='tns:whatlanguageNetPortType'>
+    <operation name='detectLanguageOfTextStringSOrUrlS'>
+      <soap12:operation soapAction='http://detectLanguageOfTextStringSOrUrlS' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='detectLanguageOfTextStringSOrUrlSOfFileS'>
+      <soap12:operation soapAction='http://detectLanguageOfTextStringSOrUrlSOfFileS' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='whatlanguageNet'>
+    <documentation>accurately detect the language of text websites or files You can identify languages with an accuracy of more than</documentation>
+    <port name='whatlanguageNetPort' binding='tns:whatlanguageNetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://whatlanguageNet' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/asgard/' name='asgard' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/asgard/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/asgard/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/asgard/'>
+      <xsd:element name='checkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scanZipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='verdict' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Users_username_dev_roll_mw_shells_c99_php' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='match' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkRequestMessage' />
+  <message name='checkResponseMessage'>
+    <part name='response' element='tns:checkResponse' />
+  </message>
+  <message name='scanZipRequestMessage' />
+  <message name='scanZipResponseMessage'>
+    <part name='response' element='tns:scanZipResponse' />
+  </message>
+  <portType name='asgardPortType'>
+    <operation name='check'>
+      <documentation>check md hash list for known malware Return index list positive for malware negative for unknown files</documentation>
+      <input message='tns:checkRequestMessage' name='checkInput' />
+      <output message='tns:checkResponseMessage' name='checkOutput' />
+    </operation>
+    <operation name='scanZip'>
+      <documentation>scan ZIP ped unknown files and return verdict Max upload size is MB</documentation>
+      <input message='tns:scanZipRequestMessage' name='scanZipInput' />
+      <output message='tns:scanZipResponseMessage' name='scanZipOutput' />
+    </operation>
+  </portType>
+  <binding name='asgardBinding' type='tns:asgardPortType'>
+    <operation name='check'>
+      <soap12:operation soapAction='http://check' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='scanZip'>
+      <soap12:operation soapAction='http://scanZip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='asgard'>
+    <documentation>web Malware SafeCode API</documentation>
+    <port name='asgardPort' binding='tns:asgardBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://asgard' />
+    </port>
+  </service>
+</definitions>

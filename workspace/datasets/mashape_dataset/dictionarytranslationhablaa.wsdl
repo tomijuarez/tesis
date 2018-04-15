@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dictionaryTranslationHablaa/' name='dictionaryTranslationHablaa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dictionaryTranslationHablaa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dictionaryTranslationHablaa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dictionaryTranslationHablaa/'>
+      <xsd:element name='exampleSentencesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='langcodesrclangcodedst' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='texttotranslate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exampleSentencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getATranslationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='langcodesrclangcodedst' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='texttotranslate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getATranslationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAvailableLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarWordsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='langcodesrclangcodedst' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='texttotranslate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarWordsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='exampleSentencesRequestMessage'>
+    <part name='parameters' element='tns:exampleSentencesParameters' />
+  </message>
+  <message name='exampleSentencesResponseMessage'>
+    <part name='response' element='tns:exampleSentencesResponse' />
+  </message>
+  <message name='getATranslationRequestMessage'>
+    <part name='parameters' element='tns:getATranslationParameters' />
+  </message>
+  <message name='getATranslationResponseMessage'>
+    <part name='response' element='tns:getATranslationResponse' />
+  </message>
+  <message name='getAvailableLanguagesRequestMessage' />
+  <message name='getAvailableLanguagesResponseMessage'>
+    <part name='response' element='tns:getAvailableLanguagesResponse' />
+  </message>
+  <message name='similarWordsRequestMessage'>
+    <part name='parameters' element='tns:similarWordsParameters' />
+  </message>
+  <message name='similarWordsResponseMessage'>
+    <part name='response' element='tns:similarWordsResponse' />
+  </message>
+  <portType name='dictionaryTranslationHablaaPortType'>
+    <operation name='exampleSentences'>
+      <documentation>request multiple example sentences containing the word to translate</documentation>
+      <input message='tns:exampleSentencesRequestMessage' name='exampleSentencesInput' />
+      <output message='tns:exampleSentencesResponseMessage' name='exampleSentencesOutput' />
+    </operation>
+    <operation name='getATranslation'>
+      <documentation>get a translation by defining source and destination languages as well as a word to translate</documentation>
+      <input message='tns:getATranslationRequestMessage' name='getATranslationInput' />
+      <output message='tns:getATranslationResponseMessage' name='getATranslationOutput' />
+    </operation>
+    <operation name='getAvailableLanguages'>
+      <documentation>get a list of available languages</documentation>
+      <input message='tns:getAvailableLanguagesRequestMessage' name='getAvailableLanguagesInput' />
+      <output message='tns:getAvailableLanguagesResponseMessage' name='getAvailableLanguagesOutput' />
+    </operation>
+    <operation name='similarWords'>
+      <documentation>get translations of similar words</documentation>
+      <input message='tns:similarWordsRequestMessage' name='similarWordsInput' />
+      <output message='tns:similarWordsResponseMessage' name='similarWordsOutput' />
+    </operation>
+  </portType>
+  <binding name='dictionaryTranslationHablaaBinding' type='tns:dictionaryTranslationHablaaPortType'>
+    <operation name='exampleSentences'>
+      <soap12:operation soapAction='http://exampleSentences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getATranslation'>
+      <soap12:operation soapAction='http://getATranslation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAvailableLanguages'>
+      <soap12:operation soapAction='http://getAvailableLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='similarWords'>
+      <soap12:operation soapAction='http://similarWords' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dictionaryTranslationHablaa'>
+    <documentation>fREE Dictionary Translation API Hablaa Use it to translate words from and into more than languages The API use is free and requires no authentication Have fun</documentation>
+    <port name='dictionaryTranslationHablaaPort' binding='tns:dictionaryTranslationHablaaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dictionaryTranslationHablaa' />
+    </port>
+  </service>
+</definitions>

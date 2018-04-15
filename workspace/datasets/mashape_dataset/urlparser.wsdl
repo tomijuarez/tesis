@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/urlParser/' name='urlParser' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/urlParser/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/urlParser/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/urlParser/'>
+      <xsd:element name='urlparserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlparserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='scheme' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domain_ascii' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='query' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='root_domain_ascii' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='host_unicode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='fragment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='port' type='xsd:int' minOccurs='0' />
+            <xsd:element name='public_suffix' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='subdomain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='root_domain_unicode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domain_unicode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='userinfo' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='host_ascii' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='urlparserRequestMessage'>
+    <part name='parameters' element='tns:urlparserParameters' />
+  </message>
+  <message name='urlparserResponseMessage'>
+    <part name='response' element='tns:urlparserResponse' />
+  </message>
+  <portType name='urlParserPortType'>
+    <operation name='urlparser'>
+      <documentation></documentation>
+      <input message='tns:urlparserRequestMessage' name='urlparserInput' />
+      <output message='tns:urlparserResponseMessage' name='urlparserOutput' />
+    </operation>
+  </portType>
+  <binding name='urlParserBinding' type='tns:urlParserPortType'>
+    <operation name='urlparser'>
+      <soap12:operation soapAction='http://urlparser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='urlParser'>
+    <documentation>this URL parser API can be used to parse domains and URLs into individual parts The API supports internationalized domain names IDNs</documentation>
+    <port name='urlParserPort' binding='tns:urlParserBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://urlParser' />
+    </port>
+  </service>
+</definitions>

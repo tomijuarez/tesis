@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/universalInspirationalQuotes/' name='universalInspirationalQuotes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/universalInspirationalQuotes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/universalInspirationalQuotes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/universalInspirationalQuotes/'>
+      <xsd:element name='vQuotesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='maxr' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vQuotesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='author' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='cat' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='media' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTopicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vQuotesRequestMessage'>
+    <part name='parameters' element='tns:vQuotesParameters' />
+  </message>
+  <message name='vQuotesResponseMessage'>
+    <part name='response' element='tns:vQuotesResponse' />
+  </message>
+  <message name='vTopicsRequestMessage' />
+  <message name='vTopicsResponseMessage'>
+    <part name='response' element='tns:vTopicsResponse' />
+  </message>
+  <portType name='universalInspirationalQuotesPortType'>
+    <operation name='vQuotes'>
+      <documentation>delivers Inspirational Quotes if used without parameters it will return one random quote default behavior</documentation>
+      <input message='tns:vQuotesRequestMessage' name='vQuotesInput' />
+      <output message='tns:vQuotesResponseMessage' name='vQuotesOutput' />
+    </operation>
+    <operation name='vTopics'>
+      <documentation>delivers available Inspirational Topics</documentation>
+      <input message='tns:vTopicsRequestMessage' name='vTopicsInput' />
+      <output message='tns:vTopicsResponseMessage' name='vTopicsOutput' />
+    </operation>
+  </portType>
+  <binding name='universalInspirationalQuotesBinding' type='tns:universalInspirationalQuotesPortType'>
+    <operation name='vQuotes'>
+      <soap12:operation soapAction='http://vQuotes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vTopics'>
+      <soap12:operation soapAction='http://vTopics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='universalInspirationalQuotes'>
+    <documentation>display on your website widget or app Inspirational Images Motivational Pictures Healing Quotes and more</documentation>
+    <port name='universalInspirationalQuotesPort' binding='tns:universalInspirationalQuotesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://universalInspirationalQuotes' />
+    </port>
+  </service>
+</definitions>

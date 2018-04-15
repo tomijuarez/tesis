@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailFinder/' name='emailFinder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailFinder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailFinder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailFinder/'>
+      <xsd:element name='websiteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='emails' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='websiteRequestMessage' />
+  <message name='websiteResponseMessage'>
+    <part name='response' element='tns:websiteResponse' />
+  </message>
+  <portType name='emailFinderPortType'>
+    <operation name='website'>
+      <documentation></documentation>
+      <input message='tns:websiteRequestMessage' name='websiteInput' />
+      <output message='tns:websiteResponseMessage' name='websiteOutput' />
+    </operation>
+  </portType>
+  <binding name='emailFinderBinding' type='tns:emailFinderPortType'>
+    <operation name='website'>
+      <soap12:operation soapAction='http://website' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailFinder'>
+    <documentation>will try to capture string that identified as valid email format from content and content is generated from a valid URL you post</documentation>
+    <port name='emailFinderPort' binding='tns:emailFinderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailFinder' />
+    </port>
+  </service>
+</definitions>

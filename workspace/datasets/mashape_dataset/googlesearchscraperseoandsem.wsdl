@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/googleSearchScraperSeoAndSem/' name='googleSearchScraperSeoAndSem' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/googleSearchScraperSeoAndSem/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/googleSearchScraperSeoAndSem/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/googleSearchScraperSeoAndSem/'>
+      <xsd:element name='googleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='device' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='googleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='googleRequestMessage'>
+    <part name='parameters' element='tns:googleParameters' />
+  </message>
+  <message name='googleResponseMessage'>
+    <part name='response' element='tns:googleResponse' />
+  </message>
+  <portType name='googleSearchScraperSeoAndSemPortType'>
+    <operation name='google'>
+      <documentation>google SERPs scraping SEO SEM and related results Detects local maps news sitelinks</documentation>
+      <input message='tns:googleRequestMessage' name='googleInput' />
+      <output message='tns:googleResponseMessage' name='googleOutput' />
+    </operation>
+  </portType>
+  <binding name='googleSearchScraperSeoAndSemBinding' type='tns:googleSearchScraperSeoAndSemPortType'>
+    <operation name='google'>
+      <soap12:operation soapAction='http://google' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='googleSearchScraperSeoAndSem'>
+    <documentation>scrape SERPs without worrying about proxies or parsing HTML All you need in one useful JSON response Full search results including SEO and SEM with sitelinks extra info addresses position etc You can choose the keyword google domain country type of device etc Current G Domains available com co uk de fr es pt it Current countries Origin IPs United States UK Germany France Spain Portugal Italy Current types of devices desktop tablet mobile Do you need results from other countries or domains Open a support ticket and we will try to make it available as soon as possible sometimes in less than one day Our API usually answers requests in seconds but we suggest you to have a seconds timeout for avoiding errors and improving performance Do you think that something hasn t been parsed well Don t worry Open a support ticket with the details of the request and we will review it Sometimes the search engine changes their HTML structure and we have to update our scraper It usually takes us just a few minutes</documentation>
+    <port name='googleSearchScraperSeoAndSemPort' binding='tns:googleSearchScraperSeoAndSemBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://googleSearchScraperSeoAndSem' />
+    </port>
+  </service>
+</definitions>

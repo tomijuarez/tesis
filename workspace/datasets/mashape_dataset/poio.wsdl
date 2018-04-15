@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/poio/' name='poio' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/poio/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/poio/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/poio/'>
+      <xsd:element name='supportedLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textPredictionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='iso' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textPredictionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='supportedLanguagesRequestMessage' />
+  <message name='supportedLanguagesResponseMessage'>
+    <part name='response' element='tns:supportedLanguagesResponse' />
+  </message>
+  <message name='textPredictionRequestMessage'>
+    <part name='parameters' element='tns:textPredictionParameters' />
+  </message>
+  <message name='textPredictionResponseMessage'>
+    <part name='response' element='tns:textPredictionResponse' />
+  </message>
+  <portType name='poioPortType'>
+    <operation name='supportedLanguages'>
+      <documentation>get a list os supported languages</documentation>
+      <input message='tns:supportedLanguagesRequestMessage' name='supportedLanguagesInput' />
+      <output message='tns:supportedLanguagesResponseMessage' name='supportedLanguagesOutput' />
+    </operation>
+    <operation name='textPrediction'>
+      <documentation>this funtion predicts a completion for a given string and a given language</documentation>
+      <input message='tns:textPredictionRequestMessage' name='textPredictionInput' />
+      <output message='tns:textPredictionResponseMessage' name='textPredictionOutput' />
+    </operation>
+  </portType>
+  <binding name='poioBinding' type='tns:poioPortType'>
+    <operation name='supportedLanguages'>
+      <soap12:operation soapAction='http://supportedLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textPrediction'>
+      <soap12:operation soapAction='http://textPrediction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='poio'>
+    <documentation>text prediction to support text input in under resourced languages like Bavarian Sorbian and many others</documentation>
+    <port name='poioPort' binding='tns:poioBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://poio' />
+    </port>
+  </service>
+</definitions>

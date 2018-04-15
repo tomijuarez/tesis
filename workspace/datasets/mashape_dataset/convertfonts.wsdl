@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/convertFonts/' name='convertFonts' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/convertFonts/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/convertFonts/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/convertFonts/'>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fontFaceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertRequestMessage' />
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <message name='fontFaceRequestMessage' />
+  <message name='fontFaceResponseMessage'>
+    <part name='response' element='tns:fontFaceResponse' />
+  </message>
+  <portType name='convertFontsPortType'>
+    <operation name='convert'>
+      <documentation>convert one font format to another</documentation>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+    <operation name='fontFace'>
+      <documentation>convert the font file into font face kit</documentation>
+      <input message='tns:fontFaceRequestMessage' name='fontFaceInput' />
+      <output message='tns:fontFaceResponseMessage' name='fontFaceOutput' />
+    </operation>
+  </portType>
+  <binding name='convertFontsBinding' type='tns:convertFontsPortType'>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fontFace'>
+      <soap12:operation soapAction='http://fontFace' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='convertFonts'>
+    <documentation>convert your fonts from one format to another Access our font face generator via API New formats are constantly added to our tools</documentation>
+    <port name='convertFontsPort' binding='tns:convertFontsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://convertFonts' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tagdef/' name='tagdef' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tagdef/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tagdef/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tagdef/'>
+      <xsd:element name='getListOfDefinitionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hashtag' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getListOfDefinitionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='defs' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='def' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='upvotes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='downvotes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='hashtag' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='num_defs' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTopDefinitionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hashtag' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTopDefinitionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='defs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='def' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='upvotes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='downvotes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='hashtag' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='num_defs' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getListOfDefinitionsRequestMessage'>
+    <part name='parameters' element='tns:getListOfDefinitionsParameters' />
+  </message>
+  <message name='getListOfDefinitionsResponseMessage'>
+    <part name='response' element='tns:getListOfDefinitionsResponse' />
+  </message>
+  <message name='getTopDefinitionRequestMessage'>
+    <part name='parameters' element='tns:getTopDefinitionParameters' />
+  </message>
+  <message name='getTopDefinitionResponseMessage'>
+    <part name='response' element='tns:getTopDefinitionResponse' />
+  </message>
+  <portType name='tagdefPortType'>
+    <operation name='getListOfDefinitions'>
+      <documentation>returns the top definitions currently max Ordered by popularity This popularity is based on user votes but is weighed using an intern algorithm on Tagdef com</documentation>
+      <input message='tns:getListOfDefinitionsRequestMessage' name='getListOfDefinitionsInput' />
+      <output message='tns:getListOfDefinitionsResponseMessage' name='getListOfDefinitionsOutput' />
+    </operation>
+    <operation name='getTopDefinition'>
+      <documentation>returns the top definition for given hashtag The top definition is calculated based on user votes and weighed using an intern algorithm on Tagdef com</documentation>
+      <input message='tns:getTopDefinitionRequestMessage' name='getTopDefinitionInput' />
+      <output message='tns:getTopDefinitionResponseMessage' name='getTopDefinitionOutput' />
+    </operation>
+  </portType>
+  <binding name='tagdefBinding' type='tns:tagdefPortType'>
+    <operation name='getListOfDefinitions'>
+      <soap12:operation soapAction='http://getListOfDefinitions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTopDefinition'>
+      <soap12:operation soapAction='http://getTopDefinition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tagdef'>
+    <documentation>tagdef com is the worlds largest hashtag dictionary Use this api to access these definitions The content is user generated and the directory currently contains over definitions The hashtags can have many definitions each ordered by user votes The hashtags are often related to Twitter but is also commonly used on Pinterest and Google This API is free to use but you must provide a clickable link back to the tagdef com page for the given tag when using information from the API This link can be found in the uri part of the reply</documentation>
+    <port name='tagdefPort' binding='tns:tagdefBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tagdef' />
+    </port>
+  </service>
+</definitions>

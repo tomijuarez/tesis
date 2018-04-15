@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/genderGuesser/' name='genderGuesser' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/genderGuesser/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/genderGuesser/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/genderGuesser/'>
+      <xsd:element name='checkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkRequestMessage'>
+    <part name='parameters' element='tns:checkParameters' />
+  </message>
+  <message name='checkResponseMessage'>
+    <part name='response' element='tns:checkResponse' />
+  </message>
+  <portType name='genderGuesserPortType'>
+    <operation name='check'>
+      <documentation>check name for gender</documentation>
+      <input message='tns:checkRequestMessage' name='checkInput' />
+      <output message='tns:checkResponseMessage' name='checkOutput' />
+    </operation>
+  </portType>
+  <binding name='genderGuesserBinding' type='tns:genderGuesserPortType'>
+    <operation name='check'>
+      <soap12:operation soapAction='http://check' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='genderGuesser'>
+    <documentation>guess whether a first name is of male or female gender in the USA</documentation>
+    <port name='genderGuesserPort' binding='tns:genderGuesserBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://genderGuesser' />
+    </port>
+  </service>
+</definitions>

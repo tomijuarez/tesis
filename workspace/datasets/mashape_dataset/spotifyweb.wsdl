@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/spotifyWeb/' name='spotifyWeb' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/spotifyWeb/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/spotifyWeb/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/spotifyWeb/'>
+      <xsd:element name='lookupSpotifyUriParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='extras' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uri' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lookupSpotifyUriResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchAlbumsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchAlbumsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchArtistsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchArtistsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchTracksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchTracksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='lookupSpotifyUriRequestMessage'>
+    <part name='parameters' element='tns:lookupSpotifyUriParameters' />
+  </message>
+  <message name='lookupSpotifyUriResponseMessage'>
+    <part name='response' element='tns:lookupSpotifyUriResponse' />
+  </message>
+  <message name='searchAlbumsRequestMessage'>
+    <part name='parameters' element='tns:searchAlbumsParameters' />
+  </message>
+  <message name='searchAlbumsResponseMessage'>
+    <part name='response' element='tns:searchAlbumsResponse' />
+  </message>
+  <message name='searchArtistsRequestMessage'>
+    <part name='parameters' element='tns:searchArtistsParameters' />
+  </message>
+  <message name='searchArtistsResponseMessage'>
+    <part name='response' element='tns:searchArtistsResponse' />
+  </message>
+  <message name='searchTracksRequestMessage'>
+    <part name='parameters' element='tns:searchTracksParameters' />
+  </message>
+  <message name='searchTracksResponseMessage'>
+    <part name='response' element='tns:searchTracksResponse' />
+  </message>
+  <portType name='spotifyWebPortType'>
+    <operation name='lookupSpotifyUri'>
+      <documentation></documentation>
+      <input message='tns:lookupSpotifyUriRequestMessage' name='lookupSpotifyUriInput' />
+      <output message='tns:lookupSpotifyUriResponseMessage' name='lookupSpotifyUriOutput' />
+    </operation>
+    <operation name='searchAlbums'>
+      <documentation></documentation>
+      <input message='tns:searchAlbumsRequestMessage' name='searchAlbumsInput' />
+      <output message='tns:searchAlbumsResponseMessage' name='searchAlbumsOutput' />
+    </operation>
+    <operation name='searchArtists'>
+      <documentation></documentation>
+      <input message='tns:searchArtistsRequestMessage' name='searchArtistsInput' />
+      <output message='tns:searchArtistsResponseMessage' name='searchArtistsOutput' />
+    </operation>
+    <operation name='searchTracks'>
+      <documentation></documentation>
+      <input message='tns:searchTracksRequestMessage' name='searchTracksInput' />
+      <output message='tns:searchTracksResponseMessage' name='searchTracksOutput' />
+    </operation>
+  </portType>
+  <binding name='spotifyWebBinding' type='tns:spotifyWebPortType'>
+    <operation name='lookupSpotifyUri'>
+      <soap12:operation soapAction='http://lookupSpotifyUri' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchAlbums'>
+      <soap12:operation soapAction='http://searchAlbums' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchArtists'>
+      <soap12:operation soapAction='http://searchArtists' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchTracks'>
+      <soap12:operation soapAction='http://searchTracks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='spotifyWeb'>
+    <documentation>the Spotify Web API enables you to search and lookup metadata about artists tracks and albums using a REST interface</documentation>
+    <port name='spotifyWebPort' binding='tns:spotifyWebBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://spotifyWeb' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/outpan/' name='outpan' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/outpan/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/outpan/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/outpan/'>
+      <xsd:element name='getProductDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='barcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProductDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='images' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='attributes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Colors' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Manufacturer' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Material' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Care' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Part_Number' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='videos' type='xsd:anyURI' maxOccurs='unbounded' />
+            <xsd:element name='barcode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='outpan_url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getProductDataRequestMessage'>
+    <part name='parameters' element='tns:getProductDataParameters' />
+  </message>
+  <message name='getProductDataResponseMessage'>
+    <part name='response' element='tns:getProductDataResponse' />
+  </message>
+  <portType name='outpanPortType'>
+    <operation name='getProductData'>
+      <documentation></documentation>
+      <input message='tns:getProductDataRequestMessage' name='getProductDataInput' />
+      <output message='tns:getProductDataResponseMessage' name='getProductDataOutput' />
+    </operation>
+  </portType>
+  <binding name='outpanBinding' type='tns:outpanPortType'>
+    <operation name='getProductData'>
+      <soap12:operation soapAction='http://getProductData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='outpan'>
+    <documentation>largest open database of barcoded products Send a GTIN EAN UPC ISBN and get all the information we have in JSON</documentation>
+    <port name='outpanPort' binding='tns:outpanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://outpan' />
+    </port>
+  </service>
+</definitions>

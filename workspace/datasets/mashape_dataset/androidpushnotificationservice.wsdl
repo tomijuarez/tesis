@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/androidPushNotificationService/' name='androidPushNotificationService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/androidPushNotificationService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/androidPushNotificationService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/androidPushNotificationService/'>
+      <xsd:element name='apnsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ch' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='devid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='msg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='random' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apnsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:int' minOccurs='0' />
+            <xsd:element name='resultStr' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apnsRequestMessage'>
+    <part name='parameters' element='tns:apnsParameters' />
+  </message>
+  <message name='apnsResponseMessage'>
+    <part name='response' element='tns:apnsResponse' />
+  </message>
+  <portType name='androidPushNotificationServicePortType'>
+    <operation name='apns'>
+      <documentation>android Push Notification Service</documentation>
+      <input message='tns:apnsRequestMessage' name='apnsInput' />
+      <output message='tns:apnsResponseMessage' name='apnsOutput' />
+    </operation>
+  </portType>
+  <binding name='androidPushNotificationServiceBinding' type='tns:androidPushNotificationServicePortType'>
+    <operation name='apns'>
+      <soap12:operation soapAction='http://apns' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='androidPushNotificationService'>
+    <documentation>cloud service for pushing android notifications Android Push Notification Service APNS is a free to use library for pushing the data to android devices all you need is to download the library and start the service in your app the library use our cloud servers so you needn t pay for the expensive servers hosting</documentation>
+    <port name='androidPushNotificationServicePort' binding='tns:androidPushNotificationServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://androidPushNotificationService' />
+    </port>
+  </service>
+</definitions>

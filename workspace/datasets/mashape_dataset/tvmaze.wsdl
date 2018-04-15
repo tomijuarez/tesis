@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tvmaze/' name='tvmaze' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tvmaze/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tvmaze/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tvmaze/'>
+      <xsd:element name='peopleIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='peopleIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scheduleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='filter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scheduleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchPeopleQQueryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchPeopleQQueryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchShowsQQueryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchShowsQQueryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showsIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showsIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='peopleIdRequestMessage'>
+    <part name='parameters' element='tns:peopleIdParameters' />
+  </message>
+  <message name='peopleIdResponseMessage'>
+    <part name='response' element='tns:peopleIdResponse' />
+  </message>
+  <message name='scheduleRequestMessage'>
+    <part name='parameters' element='tns:scheduleParameters' />
+  </message>
+  <message name='scheduleResponseMessage'>
+    <part name='response' element='tns:scheduleResponse' />
+  </message>
+  <message name='searchPeopleQQueryRequestMessage'>
+    <part name='parameters' element='tns:searchPeopleQQueryParameters' />
+  </message>
+  <message name='searchPeopleQQueryResponseMessage'>
+    <part name='response' element='tns:searchPeopleQQueryResponse' />
+  </message>
+  <message name='searchShowsQQueryRequestMessage'>
+    <part name='parameters' element='tns:searchShowsQQueryParameters' />
+  </message>
+  <message name='searchShowsQQueryResponseMessage'>
+    <part name='response' element='tns:searchShowsQQueryResponse' />
+  </message>
+  <message name='showsIdRequestMessage'>
+    <part name='parameters' element='tns:showsIdParameters' />
+  </message>
+  <message name='showsIdResponseMessage'>
+    <part name='response' element='tns:showsIdResponse' />
+  </message>
+  <portType name='tvmazePortType'>
+    <operation name='peopleId'>
+      <documentation>get person information</documentation>
+      <input message='tns:peopleIdRequestMessage' name='peopleIdInput' />
+      <output message='tns:peopleIdResponseMessage' name='peopleIdOutput' />
+    </operation>
+    <operation name='schedule'>
+      <documentation>get the TV schedule</documentation>
+      <input message='tns:scheduleRequestMessage' name='scheduleInput' />
+      <output message='tns:scheduleResponseMessage' name='scheduleOutput' />
+    </operation>
+    <operation name='searchPeopleQQuery'>
+      <documentation>search for people</documentation>
+      <input message='tns:searchPeopleQQueryRequestMessage' name='searchPeopleQQueryInput' />
+      <output message='tns:searchPeopleQQueryResponseMessage' name='searchPeopleQQueryOutput' />
+    </operation>
+    <operation name='searchShowsQQuery'>
+      <documentation>search for shows</documentation>
+      <input message='tns:searchShowsQQueryRequestMessage' name='searchShowsQQueryInput' />
+      <output message='tns:searchShowsQQueryResponseMessage' name='searchShowsQQueryOutput' />
+    </operation>
+    <operation name='showsId'>
+      <documentation>get show information</documentation>
+      <input message='tns:showsIdRequestMessage' name='showsIdInput' />
+      <output message='tns:showsIdResponseMessage' name='showsIdOutput' />
+    </operation>
+  </portType>
+  <binding name='tvmazeBinding' type='tns:tvmazePortType'>
+    <operation name='peopleId'>
+      <soap12:operation soapAction='http://peopleId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='schedule'>
+      <soap12:operation soapAction='http://schedule' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchPeopleQQuery'>
+      <soap12:operation soapAction='http://searchPeopleQQuery' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchShowsQQuery'>
+      <soap12:operation soapAction='http://searchShowsQQuery' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showsId'>
+      <soap12:operation soapAction='http://showsId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tvmaze'>
+    <documentation>add TV information to your website or app with our easy to use REST API The TVMaze API uses JSON and conforms to the HATEOAS HAL principles</documentation>
+    <port name='tvmazePort' binding='tns:tvmazeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tvmaze' />
+    </port>
+  </service>
+</definitions>

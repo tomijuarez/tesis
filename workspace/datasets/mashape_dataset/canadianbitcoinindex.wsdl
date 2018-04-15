@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/canadianBitcoinIndex/' name='canadianBitcoinIndex' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/canadianBitcoinIndex/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/canadianBitcoinIndex/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/canadianBitcoinIndex/'>
+      <xsd:element name='convertParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:int' minOccurs='0' />
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='index_value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='index_generated' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='historyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='volume' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='high' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='low' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='change' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='close' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='open' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='change_percent' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date_time' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exchanges' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='last' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='ask' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='volume_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bid' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='index' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='low_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='change_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='high_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='change_percent_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='volume_24hour' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dateTime' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='relativeDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderbookParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderbookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='asks' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cumulative' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='bids' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='cumulative' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='summaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='percentage_return_year_to_date' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='market_cap' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='total_coins' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='index' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='high_52_week' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='low_52_week' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='volume_7_day' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='percentage_return_52_week' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_link' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='volatilityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='volatilityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertRequestMessage'>
+    <part name='parameters' element='tns:convertParameters' />
+  </message>
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <message name='historyRequestMessage'>
+    <part name='parameters' element='tns:historyParameters' />
+  </message>
+  <message name='historyResponseMessage'>
+    <part name='response' element='tns:historyResponse' />
+  </message>
+  <message name='indexRequestMessage' />
+  <message name='indexResponseMessage'>
+    <part name='response' element='tns:indexResponse' />
+  </message>
+  <message name='newsRequestMessage' />
+  <message name='newsResponseMessage'>
+    <part name='response' element='tns:newsResponse' />
+  </message>
+  <message name='orderbookRequestMessage'>
+    <part name='parameters' element='tns:orderbookParameters' />
+  </message>
+  <message name='orderbookResponseMessage'>
+    <part name='response' element='tns:orderbookResponse' />
+  </message>
+  <message name='summaryRequestMessage' />
+  <message name='summaryResponseMessage'>
+    <part name='response' element='tns:summaryResponse' />
+  </message>
+  <message name='volatilityRequestMessage'>
+    <part name='parameters' element='tns:volatilityParameters' />
+  </message>
+  <message name='volatilityResponseMessage'>
+    <part name='response' element='tns:volatilityResponse' />
+  </message>
+  <portType name='canadianBitcoinIndexPortType'>
+    <operation name='convert'>
+      <documentation>the Convert API processes a simple currency conversion between BTC and CAD based on the current index price</documentation>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+    <operation name='history'>
+      <documentation>the History API returns daily index values and change information from</documentation>
+      <input message='tns:historyRequestMessage' name='historyInput' />
+      <output message='tns:historyResponseMessage' name='historyOutput' />
+    </operation>
+    <operation name='index'>
+      <documentation>the Index API provides the latest index values volume data and change information</documentation>
+      <input message='tns:indexRequestMessage' name='indexInput' />
+      <output message='tns:indexResponseMessage' name='indexOutput' />
+    </operation>
+    <operation name='news'>
+      <documentation>the News API returns the latest news feed curated by CBIX</documentation>
+      <input message='tns:newsRequestMessage' name='newsInput' />
+      <output message='tns:newsResponseMessage' name='newsOutput' />
+    </operation>
+    <operation name='orderbook'>
+      <documentation>the Order Book API returns a full order book for all supported exchanges</documentation>
+      <input message='tns:orderbookRequestMessage' name='orderbookInput' />
+      <output message='tns:orderbookResponseMessage' name='orderbookOutput' />
+    </operation>
+    <operation name='summary'>
+      <documentation>the Summary API returns the latest index and market summary including market capitalization total coins in circulation and week high and lows</documentation>
+      <input message='tns:summaryRequestMessage' name='summaryInput' />
+      <output message='tns:summaryResponseMessage' name='summaryOutput' />
+    </operation>
+    <operation name='volatility'>
+      <documentation>the Volatility API returns daily historical index volatility data</documentation>
+      <input message='tns:volatilityRequestMessage' name='volatilityInput' />
+      <output message='tns:volatilityResponseMessage' name='volatilityOutput' />
+    </operation>
+  </portType>
+  <binding name='canadianBitcoinIndexBinding' type='tns:canadianBitcoinIndexPortType'>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='history'>
+      <soap12:operation soapAction='http://history' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='index'>
+      <soap12:operation soapAction='http://index' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='news'>
+      <soap12:operation soapAction='http://news' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderbook'>
+      <soap12:operation soapAction='http://orderbook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='summary'>
+      <soap12:operation soapAction='http://summary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='volatility'>
+      <soap12:operation soapAction='http://volatility' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='canadianBitcoinIndex'>
+    <documentation>the Canadian Bitcoin Index API is the definitive source for Canadian Bitcoin price information The primary index endpoint returns a value for the price of a Bitcoin denominated in Canadian dollars calculated as an average from actual trade data from all Canadian owned exchanges</documentation>
+    <port name='canadianBitcoinIndexPort' binding='tns:canadianBitcoinIndexBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://canadianBitcoinIndex' />
+    </port>
+  </service>
+</definitions>

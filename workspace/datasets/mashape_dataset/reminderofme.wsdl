@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/reminderofMe/' name='reminderofMe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/reminderofMe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/reminderofMe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/reminderofMe/'>
+      <xsd:element name='userLinkHubParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLinkHubResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='iMessage' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='LinkedIn' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Skype' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='User' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='quote' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Telephone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Quora' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Google_' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Twitter' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Facebook' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='YouTube' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='userLinkHubRequestMessage'>
+    <part name='parameters' element='tns:userLinkHubParameters' />
+  </message>
+  <message name='userLinkHubResponseMessage'>
+    <part name='response' element='tns:userLinkHubResponse' />
+  </message>
+  <portType name='reminderofMePortType'>
+    <operation name='userLinkHub'>
+      <documentation>this endpoint allows you to retrieve a business card url list You can use it to link a person s up to date link list to embed the contact in every context</documentation>
+      <input message='tns:userLinkHubRequestMessage' name='userLinkHubInput' />
+      <output message='tns:userLinkHubResponseMessage' name='userLinkHubOutput' />
+    </operation>
+  </portType>
+  <binding name='reminderofMeBinding' type='tns:reminderofMePortType'>
+    <operation name='userLinkHub'>
+      <soap12:operation soapAction='http://userLinkHub' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='reminderofMe'>
+    <documentation>we synchronize your addresses over JSON Web widget and personal website We take the pain away from updating links on the Web when you join a new social communication activity like facebook linkedin skype whatsapp email and other means of digital communication reminderof me is a business card for ubiquitous follow up Looks great on iphone ipad and android It is accessible via Web Widget JSON and QR code Sign up now on http reminderof me Example You can use this API to develop javascript plugin that retrieve personal links of a person via JSON and displays it on a tooltip When the person updates his reminder with a new link will appear on your tooltip plugin</documentation>
+    <port name='reminderofMePort' binding='tns:reminderofMeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://reminderofMe' />
+    </port>
+  </service>
+</definitions>

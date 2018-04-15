@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/proprofsQuizMaker/' name='proprofsQuizMaker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/proprofsQuizMaker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/proprofsQuizMaker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/proprofsQuizMaker/'>
+      <xsd:element name='quizMakerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='quizMakerRequestMessage' />
+  <message name='quizMakerResponseMessage'>
+    <part name='response' element='tns:quizMakerResponse' />
+  </message>
+  <portType name='proprofsQuizMakerPortType'>
+    <operation name='quizMaker'>
+      <documentation>create online tests and quizzes</documentation>
+      <input message='tns:quizMakerRequestMessage' name='quizMakerInput' />
+      <output message='tns:quizMakerResponseMessage' name='quizMakerOutput' />
+    </operation>
+  </portType>
+  <binding name='proprofsQuizMakerBinding' type='tns:proprofsQuizMakerPortType'>
+    <operation name='quizMaker'>
+      <soap12:operation soapAction='http://quizMaker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='proprofsQuizMaker'>
+    <documentation>proProfs Quiz Maker is an effective tool with powerful customizable features that helps instructors and teachers to create online tests quizzes and exams for global learners and employees The quizzes can be created and shared in a matter of seconds thanks to its easy to use interface that supports features such as automated grading quiz completion certificates free quiz templates and more</documentation>
+    <port name='proprofsQuizMakerPort' binding='tns:proprofsQuizMakerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://proprofsQuizMaker' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/recipeSearchAndDiet/' name='recipeSearchAndDiet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/recipeSearchAndDiet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/recipeSearchAndDiet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/recipeSearchAndDiet/'>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='calories' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='diet' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='health' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hits' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='bookmarked' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='bought' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='recipe' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='shareAs' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='keyIngredients' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='level' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='healthLabels' type='xsd:normalizedString' maxOccurs='unbounded' />
+                        <xsd:element name='totalTime' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='calories' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='cookingTime' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='sourceIcon' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='prepTime' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='totalNutrients' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='VITB6A' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FAMS' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITC' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CHOCDF' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='K' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITD' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FATRN' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='P' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CHOLE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='ENERC_KCAL' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FASAT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITK1' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='MG' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='RIBF' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FAPU' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FOL' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='NIA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='THIA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FIBTG' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITB12' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='TOCPHA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='SUGAR' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='PROCNT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='NA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='ZN' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITA_RAE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FAT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='dietLabels' type='xsd:normalizedString' maxOccurs='unbounded' />
+                        <xsd:element name='yield' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='totalWeight' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='digest' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='schemaOrgTag' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='sub' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='schemaOrgTag' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='total' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='daily' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='hasRDI' type='xsd:boolean' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='tag' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='total' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='daily' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='hasRDI' type='xsd:boolean' minOccurs='0' />
+                              <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='tag' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='ingredients' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='exactFood' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='measure' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='plural' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='aliases' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='modifier' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='food' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='totalDaily' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='VITB6A' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITC' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CHOCDF' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='K' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITD' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='P' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CHOLE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='ENERC_KCAL' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FASAT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITK1' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='MG' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='RIBF' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='CA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FOL' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='NIA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='THIA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FIBTG' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITB12' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='TOCPHA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='PROCNT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='NA' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='ZN' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='VITA_RAE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FAT' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FE' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='unit' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='quantity' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='ingredientLines' type='xsd:string' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='q' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='more' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='from' type='xsd:int' minOccurs='0' />
+            <xsd:element name='to' type='xsd:int' minOccurs='0' />
+            <xsd:element name='params' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='q' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='_app_key' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='health' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='diet' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='_app_id' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='recipeSearchAndDietPortType'>
+    <operation name='search'>
+      <documentation>search million recipes with attached nutrition facts and diet tags</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='recipeSearchAndDietBinding' type='tns:recipeSearchAndDietPortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='recipeSearchAndDiet'>
+    <documentation>the Edamam Recipe Search and Diet API lets you integrate recipes and faceted recipe search into your websites or mobile applications Since we understand the recipe ingredients diets allergies nutrition taste techniques more We can connect your users with the best recipes available for their unique food preferences Search over million recipes Search our large recipe database We add new sites and recipes continuously top web recipe sources Our search algorithm returns the most relevant recipes from the most popular and best recipes sources on the web We order recipes by their cookability and quality so your customer can always count on getting the best recipes Semantically organized database The recipes in our database are normalized and can be filtered in the search by calorie and diet preferences Full nutrition for each recipe We have the most accurate automated nutrition analysis on the web powered by our proprietary NLP engine You get detailed nutrition breakdown of each recipe with nutrients and appropriateness for all major diets Filter by calories diet or allergy restrictions Edamam has developed over diet and health filters for your customers to use Now you can develop applications for virtually any popular diet or major health condition</documentation>
+    <port name='recipeSearchAndDietPort' binding='tns:recipeSearchAndDietBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://recipeSearchAndDiet' />
+    </port>
+  </service>
+</definitions>

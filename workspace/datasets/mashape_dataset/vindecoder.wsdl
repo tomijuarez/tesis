@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vinDecoder/' name='vinDecoder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vinDecoder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vinDecoder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vinDecoder/'>
+      <xsd:element name='decodeVinParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='vin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='decodeVinResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='specification' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='optional_seating' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='trim_level' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='highway_mileage' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='steering_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='overall_height' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='made_in' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='standard_seating' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city_mileage' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='engine' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='overall_length' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='anti_brake_system' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='vin' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='model' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='style' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='make' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='overall_width' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tank_size' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='vin' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='salvageCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='vin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='salvageCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='is_salvage' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='info' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='images' type='xsd:anyURI' maxOccurs='unbounded' />
+                  <xsd:element name='primary_damage' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='vehicle_title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='loss_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='secondary_damage' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='mileage' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='decodeVinRequestMessage'>
+    <part name='parameters' element='tns:decodeVinParameters' />
+  </message>
+  <message name='decodeVinResponseMessage'>
+    <part name='response' element='tns:decodeVinResponse' />
+  </message>
+  <message name='salvageCheckRequestMessage'>
+    <part name='parameters' element='tns:salvageCheckParameters' />
+  </message>
+  <message name='salvageCheckResponseMessage'>
+    <part name='response' element='tns:salvageCheckResponse' />
+  </message>
+  <portType name='vinDecoderPortType'>
+    <operation name='decodeVin'>
+      <documentation>get Vehicle Specification by VIN Number</documentation>
+      <input message='tns:decodeVinRequestMessage' name='decodeVinInput' />
+      <output message='tns:decodeVinResponseMessage' name='decodeVinOutput' />
+    </operation>
+    <operation name='salvageCheck'>
+      <documentation>retrieve Salvage Information based on VIN Number</documentation>
+      <input message='tns:salvageCheckRequestMessage' name='salvageCheckInput' />
+      <output message='tns:salvageCheckResponseMessage' name='salvageCheckOutput' />
+    </operation>
+  </portType>
+  <binding name='vinDecoderBinding' type='tns:vinDecoderPortType'>
+    <operation name='decodeVin'>
+      <soap12:operation soapAction='http://decodeVin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='salvageCheck'>
+      <soap12:operation soapAction='http://salvageCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vinDecoder'>
+    <documentation>this is a VIN decoder that designed to work within North America Asia and Europe The Salvage VIN Checker only works within North America as of now</documentation>
+    <port name='vinDecoderPort' binding='tns:vinDecoderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vinDecoder' />
+    </port>
+  </service>
+</definitions>

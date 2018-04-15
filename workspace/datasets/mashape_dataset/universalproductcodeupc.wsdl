@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/universalProductCodeUpc/' name='universalProductCodeUpc' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/universalProductCodeUpc/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/universalProductCodeUpc/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/universalProductCodeUpc/'>
+      <xsd:element name='getInformationUsingUpcParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='upc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInformationUsingUpcResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='upc' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='brand' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getInformationUsingUpcRequestMessage'>
+    <part name='parameters' element='tns:getInformationUsingUpcParameters' />
+  </message>
+  <message name='getInformationUsingUpcResponseMessage'>
+    <part name='response' element='tns:getInformationUsingUpcResponse' />
+  </message>
+  <portType name='universalProductCodeUpcPortType'>
+    <operation name='getInformationUsingUpc'>
+      <documentation></documentation>
+      <input message='tns:getInformationUsingUpcRequestMessage' name='getInformationUsingUpcInput' />
+      <output message='tns:getInformationUsingUpcResponseMessage' name='getInformationUsingUpcOutput' />
+    </operation>
+  </portType>
+  <binding name='universalProductCodeUpcBinding' type='tns:universalProductCodeUpcPortType'>
+    <operation name='getInformationUsingUpc'>
+      <soap12:operation soapAction='http://getInformationUsingUpc' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='universalProductCodeUpc'>
+    <documentation>lookup product information using UPC Universal Product Code The total number of products currently mapped are around The categories for which data exists include Mobiles Cameras and Grocery items</documentation>
+    <port name='universalProductCodeUpcPort' binding='tns:universalProductCodeUpcBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://universalProductCodeUpc' />
+    </port>
+  </service>
+</definitions>

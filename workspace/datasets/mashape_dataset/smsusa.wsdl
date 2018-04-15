@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smsUsa/' name='smsUsa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smsUsa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smsUsa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smsUsa/'>
+      <xsd:element name='apiEndpointForSendingSmsToUsaParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='msg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiEndpointForSendingSmsToUsaResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiEndpointForSendingSmsToUsaRequestMessage'>
+    <part name='parameters' element='tns:apiEndpointForSendingSmsToUsaParameters' />
+  </message>
+  <message name='apiEndpointForSendingSmsToUsaResponseMessage'>
+    <part name='response' element='tns:apiEndpointForSendingSmsToUsaResponse' />
+  </message>
+  <portType name='smsUsaPortType'>
+    <operation name='apiEndpointForSendingSmsToUsa'>
+      <documentation>api endpoint for sending sms to usa from our msgbolt services</documentation>
+      <input message='tns:apiEndpointForSendingSmsToUsaRequestMessage' name='apiEndpointForSendingSmsToUsaInput' />
+      <output message='tns:apiEndpointForSendingSmsToUsaResponseMessage' name='apiEndpointForSendingSmsToUsaOutput' />
+    </operation>
+  </portType>
+  <binding name='smsUsaBinding' type='tns:smsUsaPortType'>
+    <operation name='apiEndpointForSendingSmsToUsa'>
+      <soap12:operation soapAction='http://apiEndpointForSendingSmsToUsa' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smsUsa'>
+    <documentation>send unlimited free SMS to USA using our service provided by http sms usa msgbolt com</documentation>
+    <port name='smsUsaPort' binding='tns:smsUsaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smsUsa' />
+    </port>
+  </service>
+</definitions>

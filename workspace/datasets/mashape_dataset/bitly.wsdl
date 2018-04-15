@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bitly/' name='bitly' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bitly/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bitly/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bitly/'>
+      <xsd:element name='shortenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='longurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shortenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='global_hash' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='long_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='new_hash' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status_txt' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='shortenRequestMessage'>
+    <part name='parameters' element='tns:shortenParameters' />
+  </message>
+  <message name='shortenResponseMessage'>
+    <part name='response' element='tns:shortenResponse' />
+  </message>
+  <portType name='bitlyPortType'>
+    <operation name='shorten'>
+      <documentation>given a long URL returns a bitly short URL</documentation>
+      <input message='tns:shortenRequestMessage' name='shortenInput' />
+      <output message='tns:shortenResponseMessage' name='shortenOutput' />
+    </operation>
+  </portType>
+  <binding name='bitlyBinding' type='tns:bitlyPortType'>
+    <operation name='shorten'>
+      <soap12:operation soapAction='http://shorten' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bitly'>
+    <documentation>shortens urls</documentation>
+    <port name='bitlyPort' binding='tns:bitlyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bitly' />
+    </port>
+  </service>
+</definitions>

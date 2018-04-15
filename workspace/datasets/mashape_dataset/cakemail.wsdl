@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cakemail/' name='cakemail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cakemail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cakemail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cakemail/'>
+      <xsd:element name='documentationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='howTo' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='documentationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='documentationRequestMessage'>
+    <part name='parameters' element='tns:documentationParameters' />
+  </message>
+  <message name='documentationResponseMessage'>
+    <part name='response' element='tns:documentationResponse' />
+  </message>
+  <portType name='cakemailPortType'>
+    <operation name='documentation'>
+      <documentation></documentation>
+      <input message='tns:documentationRequestMessage' name='documentationInput' />
+      <output message='tns:documentationResponseMessage' name='documentationOutput' />
+    </operation>
+  </portType>
+  <binding name='cakemailBinding' type='tns:cakemailPortType'>
+    <operation name='documentation'>
+      <soap12:operation soapAction='http://documentation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cakemail'>
+    <documentation>cakeMail is an email marketing application that simplifies the way small businesses engage with customers allowing them to manage contacts create personalized email campaigns from templates and simply send It s an affordable easy to use solution created to help small businesses begin or pursue their email marketing efforts regardless of the marketing resources design background or technical expertise they have</documentation>
+    <port name='cakemailPort' binding='tns:cakemailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cakemail' />
+    </port>
+  </service>
+</definitions>

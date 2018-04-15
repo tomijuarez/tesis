@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/skateIpsum/' name='skateIpsum' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/skateIpsum/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/skateIpsum/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/skateIpsum/'>
+      <xsd:element name='generateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='paragraphs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generateRequestMessage'>
+    <part name='parameters' element='tns:generateParameters' />
+  </message>
+  <message name='generateResponseMessage'>
+    <part name='response' element='tns:generateResponse' />
+  </message>
+  <portType name='skateIpsumPortType'>
+    <operation name='generate'>
+      <documentation></documentation>
+      <input message='tns:generateRequestMessage' name='generateInput' />
+      <output message='tns:generateResponseMessage' name='generateOutput' />
+    </operation>
+  </portType>
+  <binding name='skateIpsumBinding' type='tns:skateIpsumPortType'>
+    <operation name='generate'>
+      <soap12:operation soapAction='http://generate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='skateIpsum'>
+    <documentation>a gnarlier lorem ipsum generator Use the API to get the raddest placeholder faux Latin text</documentation>
+    <port name='skateIpsumPort' binding='tns:skateIpsumBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://skateIpsum' />
+    </port>
+  </service>
+</definitions>

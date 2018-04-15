@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wikisynonyms/' name='wikisynonyms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wikisynonyms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wikisynonyms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wikisynonyms/'>
+      <xsd:element name='synonymsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='synonymsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='terms' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='http' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='synonymsRequestMessage'>
+    <part name='parameters' element='tns:synonymsParameters' />
+  </message>
+  <message name='synonymsResponseMessage'>
+    <part name='response' element='tns:synonymsResponse' />
+  </message>
+  <portType name='wikisynonymsPortType'>
+    <operation name='synonyms'>
+      <documentation>search for synonyms for a given term or phrase</documentation>
+      <input message='tns:synonymsRequestMessage' name='synonymsInput' />
+      <output message='tns:synonymsResponseMessage' name='synonymsOutput' />
+    </operation>
+  </portType>
+  <binding name='wikisynonymsBinding' type='tns:wikisynonymsPortType'>
+    <operation name='synonyms'>
+      <soap12:operation soapAction='http://synonyms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wikisynonyms'>
+    <documentation>this is a term synonym discovery service that exploits that structure of Wikipedia redirects to discover almost equivalent terms You can try terms like C or Hillary Clinton or Mihapjungguk to see some of the results</documentation>
+    <port name='wikisynonymsPort' binding='tns:wikisynonymsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wikisynonyms' />
+    </port>
+  </service>
+</definitions>

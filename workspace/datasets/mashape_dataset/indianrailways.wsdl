@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianRailways/' name='indianRailways' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianRailways/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianRailways/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianRailways/'>
+      <xsd:element name='findStationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='station' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findStationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='stations' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='stationCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='stationName' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pnrStatusCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pnr' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pnrStatusCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lastUpdated' type='xsd:string' minOccurs='0' />
+            <xsd:element name='chartingStatus' type='xsd:string' minOccurs='0' />
+            <xsd:element name='pnr' type='xsd:int' minOccurs='0' />
+            <xsd:element name='journeyDetails' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reservedUpto' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='boardingDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='trainName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='boardingPoint' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='trainNumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='class' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='bookingStatus' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='currentStatus' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='passengerNo' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='bookingStatus' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findStationsRequestMessage'>
+    <part name='parameters' element='tns:findStationsParameters' />
+  </message>
+  <message name='findStationsResponseMessage'>
+    <part name='response' element='tns:findStationsResponse' />
+  </message>
+  <message name='pnrStatusCheckRequestMessage'>
+    <part name='parameters' element='tns:pnrStatusCheckParameters' />
+  </message>
+  <message name='pnrStatusCheckResponseMessage'>
+    <part name='response' element='tns:pnrStatusCheckResponse' />
+  </message>
+  <portType name='indianRailwaysPortType'>
+    <operation name='findStations'>
+      <documentation>get station codes from the station name</documentation>
+      <input message='tns:findStationsRequestMessage' name='findStationsInput' />
+      <output message='tns:findStationsResponseMessage' name='findStationsOutput' />
+    </operation>
+    <operation name='pnrStatusCheck'>
+      <documentation>just give digit pnr number and get the status</documentation>
+      <input message='tns:pnrStatusCheckRequestMessage' name='pnrStatusCheckInput' />
+      <output message='tns:pnrStatusCheckResponseMessage' name='pnrStatusCheckOutput' />
+    </operation>
+  </portType>
+  <binding name='indianRailwaysBinding' type='tns:indianRailwaysPortType'>
+    <operation name='findStations'>
+      <soap12:operation soapAction='http://findStations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pnrStatusCheck'>
+      <soap12:operation soapAction='http://pnrStatusCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianRailways'>
+    <documentation>get station codes and also get PNR status of indian railways using this easy API this is developed for educational purposes only and we are not affiliated to indian railways in any form and this is not an official api also</documentation>
+    <port name='indianRailwaysPort' binding='tns:indianRailwaysBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianRailways' />
+    </port>
+  </service>
+</definitions>

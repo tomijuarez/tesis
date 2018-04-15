@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hebergMe/' name='hebergMe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hebergMe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hebergMe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hebergMe/'>
+      <xsd:element name='uploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='presentation_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='direct_link_mini' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='direct_link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='uploadRequestMessage' />
+  <message name='uploadResponseMessage'>
+    <part name='response' element='tns:uploadResponse' />
+  </message>
+  <portType name='hebergMePortType'>
+    <operation name='upload'>
+      <documentation></documentation>
+      <input message='tns:uploadRequestMessage' name='uploadInput' />
+      <output message='tns:uploadResponseMessage' name='uploadOutput' />
+    </operation>
+  </portType>
+  <binding name='hebergMeBinding' type='tns:hebergMePortType'>
+    <operation name='upload'>
+      <soap12:operation soapAction='http://upload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hebergMe'>
+    <documentation>upload pictures or files on the Heberg me</documentation>
+    <port name='hebergMePort' binding='tns:hebergMeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hebergMe' />
+    </port>
+  </service>
+</definitions>

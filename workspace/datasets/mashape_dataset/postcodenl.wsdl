@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/postcodeNl/' name='postcodeNl' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/postcodeNl/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/postcodeNl/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/postcodeNl/'>
+      <xsd:element name='zipcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pc' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='zipcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='zipcodeRequestMessage'>
+    <part name='parameters' element='tns:zipcodeParameters' />
+  </message>
+  <message name='zipcodeResponseMessage'>
+    <part name='response' element='tns:zipcodeResponse' />
+  </message>
+  <portType name='postcodeNlPortType'>
+    <operation name='zipcode'>
+      <documentation>get Street and City based on zipcode</documentation>
+      <input message='tns:zipcodeRequestMessage' name='zipcodeInput' />
+      <output message='tns:zipcodeResponseMessage' name='zipcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='postcodeNlBinding' type='tns:postcodeNlPortType'>
+    <operation name='zipcode'>
+      <soap12:operation soapAction='http://zipcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='postcodeNl'>
+    <documentation>get street and city information based on a Dutch zipcode</documentation>
+    <port name='postcodeNlPort' binding='tns:postcodeNlBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://postcodeNl' />
+    </port>
+  </service>
+</definitions>

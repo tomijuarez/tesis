@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartsheet/' name='smartsheet' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartsheet/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartsheet/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartsheet/'>
+      <xsd:element name='getSheetInclRowsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='include' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sheetid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSheetInclRowsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdAt' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='accessLevel' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='columns' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='index' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='primary' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='modifiedAt' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='permalink' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllSheetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='accessLevel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchEverythingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchEverythingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='totalCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parentObjectName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='parentObjectId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='parentObjectType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='contextData' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='objectId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchSheetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sheetid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchSheetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='totalCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parentObjectName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='parentObjectId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='parentObjectType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='contextData' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='objectId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getSheetInclRowsRequestMessage'>
+    <part name='parameters' element='tns:getSheetInclRowsParameters' />
+  </message>
+  <message name='getSheetInclRowsResponseMessage'>
+    <part name='response' element='tns:getSheetInclRowsResponse' />
+  </message>
+  <message name='listAllSheetsRequestMessage' />
+  <message name='listAllSheetsResponseMessage'>
+    <part name='response' element='tns:listAllSheetsResponse' />
+  </message>
+  <message name='searchEverythingRequestMessage'>
+    <part name='parameters' element='tns:searchEverythingParameters' />
+  </message>
+  <message name='searchEverythingResponseMessage'>
+    <part name='response' element='tns:searchEverythingResponse' />
+  </message>
+  <message name='searchSheetRequestMessage'>
+    <part name='parameters' element='tns:searchSheetParameters' />
+  </message>
+  <message name='searchSheetResponseMessage'>
+    <part name='response' element='tns:searchSheetResponse' />
+  </message>
+  <portType name='smartsheetPortType'>
+    <operation name='getSheetInclRows'>
+      <documentation>returns the sheet including Rows and optionally populated with Discussion and Attachment objects</documentation>
+      <input message='tns:getSheetInclRowsRequestMessage' name='getSheetInclRowsInput' />
+      <output message='tns:getSheetInclRowsResponseMessage' name='getSheetInclRowsOutput' />
+    </operation>
+    <operation name='listAllSheets'>
+      <documentation>lists all the sheets in alphabetical order by name</documentation>
+      <input message='tns:listAllSheetsRequestMessage' name='listAllSheetsInput' />
+      <output message='tns:listAllSheetsResponseMessage' name='listAllSheetsOutput' />
+    </operation>
+    <operation name='searchEverything'>
+      <documentation>performs a search across all Sheets to which user has access NOTE Searching on partial words is supported using wildcards</documentation>
+      <input message='tns:searchEverythingRequestMessage' name='searchEverythingInput' />
+      <output message='tns:searchEverythingResponseMessage' name='searchEverythingOutput' />
+    </operation>
+    <operation name='searchSheet'>
+      <documentation></documentation>
+      <input message='tns:searchSheetRequestMessage' name='searchSheetInput' />
+      <output message='tns:searchSheetResponseMessage' name='searchSheetOutput' />
+    </operation>
+  </portType>
+  <binding name='smartsheetBinding' type='tns:smartsheetPortType'>
+    <operation name='getSheetInclRows'>
+      <soap12:operation soapAction='http://getSheetInclRows' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllSheets'>
+      <soap12:operation soapAction='http://listAllSheets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchEverything'>
+      <soap12:operation soapAction='http://searchEverything' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchSheet'>
+      <soap12:operation soapAction='http://searchSheet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartsheet'>
+    <documentation>the Smartsheet API enables customers to programmatically access and manage their organization s Smartsheet account and data and enables developers to create applications on top of Smartsheet It is designed to be simple and intuitive and is based on widely accepted standards and conventions including REST JSON and HTTP success and error codes If you already have experience with other publicly available RESTful APIs you will feel right at home</documentation>
+    <port name='smartsheetPort' binding='tns:smartsheetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartsheet' />
+    </port>
+  </service>
+</definitions>

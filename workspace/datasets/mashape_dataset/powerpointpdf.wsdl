@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/powerpointPdf/' name='powerpointPdf' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/powerpointPdf/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/powerpointPdf/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/powerpointPdf/'>
+      <xsd:element name='convertFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertFileRequestMessage' />
+  <message name='convertFileResponseMessage'>
+    <part name='response' element='tns:convertFileResponse' />
+  </message>
+  <portType name='powerpointPdfPortType'>
+    <operation name='convertFile'>
+      <documentation>post file to server</documentation>
+      <input message='tns:convertFileRequestMessage' name='convertFileInput' />
+      <output message='tns:convertFileResponseMessage' name='convertFileOutput' />
+    </operation>
+  </portType>
+  <binding name='powerpointPdfBinding' type='tns:powerpointPdfPortType'>
+    <operation name='convertFile'>
+      <soap12:operation soapAction='http://convertFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='powerpointPdf'>
+    <documentation>the API for converting PowerPoint documents to PDF files The pot potm potx pps ppsm ppsx ppt pptm and pptx file formats are supported</documentation>
+    <port name='powerpointPdfPort' binding='tns:powerpointPdfBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://powerpointPdf' />
+    </port>
+  </service>
+</definitions>

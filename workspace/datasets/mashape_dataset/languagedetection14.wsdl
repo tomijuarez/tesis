@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languageDetection/' name='languageDetection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languageDetection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languageDetection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languageDetection/'>
+      <xsd:element name='languageDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='probs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code3' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='probability' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='languageDetectionRequestMessage'>
+    <part name='parameters' element='tns:languageDetectionParameters' />
+  </message>
+  <message name='languageDetectionResponseMessage'>
+    <part name='response' element='tns:languageDetectionResponse' />
+  </message>
+  <portType name='languageDetectionPortType'>
+    <operation name='languageDetection'>
+      <documentation>detects the language of a piece of text</documentation>
+      <input message='tns:languageDetectionRequestMessage' name='languageDetectionInput' />
+      <output message='tns:languageDetectionResponseMessage' name='languageDetectionOutput' />
+    </operation>
+  </portType>
+  <binding name='languageDetectionBinding' type='tns:languageDetectionPortType'>
+    <operation name='languageDetection'>
+      <soap12:operation soapAction='http://languageDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languageDetection'>
+    <documentation>takes a piece of text and detects the language it is written in</documentation>
+    <port name='languageDetectionPort' binding='tns:languageDetectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languageDetection' />
+    </port>
+  </service>
+</definitions>

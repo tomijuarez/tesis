@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bloombergQuote/' name='bloombergQuote' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bloombergQuote/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bloombergQuote/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bloombergQuote/'>
+      <xsd:element name='quoteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quoteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='estimated_pe' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='last_month_average_volume' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='estimated_peg' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='price_book_mrq' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='relative_pe_vs_spx' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='five_year_dividend' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='shares_outstanding' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='industry' type='xsd:string' minOccurs='0' />
+            <xsd:element name='estimated_eps' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='current_pe' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='price_sale_ttm' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='capitalization' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='dividend_yied' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cash_dividend' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sub_industry' type='xsd:string' minOccurs='0' />
+            <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='exchange' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sector' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='quoteRequestMessage'>
+    <part name='parameters' element='tns:quoteParameters' />
+  </message>
+  <message name='quoteResponseMessage'>
+    <part name='response' element='tns:quoteResponse' />
+  </message>
+  <portType name='bloombergQuotePortType'>
+    <operation name='quote'>
+      <documentation>give a bloomberg ticker to get stock data about compagny and quote</documentation>
+      <input message='tns:quoteRequestMessage' name='quoteInput' />
+      <output message='tns:quoteResponseMessage' name='quoteOutput' />
+    </operation>
+  </portType>
+  <binding name='bloombergQuoteBinding' type='tns:bloombergQuotePortType'>
+    <operation name='quote'>
+      <soap12:operation soapAction='http://quote' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bloombergQuote'>
+    <documentation>unofficial Bloomberg API based on Bloomberg s Open Market Data Initiative Give Bloomberg Ticker return data</documentation>
+    <port name='bloombergQuotePort' binding='tns:bloombergQuoteBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bloombergQuote' />
+    </port>
+  </service>
+</definitions>

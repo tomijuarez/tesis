@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipUtils/' name='ipUtils' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipUtils/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipUtils/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipUtils/'>
+      <xsd:element name='getmyipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getmyipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resolveipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getmyipRequestMessage'>
+    <part name='parameters' element='tns:getmyipParameters' />
+  </message>
+  <message name='getmyipResponseMessage'>
+    <part name='response' element='tns:getmyipResponse' />
+  </message>
+  <message name='resolveipRequestMessage'>
+    <part name='parameters' element='tns:resolveipParameters' />
+  </message>
+  <message name='resolveipResponseMessage'>
+    <part name='response' element='tns:resolveipResponse' />
+  </message>
+  <portType name='ipUtilsPortType'>
+    <operation name='getmyip'>
+      <documentation>get the client s Ip address</documentation>
+      <input message='tns:getmyipRequestMessage' name='getmyipInput' />
+      <output message='tns:getmyipResponseMessage' name='getmyipOutput' />
+    </operation>
+    <operation name='resolveip'>
+      <documentation>resolve an ip address</documentation>
+      <input message='tns:resolveipRequestMessage' name='resolveipInput' />
+      <output message='tns:resolveipResponseMessage' name='resolveipOutput' />
+    </operation>
+  </portType>
+  <binding name='ipUtilsBinding' type='tns:ipUtilsPortType'>
+    <operation name='getmyip'>
+      <soap12:operation soapAction='http://getmyip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resolveip'>
+      <soap12:operation soapAction='http://resolveip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipUtils'>
+    <documentation>a simple component helping with IP functionalities</documentation>
+    <port name='ipUtilsPort' binding='tns:ipUtilsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipUtils' />
+    </port>
+  </service>
+</definitions>

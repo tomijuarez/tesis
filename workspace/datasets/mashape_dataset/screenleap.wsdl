@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/screenleap/' name='screenleap' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/screenleap/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/screenleap/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/screenleap/'>
+      <xsd:element name='makeNewScreenShareParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enableviewercam' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='externalid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hidepausebutton' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hidescreentoggle' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hidestopbutton' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='issecure' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='openwholescreen' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presentercountrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showscreenleapbranding' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startpaused' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeNewScreenShareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appletHtml' type='xsd:string' minOccurs='0' />
+            <xsd:element name='presenterParams' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='origin' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='rectangleColor' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='screenShareCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='viewerUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='browserMessageUrl' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveRecentScreenSharesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='accountId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='showScreenleapBranding' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='isSecure' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='screenShareCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='isActive' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveScreenShareInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='screensharecode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveScreenShareInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveScreenSharesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dateformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='endedafter' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='endedbefore' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='externalid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveScreenSharesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stopScreenShareParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='screensharecode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stopScreenShareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errorMessage' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='makeNewScreenShareRequestMessage'>
+    <part name='parameters' element='tns:makeNewScreenShareParameters' />
+  </message>
+  <message name='makeNewScreenShareResponseMessage'>
+    <part name='response' element='tns:makeNewScreenShareResponse' />
+  </message>
+  <message name='retrieveRecentScreenSharesRequestMessage' />
+  <message name='retrieveRecentScreenSharesResponseMessage'>
+    <part name='response' element='tns:retrieveRecentScreenSharesResponse' />
+  </message>
+  <message name='retrieveScreenShareInfoRequestMessage'>
+    <part name='parameters' element='tns:retrieveScreenShareInfoParameters' />
+  </message>
+  <message name='retrieveScreenShareInfoResponseMessage'>
+    <part name='response' element='tns:retrieveScreenShareInfoResponse' />
+  </message>
+  <message name='retrieveScreenSharesRequestMessage'>
+    <part name='parameters' element='tns:retrieveScreenSharesParameters' />
+  </message>
+  <message name='retrieveScreenSharesResponseMessage'>
+    <part name='response' element='tns:retrieveScreenSharesResponse' />
+  </message>
+  <message name='stopScreenShareRequestMessage'>
+    <part name='parameters' element='tns:stopScreenShareParameters' />
+  </message>
+  <message name='stopScreenShareResponseMessage'>
+    <part name='response' element='tns:stopScreenShareResponse' />
+  </message>
+  <portType name='screenleapPortType'>
+    <operation name='makeNewScreenShare'>
+      <documentation>this call creates a new screen share on the Screenleap server and returns the screenShareData JSON object that you will use to launch the presenter app</documentation>
+      <input message='tns:makeNewScreenShareRequestMessage' name='makeNewScreenShareInput' />
+      <output message='tns:makeNewScreenShareResponseMessage' name='makeNewScreenShareOutput' />
+    </operation>
+    <operation name='retrieveRecentScreenShares'>
+      <documentation>this call retrieves information for the recent screen shares on the account This includes screen shares that are still waiting for a presenter to connect currently active or recently ended</documentation>
+      <input message='tns:retrieveRecentScreenSharesRequestMessage' name='retrieveRecentScreenSharesInput' />
+      <output message='tns:retrieveRecentScreenSharesResponseMessage' name='retrieveRecentScreenSharesOutput' />
+    </operation>
+    <operation name='retrieveScreenShareInfo'>
+      <documentation>this call retrieves information about the specified screen share</documentation>
+      <input message='tns:retrieveScreenShareInfoRequestMessage' name='retrieveScreenShareInfoInput' />
+      <output message='tns:retrieveScreenShareInfoResponseMessage' name='retrieveScreenShareInfoOutput' />
+    </operation>
+    <operation name='retrieveScreenShares'>
+      <documentation>this call retrieves information for successful screen shares that match the specified criteria A successful screen share is one to which both the presenter and one or more viewers connect</documentation>
+      <input message='tns:retrieveScreenSharesRequestMessage' name='retrieveScreenSharesInput' />
+      <output message='tns:retrieveScreenSharesResponseMessage' name='retrieveScreenSharesOutput' />
+    </operation>
+    <operation name='stopScreenShare'>
+      <documentation>the user can end the screen share on their own by clicking the stop button or closing the control panel But there will likely be occasions on which you want to force the screen share to close programmatically</documentation>
+      <input message='tns:stopScreenShareRequestMessage' name='stopScreenShareInput' />
+      <output message='tns:stopScreenShareResponseMessage' name='stopScreenShareOutput' />
+    </operation>
+  </portType>
+  <binding name='screenleapBinding' type='tns:screenleapPortType'>
+    <operation name='makeNewScreenShare'>
+      <soap12:operation soapAction='http://makeNewScreenShare' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveRecentScreenShares'>
+      <soap12:operation soapAction='http://retrieveRecentScreenShares' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveScreenShareInfo'>
+      <soap12:operation soapAction='http://retrieveScreenShareInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveScreenShares'>
+      <soap12:operation soapAction='http://retrieveScreenShares' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='stopScreenShare'>
+      <soap12:operation soapAction='http://stopScreenShare' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='screenleap'>
+    <documentation>screenleap is a web based service that enables users to share their computer screens with others Shared screens can be viewed with a web browser from a PC tablet or smartphone No account is needed to use the service Screen share requests can be made by clicking a button on the Screenleap website or by using the Screenleap REST API</documentation>
+    <port name='screenleapPort' binding='tns:screenleapBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://screenleap' />
+    </port>
+  </service>
+</definitions>

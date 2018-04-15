@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianMobileInfo/' name='indianMobileInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianMobileInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianMobileInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianMobileInfo/'>
+      <xsd:element name='getinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobno' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Series' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='State' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Service' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Provider' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getinfoRequestMessage'>
+    <part name='parameters' element='tns:getinfoParameters' />
+  </message>
+  <message name='getinfoResponseMessage'>
+    <part name='response' element='tns:getinfoResponse' />
+  </message>
+  <portType name='indianMobileInfoPortType'>
+    <operation name='getinfo'>
+      <documentation></documentation>
+      <input message='tns:getinfoRequestMessage' name='getinfoInput' />
+      <output message='tns:getinfoResponseMessage' name='getinfoOutput' />
+    </operation>
+  </portType>
+  <binding name='indianMobileInfoBinding' type='tns:indianMobileInfoPortType'>
+    <operation name='getinfo'>
+      <soap12:operation soapAction='http://getinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianMobileInfo'>
+    <documentation>enter any digit Indian mobile number and get its Location provider type and other details easily</documentation>
+    <port name='indianMobileInfoPort' binding='tns:indianMobileInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianMobileInfo' />
+    </port>
+  </service>
+</definitions>

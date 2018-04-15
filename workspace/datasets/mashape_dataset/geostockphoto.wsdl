@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geostockphoto/' name='geostockphoto' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geostockphoto/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geostockphoto/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geostockphoto/'>
+      <xsd:element name='photoGetconfcategoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='idCategory' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='photoGetconfsizeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='size' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='idSize' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='maxSize' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='photoGetinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='photoGetinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='idUser' type='xsd:int' minOccurs='0' />
+            <xsd:element name='approvedDate' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='rate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='idCategory1' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='photoGetsearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='idcategory' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='idsize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='latne' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='latsw' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lngne' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lngsw' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='rate' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='thumb' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='user' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='photoGetsearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errCode' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='photoGetconfcategoryRequestMessage' />
+  <message name='photoGetconfcategoryResponseMessage'>
+    <part name='response' element='tns:photoGetconfcategoryResponse' />
+  </message>
+  <message name='photoGetconfsizeRequestMessage' />
+  <message name='photoGetconfsizeResponseMessage'>
+    <part name='response' element='tns:photoGetconfsizeResponse' />
+  </message>
+  <message name='photoGetinfoRequestMessage'>
+    <part name='parameters' element='tns:photoGetinfoParameters' />
+  </message>
+  <message name='photoGetinfoResponseMessage'>
+    <part name='response' element='tns:photoGetinfoResponse' />
+  </message>
+  <message name='photoGetsearchRequestMessage'>
+    <part name='parameters' element='tns:photoGetsearchParameters' />
+  </message>
+  <message name='photoGetsearchResponseMessage'>
+    <part name='response' element='tns:photoGetsearchResponse' />
+  </message>
+  <portType name='geostockphotoPortType'>
+    <operation name='photoGetconfcategory'>
+      <documentation>returns the list of all categories that any photo can have on GeoStockPhoto</documentation>
+      <input message='tns:photoGetconfcategoryRequestMessage' name='photoGetconfcategoryInput' />
+      <output message='tns:photoGetconfcategoryResponseMessage' name='photoGetconfcategoryOutput' />
+    </operation>
+    <operation name='photoGetconfsize'>
+      <documentation>returns the list of all sizes that any photo can have on GeoStockPhoto</documentation>
+      <input message='tns:photoGetconfsizeRequestMessage' name='photoGetconfsizeInput' />
+      <output message='tns:photoGetconfsizeResponseMessage' name='photoGetconfsizeOutput' />
+    </operation>
+    <operation name='photoGetinfo'>
+      <documentation>returns the descriptive information of a photo</documentation>
+      <input message='tns:photoGetinfoRequestMessage' name='photoGetinfoInput' />
+      <output message='tns:photoGetinfoResponseMessage' name='photoGetinfoOutput' />
+    </operation>
+    <operation name='photoGetsearch'>
+      <documentation>returns the photos available for sales with full search capabilities</documentation>
+      <input message='tns:photoGetsearchRequestMessage' name='photoGetsearchInput' />
+      <output message='tns:photoGetsearchResponseMessage' name='photoGetsearchOutput' />
+    </operation>
+  </portType>
+  <binding name='geostockphotoBinding' type='tns:geostockphotoPortType'>
+    <operation name='photoGetconfcategory'>
+      <soap12:operation soapAction='http://photoGetconfcategory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='photoGetconfsize'>
+      <soap12:operation soapAction='http://photoGetconfsize' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='photoGetinfo'>
+      <soap12:operation soapAction='http://photoGetinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='photoGetsearch'>
+      <soap12:operation soapAction='http://photoGetsearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geostockphoto'>
+    <documentation>geoStockPhoto is a stock photo agency with high quality photos from all around the world Each photo is geotagged with latitude and longitude All registered users can interact with our database and retrieve information of all photos on sale</documentation>
+    <port name='geostockphotoPort' binding='tns:geostockphotoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geostockphoto' />
+    </port>
+  </service>
+</definitions>

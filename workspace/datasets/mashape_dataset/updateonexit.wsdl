@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/updateonexit/' name='updateonexit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/updateonexit/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/updateonexit/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/updateonexit/'>
+      <xsd:element name='updateonexitResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='updateonexitRequestMessage' />
+  <message name='updateonexitResponseMessage'>
+    <part name='response' element='tns:updateonexitResponse' />
+  </message>
+  <portType name='updateonexitPortType'>
+    <operation name='updateonexit'>
+      <documentation>use the following method to update after the vehicle has exit the parking garage</documentation>
+      <input message='tns:updateonexitRequestMessage' name='updateonexitInput' />
+      <output message='tns:updateonexitResponseMessage' name='updateonexitOutput' />
+    </operation>
+  </portType>
+  <binding name='updateonexitBinding' type='tns:updateonexitPortType'>
+    <operation name='updateonexit'>
+      <soap12:operation soapAction='http://updateonexit' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='updateonexit'>
+    <documentation>use the following method to update after the vehicle has exit the parking garage Please call the following method as close as possible to the exiting vehicle</documentation>
+    <port name='updateonexitPort' binding='tns:updateonexitBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://updateonexit' />
+    </port>
+  </service>
+</definitions>

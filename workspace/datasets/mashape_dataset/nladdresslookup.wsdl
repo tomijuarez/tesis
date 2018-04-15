@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nlAddressLookup/' name='nlAddressLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nlAddressLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nlAddressLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nlAddressLookup/'>
+      <xsd:element name='addressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='housenumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='output' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='province' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='province_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='street' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='postcode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='house_number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='city_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='response_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressRequestMessage'>
+    <part name='parameters' element='tns:addressParameters' />
+  </message>
+  <message name='addressResponseMessage'>
+    <part name='response' element='tns:addressResponse' />
+  </message>
+  <portType name='nlAddressLookupPortType'>
+    <operation name='address'>
+      <documentation>look up the details of a Dutch address</documentation>
+      <input message='tns:addressRequestMessage' name='addressInput' />
+      <output message='tns:addressResponseMessage' name='addressOutput' />
+    </operation>
+  </portType>
+  <binding name='nlAddressLookupBinding' type='tns:nlAddressLookupPortType'>
+    <operation name='address'>
+      <soap12:operation soapAction='http://address' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nlAddressLookup'>
+    <documentation>lookup the details of an address within The Netherlands By entering a postcode and house number you get the street city province lattitude and longitude</documentation>
+    <port name='nlAddressLookupPort' binding='tns:nlAddressLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nlAddressLookup' />
+    </port>
+  </service>
+</definitions>

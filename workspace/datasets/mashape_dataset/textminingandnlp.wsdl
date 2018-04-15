@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textMiningAndNlp/' name='textMiningAndNlp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textMiningAndNlp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textMiningAndNlp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textMiningAndNlp/'>
+      <xsd:element name='htmlTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textsimilarityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jaccard' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='cosine' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='dice' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ngramcounterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clustersentencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='numOfClusters' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='clusters' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='clusteredSentences' type='xsd:string' maxOccurs='unbounded' />
+                        <xsd:element name='clusterTopics' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='clusterScore' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='clusterSize' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='discovertopicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='relatedTopics' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='supportingTexts' type='xsd:string' maxOccurs='unbounded' />
+                  <xsd:element name='mainTopic' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentsummarizerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='htmlTextRequestMessage' />
+  <message name='htmlTextResponseMessage'>
+    <part name='response' element='tns:htmlTextResponse' />
+  </message>
+  <message name='textsimilarityRequestMessage' />
+  <message name='textsimilarityResponseMessage'>
+    <part name='response' element='tns:textsimilarityResponse' />
+  </message>
+  <message name='ngramcounterRequestMessage' />
+  <message name='ngramcounterResponseMessage'>
+    <part name='response' element='tns:ngramcounterResponse' />
+  </message>
+  <message name='clustersentencesRequestMessage' />
+  <message name='clustersentencesResponseMessage'>
+    <part name='response' element='tns:clustersentencesResponse' />
+  </message>
+  <message name='discovertopicsRequestMessage' />
+  <message name='discovertopicsResponseMessage'>
+    <part name='response' element='tns:discovertopicsResponse' />
+  </message>
+  <message name='sentimentsummarizerRequestMessage' />
+  <message name='sentimentsummarizerResponseMessage'>
+    <part name='response' element='tns:sentimentsummarizerResponse' />
+  </message>
+  <portType name='textMiningAndNlpPortType'>
+    <operation name='htmlText'>
+      <documentation>extract text contents from a HTML page or a URL directly Can be used as a pre step to any text processing task</documentation>
+      <input message='tns:htmlTextRequestMessage' name='htmlTextInput' />
+      <output message='tns:htmlTextResponseMessage' name='htmlTextOutput' />
+    </operation>
+    <operation name='textsimilarity'>
+      <documentation>compute similarity between two units of texts using Jaccard Cosine and Dice similarity measures Can be used to find similar queries ads Tweets product listings documents etc This endpoint is language neutral</documentation>
+      <input message='tns:textsimilarityRequestMessage' name='textsimilarityInput' />
+      <output message='tns:textsimilarityResponseMessage' name='textsimilarityOutput' />
+    </operation>
+    <operation name='ngramcounter'>
+      <documentation>generate counts words or n grams in descending order N represents the required n gram size</documentation>
+      <input message='tns:ngramcounterRequestMessage' name='ngramcounterInput' />
+      <output message='tns:ngramcounterResponseMessage' name='ngramcounterOutput' />
+    </operation>
+    <operation name='clustersentences'>
+      <documentation>cluster sentences and short micro format texts e g Tweets into logical groups Each cluster contains meaningful topic cues labels This clustering algorithm is much more effective than K Means for clustering sentence level texts</documentation>
+      <input message='tns:clustersentencesRequestMessage' name='clustersentencesInput' />
+      <output message='tns:clustersentencesResponseMessage' name='clustersentencesOutput' />
+    </operation>
+    <operation name='discovertopics'>
+      <documentation>find topics in text Extracted topics can be used to create navigable word clouds automatic tagging of documents or for visualization of large amounts of text You can extract topics from single documents or aggregated texts</documentation>
+      <input message='tns:discovertopicsRequestMessage' name='discovertopicsInput' />
+      <output message='tns:discovertopicsResponseMessage' name='discovertopicsOutput' />
+    </operation>
+    <operation name='sentimentsummarizer'>
+      <documentation>generate concise summaries of opinions from large amounts of text Summarize Tweets Blog comments Foursquare tips any opinion containing texts</documentation>
+      <input message='tns:sentimentsummarizerRequestMessage' name='sentimentsummarizerInput' />
+      <output message='tns:sentimentsummarizerResponseMessage' name='sentimentsummarizerOutput' />
+    </operation>
+  </portType>
+  <binding name='textMiningAndNlpBinding' type='tns:textMiningAndNlpPortType'>
+    <operation name='htmlText'>
+      <soap12:operation soapAction='http://htmlText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textsimilarity'>
+      <soap12:operation soapAction='http://textsimilarity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ngramcounter'>
+      <soap12:operation soapAction='http://ngramcounter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clustersentences'>
+      <soap12:operation soapAction='http://clustersentences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='discovertopics'>
+      <soap12:operation soapAction='http://discovertopics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentimentsummarizer'>
+      <soap12:operation soapAction='http://sentimentsummarizer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textMiningAndNlp'>
+    <documentation>aPIs for Text Mining and Natural Language Processing Discover topics in large amounts of text Cluster sentences and tweets with meaningful labels Generate word counts and N grams and counts with frequency Extract text from HTML pages Compute Text Similarity using Jaccard Cosine and Dice Generate sentiment opinion summary from large amounts of text</documentation>
+    <port name='textMiningAndNlpPort' binding='tns:textMiningAndNlpBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textMiningAndNlp' />
+    </port>
+  </service>
+</definitions>

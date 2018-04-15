@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stockviz/' name='stockviz' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stockviz/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stockviz/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stockviz/'>
+      <xsd:element name='classifiedSectorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='corporateActionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='corporateActionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PURPOSE' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='EX_DATE' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='UPDATE_DT' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityIndexMappingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityIndexMappingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='WEIGHTAGE' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equitySectorMappingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sector' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equitySectorMappingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityBhavParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityBhavResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_PREVCLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TOT_TRD_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TOT_TRD_VAL' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityOptionGreeksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityOptionGreeksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_SETTLE' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CONTRACTS' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='STRIKE_PR' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='OPTION_TYP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='OPEN_INTEREST' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityTechnicalsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equityTechnicalsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='GMM_LONG_LAG_50' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='DI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BETA_BEAR' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BB_PCT_B' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ALPHA' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='TRIX' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_5' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_3' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ATR_TR' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='DONCH_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMA_100' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VOL_YZ' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='KST_SIGNAL' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ADX' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VOL_10' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_8' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='WPR' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VOL_50' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='CMF' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='RISK_PREMIUM' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='STOCH_SLOW_D' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='CMO' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BETA_BULL' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='CHANDE_MO' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_LONG_LAG_60' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMA_20' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BB_DN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='RSI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ADX_DX' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='EMV' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='INFO_RATIO' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='AROON_OSCI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BB_UP' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BB_MAVG' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ADX_DIN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='MOM_1' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ATR_TRUE_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='DPO' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_LONG_LAG_30' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ADX_DIP' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='STOCH_FAST_D' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='AROON_UP' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMA_10' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMA_50' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_LONG_LAG_35' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TRIX_SIGNAL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SHARPE_STD_DEV' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMA_200' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='MACD_SIGNAL' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='AROON_DN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VHF' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='MACD' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TDI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='STOCH_FAST_K' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_LONG_LAG_40' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='EMV_MA' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_10' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='CCI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_12' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SMI_SIGNAL' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='KST' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_SHORT_LAG_15' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='GMM_LONG_LAG_45' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BETA' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ATR_TRUE_LOW' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='DONCH_LOW' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SHARPE_VAR' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='VOL_20' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ES_SHARPE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='DONCH_MID' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ATR' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='futuresBhavParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='futuresBhavResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_SETTLE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CONTRACTS' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VAL_IN_LAKH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='OPEN_INTEREST' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indexOptionGreeksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indexOptionGreeksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_SETTLE' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CONTRACTS' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='STRIKE_PR' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='OPTION_TYP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='OPEN_INTEREST' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listedEquitiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='DATE_LISTING' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ISIN' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='NAME' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listedIndicesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='INDEX_ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='INDEX_NAME' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceEquityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceEquityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='TOTAL_TRADED_VOLUME' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='LAST_PRICE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TOTAL_BUY_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TOTAL_SELL_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SEQUENCE_ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SERVER_DT' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TOTAL_TRADED_VALUE' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceFuturesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceFuturesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='BID_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='LAST_PRICE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ASK_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VOLUME' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='BID_PX' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ASK_PX' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceIndexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='LAST_PRICE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_PREV_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='NAME' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='SERVER_DT' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceOptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='optiontype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='strike' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='livePriceOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='STRIKE_PX' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='BID_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='LAST_PRICE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ASK_QTY' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VOLUME' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='OPTION_TYPE' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='IV' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='BID_PX' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ASK_PX' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='SOURCE' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='HEADLINE' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='TAG' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='POST_DATE' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CONTENT' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='optionsBhavParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='optionsBhavResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='PX_HIGH' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='CONTRACTS' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='STRIKE_PR' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TIME_STAMP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_SETTLE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PX_CLOSE' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='SYMBOL' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_LOW' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='EXPIRY_DT' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='VAL_IN_LAKH' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='OPTION_TYP' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PX_OPEN' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='OPEN_INTEREST' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioEquityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='px' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qty' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioEquityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioFuturesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='px' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qty' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioFuturesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioOptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='asof' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expiry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='otype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='px' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qty' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='strike' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portfolioOptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quarterlyEpsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quarterlyEpsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EPS_BASIC_AEI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='EPS_DILUTED_AEI' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='PERIOD_END' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='PERIOD_BEGIN' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifiedSectorsRequestMessage' />
+  <message name='classifiedSectorsResponseMessage'>
+    <part name='response' element='tns:classifiedSectorsResponse' />
+  </message>
+  <message name='corporateActionsRequestMessage'>
+    <part name='parameters' element='tns:corporateActionsParameters' />
+  </message>
+  <message name='corporateActionsResponseMessage'>
+    <part name='response' element='tns:corporateActionsResponse' />
+  </message>
+  <message name='equityIndexMappingRequestMessage'>
+    <part name='parameters' element='tns:equityIndexMappingParameters' />
+  </message>
+  <message name='equityIndexMappingResponseMessage'>
+    <part name='response' element='tns:equityIndexMappingResponse' />
+  </message>
+  <message name='equitySectorMappingRequestMessage'>
+    <part name='parameters' element='tns:equitySectorMappingParameters' />
+  </message>
+  <message name='equitySectorMappingResponseMessage'>
+    <part name='response' element='tns:equitySectorMappingResponse' />
+  </message>
+  <message name='equityBhavRequestMessage'>
+    <part name='parameters' element='tns:equityBhavParameters' />
+  </message>
+  <message name='equityBhavResponseMessage'>
+    <part name='response' element='tns:equityBhavResponse' />
+  </message>
+  <message name='equityOptionGreeksRequestMessage'>
+    <part name='parameters' element='tns:equityOptionGreeksParameters' />
+  </message>
+  <message name='equityOptionGreeksResponseMessage'>
+    <part name='response' element='tns:equityOptionGreeksResponse' />
+  </message>
+  <message name='equityTechnicalsRequestMessage'>
+    <part name='parameters' element='tns:equityTechnicalsParameters' />
+  </message>
+  <message name='equityTechnicalsResponseMessage'>
+    <part name='response' element='tns:equityTechnicalsResponse' />
+  </message>
+  <message name='futuresBhavRequestMessage'>
+    <part name='parameters' element='tns:futuresBhavParameters' />
+  </message>
+  <message name='futuresBhavResponseMessage'>
+    <part name='response' element='tns:futuresBhavResponse' />
+  </message>
+  <message name='indexOptionGreeksRequestMessage'>
+    <part name='parameters' element='tns:indexOptionGreeksParameters' />
+  </message>
+  <message name='indexOptionGreeksResponseMessage'>
+    <part name='response' element='tns:indexOptionGreeksResponse' />
+  </message>
+  <message name='listedEquitiesRequestMessage' />
+  <message name='listedEquitiesResponseMessage'>
+    <part name='response' element='tns:listedEquitiesResponse' />
+  </message>
+  <message name='listedIndicesRequestMessage' />
+  <message name='listedIndicesResponseMessage'>
+    <part name='response' element='tns:listedIndicesResponse' />
+  </message>
+  <message name='livePriceEquityRequestMessage'>
+    <part name='parameters' element='tns:livePriceEquityParameters' />
+  </message>
+  <message name='livePriceEquityResponseMessage'>
+    <part name='response' element='tns:livePriceEquityResponse' />
+  </message>
+  <message name='livePriceFuturesRequestMessage'>
+    <part name='parameters' element='tns:livePriceFuturesParameters' />
+  </message>
+  <message name='livePriceFuturesResponseMessage'>
+    <part name='response' element='tns:livePriceFuturesResponse' />
+  </message>
+  <message name='livePriceIndexRequestMessage'>
+    <part name='parameters' element='tns:livePriceIndexParameters' />
+  </message>
+  <message name='livePriceIndexResponseMessage'>
+    <part name='response' element='tns:livePriceIndexResponse' />
+  </message>
+  <message name='livePriceOptionsRequestMessage'>
+    <part name='parameters' element='tns:livePriceOptionsParameters' />
+  </message>
+  <message name='livePriceOptionsResponseMessage'>
+    <part name='response' element='tns:livePriceOptionsResponse' />
+  </message>
+  <message name='newsRequestMessage'>
+    <part name='parameters' element='tns:newsParameters' />
+  </message>
+  <message name='newsResponseMessage'>
+    <part name='response' element='tns:newsResponse' />
+  </message>
+  <message name='optionsBhavRequestMessage'>
+    <part name='parameters' element='tns:optionsBhavParameters' />
+  </message>
+  <message name='optionsBhavResponseMessage'>
+    <part name='response' element='tns:optionsBhavResponse' />
+  </message>
+  <message name='portfolioEquityRequestMessage'>
+    <part name='parameters' element='tns:portfolioEquityParameters' />
+  </message>
+  <message name='portfolioEquityResponseMessage'>
+    <part name='response' element='tns:portfolioEquityResponse' />
+  </message>
+  <message name='portfolioFuturesRequestMessage'>
+    <part name='parameters' element='tns:portfolioFuturesParameters' />
+  </message>
+  <message name='portfolioFuturesResponseMessage'>
+    <part name='response' element='tns:portfolioFuturesResponse' />
+  </message>
+  <message name='portfolioOptionsRequestMessage'>
+    <part name='parameters' element='tns:portfolioOptionsParameters' />
+  </message>
+  <message name='portfolioOptionsResponseMessage'>
+    <part name='response' element='tns:portfolioOptionsResponse' />
+  </message>
+  <message name='quarterlyEpsRequestMessage'>
+    <part name='parameters' element='tns:quarterlyEpsParameters' />
+  </message>
+  <message name='quarterlyEpsResponseMessage'>
+    <part name='response' element='tns:quarterlyEpsResponse' />
+  </message>
+  <portType name='stockvizPortType'>
+    <operation name='classifiedSectors'>
+      <documentation>list of sector names that equities are grouped into</documentation>
+      <input message='tns:classifiedSectorsRequestMessage' name='classifiedSectorsInput' />
+      <output message='tns:classifiedSectorsResponseMessage' name='classifiedSectorsOutput' />
+    </operation>
+    <operation name='corporateActions'>
+      <documentation>get a list of all corporate actions for a particular stock</documentation>
+      <input message='tns:corporateActionsRequestMessage' name='corporateActionsInput' />
+      <output message='tns:corporateActionsResponseMessage' name='corporateActionsOutput' />
+    </operation>
+    <operation name='equityIndexMapping'>
+      <documentation>list of equities and their weights within the specified index</documentation>
+      <input message='tns:equityIndexMappingRequestMessage' name='equityIndexMappingInput' />
+      <output message='tns:equityIndexMappingResponseMessage' name='equityIndexMappingOutput' />
+    </operation>
+    <operation name='equitySectorMapping'>
+      <documentation>list of equities within the specified sector</documentation>
+      <input message='tns:equitySectorMappingRequestMessage' name='equitySectorMappingInput' />
+      <output message='tns:equitySectorMappingResponseMessage' name='equitySectorMappingOutput' />
+    </operation>
+    <operation name='equityBhav'>
+      <documentation>end of the day equity HLOC and turnover data</documentation>
+      <input message='tns:equityBhavRequestMessage' name='equityBhavInput' />
+      <output message='tns:equityBhavResponseMessage' name='equityBhavOutput' />
+    </operation>
+    <operation name='equityOptionGreeks'>
+      <documentation>greeks for Equity Options</documentation>
+      <input message='tns:equityOptionGreeksRequestMessage' name='equityOptionGreeksInput' />
+      <output message='tns:equityOptionGreeksResponseMessage' name='equityOptionGreeksOutput' />
+    </operation>
+    <operation name='equityTechnicals'>
+      <documentation>end of the day technicals for equities</documentation>
+      <input message='tns:equityTechnicalsRequestMessage' name='equityTechnicalsInput' />
+      <output message='tns:equityTechnicalsResponseMessage' name='equityTechnicalsOutput' />
+    </operation>
+    <operation name='futuresBhav'>
+      <documentation>end of the day futures HLOC and turnover data</documentation>
+      <input message='tns:futuresBhavRequestMessage' name='futuresBhavInput' />
+      <output message='tns:futuresBhavResponseMessage' name='futuresBhavOutput' />
+    </operation>
+    <operation name='indexOptionGreeks'>
+      <documentation>greeks for Index Options</documentation>
+      <input message='tns:indexOptionGreeksRequestMessage' name='indexOptionGreeksInput' />
+      <output message='tns:indexOptionGreeksResponseMessage' name='indexOptionGreeksOutput' />
+    </operation>
+    <operation name='listedEquities'>
+      <documentation>the latest list of equities listed in the NSE</documentation>
+      <input message='tns:listedEquitiesRequestMessage' name='listedEquitiesInput' />
+      <output message='tns:listedEquitiesResponseMessage' name='listedEquitiesOutput' />
+    </operation>
+    <operation name='listedIndices'>
+      <documentation>the latest list of indices listed in the NSE</documentation>
+      <input message='tns:listedIndicesRequestMessage' name='listedIndicesInput' />
+      <output message='tns:listedIndicesResponseMessage' name='listedIndicesOutput' />
+    </operation>
+    <operation name='livePriceEquity'>
+      <documentation>get the latest price of a particular stock</documentation>
+      <input message='tns:livePriceEquityRequestMessage' name='livePriceEquityInput' />
+      <output message='tns:livePriceEquityResponseMessage' name='livePriceEquityOutput' />
+    </operation>
+    <operation name='livePriceFutures'>
+      <documentation>get the latest price of a particular futures contract</documentation>
+      <input message='tns:livePriceFuturesRequestMessage' name='livePriceFuturesInput' />
+      <output message='tns:livePriceFuturesResponseMessage' name='livePriceFuturesOutput' />
+    </operation>
+    <operation name='livePriceIndex'>
+      <documentation>get the latest price of a particular index</documentation>
+      <input message='tns:livePriceIndexRequestMessage' name='livePriceIndexInput' />
+      <output message='tns:livePriceIndexResponseMessage' name='livePriceIndexOutput' />
+    </operation>
+    <operation name='livePriceOptions'>
+      <documentation>get the latest price of a particular option contract</documentation>
+      <input message='tns:livePriceOptionsRequestMessage' name='livePriceOptionsInput' />
+      <output message='tns:livePriceOptionsResponseMessage' name='livePriceOptionsOutput' />
+    </operation>
+    <operation name='news'>
+      <documentation>summarized news along with the source and technical snapshot at the time of posting</documentation>
+      <input message='tns:newsRequestMessage' name='newsInput' />
+      <output message='tns:newsResponseMessage' name='newsOutput' />
+    </operation>
+    <operation name='optionsBhav'>
+      <documentation>end of the day options HLOC and turnover data</documentation>
+      <input message='tns:optionsBhavRequestMessage' name='optionsBhavInput' />
+      <output message='tns:optionsBhavResponseMessage' name='optionsBhavOutput' />
+    </operation>
+    <operation name='portfolioEquity'>
+      <documentation>trade your equity portfolio on StockViz</documentation>
+      <input message='tns:portfolioEquityRequestMessage' name='portfolioEquityInput' />
+      <output message='tns:portfolioEquityResponseMessage' name='portfolioEquityOutput' />
+    </operation>
+    <operation name='portfolioFutures'>
+      <documentation>trade your futures portfolio on StockViz</documentation>
+      <input message='tns:portfolioFuturesRequestMessage' name='portfolioFuturesInput' />
+      <output message='tns:portfolioFuturesResponseMessage' name='portfolioFuturesOutput' />
+    </operation>
+    <operation name='portfolioOptions'>
+      <documentation>trade your options portfolio on StockViz</documentation>
+      <input message='tns:portfolioOptionsRequestMessage' name='portfolioOptionsInput' />
+      <output message='tns:portfolioOptionsResponseMessage' name='portfolioOptionsOutput' />
+    </operation>
+    <operation name='quarterlyEps'>
+      <documentation>get a list of Quarterly Earnings Per Share for a given stock</documentation>
+      <input message='tns:quarterlyEpsRequestMessage' name='quarterlyEpsInput' />
+      <output message='tns:quarterlyEpsResponseMessage' name='quarterlyEpsOutput' />
+    </operation>
+  </portType>
+  <binding name='stockvizBinding' type='tns:stockvizPortType'>
+    <operation name='classifiedSectors'>
+      <soap12:operation soapAction='http://classifiedSectors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='corporateActions'>
+      <soap12:operation soapAction='http://corporateActions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='equityIndexMapping'>
+      <soap12:operation soapAction='http://equityIndexMapping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='equitySectorMapping'>
+      <soap12:operation soapAction='http://equitySectorMapping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='equityBhav'>
+      <soap12:operation soapAction='http://equityBhav' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='equityOptionGreeks'>
+      <soap12:operation soapAction='http://equityOptionGreeks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='equityTechnicals'>
+      <soap12:operation soapAction='http://equityTechnicals' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='futuresBhav'>
+      <soap12:operation soapAction='http://futuresBhav' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='indexOptionGreeks'>
+      <soap12:operation soapAction='http://indexOptionGreeks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listedEquities'>
+      <soap12:operation soapAction='http://listedEquities' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listedIndices'>
+      <soap12:operation soapAction='http://listedIndices' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='livePriceEquity'>
+      <soap12:operation soapAction='http://livePriceEquity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='livePriceFutures'>
+      <soap12:operation soapAction='http://livePriceFutures' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='livePriceIndex'>
+      <soap12:operation soapAction='http://livePriceIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='livePriceOptions'>
+      <soap12:operation soapAction='http://livePriceOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='news'>
+      <soap12:operation soapAction='http://news' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='optionsBhav'>
+      <soap12:operation soapAction='http://optionsBhav' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='portfolioEquity'>
+      <soap12:operation soapAction='http://portfolioEquity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='portfolioFutures'>
+      <soap12:operation soapAction='http://portfolioFutures' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='portfolioOptions'>
+      <soap12:operation soapAction='http://portfolioOptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='quarterlyEps'>
+      <soap12:operation soapAction='http://quarterlyEps' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stockviz'>
+    <documentation>access data news and analytics for stocks etfs and indices in the National Stock Exchange NSE of India</documentation>
+    <port name='stockvizPort' binding='tns:stockvizBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stockviz' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/webpageanalyse/' name='webpageanalyse' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/webpageanalyse/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/webpageanalyse/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/webpageanalyse/'>
+      <xsd:element name='adultDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='adultDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='runtimeInMs' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='isAdult' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='runtimeInMs' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pagerankParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pagerankResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='historic' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Q1_2014' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Q4_2013' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Q3_2013' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='runtimeInMs' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pagerank' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarSitesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='similarSitesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='similarDomains' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='similarity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='runtimeInMs' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='adultDetectionRequestMessage'>
+    <part name='parameters' element='tns:adultDetectionParameters' />
+  </message>
+  <message name='adultDetectionResponseMessage'>
+    <part name='response' element='tns:adultDetectionResponse' />
+  </message>
+  <message name='categoryDetectionRequestMessage'>
+    <part name='parameters' element='tns:categoryDetectionParameters' />
+  </message>
+  <message name='categoryDetectionResponseMessage'>
+    <part name='response' element='tns:categoryDetectionResponse' />
+  </message>
+  <message name='pagerankRequestMessage'>
+    <part name='parameters' element='tns:pagerankParameters' />
+  </message>
+  <message name='pagerankResponseMessage'>
+    <part name='response' element='tns:pagerankResponse' />
+  </message>
+  <message name='similarSitesRequestMessage'>
+    <part name='parameters' element='tns:similarSitesParameters' />
+  </message>
+  <message name='similarSitesResponseMessage'>
+    <part name='response' element='tns:similarSitesResponse' />
+  </message>
+  <portType name='webpageanalysePortType'>
+    <operation name='adultDetection'>
+      <documentation>detect if a domain has adult content or not</documentation>
+      <input message='tns:adultDetectionRequestMessage' name='adultDetectionInput' />
+      <output message='tns:adultDetectionResponseMessage' name='adultDetectionOutput' />
+    </operation>
+    <operation name='categoryDetection'>
+      <documentation>categorize a webpage It can find multiple categories for a webpage</documentation>
+      <input message='tns:categoryDetectionRequestMessage' name='categoryDetectionInput' />
+      <output message='tns:categoryDetectionResponseMessage' name='categoryDetectionOutput' />
+    </operation>
+    <operation name='pagerank'>
+      <documentation>find the Google Pagerank for any domain Also provides historic values for the Pagerank</documentation>
+      <input message='tns:pagerankRequestMessage' name='pagerankInput' />
+      <output message='tns:pagerankResponseMessage' name='pagerankOutput' />
+    </operation>
+    <operation name='similarSites'>
+      <documentation>find similar sites for a given domain</documentation>
+      <input message='tns:similarSitesRequestMessage' name='similarSitesInput' />
+      <output message='tns:similarSitesResponseMessage' name='similarSitesOutput' />
+    </operation>
+  </portType>
+  <binding name='webpageanalyseBinding' type='tns:webpageanalysePortType'>
+    <operation name='adultDetection'>
+      <soap12:operation soapAction='http://adultDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryDetection'>
+      <soap12:operation soapAction='http://categoryDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pagerank'>
+      <soap12:operation soapAction='http://pagerank' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='similarSites'>
+      <soap12:operation soapAction='http://similarSites' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='webpageanalyse'>
+    <documentation>we offer several endpoints to analyze webpages Use our API to find similar sites for a domain detect if a domain contains adult content detect the category of a domain or find the Pagerank for a domain</documentation>
+    <port name='webpageanalysePort' binding='tns:webpageanalyseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://webpageanalyse' />
+    </port>
+  </service>
+</definitions>

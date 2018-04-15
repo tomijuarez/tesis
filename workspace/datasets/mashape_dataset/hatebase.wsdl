@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hatebase/' name='hatebase' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hatebase/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hatebase/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hatebase/'>
+      <xsd:element name='hatebaseApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='digitKey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='digitkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstkeyfirstvaluesecondkeysecondvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='firstvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='increment' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='incrementsubincrement' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='secondkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='secondvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='subincrement' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hatebaseApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='hatebaseApiRequestMessage'>
+    <part name='parameters' element='tns:hatebaseApiParameters' />
+  </message>
+  <message name='hatebaseApiResponseMessage'>
+    <part name='response' element='tns:hatebaseApiResponse' />
+  </message>
+  <portType name='hatebasePortType'>
+    <operation name='hatebaseApi'>
+      <documentation>the Hatebase API allows authorized users to retrieve Hatebase data asynchronously for use in their own applications The API is a continual work in progress so as new vesions of the API become available old versions will be retired after a suitable transition period</documentation>
+      <input message='tns:hatebaseApiRequestMessage' name='hatebaseApiInput' />
+      <output message='tns:hatebaseApiResponseMessage' name='hatebaseApiOutput' />
+    </operation>
+  </portType>
+  <binding name='hatebaseBinding' type='tns:hatebasePortType'>
+    <operation name='hatebaseApi'>
+      <soap12:operation soapAction='http://hatebaseApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hatebase'>
+    <documentation>hatebase is the world s largest online repository of structured multilingual usage based hate speech Hatebase was built to assist government agencies NGOs research organizations and other philanthropic individuals and groups use hate speech as a predictor for regional violence Language based classification or symbolization is one of a handful of quantifiable steps toward genocide</documentation>
+    <port name='hatebasePort' binding='tns:hatebaseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hatebase' />
+    </port>
+  </service>
+</definitions>

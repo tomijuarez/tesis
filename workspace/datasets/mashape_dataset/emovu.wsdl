@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emovu/' name='emovu' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emovu/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emovu/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emovu/'>
+      <xsd:element name='imageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Tracked' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='ProcessingTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='FaceAnalysisResults' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EmotionResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Anger' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Fear' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Neutral' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Disgust' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Joy' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Surprise' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Sadness' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='IdentityResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Identity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='GenderResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Gender' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='FaceTrackerResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='HeadPose' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Pitch' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Roll' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Yaw' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='FaceRectangle' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Left' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Top' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Height' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Width' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='TrackingId' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='MetricResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Expressiveness' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='PositiveMood' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Valence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Attention' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='NegativeMood' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='AgeGroupResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='AgeGroup' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageframeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Tracked' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='ProcessingTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='PreviousComputedAgeGroupTimestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='PreviousComputedGenderTimestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='PreviousComputedIdentityTimestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='FaceAnalysisResults' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='EyeOpennessResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='RightEye' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='LeftEye' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='EmotionResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Anger' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Fear' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Neutral' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Disgust' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Joy' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Surprise' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Sadness' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='IdentityResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Identity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='GenderResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Gender' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='FaceTrackerResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='HeadPose' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Pitch' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Roll' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Yaw' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='FaceRectangle' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Left' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Top' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Height' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Width' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='TrackingId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='FacePoints' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Type' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='X' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Y' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='MetricResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Expressiveness' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='PositiveMood' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Valence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Attention' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='NegativeMood' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='AgeGroupResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='AgeGroup' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='FaceAnalysisSequenceResults' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='MetricSequenceResult' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Engagement' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='EmotionLift' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='PreviousFaceDetectionTimestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Timestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='PreviousComputedEyeOpennessTimestamp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='PreviousComputedEmotionsTimestamp' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='videoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='VideoFrameResults' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Tracked' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='ProcessingTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='FaceAnalysisResults' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='EmotionResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Anger' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Fear' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Neutral' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Disgust' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Joy' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Surprise' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Sadness' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='IdentityResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Identity' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='GenderResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Gender' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='FaceTrackerResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='HeadPose' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='Pitch' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='Roll' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='Yaw' type='xsd:decimal' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='FaceRectangle' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='Left' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='Top' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='Height' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='Width' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='TrackingId' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='MetricResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Expressiveness' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='PositiveMood' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Valence' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Attention' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='NegativeMood' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='AgeGroupResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='AgeGroup' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='Confidence' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='FaceAnalysisSequenceResults' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='MetricSequenceResult' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='Engagement' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='Computed' type='xsd:boolean' minOccurs='0' />
+                              <xsd:element name='EmotionLift' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='Timestamp' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageRequestMessage' />
+  <message name='imageResponseMessage'>
+    <part name='response' element='tns:imageResponse' />
+  </message>
+  <message name='imageframeRequestMessage' />
+  <message name='imageframeResponseMessage'>
+    <part name='response' element='tns:imageframeResponse' />
+  </message>
+  <message name='videoRequestMessage' />
+  <message name='videoResponseMessage'>
+    <part name='response' element='tns:videoResponse' />
+  </message>
+  <portType name='emovuPortType'>
+    <operation name='image'>
+      <documentation>use the image endpoint to extract age gender emotion face recognition results and more from static images All common image formats including jpg bmp png tif and pgm are supported For a detailed description visit http emovu com docs html web api htm</documentation>
+      <input message='tns:imageRequestMessage' name='imageInput' />
+      <output message='tns:imageResponseMessage' name='imageOutput' />
+    </operation>
+    <operation name='imageframe'>
+      <documentation>use the imageframe endpoint to extract age gender emotion face recognition results and more from an image sequence The api response from the previous frame should be provided as an input parameter to process the current frame in order to avoid invoking the costly face detection process For a detailed description visit http emovu com docs html web api htm</documentation>
+      <input message='tns:imageframeRequestMessage' name='imageframeInput' />
+      <output message='tns:imageframeResponseMessage' name='imageframeOutput' />
+    </operation>
+    <operation name='video'>
+      <documentation>use the video endpoint to extract age gender emotion face recognition results and more from video files All common video formats including avi flv mpg mov and mp are supported For a detailed description visit http emovu com docs html web api htm</documentation>
+      <input message='tns:videoRequestMessage' name='videoInput' />
+      <output message='tns:videoResponseMessage' name='videoOutput' />
+    </operation>
+  </portType>
+  <binding name='emovuBinding' type='tns:emovuPortType'>
+    <operation name='image'>
+      <soap12:operation soapAction='http://image' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='imageframe'>
+      <soap12:operation soapAction='http://imageframe' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='video'>
+      <soap12:operation soapAction='http://video' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emovu'>
+    <documentation>deep Learning based emotion recognition software that reads facial micro expressions in real time with regular cameras</documentation>
+    <port name='emovuPort' binding='tns:emovuBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emovu' />
+    </port>
+  </service>
+</definitions>

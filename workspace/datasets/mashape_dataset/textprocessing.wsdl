@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textProcessing/' name='textProcessing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textProcessing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textProcessing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textProcessing/'>
+      <xsd:element name='phrasesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='NP' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='probability' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='neg' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='pos' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='neutral' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='phrasesRequestMessage' />
+  <message name='phrasesResponseMessage'>
+    <part name='response' element='tns:phrasesResponse' />
+  </message>
+  <message name='sentimentRequestMessage' />
+  <message name='sentimentResponseMessage'>
+    <part name='response' element='tns:sentimentResponse' />
+  </message>
+  <message name='stemRequestMessage' />
+  <message name='stemResponseMessage'>
+    <part name='response' element='tns:stemResponse' />
+  </message>
+  <message name='tagRequestMessage' />
+  <message name='tagResponseMessage'>
+    <part name='response' element='tns:tagResponse' />
+  </message>
+  <portType name='textProcessingPortType'>
+    <operation name='phrases'>
+      <documentation>extract phrase chunks and named entities from text See http text processing com docs phrases html for more details</documentation>
+      <input message='tns:phrasesRequestMessage' name='phrasesInput' />
+      <output message='tns:phrasesResponseMessage' name='phrasesOutput' />
+    </operation>
+    <operation name='sentiment'>
+      <documentation>analyze sentiment of English text See http text processing com docs sentiment html for more details</documentation>
+      <input message='tns:sentimentRequestMessage' name='sentimentInput' />
+      <output message='tns:sentimentResponseMessage' name='sentimentOutput' />
+    </operation>
+    <operation name='stem'>
+      <documentation>stem or lemmatize each word in given text See http text processing com docs stem html for more details</documentation>
+      <input message='tns:stemRequestMessage' name='stemInput' />
+      <output message='tns:stemResponseMessage' name='stemOutput' />
+    </operation>
+    <operation name='tag'>
+      <documentation>part of speech tagging phrase chunking and named entity recognition of text See http text processing com docs tag html for more details</documentation>
+      <input message='tns:tagRequestMessage' name='tagInput' />
+      <output message='tns:tagResponseMessage' name='tagOutput' />
+    </operation>
+  </portType>
+  <binding name='textProcessingBinding' type='tns:textProcessingPortType'>
+    <operation name='phrases'>
+      <soap12:operation soapAction='http://phrases' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentiment'>
+      <soap12:operation soapAction='http://sentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='stem'>
+      <soap12:operation soapAction='http://stem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tag'>
+      <soap12:operation soapAction='http://tag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textProcessing'>
+    <documentation>sentiment analysis stemming and lemmatization part of speech tagging and chunking phrase extraction and named entity recognition</documentation>
+    <port name='textProcessingPort' binding='tns:textProcessingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textProcessing' />
+    </port>
+  </service>
+</definitions>

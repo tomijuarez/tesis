@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/boundariesIo/' name='boundariesIo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/boundariesIo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/boundariesIo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/boundariesIo/'>
+      <xsd:element name='retrieveUsZipcodeBoundariesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='and' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='county' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='includepostal' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zipcode' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveUsZipcodeBoundariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='features' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='coordinates' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='array' type='xsd:decimal' maxOccurs='unbounded' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='properties' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='zipCode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveUsZipcodeBoundariesRequestMessage'>
+    <part name='parameters' element='tns:retrieveUsZipcodeBoundariesParameters' />
+  </message>
+  <message name='retrieveUsZipcodeBoundariesResponseMessage'>
+    <part name='response' element='tns:retrieveUsZipcodeBoundariesResponse' />
+  </message>
+  <portType name='boundariesIoPortType'>
+    <operation name='retrieveUsZipcodeBoundaries'>
+      <documentation>get US State Zipcode or City boundaries in GeoJson Formats The MashAPI UI cannot handle large results we default to zipcode limit this API is meant to be used programatically Thanks Copy paste results http geojsonlint com for a quick view</documentation>
+      <input message='tns:retrieveUsZipcodeBoundariesRequestMessage' name='retrieveUsZipcodeBoundariesInput' />
+      <output message='tns:retrieveUsZipcodeBoundariesResponseMessage' name='retrieveUsZipcodeBoundariesOutput' />
+    </operation>
+  </portType>
+  <binding name='boundariesIoBinding' type='tns:boundariesIoPortType'>
+    <operation name='retrieveUsZipcodeBoundaries'>
+      <soap12:operation soapAction='http://retrieveUsZipcodeBoundaries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='boundariesIo'>
+    <documentation>uS Zip Code County City and State Boundaries API A simple very fast API that will allow you to integrate multiple GeoJson US boundaries results into your apps and systems This API is designed to be used programatically for optimal performance When using the MashApe UI for queries expect significant latency issues on large result sets</documentation>
+    <port name='boundariesIoPort' binding='tns:boundariesIoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://boundariesIo' />
+    </port>
+  </service>
+</definitions>

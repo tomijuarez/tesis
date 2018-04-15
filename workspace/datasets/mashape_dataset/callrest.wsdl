@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/callRest/' name='callRest' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/callRest/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/callRest/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/callRest/'>
+      <xsd:element name='loginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='loginRequestMessage' />
+  <message name='loginResponseMessage'>
+    <part name='response' element='tns:loginResponse' />
+  </message>
+  <message name='smsRequestMessage' />
+  <message name='smsResponseMessage'>
+    <part name='response' element='tns:smsResponse' />
+  </message>
+  <portType name='callRestPortType'>
+    <operation name='login'>
+      <documentation></documentation>
+      <input message='tns:loginRequestMessage' name='loginInput' />
+      <output message='tns:loginResponseMessage' name='loginOutput' />
+    </operation>
+    <operation name='sms'>
+      <documentation></documentation>
+      <input message='tns:smsRequestMessage' name='smsInput' />
+      <output message='tns:smsResponseMessage' name='smsOutput' />
+    </operation>
+  </portType>
+  <binding name='callRestBinding' type='tns:callRestPortType'>
+    <operation name='login'>
+      <soap12:operation soapAction='http://login' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sms'>
+      <soap12:operation soapAction='http://sms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='callRest'>
+    <documentation>you need an account at http www call com for user our api</documentation>
+    <port name='callRestPort' binding='tns:callRestBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://callRest' />
+    </port>
+  </service>
+</definitions>

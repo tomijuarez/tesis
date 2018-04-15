@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dronestream/' name='dronestream' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dronestream/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dronestream/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dronestream/'>
+      <xsd:element name='allUsDroneStrikesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='strike' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='town' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='injuries' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tweet_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='bij_link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='bureau_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='deaths_max' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='target' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='civilians' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='names' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='children' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='bij_summary_short' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='deaths_min' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='deaths' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='allUsDroneStrikesRequestMessage' />
+  <message name='allUsDroneStrikesResponseMessage'>
+    <part name='response' element='tns:allUsDroneStrikesResponse' />
+  </message>
+  <portType name='dronestreamPortType'>
+    <operation name='allUsDroneStrikes'>
+      <documentation></documentation>
+      <input message='tns:allUsDroneStrikesRequestMessage' name='allUsDroneStrikesInput' />
+      <output message='tns:allUsDroneStrikesResponseMessage' name='allUsDroneStrikesOutput' />
+    </operation>
+  </portType>
+  <binding name='dronestreamBinding' type='tns:dronestreamPortType'>
+    <operation name='allUsDroneStrikes'>
+      <soap12:operation soapAction='http://allUsDroneStrikes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dronestream'>
+    <documentation>real time and historical data about every reported United States drone strike</documentation>
+    <port name='dronestreamPort' binding='tns:dronestreamBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dronestream' />
+    </port>
+  </service>
+</definitions>

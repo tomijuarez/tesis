@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/detectNudity/' name='detectNudity' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/detectNudity/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/detectNudity/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/detectNudity/'>
+      <xsd:element name='nudeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nudeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nudeUploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nudeRequestMessage'>
+    <part name='parameters' element='tns:nudeParameters' />
+  </message>
+  <message name='nudeResponseMessage'>
+    <part name='response' element='tns:nudeResponse' />
+  </message>
+  <message name='nudeUploadRequestMessage' />
+  <message name='nudeUploadResponseMessage'>
+    <part name='response' element='tns:nudeUploadResponse' />
+  </message>
+  <portType name='detectNudityPortType'>
+    <operation name='nude'>
+      <input message='tns:nudeRequestMessage' name='nudeInput' />
+      <output message='tns:nudeResponseMessage' name='nudeOutput' />
+    </operation>
+    <operation name='nudeUpload'>
+      <documentation>upload photo png or jpeg</documentation>
+      <input message='tns:nudeUploadRequestMessage' name='nudeUploadInput' />
+      <output message='tns:nudeUploadResponseMessage' name='nudeUploadOutput' />
+    </operation>
+  </portType>
+  <binding name='detectNudityBinding' type='tns:detectNudityPortType'>
+    <operation name='nude'>
+      <soap12:operation soapAction='http://nude' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nudeUpload'>
+      <soap12:operation soapAction='http://nudeUpload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='detectNudity'>
+    <documentation>simple API to detect Nudity images</documentation>
+    <port name='detectNudityPort' binding='tns:detectNudityBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://detectNudity' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/santopedia/' name='santopedia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/santopedia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/santopedia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/santopedia/'>
+      <xsd:element name='namesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='namesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='important' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='foto' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fullname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='feast' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='saintsOfTheDayParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='day' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='saintsOfTheDayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='important' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='foto' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='fullname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='namesRequestMessage'>
+    <part name='parameters' element='tns:namesParameters' />
+  </message>
+  <message name='namesResponseMessage'>
+    <part name='response' element='tns:namesResponse' />
+  </message>
+  <message name='saintsOfTheDayRequestMessage'>
+    <part name='parameters' element='tns:saintsOfTheDayParameters' />
+  </message>
+  <message name='saintsOfTheDayResponseMessage'>
+    <part name='response' element='tns:saintsOfTheDayResponse' />
+  </message>
+  <portType name='santopediaPortType'>
+    <operation name='names'>
+      <documentation>get the saint related to the specified name</documentation>
+      <input message='tns:namesRequestMessage' name='namesInput' />
+      <output message='tns:namesResponseMessage' name='namesOutput' />
+    </operation>
+    <operation name='saintsOfTheDay'>
+      <documentation>it returns the saints of a given day</documentation>
+      <input message='tns:saintsOfTheDayRequestMessage' name='saintsOfTheDayInput' />
+      <output message='tns:saintsOfTheDayResponseMessage' name='saintsOfTheDayOutput' />
+    </operation>
+  </portType>
+  <binding name='santopediaBinding' type='tns:santopediaPortType'>
+    <operation name='names'>
+      <soap12:operation soapAction='http://names' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='saintsOfTheDay'>
+      <soap12:operation soapAction='http://saintsOfTheDay' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='santopedia'>
+    <documentation>informaci n sobre Santoral</documentation>
+    <port name='santopediaPort' binding='tns:santopediaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://santopedia' />
+    </port>
+  </service>
+</definitions>

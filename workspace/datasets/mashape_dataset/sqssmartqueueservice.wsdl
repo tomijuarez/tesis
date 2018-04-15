@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sqsSmartQueueService/' name='sqsSmartQueueService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sqsSmartQueueService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sqsSmartQueueService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sqsSmartQueueService/'>
+      <xsd:element name='additemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clearitemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clearitemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deletedItemCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createqueueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createqueueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteitembydeliverytokenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deliverytoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteitembydeliverytokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteitembyidParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteitembyidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletequeueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletequeueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getitemscountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getitemscountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemsCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnextitemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemtimeoutinseconds' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visibilitytimeoutinseconds' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getnextitemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='deliveryToken' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='itemData' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='expirationInSeconds' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='nextVisibilityInSeconds' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='secondaryIndex' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listqueuesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='queueNames' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateitembydeliverytokenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deliverytoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemdata' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemtimeoutinseconds' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='queuename' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visibilitytimeoutinseconds' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateitembydeliverytokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateitembyitemidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='additemRequestMessage' />
+  <message name='additemResponseMessage'>
+    <part name='response' element='tns:additemResponse' />
+  </message>
+  <message name='clearitemsRequestMessage'>
+    <part name='parameters' element='tns:clearitemsParameters' />
+  </message>
+  <message name='clearitemsResponseMessage'>
+    <part name='response' element='tns:clearitemsResponse' />
+  </message>
+  <message name='createqueueRequestMessage'>
+    <part name='parameters' element='tns:createqueueParameters' />
+  </message>
+  <message name='createqueueResponseMessage'>
+    <part name='response' element='tns:createqueueResponse' />
+  </message>
+  <message name='deleteitembydeliverytokenRequestMessage'>
+    <part name='parameters' element='tns:deleteitembydeliverytokenParameters' />
+  </message>
+  <message name='deleteitembydeliverytokenResponseMessage'>
+    <part name='response' element='tns:deleteitembydeliverytokenResponse' />
+  </message>
+  <message name='deleteitembyidRequestMessage'>
+    <part name='parameters' element='tns:deleteitembyidParameters' />
+  </message>
+  <message name='deleteitembyidResponseMessage'>
+    <part name='response' element='tns:deleteitembyidResponse' />
+  </message>
+  <message name='deletequeueRequestMessage'>
+    <part name='parameters' element='tns:deletequeueParameters' />
+  </message>
+  <message name='deletequeueResponseMessage'>
+    <part name='response' element='tns:deletequeueResponse' />
+  </message>
+  <message name='getitemscountRequestMessage'>
+    <part name='parameters' element='tns:getitemscountParameters' />
+  </message>
+  <message name='getitemscountResponseMessage'>
+    <part name='response' element='tns:getitemscountResponse' />
+  </message>
+  <message name='getnextitemRequestMessage'>
+    <part name='parameters' element='tns:getnextitemParameters' />
+  </message>
+  <message name='getnextitemResponseMessage'>
+    <part name='response' element='tns:getnextitemResponse' />
+  </message>
+  <message name='listqueuesRequestMessage' />
+  <message name='listqueuesResponseMessage'>
+    <part name='response' element='tns:listqueuesResponse' />
+  </message>
+  <message name='updateitembydeliverytokenRequestMessage'>
+    <part name='parameters' element='tns:updateitembydeliverytokenParameters' />
+  </message>
+  <message name='updateitembydeliverytokenResponseMessage'>
+    <part name='response' element='tns:updateitembydeliverytokenResponse' />
+  </message>
+  <message name='updateitembyitemidRequestMessage' />
+  <message name='updateitembyitemidResponseMessage'>
+    <part name='response' element='tns:updateitembyitemidResponse' />
+  </message>
+  <portType name='sqsSmartQueueServicePortType'>
+    <operation name='additem'>
+      <documentation>adds an item to the queue and optionally sets a visibility timeout for the item</documentation>
+      <input message='tns:additemRequestMessage' name='additemInput' />
+      <output message='tns:additemResponseMessage' name='additemOutput' />
+    </operation>
+    <operation name='clearitems'>
+      <documentation>clears all items from the queue</documentation>
+      <input message='tns:clearitemsRequestMessage' name='clearitemsInput' />
+      <output message='tns:clearitemsResponseMessage' name='clearitemsOutput' />
+    </operation>
+    <operation name='createqueue'>
+      <documentation>creates a new queue under your account</documentation>
+      <input message='tns:createqueueRequestMessage' name='createqueueInput' />
+      <output message='tns:createqueueResponseMessage' name='createqueueOutput' />
+    </operation>
+    <operation name='deleteitembydeliverytoken'>
+      <documentation>deletes an item from the queue by using specified delivery token</documentation>
+      <input message='tns:deleteitembydeliverytokenRequestMessage' name='deleteitembydeliverytokenInput' />
+      <output message='tns:deleteitembydeliverytokenResponseMessage' name='deleteitembydeliverytokenOutput' />
+    </operation>
+    <operation name='deleteitembyid'>
+      <documentation>deletes an item from the queue by using specified item id</documentation>
+      <input message='tns:deleteitembyidRequestMessage' name='deleteitembyidInput' />
+      <output message='tns:deleteitembyidResponseMessage' name='deleteitembyidOutput' />
+    </operation>
+    <operation name='deletequeue'>
+      <documentation>deletes a queue</documentation>
+      <input message='tns:deletequeueRequestMessage' name='deletequeueInput' />
+      <output message='tns:deletequeueResponseMessage' name='deletequeueOutput' />
+    </operation>
+    <operation name='getitemscount'>
+      <documentation>provides number of items in queue</documentation>
+      <input message='tns:getitemscountRequestMessage' name='getitemscountInput' />
+      <output message='tns:getitemscountResponseMessage' name='getitemscountOutput' />
+    </operation>
+    <operation name='getnextitem'>
+      <documentation>retrieves an item from the queue and makes it invisible to other consumers</documentation>
+      <input message='tns:getnextitemRequestMessage' name='getnextitemInput' />
+      <output message='tns:getnextitemResponseMessage' name='getnextitemOutput' />
+    </operation>
+    <operation name='listqueues'>
+      <documentation>lists all queue names under your account</documentation>
+      <input message='tns:listqueuesRequestMessage' name='listqueuesInput' />
+      <output message='tns:listqueuesResponseMessage' name='listqueuesOutput' />
+    </operation>
+    <operation name='updateitembydeliverytoken'>
+      <documentation>used to update item s timeout properties and value by using delivery token</documentation>
+      <input message='tns:updateitembydeliverytokenRequestMessage' name='updateitembydeliverytokenInput' />
+      <output message='tns:updateitembydeliverytokenResponseMessage' name='updateitembydeliverytokenOutput' />
+    </operation>
+    <operation name='updateitembyitemid'>
+      <documentation>used to update item s timeout properties and value by using item id</documentation>
+      <input message='tns:updateitembyitemidRequestMessage' name='updateitembyitemidInput' />
+      <output message='tns:updateitembyitemidResponseMessage' name='updateitembyitemidOutput' />
+    </operation>
+  </portType>
+  <binding name='sqsSmartQueueServiceBinding' type='tns:sqsSmartQueueServicePortType'>
+    <operation name='additem'>
+      <soap12:operation soapAction='http://additem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clearitems'>
+      <soap12:operation soapAction='http://clearitems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createqueue'>
+      <soap12:operation soapAction='http://createqueue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteitembydeliverytoken'>
+      <soap12:operation soapAction='http://deleteitembydeliverytoken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteitembyid'>
+      <soap12:operation soapAction='http://deleteitembyid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deletequeue'>
+      <soap12:operation soapAction='http://deletequeue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getitemscount'>
+      <soap12:operation soapAction='http://getitemscount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getnextitem'>
+      <soap12:operation soapAction='http://getnextitem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listqueues'>
+      <soap12:operation soapAction='http://listqueues' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateitembydeliverytoken'>
+      <soap12:operation soapAction='http://updateitembydeliverytoken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateitembyitemid'>
+      <soap12:operation soapAction='http://updateitembyitemid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sqsSmartQueueService'>
+    <documentation>sQS Smart Queue Service is a job queue service that handles communication between other components in a system</documentation>
+    <port name='sqsSmartQueueServicePort' binding='tns:sqsSmartQueueServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sqsSmartQueueService' />
+    </port>
+  </service>
+</definitions>

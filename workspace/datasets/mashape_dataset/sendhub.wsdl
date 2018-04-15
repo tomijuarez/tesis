@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sendhub/' name='sendhub' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sendhub/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sendhub/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sendhub/'>
+      <xsd:element name='addContactResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text_to_subscribe' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addingAndRemovingContactsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addingAndRemovingContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:int' minOccurs='0' />
+            <xsd:element name='remove' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectAGroupSContactsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectAGroupSContactsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:int' minOccurs='0' />
+            <xsd:element name='remove' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectASingleGroupSDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectASingleGroupSDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:int' minOccurs='0' />
+            <xsd:element name='remove' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectContactsDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='next' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='previous' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='total_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='objects' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date_created' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='resource_uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='is_owned' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='local_gateway' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='deleted' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='blocked' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='date_modified' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id_str' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='keyword' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='screened' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectGroupsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='add' type='xsd:int' minOccurs='0' />
+            <xsd:element name='remove' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectInboxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectingTheProfileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteContactParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contactid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteContactResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editContactParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contactid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editContactResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text_to_subscribe' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='unread' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='resource_uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='groups' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scheduled_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sent' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='contacts' type='xsd:int' minOccurs='0' />
+            <xsd:element name='acknowledgment' type='xsd:string' minOccurs='0' />
+            <xsd:element name='direction' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMessagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='unread' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='resource_uri' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='groups' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='scheduled_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sent' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='contacts' type='xsd:int' minOccurs='0' />
+            <xsd:element name='acknowledgment' type='xsd:string' minOccurs='0' />
+            <xsd:element name='direction' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewThreadsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='threadid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewThreadsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addContactRequestMessage' />
+  <message name='addContactResponseMessage'>
+    <part name='response' element='tns:addContactResponse' />
+  </message>
+  <message name='addGroupRequestMessage' />
+  <message name='addGroupResponseMessage'>
+    <part name='response' element='tns:addGroupResponse' />
+  </message>
+  <message name='addingAndRemovingContactsRequestMessage'>
+    <part name='parameters' element='tns:addingAndRemovingContactsParameters' />
+  </message>
+  <message name='addingAndRemovingContactsResponseMessage'>
+    <part name='response' element='tns:addingAndRemovingContactsResponse' />
+  </message>
+  <message name='collectAGroupSContactsRequestMessage'>
+    <part name='parameters' element='tns:collectAGroupSContactsParameters' />
+  </message>
+  <message name='collectAGroupSContactsResponseMessage'>
+    <part name='response' element='tns:collectAGroupSContactsResponse' />
+  </message>
+  <message name='collectASingleGroupSDataRequestMessage'>
+    <part name='parameters' element='tns:collectASingleGroupSDataParameters' />
+  </message>
+  <message name='collectASingleGroupSDataResponseMessage'>
+    <part name='response' element='tns:collectASingleGroupSDataResponse' />
+  </message>
+  <message name='collectContactsDataRequestMessage' />
+  <message name='collectContactsDataResponseMessage'>
+    <part name='response' element='tns:collectContactsDataResponse' />
+  </message>
+  <message name='collectGroupsListRequestMessage' />
+  <message name='collectGroupsListResponseMessage'>
+    <part name='response' element='tns:collectGroupsListResponse' />
+  </message>
+  <message name='collectInboxRequestMessage' />
+  <message name='collectInboxResponseMessage'>
+    <part name='response' element='tns:collectInboxResponse' />
+  </message>
+  <message name='collectingTheProfileRequestMessage' />
+  <message name='collectingTheProfileResponseMessage'>
+    <part name='response' element='tns:collectingTheProfileResponse' />
+  </message>
+  <message name='deleteContactRequestMessage'>
+    <part name='parameters' element='tns:deleteContactParameters' />
+  </message>
+  <message name='deleteContactResponseMessage'>
+    <part name='response' element='tns:deleteContactResponse' />
+  </message>
+  <message name='deleteGroupRequestMessage'>
+    <part name='parameters' element='tns:deleteGroupParameters' />
+  </message>
+  <message name='deleteGroupResponseMessage'>
+    <part name='response' element='tns:deleteGroupResponse' />
+  </message>
+  <message name='editContactRequestMessage'>
+    <part name='parameters' element='tns:editContactParameters' />
+  </message>
+  <message name='editContactResponseMessage'>
+    <part name='response' element='tns:editContactResponse' />
+  </message>
+  <message name='editGroupRequestMessage'>
+    <part name='parameters' element='tns:editGroupParameters' />
+  </message>
+  <message name='editGroupResponseMessage'>
+    <part name='response' element='tns:editGroupResponse' />
+  </message>
+  <message name='editMessageRequestMessage'>
+    <part name='parameters' element='tns:editMessageParameters' />
+  </message>
+  <message name='editMessageResponseMessage'>
+    <part name='response' element='tns:editMessageResponse' />
+  </message>
+  <message name='getMessageRequestMessage'>
+    <part name='parameters' element='tns:getMessageParameters' />
+  </message>
+  <message name='getMessageResponseMessage'>
+    <part name='response' element='tns:getMessageResponse' />
+  </message>
+  <message name='sendMessagesRequestMessage' />
+  <message name='sendMessagesResponseMessage'>
+    <part name='response' element='tns:sendMessagesResponse' />
+  </message>
+  <message name='viewThreadsRequestMessage'>
+    <part name='parameters' element='tns:viewThreadsParameters' />
+  </message>
+  <message name='viewThreadsResponseMessage'>
+    <part name='response' element='tns:viewThreadsResponse' />
+  </message>
+  <portType name='sendhubPortType'>
+    <operation name='addContact'>
+      <documentation></documentation>
+      <input message='tns:addContactRequestMessage' name='addContactInput' />
+      <output message='tns:addContactResponseMessage' name='addContactOutput' />
+    </operation>
+    <operation name='addGroup'>
+      <documentation></documentation>
+      <input message='tns:addGroupRequestMessage' name='addGroupInput' />
+      <output message='tns:addGroupResponseMessage' name='addGroupOutput' />
+    </operation>
+    <operation name='addingAndRemovingContacts'>
+      <documentation></documentation>
+      <input message='tns:addingAndRemovingContactsRequestMessage' name='addingAndRemovingContactsInput' />
+      <output message='tns:addingAndRemovingContactsResponseMessage' name='addingAndRemovingContactsOutput' />
+    </operation>
+    <operation name='collectAGroupSContacts'>
+      <documentation></documentation>
+      <input message='tns:collectAGroupSContactsRequestMessage' name='collectAGroupSContactsInput' />
+      <output message='tns:collectAGroupSContactsResponseMessage' name='collectAGroupSContactsOutput' />
+    </operation>
+    <operation name='collectASingleGroupSData'>
+      <documentation></documentation>
+      <input message='tns:collectASingleGroupSDataRequestMessage' name='collectASingleGroupSDataInput' />
+      <output message='tns:collectASingleGroupSDataResponseMessage' name='collectASingleGroupSDataOutput' />
+    </operation>
+    <operation name='collectContactsData'>
+      <documentation></documentation>
+      <input message='tns:collectContactsDataRequestMessage' name='collectContactsDataInput' />
+      <output message='tns:collectContactsDataResponseMessage' name='collectContactsDataOutput' />
+    </operation>
+    <operation name='collectGroupsList'>
+      <documentation></documentation>
+      <input message='tns:collectGroupsListRequestMessage' name='collectGroupsListInput' />
+      <output message='tns:collectGroupsListResponseMessage' name='collectGroupsListOutput' />
+    </operation>
+    <operation name='collectInbox'>
+      <documentation></documentation>
+      <input message='tns:collectInboxRequestMessage' name='collectInboxInput' />
+      <output message='tns:collectInboxResponseMessage' name='collectInboxOutput' />
+    </operation>
+    <operation name='collectingTheProfile'>
+      <documentation></documentation>
+      <input message='tns:collectingTheProfileRequestMessage' name='collectingTheProfileInput' />
+      <output message='tns:collectingTheProfileResponseMessage' name='collectingTheProfileOutput' />
+    </operation>
+    <operation name='deleteContact'>
+      <documentation></documentation>
+      <input message='tns:deleteContactRequestMessage' name='deleteContactInput' />
+      <output message='tns:deleteContactResponseMessage' name='deleteContactOutput' />
+    </operation>
+    <operation name='deleteGroup'>
+      <documentation></documentation>
+      <input message='tns:deleteGroupRequestMessage' name='deleteGroupInput' />
+      <output message='tns:deleteGroupResponseMessage' name='deleteGroupOutput' />
+    </operation>
+    <operation name='editContact'>
+      <documentation></documentation>
+      <input message='tns:editContactRequestMessage' name='editContactInput' />
+      <output message='tns:editContactResponseMessage' name='editContactOutput' />
+    </operation>
+    <operation name='editGroup'>
+      <documentation></documentation>
+      <input message='tns:editGroupRequestMessage' name='editGroupInput' />
+      <output message='tns:editGroupResponseMessage' name='editGroupOutput' />
+    </operation>
+    <operation name='editMessage'>
+      <documentation>the only non readonly parameter in the edit message resource is the unread field</documentation>
+      <input message='tns:editMessageRequestMessage' name='editMessageInput' />
+      <output message='tns:editMessageResponseMessage' name='editMessageOutput' />
+    </operation>
+    <operation name='getMessage'>
+      <documentation></documentation>
+      <input message='tns:getMessageRequestMessage' name='getMessageInput' />
+      <output message='tns:getMessageResponseMessage' name='getMessageOutput' />
+    </operation>
+    <operation name='sendMessages'>
+      <documentation>send message text to contact id</documentation>
+      <input message='tns:sendMessagesRequestMessage' name='sendMessagesInput' />
+      <output message='tns:sendMessagesResponseMessage' name='sendMessagesOutput' />
+    </operation>
+    <operation name='viewThreads'>
+      <documentation></documentation>
+      <input message='tns:viewThreadsRequestMessage' name='viewThreadsInput' />
+      <output message='tns:viewThreadsResponseMessage' name='viewThreadsOutput' />
+    </operation>
+  </portType>
+  <binding name='sendhubBinding' type='tns:sendhubPortType'>
+    <operation name='addContact'>
+      <soap12:operation soapAction='http://addContact' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addGroup'>
+      <soap12:operation soapAction='http://addGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addingAndRemovingContacts'>
+      <soap12:operation soapAction='http://addingAndRemovingContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectAGroupSContacts'>
+      <soap12:operation soapAction='http://collectAGroupSContacts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectASingleGroupSData'>
+      <soap12:operation soapAction='http://collectASingleGroupSData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectContactsData'>
+      <soap12:operation soapAction='http://collectContactsData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectGroupsList'>
+      <soap12:operation soapAction='http://collectGroupsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectInbox'>
+      <soap12:operation soapAction='http://collectInbox' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collectingTheProfile'>
+      <soap12:operation soapAction='http://collectingTheProfile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteContact'>
+      <soap12:operation soapAction='http://deleteContact' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteGroup'>
+      <soap12:operation soapAction='http://deleteGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editContact'>
+      <soap12:operation soapAction='http://editContact' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editGroup'>
+      <soap12:operation soapAction='http://editGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editMessage'>
+      <soap12:operation soapAction='http://editMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getMessage'>
+      <soap12:operation soapAction='http://getMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendMessages'>
+      <soap12:operation soapAction='http://sendMessages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='viewThreads'>
+      <soap12:operation soapAction='http://viewThreads' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sendhub'>
+    <documentation>sendHub is the easy way to send one text message to everyone With the SendHub API you can make it easy for your app and your users to do the same</documentation>
+    <port name='sendhubPort' binding='tns:sendhubBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sendhub' />
+    </port>
+  </service>
+</definitions>

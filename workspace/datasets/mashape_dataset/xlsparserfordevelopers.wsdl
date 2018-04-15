@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/xlsParserForDevelopers/' name='xlsParserForDevelopers' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/xlsParserForDevelopers/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/xlsParserForDevelopers/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/xlsParserForDevelopers/'>
+      <xsd:element name='apiVParserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiVParserRequestMessage' />
+  <message name='apiVParserResponseMessage'>
+    <part name='response' element='tns:apiVParserResponse' />
+  </message>
+  <portType name='xlsParserForDevelopersPortType'>
+    <operation name='apiVParser'>
+      <documentation>create new request for parsing XLS file</documentation>
+      <input message='tns:apiVParserRequestMessage' name='apiVParserInput' />
+      <output message='tns:apiVParserResponseMessage' name='apiVParserOutput' />
+    </operation>
+  </portType>
+  <binding name='xlsParserForDevelopersBinding' type='tns:xlsParserForDevelopersPortType'>
+    <operation name='apiVParser'>
+      <soap12:operation soapAction='http://apiVParser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='xlsParserForDevelopers'>
+    <documentation>we have developed a simple solution that allows you to read large xls files and save data to the database mysql NoXLS can read huge excel files more than rows NoXLS can read excel files since Excel NoXLS can work even on shared hosting Good solution for PHP developers</documentation>
+    <port name='xlsParserForDevelopersPort' binding='tns:xlsParserForDevelopersBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://xlsParserForDevelopers' />
+    </port>
+  </service>
+</definitions>

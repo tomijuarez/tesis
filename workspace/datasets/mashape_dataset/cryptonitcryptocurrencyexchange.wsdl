@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cryptonitCryptoCurrencyExchange/' name='cryptonitCryptoCurrencyExchange' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cryptonitCryptoCurrencyExchange/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cryptonitCryptoCurrencyExchange/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cryptonitCryptoCurrencyExchange/'>
+      <xsd:element name='getAllOrderbookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBtcUsdOrderbookParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='askcurrency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bidcurrency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBtcUsdOrderbookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lastBtcUsdPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='askcurrency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bidcurrency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='rate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lastBtcUsdPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getAllOrderbookRequestMessage' />
+  <message name='getAllOrderbookResponseMessage'>
+    <part name='response' element='tns:getAllOrderbookResponse' />
+  </message>
+  <message name='getBtcUsdOrderbookRequestMessage'>
+    <part name='parameters' element='tns:getBtcUsdOrderbookParameters' />
+  </message>
+  <message name='getBtcUsdOrderbookResponseMessage'>
+    <part name='response' element='tns:getBtcUsdOrderbookResponse' />
+  </message>
+  <message name='lastBtcUsdPriceRequestMessage'>
+    <part name='parameters' element='tns:lastBtcUsdPriceParameters' />
+  </message>
+  <message name='lastBtcUsdPriceResponseMessage'>
+    <part name='response' element='tns:lastBtcUsdPriceResponse' />
+  </message>
+  <portType name='cryptonitCryptoCurrencyExchangePortType'>
+    <operation name='getAllOrderbook'>
+      <documentation>this request allows you to get all orderbook all opened orders for all trading pairs currently settled on the Cryptonit market</documentation>
+      <input message='tns:getAllOrderbookRequestMessage' name='getAllOrderbookInput' />
+      <output message='tns:getAllOrderbookResponseMessage' name='getAllOrderbookOutput' />
+    </operation>
+    <operation name='getBtcUsdOrderbook'>
+      <documentation>this method allows you to get all buy and sell order only for USD BTC trading pair You can change bid currency and ask currency to get orderbooks for other trading pairs</documentation>
+      <input message='tns:getBtcUsdOrderbookRequestMessage' name='getBtcUsdOrderbookInput' />
+      <output message='tns:getBtcUsdOrderbookResponseMessage' name='getBtcUsdOrderbookOutput' />
+    </operation>
+    <operation name='lastBtcUsdPrice'>
+      <documentation>this request allows you to get last price for BTC USD trading pair</documentation>
+      <input message='tns:lastBtcUsdPriceRequestMessage' name='lastBtcUsdPriceInput' />
+      <output message='tns:lastBtcUsdPriceResponseMessage' name='lastBtcUsdPriceOutput' />
+    </operation>
+  </portType>
+  <binding name='cryptonitCryptoCurrencyExchangeBinding' type='tns:cryptonitCryptoCurrencyExchangePortType'>
+    <operation name='getAllOrderbook'>
+      <soap12:operation soapAction='http://getAllOrderbook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getBtcUsdOrderbook'>
+      <soap12:operation soapAction='http://getBtcUsdOrderbook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='lastBtcUsdPrice'>
+      <soap12:operation soapAction='http://lastBtcUsdPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cryptonitCryptoCurrencyExchange'>
+    <documentation>buy and sell BTC LTC NMC PPC crypto currencies on the leading market cryptonit net Build your own trading bot within seconds buy bitcons or litecoins for USD EUR and make money This API allows you to perform basic operations at crypto currency market www cryptonit net If you want to get full API please follow official documentation at https cryptonit net tags documentation</documentation>
+    <port name='cryptonitCryptoCurrencyExchangePort' binding='tns:cryptonitCryptoCurrencyExchangeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cryptonitCryptoCurrencyExchange' />
+    </port>
+  </service>
+</definitions>

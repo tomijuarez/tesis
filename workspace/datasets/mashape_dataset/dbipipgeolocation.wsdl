@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dbIpIpGeolocation/' name='dbIpIpGeolocation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dbIpIpGeolocation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dbIpIpGeolocation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dbIpIpGeolocation/'>
+      <xsd:element name='keyInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expires' type='xsd:string' minOccurs='0' />
+            <xsd:element name='api_key' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='queries_per_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='queries_left' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lookupIpAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addr' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lookupIpAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='stateprov' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='keyInformationRequestMessage' />
+  <message name='keyInformationResponseMessage'>
+    <part name='response' element='tns:keyInformationResponse' />
+  </message>
+  <message name='lookupIpAddressRequestMessage'>
+    <part name='parameters' element='tns:lookupIpAddressParameters' />
+  </message>
+  <message name='lookupIpAddressResponseMessage'>
+    <part name='response' element='tns:lookupIpAddressResponse' />
+  </message>
+  <portType name='dbIpIpGeolocationPortType'>
+    <operation name='keyInformation'>
+      <documentation></documentation>
+      <input message='tns:keyInformationRequestMessage' name='keyInformationInput' />
+      <output message='tns:keyInformationResponseMessage' name='keyInformationOutput' />
+    </operation>
+    <operation name='lookupIpAddress'>
+      <documentation></documentation>
+      <input message='tns:lookupIpAddressRequestMessage' name='lookupIpAddressInput' />
+      <output message='tns:lookupIpAddressResponseMessage' name='lookupIpAddressOutput' />
+    </operation>
+  </portType>
+  <binding name='dbIpIpGeolocationBinding' type='tns:dbIpIpGeolocationPortType'>
+    <operation name='keyInformation'>
+      <soap12:operation soapAction='http://keyInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='lookupIpAddress'>
+      <soap12:operation soapAction='http://lookupIpAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dbIpIpGeolocation'>
+    <documentation>lookup geographical location data like country code state and city by IPv or IPv address</documentation>
+    <port name='dbIpIpGeolocationPort' binding='tns:dbIpIpGeolocationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dbIpIpGeolocation' />
+    </port>
+  </service>
+</definitions>

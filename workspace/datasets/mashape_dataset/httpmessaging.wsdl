@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/httpMessaging/' name='httpMessaging' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/httpMessaging/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/httpMessaging/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/httpMessaging/'>
+      <xsd:element name='jspReceivesmsJspParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jspReceivesmsJspResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='jspReceivesmsJspRequestMessage'>
+    <part name='parameters' element='tns:jspReceivesmsJspParameters' />
+  </message>
+  <message name='jspReceivesmsJspResponseMessage'>
+    <part name='response' element='tns:jspReceivesmsJspResponse' />
+  </message>
+  <portType name='httpMessagingPortType'>
+    <operation name='jspReceivesmsJsp'>
+      <documentation>the HTTP API is used to send simple SMS text messages by posting the message content and recipient information in a long URL</documentation>
+      <input message='tns:jspReceivesmsJspRequestMessage' name='jspReceivesmsJspInput' />
+      <output message='tns:jspReceivesmsJspResponseMessage' name='jspReceivesmsJspOutput' />
+    </operation>
+  </portType>
+  <binding name='httpMessagingBinding' type='tns:httpMessagingPortType'>
+    <operation name='jspReceivesmsJsp'>
+      <soap12:operation soapAction='http://jspReceivesmsJsp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='httpMessaging'>
+    <documentation>the HTTP API is used to send simple SMS text messages by posting the message content and recipient information in a long URL</documentation>
+    <port name='httpMessagingPort' binding='tns:httpMessagingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://httpMessaging' />
+    </port>
+  </service>
+</definitions>

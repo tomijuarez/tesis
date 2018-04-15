@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imaggaSmartCropping/' name='imaggaSmartCropping' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imaggaSmartCropping/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imaggaSmartCropping/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imaggaSmartCropping/'>
+      <xsd:element name='backgroundRemovalParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='urls' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='v' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='backgroundRemovalResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collageSlicingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smartCroppingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='backgroundRemovalRequestMessage'>
+    <part name='parameters' element='tns:backgroundRemovalParameters' />
+  </message>
+  <message name='backgroundRemovalResponseMessage'>
+    <part name='response' element='tns:backgroundRemovalResponse' />
+  </message>
+  <message name='collageSlicingRequestMessage' />
+  <message name='collageSlicingResponseMessage'>
+    <part name='response' element='tns:collageSlicingResponse' />
+  </message>
+  <message name='smartCroppingRequestMessage' />
+  <message name='smartCroppingResponseMessage'>
+    <part name='response' element='tns:smartCroppingResponse' />
+  </message>
+  <message name='uploadImageRequestMessage' />
+  <message name='uploadImageResponseMessage'>
+    <part name='response' element='tns:uploadImageResponse' />
+  </message>
+  <portType name='imaggaSmartCroppingPortType'>
+    <operation name='backgroundRemoval'>
+      <documentation>an input digital image defined by public image URL is processed and the system returns an URL pointing to newly creating PNG image with an alpha channel that shows the suggested transparent regions the removed background Note The result PNG images are deleted one hour after they ve been created so you need to integrate a way to download them soon or eventually immediately after you receive their URLs as a response of the API</documentation>
+      <input message='tns:backgroundRemovalRequestMessage' name='backgroundRemovalInput' />
+      <output message='tns:backgroundRemovalResponseMessage' name='backgroundRemovalOutput' />
+    </operation>
+    <operation name='collageSlicing'>
+      <documentation>an input digital image defined by public image URL is processed and any sub images contained in it if detected are extracted as separate output images Input images are expected to contain sub images arranged as a collage and being separated by separation lines If no sub images are detected the input image is returned as output image Note In all cases defined above the output contains the coordinates defining each of the rectangular sub images and NOT the sub images raster data itself</documentation>
+      <input message='tns:collageSlicingRequestMessage' name='collageSlicingInput' />
+      <output message='tns:collageSlicingResponseMessage' name='collageSlicingOutput' />
+    </operation>
+    <operation name='smartCropping'>
+      <documentation>an input digital image defined by public image URL is analyzed As a result of the analysis the API outputs one or several rectangular regions with predefined size s or size s with the same aspect ratio The desired output sizes are given as input parameters by the API CUSTOMER together with the input digital image s The API tries to suggest appropriate cropping s in order to select some of the most informative and visually interesting parts of the input image where possible Note The output contains the coordinates of what should be cropped and NOT the sub images raster data itself</documentation>
+      <input message='tns:smartCroppingRequestMessage' name='smartCroppingInput' />
+      <output message='tns:smartCroppingResponseMessage' name='smartCroppingOutput' />
+    </operation>
+    <operation name='uploadImage'>
+      <documentation>uploading image for processing</documentation>
+      <input message='tns:uploadImageRequestMessage' name='uploadImageInput' />
+      <output message='tns:uploadImageResponseMessage' name='uploadImageOutput' />
+    </operation>
+  </portType>
+  <binding name='imaggaSmartCroppingBinding' type='tns:imaggaSmartCroppingPortType'>
+    <operation name='backgroundRemoval'>
+      <soap12:operation soapAction='http://backgroundRemoval' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collageSlicing'>
+      <soap12:operation soapAction='http://collageSlicing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='smartCropping'>
+      <soap12:operation soapAction='http://smartCropping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadImage'>
+      <soap12:operation soapAction='http://uploadImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imaggaSmartCropping'>
+    <documentation>imagga is a cloud platform that helps businesses and individuals organize their images in a fast and cost effective way</documentation>
+    <port name='imaggaSmartCroppingPort' binding='tns:imaggaSmartCroppingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imaggaSmartCropping' />
+    </port>
+  </service>
+</definitions>

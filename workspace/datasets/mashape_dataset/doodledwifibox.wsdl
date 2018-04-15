@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/doodleDWifiBox/' name='doodleDWifiBox' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/doodleDWifiBox/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/doodleDWifiBox/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/doodleDWifiBox/'>
+      <xsd:element name='infoStatusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipWifibox' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ipwifibox' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='infoStatusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='printerPrintParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='first' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='gcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='wifiboxIp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='wifiboxip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='printerPrintResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='infoStatusRequestMessage'>
+    <part name='parameters' element='tns:infoStatusParameters' />
+  </message>
+  <message name='infoStatusResponseMessage'>
+    <part name='response' element='tns:infoStatusResponse' />
+  </message>
+  <message name='printerPrintRequestMessage'>
+    <part name='parameters' element='tns:printerPrintParameters' />
+  </message>
+  <message name='printerPrintResponseMessage'>
+    <part name='response' element='tns:printerPrintResponse' />
+  </message>
+  <portType name='doodleDWifiBoxPortType'>
+    <operation name='infoStatus'>
+      <documentation>combination of printer state printer temperature printer progress and info access</documentation>
+      <input message='tns:infoStatusRequestMessage' name='infoStatusInput' />
+      <output message='tns:infoStatusResponseMessage' name='infoStatusOutput' />
+    </operation>
+    <operation name='printerPrint'>
+      <documentation>make the printer print</documentation>
+      <input message='tns:printerPrintRequestMessage' name='printerPrintInput' />
+      <output message='tns:printerPrintResponseMessage' name='printerPrintOutput' />
+    </operation>
+  </portType>
+  <binding name='doodleDWifiBoxBinding' type='tns:doodleDWifiBoxPortType'>
+    <operation name='infoStatus'>
+      <soap12:operation soapAction='http://infoStatus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='printerPrint'>
+      <soap12:operation soapAction='http://printerPrint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='doodleDWifiBox'>
+    <documentation>simple REST API to makes almost all D printers wirelessly controllable using the Doodle D WiFi Box</documentation>
+    <port name='doodleDWifiBoxPort' binding='tns:doodleDWifiBoxBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://doodleDWifiBox' />
+    </port>
+  </service>
+</definitions>

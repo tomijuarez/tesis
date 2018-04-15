@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/upload/' name='upload' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/upload/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/upload/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/upload/'>
+      <xsd:element name='uploadASingleFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='file' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='uploadASingleFileRequestMessage' />
+  <message name='uploadASingleFileResponseMessage'>
+    <part name='response' element='tns:uploadASingleFileResponse' />
+  </message>
+  <portType name='uploadPortType'>
+    <operation name='uploadASingleFile'>
+      <documentation>upload a single file to Uploadcare infrastructure DEMO ONLY please register at https uploadcare com to use the service</documentation>
+      <input message='tns:uploadASingleFileRequestMessage' name='uploadASingleFileInput' />
+      <output message='tns:uploadASingleFileResponseMessage' name='uploadASingleFileOutput' />
+    </operation>
+  </portType>
+  <binding name='uploadBinding' type='tns:uploadPortType'>
+    <operation name='uploadASingleFile'>
+      <soap12:operation soapAction='http://uploadASingleFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='upload'>
+    <documentation>upload API for Uploadcare Handles large file uploads and cloud storage for you Serves the uploaded files on a fast CDN Performs on the fly manipulations with the uploaded images using URL commands</documentation>
+    <port name='uploadPort' binding='tns:uploadBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://upload' />
+    </port>
+  </service>
+</definitions>

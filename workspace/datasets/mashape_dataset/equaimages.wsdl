@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/equaImages/' name='equaImages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/equaImages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/equaImages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/equaImages/'>
+      <xsd:element name='equaimageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='binary' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='fontsize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='formula' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='equaimageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='equaimageRequestMessage'>
+    <part name='parameters' element='tns:equaimageParameters' />
+  </message>
+  <message name='equaimageResponseMessage'>
+    <part name='response' element='tns:equaimageResponse' />
+  </message>
+  <portType name='equaImagesPortType'>
+    <operation name='equaimage'>
+      <documentation>get math equations as images</documentation>
+      <input message='tns:equaimageRequestMessage' name='equaimageInput' />
+      <output message='tns:equaimageResponseMessage' name='equaimageOutput' />
+    </operation>
+  </portType>
+  <binding name='equaImagesBinding' type='tns:equaImagesPortType'>
+    <operation name='equaimage'>
+      <soap12:operation soapAction='http://equaimage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='equaImages'>
+    <documentation>get math formulas as images for publications in web or any other applications</documentation>
+    <port name='equaImagesPort' binding='tns:equaImagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://equaImages' />
+    </port>
+  </service>
+</definitions>

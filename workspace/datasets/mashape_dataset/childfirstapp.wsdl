@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/childfirstApp/' name='childfirstApp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/childfirstApp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/childfirstApp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/childfirstApp/'>
+      <xsd:element name='childResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='childRequestMessage' />
+  <message name='childResponseMessage'>
+    <part name='response' element='tns:childResponse' />
+  </message>
+  <portType name='childfirstAppPortType'>
+    <operation name='child'>
+      <documentation>this app is used for both Parent and Child</documentation>
+      <input message='tns:childRequestMessage' name='childInput' />
+      <output message='tns:childResponseMessage' name='childOutput' />
+    </operation>
+  </portType>
+  <binding name='childfirstAppBinding' type='tns:childfirstAppPortType'>
+    <operation name='child'>
+      <soap12:operation soapAction='http://child' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='childfirstApp'>
+    <documentation>cHILDfirst App is designed for parents by Oakridge Parenting experts keeping in mind the challenges and issues being faced in raising a millennium child Each and every feature of CHILDfirst app is being in keeping the child as the focal point Parent face unique challenges as the child grow The beauty of the app lies in the fact that as a parent you will be empowered with tips insights and expert advice based on your child s age At the end of the day we all want to have a future generation who are confident communicators and well raised children and that makes you a happy parent An easy to download light smart user friendly with timely additions and insightful parenting features CHILDfirst is the best mentor you can have in your parenting journey</documentation>
+    <port name='childfirstAppPort' binding='tns:childfirstAppBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://childfirstApp' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/postcodesUUkAddressFinder/' name='postcodesUUkAddressFinder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/postcodesUUkAddressFinder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/postcodesUUkAddressFinder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/postcodesUUkAddressFinder/'>
+      <xsd:element name='searchByAddressIdJsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByAddressIdJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByAddressIdXmlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByAddressIdXmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByPostcodeJsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByPostcodeJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByPostcodeXmlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByPostcodeXmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchByAddressIdJsonRequestMessage'>
+    <part name='parameters' element='tns:searchByAddressIdJsonParameters' />
+  </message>
+  <message name='searchByAddressIdJsonResponseMessage'>
+    <part name='response' element='tns:searchByAddressIdJsonResponse' />
+  </message>
+  <message name='searchByAddressIdXmlRequestMessage'>
+    <part name='parameters' element='tns:searchByAddressIdXmlParameters' />
+  </message>
+  <message name='searchByAddressIdXmlResponseMessage'>
+    <part name='response' element='tns:searchByAddressIdXmlResponse' />
+  </message>
+  <message name='searchByPostcodeJsonRequestMessage'>
+    <part name='parameters' element='tns:searchByPostcodeJsonParameters' />
+  </message>
+  <message name='searchByPostcodeJsonResponseMessage'>
+    <part name='response' element='tns:searchByPostcodeJsonResponse' />
+  </message>
+  <message name='searchByPostcodeXmlRequestMessage'>
+    <part name='parameters' element='tns:searchByPostcodeXmlParameters' />
+  </message>
+  <message name='searchByPostcodeXmlResponseMessage'>
+    <part name='response' element='tns:searchByPostcodeXmlResponse' />
+  </message>
+  <portType name='postcodesUUkAddressFinderPortType'>
+    <operation name='searchByAddressIdJson'>
+      <documentation>search the PAF Royal Mail database for an address based on address id</documentation>
+      <input message='tns:searchByAddressIdJsonRequestMessage' name='searchByAddressIdJsonInput' />
+      <output message='tns:searchByAddressIdJsonResponseMessage' name='searchByAddressIdJsonOutput' />
+    </operation>
+    <operation name='searchByAddressIdXml'>
+      <documentation>search Royal Mail PAF database by address id</documentation>
+      <input message='tns:searchByAddressIdXmlRequestMessage' name='searchByAddressIdXmlInput' />
+      <output message='tns:searchByAddressIdXmlResponseMessage' name='searchByAddressIdXmlOutput' />
+    </operation>
+    <operation name='searchByPostcodeJson'>
+      <documentation>search Royal Mail PAF database for a list of addresses based on a postcode get results in JSON format</documentation>
+      <input message='tns:searchByPostcodeJsonRequestMessage' name='searchByPostcodeJsonInput' />
+      <output message='tns:searchByPostcodeJsonResponseMessage' name='searchByPostcodeJsonOutput' />
+    </operation>
+    <operation name='searchByPostcodeXml'>
+      <documentation>search Royal Mail PAF database for list of addresses based on postcode XML</documentation>
+      <input message='tns:searchByPostcodeXmlRequestMessage' name='searchByPostcodeXmlInput' />
+      <output message='tns:searchByPostcodeXmlResponseMessage' name='searchByPostcodeXmlOutput' />
+    </operation>
+  </portType>
+  <binding name='postcodesUUkAddressFinderBinding' type='tns:postcodesUUkAddressFinderPortType'>
+    <operation name='searchByAddressIdJson'>
+      <soap12:operation soapAction='http://searchByAddressIdJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchByAddressIdXml'>
+      <soap12:operation soapAction='http://searchByAddressIdXml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchByPostcodeJson'>
+      <soap12:operation soapAction='http://searchByPostcodeJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchByPostcodeXml'>
+      <soap12:operation soapAction='http://searchByPostcodeXml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='postcodesUUkAddressFinder'>
+    <documentation>search the Royal Mail PAF database for a list of addresses from a UK postcode or search for an address based on address id</documentation>
+    <port name='postcodesUUkAddressFinderPort' binding='tns:postcodesUUkAddressFinderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://postcodesUUkAddressFinder' />
+    </port>
+  </service>
+</definitions>

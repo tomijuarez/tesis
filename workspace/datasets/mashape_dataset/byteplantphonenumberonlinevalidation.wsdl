@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/byteplantPhoneNumberOnlineValidation/' name='byteplantPhoneNumberOnlineValidation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/byteplantPhoneNumberOnlineValidation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/byteplantPhoneNumberOnlineValidation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/byteplantPhoneNumberOnlineValidation/'>
+      <xsd:element name='byteplantPhoneNumberValidationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='locale' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phonenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='byteplantPhoneNumberValidationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='byteplantPhoneNumberValidationRequestMessage'>
+    <part name='parameters' element='tns:byteplantPhoneNumberValidationParameters' />
+  </message>
+  <message name='byteplantPhoneNumberValidationResponseMessage'>
+    <part name='response' element='tns:byteplantPhoneNumberValidationResponse' />
+  </message>
+  <portType name='byteplantPhoneNumberOnlineValidationPortType'>
+    <operation name='byteplantPhoneNumberValidation'>
+      <documentation>verify Phone Number</documentation>
+      <input message='tns:byteplantPhoneNumberValidationRequestMessage' name='byteplantPhoneNumberValidationInput' />
+      <output message='tns:byteplantPhoneNumberValidationResponseMessage' name='byteplantPhoneNumberValidationOutput' />
+    </operation>
+  </portType>
+  <binding name='byteplantPhoneNumberOnlineValidationBinding' type='tns:byteplantPhoneNumberOnlineValidationPortType'>
+    <operation name='byteplantPhoneNumberValidation'>
+      <soap12:operation soapAction='http://byteplantPhoneNumberValidation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='byteplantPhoneNumberOnlineValidation'>
+    <documentation>keep in Touch With Your Customers With the Byteplant Phone Number Validation API you can easily verify if any national or international phone number is valid and callable Avoid disconnects and increase the performance of your marketing campaigns now</documentation>
+    <port name='byteplantPhoneNumberOnlineValidationPort' binding='tns:byteplantPhoneNumberOnlineValidationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://byteplantPhoneNumberOnlineValidation' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/doxcan/' name='doxcan' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/doxcan/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/doxcan/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/doxcan/'>
+      <xsd:element name='imageDownloadJobIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageDownloadJobIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadTheProcessedImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadTheProcessedImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageDownloadJobIdRequestMessage'>
+    <part name='parameters' element='tns:imageDownloadJobIdParameters' />
+  </message>
+  <message name='imageDownloadJobIdResponseMessage'>
+    <part name='response' element='tns:imageDownloadJobIdResponse' />
+  </message>
+  <message name='downloadTheProcessedImageRequestMessage'>
+    <part name='parameters' element='tns:downloadTheProcessedImageParameters' />
+  </message>
+  <message name='downloadTheProcessedImageResponseMessage'>
+    <part name='response' element='tns:downloadTheProcessedImageResponse' />
+  </message>
+  <message name='uploadImageRequestMessage' />
+  <message name='uploadImageResponseMessage'>
+    <part name='response' element='tns:uploadImageResponse' />
+  </message>
+  <portType name='doxcanPortType'>
+    <operation name='imageDownloadJobId'>
+      <documentation>there are possible results of this query Status image is still being processed repeat in a few seconds Status no such job Status service was unable to process your file Status file was processed and you are redirected to the URL to download it</documentation>
+      <input message='tns:imageDownloadJobIdRequestMessage' name='imageDownloadJobIdInput' />
+      <output message='tns:imageDownloadJobIdResponseMessage' name='imageDownloadJobIdOutput' />
+    </operation>
+    <operation name='downloadTheProcessedImage'>
+      <documentation></documentation>
+      <input message='tns:downloadTheProcessedImageRequestMessage' name='downloadTheProcessedImageInput' />
+      <output message='tns:downloadTheProcessedImageResponseMessage' name='downloadTheProcessedImageOutput' />
+    </operation>
+    <operation name='uploadImage'>
+      <documentation>corner marks show how to do a perspective transformation Each corner mark coord is in range where is upper left corner Basically after transformation a left upper mark will move to the left upper corner etc You can head over to http doxcan com and check out how this works</documentation>
+      <input message='tns:uploadImageRequestMessage' name='uploadImageInput' />
+      <output message='tns:uploadImageResponseMessage' name='uploadImageOutput' />
+    </operation>
+  </portType>
+  <binding name='doxcanBinding' type='tns:doxcanPortType'>
+    <operation name='imageDownloadJobId'>
+      <soap12:operation soapAction='http://imageDownloadJobId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadTheProcessedImage'>
+      <soap12:operation soapAction='http://downloadTheProcessedImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadImage'>
+      <soap12:operation soapAction='http://uploadImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='doxcan'>
+    <documentation>this API allows you to convert an photo of a document into a scan of a document You can write your own camera scanner app Improves quality cleans up does perspective transformation all that to produce amazing results Check it out yourself</documentation>
+    <port name='doxcanPort' binding='tns:doxcanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://doxcan' />
+    </port>
+  </service>
+</definitions>

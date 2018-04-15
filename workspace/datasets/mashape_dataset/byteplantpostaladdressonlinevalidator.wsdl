@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/byteplantPostalAddressOnlineValidator/' name='byteplantPostalAddressOnlineValidator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/byteplantPostalAddressOnlineValidator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/byteplantPostalAddressOnlineValidator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/byteplantPostalAddressOnlineValidator/'>
+      <xsd:element name='byteplantPostalAddressVerificationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='byteplantPostalAddressVerificationRequestMessage' />
+  <message name='byteplantPostalAddressVerificationResponseMessage'>
+    <part name='response' element='tns:byteplantPostalAddressVerificationResponse' />
+  </message>
+  <portType name='byteplantPostalAddressOnlineValidatorPortType'>
+    <operation name='byteplantPostalAddressVerification'>
+      <documentation>verify Postal Address</documentation>
+      <input message='tns:byteplantPostalAddressVerificationRequestMessage' name='byteplantPostalAddressVerificationInput' />
+      <output message='tns:byteplantPostalAddressVerificationResponseMessage' name='byteplantPostalAddressVerificationOutput' />
+    </operation>
+  </portType>
+  <binding name='byteplantPostalAddressOnlineValidatorBinding' type='tns:byteplantPostalAddressOnlineValidatorPortType'>
+    <operation name='byteplantPostalAddressVerification'>
+      <soap12:operation soapAction='http://byteplantPostalAddressVerification' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='byteplantPostalAddressOnlineValidator'>
+    <documentation>with our Postal Address Validator you can easily verify if any national or international postal address is valid and really exists Eliminate invalid or outdated addresses from your lists and customer databases</documentation>
+    <port name='byteplantPostalAddressOnlineValidatorPort' binding='tns:byteplantPostalAddressOnlineValidatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://byteplantPostalAddressOnlineValidator' />
+    </port>
+  </service>
+</definitions>

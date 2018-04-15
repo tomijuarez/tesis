@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/genderByName/' name='genderByName' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/genderByName/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/genderByName/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/genderByName/'>
+      <xsd:element name='getGenderByNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGenderByNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='responseType' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='malePercent' type='xsd:int' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='maleCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='femalePercent' type='xsd:int' minOccurs='0' />
+            <xsd:element name='femaleCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGendersByNamesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGendersByNamesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='responseType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='malePercent' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='maleCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='femalePercent' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='femaleCount' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getGenderByNameRequestMessage'>
+    <part name='parameters' element='tns:getGenderByNameParameters' />
+  </message>
+  <message name='getGenderByNameResponseMessage'>
+    <part name='response' element='tns:getGenderByNameResponse' />
+  </message>
+  <message name='getGendersByNamesRequestMessage'>
+    <part name='parameters' element='tns:getGendersByNamesParameters' />
+  </message>
+  <message name='getGendersByNamesResponseMessage'>
+    <part name='response' element='tns:getGendersByNamesResponse' />
+  </message>
+  <portType name='genderByNamePortType'>
+    <operation name='getGenderByName'>
+      <documentation>get gender by name</documentation>
+      <input message='tns:getGenderByNameRequestMessage' name='getGenderByNameInput' />
+      <output message='tns:getGenderByNameResponseMessage' name='getGenderByNameOutput' />
+    </operation>
+    <operation name='getGendersByNames'>
+      <documentation>get genders by names bulk request Max request size is names</documentation>
+      <input message='tns:getGendersByNamesRequestMessage' name='getGendersByNamesInput' />
+      <output message='tns:getGendersByNamesResponseMessage' name='getGendersByNamesOutput' />
+    </operation>
+  </portType>
+  <binding name='genderByNameBinding' type='tns:genderByNamePortType'>
+    <operation name='getGenderByName'>
+      <soap12:operation soapAction='http://getGenderByName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getGendersByNames'>
+      <soap12:operation soapAction='http://getGendersByNames' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='genderByName'>
+    <documentation>one of the biggest name gender databases of the internet unique names countries languages</documentation>
+    <port name='genderByNamePort' binding='tns:genderByNameBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://genderByName' />
+    </port>
+  </service>
+</definitions>

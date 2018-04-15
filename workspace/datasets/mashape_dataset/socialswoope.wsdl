@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/socialswoope/' name='socialswoope' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/socialswoope/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/socialswoope/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/socialswoope/'>
+      <xsd:element name='typeIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='typeIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='typeIdRequestMessage'>
+    <part name='parameters' element='tns:typeIdParameters' />
+  </message>
+  <message name='typeIdResponseMessage'>
+    <part name='response' element='tns:typeIdResponse' />
+  </message>
+  <portType name='socialswoopePortType'>
+    <operation name='typeId'>
+      <documentation>social media accounts and interest data from an email address</documentation>
+      <input message='tns:typeIdRequestMessage' name='typeIdInput' />
+      <output message='tns:typeIdResponseMessage' name='typeIdOutput' />
+    </operation>
+  </portType>
+  <binding name='socialswoopeBinding' type='tns:socialswoopePortType'>
+    <operation name='typeId'>
+      <soap12:operation soapAction='http://typeId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='socialswoope'>
+    <documentation>find out a persons interests based on an email address Find out what brands bands celebrities TV shows books and much more that a person likes Social Swoope analyzes social media activity in real time to give you up to date interests on an individual person</documentation>
+    <port name='socialswoopePort' binding='tns:socialswoopeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://socialswoope' />
+    </port>
+  </service>
+</definitions>

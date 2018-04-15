@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pinterest/' name='pinterest' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pinterest/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pinterest/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pinterest/'>
+      <xsd:element name='showUserBoardsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='u' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showUserBoardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='body' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='src' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showUserPinsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='u' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showUserPinsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='body' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='src' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='attrib' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='img' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='attrib' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='board' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='desc' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='showUserBoardsRequestMessage'>
+    <part name='parameters' element='tns:showUserBoardsParameters' />
+  </message>
+  <message name='showUserBoardsResponseMessage'>
+    <part name='response' element='tns:showUserBoardsResponse' />
+  </message>
+  <message name='showUserPinsRequestMessage'>
+    <part name='parameters' element='tns:showUserPinsParameters' />
+  </message>
+  <message name='showUserPinsResponseMessage'>
+    <part name='response' element='tns:showUserPinsResponse' />
+  </message>
+  <portType name='pinterestPortType'>
+    <operation name='showUserBoards'>
+      <documentation>show boards from Pinterest user Limited to results</documentation>
+      <input message='tns:showUserBoardsRequestMessage' name='showUserBoardsInput' />
+      <output message='tns:showUserBoardsResponseMessage' name='showUserBoardsOutput' />
+    </operation>
+    <operation name='showUserPins'>
+      <documentation>shows pins from Pinterest user</documentation>
+      <input message='tns:showUserPinsRequestMessage' name='showUserPinsInput' />
+      <output message='tns:showUserPinsResponseMessage' name='showUserPinsOutput' />
+    </operation>
+  </portType>
+  <binding name='pinterestBinding' type='tns:pinterestPortType'>
+    <operation name='showUserBoards'>
+      <soap12:operation soapAction='http://showUserBoards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showUserPins'>
+      <soap12:operation soapAction='http://showUserPins' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pinterest'>
+    <documentation>this is an unofficial Pinterest API Pinterest is a pinboard style photo sharing website that allows users to create and manage theme based image collections such as events interests hobbies and more Users can browse other pinboards for inspiration re pin images to their own pinboards or like photos Credits to http pinterestapi co uk for the user specific Pinterest APIs</documentation>
+    <port name='pinterestPort' binding='tns:pinterestBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pinterest' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twilio/' name='twilio' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twilio/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twilio/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twilio/'>
+      <xsd:element name='makeACallParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountsid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='makeACallResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountsid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='makeACallRequestMessage'>
+    <part name='parameters' element='tns:makeACallParameters' />
+  </message>
+  <message name='makeACallResponseMessage'>
+    <part name='response' element='tns:makeACallResponse' />
+  </message>
+  <message name='sendSmsRequestMessage'>
+    <part name='parameters' element='tns:sendSmsParameters' />
+  </message>
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='twilioPortType'>
+    <operation name='makeACall'>
+      <documentation></documentation>
+      <input message='tns:makeACallRequestMessage' name='makeACallInput' />
+      <output message='tns:makeACallResponseMessage' name='makeACallOutput' />
+    </operation>
+    <operation name='sendSms'>
+      <documentation>send a new outgoing message</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='twilioBinding' type='tns:twilioPortType'>
+    <operation name='makeACall'>
+      <soap12:operation soapAction='http://makeACall' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twilio'>
+    <documentation>twilio powers the future of business communications enabling phones SMS calls VoIP and messaging to be embedded into web desktop and mobile software We take care of the messy telecom hardware and expose a globally available cloud API that developers can interact with to build intelligent complex communications systems As your app s usage scales up or down Twilio automatically scales with you</documentation>
+    <port name='twilioPort' binding='tns:twilioBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twilio' />
+    </port>
+  </service>
+</definitions>

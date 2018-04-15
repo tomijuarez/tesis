@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/asciiArt/' name='asciiArt' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/asciiArt/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/asciiArt/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/asciiArt/'>
+      <xsd:element name='asciiTableResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='table' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cowsayParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='style' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cowsayResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='figletParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='style' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='figletResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='figlet' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageAsciiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listFigletStylesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='fonts' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCowsayStylesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='matheqParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='matheqResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='asciiTableRequestMessage' />
+  <message name='asciiTableResponseMessage'>
+    <part name='response' element='tns:asciiTableResponse' />
+  </message>
+  <message name='cowsayRequestMessage'>
+    <part name='parameters' element='tns:cowsayParameters' />
+  </message>
+  <message name='cowsayResponseMessage'>
+    <part name='response' element='tns:cowsayResponse' />
+  </message>
+  <message name='figletRequestMessage'>
+    <part name='parameters' element='tns:figletParameters' />
+  </message>
+  <message name='figletResponseMessage'>
+    <part name='response' element='tns:figletResponse' />
+  </message>
+  <message name='imageAsciiRequestMessage' />
+  <message name='imageAsciiResponseMessage'>
+    <part name='response' element='tns:imageAsciiResponse' />
+  </message>
+  <message name='listFigletStylesRequestMessage' />
+  <message name='listFigletStylesResponseMessage'>
+    <part name='response' element='tns:listFigletStylesResponse' />
+  </message>
+  <message name='listCowsayStylesRequestMessage' />
+  <message name='listCowsayStylesResponseMessage'>
+    <part name='response' element='tns:listCowsayStylesResponse' />
+  </message>
+  <message name='matheqRequestMessage'>
+    <part name='parameters' element='tns:matheqParameters' />
+  </message>
+  <message name='matheqResponseMessage'>
+    <part name='response' element='tns:matheqResponse' />
+  </message>
+  <portType name='asciiArtPortType'>
+    <operation name='asciiTable'>
+      <documentation>create an ASCII Table from a given csv table</documentation>
+      <input message='tns:asciiTableRequestMessage' name='asciiTableInput' />
+      <output message='tns:asciiTableResponseMessage' name='asciiTableOutput' />
+    </operation>
+    <operation name='cowsay'>
+      <documentation>make an ASCII cow say things</documentation>
+      <input message='tns:cowsayRequestMessage' name='cowsayInput' />
+      <output message='tns:cowsayResponseMessage' name='cowsayOutput' />
+    </operation>
+    <operation name='figlet'>
+      <documentation>create a ASCII art from a given text</documentation>
+      <input message='tns:figletRequestMessage' name='figletInput' />
+      <output message='tns:figletResponseMessage' name='figletOutput' />
+    </operation>
+    <operation name='imageAscii'>
+      <documentation>convert an image to ascii art</documentation>
+      <input message='tns:imageAsciiRequestMessage' name='imageAsciiInput' />
+      <output message='tns:imageAsciiResponseMessage' name='imageAsciiOutput' />
+    </operation>
+    <operation name='listFigletStyles'>
+      <documentation>list the available figlet styles</documentation>
+      <input message='tns:listFigletStylesRequestMessage' name='listFigletStylesInput' />
+      <output message='tns:listFigletStylesResponseMessage' name='listFigletStylesOutput' />
+    </operation>
+    <operation name='listCowsayStyles'>
+      <documentation>list available cow styles</documentation>
+      <input message='tns:listCowsayStylesRequestMessage' name='listCowsayStylesInput' />
+      <output message='tns:listCowsayStylesResponseMessage' name='listCowsayStylesOutput' />
+    </operation>
+    <operation name='matheq'>
+      <documentation>generate ASCII Math Equations</documentation>
+      <input message='tns:matheqRequestMessage' name='matheqInput' />
+      <output message='tns:matheqResponseMessage' name='matheqOutput' />
+    </operation>
+  </portType>
+  <binding name='asciiArtBinding' type='tns:asciiArtPortType'>
+    <operation name='asciiTable'>
+      <soap12:operation soapAction='http://asciiTable' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cowsay'>
+      <soap12:operation soapAction='http://cowsay' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='figlet'>
+      <soap12:operation soapAction='http://figlet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='imageAscii'>
+      <soap12:operation soapAction='http://imageAscii' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listFigletStyles'>
+      <soap12:operation soapAction='http://listFigletStyles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCowsayStyles'>
+      <soap12:operation soapAction='http://listCowsayStyles' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='matheq'>
+      <soap12:operation soapAction='http://matheq' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='asciiArt'>
+    <documentation>create ASCII art from your images Create ASCII tables from your CSV data Create ASCII figlets text art using text fonts for any strings using any of the figlet styles Make our cow or other animals say things you want in ascii cowsay All the results are returned as base encoded json strings to preserve the perfect formatting until it reaches your program</documentation>
+    <port name='asciiArtPort' binding='tns:asciiArtBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://asciiArt' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cubiculusManagingLegoSetCollection/' name='cubiculusManagingLegoSetCollection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cubiculusManagingLegoSetCollection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cubiculusManagingLegoSetCollection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cubiculusManagingLegoSetCollection/'>
+      <xsd:element name='collectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='quantity' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='comment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='idLegoSet' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='saveCollectionItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='saveCollectionItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userByEmailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userByEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='idBlog' type='xsd:int' minOccurs='0' />
+            <xsd:element name='idUser' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lastLogin' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='registrationDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='idImageIcon' type='xsd:int' minOccurs='0' />
+            <xsd:element name='userName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='birthDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='collectionRequestMessage'>
+    <part name='parameters' element='tns:collectionParameters' />
+  </message>
+  <message name='collectionResponseMessage'>
+    <part name='response' element='tns:collectionResponse' />
+  </message>
+  <message name='saveCollectionItemRequestMessage'>
+    <part name='parameters' element='tns:saveCollectionItemParameters' />
+  </message>
+  <message name='saveCollectionItemResponseMessage'>
+    <part name='response' element='tns:saveCollectionItemResponse' />
+  </message>
+  <message name='userByEmailRequestMessage'>
+    <part name='parameters' element='tns:userByEmailParameters' />
+  </message>
+  <message name='userByEmailResponseMessage'>
+    <part name='response' element='tns:userByEmailResponse' />
+  </message>
+  <portType name='cubiculusManagingLegoSetCollectionPortType'>
+    <operation name='collection'>
+      <documentation>get list of items in user s collection</documentation>
+      <input message='tns:collectionRequestMessage' name='collectionInput' />
+      <output message='tns:collectionResponseMessage' name='collectionOutput' />
+    </operation>
+    <operation name='saveCollectionItem'>
+      <documentation>allows to save change in user s LEGO collection When user want to remove item than save it in quantity</documentation>
+      <input message='tns:saveCollectionItemRequestMessage' name='saveCollectionItemInput' />
+      <output message='tns:saveCollectionItemResponseMessage' name='saveCollectionItemOutput' />
+    </operation>
+    <operation name='userByEmail'>
+      <documentation>get detail user informations requires users s own cubiculus credential</documentation>
+      <input message='tns:userByEmailRequestMessage' name='userByEmailInput' />
+      <output message='tns:userByEmailResponseMessage' name='userByEmailOutput' />
+    </operation>
+  </portType>
+  <binding name='cubiculusManagingLegoSetCollectionBinding' type='tns:cubiculusManagingLegoSetCollectionPortType'>
+    <operation name='collection'>
+      <soap12:operation soapAction='http://collection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='saveCollectionItem'>
+      <soap12:operation soapAction='http://saveCollectionItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='userByEmail'>
+      <soap12:operation soapAction='http://userByEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cubiculusManagingLegoSetCollection'>
+    <documentation>aPI allows manage LEGO set collection User can specify which items you own and how many of them Through this API could be persist collection</documentation>
+    <port name='cubiculusManagingLegoSetCollectionPort' binding='tns:cubiculusManagingLegoSetCollectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cubiculusManagingLegoSetCollection' />
+    </port>
+  </service>
+</definitions>

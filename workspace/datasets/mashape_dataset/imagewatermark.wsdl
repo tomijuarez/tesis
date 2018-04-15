@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imageWatermark/' name='imageWatermark' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imageWatermark/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imageWatermark/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imageWatermark/'>
+      <xsd:element name='imageWatermarkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageWatermarkRequestMessage' />
+  <message name='imageWatermarkResponseMessage'>
+    <part name='response' element='tns:imageWatermarkResponse' />
+  </message>
+  <portType name='imageWatermarkPortType'>
+    <operation name='imageWatermark'>
+      <documentation></documentation>
+      <input message='tns:imageWatermarkRequestMessage' name='imageWatermarkInput' />
+      <output message='tns:imageWatermarkResponseMessage' name='imageWatermarkOutput' />
+    </operation>
+  </portType>
+  <binding name='imageWatermarkBinding' type='tns:imageWatermarkPortType'>
+    <operation name='imageWatermark'>
+      <soap12:operation soapAction='http://imageWatermark' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imageWatermark'>
+    <documentation>watermark an image with another image with high quality image resizing as well Can also be used to simply overlay one image on top of another with alpha blending</documentation>
+    <port name='imageWatermarkPort' binding='tns:imageWatermarkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imageWatermark' />
+    </port>
+  </service>
+</definitions>

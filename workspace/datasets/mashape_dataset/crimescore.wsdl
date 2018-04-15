@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/crimescore/' name='crimescore' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/crimescore/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/crimescore/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/crimescore/'>
+      <xsd:element name='crimescoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='f' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimescoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:int' minOccurs='0' />
+            <xsd:element name='found' type='xsd:int' minOccurs='0' />
+            <xsd:element name='color' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='density' type='xsd:int' minOccurs='0' />
+            <xsd:element name='grade' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='datasetid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='crimescoreRequestMessage'>
+    <part name='parameters' element='tns:crimescoreParameters' />
+  </message>
+  <message name='crimescoreResponseMessage'>
+    <part name='response' element='tns:crimescoreResponse' />
+  </message>
+  <portType name='crimescorePortType'>
+    <operation name='crimescore'>
+      <documentation>get CrimeScore rating data at your current location</documentation>
+      <input message='tns:crimescoreRequestMessage' name='crimescoreInput' />
+      <output message='tns:crimescoreResponseMessage' name='crimescoreOutput' />
+    </operation>
+  </portType>
+  <binding name='crimescoreBinding' type='tns:crimescorePortType'>
+    <operation name='crimescore'>
+      <soap12:operation soapAction='http://crimescore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='crimescore'>
+    <documentation>national CrimeScore Safety Rating grade for your current location Formula uses local daily crime reports Get web widgets or use our API in your app CrimeScores are returned for the following cities with more being added soon San Francisco CA Washington DC Anchorage AK Louisville KY Miami FL Fort Worth TX Chicago IL Seattle WA Indianapolis IN Albuquerque NM Richmond VA Cincinnati OH Atlanta GA CrimeScore rating is a propriety methodology based on address level crime reports weighted for type of crime recency and proximity then adjusted by neighboring CrimeScore ratings and finally statistically standardized across a bell curve based on all the CrimeScores across a city updated daily Use our official CrimeScore badges to easily give information at a glance Returns a score an A F grade and choose from multiple badge sizes</documentation>
+    <port name='crimescorePort' binding='tns:crimescoreBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://crimescore' />
+    </port>
+  </service>
+</definitions>

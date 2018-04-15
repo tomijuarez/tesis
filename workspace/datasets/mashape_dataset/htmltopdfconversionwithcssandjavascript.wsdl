@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlToPdfConversionWithCssAndJavascript/' name='htmlToPdfConversionWithCssAndJavascript' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlToPdfConversionWithCssAndJavascript/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlToPdfConversionWithCssAndJavascript/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlToPdfConversionWithCssAndJavascript/'>
+      <xsd:element name='urltopdfParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bgangle' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bgopac' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bgsx' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bgsy' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bgx' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bgy' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='bottom' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='cmt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='encryption' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='footer' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='header' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='height' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='left' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='nocopy' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='nomodify' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='noprint' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='right' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wm' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='wmangle' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wmopac' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wmsx' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wmsy' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wmx' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='wmy' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urltopdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='urltopdfRequestMessage'>
+    <part name='parameters' element='tns:urltopdfParameters' />
+  </message>
+  <message name='urltopdfResponseMessage'>
+    <part name='response' element='tns:urltopdfResponse' />
+  </message>
+  <portType name='htmlToPdfConversionWithCssAndJavascriptPortType'>
+    <operation name='urltopdf'>
+      <documentation>uRL web page to PDF</documentation>
+      <input message='tns:urltopdfRequestMessage' name='urltopdfInput' />
+      <output message='tns:urltopdfResponseMessage' name='urltopdfOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlToPdfConversionWithCssAndJavascriptBinding' type='tns:htmlToPdfConversionWithCssAndJavascriptPortType'>
+    <operation name='urltopdf'>
+      <soap12:operation soapAction='http://urltopdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlToPdfConversionWithCssAndJavascript'>
+    <documentation>converts HTML to PDF with support for CSS and JavaScript Allows watermarking merging scaling to one page and much more</documentation>
+    <port name='htmlToPdfConversionWithCssAndJavascriptPort' binding='tns:htmlToPdfConversionWithCssAndJavascriptBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlToPdfConversionWithCssAndJavascript' />
+    </port>
+  </service>
+</definitions>

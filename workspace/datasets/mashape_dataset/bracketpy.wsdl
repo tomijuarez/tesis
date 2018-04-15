@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bracketpy/' name='bracketpy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bracketpy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bracketpy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bracketpy/'>
+      <xsd:element name='classifyTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyUrlDeepLearnedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cleanTweetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fetchUrlsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:anyURI' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSimilarsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSummaryFromPdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topicOfUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlSummaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='youtubeContextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifyTextRequestMessage' />
+  <message name='classifyTextResponseMessage'>
+    <part name='response' element='tns:classifyTextResponse' />
+  </message>
+  <message name='classifyUrlRequestMessage' />
+  <message name='classifyUrlResponseMessage'>
+    <part name='response' element='tns:classifyUrlResponse' />
+  </message>
+  <message name='classifyUrlDeepLearnedRequestMessage' />
+  <message name='classifyUrlDeepLearnedResponseMessage'>
+    <part name='response' element='tns:classifyUrlDeepLearnedResponse' />
+  </message>
+  <message name='cleanTweetsRequestMessage' />
+  <message name='cleanTweetsResponseMessage'>
+    <part name='response' element='tns:cleanTweetsResponse' />
+  </message>
+  <message name='fetchUrlsRequestMessage' />
+  <message name='fetchUrlsResponseMessage'>
+    <part name='response' element='tns:fetchUrlsResponse' />
+  </message>
+  <message name='getSimilarsRequestMessage' />
+  <message name='getSimilarsResponseMessage'>
+    <part name='response' element='tns:getSimilarsResponse' />
+  </message>
+  <message name='getSummaryFromPdfRequestMessage' />
+  <message name='getSummaryFromPdfResponseMessage'>
+    <part name='response' element='tns:getSummaryFromPdfResponse' />
+  </message>
+  <message name='topicOfUrlRequestMessage' />
+  <message name='topicOfUrlResponseMessage'>
+    <part name='response' element='tns:topicOfUrlResponse' />
+  </message>
+  <message name='urlSummaryRequestMessage' />
+  <message name='urlSummaryResponseMessage'>
+    <part name='response' element='tns:urlSummaryResponse' />
+  </message>
+  <message name='youtubeContextRequestMessage' />
+  <message name='youtubeContextResponseMessage'>
+    <part name='response' element='tns:youtubeContextResponse' />
+  </message>
+  <portType name='bracketpyPortType'>
+    <operation name='classifyText'>
+      <documentation>it s a machine learning model which trains on the data provided by the user of text category pair types Our model learns from these pairs and predicts the category of the un categorized text from the training data</documentation>
+      <input message='tns:classifyTextRequestMessage' name='classifyTextInput' />
+      <output message='tns:classifyTextResponseMessage' name='classifyTextOutput' />
+    </operation>
+    <operation name='classifyUrl'>
+      <documentation>it s a machine learning model which trains on the data provided by the user of URL category pair types Our model learns from these pairs and predicts the category of the un categorized URL from the training data The training and classification is purely based on the content of the URL s</documentation>
+      <input message='tns:classifyUrlRequestMessage' name='classifyUrlInput' />
+      <output message='tns:classifyUrlResponseMessage' name='classifyUrlOutput' />
+    </operation>
+    <operation name='classifyUrlDeepLearned'>
+      <documentation>it s similar to Classify URL Api However it uses a different algorithm which also provides the similarity quotient for an uncategorized url in each category</documentation>
+      <input message='tns:classifyUrlDeepLearnedRequestMessage' name='classifyUrlDeepLearnedInput' />
+      <output message='tns:classifyUrlDeepLearnedResponseMessage' name='classifyUrlDeepLearnedOutput' />
+    </operation>
+    <operation name='cleanTweets'>
+      <documentation>this API is quite useful in cleaning up dirty text It is primarily meant for tweets but it can work on other texts as well It tries it best to correct spellings and unicode errors Alongside it expands short forms and provides the title of the url posted with tweet</documentation>
+      <input message='tns:cleanTweetsRequestMessage' name='cleanTweetsInput' />
+      <output message='tns:cleanTweetsResponseMessage' name='cleanTweetsOutput' />
+    </operation>
+    <operation name='fetchUrls'>
+      <documentation>this API returns all the urls from a webpage It is quite useful in information retrieval and finding similar content on web and also in hyperlink analysis</documentation>
+      <input message='tns:fetchUrlsRequestMessage' name='fetchUrlsInput' />
+      <output message='tns:fetchUrlsResponseMessage' name='fetchUrlsOutput' />
+    </operation>
+    <operation name='getSimilars'>
+      <documentation>this API returns the similar words for the query It is trained on Google s billion word dataset to fetch the most relevant matches It s similar to Google sets and it also gives a similarity score for each match</documentation>
+      <input message='tns:getSimilarsRequestMessage' name='getSimilarsInput' />
+      <output message='tns:getSimilarsResponseMessage' name='getSimilarsOutput' />
+    </operation>
+    <operation name='getSummaryFromPdf'>
+      <documentation>this API provide the summary from Pdf files also So it just take the url of the pdf and return back the summary of that pdf Since many of online content is available in pdfs it can be really useful Currently pdf size is limited to Mb Soon this limit will be removed</documentation>
+      <input message='tns:getSummaryFromPdfRequestMessage' name='getSummaryFromPdfInput' />
+      <output message='tns:getSummaryFromPdfResponseMessage' name='getSummaryFromPdfOutput' />
+    </operation>
+    <operation name='topicOfUrl'>
+      <documentation>this API categorizes given URL s into predefined set of categories based on it s content</documentation>
+      <input message='tns:topicOfUrlRequestMessage' name='topicOfUrlInput' />
+      <output message='tns:topicOfUrlResponseMessage' name='topicOfUrlOutput' />
+    </operation>
+    <operation name='urlSummary'>
+      <documentation>this API creates a summary from the content of the url It successfully avoids the links supporting text and ads This is really useful in analyzing content of url and extracting useful information</documentation>
+      <input message='tns:urlSummaryRequestMessage' name='urlSummaryInput' />
+      <output message='tns:urlSummaryResponseMessage' name='urlSummaryOutput' />
+    </operation>
+    <operation name='youtubeContext'>
+      <documentation>this API provides the information about the You Tube video It fetches the context of the video from description and comments and then provide information about the same topic Without going into video analysis detail user can easily get the information about the topic and context of the video</documentation>
+      <input message='tns:youtubeContextRequestMessage' name='youtubeContextInput' />
+      <output message='tns:youtubeContextResponseMessage' name='youtubeContextOutput' />
+    </operation>
+  </portType>
+  <binding name='bracketpyBinding' type='tns:bracketpyPortType'>
+    <operation name='classifyText'>
+      <soap12:operation soapAction='http://classifyText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='classifyUrl'>
+      <soap12:operation soapAction='http://classifyUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='classifyUrlDeepLearned'>
+      <soap12:operation soapAction='http://classifyUrlDeepLearned' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cleanTweets'>
+      <soap12:operation soapAction='http://cleanTweets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fetchUrls'>
+      <soap12:operation soapAction='http://fetchUrls' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSimilars'>
+      <soap12:operation soapAction='http://getSimilars' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSummaryFromPdf'>
+      <soap12:operation soapAction='http://getSummaryFromPdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='topicOfUrl'>
+      <soap12:operation soapAction='http://topicOfUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='urlSummary'>
+      <soap12:operation soapAction='http://urlSummary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='youtubeContext'>
+      <soap12:operation soapAction='http://youtubeContext' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bracketpy'>
+    <documentation>bracketPy can help you build innovative applications which can leverage the power of natural language processing and machine learning It enables you to retrieve information from web and build predictive models topic models and recommendation engines</documentation>
+    <port name='bracketpyPort' binding='tns:bracketpyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bracketpy' />
+    </port>
+  </service>
+</definitions>

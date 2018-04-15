@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textkingTranslation/' name='textkingTranslation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textkingTranslation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textkingTranslation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textkingTranslation/'>
+      <xsd:element name='createJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is_active' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='words' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='briefing' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createProjectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='affiliate_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='due_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='vat' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='billing_address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='discount_customer' type='xsd:int' minOccurs='0' />
+            <xsd:element name='coupon_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='coupon_value' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='discount_project' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='price_per_word' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='total_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteProjectParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteProjectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='price_per_word' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='total_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadSourceDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadSourceDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadTranslatedDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadTranslatedDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is_active' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='words' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='briefing' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLanguageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLanguageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='localization_language' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPriceInfoForDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='words' type='xsd:int' minOccurs='0' />
+            <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='prices' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_per_word' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='total_price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPriceInfoForWordCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sourcelanguage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='targetlanguage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='topic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='words' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPriceInfoForWordCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='words' type='xsd:int' minOccurs='0' />
+            <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='prices' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_per_word' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='total_price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProjectParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProjectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='affiliate_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='due_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='vat' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='billing_address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='discount_customer' type='xsd:int' minOccurs='0' />
+            <xsd:element name='coupon_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='coupon_value' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='discount_project' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTopicParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='topicid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTopicResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='localization_language' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAProjectSJobsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAProjectSJobsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='is_active' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='words' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='briefing' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='links' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listProjectsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listProjectsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSourceLanguagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSourceLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='links' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='localization_language' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTargetLanguagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTargetLanguagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='links' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='localization_language' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTopicsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='perpage' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTopicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='links' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='localization_language' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateJobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateJobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is_active' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='source_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='target_language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='words' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='briefing' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='topic' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateProjectParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateProjectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='affiliate_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='due_date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='vat' type='xsd:int' minOccurs='0' />
+            <xsd:element name='net_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='billing_address' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='discount_customer' type='xsd:int' minOccurs='0' />
+            <xsd:element name='coupon_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='coupon_value' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='discount_project' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='links' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rel' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadSourceDocumentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='documentname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='jobid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='projectid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadSourceDocumentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='price_per_word' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='total_price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createJobRequestMessage'>
+    <part name='parameters' element='tns:createJobParameters' />
+  </message>
+  <message name='createJobResponseMessage'>
+    <part name='response' element='tns:createJobResponse' />
+  </message>
+  <message name='createProjectRequestMessage' />
+  <message name='createProjectResponseMessage'>
+    <part name='response' element='tns:createProjectResponse' />
+  </message>
+  <message name='deleteJobRequestMessage'>
+    <part name='parameters' element='tns:deleteJobParameters' />
+  </message>
+  <message name='deleteJobResponseMessage'>
+    <part name='response' element='tns:deleteJobResponse' />
+  </message>
+  <message name='deleteProjectRequestMessage'>
+    <part name='parameters' element='tns:deleteProjectParameters' />
+  </message>
+  <message name='deleteProjectResponseMessage'>
+    <part name='response' element='tns:deleteProjectResponse' />
+  </message>
+  <message name='downloadSourceDocumentRequestMessage'>
+    <part name='parameters' element='tns:downloadSourceDocumentParameters' />
+  </message>
+  <message name='downloadSourceDocumentResponseMessage'>
+    <part name='response' element='tns:downloadSourceDocumentResponse' />
+  </message>
+  <message name='downloadTranslatedDocumentRequestMessage'>
+    <part name='parameters' element='tns:downloadTranslatedDocumentParameters' />
+  </message>
+  <message name='downloadTranslatedDocumentResponseMessage'>
+    <part name='response' element='tns:downloadTranslatedDocumentResponse' />
+  </message>
+  <message name='getJobRequestMessage'>
+    <part name='parameters' element='tns:getJobParameters' />
+  </message>
+  <message name='getJobResponseMessage'>
+    <part name='response' element='tns:getJobResponse' />
+  </message>
+  <message name='getLanguageRequestMessage'>
+    <part name='parameters' element='tns:getLanguageParameters' />
+  </message>
+  <message name='getLanguageResponseMessage'>
+    <part name='response' element='tns:getLanguageResponse' />
+  </message>
+  <message name='getPriceInfoForDocumentRequestMessage' />
+  <message name='getPriceInfoForDocumentResponseMessage'>
+    <part name='response' element='tns:getPriceInfoForDocumentResponse' />
+  </message>
+  <message name='getPriceInfoForWordCountRequestMessage'>
+    <part name='parameters' element='tns:getPriceInfoForWordCountParameters' />
+  </message>
+  <message name='getPriceInfoForWordCountResponseMessage'>
+    <part name='response' element='tns:getPriceInfoForWordCountResponse' />
+  </message>
+  <message name='getProjectRequestMessage'>
+    <part name='parameters' element='tns:getProjectParameters' />
+  </message>
+  <message name='getProjectResponseMessage'>
+    <part name='response' element='tns:getProjectResponse' />
+  </message>
+  <message name='getTopicRequestMessage'>
+    <part name='parameters' element='tns:getTopicParameters' />
+  </message>
+  <message name='getTopicResponseMessage'>
+    <part name='response' element='tns:getTopicResponse' />
+  </message>
+  <message name='listAProjectSJobsRequestMessage'>
+    <part name='parameters' element='tns:listAProjectSJobsParameters' />
+  </message>
+  <message name='listAProjectSJobsResponseMessage'>
+    <part name='response' element='tns:listAProjectSJobsResponse' />
+  </message>
+  <message name='listProjectsRequestMessage'>
+    <part name='parameters' element='tns:listProjectsParameters' />
+  </message>
+  <message name='listProjectsResponseMessage'>
+    <part name='response' element='tns:listProjectsResponse' />
+  </message>
+  <message name='listSourceLanguagesRequestMessage'>
+    <part name='parameters' element='tns:listSourceLanguagesParameters' />
+  </message>
+  <message name='listSourceLanguagesResponseMessage'>
+    <part name='response' element='tns:listSourceLanguagesResponse' />
+  </message>
+  <message name='listTargetLanguagesRequestMessage'>
+    <part name='parameters' element='tns:listTargetLanguagesParameters' />
+  </message>
+  <message name='listTargetLanguagesResponseMessage'>
+    <part name='response' element='tns:listTargetLanguagesResponse' />
+  </message>
+  <message name='listTopicsRequestMessage'>
+    <part name='parameters' element='tns:listTopicsParameters' />
+  </message>
+  <message name='listTopicsResponseMessage'>
+    <part name='response' element='tns:listTopicsResponse' />
+  </message>
+  <message name='updateJobRequestMessage'>
+    <part name='parameters' element='tns:updateJobParameters' />
+  </message>
+  <message name='updateJobResponseMessage'>
+    <part name='response' element='tns:updateJobResponse' />
+  </message>
+  <message name='updateProjectRequestMessage'>
+    <part name='parameters' element='tns:updateProjectParameters' />
+  </message>
+  <message name='updateProjectResponseMessage'>
+    <part name='response' element='tns:updateProjectResponse' />
+  </message>
+  <message name='uploadSourceDocumentRequestMessage'>
+    <part name='parameters' element='tns:uploadSourceDocumentParameters' />
+  </message>
+  <message name='uploadSourceDocumentResponseMessage'>
+    <part name='response' element='tns:uploadSourceDocumentResponse' />
+  </message>
+  <portType name='textkingTranslationPortType'>
+    <operation name='createJob'>
+      <documentation>creates a new job for a project and returns the result</documentation>
+      <input message='tns:createJobRequestMessage' name='createJobInput' />
+      <output message='tns:createJobResponseMessage' name='createJobOutput' />
+    </operation>
+    <operation name='createProject'>
+      <documentation>creates a new project and returns the result</documentation>
+      <input message='tns:createProjectRequestMessage' name='createProjectInput' />
+      <output message='tns:createProjectResponseMessage' name='createProjectOutput' />
+    </operation>
+    <operation name='deleteJob'>
+      <documentation>deletes an existing job with the given ID</documentation>
+      <input message='tns:deleteJobRequestMessage' name='deleteJobInput' />
+      <output message='tns:deleteJobResponseMessage' name='deleteJobOutput' />
+    </operation>
+    <operation name='deleteProject'>
+      <documentation>deletes an existing project with the given ID Only projects in the state prepared can be deleted</documentation>
+      <input message='tns:deleteProjectRequestMessage' name='deleteProjectInput' />
+      <output message='tns:deleteProjectResponseMessage' name='deleteProjectOutput' />
+    </operation>
+    <operation name='downloadSourceDocument'>
+      <documentation>downloads the source document for a job</documentation>
+      <input message='tns:downloadSourceDocumentRequestMessage' name='downloadSourceDocumentInput' />
+      <output message='tns:downloadSourceDocumentResponseMessage' name='downloadSourceDocumentOutput' />
+    </operation>
+    <operation name='downloadTranslatedDocument'>
+      <documentation>downloads the translated document for a job</documentation>
+      <input message='tns:downloadTranslatedDocumentRequestMessage' name='downloadTranslatedDocumentInput' />
+      <output message='tns:downloadTranslatedDocumentResponseMessage' name='downloadTranslatedDocumentOutput' />
+    </operation>
+    <operation name='getJob'>
+      <documentation>returns a single job with the given ID</documentation>
+      <input message='tns:getJobRequestMessage' name='getJobInput' />
+      <output message='tns:getJobResponseMessage' name='getJobOutput' />
+    </operation>
+    <operation name='getLanguage'>
+      <documentation>returns a single language with the given ISO language code</documentation>
+      <input message='tns:getLanguageRequestMessage' name='getLanguageInput' />
+      <output message='tns:getLanguageResponseMessage' name='getLanguageOutput' />
+    </operation>
+    <operation name='getPriceInfoForDocument'>
+      <documentation>return price information for a document</documentation>
+      <input message='tns:getPriceInfoForDocumentRequestMessage' name='getPriceInfoForDocumentInput' />
+      <output message='tns:getPriceInfoForDocumentResponseMessage' name='getPriceInfoForDocumentOutput' />
+    </operation>
+    <operation name='getPriceInfoForWordCount'>
+      <documentation>returns price information for a specific number of words for all available quality levels</documentation>
+      <input message='tns:getPriceInfoForWordCountRequestMessage' name='getPriceInfoForWordCountInput' />
+      <output message='tns:getPriceInfoForWordCountResponseMessage' name='getPriceInfoForWordCountOutput' />
+    </operation>
+    <operation name='getProject'>
+      <documentation>returns a single project with the given ID</documentation>
+      <input message='tns:getProjectRequestMessage' name='getProjectInput' />
+      <output message='tns:getProjectResponseMessage' name='getProjectOutput' />
+    </operation>
+    <operation name='getTopic'>
+      <documentation>returns a single topic area with the given ID</documentation>
+      <input message='tns:getTopicRequestMessage' name='getTopicInput' />
+      <output message='tns:getTopicResponseMessage' name='getTopicOutput' />
+    </operation>
+    <operation name='listAProjectSJobs'>
+      <documentation>returns a collection of jobs for a project</documentation>
+      <input message='tns:listAProjectSJobsRequestMessage' name='listAProjectSJobsInput' />
+      <output message='tns:listAProjectSJobsResponseMessage' name='listAProjectSJobsOutput' />
+    </operation>
+    <operation name='listProjects'>
+      <documentation>returns a collection of projects of the authorized customer</documentation>
+      <input message='tns:listProjectsRequestMessage' name='listProjectsInput' />
+      <output message='tns:listProjectsResponseMessage' name='listProjectsOutput' />
+    </operation>
+    <operation name='listSourceLanguages'>
+      <documentation>returns a collection of all source languages supported by TEXTKING</documentation>
+      <input message='tns:listSourceLanguagesRequestMessage' name='listSourceLanguagesInput' />
+      <output message='tns:listSourceLanguagesResponseMessage' name='listSourceLanguagesOutput' />
+    </operation>
+    <operation name='listTargetLanguages'>
+      <documentation></documentation>
+      <input message='tns:listTargetLanguagesRequestMessage' name='listTargetLanguagesInput' />
+      <output message='tns:listTargetLanguagesResponseMessage' name='listTargetLanguagesOutput' />
+    </operation>
+    <operation name='listTopics'>
+      <documentation>returns a collection of all available topics</documentation>
+      <input message='tns:listTopicsRequestMessage' name='listTopicsInput' />
+      <output message='tns:listTopicsResponseMessage' name='listTopicsOutput' />
+    </operation>
+    <operation name='updateJob'>
+      <documentation>updates an existing job with the given ID</documentation>
+      <input message='tns:updateJobRequestMessage' name='updateJobInput' />
+      <output message='tns:updateJobResponseMessage' name='updateJobOutput' />
+    </operation>
+    <operation name='updateProject'>
+      <documentation>updates an existing project with the given ID or changes its state</documentation>
+      <input message='tns:updateProjectRequestMessage' name='updateProjectInput' />
+      <output message='tns:updateProjectResponseMessage' name='updateProjectOutput' />
+    </operation>
+    <operation name='uploadSourceDocument'>
+      <documentation>uploads the source document for a job</documentation>
+      <input message='tns:uploadSourceDocumentRequestMessage' name='uploadSourceDocumentInput' />
+      <output message='tns:uploadSourceDocumentResponseMessage' name='uploadSourceDocumentOutput' />
+    </operation>
+  </portType>
+  <binding name='textkingTranslationBinding' type='tns:textkingTranslationPortType'>
+    <operation name='createJob'>
+      <soap12:operation soapAction='http://createJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createProject'>
+      <soap12:operation soapAction='http://createProject' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteJob'>
+      <soap12:operation soapAction='http://deleteJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteProject'>
+      <soap12:operation soapAction='http://deleteProject' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadSourceDocument'>
+      <soap12:operation soapAction='http://downloadSourceDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadTranslatedDocument'>
+      <soap12:operation soapAction='http://downloadTranslatedDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getJob'>
+      <soap12:operation soapAction='http://getJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLanguage'>
+      <soap12:operation soapAction='http://getLanguage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPriceInfoForDocument'>
+      <soap12:operation soapAction='http://getPriceInfoForDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPriceInfoForWordCount'>
+      <soap12:operation soapAction='http://getPriceInfoForWordCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getProject'>
+      <soap12:operation soapAction='http://getProject' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTopic'>
+      <soap12:operation soapAction='http://getTopic' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAProjectSJobs'>
+      <soap12:operation soapAction='http://listAProjectSJobs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listProjects'>
+      <soap12:operation soapAction='http://listProjects' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listSourceLanguages'>
+      <soap12:operation soapAction='http://listSourceLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTargetLanguages'>
+      <soap12:operation soapAction='http://listTargetLanguages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTopics'>
+      <soap12:operation soapAction='http://listTopics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateJob'>
+      <soap12:operation soapAction='http://updateJob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateProject'>
+      <soap12:operation soapAction='http://updateProject' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadSourceDocument'>
+      <soap12:operation soapAction='http://uploadSourceDocument' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textkingTranslation'>
+    <documentation>the TEXTKING Translation API is a RESTful web service to access and manage translation projects on https www textking com You can use the translation API to integrate high quality human translation into your own software and streamline your translation workflow</documentation>
+    <port name='textkingTranslationPort' binding='tns:textkingTranslationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textkingTranslation' />
+    </port>
+  </service>
+</definitions>

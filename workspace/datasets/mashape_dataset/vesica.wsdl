@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vesica/' name='vesica' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vesica/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vesica/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vesica/'>
+      <xsd:element name='collectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='collectionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pieceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pieceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='piecesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='collectionRequestMessage'>
+    <part name='parameters' element='tns:collectionParameters' />
+  </message>
+  <message name='collectionResponseMessage'>
+    <part name='response' element='tns:collectionResponse' />
+  </message>
+  <message name='collectionsRequestMessage' />
+  <message name='collectionsResponseMessage'>
+    <part name='response' element='tns:collectionsResponse' />
+  </message>
+  <message name='pieceRequestMessage'>
+    <part name='parameters' element='tns:pieceParameters' />
+  </message>
+  <message name='pieceResponseMessage'>
+    <part name='response' element='tns:pieceResponse' />
+  </message>
+  <message name='piecesRequestMessage' />
+  <message name='piecesResponseMessage'>
+    <part name='response' element='tns:piecesResponse' />
+  </message>
+  <portType name='vesicaPortType'>
+    <operation name='collection'>
+      <documentation>a summary of the pieces in a specific collection</documentation>
+      <input message='tns:collectionRequestMessage' name='collectionInput' />
+      <output message='tns:collectionResponseMessage' name='collectionOutput' />
+    </operation>
+    <operation name='collections'>
+      <documentation>to see all the collections in your account and a summary of pieces in those collections</documentation>
+      <input message='tns:collectionsRequestMessage' name='collectionsInput' />
+      <output message='tns:collectionsResponseMessage' name='collectionsOutput' />
+    </operation>
+    <operation name='piece'>
+      <documentation>to see all details of piece number</documentation>
+      <input message='tns:pieceRequestMessage' name='pieceInput' />
+      <output message='tns:pieceResponseMessage' name='pieceOutput' />
+    </operation>
+    <operation name='pieces'>
+      <documentation>to see a summary all the pieces in your account default maximum at a time</documentation>
+      <input message='tns:piecesRequestMessage' name='piecesInput' />
+      <output message='tns:piecesResponseMessage' name='piecesOutput' />
+    </operation>
+  </portType>
+  <binding name='vesicaBinding' type='tns:vesicaPortType'>
+    <operation name='collection'>
+      <soap12:operation soapAction='http://collection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='collections'>
+      <soap12:operation soapAction='http://collections' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='piece'>
+      <soap12:operation soapAction='http://piece' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pieces'>
+      <soap12:operation soapAction='http://pieces' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vesica'>
+    <documentation>collection management software for museums and heritage organisations An end to end collection management application Vesica can help museums and heritage organisations document manage preserve and monetize collections Using Vesica is easy and can lead to substantial financial savings</documentation>
+    <port name='vesicaPort' binding='tns:vesicaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vesica' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/faceDetectionAndFacialFeatures/' name='faceDetectionAndFacialFeatures' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/faceDetectionAndFacialFeatures/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/faceDetectionAndFacialFeatures/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/faceDetectionAndFacialFeatures/'>
+      <xsd:element name='faceDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='faceDetectionRequestMessage' />
+  <message name='faceDetectionResponseMessage'>
+    <part name='response' element='tns:faceDetectionResponse' />
+  </message>
+  <portType name='faceDetectionAndFacialFeaturesPortType'>
+    <operation name='faceDetection'>
+      <documentation>use this API to detect face s in images NOTE API accepts JSON and XML encoded posts</documentation>
+      <input message='tns:faceDetectionRequestMessage' name='faceDetectionInput' />
+      <output message='tns:faceDetectionResponseMessage' name='faceDetectionOutput' />
+    </operation>
+  </portType>
+  <binding name='faceDetectionAndFacialFeaturesBinding' type='tns:faceDetectionAndFacialFeaturesPortType'>
+    <operation name='faceDetection'>
+      <soap12:operation soapAction='http://faceDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='faceDetectionAndFacialFeatures'>
+    <documentation>a better Face detection service Provides coordinates for all faces detected and associated facial features such as eyes nose mouth skin tone and hair color This API also returns several biometric features still in development to include gender race and age estimation</documentation>
+    <port name='faceDetectionAndFacialFeaturesPort' binding='tns:faceDetectionAndFacialFeaturesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://faceDetectionAndFacialFeatures' />
+    </port>
+  </service>
+</definitions>

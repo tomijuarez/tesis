@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jokes/' name='jokes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jokes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jokes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jokes/'>
+      <xsd:element name='findJokesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='keywords' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minrating' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='numjokes' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findJokesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='joke' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getARandomJokeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='maxlength' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getARandomJokeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:string' minOccurs='0' />
+            <xsd:element name='joke' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getARandomOneLinerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='insultSomebodyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='content' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='insultSomebodyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='praiseSomebodyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='content' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='praiseSomebodyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findJokesRequestMessage'>
+    <part name='parameters' element='tns:findJokesParameters' />
+  </message>
+  <message name='findJokesResponseMessage'>
+    <part name='response' element='tns:findJokesResponse' />
+  </message>
+  <message name='getARandomJokeRequestMessage'>
+    <part name='parameters' element='tns:getARandomJokeParameters' />
+  </message>
+  <message name='getARandomJokeResponseMessage'>
+    <part name='response' element='tns:getARandomJokeResponse' />
+  </message>
+  <message name='getARandomOneLinerRequestMessage' />
+  <message name='getARandomOneLinerResponseMessage'>
+    <part name='response' element='tns:getARandomOneLinerResponse' />
+  </message>
+  <message name='insultSomebodyRequestMessage'>
+    <part name='parameters' element='tns:insultSomebodyParameters' />
+  </message>
+  <message name='insultSomebodyResponseMessage'>
+    <part name='response' element='tns:insultSomebodyResponse' />
+  </message>
+  <message name='praiseSomebodyRequestMessage'>
+    <part name='parameters' element='tns:praiseSomebodyParameters' />
+  </message>
+  <message name='praiseSomebodyResponseMessage'>
+    <part name='response' element='tns:praiseSomebodyResponse' />
+  </message>
+  <portType name='jokesPortType'>
+    <operation name='findJokes'>
+      <documentation>find jokes with given search criteria</documentation>
+      <input message='tns:findJokesRequestMessage' name='findJokesInput' />
+      <output message='tns:findJokesResponseMessage' name='findJokesOutput' />
+    </operation>
+    <operation name='getARandomJoke'>
+      <documentation>get a random joke</documentation>
+      <input message='tns:getARandomJokeRequestMessage' name='getARandomJokeInput' />
+      <output message='tns:getARandomJokeResponseMessage' name='getARandomJokeOutput' />
+    </operation>
+    <operation name='getARandomOneLiner'>
+      <documentation>get a random one liner This is usually a funny quote or an interesting observation</documentation>
+      <input message='tns:getARandomOneLinerRequestMessage' name='getARandomOneLinerInput' />
+      <output message='tns:getARandomOneLinerResponseMessage' name='getARandomOneLinerOutput' />
+    </operation>
+    <operation name='insultSomebody'>
+      <documentation>insult a person that deserves to be insulted</documentation>
+      <input message='tns:insultSomebodyRequestMessage' name='insultSomebodyInput' />
+      <output message='tns:insultSomebodyResponseMessage' name='insultSomebodyOutput' />
+    </operation>
+    <operation name='praiseSomebody'>
+      <documentation>praise a person that deserves to be praised with random phrases</documentation>
+      <input message='tns:praiseSomebodyRequestMessage' name='praiseSomebodyInput' />
+      <output message='tns:praiseSomebodyResponseMessage' name='praiseSomebodyOutput' />
+    </operation>
+  </portType>
+  <binding name='jokesBinding' type='tns:jokesPortType'>
+    <operation name='findJokes'>
+      <soap12:operation soapAction='http://findJokes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getARandomJoke'>
+      <soap12:operation soapAction='http://getARandomJoke' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getARandomOneLiner'>
+      <soap12:operation soapAction='http://getARandomOneLiner' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='insultSomebody'>
+      <soap12:operation soapAction='http://insultSomebody' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='praiseSomebody'>
+      <soap12:operation soapAction='http://praiseSomebody' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jokes'>
+    <documentation>the WebKnox Jokes API allows you to access over jokes from Knock Knock puns to Chuck Norris jokes you will find a lot to laugh about</documentation>
+    <port name='jokesPort' binding='tns:jokesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jokes' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/isItUp/' name='isItUp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/isItUp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/isItUp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/isItUp/'>
+      <xsd:element name='jsonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='jsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='port' type='xsd:int' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response_ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response_time' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='jsonRequestMessage'>
+    <part name='parameters' element='tns:jsonParameters' />
+  </message>
+  <message name='jsonResponseMessage'>
+    <part name='response' element='tns:jsonResponse' />
+  </message>
+  <message name='textRequestMessage'>
+    <part name='parameters' element='tns:textParameters' />
+  </message>
+  <message name='textResponseMessage'>
+    <part name='response' element='tns:textResponse' />
+  </message>
+  <portType name='isItUpPortType'>
+    <operation name='json'>
+      <documentation></documentation>
+      <input message='tns:jsonRequestMessage' name='jsonInput' />
+      <output message='tns:jsonResponseMessage' name='jsonOutput' />
+    </operation>
+    <operation name='text'>
+      <documentation></documentation>
+      <input message='tns:textRequestMessage' name='textInput' />
+      <output message='tns:textResponseMessage' name='textOutput' />
+    </operation>
+  </portType>
+  <binding name='isItUpBinding' type='tns:isItUpPortType'>
+    <operation name='json'>
+      <soap12:operation soapAction='http://json' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='text'>
+      <soap12:operation soapAction='http://text' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='isItUp'>
+    <documentation>allows you to check if a given website is up or down with various useful data</documentation>
+    <port name='isItUpPort' binding='tns:isItUpBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://isItUp' />
+    </port>
+  </service>
+</definitions>

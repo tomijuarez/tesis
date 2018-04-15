@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/collabinate/' name='collabinate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/collabinate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/collabinate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/collabinate/'>
+      <xsd:element name='createActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ignorecomments' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteCommentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteCommentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='followEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='followEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='followMultipleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='followMultipleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='comments' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='likes' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllFollowingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='take' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllFollowingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCommentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCommentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCommentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCommentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actor' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='image' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='published' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='object' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='target' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFeedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='comments' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='likes' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='take' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFeedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actor' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='image' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='published' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='object' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='target' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFollowersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='take' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFollowersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFollowingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFollowingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLikeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLikeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLikersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='take' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLikersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actor' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='image' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='published' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='object' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='target' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getStreamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='comments' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='likes' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='skip' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='take' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getStreamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actor' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='image' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='published' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='object' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='target' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='likeActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='likeActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postCommentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postCommentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unfollowEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unfollowEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unlikeActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unlikeActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateActivityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateActivityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actor' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verb' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='object' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='target' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='displayName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateCommentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='activityid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='commentid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entityid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateCommentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='objectType' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createActivityRequestMessage'>
+    <part name='parameters' element='tns:createActivityParameters' />
+  </message>
+  <message name='createActivityResponseMessage'>
+    <part name='response' element='tns:createActivityResponse' />
+  </message>
+  <message name='deleteActivityRequestMessage'>
+    <part name='parameters' element='tns:deleteActivityParameters' />
+  </message>
+  <message name='deleteActivityResponseMessage'>
+    <part name='response' element='tns:deleteActivityResponse' />
+  </message>
+  <message name='deleteCommentRequestMessage'>
+    <part name='parameters' element='tns:deleteCommentParameters' />
+  </message>
+  <message name='deleteCommentResponseMessage'>
+    <part name='response' element='tns:deleteCommentResponse' />
+  </message>
+  <message name='deleteEntityRequestMessage'>
+    <part name='parameters' element='tns:deleteEntityParameters' />
+  </message>
+  <message name='deleteEntityResponseMessage'>
+    <part name='response' element='tns:deleteEntityResponse' />
+  </message>
+  <message name='followEntityRequestMessage'>
+    <part name='parameters' element='tns:followEntityParameters' />
+  </message>
+  <message name='followEntityResponseMessage'>
+    <part name='response' element='tns:followEntityResponse' />
+  </message>
+  <message name='followMultipleRequestMessage'>
+    <part name='parameters' element='tns:followMultipleParameters' />
+  </message>
+  <message name='followMultipleResponseMessage'>
+    <part name='response' element='tns:followMultipleResponse' />
+  </message>
+  <message name='getActivityRequestMessage'>
+    <part name='parameters' element='tns:getActivityParameters' />
+  </message>
+  <message name='getActivityResponseMessage'>
+    <part name='response' element='tns:getActivityResponse' />
+  </message>
+  <message name='getAllFollowingRequestMessage'>
+    <part name='parameters' element='tns:getAllFollowingParameters' />
+  </message>
+  <message name='getAllFollowingResponseMessage'>
+    <part name='response' element='tns:getAllFollowingResponse' />
+  </message>
+  <message name='getCommentRequestMessage'>
+    <part name='parameters' element='tns:getCommentParameters' />
+  </message>
+  <message name='getCommentResponseMessage'>
+    <part name='response' element='tns:getCommentResponse' />
+  </message>
+  <message name='getCommentsRequestMessage'>
+    <part name='parameters' element='tns:getCommentsParameters' />
+  </message>
+  <message name='getCommentsResponseMessage'>
+    <part name='response' element='tns:getCommentsResponse' />
+  </message>
+  <message name='getEntityRequestMessage'>
+    <part name='parameters' element='tns:getEntityParameters' />
+  </message>
+  <message name='getEntityResponseMessage'>
+    <part name='response' element='tns:getEntityResponse' />
+  </message>
+  <message name='getFeedRequestMessage'>
+    <part name='parameters' element='tns:getFeedParameters' />
+  </message>
+  <message name='getFeedResponseMessage'>
+    <part name='response' element='tns:getFeedResponse' />
+  </message>
+  <message name='getFollowersRequestMessage'>
+    <part name='parameters' element='tns:getFollowersParameters' />
+  </message>
+  <message name='getFollowersResponseMessage'>
+    <part name='response' element='tns:getFollowersResponse' />
+  </message>
+  <message name='getFollowingRequestMessage'>
+    <part name='parameters' element='tns:getFollowingParameters' />
+  </message>
+  <message name='getFollowingResponseMessage'>
+    <part name='response' element='tns:getFollowingResponse' />
+  </message>
+  <message name='getLikeRequestMessage'>
+    <part name='parameters' element='tns:getLikeParameters' />
+  </message>
+  <message name='getLikeResponseMessage'>
+    <part name='response' element='tns:getLikeResponse' />
+  </message>
+  <message name='getLikersRequestMessage'>
+    <part name='parameters' element='tns:getLikersParameters' />
+  </message>
+  <message name='getLikersResponseMessage'>
+    <part name='response' element='tns:getLikersResponse' />
+  </message>
+  <message name='getStreamRequestMessage'>
+    <part name='parameters' element='tns:getStreamParameters' />
+  </message>
+  <message name='getStreamResponseMessage'>
+    <part name='response' element='tns:getStreamResponse' />
+  </message>
+  <message name='likeActivityRequestMessage'>
+    <part name='parameters' element='tns:likeActivityParameters' />
+  </message>
+  <message name='likeActivityResponseMessage'>
+    <part name='response' element='tns:likeActivityResponse' />
+  </message>
+  <message name='postCommentRequestMessage'>
+    <part name='parameters' element='tns:postCommentParameters' />
+  </message>
+  <message name='postCommentResponseMessage'>
+    <part name='response' element='tns:postCommentResponse' />
+  </message>
+  <message name='unfollowEntityRequestMessage'>
+    <part name='parameters' element='tns:unfollowEntityParameters' />
+  </message>
+  <message name='unfollowEntityResponseMessage'>
+    <part name='response' element='tns:unfollowEntityResponse' />
+  </message>
+  <message name='unlikeActivityRequestMessage'>
+    <part name='parameters' element='tns:unlikeActivityParameters' />
+  </message>
+  <message name='unlikeActivityResponseMessage'>
+    <part name='response' element='tns:unlikeActivityResponse' />
+  </message>
+  <message name='updateActivityRequestMessage'>
+    <part name='parameters' element='tns:updateActivityParameters' />
+  </message>
+  <message name='updateActivityResponseMessage'>
+    <part name='response' element='tns:updateActivityResponse' />
+  </message>
+  <message name='updateCommentRequestMessage'>
+    <part name='parameters' element='tns:updateCommentParameters' />
+  </message>
+  <message name='updateCommentResponseMessage'>
+    <part name='response' element='tns:updateCommentResponse' />
+  </message>
+  <portType name='collabinatePortType'>
+    <operation name='createActivity'>
+      <documentation>adds a single activity to the stream for an entity The posted data should be in the Activity Streams format http activitystrea ms specs json activity If it is not the data will be added to the content value of a newly created activity Note that the Collabinate system will generate an ID and add it to the activity If the activity already has an ID it will be moved to a metadata field Adding an activity with an existing ID should be performed via PUT Comments and likes contained in the activity will be processed by the system unless the URL query parameters ignoreComments true or ignoreLikes true are present</documentation>
+      <input message='tns:createActivityRequestMessage' name='createActivityInput' />
+      <output message='tns:createActivityResponseMessage' name='createActivityOutput' />
+    </operation>
+    <operation name='deleteActivity'>
+      <documentation>removes a single activity from a given stream All activity data is permanently deleted including associated comments and likes The continuity of the remaining stream is maintained</documentation>
+      <input message='tns:deleteActivityRequestMessage' name='deleteActivityInput' />
+      <output message='tns:deleteActivityResponseMessage' name='deleteActivityOutput' />
+    </operation>
+    <operation name='deleteComment'>
+      <documentation>removes a comment from a given activity</documentation>
+      <input message='tns:deleteCommentRequestMessage' name='deleteCommentInput' />
+      <output message='tns:deleteCommentResponseMessage' name='deleteCommentOutput' />
+    </operation>
+    <operation name='deleteEntity'>
+      <documentation>delete all data and relationships for an entity or user CAUTION This method can delete a large amount of unrecoverable data</documentation>
+      <input message='tns:deleteEntityRequestMessage' name='deleteEntityInput' />
+      <output message='tns:deleteEntityResponseMessage' name='deleteEntityOutput' />
+    </operation>
+    <operation name='followEntity'>
+      <documentation>adds the given entity to the list of entities that the given user follows This will create a one way relationship for a bi directional relationship a second call must be made reversing the entities The response body will contain an activity representing the follow Note that the first follow will return subsequent follows will return to indicate that the relationship already exists</documentation>
+      <input message='tns:followEntityRequestMessage' name='followEntityInput' />
+      <output message='tns:followEntityResponseMessage' name='followEntityOutput' />
+    </operation>
+    <operation name='followMultiple'>
+      <documentation>create a follow relationship between a user and a set of entities The id property of each object in the provided object collection will be used to create the follow relationship</documentation>
+      <input message='tns:followMultipleRequestMessage' name='followMultipleInput' />
+      <output message='tns:followMultipleResponseMessage' name='followMultipleOutput' />
+    </operation>
+    <operation name='getActivity'>
+      <documentation>returns a single activity within a given stream</documentation>
+      <input message='tns:getActivityRequestMessage' name='getActivityInput' />
+      <output message='tns:getActivityResponseMessage' name='getActivityOutput' />
+    </operation>
+    <operation name='getAllFollowing'>
+      <documentation>returns the set of entities followed by the given user</documentation>
+      <input message='tns:getAllFollowingRequestMessage' name='getAllFollowingInput' />
+      <output message='tns:getAllFollowingResponseMessage' name='getAllFollowingOutput' />
+    </operation>
+    <operation name='getComment'>
+      <documentation>gets a single comment on an activity</documentation>
+      <input message='tns:getCommentRequestMessage' name='getCommentInput' />
+      <output message='tns:getCommentResponseMessage' name='getCommentOutput' />
+    </operation>
+    <operation name='getComments'>
+      <documentation>retrieves the set of comments for a given activity</documentation>
+      <input message='tns:getCommentsRequestMessage' name='getCommentsInput' />
+      <output message='tns:getCommentsResponseMessage' name='getCommentsOutput' />
+    </operation>
+    <operation name='getEntity'>
+      <documentation>gets an ActivityStreamsObject representing an Entity or User</documentation>
+      <input message='tns:getEntityRequestMessage' name='getEntityInput' />
+      <output message='tns:getEntityResponseMessage' name='getEntityOutput' />
+    </operation>
+    <operation name='getFeed'>
+      <documentation>returns a set of activities for the entities followed by a user in reverse chronological order up to the amount in the take query variable starting at the activity in the position after the skip variable If not specified skip defaults to zero and take defaults to</documentation>
+      <input message='tns:getFeedRequestMessage' name='getFeedInput' />
+      <output message='tns:getFeedResponseMessage' name='getFeedOutput' />
+    </operation>
+    <operation name='getFollowers'>
+      <documentation>returns the set of users that follow the given entity</documentation>
+      <input message='tns:getFollowersRequestMessage' name='getFollowersInput' />
+      <output message='tns:getFollowersResponseMessage' name='getFollowersOutput' />
+    </operation>
+    <operation name='getFollowing'>
+      <documentation>returns a follow activity if the given user follows the given entity or a not found otherwise</documentation>
+      <input message='tns:getFollowingRequestMessage' name='getFollowingInput' />
+      <output message='tns:getFollowingResponseMessage' name='getFollowingOutput' />
+    </operation>
+    <operation name='getLike'>
+      <documentation>checks whether a like relationship exists between a user and a single activity</documentation>
+      <input message='tns:getLikeRequestMessage' name='getLikeInput' />
+      <output message='tns:getLikeResponseMessage' name='getLikeOutput' />
+    </operation>
+    <operation name='getLikers'>
+      <documentation>returns a set of users that like a given activity</documentation>
+      <input message='tns:getLikersRequestMessage' name='getLikersInput' />
+      <output message='tns:getLikersResponseMessage' name='getLikersOutput' />
+    </operation>
+    <operation name='getStream'>
+      <documentation>returns a set of activities for an entity in reverse chronological order up to the amount in the take query variable starting after the skipping the number of activities in the skip query variable If not specified skip defaults to zero and take defaults to</documentation>
+      <input message='tns:getStreamRequestMessage' name='getStreamInput' />
+      <output message='tns:getStreamResponseMessage' name='getStreamOutput' />
+    </operation>
+    <operation name='likeActivity'>
+      <documentation>creates a like relationship between a user and a single activity</documentation>
+      <input message='tns:likeActivityRequestMessage' name='likeActivityInput' />
+      <output message='tns:likeActivityResponseMessage' name='likeActivityOutput' />
+    </operation>
+    <operation name='postComment'>
+      <documentation>adds a comment to the given activity for the given entity A user can optionally be associated by adding a userId johndoe query parameter Note that the object type for the comment will be set to comment and any existing object type will be relocated Also note that an ID will be assigned to the comment and any existing ID will be relocated To specify an ID for the comment use PUT</documentation>
+      <input message='tns:postCommentRequestMessage' name='postCommentInput' />
+      <output message='tns:postCommentResponseMessage' name='postCommentOutput' />
+    </operation>
+    <operation name='unfollowEntity'>
+      <documentation>removes the given entity from the list of entities that the given user follows This will remove the relationship in one direction only for a bi directional relationship a second call must be made reversing the entities The response body will contain an activity representing the unfollow</documentation>
+      <input message='tns:unfollowEntityRequestMessage' name='unfollowEntityInput' />
+      <output message='tns:unfollowEntityResponseMessage' name='unfollowEntityOutput' />
+    </operation>
+    <operation name='unlikeActivity'>
+      <documentation>removes a like relationship between a user and a single activity</documentation>
+      <input message='tns:unlikeActivityRequestMessage' name='unlikeActivityInput' />
+      <output message='tns:unlikeActivityResponseMessage' name='unlikeActivityOutput' />
+    </operation>
+    <operation name='updateActivity'>
+      <documentation>creates or replaces a single activity within a given stream The data should be in the Activity Streams activity format http activitystrea ms specs json activity Comments and likes contained in the activity will be processed by the system unless the URL query parameters ignoreComments true or ignoreLikes true are present</documentation>
+      <input message='tns:updateActivityRequestMessage' name='updateActivityInput' />
+      <output message='tns:updateActivityResponseMessage' name='updateActivityOutput' />
+    </operation>
+    <operation name='updateComment'>
+      <documentation>creates or replaces a single comment within the stream of comments for a given entity A user can optionally be associated by adding a userId johndoe query parameter Note that the object type for the comment will be set to comment and any existing object type will be relocated</documentation>
+      <input message='tns:updateCommentRequestMessage' name='updateCommentInput' />
+      <output message='tns:updateCommentResponseMessage' name='updateCommentOutput' />
+    </operation>
+  </portType>
+  <binding name='collabinateBinding' type='tns:collabinatePortType'>
+    <operation name='createActivity'>
+      <soap12:operation soapAction='http://createActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteActivity'>
+      <soap12:operation soapAction='http://deleteActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteComment'>
+      <soap12:operation soapAction='http://deleteComment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteEntity'>
+      <soap12:operation soapAction='http://deleteEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='followEntity'>
+      <soap12:operation soapAction='http://followEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='followMultiple'>
+      <soap12:operation soapAction='http://followMultiple' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getActivity'>
+      <soap12:operation soapAction='http://getActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllFollowing'>
+      <soap12:operation soapAction='http://getAllFollowing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getComment'>
+      <soap12:operation soapAction='http://getComment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getComments'>
+      <soap12:operation soapAction='http://getComments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEntity'>
+      <soap12:operation soapAction='http://getEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getFeed'>
+      <soap12:operation soapAction='http://getFeed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getFollowers'>
+      <soap12:operation soapAction='http://getFollowers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getFollowing'>
+      <soap12:operation soapAction='http://getFollowing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLike'>
+      <soap12:operation soapAction='http://getLike' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLikers'>
+      <soap12:operation soapAction='http://getLikers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getStream'>
+      <soap12:operation soapAction='http://getStream' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='likeActivity'>
+      <soap12:operation soapAction='http://likeActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postComment'>
+      <soap12:operation soapAction='http://postComment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unfollowEntity'>
+      <soap12:operation soapAction='http://unfollowEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unlikeActivity'>
+      <soap12:operation soapAction='http://unlikeActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateActivity'>
+      <soap12:operation soapAction='http://updateActivity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateComment'>
+      <soap12:operation soapAction='http://updateComment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='collabinate'>
+    <documentation>collabinate provides an API for hosted activity streams allowing you to seamlessly build social feeds microblogging and collaboration into your application</documentation>
+    <port name='collabinatePort' binding='tns:collabinateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://collabinate' />
+    </port>
+  </service>
+</definitions>

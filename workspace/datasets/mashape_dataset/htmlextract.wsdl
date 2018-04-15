@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlExtract/' name='htmlExtract' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlExtract/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlExtract/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlExtract/'>
+      <xsd:element name='htmlExtractResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='values' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='htmlExtractRequestMessage' />
+  <message name='htmlExtractResponseMessage'>
+    <part name='response' element='tns:htmlExtractResponse' />
+  </message>
+  <portType name='htmlExtractPortType'>
+    <operation name='htmlExtract'>
+      <documentation></documentation>
+      <input message='tns:htmlExtractRequestMessage' name='htmlExtractInput' />
+      <output message='tns:htmlExtractResponseMessage' name='htmlExtractOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlExtractBinding' type='tns:htmlExtractPortType'>
+    <operation name='htmlExtract'>
+      <soap12:operation soapAction='http://htmlExtract' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlExtract'>
+    <documentation>extract HTML tag contents or attributes from HTML content</documentation>
+    <port name='htmlExtractPort' binding='tns:htmlExtractBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlExtract' />
+    </port>
+  </service>
+</definitions>

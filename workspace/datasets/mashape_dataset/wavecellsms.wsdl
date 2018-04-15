@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wavecellSms/' name='wavecellSms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wavecellSms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wavecellSms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wavecellSms/'>
+      <xsd:element name='smsMtSendSmsGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='body' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='destination' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='encoding' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='scheduleddatetime' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='subaccountid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='umid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsMtSendSmsGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsMtSendSmsPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='smsMtSendSmsGetRequestMessage'>
+    <part name='parameters' element='tns:smsMtSendSmsGetParameters' />
+  </message>
+  <message name='smsMtSendSmsGetResponseMessage'>
+    <part name='response' element='tns:smsMtSendSmsGetResponse' />
+  </message>
+  <message name='smsMtSendSmsPostRequestMessage' />
+  <message name='smsMtSendSmsPostResponseMessage'>
+    <part name='response' element='tns:smsMtSendSmsPostResponse' />
+  </message>
+  <portType name='wavecellSmsPortType'>
+    <operation name='smsMtSendSmsGet'>
+      <documentation>send a SMS message using Wavecell HTTP GET</documentation>
+      <input message='tns:smsMtSendSmsGetRequestMessage' name='smsMtSendSmsGetInput' />
+      <output message='tns:smsMtSendSmsGetResponseMessage' name='smsMtSendSmsGetOutput' />
+    </operation>
+    <operation name='smsMtSendSmsPost'>
+      <documentation>send a SMS messaging using Wavecell HTTP POST</documentation>
+      <input message='tns:smsMtSendSmsPostRequestMessage' name='smsMtSendSmsPostInput' />
+      <output message='tns:smsMtSendSmsPostResponseMessage' name='smsMtSendSmsPostOutput' />
+    </operation>
+  </portType>
+  <binding name='wavecellSmsBinding' type='tns:wavecellSmsPortType'>
+    <operation name='smsMtSendSmsGet'>
+      <soap12:operation soapAction='http://smsMtSendSmsGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='smsMtSendSmsPost'>
+      <soap12:operation soapAction='http://smsMtSendSmsPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wavecellSms'>
+    <documentation>wavecell SMS API allows registered users to send SMS worldwide using a simple fast and reliable HTTP API Send messages in minutes Get your free trial at http www wavecell com</documentation>
+    <port name='wavecellSmsPort' binding='tns:wavecellSmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wavecellSms' />
+    </port>
+  </service>
+</definitions>

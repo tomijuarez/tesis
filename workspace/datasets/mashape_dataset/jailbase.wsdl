@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jailbase/' name='jailbase' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jailbase/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jailbase/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jailbase/'>
+      <xsd:element name='recentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsoncallback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sourceid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='next_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='records' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='charges' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='book_date_formatted' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='mugshot' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='details' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:normalizedString' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='book_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='more_info_url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='total_records' type='xsd:int' minOccurs='0' />
+            <xsd:element name='current_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='firstname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='jsoncallback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='sourceid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='next_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='total_records' type='xsd:int' minOccurs='0' />
+            <xsd:element name='current_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sourcesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='jsoncallback' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sourcesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='records' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='state_full' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='has_mugshots' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='source_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='recentRequestMessage'>
+    <part name='parameters' element='tns:recentParameters' />
+  </message>
+  <message name='recentResponseMessage'>
+    <part name='response' element='tns:recentResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='sourcesRequestMessage'>
+    <part name='parameters' element='tns:sourcesParameters' />
+  </message>
+  <message name='sourcesResponseMessage'>
+    <part name='response' element='tns:sourcesResponse' />
+  </message>
+  <portType name='jailbasePortType'>
+    <operation name='recent'>
+      <documentation>get recent arrests</documentation>
+      <input message='tns:recentRequestMessage' name='recentInput' />
+      <output message='tns:recentResponseMessage' name='recentOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for individuals by name</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='sources'>
+      <documentation>all the organizations we collect information for</documentation>
+      <input message='tns:sourcesRequestMessage' name='sourcesInput' />
+      <output message='tns:sourcesResponseMessage' name='sourcesOutput' />
+    </operation>
+  </portType>
+  <binding name='jailbaseBinding' type='tns:jailbasePortType'>
+    <operation name='recent'>
+      <soap12:operation soapAction='http://recent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sources'>
+      <soap12:operation soapAction='http://sources' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jailbase'>
+    <documentation>jailBase provides mugshots and arrest information to the public for free We have an easy to use web api so your website or application can access our extensive county jail inmate data Using the API you can search for arrested and booked individuals in county jails The web service uses a REST interface to make calls and returns results in JSON JSONP is also supported Calls to the webservice do not require a developer key however they are rate limited see terms of use If you have questions or comments please contact us Use our api to search for county jail mugshots today</documentation>
+    <port name='jailbasePort' binding='tns:jailbaseBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jailbase' />
+    </port>
+  </service>
+</definitions>

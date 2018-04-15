@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/similarsites/' name='similarsites' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/similarsites/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/similarsites/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/similarsites/'>
+      <xsd:element name='simsitesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='simsitesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='similarDomains' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='similarity' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='wpadomainpower' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='simsitesRequestMessage'>
+    <part name='parameters' element='tns:simsitesParameters' />
+  </message>
+  <message name='simsitesResponseMessage'>
+    <part name='response' element='tns:simsitesResponse' />
+  </message>
+  <portType name='similarsitesPortType'>
+    <operation name='simsites'>
+      <documentation>find similar sites for a given domain</documentation>
+      <input message='tns:simsitesRequestMessage' name='simsitesInput' />
+      <output message='tns:simsitesResponseMessage' name='simsitesOutput' />
+    </operation>
+  </portType>
+  <binding name='similarsitesBinding' type='tns:similarsitesPortType'>
+    <operation name='simsites'>
+      <soap12:operation soapAction='http://simsites' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='similarsites'>
+    <documentation>similarsitecheck is a free and open search engine to find similar and related websites Our specially developed similarity algorithm Similarsitecheck helps to find alternative webpages We provide an API for developers or whoever would like to use our data It s free to get started using the API There is a rate limit of queries per day If you expect to exceed that please get in touch with us Input a domain and receive an output of similar websites with title description domainpower website language and their similarity score</documentation>
+    <port name='similarsitesPort' binding='tns:similarsitesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://similarsites' />
+    </port>
+  </service>
+</definitions>

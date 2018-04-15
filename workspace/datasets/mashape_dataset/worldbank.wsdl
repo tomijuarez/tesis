@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/worldbank/' name='worldbank' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/worldbank/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/worldbank/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/worldbank/'>
+      <xsd:element name='dataCatalogParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dataCatalogResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='datacatalog' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='metatype' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='pages' type='xsd:int' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dataCatalogRequestMessage'>
+    <part name='parameters' element='tns:dataCatalogParameters' />
+  </message>
+  <message name='dataCatalogResponseMessage'>
+    <part name='response' element='tns:dataCatalogResponse' />
+  </message>
+  <portType name='worldbankPortType'>
+    <operation name='dataCatalog'>
+      <documentation>the Data Catalog API provides programmatic access to the list of datasets in the World Bank s Open Data Catalog with associated metadata The users can query metadata for specific datasets and also retrieve datasets using various facets such as Economy Coverage Topics Periodicity and Access options</documentation>
+      <input message='tns:dataCatalogRequestMessage' name='dataCatalogInput' />
+      <output message='tns:dataCatalogResponseMessage' name='dataCatalogOutput' />
+    </operation>
+  </portType>
+  <binding name='worldbankBinding' type='tns:worldbankPortType'>
+    <operation name='dataCatalog'>
+      <soap12:operation soapAction='http://dataCatalog' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='worldbank'>
+    <documentation>the World Bank Group has set two goals for the world to achieve by End extreme poverty by decreasing the percentage of people living on less than a day to no more than Promote shared prosperity by fostering the income growth of the bottom for every country The World Bank is a vital source of financial and technical assistance to developing countries around the world We are not a bank in the ordinary sense but a unique partnership to reduce poverty and support development The World Bank Group comprises five institutions managed by their member countries Established in the World Bank Group is headquartered in Washington D C We have more than employees in more than offices worldwide</documentation>
+    <port name='worldbankPort' binding='tns:worldbankBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://worldbank' />
+    </port>
+  </service>
+</definitions>

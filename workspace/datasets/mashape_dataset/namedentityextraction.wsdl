@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/namedEntityExtraction/' name='namedEntityExtraction' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/namedEntityExtraction/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/namedEntityExtraction/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/namedEntityExtraction/'>
+      <xsd:element name='apiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='n1_key' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='n1_line' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiRequestMessage' />
+  <message name='apiResponseMessage'>
+    <part name='response' element='tns:apiResponse' />
+  </message>
+  <portType name='namedEntityExtractionPortType'>
+    <operation name='api'>
+      <documentation>pOST API for extracting keywords from text</documentation>
+      <input message='tns:apiRequestMessage' name='apiInput' />
+      <output message='tns:apiResponseMessage' name='apiOutput' />
+    </operation>
+  </portType>
+  <binding name='namedEntityExtractionBinding' type='tns:namedEntityExtractionPortType'>
+    <operation name='api'>
+      <soap12:operation soapAction='http://api' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='namedEntityExtraction'>
+    <documentation>aPI to extract NER and Key words from text by NaturalText com</documentation>
+    <port name='namedEntityExtractionPort' binding='tns:namedEntityExtractionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://namedEntityExtraction' />
+    </port>
+  </service>
+</definitions>

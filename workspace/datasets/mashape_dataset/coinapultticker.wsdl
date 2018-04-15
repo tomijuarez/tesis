@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/coinapultTicker/' name='coinapultTicker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/coinapultTicker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/coinapultTicker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/coinapultTicker/'>
+      <xsd:element name='tickerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='market' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tickerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='tickerRequestMessage'>
+    <part name='parameters' element='tns:tickerParameters' />
+  </message>
+  <message name='tickerResponseMessage'>
+    <part name='response' element='tns:tickerResponse' />
+  </message>
+  <portType name='coinapultTickerPortType'>
+    <operation name='ticker'>
+      <documentation></documentation>
+      <input message='tns:tickerRequestMessage' name='tickerInput' />
+      <output message='tns:tickerResponseMessage' name='tickerOutput' />
+    </operation>
+  </portType>
+  <binding name='coinapultTickerBinding' type='tns:coinapultTickerPortType'>
+    <operation name='ticker'>
+      <soap12:operation soapAction='http://ticker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='coinapultTicker'>
+    <documentation>a bitcoin ticker that provides the Coinapult Index Price and more</documentation>
+    <port name='coinapultTickerPort' binding='tns:coinapultTickerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://coinapultTicker' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dummyData/' name='dummyData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dummyData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dummyData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dummyData/'>
+      <xsd:element name='businessParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='businessResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tagline' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='personParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='personResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='fullName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='businessRequestMessage'>
+    <part name='parameters' element='tns:businessParameters' />
+  </message>
+  <message name='businessResponseMessage'>
+    <part name='response' element='tns:businessResponse' />
+  </message>
+  <message name='personRequestMessage'>
+    <part name='parameters' element='tns:personParameters' />
+  </message>
+  <message name='personResponseMessage'>
+    <part name='response' element='tns:personResponse' />
+  </message>
+  <portType name='dummyDataPortType'>
+    <operation name='business'>
+      <documentation>generate dummy business information</documentation>
+      <input message='tns:businessRequestMessage' name='businessInput' />
+      <output message='tns:businessResponseMessage' name='businessOutput' />
+    </operation>
+    <operation name='person'>
+      <documentation>generate dummy contact information</documentation>
+      <input message='tns:personRequestMessage' name='personInput' />
+      <output message='tns:personResponseMessage' name='personOutput' />
+    </operation>
+  </portType>
+  <binding name='dummyDataBinding' type='tns:dummyDataPortType'>
+    <operation name='business'>
+      <soap12:operation soapAction='http://business' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='person'>
+      <soap12:operation soapAction='http://person' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dummyData'>
+    <documentation>generates dummy data for filling up databases responsive web designs or whatever else you need filler text for</documentation>
+    <port name='dummyDataPort' binding='tns:dummyDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dummyData' />
+    </port>
+  </service>
+</definitions>

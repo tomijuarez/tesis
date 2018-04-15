@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sendwithus/' name='sendwithus' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sendwithus/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sendwithus/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sendwithus/'>
+      <xsd:element name='sendAnEmailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='receipt_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='version_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendAnEmailRequestMessage' />
+  <message name='sendAnEmailResponseMessage'>
+    <part name='response' element='tns:sendAnEmailResponse' />
+  </message>
+  <portType name='sendwithusPortType'>
+    <operation name='sendAnEmail'>
+      <documentation>to send an email you create a new API object You need to provide your unique API key to create this new object When sending an email you need to specify an email template Email templates are identified by a unique email template ID</documentation>
+      <input message='tns:sendAnEmailRequestMessage' name='sendAnEmailInput' />
+      <output message='tns:sendAnEmailResponseMessage' name='sendAnEmailOutput' />
+    </operation>
+  </portType>
+  <binding name='sendwithusBinding' type='tns:sendwithusPortType'>
+    <operation name='sendAnEmail'>
+      <soap12:operation soapAction='http://sendAnEmail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sendwithus'>
+    <documentation>sendwithus aims to bring optimization and A B testing to marketers and anyone else sending out targeted promotional emails</documentation>
+    <port name='sendwithusPort' binding='tns:sendwithusBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sendwithus' />
+    </port>
+  </service>
+</definitions>

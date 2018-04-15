@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/yugiohPrices/' name='yugiohPrices' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/yugiohPrices/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/yugiohPrices/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/yugiohPrices/'>
+      <xsd:element name='cardDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cardDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='def' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='level' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='property' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='atk' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='family' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cardVersionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cardVersionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='print_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCardImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCardImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSetImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='setname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSetImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='identifyCardImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:string' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='priceHistoryForSpecificVersionOfACardParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardnumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='priceHistoryForSpecificVersionOfACardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_shift' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='price_average' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pricesForAllVersionsOfACardParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pricesForAllVersionsOfACardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='print_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price_data' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='data' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='listings' maxOccurs='unbounded'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                                    <xsd:element name='merchant' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='details' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='condition' type='xsd:int' minOccurs='0' />
+                                          <xsd:element name='is_first' type='xsd:boolean' minOccurs='0' />
+                                          <xsd:element name='is_limited' type='xsd:boolean' minOccurs='0' />
+                                          <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name='weights' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='edition_weight' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='merchant_weight' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='rarity_weight' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='condition_weight' type='xsd:decimal' minOccurs='0' />
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name='is_multiple' type='xsd:boolean' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='prices' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='high' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='updated_at' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='low' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='shift_30' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='shift_7' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='shift_365' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='shift' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='shift_3' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='shift_90' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='shift_180' type='xsd:decimal' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pricesForSpecificVersionOfACardParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='printtag' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pricesForSpecificVersionOfACardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_data' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='print_tag' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='price_data' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='data' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='prices' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='high' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='updated_at' type='xsd:string' minOccurs='0' />
+                                          <xsd:element name='low' type='xsd:int' minOccurs='0' />
+                                          <xsd:element name='shift_30' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='shift_7' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='shift_365' type='xsd:int' minOccurs='0' />
+                                          <xsd:element name='shift' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='shift_3' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='shift_90' type='xsd:decimal' minOccurs='0' />
+                                          <xsd:element name='shift_180' type='xsd:decimal' minOccurs='0' />
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='property' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='family' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveCardSetDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='setname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveCardSetDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rarities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='Secret_Rare' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='cards' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='numbers' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='print_tag' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='price_data' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='data' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='prices' minOccurs='0'>
+                                            <xsd:complexType>
+                                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='high' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='updated_at' type='xsd:string' minOccurs='0' />
+                                                <xsd:element name='low' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_30' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_7' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_365' type='xsd:int' minOccurs='0' />
+                                                <xsd:element name='shift' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_3' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_90' type='xsd:decimal' minOccurs='0' />
+                                                <xsd:element name='shift_180' type='xsd:decimal' minOccurs='0' />
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='property' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='card_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='family' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='highest' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='tcg_booster_values' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='high' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='low' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='lowest' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='risingAndFallingCardListsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='falling' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='price_shift' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='card_number' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='card_set' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rising' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='price_shift' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='card_number' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='card_set' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendImageTrainingDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='supportCardsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='supportCardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topMostExpensiveCardsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rarity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='topMostExpensiveCardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='price_shift' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='card_number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='card_set' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rarity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cardDataRequestMessage'>
+    <part name='parameters' element='tns:cardDataParameters' />
+  </message>
+  <message name='cardDataResponseMessage'>
+    <part name='response' element='tns:cardDataResponse' />
+  </message>
+  <message name='cardVersionsRequestMessage'>
+    <part name='parameters' element='tns:cardVersionsParameters' />
+  </message>
+  <message name='cardVersionsResponseMessage'>
+    <part name='response' element='tns:cardVersionsResponse' />
+  </message>
+  <message name='getCardImageRequestMessage'>
+    <part name='parameters' element='tns:getCardImageParameters' />
+  </message>
+  <message name='getCardImageResponseMessage'>
+    <part name='response' element='tns:getCardImageResponse' />
+  </message>
+  <message name='getSetImageRequestMessage'>
+    <part name='parameters' element='tns:getSetImageParameters' />
+  </message>
+  <message name='getSetImageResponseMessage'>
+    <part name='response' element='tns:getSetImageResponse' />
+  </message>
+  <message name='identifyCardImageRequestMessage' />
+  <message name='identifyCardImageResponseMessage'>
+    <part name='response' element='tns:identifyCardImageResponse' />
+  </message>
+  <message name='priceHistoryForSpecificVersionOfACardRequestMessage'>
+    <part name='parameters' element='tns:priceHistoryForSpecificVersionOfACardParameters' />
+  </message>
+  <message name='priceHistoryForSpecificVersionOfACardResponseMessage'>
+    <part name='response' element='tns:priceHistoryForSpecificVersionOfACardResponse' />
+  </message>
+  <message name='pricesForAllVersionsOfACardRequestMessage'>
+    <part name='parameters' element='tns:pricesForAllVersionsOfACardParameters' />
+  </message>
+  <message name='pricesForAllVersionsOfACardResponseMessage'>
+    <part name='response' element='tns:pricesForAllVersionsOfACardResponse' />
+  </message>
+  <message name='pricesForSpecificVersionOfACardRequestMessage'>
+    <part name='parameters' element='tns:pricesForSpecificVersionOfACardParameters' />
+  </message>
+  <message name='pricesForSpecificVersionOfACardResponseMessage'>
+    <part name='response' element='tns:pricesForSpecificVersionOfACardResponse' />
+  </message>
+  <message name='retrieveCardSetDataRequestMessage'>
+    <part name='parameters' element='tns:retrieveCardSetDataParameters' />
+  </message>
+  <message name='retrieveCardSetDataResponseMessage'>
+    <part name='response' element='tns:retrieveCardSetDataResponse' />
+  </message>
+  <message name='risingAndFallingCardListsRequestMessage' />
+  <message name='risingAndFallingCardListsResponseMessage'>
+    <part name='response' element='tns:risingAndFallingCardListsResponse' />
+  </message>
+  <message name='sendImageTrainingDataRequestMessage' />
+  <message name='sendImageTrainingDataResponseMessage'>
+    <part name='response' element='tns:sendImageTrainingDataResponse' />
+  </message>
+  <message name='supportCardsRequestMessage'>
+    <part name='parameters' element='tns:supportCardsParameters' />
+  </message>
+  <message name='supportCardsResponseMessage'>
+    <part name='response' element='tns:supportCardsResponse' />
+  </message>
+  <message name='topMostExpensiveCardsRequestMessage'>
+    <part name='parameters' element='tns:topMostExpensiveCardsParameters' />
+  </message>
+  <message name='topMostExpensiveCardsResponseMessage'>
+    <part name='response' element='tns:topMostExpensiveCardsResponse' />
+  </message>
+  <portType name='yugiohPricesPortType'>
+    <operation name='cardData'>
+      <documentation>get all relevant information for a given card</documentation>
+      <input message='tns:cardDataRequestMessage' name='cardDataInput' />
+      <output message='tns:cardDataResponseMessage' name='cardDataOutput' />
+    </operation>
+    <operation name='cardVersions'>
+      <documentation>retrieves a list of all versions of a card that are currently available</documentation>
+      <input message='tns:cardVersionsRequestMessage' name='cardVersionsInput' />
+      <output message='tns:cardVersionsResponseMessage' name='cardVersionsOutput' />
+    </operation>
+    <operation name='getCardImage'>
+      <documentation>retrieve the image for a given card name</documentation>
+      <input message='tns:getCardImageRequestMessage' name='getCardImageInput' />
+      <output message='tns:getCardImageResponseMessage' name='getCardImageOutput' />
+    </operation>
+    <operation name='getSetImage'>
+      <documentation>retrieve the image for a given set</documentation>
+      <input message='tns:getSetImageRequestMessage' name='getSetImageInput' />
+      <output message='tns:getSetImageResponseMessage' name='getSetImageOutput' />
+    </operation>
+    <operation name='identifyCardImage'>
+      <documentation>returns a list of all possible card matches for a submitted image</documentation>
+      <input message='tns:identifyCardImageRequestMessage' name='identifyCardImageInput' />
+      <output message='tns:identifyCardImageResponseMessage' name='identifyCardImageOutput' />
+    </operation>
+    <operation name='priceHistoryForSpecificVersionOfACard'>
+      <documentation>retrieve price history for up to one year back for a given card</documentation>
+      <input message='tns:priceHistoryForSpecificVersionOfACardRequestMessage' name='priceHistoryForSpecificVersionOfACardInput' />
+      <output message='tns:priceHistoryForSpecificVersionOfACardResponseMessage' name='priceHistoryForSpecificVersionOfACardOutput' />
+    </operation>
+    <operation name='pricesForAllVersionsOfACard'>
+      <documentation>retrieves prices data for every version of a card</documentation>
+      <input message='tns:pricesForAllVersionsOfACardRequestMessage' name='pricesForAllVersionsOfACardInput' />
+      <output message='tns:pricesForAllVersionsOfACardResponseMessage' name='pricesForAllVersionsOfACardOutput' />
+    </operation>
+    <operation name='pricesForSpecificVersionOfACard'>
+      <documentation>returns price and card data for one specific version of a card</documentation>
+      <input message='tns:pricesForSpecificVersionOfACardRequestMessage' name='pricesForSpecificVersionOfACardInput' />
+      <output message='tns:pricesForSpecificVersionOfACardResponseMessage' name='pricesForSpecificVersionOfACardOutput' />
+    </operation>
+    <operation name='retrieveCardSetData'>
+      <documentation>returns all relevant data for a cards set including rarities and low high average prices for each card</documentation>
+      <input message='tns:retrieveCardSetDataRequestMessage' name='retrieveCardSetDataInput' />
+      <output message='tns:retrieveCardSetDataResponseMessage' name='retrieveCardSetDataOutput' />
+    </operation>
+    <operation name='risingAndFallingCardLists'>
+      <documentation>retrieve a list of the top cards that are rising in price and the top cards that are falling in price</documentation>
+      <input message='tns:risingAndFallingCardListsRequestMessage' name='risingAndFallingCardListsInput' />
+      <output message='tns:risingAndFallingCardListsResponseMessage' name='risingAndFallingCardListsOutput' />
+    </operation>
+    <operation name='sendImageTrainingData'>
+      <documentation>associate image data with a specific card in the image matching database</documentation>
+      <input message='tns:sendImageTrainingDataRequestMessage' name='sendImageTrainingDataInput' />
+      <output message='tns:sendImageTrainingDataResponseMessage' name='sendImageTrainingDataOutput' />
+    </operation>
+    <operation name='supportCards'>
+      <documentation>returns a list of all support cards for a given card</documentation>
+      <input message='tns:supportCardsRequestMessage' name='supportCardsInput' />
+      <output message='tns:supportCardsResponseMessage' name='supportCardsOutput' />
+    </operation>
+    <operation name='topMostExpensiveCards'>
+      <documentation>retrieve a list of the top most expensive cards in Yu Gi Oh right now</documentation>
+      <input message='tns:topMostExpensiveCardsRequestMessage' name='topMostExpensiveCardsInput' />
+      <output message='tns:topMostExpensiveCardsResponseMessage' name='topMostExpensiveCardsOutput' />
+    </operation>
+  </portType>
+  <binding name='yugiohPricesBinding' type='tns:yugiohPricesPortType'>
+    <operation name='cardData'>
+      <soap12:operation soapAction='http://cardData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cardVersions'>
+      <soap12:operation soapAction='http://cardVersions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getCardImage'>
+      <soap12:operation soapAction='http://getCardImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSetImage'>
+      <soap12:operation soapAction='http://getSetImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='identifyCardImage'>
+      <soap12:operation soapAction='http://identifyCardImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='priceHistoryForSpecificVersionOfACard'>
+      <soap12:operation soapAction='http://priceHistoryForSpecificVersionOfACard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pricesForAllVersionsOfACard'>
+      <soap12:operation soapAction='http://pricesForAllVersionsOfACard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pricesForSpecificVersionOfACard'>
+      <soap12:operation soapAction='http://pricesForSpecificVersionOfACard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveCardSetData'>
+      <soap12:operation soapAction='http://retrieveCardSetData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='risingAndFallingCardLists'>
+      <soap12:operation soapAction='http://risingAndFallingCardLists' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendImageTrainingData'>
+      <soap12:operation soapAction='http://sendImageTrainingData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='supportCards'>
+      <soap12:operation soapAction='http://supportCards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='topMostExpensiveCards'>
+      <soap12:operation soapAction='http://topMostExpensiveCards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='yugiohPrices'>
+    <documentation>direct access to all of the pricing and card information hosted on YugiohPrices com</documentation>
+    <port name='yugiohPricesPort' binding='tns:yugiohPricesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://yugiohPrices' />
+    </port>
+  </service>
+</definitions>

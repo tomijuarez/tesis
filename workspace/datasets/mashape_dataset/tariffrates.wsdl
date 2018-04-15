@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tariffRates/' name='tariffRates' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tariffRates/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tariffRates/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tariffRates/'>
+      <xsd:element name='apiTradeGovVTariffRatesSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTradeGovVTariffRatesSearchRequestMessage' />
+  <message name='apiTradeGovVTariffRatesSearchResponseMessage'>
+    <part name='response' element='tns:apiTradeGovVTariffRatesSearchResponse' />
+  </message>
+  <portType name='tariffRatesPortType'>
+    <operation name='apiTradeGovVTariffRatesSearch'>
+      <documentation></documentation>
+      <input message='tns:apiTradeGovVTariffRatesSearchRequestMessage' name='apiTradeGovVTariffRatesSearchInput' />
+      <output message='tns:apiTradeGovVTariffRatesSearchResponseMessage' name='apiTradeGovVTariffRatesSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='tariffRatesBinding' type='tns:tariffRatesPortType'>
+    <operation name='apiTradeGovVTariffRatesSearch'>
+      <soap12:operation soapAction='http://apiTradeGovVTariffRatesSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tariffRates'>
+    <documentation>the Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement FTA When the U S enters into an FTA with a foreign government it negotiates lower tariff rates with that government for a wide variety of products A tariff is a tax that a company must pay a foreign country when shipping a product to that country Typically the FTA tariffs rates decline over several years</documentation>
+    <port name='tariffRatesPort' binding='tns:tariffRatesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tariffRates' />
+    </port>
+  </service>
+</definitions>

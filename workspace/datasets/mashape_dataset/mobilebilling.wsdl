@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mobileBilling/' name='mobileBilling' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mobileBilling/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mobileBilling/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mobileBilling/'>
+      <xsd:element name='pricepointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mccmnc' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mno' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='msisdn' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paymenttype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pricepointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errorMessage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='packages' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pricepointRequestMessage'>
+    <part name='parameters' element='tns:pricepointParameters' />
+  </message>
+  <message name='pricepointResponseMessage'>
+    <part name='response' element='tns:pricepointResponse' />
+  </message>
+  <portType name='mobileBillingPortType'>
+    <operation name='pricepoint'>
+      <documentation>jSON endpoint</documentation>
+      <input message='tns:pricepointRequestMessage' name='pricepointInput' />
+      <output message='tns:pricepointResponseMessage' name='pricepointOutput' />
+    </operation>
+  </portType>
+  <binding name='mobileBillingBinding' type='tns:mobileBillingPortType'>
+    <operation name='pricepoint'>
+      <soap12:operation soapAction='http://pricepoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mobileBilling'>
+    <documentation>direct Carrier Billing Direct Mobile Billing and Premium SMS billing payment methods all available using this Mobile Payments API from PencePay com All mobile billing flows are supported PIN Redirect to Operator Premium SMS and SMS handshake</documentation>
+    <port name='mobileBillingPort' binding='tns:mobileBillingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mobileBilling' />
+    </port>
+  </service>
+</definitions>

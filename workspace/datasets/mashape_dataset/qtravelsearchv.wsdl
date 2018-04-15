@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qtravelSearchV/' name='qtravelSearchV' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qtravelSearchV/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qtravelSearchV/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qtravelSearchV/'>
+      <xsd:element name='vacationPackagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='qapikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vacationPackagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vacationPackagesRequestMessage'>
+    <part name='parameters' element='tns:vacationPackagesParameters' />
+  </message>
+  <message name='vacationPackagesResponseMessage'>
+    <part name='response' element='tns:vacationPackagesResponse' />
+  </message>
+  <portType name='qtravelSearchVPortType'>
+    <operation name='vacationPackages'>
+      <documentation></documentation>
+      <input message='tns:vacationPackagesRequestMessage' name='vacationPackagesInput' />
+      <output message='tns:vacationPackagesResponseMessage' name='vacationPackagesOutput' />
+    </operation>
+  </portType>
+  <binding name='qtravelSearchVBinding' type='tns:qtravelSearchVPortType'>
+    <operation name='vacationPackages'>
+      <soap12:operation soapAction='http://vacationPackages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qtravelSearchV'>
+    <documentation>qtravel pl is a full text search engine of vacation packages provided by Polish tour operators The Qtravel API provides developer access to the site s search tools and booking functionality API features include the ability to filter and sort offers by various attributes and full text search of offer descriptions The API supports HTTP GET calls and returns XML formatted responses</documentation>
+    <port name='qtravelSearchVPort' binding='tns:qtravelSearchVBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qtravelSearchV' />
+    </port>
+  </service>
+</definitions>

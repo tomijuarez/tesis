@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twinesocial/' name='twinesocial' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twinesocial/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twinesocial/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twinesocial/'>
+      <xsd:element name='vCollectionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='campaign' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vCollectionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vContentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='campaign' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='collection' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='pagesize' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vContentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='performance' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='cached' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='rows' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='from_full_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='is_waiting_resolve' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='profile_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='target_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='feed_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='official_brand_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='image_height' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='media_type_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='media_key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='providerName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='resource_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='perma_link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='network_css' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='image_width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='is_retweet' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='layout' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='css' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='providerThumbUrl' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='from_user_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='network_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='votes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vCollectionsRequestMessage'>
+    <part name='parameters' element='tns:vCollectionsParameters' />
+  </message>
+  <message name='vCollectionsResponseMessage'>
+    <part name='response' element='tns:vCollectionsResponse' />
+  </message>
+  <message name='vContentRequestMessage'>
+    <part name='parameters' element='tns:vContentParameters' />
+  </message>
+  <message name='vContentResponseMessage'>
+    <part name='response' element='tns:vContentResponse' />
+  </message>
+  <portType name='twinesocialPortType'>
+    <operation name='vCollections'>
+      <documentation>list all collections for a specified campaign</documentation>
+      <input message='tns:vCollectionsRequestMessage' name='vCollectionsInput' />
+      <output message='tns:vCollectionsResponseMessage' name='vCollectionsOutput' />
+    </operation>
+    <operation name='vContent'>
+      <documentation>retrieve content for a specific campaign</documentation>
+      <input message='tns:vContentRequestMessage' name='vContentInput' />
+      <output message='tns:vContentResponseMessage' name='vContentOutput' />
+    </operation>
+  </portType>
+  <binding name='twinesocialBinding' type='tns:twinesocialPortType'>
+    <operation name='vCollections'>
+      <soap12:operation soapAction='http://vCollections' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vContent'>
+      <soap12:operation soapAction='http://vContent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twinesocial'>
+    <documentation>find and show content from Twitter Instagram Facebook Vine Tumblr Flickr Google by hashtag account geo location Powerful server side rules Blazing performance</documentation>
+    <port name='twinesocialPort' binding='tns:twinesocialBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twinesocial' />
+    </port>
+  </service>
+</definitions>

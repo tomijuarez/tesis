@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/facebookGraph/' name='facebookGraph' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/facebookGraph/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/facebookGraph/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/facebookGraph/'>
+      <xsd:element name='fqlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fqlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='friendsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='paging' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='next' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='meResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='updated_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='significant_other' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='timezone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='verified' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='locale' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='relationship_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fqlRequestMessage'>
+    <part name='parameters' element='tns:fqlParameters' />
+  </message>
+  <message name='fqlResponseMessage'>
+    <part name='response' element='tns:fqlResponse' />
+  </message>
+  <message name='friendsRequestMessage' />
+  <message name='friendsResponseMessage'>
+    <part name='response' element='tns:friendsResponse' />
+  </message>
+  <message name='meRequestMessage' />
+  <message name='meResponseMessage'>
+    <part name='response' element='tns:meResponse' />
+  </message>
+  <portType name='facebookGraphPortType'>
+    <operation name='fql'>
+      <documentation></documentation>
+      <input message='tns:fqlRequestMessage' name='fqlInput' />
+      <output message='tns:fqlResponseMessage' name='fqlOutput' />
+    </operation>
+    <operation name='friends'>
+      <documentation></documentation>
+      <input message='tns:friendsRequestMessage' name='friendsInput' />
+      <output message='tns:friendsResponseMessage' name='friendsOutput' />
+    </operation>
+    <operation name='me'>
+      <documentation></documentation>
+      <input message='tns:meRequestMessage' name='meInput' />
+      <output message='tns:meResponseMessage' name='meOutput' />
+    </operation>
+  </portType>
+  <binding name='facebookGraphBinding' type='tns:facebookGraphPortType'>
+    <operation name='fql'>
+      <soap12:operation soapAction='http://fql' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='friends'>
+      <soap12:operation soapAction='http://friends' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='me'>
+      <soap12:operation soapAction='http://me' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='facebookGraph'>
+    <documentation>facebook Graph API For demo purposes only You can also use FQL using the fql parameter You need to create an app in https developers facebook com apps to get this to work check the Readme section</documentation>
+    <port name='facebookGraphPort' binding='tns:facebookGraphBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://facebookGraph' />
+    </port>
+  </service>
+</definitions>

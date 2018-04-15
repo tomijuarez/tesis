@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/boxOfficeReport/' name='boxOfficeReport' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/boxOfficeReport/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/boxOfficeReport/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/boxOfficeReport/'>
+      <xsd:element name='getboxofficereportParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='order' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getboxofficereportResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='movies' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='movie' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='openingweekend' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lifetime' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='openingday' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='openingweek' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getboxofficereportRequestMessage'>
+    <part name='parameters' element='tns:getboxofficereportParameters' />
+  </message>
+  <message name='getboxofficereportResponseMessage'>
+    <part name='response' element='tns:getboxofficereportResponse' />
+  </message>
+  <portType name='boxOfficeReportPortType'>
+    <operation name='getboxofficereport'>
+      <documentation>get revenue of all latest movies</documentation>
+      <input message='tns:getboxofficereportRequestMessage' name='getboxofficereportInput' />
+      <output message='tns:getboxofficereportResponseMessage' name='getboxofficereportOutput' />
+    </operation>
+  </portType>
+  <binding name='boxOfficeReportBinding' type='tns:boxOfficeReportPortType'>
+    <operation name='getboxofficereport'>
+      <soap12:operation soapAction='http://getboxofficereport' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='boxOfficeReport'>
+    <documentation>this API will return revenue of latest movies Data can be sorted by the revenue of opening day opening weekend or lifetime revenue of the movie It returns bollywood as well as hollywood movies Revenue of hollywood movies will be in dollars whereas revenue of Indian movies it will be in rupees</documentation>
+    <port name='boxOfficeReportPort' binding='tns:boxOfficeReportBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://boxOfficeReport' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imageServer/' name='imageServer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imageServer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imageServer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imageServer/'>
+      <xsd:element name='matchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='totalTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='matched' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pairResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='totalTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='matched' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unregisterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unregisterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='matchRequestMessage' />
+  <message name='matchResponseMessage'>
+    <part name='response' element='tns:matchResponse' />
+  </message>
+  <message name='pairRequestMessage' />
+  <message name='pairResponseMessage'>
+    <part name='response' element='tns:pairResponse' />
+  </message>
+  <message name='registerRequestMessage'>
+    <part name='parameters' element='tns:registerParameters' />
+  </message>
+  <message name='registerResponseMessage'>
+    <part name='response' element='tns:registerResponse' />
+  </message>
+  <message name='unregisterRequestMessage'>
+    <part name='parameters' element='tns:unregisterParameters' />
+  </message>
+  <message name='unregisterResponseMessage'>
+    <part name='response' element='tns:unregisterResponse' />
+  </message>
+  <portType name='imageServerPortType'>
+    <operation name='match'>
+      <documentation>match with registered images</documentation>
+      <input message='tns:matchRequestMessage' name='matchInput' />
+      <output message='tns:matchResponseMessage' name='matchOutput' />
+    </operation>
+    <operation name='pair'>
+      <documentation>match images without having to register</documentation>
+      <input message='tns:pairRequestMessage' name='pairInput' />
+      <output message='tns:pairResponseMessage' name='pairOutput' />
+    </operation>
+    <operation name='register'>
+      <documentation>register image</documentation>
+      <input message='tns:registerRequestMessage' name='registerInput' />
+      <output message='tns:registerResponseMessage' name='registerOutput' />
+    </operation>
+    <operation name='unregister'>
+      <documentation>unregister image</documentation>
+      <input message='tns:unregisterRequestMessage' name='unregisterInput' />
+      <output message='tns:unregisterResponseMessage' name='unregisterOutput' />
+    </operation>
+  </portType>
+  <binding name='imageServerBinding' type='tns:imageServerPortType'>
+    <operation name='match'>
+      <soap12:operation soapAction='http://match' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pair'>
+      <soap12:operation soapAction='http://pair' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='register'>
+      <soap12:operation soapAction='http://register' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unregister'>
+      <soap12:operation soapAction='http://unregister' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imageServer'>
+    <documentation>image Server is a scalable and automated image recognition service</documentation>
+    <port name='imageServerPort' binding='tns:imageServerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imageServer' />
+    </port>
+  </service>
+</definitions>

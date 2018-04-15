@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/spamCallerCheck/' name='spamCallerCheck' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/spamCallerCheck/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/spamCallerCheck/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/spamCallerCheck/'>
+      <xsd:element name='spamCallerCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spamCallerCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='spamCallerCheckRequestMessage'>
+    <part name='parameters' element='tns:spamCallerCheckParameters' />
+  </message>
+  <message name='spamCallerCheckResponseMessage'>
+    <part name='response' element='tns:spamCallerCheckResponse' />
+  </message>
+  <portType name='spamCallerCheckPortType'>
+    <operation name='spamCallerCheck'>
+      <documentation>check whether a caller is spam advertising call by the number</documentation>
+      <input message='tns:spamCallerCheckRequestMessage' name='spamCallerCheckInput' />
+      <output message='tns:spamCallerCheckResponseMessage' name='spamCallerCheckOutput' />
+    </operation>
+  </portType>
+  <binding name='spamCallerCheckBinding' type='tns:spamCallerCheckPortType'>
+    <operation name='spamCallerCheck'>
+      <soap12:operation soapAction='http://spamCallerCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='spamCallerCheck'>
+    <documentation>instantly check a caller s number is spam or not to avoid unnecessary calls</documentation>
+    <port name='spamCallerCheckPort' binding='tns:spamCallerCheckBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://spamCallerCheck' />
+    </port>
+  </service>
+</definitions>

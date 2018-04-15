@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/reliefWeb/' name='reliefWeb' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/reliefWeb/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/reliefWeb/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/reliefWeb/'>
+      <xsd:element name='reportsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sort' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportsByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportsByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='reportsRequestMessage'>
+    <part name='parameters' element='tns:reportsParameters' />
+  </message>
+  <message name='reportsResponseMessage'>
+    <part name='response' element='tns:reportsResponse' />
+  </message>
+  <message name='reportsByIdRequestMessage'>
+    <part name='parameters' element='tns:reportsByIdParameters' />
+  </message>
+  <message name='reportsByIdResponseMessage'>
+    <part name='response' element='tns:reportsByIdResponse' />
+  </message>
+  <portType name='reliefWebPortType'>
+    <operation name='reports'>
+      <documentation></documentation>
+      <input message='tns:reportsRequestMessage' name='reportsInput' />
+      <output message='tns:reportsResponseMessage' name='reportsOutput' />
+    </operation>
+    <operation name='reportsById'>
+      <documentation></documentation>
+      <input message='tns:reportsByIdRequestMessage' name='reportsByIdInput' />
+      <output message='tns:reportsByIdResponseMessage' name='reportsByIdOutput' />
+    </operation>
+  </portType>
+  <binding name='reliefWebBinding' type='tns:reliefWebPortType'>
+    <operation name='reports'>
+      <soap12:operation soapAction='http://reports' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reportsById'>
+      <soap12:operation soapAction='http://reportsById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='reliefWeb'>
+    <documentation>reliefWeb is a leading source of information on global crises and disasters Our continuous coverage and archive going back to the s makes ReliefWeb an unparalleled resource for both current and historical data on humanitarian response</documentation>
+    <port name='reliefWebPort' binding='tns:reliefWebBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://reliefWeb' />
+    </port>
+  </service>
+</definitions>

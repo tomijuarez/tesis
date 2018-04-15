@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/newslookupComCrawlerFeeds/' name='newslookupComCrawlerFeeds' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/newslookupComCrawlerFeeds/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/newslookupComCrawlerFeeds/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/newslookupComCrawlerFeeds/'>
+      <xsd:element name='crawlerFeedsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fmt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mt' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='package' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='politics' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='subject' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crawlerFeedsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchFeedsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fmt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='package' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='politics' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='s' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='subject' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchFeedsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='crawlerFeedsRequestMessage'>
+    <part name='parameters' element='tns:crawlerFeedsParameters' />
+  </message>
+  <message name='crawlerFeedsResponseMessage'>
+    <part name='response' element='tns:crawlerFeedsResponse' />
+  </message>
+  <message name='searchFeedsRequestMessage'>
+    <part name='parameters' element='tns:searchFeedsParameters' />
+  </message>
+  <message name='searchFeedsResponseMessage'>
+    <part name='response' element='tns:searchFeedsResponse' />
+  </message>
+  <portType name='newslookupComCrawlerFeedsPortType'>
+    <operation name='crawlerFeeds'>
+      <documentation></documentation>
+      <input message='tns:crawlerFeedsRequestMessage' name='crawlerFeedsInput' />
+      <output message='tns:crawlerFeedsResponseMessage' name='crawlerFeedsOutput' />
+    </operation>
+    <operation name='searchFeeds'>
+      <documentation></documentation>
+      <input message='tns:searchFeedsRequestMessage' name='searchFeedsInput' />
+      <output message='tns:searchFeedsResponseMessage' name='searchFeedsOutput' />
+    </operation>
+  </portType>
+  <binding name='newslookupComCrawlerFeedsBinding' type='tns:newslookupComCrawlerFeedsPortType'>
+    <operation name='crawlerFeeds'>
+      <soap12:operation soapAction='http://crawlerFeeds' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchFeeds'>
+      <soap12:operation soapAction='http://searchFeeds' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='newslookupComCrawlerFeeds'>
+    <documentation>newslookup com is a news search engine news aggregator and news services provider We provide subscription based API access to our crawler and search index</documentation>
+    <port name='newslookupComCrawlerFeedsPort' binding='tns:newslookupComCrawlerFeedsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://newslookupComCrawlerFeeds' />
+    </port>
+  </service>
+</definitions>

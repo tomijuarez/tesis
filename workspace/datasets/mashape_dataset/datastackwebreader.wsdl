@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/datastackWebReader/' name='datastackWebReader' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/datastackWebReader/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/datastackWebReader/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/datastackWebReader/'>
+      <xsd:element name='findParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findRequestMessage'>
+    <part name='parameters' element='tns:findParameters' />
+  </message>
+  <message name='findResponseMessage'>
+    <part name='response' element='tns:findResponse' />
+  </message>
+  <portType name='datastackWebReaderPortType'>
+    <operation name='find'>
+      <input message='tns:findRequestMessage' name='findInput' />
+      <output message='tns:findResponseMessage' name='findOutput' />
+    </operation>
+  </portType>
+  <binding name='datastackWebReaderBinding' type='tns:datastackWebReaderPortType'>
+    <operation name='find'>
+      <soap12:operation soapAction='http://find' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='datastackWebReader'>
+    <documentation>this is a special endpoint for people who want to easily scrape websites This endpoint is API is utilized in DataStack s source kit for retrieving data on particular websites</documentation>
+    <port name='datastackWebReaderPort' binding='tns:datastackWebReaderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://datastackWebReader' />
+    </port>
+  </service>
+</definitions>

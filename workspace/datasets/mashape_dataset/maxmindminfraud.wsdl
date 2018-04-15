@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/maxmindMinfraud/' name='maxmindMinfraud' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/maxmindMinfraud/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/maxmindMinfraud/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/maxmindMinfraud/'>
+      <xsd:element name='minfraudResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='proxyDetectionWebServiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='minfraudRequestMessage' />
+  <message name='minfraudResponseMessage'>
+    <part name='response' element='tns:minfraudResponse' />
+  </message>
+  <message name='proxyDetectionWebServiceRequestMessage' />
+  <message name='proxyDetectionWebServiceResponseMessage'>
+    <part name='response' element='tns:proxyDetectionWebServiceResponse' />
+  </message>
+  <portType name='maxmindMinfraudPortType'>
+    <operation name='minfraud'>
+      <documentation>transaction fraud detection</documentation>
+      <input message='tns:minfraudRequestMessage' name='minfraudInput' />
+      <output message='tns:minfraudResponseMessage' name='minfraudOutput' />
+    </operation>
+    <operation name='proxyDetectionWebService'>
+      <documentation>how likely is an IP address to be a proxy</documentation>
+      <input message='tns:proxyDetectionWebServiceRequestMessage' name='proxyDetectionWebServiceInput' />
+      <output message='tns:proxyDetectionWebServiceResponseMessage' name='proxyDetectionWebServiceOutput' />
+    </operation>
+  </portType>
+  <binding name='maxmindMinfraudBinding' type='tns:maxmindMinfraudPortType'>
+    <operation name='minfraud'>
+      <soap12:operation soapAction='http://minfraud' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='proxyDetectionWebService'>
+      <soap12:operation soapAction='http://proxyDetectionWebService' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='maxmindMinfraud'>
+    <documentation>determine the geographical location of website visitors based on the IP addresses for applications such as fraud detection content localization geo targeted</documentation>
+    <port name='maxmindMinfraudPort' binding='tns:maxmindMinfraudBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://maxmindMinfraud' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textHtml/' name='textHtml' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textHtml/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textHtml/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textHtml/'>
+      <xsd:element name='textHtmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text_to_html_response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='status_message' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='response_display_duration_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='human_readable_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='request' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='error_info' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='extended_error_infos' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='response_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='html' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='redirect_uri' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='response_created_time' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='users_tz_offset_ms' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='iso_format' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='ms_since_epoch' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textHtmlRequestMessage' />
+  <message name='textHtmlResponseMessage'>
+    <part name='response' element='tns:textHtmlResponse' />
+  </message>
+  <portType name='textHtmlPortType'>
+    <operation name='textHtml'>
+      <documentation>converts text to html</documentation>
+      <input message='tns:textHtmlRequestMessage' name='textHtmlInput' />
+      <output message='tns:textHtmlResponseMessage' name='textHtmlOutput' />
+    </operation>
+  </portType>
+  <binding name='textHtmlBinding' type='tns:textHtmlPortType'>
+    <operation name='textHtml'>
+      <soap12:operation soapAction='http://textHtml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textHtml'>
+    <documentation>converts text to HTML Start a line with h h or h to create a header We will convert text that looks like URLs to hyperlinks to that URL http foo com a href http foo com http foo com a We try to leave valid HTML alone For example if you include p http foo com p then we will not add an anchor tag to that URL Non HTML friendly characters like are escaped like amp lt We do minimal conversion of text This approach differs by design from http txt html sourceforge net which does more processing like numbered lists and headers and tables Feedback on this tool is welcomed on our blog</documentation>
+    <port name='textHtmlPort' binding='tns:textHtmlBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textHtml' />
+    </port>
+  </service>
+</definitions>

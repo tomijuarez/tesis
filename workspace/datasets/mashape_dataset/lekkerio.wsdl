@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lekkerIo/' name='lekkerIo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lekkerIo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lekkerIo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lekkerIo/'>
+      <xsd:element name='createContactResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getContactParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='contactid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getContactResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createContactRequestMessage' />
+  <message name='createContactResponseMessage'>
+    <part name='response' element='tns:createContactResponse' />
+  </message>
+  <message name='getContactRequestMessage'>
+    <part name='parameters' element='tns:getContactParameters' />
+  </message>
+  <message name='getContactResponseMessage'>
+    <part name='response' element='tns:getContactResponse' />
+  </message>
+  <portType name='lekkerIoPortType'>
+    <operation name='createContact'>
+      <documentation>create a new contact in the CRM module</documentation>
+      <input message='tns:createContactRequestMessage' name='createContactInput' />
+      <output message='tns:createContactResponseMessage' name='createContactOutput' />
+    </operation>
+    <operation name='getContact'>
+      <documentation>retrieve a contact from the CRM module</documentation>
+      <input message='tns:getContactRequestMessage' name='getContactInput' />
+      <output message='tns:getContactResponseMessage' name='getContactOutput' />
+    </operation>
+  </portType>
+  <binding name='lekkerIoBinding' type='tns:lekkerIoPortType'>
+    <operation name='createContact'>
+      <soap12:operation soapAction='http://createContact' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getContact'>
+      <soap12:operation soapAction='http://getContact' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lekkerIo'>
+    <documentation>aPI based affiliate tracking</documentation>
+    <port name='lekkerIoPort' binding='tns:lekkerIoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lekkerIo' />
+    </port>
+  </service>
+</definitions>

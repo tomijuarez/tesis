@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/efficientFrontier/' name='efficientFrontier' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/efficientFrontier/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/efficientFrontier/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/efficientFrontier/'>
+      <xsd:element name='efficientFrontierResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiVersion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tenantName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='error' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='asiErrorCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='moreInfo' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='efficientFrontierRequestMessage' />
+  <message name='efficientFrontierResponseMessage'>
+    <part name='response' element='tns:efficientFrontierResponse' />
+  </message>
+  <portType name='efficientFrontierPortType'>
+    <operation name='efficientFrontier'>
+      <documentation>the Efficient Frontier API returns the expected return and risk percentages for up to portfolios along with the plot points for an efficient frontier curve A common use of the Efficient Frontier API is to be able to plot each portfolio on a risk and return chart and draw the efficient frontier curve to show the position of each portfolio relative to the other portfolios and the efficient frontier curve You can also analyze a model portfolio by specifying the Model ID in the request using the modelID parameter The Model ID is retrieved using the Models API The expected risk and return percentages for a portfolio are calculated by determining the asset style weights for the portfolio and then applying those weights to expected risk and return assumptions assigned to the corresponding asset styles The efficient frontier plot points are determined by ASI using a mean variance optimizaton algorithm The algorithm uses asset style expected risk and return assumptions and covariance matrix to determine a set of portfolios that maximize return for a given level of risk Asset style expected risk and return asssumptions and covariance are provided by ASI</documentation>
+      <input message='tns:efficientFrontierRequestMessage' name='efficientFrontierInput' />
+      <output message='tns:efficientFrontierResponseMessage' name='efficientFrontierOutput' />
+    </operation>
+  </portType>
+  <binding name='efficientFrontierBinding' type='tns:efficientFrontierPortType'>
+    <operation name='efficientFrontier'>
+      <soap12:operation soapAction='http://efficientFrontier' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='efficientFrontier'>
+    <documentation>the Efficient Frontier API returns the expected return and risk percentages for up to portfolios along with the plot points for an efficient frontier curve A common use of the Efficient Frontier API is to be able to plot each portfolio on a risk and return chart and draw the efficient frontier curve to show the position of each portfolio relative to the other portfolios and the efficient frontier curve You can also analyze a model portfolio by specifying the Model ID in the request using the modelID parameter The Model ID is retrieved using the Models API The expected risk and return percentages for a portfolio are calculated by determining the asset style weights for the portfolio and then applying those weights to expected risk and return assumptions assigned to the corresponding asset styles The efficient frontier plot points are determined by ASI using a mean variance optimizaton algorithm The algorithm uses asset style expected risk and return assumptions and covariance matrix to determine a set of portfolios that maximize return for a given level of risk Asset style expected risk and return asssumptions and covariance are provided by ASI</documentation>
+    <port name='efficientFrontierPort' binding='tns:efficientFrontierBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://efficientFrontier' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kanjiAlive/' name='kanjiAlive' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kanjiAlive/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kanjiAlive/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kanjiAlive/'>
+      <xsd:element name='basicSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='basicSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='radical' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='character' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='stroke' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='order' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='kanji' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='character' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='stroke' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiCharacterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='kanji' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiCharacterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='kanji' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='radical' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='character' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='strokes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='meaning' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='english' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hiragana' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='romaji' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='position' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hiragana' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='romaji' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='icon' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='animation' type='xsd:anyURI' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='references' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='grade' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='classic_nelson' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='kodansha' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='examples' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='japanese' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='meaning' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='english' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='audio' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='mp3' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='aac' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='opus' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='ogg' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='kanji' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='onyomi' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='romaji' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='katakana' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='character' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='strokes' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='meaning' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='english' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='video' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='mp4' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='poster' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='webm' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='kunyomi' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hiragana' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='romaji' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiEnglishMeaningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='kem' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiEnglishMeaningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiGradeLevelParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='grade' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiGradeLevelResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiStrokeNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ks' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kanjiStrokeNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kunyomiReadingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='kun' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kunyomiReadingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='onyomiReadingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='on' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='onyomiReadingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalEnglishMeaningParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rem' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalEnglishMeaningResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalJapaneseNameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rjn' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalJapaneseNameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalPositionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rpos' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalPositionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalStrokeNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rs' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='radicalStrokeNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='studyListApExamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='list' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='studyListApExamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='studyListMacquarieParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='list' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='studyListMacquarieResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='basicSearchRequestMessage'>
+    <part name='parameters' element='tns:basicSearchParameters' />
+  </message>
+  <message name='basicSearchResponseMessage'>
+    <part name='response' element='tns:basicSearchResponse' />
+  </message>
+  <message name='kanjiCharacterRequestMessage'>
+    <part name='parameters' element='tns:kanjiCharacterParameters' />
+  </message>
+  <message name='kanjiCharacterResponseMessage'>
+    <part name='response' element='tns:kanjiCharacterResponse' />
+  </message>
+  <message name='kanjiDetailsRequestMessage'>
+    <part name='parameters' element='tns:kanjiDetailsParameters' />
+  </message>
+  <message name='kanjiDetailsResponseMessage'>
+    <part name='response' element='tns:kanjiDetailsResponse' />
+  </message>
+  <message name='kanjiEnglishMeaningRequestMessage'>
+    <part name='parameters' element='tns:kanjiEnglishMeaningParameters' />
+  </message>
+  <message name='kanjiEnglishMeaningResponseMessage'>
+    <part name='response' element='tns:kanjiEnglishMeaningResponse' />
+  </message>
+  <message name='kanjiGradeLevelRequestMessage'>
+    <part name='parameters' element='tns:kanjiGradeLevelParameters' />
+  </message>
+  <message name='kanjiGradeLevelResponseMessage'>
+    <part name='response' element='tns:kanjiGradeLevelResponse' />
+  </message>
+  <message name='kanjiStrokeNumberRequestMessage'>
+    <part name='parameters' element='tns:kanjiStrokeNumberParameters' />
+  </message>
+  <message name='kanjiStrokeNumberResponseMessage'>
+    <part name='response' element='tns:kanjiStrokeNumberResponse' />
+  </message>
+  <message name='kunyomiReadingRequestMessage'>
+    <part name='parameters' element='tns:kunyomiReadingParameters' />
+  </message>
+  <message name='kunyomiReadingResponseMessage'>
+    <part name='response' element='tns:kunyomiReadingResponse' />
+  </message>
+  <message name='onyomiReadingRequestMessage'>
+    <part name='parameters' element='tns:onyomiReadingParameters' />
+  </message>
+  <message name='onyomiReadingResponseMessage'>
+    <part name='response' element='tns:onyomiReadingResponse' />
+  </message>
+  <message name='radicalEnglishMeaningRequestMessage'>
+    <part name='parameters' element='tns:radicalEnglishMeaningParameters' />
+  </message>
+  <message name='radicalEnglishMeaningResponseMessage'>
+    <part name='response' element='tns:radicalEnglishMeaningResponse' />
+  </message>
+  <message name='radicalJapaneseNameRequestMessage'>
+    <part name='parameters' element='tns:radicalJapaneseNameParameters' />
+  </message>
+  <message name='radicalJapaneseNameResponseMessage'>
+    <part name='response' element='tns:radicalJapaneseNameResponse' />
+  </message>
+  <message name='radicalPositionRequestMessage'>
+    <part name='parameters' element='tns:radicalPositionParameters' />
+  </message>
+  <message name='radicalPositionResponseMessage'>
+    <part name='response' element='tns:radicalPositionResponse' />
+  </message>
+  <message name='radicalStrokeNumberRequestMessage'>
+    <part name='parameters' element='tns:radicalStrokeNumberParameters' />
+  </message>
+  <message name='radicalStrokeNumberResponseMessage'>
+    <part name='response' element='tns:radicalStrokeNumberResponse' />
+  </message>
+  <message name='studyListApExamRequestMessage'>
+    <part name='parameters' element='tns:studyListApExamParameters' />
+  </message>
+  <message name='studyListApExamResponseMessage'>
+    <part name='response' element='tns:studyListApExamResponse' />
+  </message>
+  <message name='studyListMacquarieRequestMessage'>
+    <part name='parameters' element='tns:studyListMacquarieParameters' />
+  </message>
+  <message name='studyListMacquarieResponseMessage'>
+    <part name='response' element='tns:studyListMacquarieResponse' />
+  </message>
+  <portType name='kanjiAlivePortType'>
+    <operation name='basicSearch'>
+      <documentation>a kanji character Onyomi reading katakana Kunyomi reading hiragana or a kanji s simplified English meaning</documentation>
+      <input message='tns:basicSearchRequestMessage' name='basicSearchInput' />
+      <output message='tns:basicSearchResponseMessage' name='basicSearchOutput' />
+    </operation>
+    <operation name='kanjiCharacter'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:kanjiCharacterRequestMessage' name='kanjiCharacterInput' />
+      <output message='tns:kanjiCharacterResponseMessage' name='kanjiCharacterOutput' />
+    </operation>
+    <operation name='kanjiDetails'>
+      <documentation>language attributes and media files for individual kanji</documentation>
+      <input message='tns:kanjiDetailsRequestMessage' name='kanjiDetailsInput' />
+      <output message='tns:kanjiDetailsResponseMessage' name='kanjiDetailsOutput' />
+    </operation>
+    <operation name='kanjiEnglishMeaning'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:kanjiEnglishMeaningRequestMessage' name='kanjiEnglishMeaningInput' />
+      <output message='tns:kanjiEnglishMeaningResponseMessage' name='kanjiEnglishMeaningOutput' />
+    </operation>
+    <operation name='kanjiGradeLevel'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:kanjiGradeLevelRequestMessage' name='kanjiGradeLevelInput' />
+      <output message='tns:kanjiGradeLevelResponseMessage' name='kanjiGradeLevelOutput' />
+    </operation>
+    <operation name='kanjiStrokeNumber'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:kanjiStrokeNumberRequestMessage' name='kanjiStrokeNumberInput' />
+      <output message='tns:kanjiStrokeNumberResponseMessage' name='kanjiStrokeNumberOutput' />
+    </operation>
+    <operation name='kunyomiReading'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:kunyomiReadingRequestMessage' name='kunyomiReadingInput' />
+      <output message='tns:kunyomiReadingResponseMessage' name='kunyomiReadingOutput' />
+    </operation>
+    <operation name='onyomiReading'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:onyomiReadingRequestMessage' name='onyomiReadingInput' />
+      <output message='tns:onyomiReadingResponseMessage' name='onyomiReadingOutput' />
+    </operation>
+    <operation name='radicalEnglishMeaning'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:radicalEnglishMeaningRequestMessage' name='radicalEnglishMeaningInput' />
+      <output message='tns:radicalEnglishMeaningResponseMessage' name='radicalEnglishMeaningOutput' />
+    </operation>
+    <operation name='radicalJapaneseName'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:radicalJapaneseNameRequestMessage' name='radicalJapaneseNameInput' />
+      <output message='tns:radicalJapaneseNameResponseMessage' name='radicalJapaneseNameOutput' />
+    </operation>
+    <operation name='radicalPosition'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:radicalPositionRequestMessage' name='radicalPositionInput' />
+      <output message='tns:radicalPositionResponseMessage' name='radicalPositionOutput' />
+    </operation>
+    <operation name='radicalStrokeNumber'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:radicalStrokeNumberRequestMessage' name='radicalStrokeNumberInput' />
+      <output message='tns:radicalStrokeNumberResponseMessage' name='radicalStrokeNumberOutput' />
+    </operation>
+    <operation name='studyListApExam'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:studyListApExamRequestMessage' name='studyListApExamInput' />
+      <output message='tns:studyListApExamResponseMessage' name='studyListApExamOutput' />
+    </operation>
+    <operation name='studyListMacquarie'>
+      <documentation>the Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing Parameters may be combined as required</documentation>
+      <input message='tns:studyListMacquarieRequestMessage' name='studyListMacquarieInput' />
+      <output message='tns:studyListMacquarieResponseMessage' name='studyListMacquarieOutput' />
+    </operation>
+  </portType>
+  <binding name='kanjiAliveBinding' type='tns:kanjiAlivePortType'>
+    <operation name='basicSearch'>
+      <soap12:operation soapAction='http://basicSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kanjiCharacter'>
+      <soap12:operation soapAction='http://kanjiCharacter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kanjiDetails'>
+      <soap12:operation soapAction='http://kanjiDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kanjiEnglishMeaning'>
+      <soap12:operation soapAction='http://kanjiEnglishMeaning' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kanjiGradeLevel'>
+      <soap12:operation soapAction='http://kanjiGradeLevel' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kanjiStrokeNumber'>
+      <soap12:operation soapAction='http://kanjiStrokeNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kunyomiReading'>
+      <soap12:operation soapAction='http://kunyomiReading' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='onyomiReading'>
+      <soap12:operation soapAction='http://onyomiReading' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='radicalEnglishMeaning'>
+      <soap12:operation soapAction='http://radicalEnglishMeaning' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='radicalJapaneseName'>
+      <soap12:operation soapAction='http://radicalJapaneseName' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='radicalPosition'>
+      <soap12:operation soapAction='http://radicalPosition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='radicalStrokeNumber'>
+      <soap12:operation soapAction='http://radicalStrokeNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='studyListApExam'>
+      <soap12:operation soapAction='http://studyListApExam' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='studyListMacquarie'>
+      <soap12:operation soapAction='http://studyListMacquarie' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kanjiAlive'>
+    <documentation>kanji alive was designed to help you learn to read and write Japanese kanji</documentation>
+    <port name='kanjiAlivePort' binding='tns:kanjiAliveBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kanjiAlive' />
+    </port>
+  </service>
+</definitions>

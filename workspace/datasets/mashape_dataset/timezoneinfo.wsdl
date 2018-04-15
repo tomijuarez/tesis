@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/timeZoneInfo/' name='timeZoneInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/timeZoneInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/timeZoneInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/timeZoneInfo/'>
+      <xsd:element name='apiTimezoneLatitudeLongitudeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiTimezoneLatitudeLongitudeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='BaseUtcOffset' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DisplayName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='SupportsDaylightSavingTime' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AdjustmentRules' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='DateEnd' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DaylightTransitionEnd' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='TimeOfDay' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Month' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='DayOfWeek' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='IsFixedDateRule' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='Week' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Day' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='DaylightTransitionStart' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='TimeOfDay' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='Month' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='DayOfWeek' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='IsFixedDateRule' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='Week' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='Day' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='DateStart' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='DaylightDelta' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='DaylightName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='StandardName' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTimezoneLatitudeLongitudeRequestMessage'>
+    <part name='parameters' element='tns:apiTimezoneLatitudeLongitudeParameters' />
+  </message>
+  <message name='apiTimezoneLatitudeLongitudeResponseMessage'>
+    <part name='response' element='tns:apiTimezoneLatitudeLongitudeResponse' />
+  </message>
+  <portType name='timeZoneInfoPortType'>
+    <operation name='apiTimezoneLatitudeLongitude'>
+      <documentation>returns the timezone info for the specified latitude and longitude</documentation>
+      <input message='tns:apiTimezoneLatitudeLongitudeRequestMessage' name='apiTimezoneLatitudeLongitudeInput' />
+      <output message='tns:apiTimezoneLatitudeLongitudeResponseMessage' name='apiTimezoneLatitudeLongitudeOutput' />
+    </operation>
+  </portType>
+  <binding name='timeZoneInfoBinding' type='tns:timeZoneInfoPortType'>
+    <operation name='apiTimezoneLatitudeLongitude'>
+      <soap12:operation soapAction='http://apiTimezoneLatitudeLongitude' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='timeZoneInfo'>
+    <documentation>this API returns the time zone information if any for a specific geo location</documentation>
+    <port name='timeZoneInfoPort' binding='tns:timeZoneInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://timeZoneInfo' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qrCodeGeneratorWithLogo/' name='qrCodeGeneratorWithLogo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qrCodeGeneratorWithLogo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qrCodeGeneratorWithLogo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qrCodeGeneratorWithLogo/'>
+      <xsd:element name='getqrcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='logo' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getqrcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getqrcodeRequestMessage'>
+    <part name='parameters' element='tns:getqrcodeParameters' />
+  </message>
+  <message name='getqrcodeResponseMessage'>
+    <part name='response' element='tns:getqrcodeResponse' />
+  </message>
+  <portType name='qrCodeGeneratorWithLogoPortType'>
+    <operation name='getqrcode'>
+      <documentation>qR code url</documentation>
+      <input message='tns:getqrcodeRequestMessage' name='getqrcodeInput' />
+      <output message='tns:getqrcodeResponseMessage' name='getqrcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='qrCodeGeneratorWithLogoBinding' type='tns:qrCodeGeneratorWithLogoPortType'>
+    <operation name='getqrcode'>
+      <soap12:operation soapAction='http://getqrcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qrCodeGeneratorWithLogo'>
+    <documentation>generate QR code images with logo for multiple data types</documentation>
+    <port name='qrCodeGeneratorWithLogoPort' binding='tns:qrCodeGeneratorWithLogoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qrCodeGeneratorWithLogo' />
+    </port>
+  </service>
+</definitions>

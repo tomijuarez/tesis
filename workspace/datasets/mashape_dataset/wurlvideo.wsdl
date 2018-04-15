@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wurlVideo/' name='wurlVideo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wurlVideo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wurlVideo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wurlVideo/'>
+      <xsd:element name='rootResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='rootRequestMessage' />
+  <message name='rootResponseMessage'>
+    <part name='response' element='tns:rootResponse' />
+  </message>
+  <portType name='wurlVideoPortType'>
+    <operation name='root'>
+      <documentation>the api entry point Follow provided links from this response</documentation>
+      <input message='tns:rootRequestMessage' name='rootInput' />
+      <output message='tns:rootResponseMessage' name='rootOutput' />
+    </operation>
+  </portType>
+  <binding name='wurlVideoBinding' type='tns:wurlVideoPortType'>
+    <operation name='root'>
+      <soap12:operation soapAction='http://root' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wurlVideo'>
+    <documentation>all the world s best streaming video through a single API Episodic streaming video from the world s best publishers ready for playback in your app Any application on any device can deliver world class video from publishers around the world</documentation>
+    <port name='wurlVideoPort' binding='tns:wurlVideoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wurlVideo' />
+    </port>
+  </service>
+</definitions>

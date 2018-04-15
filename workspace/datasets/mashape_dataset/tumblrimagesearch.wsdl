@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tumblrImageSearch/' name='tumblrImageSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tumblrImageSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tumblrImageSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tumblrImageSearch/'>
+      <xsd:element name='tumblrImageSearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='p' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tumblrImageSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='images' type='xsd:anyURI' maxOccurs='unbounded' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tags' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='microSeconds' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='tumblrImageSearchRequestMessage'>
+    <part name='parameters' element='tns:tumblrImageSearchParameters' />
+  </message>
+  <message name='tumblrImageSearchResponseMessage'>
+    <part name='response' element='tns:tumblrImageSearchResponse' />
+  </message>
+  <portType name='tumblrImageSearchPortType'>
+    <operation name='tumblrImageSearch'>
+      <input message='tns:tumblrImageSearchRequestMessage' name='tumblrImageSearchInput' />
+      <output message='tns:tumblrImageSearchResponseMessage' name='tumblrImageSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='tumblrImageSearchBinding' type='tns:tumblrImageSearchPortType'>
+    <operation name='tumblrImageSearch'>
+      <soap12:operation soapAction='http://tumblrImageSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tumblrImageSearch'>
+    <documentation>this is an unofficial Tumblr Image Search API</documentation>
+    <port name='tumblrImageSearchPort' binding='tns:tumblrImageSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tumblrImageSearch' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/latestPopularAndViralFacebookImages/' name='latestPopularAndViralFacebookImages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/latestPopularAndViralFacebookImages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/latestPopularAndViralFacebookImages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/latestPopularAndViralFacebookImages/'>
+      <xsd:element name='getviralfacebookimagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='likes_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='src_big' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='objectid' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getviralfacebookimagesRequestMessage' />
+  <message name='getviralfacebookimagesResponseMessage'>
+    <part name='response' element='tns:getviralfacebookimagesResponse' />
+  </message>
+  <portType name='latestPopularAndViralFacebookImagesPortType'>
+    <operation name='getviralfacebookimages'>
+      <documentation>get most popular images on facebook on the basis of facebook likes</documentation>
+      <input message='tns:getviralfacebookimagesRequestMessage' name='getviralfacebookimagesInput' />
+      <output message='tns:getviralfacebookimagesResponseMessage' name='getviralfacebookimagesOutput' />
+    </operation>
+  </portType>
+  <binding name='latestPopularAndViralFacebookImagesBinding' type='tns:latestPopularAndViralFacebookImagesPortType'>
+    <operation name='getviralfacebookimages'>
+      <soap12:operation soapAction='http://getviralfacebookimages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='latestPopularAndViralFacebookImages'>
+    <documentation>this is the best API to find most latest popular and viral images on facebook For example users can specify to fetch all the images from facebook under sports category which got more than likes in last days</documentation>
+    <port name='latestPopularAndViralFacebookImagesPort' binding='tns:latestPopularAndViralFacebookImagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://latestPopularAndViralFacebookImages' />
+    </port>
+  </service>
+</definitions>

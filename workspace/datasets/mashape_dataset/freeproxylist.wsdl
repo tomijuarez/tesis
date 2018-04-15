@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/freeProxyList/' name='freeProxyList' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/freeProxyList/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/freeProxyList/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/freeProxyList/'>
+      <xsd:element name='getProxiesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countrycodes' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxresults' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='minimumuptimepercentage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='onlyactive' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlyhighanonymity' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlyhighavaillowlatency' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlyhttp' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlyhttps' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysocks' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportsamazon' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportsbrowsing' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportscraigslist' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportsgoogle' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportskayak' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportsticketmaster' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='onlysupportstripadvisor' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='port' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProxiesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryByIpAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='onlyactive' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='port' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryByIpAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='port' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='supports_google' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='supports_browsing' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='host' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='anonymity' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='ip_address' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastValidatedStatus' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='connectionTime' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='lastValidatedDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='uptime' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getProxiesRequestMessage'>
+    <part name='parameters' element='tns:getProxiesParameters' />
+  </message>
+  <message name='getProxiesResponseMessage'>
+    <part name='response' element='tns:getProxiesResponse' />
+  </message>
+  <message name='queryByIpAddressRequestMessage'>
+    <part name='parameters' element='tns:queryByIpAddressParameters' />
+  </message>
+  <message name='queryByIpAddressResponseMessage'>
+    <part name='response' element='tns:queryByIpAddressResponse' />
+  </message>
+  <portType name='freeProxyListPortType'>
+    <operation name='getProxies'>
+      <documentation>query all free open proxies w any combination of the available flags</documentation>
+      <input message='tns:getProxiesRequestMessage' name='getProxiesInput' />
+      <output message='tns:getProxiesResponseMessage' name='getProxiesOutput' />
+    </operation>
+    <operation name='queryByIpAddress'>
+      <documentation>if we have seen mutiple ports in use by same IP Address multiple records will be returned</documentation>
+      <input message='tns:queryByIpAddressRequestMessage' name='queryByIpAddressInput' />
+      <output message='tns:queryByIpAddressResponseMessage' name='queryByIpAddressOutput' />
+    </operation>
+  </portType>
+  <binding name='freeProxyListBinding' type='tns:freeProxyListPortType'>
+    <operation name='getProxies'>
+      <soap12:operation soapAction='http://getProxies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='queryByIpAddress'>
+      <soap12:operation soapAction='http://queryByIpAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='freeProxyList'>
+    <documentation>a free public proxy aggregator providing painless access to working open proxies from around the world We scour the internet for free public proxies on the regular We test to find those that work then provide such to you how you like to consume them via download API email and web Provided by The Prox Is Right</documentation>
+    <port name='freeProxyListPort' binding='tns:freeProxyListBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://freeProxyList' />
+    </port>
+  </service>
+</definitions>

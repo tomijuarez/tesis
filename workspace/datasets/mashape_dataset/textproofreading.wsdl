@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textProofreading/' name='textProofreading' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textProofreading/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textProofreading/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textProofreading/'>
+      <xsd:element name='stilusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='alw' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='aqoi' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dpn' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='of' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txtf' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='wct' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stilusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='stilusRequestMessage'>
+    <part name='parameters' element='tns:stilusParameters' />
+  </message>
+  <message name='stilusResponseMessage'>
+    <part name='response' element='tns:stilusResponse' />
+  </message>
+  <portType name='textProofreadingPortType'>
+    <operation name='stilus'>
+      <documentation>multilingual automatic proofreading service</documentation>
+      <input message='tns:stilusRequestMessage' name='stilusInput' />
+      <output message='tns:stilusResponseMessage' name='stilusOutput' />
+    </operation>
+  </portType>
+  <binding name='textProofreadingBinding' type='tns:textProofreadingPortType'>
+    <operation name='stilus'>
+      <soap12:operation soapAction='http://stilus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textProofreading'>
+    <documentation>a service for automatic proofreading of multilingual texts This module uses multilingual Natural Language Processing technology to check the spelling grammar and style of your texts with high accuracy in order to provide precise and up to date suggestions and educational explanations based on references It also provides a number of configuration parameters that allow the user to obtain the corrections in different formats and to customize the behavior for certain types of errors</documentation>
+    <port name='textProofreadingPort' binding='tns:textProofreadingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textProofreading' />
+    </port>
+  </service>
+</definitions>

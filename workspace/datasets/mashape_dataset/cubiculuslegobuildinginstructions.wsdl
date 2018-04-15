@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cubiculusLegoBuildingInstructions/' name='cubiculusLegoBuildingInstructions' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cubiculusLegoBuildingInstructions/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cubiculusLegoBuildingInstructions/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cubiculusLegoBuildingInstructions/'>
+      <xsd:element name='buildingInstructionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='buildingInstructionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='stepGroups' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='idInstruction' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='shortcutPicture' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='buildingInstructionsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='stepGroups' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='idInstruction' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='shortcutPicture' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='buildingInstructionRequestMessage'>
+    <part name='parameters' element='tns:buildingInstructionParameters' />
+  </message>
+  <message name='buildingInstructionResponseMessage'>
+    <part name='response' element='tns:buildingInstructionResponse' />
+  </message>
+  <message name='buildingInstructionsListRequestMessage' />
+  <message name='buildingInstructionsListResponseMessage'>
+    <part name='response' element='tns:buildingInstructionsListResponse' />
+  </message>
+  <portType name='cubiculusLegoBuildingInstructionsPortType'>
+    <operation name='buildingInstruction'>
+      <documentation>get concrete building instruction by id</documentation>
+      <input message='tns:buildingInstructionRequestMessage' name='buildingInstructionInput' />
+      <output message='tns:buildingInstructionResponseMessage' name='buildingInstructionOutput' />
+    </operation>
+    <operation name='buildingInstructionsList'>
+      <documentation>get list of building instructions field stepGroups in response is always empty To get all details about building instruction method Building instruction should be used</documentation>
+      <input message='tns:buildingInstructionsListRequestMessage' name='buildingInstructionsListInput' />
+      <output message='tns:buildingInstructionsListResponseMessage' name='buildingInstructionsListOutput' />
+    </operation>
+  </portType>
+  <binding name='cubiculusLegoBuildingInstructionsBinding' type='tns:cubiculusLegoBuildingInstructionsPortType'>
+    <operation name='buildingInstruction'>
+      <soap12:operation soapAction='http://buildingInstruction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='buildingInstructionsList'>
+      <soap12:operation soapAction='http://buildingInstructionsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cubiculusLegoBuildingInstructions'>
+    <documentation>provide information about LEGO building instructions for selected LEGO sets Each LEGO set building step in on separate picture Available sets could be listed</documentation>
+    <port name='cubiculusLegoBuildingInstructionsPort' binding='tns:cubiculusLegoBuildingInstructionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cubiculusLegoBuildingInstructions' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/clicksendSms/' name='clicksendSms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/clicksendSms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/clicksendSms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/clicksendSms/'>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='recipientcount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='messages' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='errortext' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='messageid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendSmsRequestMessage' />
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='clicksendSmsPortType'>
+    <operation name='sendSms'>
+      <documentation>sends an SMS</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='clicksendSmsBinding' type='tns:clicksendSmsPortType'>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='clicksendSms'>
+    <documentation>sign up for a free account at http clicksend com ClickSend is not a free service Pricing can be found here http clicksend com r pricing</documentation>
+    <port name='clicksendSmsPort' binding='tns:clicksendSmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://clicksendSms' />
+    </port>
+  </service>
+</definitions>

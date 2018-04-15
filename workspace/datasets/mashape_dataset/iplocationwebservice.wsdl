@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipLocationWebService/' name='ipLocationWebService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipLocationWebService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipLocationWebService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipLocationWebService/'>
+      <xsd:element name='ipLocationWsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='package' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipLocationWsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipLocationWsRequestMessage'>
+    <part name='parameters' element='tns:ipLocationWsParameters' />
+  </message>
+  <message name='ipLocationWsResponseMessage'>
+    <part name='response' element='tns:ipLocationWsResponse' />
+  </message>
+  <portType name='ipLocationWebServicePortType'>
+    <operation name='ipLocationWs'>
+      <documentation>iP Location WS Web Service</documentation>
+      <input message='tns:ipLocationWsRequestMessage' name='ipLocationWsInput' />
+      <output message='tns:ipLocationWsResponseMessage' name='ipLocationWsOutput' />
+    </operation>
+  </portType>
+  <binding name='ipLocationWebServiceBinding' type='tns:ipLocationWebServicePortType'>
+    <operation name='ipLocationWs'>
+      <soap12:operation soapAction='http://ipLocationWs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipLocationWebService'>
+    <documentation>iP Location web service does a reverse lookup of an IP address to an ISO country code region name city name latitude longitude ZIP code ISP and domain Credits are needed to perform queries which can be purchased from the http ip location com web service page</documentation>
+    <port name='ipLocationWebServicePort' binding='tns:ipLocationWebServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipLocationWebService' />
+    </port>
+  </service>
+</definitions>

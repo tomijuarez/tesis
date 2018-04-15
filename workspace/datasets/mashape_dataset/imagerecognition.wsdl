@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imageRecognition/' name='imageRecognition' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imageRecognition/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imageRecognition/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imageRecognition/'>
+      <xsd:element name='imageRequestsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:date' minOccurs='0' />
+            <xsd:element name='result' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageRequestsRequestMessage' />
+  <message name='imageRequestsResponseMessage'>
+    <part name='response' element='tns:imageRequestsResponse' />
+  </message>
+  <portType name='imageRecognitionPortType'>
+    <operation name='imageRequests'>
+      <documentation></documentation>
+      <input message='tns:imageRequestsRequestMessage' name='imageRequestsInput' />
+      <output message='tns:imageRequestsResponseMessage' name='imageRequestsOutput' />
+    </operation>
+  </portType>
+  <binding name='imageRecognitionBinding' type='tns:imageRecognitionPortType'>
+    <operation name='imageRequests'>
+      <soap12:operation soapAction='http://imageRequests' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imageRecognition'>
+    <documentation>viscovery API is the image recognition and matching service Unlike fuzzy search Viscovery API promise to bring you the most accurate result Assisting Web based content management allows developer to add and to edit images for searching which enrich Apps to interact with target user with much fun</documentation>
+    <port name='imageRecognitionPort' binding='tns:imageRecognitionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imageRecognition' />
+    </port>
+  </service>
+</definitions>

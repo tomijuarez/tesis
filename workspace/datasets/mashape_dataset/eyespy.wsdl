@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/eyespy/' name='eyespy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/eyespy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/eyespy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/eyespy/'>
+      <xsd:element name='identifyAnObjectInAnImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='reason' type='xsd:int' minOccurs='0' />
+            <xsd:element name='remained_seconds' type='xsd:int' minOccurs='0' />
+            <xsd:element name='extra2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='accuracy' type='xsd:int' minOccurs='0' />
+            <xsd:element name='gp_types' type='xsd:string' minOccurs='0' />
+            <xsd:element name='extra1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='gp_keyword' type='xsd:string' minOccurs='0' />
+            <xsd:element name='limit_usage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='is_pro' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='identifyAnObjectInAnImageRequestMessage' />
+  <message name='identifyAnObjectInAnImageResponseMessage'>
+    <part name='response' element='tns:identifyAnObjectInAnImageResponse' />
+  </message>
+  <portType name='eyespyPortType'>
+    <operation name='identifyAnObjectInAnImage'>
+      <documentation>this endpoint allows you to upload an image so EyeSpy s technology can identify the object in the image To ensure better results you should crop the image and select the exact object that you want to identify</documentation>
+      <input message='tns:identifyAnObjectInAnImageRequestMessage' name='identifyAnObjectInAnImageInput' />
+      <output message='tns:identifyAnObjectInAnImageResponseMessage' name='identifyAnObjectInAnImageOutput' />
+    </operation>
+  </portType>
+  <binding name='eyespyBinding' type='tns:eyespyPortType'>
+    <operation name='identifyAnObjectInAnImage'>
+      <soap12:operation soapAction='http://identifyAnObjectInAnImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='eyespy'>
+    <documentation>eyeSpy is the world s best object recognition technology The EyeSpy API powers this technology and allows developers the ability to incorporate the EyeSpy object recognition technology into their own apps and web applications</documentation>
+    <port name='eyespyPort' binding='tns:eyespyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://eyespy' />
+    </port>
+  </service>
+</definitions>

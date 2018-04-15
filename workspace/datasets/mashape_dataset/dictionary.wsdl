@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dictionary/' name='dictionary' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dictionary/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dictionary/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dictionary/'>
+      <xsd:element name='defineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='defineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='definitions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='attribution' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='defineRequestMessage'>
+    <part name='parameters' element='tns:defineParameters' />
+  </message>
+  <message name='defineResponseMessage'>
+    <part name='response' element='tns:defineResponse' />
+  </message>
+  <portType name='dictionaryPortType'>
+    <operation name='define'>
+      <documentation>gets definitions for a word</documentation>
+      <input message='tns:defineRequestMessage' name='defineInput' />
+      <output message='tns:defineResponseMessage' name='defineOutput' />
+    </operation>
+  </portType>
+  <binding name='dictionaryBinding' type='tns:dictionaryPortType'>
+    <operation name='define'>
+      <soap12:operation soapAction='http://define' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dictionary'>
+    <documentation>english dictionary that provides multiple definitions for most words</documentation>
+    <port name='dictionaryPort' binding='tns:dictionaryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dictionary' />
+    </port>
+  </service>
+</definitions>

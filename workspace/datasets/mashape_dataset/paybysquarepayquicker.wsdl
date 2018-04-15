@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/paybysquarePayquicker/' name='paybysquarePayquicker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/paybysquarePayquicker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/paybysquarePayquicker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/paybysquarePayquicker/'>
+      <xsd:element name='codePhpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='iban' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='invoiceid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='paynote' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='r' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='s' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='ss' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='v' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='vs' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='codePhpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='codePhpRequestMessage'>
+    <part name='parameters' element='tns:codePhpParameters' />
+  </message>
+  <message name='codePhpResponseMessage'>
+    <part name='response' element='tns:codePhpResponse' />
+  </message>
+  <portType name='paybysquarePayquickerPortType'>
+    <operation name='codePhp'>
+      <documentation>payBySquare QR Code Generator</documentation>
+      <input message='tns:codePhpRequestMessage' name='codePhpInput' />
+      <output message='tns:codePhpResponseMessage' name='codePhpOutput' />
+    </operation>
+  </portType>
+  <binding name='paybysquarePayquickerBinding' type='tns:paybysquarePayquickerPortType'>
+    <operation name='codePhp'>
+      <soap12:operation soapAction='http://codePhp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='paybysquarePayquicker'>
+    <documentation>payBySquare QR code generator standard used in Slovakia for invoices to denote payment information This format has been approved by the Slovak Banking Association</documentation>
+    <port name='paybysquarePayquickerPort' binding='tns:paybysquarePayquickerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://paybysquarePayquicker' />
+    </port>
+  </service>
+</definitions>

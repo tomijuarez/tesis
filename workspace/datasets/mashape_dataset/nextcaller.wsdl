@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nextCaller/' name='nextCaller' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nextCaller/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nextCaller/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nextCaller/'>
+      <xsd:element name='getProfileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getProfileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='records' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='extended_zip' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='zip_code' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='carrier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='fraud_threat' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='phone' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='member' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='billing_info_on_file' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='department' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postProfileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='nextcallerid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postProfileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getProfileRequestMessage'>
+    <part name='parameters' element='tns:getProfileParameters' />
+  </message>
+  <message name='getProfileResponseMessage'>
+    <part name='response' element='tns:getProfileResponse' />
+  </message>
+  <message name='postProfileRequestMessage'>
+    <part name='parameters' element='tns:postProfileParameters' />
+  </message>
+  <message name='postProfileResponseMessage'>
+    <part name='response' element='tns:postProfileResponse' />
+  </message>
+  <portType name='nextCallerPortType'>
+    <operation name='getProfile'>
+      <documentation>returns Nextcaller member detailed info</documentation>
+      <input message='tns:getProfileRequestMessage' name='getProfileInput' />
+      <output message='tns:getProfileResponseMessage' name='getProfileOutput' />
+    </operation>
+    <operation name='postProfile'>
+      <documentation>allows you to update caller s info on Nextcaller</documentation>
+      <input message='tns:postProfileRequestMessage' name='postProfileInput' />
+      <output message='tns:postProfileResponseMessage' name='postProfileOutput' />
+    </operation>
+  </portType>
+  <binding name='nextCallerBinding' type='tns:nextCallerPortType'>
+    <operation name='getProfile'>
+      <soap12:operation soapAction='http://getProfile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postProfile'>
+      <soap12:operation soapAction='http://postProfile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nextCaller'>
+    <documentation>the Next Caller API can currently ID over million US numbers Name address and email Quickly identify callers and reduce your customer identification costs by over</documentation>
+    <port name='nextCallerPort' binding='tns:nextCallerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nextCaller' />
+    </port>
+  </service>
+</definitions>

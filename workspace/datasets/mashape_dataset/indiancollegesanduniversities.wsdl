@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/indianCollegesAndUniversities/' name='indianCollegesAndUniversities' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/indianCollegesAndUniversities/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/indianCollegesAndUniversities/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/indianCollegesAndUniversities/'>
+      <xsd:element name='vCollegesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vCollegesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='website' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='tel' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vCollegesRequestMessage'>
+    <part name='parameters' element='tns:vCollegesParameters' />
+  </message>
+  <message name='vCollegesResponseMessage'>
+    <part name='response' element='tns:vCollegesResponse' />
+  </message>
+  <portType name='indianCollegesAndUniversitiesPortType'>
+    <operation name='vColleges'>
+      <documentation>gets name ph number city state address and email of colleges universities located in India</documentation>
+      <input message='tns:vCollegesRequestMessage' name='vCollegesInput' />
+      <output message='tns:vCollegesResponseMessage' name='vCollegesOutput' />
+    </operation>
+  </portType>
+  <binding name='indianCollegesAndUniversitiesBinding' type='tns:indianCollegesAndUniversitiesPortType'>
+    <operation name='vColleges'>
+      <soap12:operation soapAction='http://vColleges' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='indianCollegesAndUniversities'>
+    <documentation>aPI endpoint for colleges and universities in India Get access to information like name ph number city state address</documentation>
+    <port name='indianCollegesAndUniversitiesPort' binding='tns:indianCollegesAndUniversitiesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://indianCollegesAndUniversities' />
+    </port>
+  </service>
+</definitions>

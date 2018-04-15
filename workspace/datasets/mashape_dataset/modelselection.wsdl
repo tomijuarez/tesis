@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/modelSelection/' name='modelSelection' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/modelSelection/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/modelSelection/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/modelSelection/'>
+      <xsd:element name='vModelSelectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contributionamount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='contributionfrequency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='goalamount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='goalname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='initialinvestment' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='investableassets' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='modelset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='riskscore' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='timehorizon' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vModelSelectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiVersion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tenantName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='modelPortfolio' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='modelDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='modelName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='modelID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='modelHoldings' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='securityName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='securityID' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='allocationPercent' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='riskScore' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vModelSelectionRequestMessage'>
+    <part name='parameters' element='tns:vModelSelectionParameters' />
+  </message>
+  <message name='vModelSelectionResponseMessage'>
+    <part name='response' element='tns:vModelSelectionResponse' />
+  </message>
+  <portType name='modelSelectionPortType'>
+    <operation name='vModelSelection'>
+      <documentation></documentation>
+      <input message='tns:vModelSelectionRequestMessage' name='vModelSelectionInput' />
+      <output message='tns:vModelSelectionResponseMessage' name='vModelSelectionOutput' />
+    </operation>
+  </portType>
+  <binding name='modelSelectionBinding' type='tns:modelSelectionPortType'>
+    <operation name='vModelSelection'>
+      <soap12:operation soapAction='http://vModelSelection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='modelSelection'>
+    <documentation>the Model Portfolio Selection API returns the model portfolio that best matches a client s aggregate risk profile based on a set of models defined for the tenant and the model mapping criteria configured for the tenant If no modelSet is specified in the request then the default modelSet will be used The Model Portfolio Selection algorithm aggregates the riskScore in the request along with the goal timeHorizon and the percentage of the investableAssets allocated to the goal initialInvestment to determine an aggregate risk score that can then be mapped to a model portfolio</documentation>
+    <port name='modelSelectionPort' binding='tns:modelSelectionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://modelSelection' />
+    </port>
+  </service>
+</definitions>

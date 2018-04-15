@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textualOpinionSummarizer/' name='textualOpinionSummarizer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textualOpinionSummarizer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textualOpinionSummarizer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textualOpinionSummarizer/'>
+      <xsd:element name='summarizeopinionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='summarizeopinionsRequestMessage' />
+  <message name='summarizeopinionsResponseMessage'>
+    <part name='response' element='tns:summarizeopinionsResponse' />
+  </message>
+  <portType name='textualOpinionSummarizerPortType'>
+    <operation name='summarizeopinions'>
+      <documentation>generate textual summaries of highly redundant opinions</documentation>
+      <input message='tns:summarizeopinionsRequestMessage' name='summarizeopinionsInput' />
+      <output message='tns:summarizeopinionsResponseMessage' name='summarizeopinionsOutput' />
+    </operation>
+  </portType>
+  <binding name='textualOpinionSummarizerBinding' type='tns:textualOpinionSummarizerPortType'>
+    <operation name='summarizeopinions'>
+      <soap12:operation soapAction='http://summarizeopinions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textualOpinionSummarizer'>
+    <documentation>generate short sentiment summaries of texts such as tweets Foursquare tips blog comments etc The API generates a set of short phrases summarizing key opinions in your text This API uses the Opinosis Abstractive Summarization algorithm behind the scenes</documentation>
+    <port name='textualOpinionSummarizerPort' binding='tns:textualOpinionSummarizerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textualOpinionSummarizer' />
+    </port>
+  </service>
+</definitions>

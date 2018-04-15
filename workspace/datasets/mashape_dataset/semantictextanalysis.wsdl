@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/semanticTextAnalysis/' name='semanticTextAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/semanticTextAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/semanticTextAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/semanticTextAnalysis/'>
+      <xsd:element name='entityExtractionApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='langConfidence' type='xsd:int' minOccurs='0' />
+            <xsd:element name='annotations' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lod' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='dbpedia' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='wikipedia' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='types' type='xsd:anyURI' maxOccurs='unbounded' />
+                  <xsd:element name='spot' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='abstract' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='entityExtractionApiRequestMessage' />
+  <message name='entityExtractionApiResponseMessage'>
+    <part name='response' element='tns:entityExtractionApiResponse' />
+  </message>
+  <portType name='semanticTextAnalysisPortType'>
+    <operation name='entityExtractionApi'>
+      <documentation>the Entity Extraction API is a named entity extraction linking API that performs greatly even on short texts something that many other similar services cannot do With this API you will be able to automatically tag your texts extract Wikipedia entities and enrich your data</documentation>
+      <input message='tns:entityExtractionApiRequestMessage' name='entityExtractionApiInput' />
+      <output message='tns:entityExtractionApiResponseMessage' name='entityExtractionApiOutput' />
+    </operation>
+  </portType>
+  <binding name='semanticTextAnalysisBinding' type='tns:semanticTextAnalysisPortType'>
+    <operation name='entityExtractionApi'>
+      <soap12:operation soapAction='http://entityExtractionApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='semanticTextAnalysis'>
+    <documentation>dandelion API is a set of semantic APIs to extract meaning and insights from texts in several languages Italian English French German and Portuguese It s optimized to perform text mining and text analytics for short texts such as tweets and other social media Dandelion API extracts entities such as persons places and events categorizes and classifies documents in user defined categories augments the text with tags and links to external knowledge graphs and more Dandelion API easily scales to support billions of queries per day and can be adapted on demand to support custom and user defined vocabularies Additional languages are available on demand</documentation>
+    <port name='semanticTextAnalysisPort' binding='tns:semanticTextAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://semanticTextAnalysis' />
+    </port>
+  </service>
+</definitions>

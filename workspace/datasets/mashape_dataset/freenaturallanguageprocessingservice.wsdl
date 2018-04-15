@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/freeNaturalLanguageProcessingService/' name='freeNaturalLanguageProcessingService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/freeNaturalLanguageProcessingService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/freeNaturalLanguageProcessingService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/freeNaturalLanguageProcessingService/'>
+      <xsd:element name='nlpTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nlpTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentiment-score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='sentiment-text' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='api-usage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nlpUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nlpUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='extracted-content' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sentiment-score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='url-normalized' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='sentiment-text' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='api-usage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nlpTextRequestMessage'>
+    <part name='parameters' element='tns:nlpTextParameters' />
+  </message>
+  <message name='nlpTextResponseMessage'>
+    <part name='response' element='tns:nlpTextResponse' />
+  </message>
+  <message name='nlpUrlRequestMessage'>
+    <part name='parameters' element='tns:nlpUrlParameters' />
+  </message>
+  <message name='nlpUrlResponseMessage'>
+    <part name='response' element='tns:nlpUrlResponse' />
+  </message>
+  <portType name='freeNaturalLanguageProcessingServicePortType'>
+    <operation name='nlpText'>
+      <documentation></documentation>
+      <input message='tns:nlpTextRequestMessage' name='nlpTextInput' />
+      <output message='tns:nlpTextResponseMessage' name='nlpTextOutput' />
+    </operation>
+    <operation name='nlpUrl'>
+      <documentation></documentation>
+      <input message='tns:nlpUrlRequestMessage' name='nlpUrlInput' />
+      <output message='tns:nlpUrlResponseMessage' name='nlpUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='freeNaturalLanguageProcessingServiceBinding' type='tns:freeNaturalLanguageProcessingServicePortType'>
+    <operation name='nlpText'>
+      <soap12:operation soapAction='http://nlpText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nlpUrl'>
+      <soap12:operation soapAction='http://nlpUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='freeNaturalLanguageProcessingService'>
+    <documentation>free service including sentiment analysis content extraction and language detection Enjoy</documentation>
+    <port name='freeNaturalLanguageProcessingServicePort' binding='tns:freeNaturalLanguageProcessingServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://freeNaturalLanguageProcessingService' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hedonometer/' name='hedonometer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hedonometer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hedonometer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hedonometer/'>
+      <xsd:element name='timeseriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeseriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='next' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='previous' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='total_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='objects' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='happiness' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='timeseriesRequestMessage'>
+    <part name='parameters' element='tns:timeseriesParameters' />
+  </message>
+  <message name='timeseriesResponseMessage'>
+    <part name='response' element='tns:timeseriesResponse' />
+  </message>
+  <portType name='hedonometerPortType'>
+    <operation name='timeseries'>
+      <documentation>call the happiness timeseries</documentation>
+      <input message='tns:timeseriesRequestMessage' name='timeseriesInput' />
+      <output message='tns:timeseriesResponseMessage' name='timeseriesOutput' />
+    </operation>
+  </portType>
+  <binding name='hedonometerBinding' type='tns:hedonometerPortType'>
+    <operation name='timeseries'>
+      <soap12:operation soapAction='http://timeseries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hedonometer'>
+    <documentation>with hedonometer org we ve created an instrument that measures the happiness of large populations in real time Our hedonometer is based on people s online expressions capitalizing on data rich social media and we re measuring how people present themselves to the outside world For our first version of hedonometer org we re using Twitter as a source but in principle we can expand to any data source in any language</documentation>
+    <port name='hedonometerPort' binding='tns:hedonometerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hedonometer' />
+    </port>
+  </service>
+</definitions>

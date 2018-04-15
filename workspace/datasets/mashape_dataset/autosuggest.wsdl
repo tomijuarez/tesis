@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/autosuggest/' name='autosuggest' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/autosuggest/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/autosuggest/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/autosuggest/'>
+      <xsd:element name='suggestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='suggestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mispelt' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='suggestions' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='word_found' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='suggestRequestMessage'>
+    <part name='parameters' element='tns:suggestParameters' />
+  </message>
+  <message name='suggestResponseMessage'>
+    <part name='response' element='tns:suggestResponse' />
+  </message>
+  <portType name='autosuggestPortType'>
+    <operation name='suggest'>
+      <documentation>send the word s to be corrected checked for correction here For multiple words separate with commas</documentation>
+      <input message='tns:suggestRequestMessage' name='suggestInput' />
+      <output message='tns:suggestResponseMessage' name='suggestOutput' />
+    </operation>
+  </portType>
+  <binding name='autosuggestBinding' type='tns:autosuggestPortType'>
+    <operation name='suggest'>
+      <soap12:operation soapAction='http://suggest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='autosuggest'>
+    <documentation>this API provides spelling suggestions for misspelled words</documentation>
+    <port name='autosuggestPort' binding='tns:autosuggestBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://autosuggest' />
+    </port>
+  </service>
+</definitions>

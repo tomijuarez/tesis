@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ticketEvolution/' name='ticketEvolution' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ticketEvolution/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ticketEvolution/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ticketEvolution/'>
+      <xsd:element name='ticketGroupsIndexParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='eventid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ticketGroupsIndexResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ticketGroupsIndexRequestMessage'>
+    <part name='parameters' element='tns:ticketGroupsIndexParameters' />
+  </message>
+  <message name='ticketGroupsIndexResponseMessage'>
+    <part name='response' element='tns:ticketGroupsIndexResponse' />
+  </message>
+  <portType name='ticketEvolutionPortType'>
+    <operation name='ticketGroupsIndex'>
+      <documentation>returns all ticket groups for the given event id</documentation>
+      <input message='tns:ticketGroupsIndexRequestMessage' name='ticketGroupsIndexInput' />
+      <output message='tns:ticketGroupsIndexResponseMessage' name='ticketGroupsIndexOutput' />
+    </operation>
+  </portType>
+  <binding name='ticketEvolutionBinding' type='tns:ticketEvolutionPortType'>
+    <operation name='ticketGroupsIndex'>
+      <soap12:operation soapAction='http://ticketGroupsIndex' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ticketEvolution'>
+    <documentation>ticket Evolution provides the most flexible and robust API to create your own unique ticket experience on your site while allowing you to maintain your brand We have aggregated inventory from over professional ticket sellers to create the ultimate customer experience for your customers</documentation>
+    <port name='ticketEvolutionPort' binding='tns:ticketEvolutionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ticketEvolution' />
+    </port>
+  </service>
+</definitions>

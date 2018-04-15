@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/summarizationIndexSummaryPartOfSpeech/' name='summarizationIndexSummaryPartOfSpeech' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/summarizationIndexSummaryPartOfSpeech/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/summarizationIndexSummaryPartOfSpeech/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/summarizationIndexSummaryPartOfSpeech/'>
+      <xsd:element name='enelyouSummarizationIndexSummaryPartOfSpeechResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+            <xsd:element name='h1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='summary_length' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='enelyouSummarizationIndexSummaryPartOfSpeechRequestMessage' />
+  <message name='enelyouSummarizationIndexSummaryPartOfSpeechResponseMessage'>
+    <part name='response' element='tns:enelyouSummarizationIndexSummaryPartOfSpeechResponse' />
+  </message>
+  <portType name='summarizationIndexSummaryPartOfSpeechPortType'>
+    <operation name='enelyouSummarizationIndexSummaryPartOfSpeech'>
+      <documentation>summarizes content from HTML by extracting the content from the page and then scoring each sentence</documentation>
+      <input message='tns:enelyouSummarizationIndexSummaryPartOfSpeechRequestMessage' name='enelyouSummarizationIndexSummaryPartOfSpeechInput' />
+      <output message='tns:enelyouSummarizationIndexSummaryPartOfSpeechResponseMessage' name='enelyouSummarizationIndexSummaryPartOfSpeechOutput' />
+    </operation>
+  </portType>
+  <binding name='summarizationIndexSummaryPartOfSpeechBinding' type='tns:summarizationIndexSummaryPartOfSpeechPortType'>
+    <operation name='enelyouSummarizationIndexSummaryPartOfSpeech'>
+      <soap12:operation soapAction='http://enelyouSummarizationIndexSummaryPartOfSpeech' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='summarizationIndexSummaryPartOfSpeech'>
+    <documentation>summarize the content of a web page Returns a summary the parts of speech for each sentence the extracted HTML and the content make up of the page Natural Language Processing NLP gives the system the ability to find the content on the page but Natural Language Understanding NLU enables that content to be classified and ranked EnElYou uses a proprietary NLP engine that is faster than any competitor and maintains high accuracy rates The synonym and concept engine allows content to be summarized ranking more than keywords Concepts and Topics influence ranking Unlike other API s Character counts are very precise The engine will do its best to get the best summary possible with in the character counts The Reauthor feature rewrites some portions of summaries to make them more concise</documentation>
+    <port name='summarizationIndexSummaryPartOfSpeechPort' binding='tns:summarizationIndexSummaryPartOfSpeechBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://summarizationIndexSummaryPartOfSpeech' />
+    </port>
+  </service>
+</definitions>

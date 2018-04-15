@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentiment/' name='sentiment' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentiment/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentiment/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentiment/'>
+      <xsd:element name='sentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sentimentRequestMessage' />
+  <message name='sentimentResponseMessage'>
+    <part name='response' element='tns:sentimentResponse' />
+  </message>
+  <portType name='sentimentPortType'>
+    <operation name='sentiment'>
+      <documentation></documentation>
+      <input message='tns:sentimentRequestMessage' name='sentimentInput' />
+      <output message='tns:sentimentResponseMessage' name='sentimentOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentBinding' type='tns:sentimentPortType'>
+    <operation name='sentiment'>
+      <soap12:operation soapAction='http://sentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentiment'>
+    <documentation>this tool works by examining individual words and short sequences of words n grams and comparing them with a probability model The probability model is built on a prelabeled test set of IMDb movie reviews It can also detect negations in phrases i e the phrase not bad will be classified as positive despite having two individual words with a negative sentiment</documentation>
+    <port name='sentimentPort' binding='tns:sentimentBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentiment' />
+    </port>
+  </service>
+</definitions>

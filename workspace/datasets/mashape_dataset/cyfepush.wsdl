@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cyfePush/' name='cyfePush' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cyfePush/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cyfePush/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cyfePush/'>
+      <xsd:element name='pushParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cyfepushapikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pushResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pushRequestMessage'>
+    <part name='parameters' element='tns:pushParameters' />
+  </message>
+  <message name='pushResponseMessage'>
+    <part name='response' element='tns:pushResponse' />
+  </message>
+  <portType name='cyfePushPortType'>
+    <operation name='push'>
+      <documentation>push your data into a Cyfe Push API widget</documentation>
+      <input message='tns:pushRequestMessage' name='pushInput' />
+      <output message='tns:pushResponseMessage' name='pushOutput' />
+    </operation>
+  </portType>
+  <binding name='cyfePushBinding' type='tns:cyfePushPortType'>
+    <operation name='push'>
+      <soap12:operation soapAction='http://push' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cyfePush'>
+    <documentation>the Cyfe Push API allows you to push data into your business dashboards from your own applications</documentation>
+    <port name='cyfePushPort' binding='tns:cyfePushBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cyfePush' />
+    </port>
+  </service>
+</definitions>

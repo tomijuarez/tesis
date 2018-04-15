@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/portscan/' name='portscan' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/portscan/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/portscan/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/portscan/'>
+      <xsd:element name='scanParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='scanResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='port' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='response' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='service' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='scanRequestMessage'>
+    <part name='parameters' element='tns:scanParameters' />
+  </message>
+  <message name='scanResponseMessage'>
+    <part name='response' element='tns:scanResponse' />
+  </message>
+  <portType name='portscanPortType'>
+    <operation name='scan'>
+      <documentation>scan host against supplied ports</documentation>
+      <input message='tns:scanRequestMessage' name='scanInput' />
+      <output message='tns:scanResponseMessage' name='scanOutput' />
+    </operation>
+  </portType>
+  <binding name='portscanBinding' type='tns:portscanPortType'>
+    <operation name='scan'>
+      <soap12:operation soapAction='http://scan' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='portscan'>
+    <documentation>quickly scan host against a list of provided ports</documentation>
+    <port name='portscanPort' binding='tns:portscanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://portscan' />
+    </port>
+  </service>
+</definitions>

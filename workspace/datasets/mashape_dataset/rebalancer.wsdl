@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rebalancer/' name='rebalancer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rebalancer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rebalancer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rebalancer/'>
+      <xsd:element name='portfolioManagementResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='portfolioManagementRequestMessage' />
+  <message name='portfolioManagementResponseMessage'>
+    <part name='response' element='tns:portfolioManagementResponse' />
+  </message>
+  <portType name='rebalancerPortType'>
+    <operation name='portfolioManagement'>
+      <documentation>the Rebalancer API returns the proposed holdings and trades to rebalance a portfolio back to a model A request requires a portfolio s current holdings the model portfolio s holdings and prices for all securities referenced in each portfolio</documentation>
+      <input message='tns:portfolioManagementRequestMessage' name='portfolioManagementInput' />
+      <output message='tns:portfolioManagementResponseMessage' name='portfolioManagementOutput' />
+    </operation>
+  </portType>
+  <binding name='rebalancerBinding' type='tns:rebalancerPortType'>
+    <operation name='portfolioManagement'>
+      <soap12:operation soapAction='http://portfolioManagement' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rebalancer'>
+    <documentation>the Rebalancer API returns the proposed holdings and trades to rebalance a portfolio back to a model A request requires a portfolio s current holdings the model portfolio s holdings and prices for all securities referenced in each portfolio</documentation>
+    <port name='rebalancerPort' binding='tns:rebalancerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rebalancer' />
+    </port>
+  </service>
+</definitions>

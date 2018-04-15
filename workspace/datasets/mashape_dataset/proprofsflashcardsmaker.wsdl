@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/proprofsFlashcardsMaker/' name='proprofsFlashcardsMaker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/proprofsFlashcardsMaker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/proprofsFlashcardsMaker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/proprofsFlashcardsMaker/'>
+      <xsd:element name='flashcardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='flashcardsRequestMessage' />
+  <message name='flashcardsResponseMessage'>
+    <part name='response' element='tns:flashcardsResponse' />
+  </message>
+  <portType name='proprofsFlashcardsMakerPortType'>
+    <operation name='flashcards'>
+      <documentation>create online flashcards</documentation>
+      <input message='tns:flashcardsRequestMessage' name='flashcardsInput' />
+      <output message='tns:flashcardsResponseMessage' name='flashcardsOutput' />
+    </operation>
+  </portType>
+  <binding name='proprofsFlashcardsMakerBinding' type='tns:proprofsFlashcardsMakerPortType'>
+    <operation name='flashcards'>
+      <soap12:operation soapAction='http://flashcards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='proprofsFlashcardsMaker'>
+    <documentation>proProfs Flashcards Maker is very popular with both teachers and students for creating memory aids and review lists Using ProProfs Flashcards learners can create engaging and informative flashcards by adding images and web links to flashcards Learners can create their own sets or even re use any flashcards set from ProProfs flashcards library Users can also create branded flashcards by customizing the fonts colors and text to go with their brand With no complicated software to download or learn ProProfs is the ideal place to create public or private flashcards</documentation>
+    <port name='proprofsFlashcardsMakerPort' binding='tns:proprofsFlashcardsMakerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://proprofsFlashcardsMaker' />
+    </port>
+  </service>
+</definitions>

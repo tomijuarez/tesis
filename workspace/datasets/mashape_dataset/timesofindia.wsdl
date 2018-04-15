@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/timesOfIndia/' name='timesOfIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/timesOfIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/timesOfIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/timesOfIndia/'>
+      <xsd:element name='breakingNewsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='feedtype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='breakingNewsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='TestLink' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='catagoryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='catagory' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='catagoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Item' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='template' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='subsections' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='sectionurl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='Icon' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ID' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='defaultname' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='defaulturl' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='breakingNewsRequestMessage'>
+    <part name='parameters' element='tns:breakingNewsParameters' />
+  </message>
+  <message name='breakingNewsResponseMessage'>
+    <part name='response' element='tns:breakingNewsResponse' />
+  </message>
+  <message name='catagoryRequestMessage'>
+    <part name='parameters' element='tns:catagoryParameters' />
+  </message>
+  <message name='catagoryResponseMessage'>
+    <part name='response' element='tns:catagoryResponse' />
+  </message>
+  <portType name='timesOfIndiaPortType'>
+    <operation name='breakingNews'>
+      <documentation></documentation>
+      <input message='tns:breakingNewsRequestMessage' name='breakingNewsInput' />
+      <output message='tns:breakingNewsResponseMessage' name='breakingNewsOutput' />
+    </operation>
+    <operation name='catagory'>
+      <documentation></documentation>
+      <input message='tns:catagoryRequestMessage' name='catagoryInput' />
+      <output message='tns:catagoryResponseMessage' name='catagoryOutput' />
+    </operation>
+  </portType>
+  <binding name='timesOfIndiaBinding' type='tns:timesOfIndiaPortType'>
+    <operation name='breakingNews'>
+      <soap12:operation soapAction='http://breakingNews' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='catagory'>
+      <soap12:operation soapAction='http://catagory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='timesOfIndia'>
+    <documentation>the Times of India is an Indian English language daily newspaper</documentation>
+    <port name='timesOfIndiaPort' binding='tns:timesOfIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://timesOfIndia' />
+    </port>
+  </service>
+</definitions>

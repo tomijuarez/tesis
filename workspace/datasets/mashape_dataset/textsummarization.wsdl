@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textSummarization/' name='textSummarization' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textSummarization/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textSummarization/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textSummarization/'>
+      <xsd:element name='textSummarizationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentences' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textSummarizationForTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentences' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textSummarizationForUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentences' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textSummarizationRequestMessage' />
+  <message name='textSummarizationResponseMessage'>
+    <part name='response' element='tns:textSummarizationResponse' />
+  </message>
+  <message name='textSummarizationForTextRequestMessage' />
+  <message name='textSummarizationForTextResponseMessage'>
+    <part name='response' element='tns:textSummarizationForTextResponse' />
+  </message>
+  <message name='textSummarizationForUrlRequestMessage' />
+  <message name='textSummarizationForUrlResponseMessage'>
+    <part name='response' element='tns:textSummarizationForUrlResponse' />
+  </message>
+  <portType name='textSummarizationPortType'>
+    <operation name='textSummarization'>
+      <documentation>automatic Text Summarization API you can test details summarized result on our text summarizer online demo http textsummarization net text summarizer and you can find the details document on our website http textsummarization net text summarization api document</documentation>
+      <input message='tns:textSummarizationRequestMessage' name='textSummarizationInput' />
+      <output message='tns:textSummarizationResponseMessage' name='textSummarizationOutput' />
+    </operation>
+    <operation name='textSummarizationForText'>
+      <documentation>text Summarization for text only</documentation>
+      <input message='tns:textSummarizationForTextRequestMessage' name='textSummarizationForTextInput' />
+      <output message='tns:textSummarizationForTextResponseMessage' name='textSummarizationForTextOutput' />
+    </operation>
+    <operation name='textSummarizationForUrl'>
+      <documentation>just summarized the page url by the text summarizer</documentation>
+      <input message='tns:textSummarizationForUrlRequestMessage' name='textSummarizationForUrlInput' />
+      <output message='tns:textSummarizationForUrlResponseMessage' name='textSummarizationForUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='textSummarizationBinding' type='tns:textSummarizationPortType'>
+    <operation name='textSummarization'>
+      <soap12:operation soapAction='http://textSummarization' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textSummarizationForText'>
+      <soap12:operation soapAction='http://textSummarizationForText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textSummarizationForUrl'>
+      <soap12:operation soapAction='http://textSummarizationForUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textSummarization'>
+    <documentation>text Summarization API provides professional text summarizer service which is based on advanced Natural Language Processing and Machine Learning technologies It can be used to summarize short important text from the URL or document that user provided If you want test our automatic text summarization service you can use our free automaticText Summarizer online demo http textsummarization net text summarizer</documentation>
+    <port name='textSummarizationPort' binding='tns:textSummarizationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textSummarization' />
+    </port>
+  </service>
+</definitions>

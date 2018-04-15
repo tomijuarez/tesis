@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mailtest/' name='mailtest' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mailtest/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mailtest/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mailtest/'>
+      <xsd:element name='vDomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vDomainRequestMessage'>
+    <part name='parameters' element='tns:vDomainParameters' />
+  </message>
+  <message name='vDomainResponseMessage'>
+    <part name='response' element='tns:vDomainResponse' />
+  </message>
+  <portType name='mailtestPortType'>
+    <operation name='vDomain'>
+      <documentation>get email domain information</documentation>
+      <input message='tns:vDomainRequestMessage' name='vDomainInput' />
+      <output message='tns:vDomainResponseMessage' name='vDomainOutput' />
+    </operation>
+  </portType>
+  <binding name='mailtestBinding' type='tns:mailtestPortType'>
+    <operation name='vDomain'>
+      <soap12:operation soapAction='http://vDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mailtest'>
+    <documentation>validate email address domains to ensure the domain is registered active has MX records Detects if a domain is used by a Disposable Email Address or monetized bounce service</documentation>
+    <port name='mailtestPort' binding='tns:mailtestBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mailtest' />
+    </port>
+  </service>
+</definitions>

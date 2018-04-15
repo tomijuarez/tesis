@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/codeepyVispox/' name='codeepyVispox' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/codeepyVispox/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/codeepyVispox/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/codeepyVispox/'>
+      <xsd:element name='getCompanySponsorListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ci' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='co' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='n' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='s' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='st' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCompanySponsorListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='inserted' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='county' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='subtier' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getCompanySponsorListRequestMessage'>
+    <part name='parameters' element='tns:getCompanySponsorListParameters' />
+  </message>
+  <message name='getCompanySponsorListResponseMessage'>
+    <part name='response' element='tns:getCompanySponsorListResponse' />
+  </message>
+  <portType name='codeepyVispoxPortType'>
+    <operation name='getCompanySponsorList'>
+      <documentation></documentation>
+      <input message='tns:getCompanySponsorListRequestMessage' name='getCompanySponsorListInput' />
+      <output message='tns:getCompanySponsorListResponseMessage' name='getCompanySponsorListOutput' />
+    </operation>
+  </portType>
+  <binding name='codeepyVispoxBinding' type='tns:codeepyVispoxPortType'>
+    <operation name='getCompanySponsorList'>
+      <soap12:operation soapAction='http://getCompanySponsorList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='codeepyVispox'>
+    <documentation>this API provides a list of organisations licensed to sponsor workers under Tiers and UK for now</documentation>
+    <port name='codeepyVispoxPort' binding='tns:codeepyVispoxBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://codeepyVispox' />
+    </port>
+  </service>
+</definitions>

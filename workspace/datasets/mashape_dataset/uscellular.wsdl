@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/usCellular/' name='usCellular' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/usCellular/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/usCellular/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/usCellular/'>
+      <xsd:element name='terminalUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='terminalLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='terminalLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='terminalLocationList' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='terminalLocation' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='locationRetrievalStatus' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='currentLocation' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='altitude' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='accuracy' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='timestamp' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='terminalUpdateRequestMessage' />
+  <message name='terminalUpdateResponseMessage'>
+    <part name='response' element='tns:terminalUpdateResponse' />
+  </message>
+  <message name='terminalLocationRequestMessage'>
+    <part name='parameters' element='tns:terminalLocationParameters' />
+  </message>
+  <message name='terminalLocationResponseMessage'>
+    <part name='response' element='tns:terminalLocationResponse' />
+  </message>
+  <portType name='usCellularPortType'>
+    <operation name='terminalUpdate'>
+      <documentation>pOST Data to this endpoint to update endpoint information</documentation>
+      <input message='tns:terminalUpdateRequestMessage' name='terminalUpdateInput' />
+      <output message='tns:terminalUpdateResponseMessage' name='terminalUpdateOutput' />
+    </operation>
+    <operation name='terminalLocation'>
+      <input message='tns:terminalLocationRequestMessage' name='terminalLocationInput' />
+      <output message='tns:terminalLocationResponseMessage' name='terminalLocationOutput' />
+    </operation>
+  </portType>
+  <binding name='usCellularBinding' type='tns:usCellularPortType'>
+    <operation name='terminalUpdate'>
+      <soap12:operation soapAction='http://terminalUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='terminalLocation'>
+      <soap12:operation soapAction='http://terminalLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='usCellular'>
+    <documentation>provides guidance on using the Terminal Location interface which allows a Web application to query the location of individual subscribers</documentation>
+    <port name='usCellularPort' binding='tns:usCellularBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://usCellular' />
+    </port>
+  </service>
+</definitions>

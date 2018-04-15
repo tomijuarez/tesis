@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/iwatchonlineApi/' name='iwatchonlineApi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/iwatchonlineApi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/iwatchonlineApi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/iwatchonlineApi/'>
+      <xsd:element name='episodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitEpisodeLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitMoviesLinksToIwatchonlineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='episodeRequestMessage' />
+  <message name='episodeResponseMessage'>
+    <part name='response' element='tns:episodeResponse' />
+  </message>
+  <message name='movieRequestMessage' />
+  <message name='movieResponseMessage'>
+    <part name='response' element='tns:movieResponse' />
+  </message>
+  <message name='showRequestMessage' />
+  <message name='showResponseMessage'>
+    <part name='response' element='tns:showResponse' />
+  </message>
+  <message name='submitEpisodeLinksRequestMessage' />
+  <message name='submitEpisodeLinksResponseMessage'>
+    <part name='response' element='tns:submitEpisodeLinksResponse' />
+  </message>
+  <message name='submitLinksRequestMessage' />
+  <message name='submitLinksResponseMessage'>
+    <part name='response' element='tns:submitLinksResponse' />
+  </message>
+  <message name='submitMoviesLinksToIwatchonlineRequestMessage' />
+  <message name='submitMoviesLinksToIwatchonlineResponseMessage'>
+    <part name='response' element='tns:submitMoviesLinksToIwatchonlineResponse' />
+  </message>
+  <portType name='iwatchonlineApiPortType'>
+    <operation name='episode'>
+      <documentation>the same Endpoint for all DATA</documentation>
+      <input message='tns:episodeRequestMessage' name='episodeInput' />
+      <output message='tns:episodeResponseMessage' name='episodeOutput' />
+    </operation>
+    <operation name='movie'>
+      <documentation>the same Endpoint for all data</documentation>
+      <input message='tns:movieRequestMessage' name='movieInput' />
+      <output message='tns:movieResponseMessage' name='movieOutput' />
+    </operation>
+    <operation name='show'>
+      <documentation>the same Endpoint for All Data</documentation>
+      <input message='tns:showRequestMessage' name='showInput' />
+      <output message='tns:showResponseMessage' name='showOutput' />
+    </operation>
+    <operation name='submitEpisodeLinks'>
+      <documentation>post Links to Iwatchonline</documentation>
+      <input message='tns:submitEpisodeLinksRequestMessage' name='submitEpisodeLinksInput' />
+      <output message='tns:submitEpisodeLinksResponseMessage' name='submitEpisodeLinksOutput' />
+    </operation>
+    <operation name='submitLinks'>
+      <documentation>submit Links to Iwatchonline</documentation>
+      <input message='tns:submitLinksRequestMessage' name='submitLinksInput' />
+      <output message='tns:submitLinksResponseMessage' name='submitLinksOutput' />
+    </operation>
+    <operation name='submitMoviesLinksToIwatchonline'>
+      <documentation>the same End Point for all data</documentation>
+      <input message='tns:submitMoviesLinksToIwatchonlineRequestMessage' name='submitMoviesLinksToIwatchonlineInput' />
+      <output message='tns:submitMoviesLinksToIwatchonlineResponseMessage' name='submitMoviesLinksToIwatchonlineOutput' />
+    </operation>
+  </portType>
+  <binding name='iwatchonlineApiBinding' type='tns:iwatchonlineApiPortType'>
+    <operation name='episode'>
+      <soap12:operation soapAction='http://episode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='movie'>
+      <soap12:operation soapAction='http://movie' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='show'>
+      <soap12:operation soapAction='http://show' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitEpisodeLinks'>
+      <soap12:operation soapAction='http://submitEpisodeLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitLinks'>
+      <soap12:operation soapAction='http://submitLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitMoviesLinksToIwatchonline'>
+      <soap12:operation soapAction='http://submitMoviesLinksToIwatchonline' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='iwatchonlineApi'>
+    <documentation>official Iwatchonline API for getting Movies TV Show Details and Sharing Links</documentation>
+    <port name='iwatchonlineApiPort' binding='tns:iwatchonlineApiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://iwatchonlineApi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rethumb/' name='rethumb' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rethumb/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rethumb/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rethumb/'>
+      <xsd:element name='heightParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pixels' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='heightResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='squareParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pixels' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='squareResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='widthParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pixels' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='widthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='heightRequestMessage'>
+    <part name='parameters' element='tns:heightParameters' />
+  </message>
+  <message name='heightResponseMessage'>
+    <part name='response' element='tns:heightResponse' />
+  </message>
+  <message name='squareRequestMessage'>
+    <part name='parameters' element='tns:squareParameters' />
+  </message>
+  <message name='squareResponseMessage'>
+    <part name='response' element='tns:squareResponse' />
+  </message>
+  <message name='widthRequestMessage'>
+    <part name='parameters' element='tns:widthParameters' />
+  </message>
+  <message name='widthResponseMessage'>
+    <part name='response' element='tns:widthResponse' />
+  </message>
+  <portType name='rethumbPortType'>
+    <operation name='height'>
+      <documentation>resize the image based on the specified height</documentation>
+      <input message='tns:heightRequestMessage' name='heightInput' />
+      <output message='tns:heightResponseMessage' name='heightOutput' />
+    </operation>
+    <operation name='square'>
+      <documentation>create a square image based on the specified size</documentation>
+      <input message='tns:squareRequestMessage' name='squareInput' />
+      <output message='tns:squareResponseMessage' name='squareOutput' />
+    </operation>
+    <operation name='width'>
+      <documentation>resize the image based on the specified width</documentation>
+      <input message='tns:widthRequestMessage' name='widthInput' />
+      <output message='tns:widthResponseMessage' name='widthOutput' />
+    </operation>
+  </portType>
+  <binding name='rethumbBinding' type='tns:rethumbPortType'>
+    <operation name='height'>
+      <soap12:operation soapAction='http://height' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='square'>
+      <soap12:operation soapAction='http://square' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='width'>
+      <soap12:operation soapAction='http://width' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rethumb'>
+    <documentation>this API creates and host thumbnails from images Resize by width height and crop to create squares</documentation>
+    <port name='rethumbPort' binding='tns:rethumbBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rethumb' />
+    </port>
+  </service>
+</definitions>

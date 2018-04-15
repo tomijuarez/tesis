@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/webScreenshotRenderer/' name='webScreenshotRenderer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/webScreenshotRenderer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/webScreenshotRenderer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/webScreenshotRenderer/'>
+      <xsd:element name='renderhtmlasbinaryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='htmlcontent' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imageformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imageheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imagewidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='renderhtmlasbinaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='renderuriasbinaryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imageformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imageheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imagewidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='websiteuri' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='renderuriasbinaryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='renderuriasuriParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imageformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imageheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imagewidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='websiteuri' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='renderuriasuriResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ImageUri' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='renderhtmlasbinaryRequestMessage'>
+    <part name='parameters' element='tns:renderhtmlasbinaryParameters' />
+  </message>
+  <message name='renderhtmlasbinaryResponseMessage'>
+    <part name='response' element='tns:renderhtmlasbinaryResponse' />
+  </message>
+  <message name='renderuriasbinaryRequestMessage'>
+    <part name='parameters' element='tns:renderuriasbinaryParameters' />
+  </message>
+  <message name='renderuriasbinaryResponseMessage'>
+    <part name='response' element='tns:renderuriasbinaryResponse' />
+  </message>
+  <message name='renderuriasuriRequestMessage'>
+    <part name='parameters' element='tns:renderuriasuriParameters' />
+  </message>
+  <message name='renderuriasuriResponseMessage'>
+    <part name='response' element='tns:renderuriasuriResponse' />
+  </message>
+  <portType name='webScreenshotRendererPortType'>
+    <operation name='renderhtmlasbinary'>
+      <documentation>renders screenshot of html code and returns byte array of image</documentation>
+      <input message='tns:renderhtmlasbinaryRequestMessage' name='renderhtmlasbinaryInput' />
+      <output message='tns:renderhtmlasbinaryResponseMessage' name='renderhtmlasbinaryOutput' />
+    </operation>
+    <operation name='renderuriasbinary'>
+      <documentation>renders screenshot of webpage and returns byte array of image</documentation>
+      <input message='tns:renderuriasbinaryRequestMessage' name='renderuriasbinaryInput' />
+      <output message='tns:renderuriasbinaryResponseMessage' name='renderuriasbinaryOutput' />
+    </operation>
+    <operation name='renderuriasuri'>
+      <documentation>renders screenshot of webpage and returns uri of image</documentation>
+      <input message='tns:renderuriasuriRequestMessage' name='renderuriasuriInput' />
+      <output message='tns:renderuriasuriResponseMessage' name='renderuriasuriOutput' />
+    </operation>
+  </portType>
+  <binding name='webScreenshotRendererBinding' type='tns:webScreenshotRendererPortType'>
+    <operation name='renderhtmlasbinary'>
+      <soap12:operation soapAction='http://renderhtmlasbinary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='renderuriasbinary'>
+      <soap12:operation soapAction='http://renderuriasbinary' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='renderuriasuri'>
+      <soap12:operation soapAction='http://renderuriasuri' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='webScreenshotRenderer'>
+    <documentation>this service renders screenshot of web page to various image formats You can specify additional parameters to customize rendering process It runs on cloud based high availability fault tolerant server farm</documentation>
+    <port name='webScreenshotRendererPort' binding='tns:webScreenshotRendererBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://webScreenshotRenderer' />
+    </port>
+  </service>
+</definitions>

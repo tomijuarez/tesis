@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/polling/' name='polling' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/polling/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/polling/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/polling/'>
+      <xsd:element name='anchorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timestamp' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='anchorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='anchor' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='deletedtimestamp' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='deleted_timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pollParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='anchor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='categorygroup' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='county' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='locality' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='metro' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='retvals' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='source' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zipcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pollResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='anchor' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='anchorRequestMessage'>
+    <part name='parameters' element='tns:anchorParameters' />
+  </message>
+  <message name='anchorResponseMessage'>
+    <part name='response' element='tns:anchorResponse' />
+  </message>
+  <message name='deletesRequestMessage'>
+    <part name='parameters' element='tns:deletesParameters' />
+  </message>
+  <message name='deletesResponseMessage'>
+    <part name='response' element='tns:deletesResponse' />
+  </message>
+  <message name='pollRequestMessage'>
+    <part name='parameters' element='tns:pollParameters' />
+  </message>
+  <message name='pollResponseMessage'>
+    <part name='response' element='tns:pollResponse' />
+  </message>
+  <portType name='pollingPortType'>
+    <operation name='anchor'>
+      <documentation>the anchor API call is intended to let users of the Data Commons poll for older postings This is mainly useful for testing or for situations where you want to download a dump of all the postings that have come in since a given point in time</documentation>
+      <input message='tns:anchorRequestMessage' name='anchorInput' />
+      <output message='tns:anchorResponseMessage' name='anchorOutput' />
+    </operation>
+    <operation name='deletes'>
+      <documentation>the deletes API call retrieves a set of deleted postings from the database</documentation>
+      <input message='tns:deletesRequestMessage' name='deletesInput' />
+      <output message='tns:deletesResponseMessage' name='deletesOutput' />
+    </operation>
+    <operation name='poll'>
+      <documentation>the poll API call retrieves a set of new postings from the database</documentation>
+      <input message='tns:pollRequestMessage' name='pollInput' />
+      <output message='tns:pollResponseMessage' name='pollOutput' />
+    </operation>
+  </portType>
+  <binding name='pollingBinding' type='tns:pollingPortType'>
+    <operation name='anchor'>
+      <soap12:operation soapAction='http://anchor' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deletes'>
+      <soap12:operation soapAction='http://deletes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='poll'>
+      <soap12:operation soapAction='http://poll' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='polling'>
+    <documentation>the taps Polling API makes it possible for external systems to poll the Data Commons server to obtain a list of new and updated postings as they come in</documentation>
+    <port name='pollingPort' binding='tns:pollingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://polling' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/russiansentimentanalyzer/' name='russiansentimentanalyzer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/russiansentimentanalyzer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/russiansentimentanalyzer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/russiansentimentanalyzer/'>
+      <xsd:element name='russiansentimentanalyzerjsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='synonyms' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='russiansentimentanalyzerjsonRequestMessage' />
+  <message name='russiansentimentanalyzerjsonResponseMessage'>
+    <part name='response' element='tns:russiansentimentanalyzerjsonResponse' />
+  </message>
+  <portType name='russiansentimentanalyzerPortType'>
+    <operation name='russiansentimentanalyzerjson'>
+      <documentation>json api for Russian sentiment analyzer</documentation>
+      <input message='tns:russiansentimentanalyzerjsonRequestMessage' name='russiansentimentanalyzerjsonInput' />
+      <output message='tns:russiansentimentanalyzerjsonResponseMessage' name='russiansentimentanalyzerjsonOutput' />
+    </operation>
+  </portType>
+  <binding name='russiansentimentanalyzerBinding' type='tns:russiansentimentanalyzerPortType'>
+    <operation name='russiansentimentanalyzerjson'>
+      <soap12:operation soapAction='http://russiansentimentanalyzerjson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='russiansentimentanalyzer'>
+    <documentation>russianSentimentAnalyzer is a JSON API based on the technology stack of Insider Solutions company It is capable of parsing the input text reconstructing the meaning of messages with typos like tweets and finding sentiment polarity oriented towards a particular object Consider an example I like new GalaxyS but do not enjoy new iPhone If there are no objects the sentiment of this sentence can be detected as NEUTRAL or MIXED If however GalaxyS has been passed in as an object the sentiment will be POSITIVE It will be NEGATIVE for iPhone in this particular example Currently the API supports Russian language with input texts varying from long formal news posts to informal and short tweets Looking for sentiment analyzer for English Check this API out https www mashape com dmitrykey sentifindr</documentation>
+    <port name='russiansentimentanalyzerPort' binding='tns:russiansentimentanalyzerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://russiansentimentanalyzer' />
+    </port>
+  </service>
+</definitions>

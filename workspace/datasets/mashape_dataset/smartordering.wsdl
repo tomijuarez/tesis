@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartOrdering/' name='smartOrdering' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartOrdering/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartOrdering/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartOrdering/'>
+      <xsd:element name='smartorderingSortResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smartorderingSortTypeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smartorderingSortTypeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='smartorderingSortRequestMessage' />
+  <message name='smartorderingSortResponseMessage'>
+    <part name='response' element='tns:smartorderingSortResponse' />
+  </message>
+  <message name='smartorderingSortTypeRequestMessage'>
+    <part name='parameters' element='tns:smartorderingSortTypeParameters' />
+  </message>
+  <message name='smartorderingSortTypeResponseMessage'>
+    <part name='response' element='tns:smartorderingSortTypeResponse' />
+  </message>
+  <portType name='smartOrderingPortType'>
+    <operation name='smartorderingSort'>
+      <documentation></documentation>
+      <input message='tns:smartorderingSortRequestMessage' name='smartorderingSortInput' />
+      <output message='tns:smartorderingSortResponseMessage' name='smartorderingSortOutput' />
+    </operation>
+    <operation name='smartorderingSortType'>
+      <documentation></documentation>
+      <input message='tns:smartorderingSortTypeRequestMessage' name='smartorderingSortTypeInput' />
+      <output message='tns:smartorderingSortTypeResponseMessage' name='smartorderingSortTypeOutput' />
+    </operation>
+  </portType>
+  <binding name='smartOrderingBinding' type='tns:smartOrderingPortType'>
+    <operation name='smartorderingSort'>
+      <soap12:operation soapAction='http://smartorderingSort' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='smartorderingSortType'>
+      <soap12:operation soapAction='http://smartorderingSortType' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartOrdering'>
+    <documentation>this API will sort the given products based on the user selection i e Amenities based or Walk Score based or both</documentation>
+    <port name='smartOrderingPort' binding='tns:smartOrderingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartOrdering' />
+    </port>
+  </service>
+</definitions>

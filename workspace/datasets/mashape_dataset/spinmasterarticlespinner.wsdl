@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/spinmasterArticleSpinner/' name='spinmasterArticleSpinner' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/spinmasterArticleSpinner/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/spinmasterArticleSpinner/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/spinmasterArticleSpinner/'>
+      <xsd:element name='createSpintaxParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='spins' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uniqueness' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createSpintaxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='uniqueness' type='xsd:int' minOccurs='0' />
+            <xsd:element name='spins' type='xsd:string' minOccurs='0' />
+            <xsd:element name='spintax' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spinContentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='spins' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='spintax' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spinContentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='spins' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createSpintaxRequestMessage'>
+    <part name='parameters' element='tns:createSpintaxParameters' />
+  </message>
+  <message name='createSpintaxResponseMessage'>
+    <part name='response' element='tns:createSpintaxResponse' />
+  </message>
+  <message name='spinContentRequestMessage'>
+    <part name='parameters' element='tns:spinContentParameters' />
+  </message>
+  <message name='spinContentResponseMessage'>
+    <part name='response' element='tns:spinContentResponse' />
+  </message>
+  <portType name='spinmasterArticleSpinnerPortType'>
+    <operation name='createSpintax'>
+      <documentation>given a body of text generate spintax for that text</documentation>
+      <input message='tns:createSpintaxRequestMessage' name='createSpintaxInput' />
+      <output message='tns:createSpintaxResponseMessage' name='createSpintaxOutput' />
+    </operation>
+    <operation name='spinContent'>
+      <documentation>generate unique articles based on a given spintax</documentation>
+      <input message='tns:spinContentRequestMessage' name='spinContentInput' />
+      <output message='tns:spinContentResponseMessage' name='spinContentOutput' />
+    </operation>
+  </portType>
+  <binding name='spinmasterArticleSpinnerBinding' type='tns:spinmasterArticleSpinnerPortType'>
+    <operation name='createSpintax'>
+      <soap12:operation soapAction='http://createSpintax' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='spinContent'>
+      <soap12:operation soapAction='http://spinContent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='spinmasterArticleSpinner'>
+    <documentation>content spinning is an SEO method where search engine optimizers post an original variant of content on article directories Web services or other sources for backlinks It s sometimes used by web masters on their own websites but typically avoided because the quality of rewritten articles will often be lower than hand written content Unlike other automated spinners SpinMaster uses semantic analysis of your text to determine its actual meaning Not just the meaning of the text as a whole but the way that words relate to one another This allows the software to generate high quality unique articles at the push of a button by using only synonyms that make sense in their given context Billing is straightforward There are two methods you can call one to create spintax from a given piece of text and one to generate unique texts based on a piece of spintax</documentation>
+    <port name='spinmasterArticleSpinnerPort' binding='tns:spinmasterArticleSpinnerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://spinmasterArticleSpinner' />
+    </port>
+  </service>
+</definitions>

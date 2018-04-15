@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/distimo/' name='distimo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/distimo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/distimo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/distimo/'>
+      <xsd:element name='downloadsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='breakdown' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='t' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='downloadsRequestMessage'>
+    <part name='parameters' element='tns:downloadsParameters' />
+  </message>
+  <message name='downloadsResponseMessage'>
+    <part name='response' element='tns:downloadsResponse' />
+  </message>
+  <portType name='distimoPortType'>
+    <operation name='downloads'>
+      <documentation>retrieve download and or update information of your applications https analytics distimo com support api v downloads</documentation>
+      <input message='tns:downloadsRequestMessage' name='downloadsInput' />
+      <output message='tns:downloadsResponseMessage' name='downloadsOutput' />
+    </operation>
+  </portType>
+  <binding name='distimoBinding' type='tns:distimoPortType'>
+    <operation name='downloads'>
+      <soap12:operation soapAction='http://downloads' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='distimo'>
+    <documentation>today Distimo provides the free app analytics platform for developers alongside the most accurate market data for any app globally all integrated into one intuitive highly customizable and easy to use platform Distimo firmly believes in empowering every player in the mobile marketplace with the most accurate data Our platform lets developers track downloads revenue and conversions for various campaigns in their own app across multiple app stores at no cost</documentation>
+    <port name='distimoPort' binding='tns:distimoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://distimo' />
+    </port>
+  </service>
+</definitions>

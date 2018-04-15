@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hollystockCelebrityPricing/' name='hollystockCelebrityPricing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hollystockCelebrityPricing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hollystockCelebrityPricing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hollystockCelebrityPricing/'>
+      <xsd:element name='jsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='xmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='jsonRequestMessage' />
+  <message name='jsonResponseMessage'>
+    <part name='response' element='tns:jsonResponse' />
+  </message>
+  <message name='xmlRequestMessage' />
+  <message name='xmlResponseMessage'>
+    <part name='response' element='tns:xmlResponse' />
+  </message>
+  <portType name='hollystockCelebrityPricingPortType'>
+    <operation name='json'>
+      <documentation>results in JSON format</documentation>
+      <input message='tns:jsonRequestMessage' name='jsonInput' />
+      <output message='tns:jsonResponseMessage' name='jsonOutput' />
+    </operation>
+    <operation name='xml'>
+      <documentation>response in XML format</documentation>
+      <input message='tns:xmlRequestMessage' name='xmlInput' />
+      <output message='tns:xmlResponseMessage' name='xmlOutput' />
+    </operation>
+  </portType>
+  <binding name='hollystockCelebrityPricingBinding' type='tns:hollystockCelebrityPricingPortType'>
+    <operation name='json'>
+      <soap12:operation soapAction='http://json' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='xml'>
+      <soap12:operation soapAction='http://xml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hollystockCelebrityPricing'>
+    <documentation>retrieve the pricing of all celebrities from the online celebrity stock market game HollyStock Results can be returned in XML or JSON</documentation>
+    <port name='hollystockCelebrityPricingPort' binding='tns:hollystockCelebrityPricingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hollystockCelebrityPricing' />
+    </port>
+  </service>
+</definitions>

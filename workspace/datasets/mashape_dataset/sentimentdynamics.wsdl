@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentimentDynamics/' name='sentimentDynamics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentimentDynamics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentimentDynamics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentimentDynamics/'>
+      <xsd:element name='queryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='aspects' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='normalize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='norm_text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='aspects' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='polarity' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='queryRequestMessage'>
+    <part name='parameters' element='tns:queryParameters' />
+  </message>
+  <message name='queryResponseMessage'>
+    <part name='response' element='tns:queryResponse' />
+  </message>
+  <portType name='sentimentDynamicsPortType'>
+    <operation name='query'>
+      <documentation>polarity Classification and Opinion Target Extraction</documentation>
+      <input message='tns:queryRequestMessage' name='queryInput' />
+      <output message='tns:queryResponseMessage' name='queryOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentDynamicsBinding' type='tns:sentimentDynamicsPortType'>
+    <operation name='query'>
+      <soap12:operation soapAction='http://query' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentimentDynamics'>
+    <documentation>sentiment Dynamics is a powerful domain independent API for Sentiment Analysis and Opinion Mining Simple and effective tool for opinion polarity classification You can determine if a text has a positive negative or neutral opinion polarity Our API enables you the posibility of extract the keywords that represent the opinion targets</documentation>
+    <port name='sentimentDynamicsPort' binding='tns:sentimentDynamicsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentimentDynamics' />
+    </port>
+  </service>
+</definitions>

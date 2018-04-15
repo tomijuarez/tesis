@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/vcloudAirOndemandCalculator/' name='vcloudAirOndemandCalculator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/vcloudAirOndemandCalculator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/vcloudAirOndemandCalculator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/vcloudAirOndemandCalculator/'>
+      <xsd:element name='ondemandDatacenterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ondemandOsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ondemandSkuResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ondemandDatacenterRequestMessage' />
+  <message name='ondemandDatacenterResponseMessage'>
+    <part name='response' element='tns:ondemandDatacenterResponse' />
+  </message>
+  <message name='ondemandOsRequestMessage' />
+  <message name='ondemandOsResponseMessage'>
+    <part name='response' element='tns:ondemandOsResponse' />
+  </message>
+  <message name='ondemandSkuRequestMessage' />
+  <message name='ondemandSkuResponseMessage'>
+    <part name='response' element='tns:ondemandSkuResponse' />
+  </message>
+  <portType name='vcloudAirOndemandCalculatorPortType'>
+    <operation name='ondemandDatacenter'>
+      <documentation>for fetching Datacenter Data</documentation>
+      <input message='tns:ondemandDatacenterRequestMessage' name='ondemandDatacenterInput' />
+      <output message='tns:ondemandDatacenterResponseMessage' name='ondemandDatacenterOutput' />
+    </operation>
+    <operation name='ondemandOs'>
+      <documentation>for fetching OS Data</documentation>
+      <input message='tns:ondemandOsRequestMessage' name='ondemandOsInput' />
+      <output message='tns:ondemandOsResponseMessage' name='ondemandOsOutput' />
+    </operation>
+    <operation name='ondemandSku'>
+      <documentation>for fetching SKU Pricing Data</documentation>
+      <input message='tns:ondemandSkuRequestMessage' name='ondemandSkuInput' />
+      <output message='tns:ondemandSkuResponseMessage' name='ondemandSkuOutput' />
+    </operation>
+  </portType>
+  <binding name='vcloudAirOndemandCalculatorBinding' type='tns:vcloudAirOndemandCalculatorPortType'>
+    <operation name='ondemandDatacenter'>
+      <soap12:operation soapAction='http://ondemandDatacenter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ondemandOs'>
+      <soap12:operation soapAction='http://ondemandOs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ondemandSku'>
+      <soap12:operation soapAction='http://ondemandSku' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='vcloudAirOndemandCalculator'>
+    <documentation>vCloud Air OnDemand Calculator</documentation>
+    <port name='vcloudAirOndemandCalculatorPort' binding='tns:vcloudAirOndemandCalculatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://vcloudAirOndemandCalculator' />
+    </port>
+  </service>
+</definitions>

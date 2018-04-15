@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/getIpInfo/' name='getIpInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/getIpInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/getIpInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/getIpInfo/'>
+      <xsd:element name='ipCityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipCityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zipCode' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cityName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='countryCode' type='xsd:string' minOccurs='0' />
+            <xsd:element name='regionName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ipAddress' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timeZone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='countryName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='statusMessage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='statusCode' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipCityRequestMessage'>
+    <part name='parameters' element='tns:ipCityParameters' />
+  </message>
+  <message name='ipCityResponseMessage'>
+    <part name='response' element='tns:ipCityResponse' />
+  </message>
+  <portType name='getIpInfoPortType'>
+    <operation name='ipCity'>
+      <documentation>get the detail of Longitude and Latitude on the basis of IP Address</documentation>
+      <input message='tns:ipCityRequestMessage' name='ipCityInput' />
+      <output message='tns:ipCityResponseMessage' name='ipCityOutput' />
+    </operation>
+  </portType>
+  <binding name='getIpInfoBinding' type='tns:getIpInfoPortType'>
+    <operation name='ipCity'>
+      <soap12:operation soapAction='http://ipCity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='getIpInfo'>
+    <documentation>this is an API to get the Longitude and Latitude Information on the basis of an IP</documentation>
+    <port name='getIpInfoPort' binding='tns:getIpInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://getIpInfo' />
+    </port>
+  </service>
+</definitions>

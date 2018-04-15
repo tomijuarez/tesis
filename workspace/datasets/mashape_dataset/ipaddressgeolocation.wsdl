@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipAddressGeolocation/' name='ipAddressGeolocation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipAddressGeolocation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipAddressGeolocation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipAddressGeolocation/'>
+      <xsd:element name='getiplocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getiplocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getiplocationRequestMessage'>
+    <part name='parameters' element='tns:getiplocationParameters' />
+  </message>
+  <message name='getiplocationResponseMessage'>
+    <part name='response' element='tns:getiplocationResponse' />
+  </message>
+  <portType name='ipAddressGeolocationPortType'>
+    <operation name='getiplocation'>
+      <documentation>returns the location of an IP address country region city zipcode latitude and longitude and the associated timezone in JSON or XML format</documentation>
+      <input message='tns:getiplocationRequestMessage' name='getiplocationInput' />
+      <output message='tns:getiplocationResponseMessage' name='getiplocationOutput' />
+    </operation>
+  </portType>
+  <binding name='ipAddressGeolocationBinding' type='tns:ipAddressGeolocationPortType'>
+    <operation name='getiplocation'>
+      <soap12:operation soapAction='http://getiplocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipAddressGeolocation'>
+    <documentation>this API returns the location of an IP address country region city zipcode latitude and longitude and the associated timezone in JSON or XML format</documentation>
+    <port name='ipAddressGeolocationPort' binding='tns:ipAddressGeolocationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipAddressGeolocation' />
+    </port>
+  </service>
+</definitions>

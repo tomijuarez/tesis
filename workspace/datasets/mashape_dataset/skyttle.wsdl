@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/skyttle/' name='skyttle' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/skyttle/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/skyttle/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/skyttle/'>
+      <xsd:element name='mainEndpointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='docs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='polarity' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='terms' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='term' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='doc_text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='doc_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sentiment_scores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='neg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='pos' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='neu' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mainEndpointRequestMessage' />
+  <message name='mainEndpointResponseMessage'>
+    <part name='response' element='tns:mainEndpointResponse' />
+  </message>
+  <portType name='skyttlePortType'>
+    <operation name='mainEndpoint'>
+      <documentation></documentation>
+      <input message='tns:mainEndpointRequestMessage' name='mainEndpointInput' />
+      <output message='tns:mainEndpointResponseMessage' name='mainEndpointOutput' />
+    </operation>
+  </portType>
+  <binding name='skyttleBinding' type='tns:skyttlePortType'>
+    <operation name='mainEndpoint'>
+      <soap12:operation soapAction='http://mainEndpoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='skyttle'>
+    <documentation>sentiment analysis and keyword extraction for English French German Russian See http www skyttle com for demos tutorials and example clients The API is reachable on https sentinelprojects skyttle p mashape com</documentation>
+    <port name='skyttlePort' binding='tns:skyttleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://skyttle' />
+    </port>
+  </service>
+</definitions>

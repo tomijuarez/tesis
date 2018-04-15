@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/htmlToPdfConverter/' name='htmlToPdfConverter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/htmlToPdfConverter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/htmlToPdfConverter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/htmlToPdfConverter/'>
+      <xsd:element name='convertfromhtmlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='htmlcontent' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertfromhtmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertfromuriParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='websiteuri' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertfromuriResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertfromuriasuriParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='browserheight' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='browserwidth' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='renderdelay' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='websiteuri' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertfromuriasuriResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='PdfUri' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertfromhtmlRequestMessage'>
+    <part name='parameters' element='tns:convertfromhtmlParameters' />
+  </message>
+  <message name='convertfromhtmlResponseMessage'>
+    <part name='response' element='tns:convertfromhtmlResponse' />
+  </message>
+  <message name='convertfromuriRequestMessage'>
+    <part name='parameters' element='tns:convertfromuriParameters' />
+  </message>
+  <message name='convertfromuriResponseMessage'>
+    <part name='response' element='tns:convertfromuriResponse' />
+  </message>
+  <message name='convertfromuriasuriRequestMessage'>
+    <part name='parameters' element='tns:convertfromuriasuriParameters' />
+  </message>
+  <message name='convertfromuriasuriResponseMessage'>
+    <part name='response' element='tns:convertfromuriasuriResponse' />
+  </message>
+  <portType name='htmlToPdfConverterPortType'>
+    <operation name='convertfromhtml'>
+      <documentation>converts html code and returns byte array of pdf file</documentation>
+      <input message='tns:convertfromhtmlRequestMessage' name='convertfromhtmlInput' />
+      <output message='tns:convertfromhtmlResponseMessage' name='convertfromhtmlOutput' />
+    </operation>
+    <operation name='convertfromuri'>
+      <documentation>converts webpage and returns byte array of pdf file</documentation>
+      <input message='tns:convertfromuriRequestMessage' name='convertfromuriInput' />
+      <output message='tns:convertfromuriResponseMessage' name='convertfromuriOutput' />
+    </operation>
+    <operation name='convertfromuriasuri'>
+      <documentation>converts webpage and returns uri of pdf</documentation>
+      <input message='tns:convertfromuriasuriRequestMessage' name='convertfromuriasuriInput' />
+      <output message='tns:convertfromuriasuriResponseMessage' name='convertfromuriasuriOutput' />
+    </operation>
+  </portType>
+  <binding name='htmlToPdfConverterBinding' type='tns:htmlToPdfConverterPortType'>
+    <operation name='convertfromhtml'>
+      <soap12:operation soapAction='http://convertfromhtml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertfromuri'>
+      <soap12:operation soapAction='http://convertfromuri' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertfromuriasuri'>
+      <soap12:operation soapAction='http://convertfromuriasuri' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='htmlToPdfConverter'>
+    <documentation>this service converts web pages to PDF formats You can specify additional parameters to customize conversion process It runs on cloud based high availability fault tolerant server farm</documentation>
+    <port name='htmlToPdfConverterPort' binding='tns:htmlToPdfConverterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://htmlToPdfConverter' />
+    </port>
+  </service>
+</definitions>

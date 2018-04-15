@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/justvisualGarden/' name='justvisualGarden' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/justvisualGarden/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/justvisualGarden/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/justvisualGarden/'>
+      <xsd:element name='searchByUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchByUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='images' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='imageUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='plantNames' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='searchId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchByUrlRequestMessage'>
+    <part name='parameters' element='tns:searchByUrlParameters' />
+  </message>
+  <message name='searchByUrlResponseMessage'>
+    <part name='response' element='tns:searchByUrlResponse' />
+  </message>
+  <portType name='justvisualGardenPortType'>
+    <operation name='searchByUrl'>
+      <input message='tns:searchByUrlRequestMessage' name='searchByUrlInput' />
+      <output message='tns:searchByUrlResponseMessage' name='searchByUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='justvisualGardenBinding' type='tns:justvisualGardenPortType'>
+    <operation name='searchByUrl'>
+      <soap12:operation soapAction='http://searchByUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='justvisualGarden'>
+    <documentation>identify plant names and species The API returns multiple possible results ranked in order of the most likely matches Each includes the scientific and common names of that plant as well as additional reference images of that plant species</documentation>
+    <port name='justvisualGardenPort' binding='tns:justvisualGardenBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://justvisualGarden' />
+    </port>
+  </service>
+</definitions>

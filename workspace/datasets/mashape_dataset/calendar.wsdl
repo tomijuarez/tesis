@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/calendar/' name='calendar' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/calendar/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/calendar/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/calendar/'>
+      <xsd:element name='dateCalculatorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='days' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='justworkdays' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='operation' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dateCalculatorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:date' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='holidayCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='idiom' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='holidayCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='is-holiday' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='weekday' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='holidaysParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='idiom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='holidaysResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='weekday' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='holiday' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='iso-code' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='idiom' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weekResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='week-number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='weekday' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dateCalculatorRequestMessage'>
+    <part name='parameters' element='tns:dateCalculatorParameters' />
+  </message>
+  <message name='dateCalculatorResponseMessage'>
+    <part name='response' element='tns:dateCalculatorResponse' />
+  </message>
+  <message name='holidayCheckRequestMessage'>
+    <part name='parameters' element='tns:holidayCheckParameters' />
+  </message>
+  <message name='holidayCheckResponseMessage'>
+    <part name='response' element='tns:holidayCheckResponse' />
+  </message>
+  <message name='holidaysRequestMessage'>
+    <part name='parameters' element='tns:holidaysParameters' />
+  </message>
+  <message name='holidaysResponseMessage'>
+    <part name='response' element='tns:holidaysResponse' />
+  </message>
+  <message name='weekRequestMessage'>
+    <part name='parameters' element='tns:weekParameters' />
+  </message>
+  <message name='weekResponseMessage'>
+    <part name='response' element='tns:weekResponse' />
+  </message>
+  <portType name='calendarPortType'>
+    <operation name='dateCalculator'>
+      <documentation>use this endpoint to add or subtract any number of days given a specific date Add or subtract days to a given date for example ignoring weekends to calculate a past or future event Usage sample What date will it be in workdays</documentation>
+      <input message='tns:dateCalculatorRequestMessage' name='dateCalculatorInput' />
+      <output message='tns:dateCalculatorResponseMessage' name='dateCalculatorOutput' />
+    </operation>
+    <operation name='holidayCheck'>
+      <documentation>check if a provided date is holiday given a desired country location</documentation>
+      <input message='tns:holidayCheckRequestMessage' name='holidayCheckInput' />
+      <output message='tns:holidayCheckResponseMessage' name='holidayCheckOutput' />
+    </operation>
+    <operation name='holidays'>
+      <documentation>information about the holidays around the world This endpoint provides a list of holidays observed throughout year including the date weekname and description of the holiday</documentation>
+      <input message='tns:holidaysRequestMessage' name='holidaysInput' />
+      <output message='tns:holidaysResponseMessage' name='holidaysOutput' />
+    </operation>
+    <operation name='week'>
+      <documentation>this endpoint provides the weekname and week number information from a given input date</documentation>
+      <input message='tns:weekRequestMessage' name='weekInput' />
+      <output message='tns:weekResponseMessage' name='weekOutput' />
+    </operation>
+  </portType>
+  <binding name='calendarBinding' type='tns:calendarPortType'>
+    <operation name='dateCalculator'>
+      <soap12:operation soapAction='http://dateCalculator' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='holidayCheck'>
+      <soap12:operation soapAction='http://holidayCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='holidays'>
+      <soap12:operation soapAction='http://holidays' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='week'>
+      <soap12:operation soapAction='http://week' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='calendar'>
+    <documentation>calendar API supplies an accurate and reliable information about holidays all over the world Metropolis also provides an useful date calculator and a week day indicator This API is deprecated</documentation>
+    <port name='calendarPort' binding='tns:calendarBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://calendar' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/frenchTextSentimentAnalysis/' name='frenchTextSentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/frenchTextSentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/frenchTextSentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/frenchTextSentimentAnalysis/'>
+      <xsd:element name='apiFrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiFrRequestMessage' />
+  <message name='apiFrResponseMessage'>
+    <part name='response' element='tns:apiFrResponse' />
+  </message>
+  <portType name='frenchTextSentimentAnalysisPortType'>
+    <operation name='apiFr'>
+      <documentation>analyzer endpoint</documentation>
+      <input message='tns:apiFrRequestMessage' name='apiFrInput' />
+      <output message='tns:apiFrResponseMessage' name='apiFrOutput' />
+    </operation>
+  </portType>
+  <binding name='frenchTextSentimentAnalysisBinding' type='tns:frenchTextSentimentAnalysisPortType'>
+    <operation name='apiFr'>
+      <soap12:operation soapAction='http://apiFr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='frenchTextSentimentAnalysis'>
+    <documentation>this tool extract sentiment for text in French You can determine if a text has a positive negative or neutral opinion polarity Result range from very negative to very positive</documentation>
+    <port name='frenchTextSentimentAnalysisPort' binding='tns:frenchTextSentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://frenchTextSentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

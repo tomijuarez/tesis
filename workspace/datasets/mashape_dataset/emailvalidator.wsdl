@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/emailValidator/' name='emailValidator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/emailValidator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/emailValidator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/emailValidator/'>
+      <xsd:element name='validateemailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateemailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='isValid' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='validateemailRequestMessage'>
+    <part name='parameters' element='tns:validateemailParameters' />
+  </message>
+  <message name='validateemailResponseMessage'>
+    <part name='response' element='tns:validateemailResponse' />
+  </message>
+  <portType name='emailValidatorPortType'>
+    <operation name='validateemail'>
+      <documentation>checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters</documentation>
+      <input message='tns:validateemailRequestMessage' name='validateemailInput' />
+      <output message='tns:validateemailResponseMessage' name='validateemailOutput' />
+    </operation>
+  </portType>
+  <binding name='emailValidatorBinding' type='tns:emailValidatorPortType'>
+    <operation name='validateemail'>
+      <soap12:operation soapAction='http://validateemail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='emailValidator'>
+    <documentation>checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters For example it will mark as valid an email like john gmail com but it will recognize as a fake john gmaill com because of the not existing domain</documentation>
+    <port name='emailValidatorPort' binding='tns:emailValidatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://emailValidator' />
+    </port>
+  </service>
+</definitions>

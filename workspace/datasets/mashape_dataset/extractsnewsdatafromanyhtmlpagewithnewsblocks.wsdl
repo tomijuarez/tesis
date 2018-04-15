@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/extractsNewsDataFromAnyHtmlPageWithNewsBlocks/' name='extractsNewsDataFromAnyHtmlPageWithNewsBlocks' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/extractsNewsDataFromAnyHtmlPageWithNewsBlocks/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/extractsNewsDataFromAnyHtmlPageWithNewsBlocks/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/extractsNewsDataFromAnyHtmlPageWithNewsBlocks/'>
+      <xsd:element name='getStructuredNewsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getStructuredNewsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pats' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='unique_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='raw_html' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='pubdate' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getStructuredNewsRequestMessage'>
+    <part name='parameters' element='tns:getStructuredNewsParameters' />
+  </message>
+  <message name='getStructuredNewsResponseMessage'>
+    <part name='response' element='tns:getStructuredNewsResponse' />
+  </message>
+  <portType name='extractsNewsDataFromAnyHtmlPageWithNewsBlocksPortType'>
+    <operation name='getStructuredNews'>
+      <documentation>extracts news from any webpage and provides them as JSON</documentation>
+      <input message='tns:getStructuredNewsRequestMessage' name='getStructuredNewsInput' />
+      <output message='tns:getStructuredNewsResponseMessage' name='getStructuredNewsOutput' />
+    </operation>
+  </portType>
+  <binding name='extractsNewsDataFromAnyHtmlPageWithNewsBlocksBinding' type='tns:extractsNewsDataFromAnyHtmlPageWithNewsBlocksPortType'>
+    <operation name='getStructuredNews'>
+      <soap12:operation soapAction='http://getStructuredNews' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='extractsNewsDataFromAnyHtmlPageWithNewsBlocks'>
+    <documentation>aPI produces news data as JSON from list of news blocks on any page</documentation>
+    <port name='extractsNewsDataFromAnyHtmlPageWithNewsBlocksPort' binding='tns:extractsNewsDataFromAnyHtmlPageWithNewsBlocksBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://extractsNewsDataFromAnyHtmlPageWithNewsBlocks' />
+    </port>
+  </service>
+</definitions>

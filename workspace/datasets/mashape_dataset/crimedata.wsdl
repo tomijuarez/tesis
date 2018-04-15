@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/crimeData/' name='crimeData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/crimeData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/crimeData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/crimeData/'>
+      <xsd:element name='httpsCitizenrequestsHerokuappComParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='long' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='httpsCitizenrequestsHerokuappComResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='datetime' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' type='xsd:decimal' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='httpsCitizenrequestsHerokuappComRequestMessage'>
+    <part name='parameters' element='tns:httpsCitizenrequestsHerokuappComParameters' />
+  </message>
+  <message name='httpsCitizenrequestsHerokuappComResponseMessage'>
+    <part name='response' element='tns:httpsCitizenrequestsHerokuappComResponse' />
+  </message>
+  <portType name='crimeDataPortType'>
+    <operation name='httpsCitizenrequestsHerokuappCom'>
+      <documentation>proxy for Crimemapping com</documentation>
+      <input message='tns:httpsCitizenrequestsHerokuappComRequestMessage' name='httpsCitizenrequestsHerokuappComInput' />
+      <output message='tns:httpsCitizenrequestsHerokuappComResponseMessage' name='httpsCitizenrequestsHerokuappComOutput' />
+    </operation>
+  </portType>
+  <binding name='crimeDataBinding' type='tns:crimeDataPortType'>
+    <operation name='httpsCitizenrequestsHerokuappCom'>
+      <soap12:operation soapAction='http://httpsCitizenrequestsHerokuappCom' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='crimeData'>
+    <documentation>crime data is great for safe neighbourhoods</documentation>
+    <port name='crimeDataPort' binding='tns:crimeDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://crimeData' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lemmatizerFree/' name='lemmatizerFree' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lemmatizerFree/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lemmatizerFree/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lemmatizerFree/'>
+      <xsd:element name='extractGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='excludenoncontentwords' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='flag' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lemma' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rock' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='frog' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hop' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lemma' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rock' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='frog' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hop' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='extractGetRequestMessage'>
+    <part name='parameters' element='tns:extractGetParameters' />
+  </message>
+  <message name='extractGetResponseMessage'>
+    <part name='response' element='tns:extractGetResponse' />
+  </message>
+  <message name='extractPostRequestMessage' />
+  <message name='extractPostResponseMessage'>
+    <part name='response' element='tns:extractPostResponse' />
+  </message>
+  <portType name='lemmatizerFreePortType'>
+    <operation name='extractGet'>
+      <documentation>return the root of a word or roots of a string of words</documentation>
+      <input message='tns:extractGetRequestMessage' name='extractGetInput' />
+      <output message='tns:extractGetResponseMessage' name='extractGetOutput' />
+    </operation>
+    <operation name='extractPost'>
+      <documentation>return the root of a word or roots of a string of words</documentation>
+      <input message='tns:extractPostRequestMessage' name='extractPostInput' />
+      <output message='tns:extractPostResponseMessage' name='extractPostOutput' />
+    </operation>
+  </portType>
+  <binding name='lemmatizerFreeBinding' type='tns:lemmatizerFreePortType'>
+    <operation name='extractGet'>
+      <soap12:operation soapAction='http://extractGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractPost'>
+      <soap12:operation soapAction='http://extractPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lemmatizerFree'>
+    <documentation>Dogs to dog abilities to ability Get the root form of a word</documentation>
+    <port name='lemmatizerFreePort' binding='tns:lemmatizerFreeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lemmatizerFree' />
+    </port>
+  </service>
+</definitions>

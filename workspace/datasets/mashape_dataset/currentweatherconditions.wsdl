@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/currentWeatherConditions/' name='currentWeatherConditions' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/currentWeatherConditions/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/currentWeatherConditions/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/currentWeatherConditions/'>
+      <xsd:element name='currentweatherconditionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Temperature' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Altimeter' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='WindSpeed' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='DewPoint' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='WindChill' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Longitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='County' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Date' type='xsd:string' minOccurs='0' />
+            <xsd:element name='LocationName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='TimeZone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='RelativeHumidity' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='SeaLevelPressure' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Visibility' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='WindGust' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='WindDirection' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='currentweatherconditionsRequestMessage' />
+  <message name='currentweatherconditionsResponseMessage'>
+    <part name='response' element='tns:currentweatherconditionsResponse' />
+  </message>
+  <portType name='currentWeatherConditionsPortType'>
+    <operation name='currentweatherconditions'>
+      <input message='tns:currentweatherconditionsRequestMessage' name='currentweatherconditionsInput' />
+      <output message='tns:currentweatherconditionsResponseMessage' name='currentweatherconditionsOutput' />
+    </operation>
+  </portType>
+  <binding name='currentWeatherConditionsBinding' type='tns:currentWeatherConditionsPortType'>
+    <operation name='currentweatherconditions'>
+      <soap12:operation soapAction='http://currentweatherconditions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='currentWeatherConditions'>
+    <documentation>returns JSON current weather condition for a given location latitude and longitude Sample JSON response Altimeter County District of Columbia Date Sep pm EDT DewPoint Latitude LocationName Washington DC Reagan National Airport Longitude RelativeHumidity SeaLevelPressure State VA Temperature TimeZone EDT Visibility WindChill WindDirection WindGust WindSpeed</documentation>
+    <port name='currentWeatherConditionsPort' binding='tns:currentWeatherConditionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://currentWeatherConditions' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/escrowAgreements/' name='escrowAgreements' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/escrowAgreements/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/escrowAgreements/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/escrowAgreements/'>
+      <xsd:element name='escrowAgreementsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='offeringid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='escrowAgreementsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='escrow_agreement' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='base' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='escrowAgreementsRequestMessage'>
+    <part name='parameters' element='tns:escrowAgreementsParameters' />
+  </message>
+  <message name='escrowAgreementsResponseMessage'>
+    <part name='response' element='tns:escrowAgreementsResponse' />
+  </message>
+  <portType name='escrowAgreementsPortType'>
+    <operation name='escrowAgreements'>
+      <documentation>create Escrow Agreements</documentation>
+      <input message='tns:escrowAgreementsRequestMessage' name='escrowAgreementsInput' />
+      <output message='tns:escrowAgreementsResponseMessage' name='escrowAgreementsOutput' />
+    </operation>
+  </portType>
+  <binding name='escrowAgreementsBinding' type='tns:escrowAgreementsPortType'>
+    <operation name='escrowAgreements'>
+      <soap12:operation soapAction='http://escrowAgreements' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='escrowAgreements'>
+    <documentation>an escrow agreement is a document that must be electronically signed by the issuer and sets forth the terms of the escrow account the fees to be charged and a lot of other legally relevant information Creating an escrow agreement will provide you with a link to send to the issuer so that they can sign the document digitally</documentation>
+    <port name='escrowAgreementsPort' binding='tns:escrowAgreementsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://escrowAgreements' />
+    </port>
+  </service>
+</definitions>

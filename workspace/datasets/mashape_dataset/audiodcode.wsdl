@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/audioDCode/' name='audioDCode' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/audioDCode/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/audioDCode/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/audioDCode/'>
+      <xsd:element name='downloadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getwaveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='downloadRequestMessage' />
+  <message name='downloadResponseMessage'>
+    <part name='response' element='tns:downloadResponse' />
+  </message>
+  <message name='getwaveRequestMessage' />
+  <message name='getwaveResponseMessage'>
+    <part name='response' element='tns:getwaveResponse' />
+  </message>
+  <message name='uploadRequestMessage' />
+  <message name='uploadResponseMessage'>
+    <part name='response' element='tns:uploadResponse' />
+  </message>
+  <portType name='audioDCodePortType'>
+    <operation name='download'>
+      <documentation></documentation>
+      <input message='tns:downloadRequestMessage' name='downloadInput' />
+      <output message='tns:downloadResponseMessage' name='downloadOutput' />
+    </operation>
+    <operation name='getwave'>
+      <documentation></documentation>
+      <input message='tns:getwaveRequestMessage' name='getwaveInput' />
+      <output message='tns:getwaveResponseMessage' name='getwaveOutput' />
+    </operation>
+    <operation name='upload'>
+      <documentation></documentation>
+      <input message='tns:uploadRequestMessage' name='uploadInput' />
+      <output message='tns:uploadResponseMessage' name='uploadOutput' />
+    </operation>
+  </portType>
+  <binding name='audioDCodeBinding' type='tns:audioDCodePortType'>
+    <operation name='download'>
+      <soap12:operation soapAction='http://download' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getwave'>
+      <soap12:operation soapAction='http://getwave' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='upload'>
+      <soap12:operation soapAction='http://upload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='audioDCode'>
+    <documentation>audio d Code is a new technology to share links using sound which can replace Dcode NFC and Bluetooth in many occasions By the means of sound broadcasting the effective range can reach up to meters The SDK was designed for extension into many use cases just like file transmission tickets broadcasting and other related fields Now it supports iOS Android Windows Phone and server development The client SDK supports multiple platforms For more information please refer to the Getting Started page</documentation>
+    <port name='audioDCodePort' binding='tns:audioDCodeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://audioDCode' />
+    </port>
+  </service>
+</definitions>

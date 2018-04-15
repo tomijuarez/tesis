@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/visualContextGraph/' name='visualContextGraph' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/visualContextGraph/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/visualContextGraph/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/visualContextGraph/'>
+      <xsd:element name='visualizeGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizeGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='context' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='relation' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='acoustic' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizePostParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visualizePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='context' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='relation' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='acoustic' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='visualizeGetRequestMessage'>
+    <part name='parameters' element='tns:visualizeGetParameters' />
+  </message>
+  <message name='visualizeGetResponseMessage'>
+    <part name='response' element='tns:visualizeGetResponse' />
+  </message>
+  <message name='visualizePostRequestMessage'>
+    <part name='parameters' element='tns:visualizePostParameters' />
+  </message>
+  <message name='visualizePostResponseMessage'>
+    <part name='response' element='tns:visualizePostResponse' />
+  </message>
+  <portType name='visualContextGraphPortType'>
+    <operation name='visualizeGet'>
+      <documentation>diagram information for visualizing concepts or mind maps</documentation>
+      <input message='tns:visualizeGetRequestMessage' name='visualizeGetInput' />
+      <output message='tns:visualizeGetResponseMessage' name='visualizeGetOutput' />
+    </operation>
+    <operation name='visualizePost'>
+      <documentation>diagram information for visualizing concepts or mind maps</documentation>
+      <input message='tns:visualizePostRequestMessage' name='visualizePostInput' />
+      <output message='tns:visualizePostResponseMessage' name='visualizePostOutput' />
+    </operation>
+  </portType>
+  <binding name='visualContextGraphBinding' type='tns:visualContextGraphPortType'>
+    <operation name='visualizeGet'>
+      <soap12:operation soapAction='http://visualizeGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visualizePost'>
+      <soap12:operation soapAction='http://visualizePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='visualContextGraph'>
+    <documentation>build a graph with words connected to other words Diagram information for visualizing concepts or mind maps</documentation>
+    <port name='visualContextGraphPort' binding='tns:visualContextGraphBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://visualContextGraph' />
+    </port>
+  </service>
+</definitions>

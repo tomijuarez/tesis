@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geoips/' name='geoips' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geoips/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geoips/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geoips/'>
+      <xsd:element name='findLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currency' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='hostname' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='timezone' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='languages' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='language' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='language_name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='alpha3_code' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='alpha2_code' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='native_name' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='unit_test' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='elapsed_time' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='memory_usage' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='owner' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='continent_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='continent_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='county_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='region_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='region_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='currencies' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='currency' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='numeric_code' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='alpha_code' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='currency_name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='currency_symbol' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='fractional_unit' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findLocationRequestMessage'>
+    <part name='parameters' element='tns:findLocationParameters' />
+  </message>
+  <message name='findLocationResponseMessage'>
+    <part name='response' element='tns:findLocationResponse' />
+  </message>
+  <portType name='geoipsPortType'>
+    <operation name='findLocation'>
+      <documentation>identify visitors geographical location including hostname owner continent country region city latitude longitude timezone</documentation>
+      <input message='tns:findLocationRequestMessage' name='findLocationInput' />
+      <output message='tns:findLocationResponseMessage' name='findLocationOutput' />
+    </operation>
+  </portType>
+  <binding name='geoipsBinding' type='tns:geoipsPortType'>
+    <operation name='findLocation'>
+      <soap12:operation soapAction='http://findLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geoips'>
+    <documentation>geoIPs IP Intelligence API provides IP related information and geographic location using a REST interface that returns the following data hostname owner continent country region city latitude longitude timezone</documentation>
+    <port name='geoipsPort' binding='tns:geoipsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geoips' />
+    </port>
+  </service>
+</definitions>

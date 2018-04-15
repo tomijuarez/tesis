@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/blockDisposableEmail/' name='blockDisposableEmail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/blockDisposableEmail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/blockDisposableEmail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/blockDisposableEmail/'>
+      <xsd:element name='checkDeaParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domaincheck' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkDeaResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domain_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='servertime' type='xsd:string' minOccurs='0' />
+            <xsd:element name='server_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkDeaRequestMessage'>
+    <part name='parameters' element='tns:checkDeaParameters' />
+  </message>
+  <message name='checkDeaResponseMessage'>
+    <part name='response' element='tns:checkDeaResponse' />
+  </message>
+  <portType name='blockDisposableEmailPortType'>
+    <operation name='checkDea'>
+      <documentation></documentation>
+      <input message='tns:checkDeaRequestMessage' name='checkDeaInput' />
+      <output message='tns:checkDeaResponseMessage' name='checkDeaOutput' />
+    </operation>
+  </portType>
+  <binding name='blockDisposableEmailBinding' type='tns:blockDisposableEmailPortType'>
+    <operation name='checkDea'>
+      <soap12:operation soapAction='http://checkDea' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='blockDisposableEmail'>
+    <documentation>the bdea cc api helps to detect domains of disposable email address services such as mailinator com spamgourmet In other words if you need to keep your userbase clean you should avoid throw away one time instant temporary email addresses That s what this api is designed for BTW no false positives</documentation>
+    <port name='blockDisposableEmailPort' binding='tns:blockDisposableEmailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://blockDisposableEmail' />
+    </port>
+  </service>
+</definitions>

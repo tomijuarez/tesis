@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/msend/' name='msend' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/msend/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/msend/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/msend/'>
+      <xsd:element name='sendMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendMessageRequestMessage'>
+    <part name='parameters' element='tns:sendMessageParameters' />
+  </message>
+  <message name='sendMessageResponseMessage'>
+    <part name='response' element='tns:sendMessageResponse' />
+  </message>
+  <portType name='msendPortType'>
+    <operation name='sendMessage'>
+      <documentation></documentation>
+      <input message='tns:sendMessageRequestMessage' name='sendMessageInput' />
+      <output message='tns:sendMessageResponseMessage' name='sendMessageOutput' />
+    </operation>
+  </portType>
+  <binding name='msendBinding' type='tns:msendPortType'>
+    <operation name='sendMessage'>
+      <soap12:operation soapAction='http://sendMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='msend'>
+    <documentation>mSMS is used to send simple SMS text messages to Non DND numbers by posting the message content and recipient information using the following API</documentation>
+    <port name='msendPort' binding='tns:msendBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://msend' />
+    </port>
+  </service>
+</definitions>

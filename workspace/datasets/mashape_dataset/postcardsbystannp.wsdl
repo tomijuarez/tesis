@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/postcardsByStannp/' name='postcardsByStannp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/postcardsByStannp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/postcardsByStannp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/postcardsByStannp/'>
+      <xsd:element name='createAPostcardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='previouslySentPostcardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createAPostcardRequestMessage' />
+  <message name='createAPostcardResponseMessage'>
+    <part name='response' element='tns:createAPostcardResponse' />
+  </message>
+  <message name='getBalanceRequestMessage' />
+  <message name='getBalanceResponseMessage'>
+    <part name='response' element='tns:getBalanceResponse' />
+  </message>
+  <message name='previouslySentPostcardsRequestMessage' />
+  <message name='previouslySentPostcardsResponseMessage'>
+    <part name='response' element='tns:previouslySentPostcardsResponse' />
+  </message>
+  <portType name='postcardsByStannpPortType'>
+    <operation name='createAPostcard'>
+      <documentation>create a postcard</documentation>
+      <input message='tns:createAPostcardRequestMessage' name='createAPostcardInput' />
+      <output message='tns:createAPostcardResponseMessage' name='createAPostcardOutput' />
+    </operation>
+    <operation name='getBalance'>
+      <documentation>return your current balance</documentation>
+      <input message='tns:getBalanceRequestMessage' name='getBalanceInput' />
+      <output message='tns:getBalanceResponseMessage' name='getBalanceOutput' />
+    </operation>
+    <operation name='previouslySentPostcards'>
+      <documentation>get your previously sent postcards</documentation>
+      <input message='tns:previouslySentPostcardsRequestMessage' name='previouslySentPostcardsInput' />
+      <output message='tns:previouslySentPostcardsResponseMessage' name='previouslySentPostcardsOutput' />
+    </operation>
+  </portType>
+  <binding name='postcardsByStannpBinding' type='tns:postcardsByStannpPortType'>
+    <operation name='createAPostcard'>
+      <soap12:operation soapAction='http://createAPostcard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getBalance'>
+      <soap12:operation soapAction='http://getBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='previouslySentPostcards'>
+      <soap12:operation soapAction='http://previouslySentPostcards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='postcardsByStannp'>
+    <documentation>send real physical postcards using our partner API A print on demand service</documentation>
+    <port name='postcardsByStannpPort' binding='tns:postcardsByStannpBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://postcardsByStannp' />
+    </port>
+  </service>
+</definitions>

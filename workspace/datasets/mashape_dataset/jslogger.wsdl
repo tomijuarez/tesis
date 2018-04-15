@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jslogger/' name='jslogger' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jslogger/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jslogger/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jslogger/'>
+      <xsd:element name='listProjectsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logStatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logSummariesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hidden' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='order' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logSummariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='profileInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listProjectsRequestMessage' />
+  <message name='listProjectsResponseMessage'>
+    <part name='response' element='tns:listProjectsResponse' />
+  </message>
+  <message name='logStatsRequestMessage' />
+  <message name='logStatsResponseMessage'>
+    <part name='response' element='tns:logStatsResponse' />
+  </message>
+  <message name='logSummariesRequestMessage'>
+    <part name='parameters' element='tns:logSummariesParameters' />
+  </message>
+  <message name='logSummariesResponseMessage'>
+    <part name='response' element='tns:logSummariesResponse' />
+  </message>
+  <message name='profileInfoRequestMessage' />
+  <message name='profileInfoResponseMessage'>
+    <part name='response' element='tns:profileInfoResponse' />
+  </message>
+  <portType name='jsloggerPortType'>
+    <operation name='listProjects'>
+      <documentation>get user s projects</documentation>
+      <input message='tns:listProjectsRequestMessage' name='listProjectsInput' />
+      <output message='tns:listProjectsResponseMessage' name='listProjectsOutput' />
+    </operation>
+    <operation name='logStats'>
+      <documentation>get logs and events count for a project</documentation>
+      <input message='tns:logStatsRequestMessage' name='logStatsInput' />
+      <output message='tns:logStatsResponseMessage' name='logStatsOutput' />
+    </operation>
+    <operation name='logSummaries'>
+      <documentation>get log or event summaries</documentation>
+      <input message='tns:logSummariesRequestMessage' name='logSummariesInput' />
+      <output message='tns:logSummariesResponseMessage' name='logSummariesOutput' />
+    </operation>
+    <operation name='profileInfo'>
+      <documentation>get information about user s profile</documentation>
+      <input message='tns:profileInfoRequestMessage' name='profileInfoInput' />
+      <output message='tns:profileInfoResponseMessage' name='profileInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='jsloggerBinding' type='tns:jsloggerPortType'>
+    <operation name='listProjects'>
+      <soap12:operation soapAction='http://listProjects' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logStats'>
+      <soap12:operation soapAction='http://logStats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logSummaries'>
+      <soap12:operation soapAction='http://logSummaries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='profileInfo'>
+      <soap12:operation soapAction='http://profileInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jslogger'>
+    <documentation>jSLogger logs Javascript errors and events in the cloud This API describes the client part of JSLogger where you can query the existent data from your account and build applications on top of it The tracking API will be available soon</documentation>
+    <port name='jsloggerPort' binding='tns:jsloggerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jslogger' />
+    </port>
+  </service>
+</definitions>

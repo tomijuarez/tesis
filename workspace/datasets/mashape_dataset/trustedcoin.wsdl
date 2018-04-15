@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/trustedcoin/' name='trustedcoin' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/trustedcoin/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/trustedcoin/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/trustedcoin/'>
+      <xsd:element name='cosignerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cosignerScriptHashAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cosignerScriptHashAddressSendFinishResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cosignerScriptHashAddressSendStartResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cosignerRequestMessage' />
+  <message name='cosignerResponseMessage'>
+    <part name='response' element='tns:cosignerResponse' />
+  </message>
+  <message name='cosignerScriptHashAddressRequestMessage' />
+  <message name='cosignerScriptHashAddressResponseMessage'>
+    <part name='response' element='tns:cosignerScriptHashAddressResponse' />
+  </message>
+  <message name='cosignerScriptHashAddressSendFinishRequestMessage' />
+  <message name='cosignerScriptHashAddressSendFinishResponseMessage'>
+    <part name='response' element='tns:cosignerScriptHashAddressSendFinishResponse' />
+  </message>
+  <message name='cosignerScriptHashAddressSendStartRequestMessage' />
+  <message name='cosignerScriptHashAddressSendStartResponseMessage'>
+    <part name='response' element='tns:cosignerScriptHashAddressSendStartResponse' />
+  </message>
+  <portType name='trustedcoinPortType'>
+    <operation name='cosigner'>
+      <documentation>creates a cosigner enforcing a particular policy</documentation>
+      <input message='tns:cosignerRequestMessage' name='cosignerInput' />
+      <output message='tns:cosignerResponseMessage' name='cosignerOutput' />
+    </operation>
+    <operation name='cosignerScriptHashAddress'>
+      <documentation></documentation>
+      <input message='tns:cosignerScriptHashAddressRequestMessage' name='cosignerScriptHashAddressInput' />
+      <output message='tns:cosignerScriptHashAddressResponseMessage' name='cosignerScriptHashAddressOutput' />
+    </operation>
+    <operation name='cosignerScriptHashAddressSendFinish'>
+      <documentation></documentation>
+      <input message='tns:cosignerScriptHashAddressSendFinishRequestMessage' name='cosignerScriptHashAddressSendFinishInput' />
+      <output message='tns:cosignerScriptHashAddressSendFinishResponseMessage' name='cosignerScriptHashAddressSendFinishOutput' />
+    </operation>
+    <operation name='cosignerScriptHashAddressSendStart'>
+      <documentation></documentation>
+      <input message='tns:cosignerScriptHashAddressSendStartRequestMessage' name='cosignerScriptHashAddressSendStartInput' />
+      <output message='tns:cosignerScriptHashAddressSendStartResponseMessage' name='cosignerScriptHashAddressSendStartOutput' />
+    </operation>
+  </portType>
+  <binding name='trustedcoinBinding' type='tns:trustedcoinPortType'>
+    <operation name='cosigner'>
+      <soap12:operation soapAction='http://cosigner' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cosignerScriptHashAddress'>
+      <soap12:operation soapAction='http://cosignerScriptHashAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cosignerScriptHashAddressSendFinish'>
+      <soap12:operation soapAction='http://cosignerScriptHashAddressSendFinish' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cosignerScriptHashAddressSendStart'>
+      <soap12:operation soapAction='http://cosignerScriptHashAddressSendStart' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='trustedcoin'>
+    <documentation>trusted Coin is a Bitcoin transaction cosigning service Users of this API can create M of N multisignature P SH addresses where Trusted Coin acts as one of the cosigners The policy logic Trusted Coin should apply when deciding if to cosign and thus approve individual transactions is user configurable Via this mechanism higher level services can be built including wallet protection schemes and escrow</documentation>
+    <port name='trustedcoinPort' binding='tns:trustedcoinBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://trustedcoin' />
+    </port>
+  </service>
+</definitions>

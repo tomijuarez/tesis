@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/drivefarm/' name='drivefarm' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/drivefarm/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/drivefarm/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/drivefarm/'>
+      <xsd:element name='clerkUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clerkUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='users' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='closeUsersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='latitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longitude' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='proximity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='closeUsersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='users' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='copyFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='copyFolderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createFolderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='files' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lastModifiedDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='readOnly' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='directory' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadFileParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='path' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emptyTrashParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emptyTrashResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fileStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='path' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fileStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='files' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='size' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastModifiedDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='readOnly' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='directory' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fileUploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='files' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='size' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastModifiedDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='readOnly' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='directory' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='folderContentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='deep' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='path' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='folderContentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='files' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='size' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastModifiedDate' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='readOnly' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='directory' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gpsPositionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gpsPositionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobilePosition' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='moveFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='moveFolderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='rejectSharingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setGpsPositionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobilePosition' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='latitude' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sharingAgreeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sharingFolderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sharingRequestsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sharingRequestsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLogParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userLogResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userStatsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userStatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='clerkUserRequestMessage'>
+    <part name='parameters' element='tns:clerkUserParameters' />
+  </message>
+  <message name='clerkUserResponseMessage'>
+    <part name='response' element='tns:clerkUserResponse' />
+  </message>
+  <message name='closeUsersRequestMessage'>
+    <part name='parameters' element='tns:closeUsersParameters' />
+  </message>
+  <message name='closeUsersResponseMessage'>
+    <part name='response' element='tns:closeUsersResponse' />
+  </message>
+  <message name='copyFileRequestMessage' />
+  <message name='copyFileResponseMessage'>
+    <part name='response' element='tns:copyFileResponse' />
+  </message>
+  <message name='copyFolderRequestMessage' />
+  <message name='copyFolderResponseMessage'>
+    <part name='response' element='tns:copyFolderResponse' />
+  </message>
+  <message name='createFolderRequestMessage' />
+  <message name='createFolderResponseMessage'>
+    <part name='response' element='tns:createFolderResponse' />
+  </message>
+  <message name='downloadFileRequestMessage'>
+    <part name='parameters' element='tns:downloadFileParameters' />
+  </message>
+  <message name='downloadFileResponseMessage'>
+    <part name='response' element='tns:downloadFileResponse' />
+  </message>
+  <message name='emptyTrashRequestMessage'>
+    <part name='parameters' element='tns:emptyTrashParameters' />
+  </message>
+  <message name='emptyTrashResponseMessage'>
+    <part name='response' element='tns:emptyTrashResponse' />
+  </message>
+  <message name='fileStatisticsRequestMessage'>
+    <part name='parameters' element='tns:fileStatisticsParameters' />
+  </message>
+  <message name='fileStatisticsResponseMessage'>
+    <part name='response' element='tns:fileStatisticsResponse' />
+  </message>
+  <message name='fileUploadRequestMessage' />
+  <message name='fileUploadResponseMessage'>
+    <part name='response' element='tns:fileUploadResponse' />
+  </message>
+  <message name='folderContentRequestMessage'>
+    <part name='parameters' element='tns:folderContentParameters' />
+  </message>
+  <message name='folderContentResponseMessage'>
+    <part name='response' element='tns:folderContentResponse' />
+  </message>
+  <message name='gpsPositionRequestMessage'>
+    <part name='parameters' element='tns:gpsPositionParameters' />
+  </message>
+  <message name='gpsPositionResponseMessage'>
+    <part name='response' element='tns:gpsPositionResponse' />
+  </message>
+  <message name='moveFileRequestMessage' />
+  <message name='moveFileResponseMessage'>
+    <part name='response' element='tns:moveFileResponse' />
+  </message>
+  <message name='moveFolderRequestMessage' />
+  <message name='moveFolderResponseMessage'>
+    <part name='response' element='tns:moveFolderResponse' />
+  </message>
+  <message name='rejectSharingRequestMessage' />
+  <message name='rejectSharingResponseMessage'>
+    <part name='response' element='tns:rejectSharingResponse' />
+  </message>
+  <message name='sendFileRequestMessage' />
+  <message name='sendFileResponseMessage'>
+    <part name='response' element='tns:sendFileResponse' />
+  </message>
+  <message name='setGpsPositionRequestMessage' />
+  <message name='setGpsPositionResponseMessage'>
+    <part name='response' element='tns:setGpsPositionResponse' />
+  </message>
+  <message name='sharingAgreeRequestMessage' />
+  <message name='sharingAgreeResponseMessage'>
+    <part name='response' element='tns:sharingAgreeResponse' />
+  </message>
+  <message name='sharingFolderRequestMessage' />
+  <message name='sharingFolderResponseMessage'>
+    <part name='response' element='tns:sharingFolderResponse' />
+  </message>
+  <message name='sharingRequestsRequestMessage'>
+    <part name='parameters' element='tns:sharingRequestsParameters' />
+  </message>
+  <message name='sharingRequestsResponseMessage'>
+    <part name='response' element='tns:sharingRequestsResponse' />
+  </message>
+  <message name='userLogRequestMessage'>
+    <part name='parameters' element='tns:userLogParameters' />
+  </message>
+  <message name='userLogResponseMessage'>
+    <part name='response' element='tns:userLogResponse' />
+  </message>
+  <message name='userStatsRequestMessage'>
+    <part name='parameters' element='tns:userStatsParameters' />
+  </message>
+  <message name='userStatsResponseMessage'>
+    <part name='response' element='tns:userStatsResponse' />
+  </message>
+  <portType name='drivefarmPortType'>
+    <operation name='clerkUser'>
+      <documentation>returns the list of users in your organization This call can not be used by private users</documentation>
+      <input message='tns:clerkUserRequestMessage' name='clerkUserInput' />
+      <output message='tns:clerkUserResponseMessage' name='clerkUserOutput' />
+    </operation>
+    <operation name='closeUsers'>
+      <documentation>returns the list of users in range The GPS coordinates present in the system are valid for minutes</documentation>
+      <input message='tns:closeUsersRequestMessage' name='closeUsersInput' />
+      <output message='tns:closeUsersResponseMessage' name='closeUsersOutput' />
+    </operation>
+    <operation name='copyFile'>
+      <documentation>copy file into clipboard</documentation>
+      <input message='tns:copyFileRequestMessage' name='copyFileInput' />
+      <output message='tns:copyFileResponseMessage' name='copyFileOutput' />
+    </operation>
+    <operation name='copyFolder'>
+      <documentation>copy folder into clipboard</documentation>
+      <input message='tns:copyFolderRequestMessage' name='copyFolderInput' />
+      <output message='tns:copyFolderResponseMessage' name='copyFolderOutput' />
+    </operation>
+    <operation name='createFolder'>
+      <documentation>create folder</documentation>
+      <input message='tns:createFolderRequestMessage' name='createFolderInput' />
+      <output message='tns:createFolderResponseMessage' name='createFolderOutput' />
+    </operation>
+    <operation name='downloadFile'>
+      <documentation></documentation>
+      <input message='tns:downloadFileRequestMessage' name='downloadFileInput' />
+      <output message='tns:downloadFileResponseMessage' name='downloadFileOutput' />
+    </operation>
+    <operation name='emptyTrash'>
+      <documentation></documentation>
+      <input message='tns:emptyTrashRequestMessage' name='emptyTrashInput' />
+      <output message='tns:emptyTrashResponseMessage' name='emptyTrashOutput' />
+    </operation>
+    <operation name='fileStatistics'>
+      <documentation>returns file statistics</documentation>
+      <input message='tns:fileStatisticsRequestMessage' name='fileStatisticsInput' />
+      <output message='tns:fileStatisticsResponseMessage' name='fileStatisticsOutput' />
+    </operation>
+    <operation name='fileUpload'>
+      <documentation>upload file into Server</documentation>
+      <input message='tns:fileUploadRequestMessage' name='fileUploadInput' />
+      <output message='tns:fileUploadResponseMessage' name='fileUploadOutput' />
+    </operation>
+    <operation name='folderContent'>
+      <documentation>list the content of a folder</documentation>
+      <input message='tns:folderContentRequestMessage' name='folderContentInput' />
+      <output message='tns:folderContentResponseMessage' name='folderContentOutput' />
+    </operation>
+    <operation name='gpsPosition'>
+      <documentation>returns the last setted position If it has never been set to both coordinates are returned equal to</documentation>
+      <input message='tns:gpsPositionRequestMessage' name='gpsPositionInput' />
+      <output message='tns:gpsPositionResponseMessage' name='gpsPositionOutput' />
+    </operation>
+    <operation name='moveFile'>
+      <documentation>move File</documentation>
+      <input message='tns:moveFileRequestMessage' name='moveFileInput' />
+      <output message='tns:moveFileResponseMessage' name='moveFileOutput' />
+    </operation>
+    <operation name='moveFolder'>
+      <documentation></documentation>
+      <input message='tns:moveFolderRequestMessage' name='moveFolderInput' />
+      <output message='tns:moveFolderResponseMessage' name='moveFolderOutput' />
+    </operation>
+    <operation name='rejectSharing'>
+      <documentation></documentation>
+      <input message='tns:rejectSharingRequestMessage' name='rejectSharingInput' />
+      <output message='tns:rejectSharingResponseMessage' name='rejectSharingOutput' />
+    </operation>
+    <operation name='sendFile'>
+      <documentation></documentation>
+      <input message='tns:sendFileRequestMessage' name='sendFileInput' />
+      <output message='tns:sendFileResponseMessage' name='sendFileOutput' />
+    </operation>
+    <operation name='setGpsPosition'>
+      <documentation>set your GPS location</documentation>
+      <input message='tns:setGpsPositionRequestMessage' name='setGpsPositionInput' />
+      <output message='tns:setGpsPositionResponseMessage' name='setGpsPositionOutput' />
+    </operation>
+    <operation name='sharingAgree'>
+      <documentation>accepts a share folder or sending a file by another user</documentation>
+      <input message='tns:sharingAgreeRequestMessage' name='sharingAgreeInput' />
+      <output message='tns:sharingAgreeResponseMessage' name='sharingAgreeOutput' />
+    </operation>
+    <operation name='sharingFolder'>
+      <documentation>share one or more folders with other users</documentation>
+      <input message='tns:sharingFolderRequestMessage' name='sharingFolderInput' />
+      <output message='tns:sharingFolderResponseMessage' name='sharingFolderOutput' />
+    </operation>
+    <operation name='sharingRequests'>
+      <documentation>returns all sharing requests including requests for sending files</documentation>
+      <input message='tns:sharingRequestsRequestMessage' name='sharingRequestsInput' />
+      <output message='tns:sharingRequestsResponseMessage' name='sharingRequestsOutput' />
+    </operation>
+    <operation name='userLog'>
+      <documentation></documentation>
+      <input message='tns:userLogRequestMessage' name='userLogInput' />
+      <output message='tns:userLogResponseMessage' name='userLogOutput' />
+    </operation>
+    <operation name='userStats'>
+      <documentation>return the statistics of the user profile connected to the access token</documentation>
+      <input message='tns:userStatsRequestMessage' name='userStatsInput' />
+      <output message='tns:userStatsResponseMessage' name='userStatsOutput' />
+    </operation>
+  </portType>
+  <binding name='drivefarmBinding' type='tns:drivefarmPortType'>
+    <operation name='clerkUser'>
+      <soap12:operation soapAction='http://clerkUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='closeUsers'>
+      <soap12:operation soapAction='http://closeUsers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='copyFile'>
+      <soap12:operation soapAction='http://copyFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='copyFolder'>
+      <soap12:operation soapAction='http://copyFolder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createFolder'>
+      <soap12:operation soapAction='http://createFolder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadFile'>
+      <soap12:operation soapAction='http://downloadFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='emptyTrash'>
+      <soap12:operation soapAction='http://emptyTrash' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fileStatistics'>
+      <soap12:operation soapAction='http://fileStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fileUpload'>
+      <soap12:operation soapAction='http://fileUpload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='folderContent'>
+      <soap12:operation soapAction='http://folderContent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='gpsPosition'>
+      <soap12:operation soapAction='http://gpsPosition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='moveFile'>
+      <soap12:operation soapAction='http://moveFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='moveFolder'>
+      <soap12:operation soapAction='http://moveFolder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='rejectSharing'>
+      <soap12:operation soapAction='http://rejectSharing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendFile'>
+      <soap12:operation soapAction='http://sendFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setGpsPosition'>
+      <soap12:operation soapAction='http://setGpsPosition' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sharingAgree'>
+      <soap12:operation soapAction='http://sharingAgree' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sharingFolder'>
+      <soap12:operation soapAction='http://sharingFolder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sharingRequests'>
+      <soap12:operation soapAction='http://sharingRequests' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='userLog'>
+      <soap12:operation soapAction='http://userLog' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='userStats'>
+      <soap12:operation soapAction='http://userStats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='drivefarm'>
+    <documentation>dRIVEFARM is a new cloud file manager projected and developed to help little and medium companies in their daily maintenance of their documents assets With DRIVEFARM you can optimize your company procedures sharing projects contracts and catalogues with your work team DRIVEFARM allows the management and personalization of every single employee profile and correlated privileges Every company member can share his her files and documents with other inner or outer colleagues directly from Web or Mobile App DRIVEFARM tracks files sharing and sending activities respecting privacy rules The company manager can verify members usage of documents assets and identify any company policies not compliant activity</documentation>
+    <port name='drivefarmPort' binding='tns:drivefarmBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://drivefarm' />
+    </port>
+  </service>
+</definitions>

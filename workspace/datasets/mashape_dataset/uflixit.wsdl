@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/uflixit/' name='uflixit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/uflixit/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/uflixit/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/uflixit/'>
+      <xsd:element name='boxOfficeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='imdb_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='weekend' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rank' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkLinksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='link' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='health' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='episodeStreamingLinksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='episode' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='season' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='episodeStreamingLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='googleVideoStreamingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='googleVideoStreamingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='medium' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieParentalGuideParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieParentalGuideResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieReviewsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieReviewsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='attr' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieStreamingLinksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieStreamingLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='quality' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieSynopsisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='movieSynopsisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='popularShowsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showSynopsisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showSynopsisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tvShowParentalGuideParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tvShowParentalGuideResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='label' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tvShowReviewsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imdbid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tvShowReviewsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='attr' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wantedMoviesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='boxOfficeRequestMessage' />
+  <message name='boxOfficeResponseMessage'>
+    <part name='response' element='tns:boxOfficeResponse' />
+  </message>
+  <message name='checkLinksRequestMessage'>
+    <part name='parameters' element='tns:checkLinksParameters' />
+  </message>
+  <message name='checkLinksResponseMessage'>
+    <part name='response' element='tns:checkLinksResponse' />
+  </message>
+  <message name='episodeStreamingLinksRequestMessage'>
+    <part name='parameters' element='tns:episodeStreamingLinksParameters' />
+  </message>
+  <message name='episodeStreamingLinksResponseMessage'>
+    <part name='response' element='tns:episodeStreamingLinksResponse' />
+  </message>
+  <message name='googleVideoStreamingRequestMessage'>
+    <part name='parameters' element='tns:googleVideoStreamingParameters' />
+  </message>
+  <message name='googleVideoStreamingResponseMessage'>
+    <part name='response' element='tns:googleVideoStreamingResponse' />
+  </message>
+  <message name='movieParentalGuideRequestMessage'>
+    <part name='parameters' element='tns:movieParentalGuideParameters' />
+  </message>
+  <message name='movieParentalGuideResponseMessage'>
+    <part name='response' element='tns:movieParentalGuideResponse' />
+  </message>
+  <message name='movieReviewsRequestMessage'>
+    <part name='parameters' element='tns:movieReviewsParameters' />
+  </message>
+  <message name='movieReviewsResponseMessage'>
+    <part name='response' element='tns:movieReviewsResponse' />
+  </message>
+  <message name='movieStreamingLinksRequestMessage'>
+    <part name='parameters' element='tns:movieStreamingLinksParameters' />
+  </message>
+  <message name='movieStreamingLinksResponseMessage'>
+    <part name='response' element='tns:movieStreamingLinksResponse' />
+  </message>
+  <message name='movieSynopsisRequestMessage'>
+    <part name='parameters' element='tns:movieSynopsisParameters' />
+  </message>
+  <message name='movieSynopsisResponseMessage'>
+    <part name='response' element='tns:movieSynopsisResponse' />
+  </message>
+  <message name='popularShowsRequestMessage' />
+  <message name='popularShowsResponseMessage'>
+    <part name='response' element='tns:popularShowsResponse' />
+  </message>
+  <message name='showSynopsisRequestMessage'>
+    <part name='parameters' element='tns:showSynopsisParameters' />
+  </message>
+  <message name='showSynopsisResponseMessage'>
+    <part name='response' element='tns:showSynopsisResponse' />
+  </message>
+  <message name='tvShowParentalGuideRequestMessage'>
+    <part name='parameters' element='tns:tvShowParentalGuideParameters' />
+  </message>
+  <message name='tvShowParentalGuideResponseMessage'>
+    <part name='response' element='tns:tvShowParentalGuideResponse' />
+  </message>
+  <message name='tvShowReviewsRequestMessage'>
+    <part name='parameters' element='tns:tvShowReviewsParameters' />
+  </message>
+  <message name='tvShowReviewsResponseMessage'>
+    <part name='response' element='tns:tvShowReviewsResponse' />
+  </message>
+  <message name='wantedMoviesRequestMessage' />
+  <message name='wantedMoviesResponseMessage'>
+    <part name='response' element='tns:wantedMoviesResponse' />
+  </message>
+  <portType name='uflixitPortType'>
+    <operation name='boxOffice'>
+      <documentation>weekly Movies Boxoffice with income revenu</documentation>
+      <input message='tns:boxOfficeRequestMessage' name='boxOfficeInput' />
+      <output message='tns:boxOfficeResponseMessage' name='boxOfficeOutput' />
+    </operation>
+    <operation name='checkLinks'>
+      <documentation>check Dead or Live Link we accept only hosts</documentation>
+      <input message='tns:checkLinksRequestMessage' name='checkLinksInput' />
+      <output message='tns:checkLinksResponseMessage' name='checkLinksOutput' />
+    </operation>
+    <operation name='episodeStreamingLinks'>
+      <documentation>get Streaming Links for Episode</documentation>
+      <input message='tns:episodeStreamingLinksRequestMessage' name='episodeStreamingLinksInput' />
+      <output message='tns:episodeStreamingLinksResponseMessage' name='episodeStreamingLinksOutput' />
+    </operation>
+    <operation name='googleVideoStreaming'>
+      <documentation>movie Google Video High Quality Streaming</documentation>
+      <input message='tns:googleVideoStreamingRequestMessage' name='googleVideoStreamingInput' />
+      <output message='tns:googleVideoStreamingResponseMessage' name='googleVideoStreamingOutput' />
+    </operation>
+    <operation name='movieParentalGuide'>
+      <documentation>movie Parental Guide</documentation>
+      <input message='tns:movieParentalGuideRequestMessage' name='movieParentalGuideInput' />
+      <output message='tns:movieParentalGuideResponseMessage' name='movieParentalGuideOutput' />
+    </operation>
+    <operation name='movieReviews'>
+      <documentation>get Movie external reviews</documentation>
+      <input message='tns:movieReviewsRequestMessage' name='movieReviewsInput' />
+      <output message='tns:movieReviewsResponseMessage' name='movieReviewsOutput' />
+    </operation>
+    <operation name='movieStreamingLinks'>
+      <documentation>get Streaming links</documentation>
+      <input message='tns:movieStreamingLinksRequestMessage' name='movieStreamingLinksInput' />
+      <output message='tns:movieStreamingLinksResponseMessage' name='movieStreamingLinksOutput' />
+    </operation>
+    <operation name='movieSynopsis'>
+      <documentation>get Full Movie Synopsis</documentation>
+      <input message='tns:movieSynopsisRequestMessage' name='movieSynopsisInput' />
+      <output message='tns:movieSynopsisResponseMessage' name='movieSynopsisOutput' />
+    </operation>
+    <operation name='popularShows'>
+      <documentation>return Imdb ID s For Most Popular Shows</documentation>
+      <input message='tns:popularShowsRequestMessage' name='popularShowsInput' />
+      <output message='tns:popularShowsResponseMessage' name='popularShowsOutput' />
+    </operation>
+    <operation name='showSynopsis'>
+      <documentation>return full synopsis for a show</documentation>
+      <input message='tns:showSynopsisRequestMessage' name='showSynopsisInput' />
+      <output message='tns:showSynopsisResponseMessage' name='showSynopsisOutput' />
+    </operation>
+    <operation name='tvShowParentalGuide'>
+      <documentation>get Tv Show Parental Guide</documentation>
+      <input message='tns:tvShowParentalGuideRequestMessage' name='tvShowParentalGuideInput' />
+      <output message='tns:tvShowParentalGuideResponseMessage' name='tvShowParentalGuideOutput' />
+    </operation>
+    <operation name='tvShowReviews'>
+      <documentation>get External reviews</documentation>
+      <input message='tns:tvShowReviewsRequestMessage' name='tvShowReviewsInput' />
+      <output message='tns:tvShowReviewsResponseMessage' name='tvShowReviewsOutput' />
+    </operation>
+    <operation name='wantedMovies'>
+      <documentation>most wanted movies of the week</documentation>
+      <input message='tns:wantedMoviesRequestMessage' name='wantedMoviesInput' />
+      <output message='tns:wantedMoviesResponseMessage' name='wantedMoviesOutput' />
+    </operation>
+  </portType>
+  <binding name='uflixitBinding' type='tns:uflixitPortType'>
+    <operation name='boxOffice'>
+      <soap12:operation soapAction='http://boxOffice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkLinks'>
+      <soap12:operation soapAction='http://checkLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='episodeStreamingLinks'>
+      <soap12:operation soapAction='http://episodeStreamingLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='googleVideoStreaming'>
+      <soap12:operation soapAction='http://googleVideoStreaming' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='movieParentalGuide'>
+      <soap12:operation soapAction='http://movieParentalGuide' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='movieReviews'>
+      <soap12:operation soapAction='http://movieReviews' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='movieStreamingLinks'>
+      <soap12:operation soapAction='http://movieStreamingLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='movieSynopsis'>
+      <soap12:operation soapAction='http://movieSynopsis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='popularShows'>
+      <soap12:operation soapAction='http://popularShows' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='showSynopsis'>
+      <soap12:operation soapAction='http://showSynopsis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tvShowParentalGuide'>
+      <soap12:operation soapAction='http://tvShowParentalGuide' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tvShowReviews'>
+      <soap12:operation soapAction='http://tvShowReviews' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wantedMovies'>
+      <soap12:operation soapAction='http://wantedMovies' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='uflixit'>
+    <documentation>uflixit Movie Tv shows Api many informations for movies shows</documentation>
+    <port name='uflixitPort' binding='tns:uflixitBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://uflixit' />
+    </port>
+  </service>
+</definitions>

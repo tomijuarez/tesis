@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bsnlAccountInfo/' name='bsnlAccountInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bsnlAccountInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bsnlAccountInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bsnlAccountInfo/'>
+      <xsd:element name='bsnlAccountInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobileno' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bsnlAccountInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expiryDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mobileNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='currentBalance' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bsnlAccountInfoRequestMessage'>
+    <part name='parameters' element='tns:bsnlAccountInfoParameters' />
+  </message>
+  <message name='bsnlAccountInfoResponseMessage'>
+    <part name='response' element='tns:bsnlAccountInfoResponse' />
+  </message>
+  <portType name='bsnlAccountInfoPortType'>
+    <operation name='bsnlAccountInfo'>
+      <documentation>check any BSNL Prepaid Mobile Number s Account Information</documentation>
+      <input message='tns:bsnlAccountInfoRequestMessage' name='bsnlAccountInfoInput' />
+      <output message='tns:bsnlAccountInfoResponseMessage' name='bsnlAccountInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='bsnlAccountInfoBinding' type='tns:bsnlAccountInfoPortType'>
+    <operation name='bsnlAccountInfo'>
+      <soap12:operation soapAction='http://bsnlAccountInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bsnlAccountInfo'>
+    <documentation>check any BSNL Prepaid Mobile number s account information like current balance expiry date using this api</documentation>
+    <port name='bsnlAccountInfoPort' binding='tns:bsnlAccountInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bsnlAccountInfo' />
+    </port>
+  </service>
+</definitions>

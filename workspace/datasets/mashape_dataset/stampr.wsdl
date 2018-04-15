@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stampr/' name='stampr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stampr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stampr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stampr/'>
+      <xsd:element name='createNewConfigResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='output' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='size' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='config_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='turnaround' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='returnenvelope' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='style' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewBatchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='template' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='config_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='batch_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewMailingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' minOccurs='0' />
+            <xsd:element name='pdf' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='initiated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='batch_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mailing_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='returnaddress' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='printer_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='healthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createNewConfigRequestMessage' />
+  <message name='createNewConfigResponseMessage'>
+    <part name='response' element='tns:createNewConfigResponse' />
+  </message>
+  <message name='createNewBatchRequestMessage' />
+  <message name='createNewBatchResponseMessage'>
+    <part name='response' element='tns:createNewBatchResponse' />
+  </message>
+  <message name='createNewMailingRequestMessage' />
+  <message name='createNewMailingResponseMessage'>
+    <part name='response' element='tns:createNewMailingResponse' />
+  </message>
+  <message name='healthRequestMessage' />
+  <message name='healthResponseMessage'>
+    <part name='response' element='tns:healthResponse' />
+  </message>
+  <portType name='stamprPortType'>
+    <operation name='createNewConfig'>
+      <documentation>create a new mailing configuration to be used with Batches</documentation>
+      <input message='tns:createNewConfigRequestMessage' name='createNewConfigInput' />
+      <output message='tns:createNewConfigResponseMessage' name='createNewConfigOutput' />
+    </operation>
+    <operation name='createNewBatch'>
+      <documentation>create a new empty batch container to be used with Mailings</documentation>
+      <input message='tns:createNewBatchRequestMessage' name='createNewBatchInput' />
+      <output message='tns:createNewBatchResponseMessage' name='createNewBatchOutput' />
+    </operation>
+    <operation name='createNewMailing'>
+      <documentation>returns Mailing Object</documentation>
+      <input message='tns:createNewMailingRequestMessage' name='createNewMailingInput' />
+      <output message='tns:createNewMailingResponseMessage' name='createNewMailingOutput' />
+    </operation>
+    <operation name='health'>
+      <documentation></documentation>
+      <input message='tns:healthRequestMessage' name='healthInput' />
+      <output message='tns:healthResponseMessage' name='healthOutput' />
+    </operation>
+  </portType>
+  <binding name='stamprBinding' type='tns:stamprPortType'>
+    <operation name='createNewConfig'>
+      <soap12:operation soapAction='http://createNewConfig' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createNewBatch'>
+      <soap12:operation soapAction='http://createNewBatch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createNewMailing'>
+      <soap12:operation soapAction='http://createNewMailing' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='health'>
+      <soap12:operation soapAction='http://health' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stampr'>
+    <documentation>postal mail has finally moved to the cloud Mail letters online Free Account Fast Secure Support from Humans</documentation>
+    <port name='stamprPort' binding='tns:stamprBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stampr' />
+    </port>
+  </service>
+</definitions>

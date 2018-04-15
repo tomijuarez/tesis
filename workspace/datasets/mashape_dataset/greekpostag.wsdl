@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/greekPosTag/' name='greekPosTag' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/greekPosTag/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/greekPosTag/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/greekPosTag/'>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage' />
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='greekPosTagPortType'>
+    <operation name=''>
+      <documentation>tag the parts of speech in Greek text</documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='greekPosTagBinding' type='tns:greekPosTagPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='greekPosTag'>
+    <documentation>greek Pos Tag is an api that analyses Greek text and tags its parts of speech It is created with NlpTools http php nlp tools com</documentation>
+    <port name='greekPosTagPort' binding='tns:greekPosTagBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://greekPosTag' />
+    </port>
+  </service>
+</definitions>

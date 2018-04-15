@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/goTheUrlShortener/' name='goTheUrlShortener' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/goTheUrlShortener/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/goTheUrlShortener/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/goTheUrlShortener/'>
+      <xsd:element name='shortUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='custom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shortUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='error' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='shortUrlRequestMessage'>
+    <part name='parameters' element='tns:shortUrlParameters' />
+  </message>
+  <message name='shortUrlResponseMessage'>
+    <part name='response' element='tns:shortUrlResponse' />
+  </message>
+  <portType name='goTheUrlShortenerPortType'>
+    <operation name='shortUrl'>
+      <documentation>get the short URL for a long URL</documentation>
+      <input message='tns:shortUrlRequestMessage' name='shortUrlInput' />
+      <output message='tns:shortUrlResponseMessage' name='shortUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='goTheUrlShortenerBinding' type='tns:goTheUrlShortenerPortType'>
+    <operation name='shortUrl'>
+      <soap12:operation soapAction='http://shortUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='goTheUrlShortener'>
+    <documentation>gO The advanced Short URL maker Boasts advanced options like geo targeted redirects password protection etc</documentation>
+    <port name='goTheUrlShortenerPort' binding='tns:goTheUrlShortenerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://goTheUrlShortener' />
+    </port>
+  </service>
+</definitions>

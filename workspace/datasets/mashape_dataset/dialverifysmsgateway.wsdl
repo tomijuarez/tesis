@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dialVerifySmsGateway/' name='dialVerifySmsGateway' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dialVerifySmsGateway/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dialVerifySmsGateway/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dialVerifySmsGateway/'>
+      <xsd:element name='sendSmsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recipientnumber' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='senderid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='APIStatus' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendSmsRequestMessage'>
+    <part name='parameters' element='tns:sendSmsParameters' />
+  </message>
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='dialVerifySmsGatewayPortType'>
+    <operation name='sendSms'>
+      <documentation>dial verify API Key</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='dialVerifySmsGatewayBinding' type='tns:dialVerifySmsGatewayPortType'>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dialVerifySmsGateway'>
+    <documentation>introducing ultra cheap Transactional SMS API for developers India Send speedy sms with fully customizable dynamic sender ids for FREE Claim your FREE SMS Credits at http goo gl fsEPSo</documentation>
+    <port name='dialVerifySmsGatewayPort' binding='tns:dialVerifySmsGatewayBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dialVerifySmsGateway' />
+    </port>
+  </service>
+</definitions>

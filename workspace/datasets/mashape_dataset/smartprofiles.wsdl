@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartprofiles/' name='smartprofiles' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartprofiles/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartprofiles/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartprofiles/'>
+      <xsd:element name='focusApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='classification' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='jsonp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='target' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='targettype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='focusApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='focusApiRequestMessage'>
+    <part name='parameters' element='tns:focusApiParameters' />
+  </message>
+  <message name='focusApiResponseMessage'>
+    <part name='response' element='tns:focusApiResponse' />
+  </message>
+  <portType name='smartprofilesPortType'>
+    <operation name='focusApi'>
+      <documentation></documentation>
+      <input message='tns:focusApiRequestMessage' name='focusApiInput' />
+      <output message='tns:focusApiResponseMessage' name='focusApiOutput' />
+    </operation>
+  </portType>
+  <binding name='smartprofilesBinding' type='tns:smartprofilesPortType'>
+    <operation name='focusApi'>
+      <soap12:operation soapAction='http://focusApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartprofiles'>
+    <documentation>ontology based text analysis service which creates a comprehensive weighted profile As an input for profiling you can use any text or link to a document like PDF or a web page</documentation>
+    <port name='smartprofilesPort' binding='tns:smartprofilesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartprofiles' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/googleGeocoding/' name='googleGeocoding' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/googleGeocoding/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/googleGeocoding/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/googleGeocoding/'>
+      <xsd:element name='geocodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bounds' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sensor' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geocodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='formatted_address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='viewport' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='southwest' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='lng' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='lat' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='northeast' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='lng' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='lat' type='xsd:string' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='location' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='lng' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='lat' type='xsd:string' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='location_type' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='address_components' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='short_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='long_name' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geocodeRequestMessage'>
+    <part name='parameters' element='tns:geocodeParameters' />
+  </message>
+  <message name='geocodeResponseMessage'>
+    <part name='response' element='tns:geocodeResponse' />
+  </message>
+  <portType name='googleGeocodingPortType'>
+    <operation name='geocode'>
+      <documentation>geocoding is the process of converting addresses into geographic coordinates like latitude and longitude which you can use to place markers or position the map</documentation>
+      <input message='tns:geocodeRequestMessage' name='geocodeInput' />
+      <output message='tns:geocodeResponseMessage' name='geocodeOutput' />
+    </operation>
+  </portType>
+  <binding name='googleGeocodingBinding' type='tns:googleGeocodingPortType'>
+    <operation name='geocode'>
+      <soap12:operation soapAction='http://geocode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='googleGeocoding'>
+    <documentation>this is a simple unofficial wrapper for Google Geocoding API</documentation>
+    <port name='googleGeocodingPort' binding='tns:googleGeocodingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://googleGeocoding' />
+    </port>
+  </service>
+</definitions>

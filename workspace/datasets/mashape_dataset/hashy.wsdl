@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hashy/' name='hashy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hashy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hashy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hashy/'>
+      <xsd:element name='fixedLengthParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='copt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='int' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='len' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fixedLengthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='max_combinations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='alphabet' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='variableLengthParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='copt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='int' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='variableLengthResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='max_combinations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='alphabet' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fixedLengthRequestMessage'>
+    <part name='parameters' element='tns:fixedLengthParameters' />
+  </message>
+  <message name='fixedLengthResponseMessage'>
+    <part name='response' element='tns:fixedLengthResponse' />
+  </message>
+  <message name='variableLengthRequestMessage'>
+    <part name='parameters' element='tns:variableLengthParameters' />
+  </message>
+  <message name='variableLengthResponseMessage'>
+    <part name='response' element='tns:variableLengthResponse' />
+  </message>
+  <portType name='hashyPortType'>
+    <operation name='fixedLength'>
+      <documentation>generates an uid based on the supplied int with fixed length</documentation>
+      <input message='tns:fixedLengthRequestMessage' name='fixedLengthInput' />
+      <output message='tns:fixedLengthResponseMessage' name='fixedLengthOutput' />
+    </operation>
+    <operation name='variableLength'>
+      <documentation>generates an uid with the length depending on the supplied integer</documentation>
+      <input message='tns:variableLengthRequestMessage' name='variableLengthInput' />
+      <output message='tns:variableLengthResponseMessage' name='variableLengthOutput' />
+    </operation>
+  </portType>
+  <binding name='hashyBinding' type='tns:hashyPortType'>
+    <operation name='fixedLength'>
+      <soap12:operation soapAction='http://fixedLength' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='variableLength'>
+      <soap12:operation soapAction='http://variableLength' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hashy'>
+    <documentation>scrambles a progressive integer DB index into a unique string like Bitly TinyURL and Youtube do Example if you input you get YvfCww while inputing you get Ln kQ and so on You can also specify your own seed Use it for very custom short URL generation or anything you like it is free</documentation>
+    <port name='hashyPort' binding='tns:hashyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hashy' />
+    </port>
+  </service>
+</definitions>

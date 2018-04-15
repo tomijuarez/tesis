@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/riskyMessageCheckForSocial/' name='riskyMessageCheckForSocial' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/riskyMessageCheckForSocial/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/riskyMessageCheckForSocial/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/riskyMessageCheckForSocial/'>
+      <xsd:element name='textcheckerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='FullRiskScore' type='xsd:int' minOccurs='0' />
+            <xsd:element name='UserStats' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='TotalMsgCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='UserId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ZeroScoreCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='AverageRisk' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='AverageRiskScore' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TenOrLessCount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='TotalRiskScore' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='LastRiskScore' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='UserId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Risk' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Code' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textuserstatParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textuserstatResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='TotalMsgCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='UserId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ZeroScoreCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='AverageRisk' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='AverageRiskScore' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TenOrLessCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='TotalRiskScore' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='LastRiskScore' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textcheckerRequestMessage' />
+  <message name='textcheckerResponseMessage'>
+    <part name='response' element='tns:textcheckerResponse' />
+  </message>
+  <message name='textuserstatRequestMessage'>
+    <part name='parameters' element='tns:textuserstatParameters' />
+  </message>
+  <message name='textuserstatResponseMessage'>
+    <part name='response' element='tns:textuserstatResponse' />
+  </message>
+  <portType name='riskyMessageCheckForSocialPortType'>
+    <operation name='textchecker'>
+      <documentation>evaluate the risk of a text message</documentation>
+      <input message='tns:textcheckerRequestMessage' name='textcheckerInput' />
+      <output message='tns:textcheckerResponseMessage' name='textcheckerOutput' />
+    </operation>
+    <operation name='textuserstat'>
+      <documentation>allows you to access the named users text message statistics</documentation>
+      <input message='tns:textuserstatRequestMessage' name='textuserstatInput' />
+      <output message='tns:textuserstatResponseMessage' name='textuserstatOutput' />
+    </operation>
+  </portType>
+  <binding name='riskyMessageCheckForSocialBinding' type='tns:riskyMessageCheckForSocialPortType'>
+    <operation name='textchecker'>
+      <soap12:operation soapAction='http://textchecker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textuserstat'>
+      <soap12:operation soapAction='http://textuserstat' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='riskyMessageCheckForSocial'>
+    <documentation>this API allows you to evaluate the risk of a message containing inappropriate content This risk rating can then be used as an indicator that moderation is required If you supply a user identifier a user profile will be maintained of key statistics Note this will only be kept for users that are active in the last months</documentation>
+    <port name='riskyMessageCheckForSocialPort' binding='tns:riskyMessageCheckForSocialBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://riskyMessageCheckForSocial' />
+    </port>
+  </service>
+</definitions>

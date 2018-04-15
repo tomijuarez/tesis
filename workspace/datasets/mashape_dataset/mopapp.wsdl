@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mopapp/' name='mopapp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mopapp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mopapp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mopapp/'>
+      <xsd:element name='getSalesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='account' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='application' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='apporinappsales' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='currency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='datefrom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dateto' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='platform' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='store' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='storeaccount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSalesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='totalItems' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='totalPages' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='currentPage' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='items' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='profitEur' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='platform' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='numUpdates' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='revenue' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='unitPriceEur' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='currency' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='profit' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='numSales' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='unitPrice' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='revenueUsd' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='inapp' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='store' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='unitPriceUsd' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='version' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='storeAccount' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='revenueEur' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='application' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='profitUsd' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='numInstalls' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='device' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getSalesRequestMessage'>
+    <part name='parameters' element='tns:getSalesParameters' />
+  </message>
+  <message name='getSalesResponseMessage'>
+    <part name='response' element='tns:getSalesResponse' />
+  </message>
+  <portType name='mopappPortType'>
+    <operation name='getSales'>
+      <documentation>extract the sales of your applications in raw format</documentation>
+      <input message='tns:getSalesRequestMessage' name='getSalesInput' />
+      <output message='tns:getSalesResponseMessage' name='getSalesOutput' />
+    </operation>
+  </portType>
+  <binding name='mopappBinding' type='tns:mopappPortType'>
+    <operation name='getSales'>
+      <soap12:operation soapAction='http://getSales' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mopapp'>
+    <documentation>mopapp tracks analyzes the sales and downloads of your mobile apps It automatically integrates with iTunes App Store Android Market WP Markerplace BlackBerry App World Amazon Appstore GetJar Handango and MobiHand This API can be used to programmatically export sales to be analyzed in your own systems or to insert new ones</documentation>
+    <port name='mopappPort' binding='tns:mopappBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mopapp' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/barcodeGenerator/' name='barcodeGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/barcodeGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/barcodeGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/barcodeGenerator/'>
+      <xsd:element name='createBarcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createBarcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createBarcodeRequestMessage'>
+    <part name='parameters' element='tns:createBarcodeParameters' />
+  </message>
+  <message name='createBarcodeResponseMessage'>
+    <part name='response' element='tns:createBarcodeResponse' />
+  </message>
+  <portType name='barcodeGeneratorPortType'>
+    <operation name='createBarcode'>
+      <documentation>creating Images for pdf QRCode or Aztec Code</documentation>
+      <input message='tns:createBarcodeRequestMessage' name='createBarcodeInput' />
+      <output message='tns:createBarcodeResponseMessage' name='createBarcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='barcodeGeneratorBinding' type='tns:barcodeGeneratorPortType'>
+    <operation name='createBarcode'>
+      <soap12:operation soapAction='http://createBarcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='barcodeGenerator'>
+    <documentation>this simple barcode generator allows you to quickly create bar code images for qr code pdf codes or aztec codes</documentation>
+    <port name='barcodeGeneratorPort' binding='tns:barcodeGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://barcodeGenerator' />
+    </port>
+  </service>
+</definitions>

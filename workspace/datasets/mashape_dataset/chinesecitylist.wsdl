@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/chineseCityList/' name='chineseCityList' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/chineseCityList/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/chineseCityList/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/chineseCityList/'>
+      <xsd:element name='microserviceCityinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cityname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='microserviceCityinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='errNum' type='xsd:int' minOccurs='0' />
+            <xsd:element name='retData' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='zipCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cityName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cityCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='telAreaCode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='provinceName' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='retMsg' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='microserviceCityinfoRequestMessage'>
+    <part name='parameters' element='tns:microserviceCityinfoParameters' />
+  </message>
+  <message name='microserviceCityinfoResponseMessage'>
+    <part name='response' element='tns:microserviceCityinfoResponse' />
+  </message>
+  <portType name='chineseCityListPortType'>
+    <operation name='microserviceCityinfo'>
+      <documentation>citylist</documentation>
+      <input message='tns:microserviceCityinfoRequestMessage' name='microserviceCityinfoInput' />
+      <output message='tns:microserviceCityinfoResponseMessage' name='microserviceCityinfoOutput' />
+    </operation>
+  </portType>
+  <binding name='chineseCityListBinding' type='tns:chineseCityListPortType'>
+    <operation name='microserviceCityinfo'>
+      <soap12:operation soapAction='http://microserviceCityinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='chineseCityList'>
+    <documentation>get chinese city info</documentation>
+    <port name='chineseCityListPort' binding='tns:chineseCityListBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://chineseCityList' />
+    </port>
+  </service>
+</definitions>

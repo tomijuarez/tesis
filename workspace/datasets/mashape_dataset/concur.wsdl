@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/concur/' name='concur' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/concur/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/concur/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/concur/'>
+      <xsd:element name='getReceiptimagesByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getReceiptimagesByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='URI' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getReceiptimagesIdsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Items' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ID' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='URI' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='NextPage' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postReceiptimageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getReceiptimagesByIdRequestMessage'>
+    <part name='parameters' element='tns:getReceiptimagesByIdParameters' />
+  </message>
+  <message name='getReceiptimagesByIdResponseMessage'>
+    <part name='response' element='tns:getReceiptimagesByIdResponse' />
+  </message>
+  <message name='getReceiptimagesIdsRequestMessage' />
+  <message name='getReceiptimagesIdsResponseMessage'>
+    <part name='response' element='tns:getReceiptimagesIdsResponse' />
+  </message>
+  <message name='postReceiptimageRequestMessage' />
+  <message name='postReceiptimageResponseMessage'>
+    <part name='response' element='tns:postReceiptimageResponse' />
+  </message>
+  <portType name='concurPortType'>
+    <operation name='getReceiptimagesById'>
+      <documentation>get a receipt image URL by image ID</documentation>
+      <input message='tns:getReceiptimagesByIdRequestMessage' name='getReceiptimagesByIdInput' />
+      <output message='tns:getReceiptimagesByIdResponseMessage' name='getReceiptimagesByIdOutput' />
+    </operation>
+    <operation name='getReceiptimagesIds'>
+      <documentation>get a list of all receipt IDs owned by the user associated with the OAuth token</documentation>
+      <input message='tns:getReceiptimagesIdsRequestMessage' name='getReceiptimagesIdsInput' />
+      <output message='tns:getReceiptimagesIdsResponseMessage' name='getReceiptimagesIdsOutput' />
+    </operation>
+    <operation name='postReceiptimage'>
+      <documentation>creates a new image in the receipt store</documentation>
+      <input message='tns:postReceiptimageRequestMessage' name='postReceiptimageInput' />
+      <output message='tns:postReceiptimageResponseMessage' name='postReceiptimageOutput' />
+    </operation>
+  </portType>
+  <binding name='concurBinding' type='tns:concurPortType'>
+    <operation name='getReceiptimagesById'>
+      <soap12:operation soapAction='http://getReceiptimagesById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getReceiptimagesIds'>
+      <soap12:operation soapAction='http://getReceiptimagesIds' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postReceiptimage'>
+      <soap12:operation soapAction='http://postReceiptimage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='concur'>
+    <documentation>concur lets you save time processing your work expense and travel Give it a spin at https www concur com These APIs allow you to create applications that interface with Concur</documentation>
+    <port name='concurPort' binding='tns:concurBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://concur' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/drawbridge/' name='drawbridge' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/drawbridge/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/drawbridge/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/drawbridge/'>
+      <xsd:element name='adStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='adgroupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='adid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='campaignid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='interval' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='prettyprint' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timezone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='adStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trackConversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='aid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='clip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dpid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dpidmd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dpidsha' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ifa' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imei' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='it' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lbl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='macaddr' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='macmd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='macsha' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='odin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='optout' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='opudid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trackConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='adStatisticsRequestMessage'>
+    <part name='parameters' element='tns:adStatisticsParameters' />
+  </message>
+  <message name='adStatisticsResponseMessage'>
+    <part name='response' element='tns:adStatisticsResponse' />
+  </message>
+  <message name='trackConversionRequestMessage'>
+    <part name='parameters' element='tns:trackConversionParameters' />
+  </message>
+  <message name='trackConversionResponseMessage'>
+    <part name='response' element='tns:trackConversionResponse' />
+  </message>
+  <portType name='drawbridgePortType'>
+    <operation name='adStatistics'>
+      <documentation>this API allows advertisers to retrieve impressions clicks conversions spend and other metrics across all campaigns for individual campaigns and ad sizes</documentation>
+      <input message='tns:adStatisticsRequestMessage' name='adStatisticsInput' />
+      <output message='tns:adStatisticsResponseMessage' name='adStatisticsOutput' />
+    </operation>
+    <operation name='trackConversion'>
+      <documentation>server to server conversion tracking and post conversion API for Advertisers This API enables advertisers to send conversion and post conversion signals via server to server integration You can find all parameter combinations in http doc drawbrid ge</documentation>
+      <input message='tns:trackConversionRequestMessage' name='trackConversionInput' />
+      <output message='tns:trackConversionResponseMessage' name='trackConversionOutput' />
+    </operation>
+  </portType>
+  <binding name='drawbridgeBinding' type='tns:drawbridgePortType'>
+    <operation name='adStatistics'>
+      <soap12:operation soapAction='http://adStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='trackConversion'>
+      <soap12:operation soapAction='http://trackConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='drawbridge'>
+    <documentation>precisely target mobile audiences and increase ROI Drawbridge technology enables targeting across devices to drive CPI CPL CPA and customer lifetime value Drawbridge s technology bridges audiences across devices and enables two mobile targeting and optimization products</documentation>
+    <port name='drawbridgePort' binding='tns:drawbridgeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://drawbridge' />
+    </port>
+  </service>
+</definitions>

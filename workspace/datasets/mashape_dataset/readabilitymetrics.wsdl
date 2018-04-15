@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/readabilityMetrics/' name='readabilityMetrics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/readabilityMetrics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/readabilityMetrics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/readabilityMetrics/'>
+      <xsd:element name='getReadabilityMetricsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getReadabilityMetricsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='COLEMAN_LIAU' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='SMOG_INDEX' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='WORDS' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='SYLLABLES' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='GUNNING_FOG' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='FLESCH_KINCAID' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='FLESCH_READING' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CHARACTERS' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='SMOG' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='COMPLEXWORDS' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='ARI' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='etag' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='SENTENCES' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getReadabilityMetricsRequestMessage'>
+    <part name='parameters' element='tns:getReadabilityMetricsParameters' />
+  </message>
+  <message name='getReadabilityMetricsResponseMessage'>
+    <part name='response' element='tns:getReadabilityMetricsResponse' />
+  </message>
+  <portType name='readabilityMetricsPortType'>
+    <operation name='getReadabilityMetrics'>
+      <documentation>see https github com ipeirotis ReadabilityMetrics wiki REST API Managing Texts</documentation>
+      <input message='tns:getReadabilityMetricsRequestMessage' name='getReadabilityMetricsInput' />
+      <output message='tns:getReadabilityMetricsResponseMessage' name='getReadabilityMetricsOutput' />
+    </operation>
+  </portType>
+  <binding name='readabilityMetricsBinding' type='tns:readabilityMetricsPortType'>
+    <operation name='getReadabilityMetrics'>
+      <soap12:operation soapAction='http://getReadabilityMetrics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='readabilityMetrics'>
+    <documentation>this API can be used to compute a set of readability metrics for a given text We currently support the following metrics Automated Readability Index Coleman Liau Index Flesch Kincaid Grade Level Flesch Reading Ease Gunning Fog Index SMOG score and SMOG Index The service is deployed at Google App Engine and available at http ipeirotis appspot com readability The code and documentation are available on Github at https github com ipeirotis ReadabilityMetrics</documentation>
+    <port name='readabilityMetricsPort' binding='tns:readabilityMetricsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://readabilityMetrics' />
+    </port>
+  </service>
+</definitions>

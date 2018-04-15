@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/salesTaxRates/' name='salesTaxRates' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/salesTaxRates/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/salesTaxRates/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/salesTaxRates/'>
+      <xsd:element name='salesTaxAndUseTaxRatesByZipcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='salesTaxAndUseTaxRatesByZipcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='data' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='city_sales_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='total_use_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='county_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='state_use_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='tax_shipping_and_handling_together' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='zipcode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='total_sales_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='state_sales_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='city_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='county_use_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='state_abbrev' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='state_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='county_sales_tax' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='tax_shipping_alone' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city_use_tax' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='salesTaxAndUseTaxRatesByZipcodeRequestMessage'>
+    <part name='parameters' element='tns:salesTaxAndUseTaxRatesByZipcodeParameters' />
+  </message>
+  <message name='salesTaxAndUseTaxRatesByZipcodeResponseMessage'>
+    <part name='response' element='tns:salesTaxAndUseTaxRatesByZipcodeResponse' />
+  </message>
+  <portType name='salesTaxRatesPortType'>
+    <operation name='salesTaxAndUseTaxRatesByZipcode'>
+      <input message='tns:salesTaxAndUseTaxRatesByZipcodeRequestMessage' name='salesTaxAndUseTaxRatesByZipcodeInput' />
+      <output message='tns:salesTaxAndUseTaxRatesByZipcodeResponseMessage' name='salesTaxAndUseTaxRatesByZipcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='salesTaxRatesBinding' type='tns:salesTaxRatesPortType'>
+    <operation name='salesTaxAndUseTaxRatesByZipcode'>
+      <soap12:operation soapAction='http://salesTaxAndUseTaxRatesByZipcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='salesTaxRates'>
+    <documentation>sales and Use tax rates Api so developers can easier query accurate sales tax rates in United States</documentation>
+    <port name='salesTaxRatesPort' binding='tns:salesTaxRatesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://salesTaxRates' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smsTextMessagingGatewayFunction/' name='smsTextMessagingGatewayFunction' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smsTextMessagingGatewayFunction/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smsTextMessagingGatewayFunction/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smsTextMessagingGatewayFunction/'>
+      <xsd:element name='sendsmsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='message' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendsmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendsmsRequestMessage'>
+    <part name='parameters' element='tns:sendsmsParameters' />
+  </message>
+  <message name='sendsmsResponseMessage'>
+    <part name='response' element='tns:sendsmsResponse' />
+  </message>
+  <portType name='smsTextMessagingGatewayFunctionPortType'>
+    <operation name='sendsms'>
+      <documentation>send SMS Text Messages</documentation>
+      <input message='tns:sendsmsRequestMessage' name='sendsmsInput' />
+      <output message='tns:sendsmsResponseMessage' name='sendsmsOutput' />
+    </operation>
+  </portType>
+  <binding name='smsTextMessagingGatewayFunctionBinding' type='tns:smsTextMessagingGatewayFunctionPortType'>
+    <operation name='sendsms'>
+      <soap12:operation soapAction='http://sendsms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smsTextMessagingGatewayFunction'>
+    <documentation>sMS TEXT API GATEWAY CLOUD RESTFUL AND LIGHTWEIGHT API Send and receive text messages directly from and to your web application or IT systems via our API With access to our well documented and supported API you will be able to connect directly</documentation>
+    <port name='smsTextMessagingGatewayFunctionPort' binding='tns:smsTextMessagingGatewayFunctionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smsTextMessagingGatewayFunction' />
+    </port>
+  </service>
+</definitions>

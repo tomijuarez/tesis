@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fabnamiDPrintFileAnalysisFree/' name='fabnamiDPrintFileAnalysisFree' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fabnamiDPrintFileAnalysisFree/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fabnamiDPrintFileAnalysisFree/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fabnamiDPrintFileAnalysisFree/'>
+      <xsd:element name='retrieveFileMeasuresParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='workflowid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveFileMeasuresResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mashape_user' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='workflow_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request_timestamp' type='xsd:string' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='body' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='measures' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='thin_facet_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='bounding_box_diagonal' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='surface' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='bounding_box_size' type='xsd:decimal' maxOccurs='unbounded' />
+                        <xsd:element name='edge_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='hole_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='is_two_manifold' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='vertex_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='facet_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='volume' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='has_self_intersections' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='connected_component_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='genus' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='component_count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='boundary_edges' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='reply_timestamp' type='xsd:string' minOccurs='0' />
+            <xsd:element name='view_count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='submitFileForAnalysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='workflow_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request_timestamp' type='xsd:string' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveFileMeasuresRequestMessage'>
+    <part name='parameters' element='tns:retrieveFileMeasuresParameters' />
+  </message>
+  <message name='retrieveFileMeasuresResponseMessage'>
+    <part name='response' element='tns:retrieveFileMeasuresResponse' />
+  </message>
+  <message name='submitFileForAnalysisRequestMessage' />
+  <message name='submitFileForAnalysisResponseMessage'>
+    <part name='response' element='tns:submitFileForAnalysisResponse' />
+  </message>
+  <portType name='fabnamiDPrintFileAnalysisFreePortType'>
+    <operation name='retrieveFileMeasures'>
+      <documentation></documentation>
+      <input message='tns:retrieveFileMeasuresRequestMessage' name='retrieveFileMeasuresInput' />
+      <output message='tns:retrieveFileMeasuresResponseMessage' name='retrieveFileMeasuresOutput' />
+    </operation>
+    <operation name='submitFileForAnalysis'>
+      <documentation></documentation>
+      <input message='tns:submitFileForAnalysisRequestMessage' name='submitFileForAnalysisInput' />
+      <output message='tns:submitFileForAnalysisResponseMessage' name='submitFileForAnalysisOutput' />
+    </operation>
+  </portType>
+  <binding name='fabnamiDPrintFileAnalysisFreeBinding' type='tns:fabnamiDPrintFileAnalysisFreePortType'>
+    <operation name='retrieveFileMeasures'>
+      <soap12:operation soapAction='http://retrieveFileMeasures' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='submitFileForAnalysis'>
+      <soap12:operation soapAction='http://submitFileForAnalysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fabnamiDPrintFileAnalysisFree'>
+    <documentation>this API computes the geometric and topological properties of STL OBJ and PLY files which are commonly used in D printing On top of common measure like volume and surface this API uses fast proprietary algorithms to check for thin walls and self intersecting faces</documentation>
+    <port name='fabnamiDPrintFileAnalysisFreePort' binding='tns:fabnamiDPrintFileAnalysisFreeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fabnamiDPrintFileAnalysisFree' />
+    </port>
+  </service>
+</definitions>

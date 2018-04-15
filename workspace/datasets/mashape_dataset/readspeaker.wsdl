@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/readspeaker/' name='readspeaker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/readspeaker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/readspeaker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/readspeaker/'>
+      <xsd:element name='convertTextToSpeechResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='command' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='todate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='voice' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertTextToSpeechRequestMessage' />
+  <message name='convertTextToSpeechResponseMessage'>
+    <part name='response' element='tns:convertTextToSpeechResponse' />
+  </message>
+  <message name='statisticsRequestMessage'>
+    <part name='parameters' element='tns:statisticsParameters' />
+  </message>
+  <message name='statisticsResponseMessage'>
+    <part name='response' element='tns:statisticsResponse' />
+  </message>
+  <portType name='readspeakerPortType'>
+    <operation name='convertTextToSpeech'>
+      <documentation>the text to speech enabler provides an API exposed as a simple REST interface as well as provides examples on how to implement it The REST protocol and the server of text to speech enabler are independent of the platform used on the client side Your application will be able to convert text to audio data through our text to speech enabler using the API as described in this document</documentation>
+      <input message='tns:convertTextToSpeechRequestMessage' name='convertTextToSpeechInput' />
+      <output message='tns:convertTextToSpeechResponseMessage' name='convertTextToSpeechOutput' />
+    </operation>
+    <operation name='statistics'>
+      <documentation></documentation>
+      <input message='tns:statisticsRequestMessage' name='statisticsInput' />
+      <output message='tns:statisticsResponseMessage' name='statisticsOutput' />
+    </operation>
+  </portType>
+  <binding name='readspeakerBinding' type='tns:readspeakerPortType'>
+    <operation name='convertTextToSpeech'>
+      <soap12:operation soapAction='http://convertTextToSpeech' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='statistics'>
+      <soap12:operation soapAction='http://statistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='readspeaker'>
+    <documentation>readSpeaker speechCloud API is an online text to speech API for making desktop web mobile applications and Internet connected devices talk Easy to integrate straightforward and high capacity ReadSpeaker speechCloud API gives you access to high quality voices in many different languages to read the text in your apps and devices</documentation>
+    <port name='readspeakerPort' binding='tns:readspeakerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://readspeaker' />
+    </port>
+  </service>
+</definitions>

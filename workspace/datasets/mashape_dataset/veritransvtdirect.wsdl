@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/veritransVtDirect/' name='veritransVtDirect' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/veritransVtDirect/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/veritransVtDirect/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/veritransVtDirect/'>
+      <xsd:element name='getTokenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardcvv' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cardexpmonth' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cardexpyear' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cardnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='clientkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='token_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chargeTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='transaction_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='card_number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='billing_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='address2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='address1' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postal_code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='gross_amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='shipping_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='address2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='address1' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postal_code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='order_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='order_items' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='qty' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='sub_total' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkTransactionStatusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='order_id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cancelTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='transaction_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='order_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getTokenRequestMessage'>
+    <part name='parameters' element='tns:getTokenParameters' />
+  </message>
+  <message name='getTokenResponseMessage'>
+    <part name='response' element='tns:getTokenResponse' />
+  </message>
+  <message name='chargeTransactionRequestMessage' />
+  <message name='chargeTransactionResponseMessage'>
+    <part name='response' element='tns:chargeTransactionResponse' />
+  </message>
+  <message name='checkTransactionStatusRequestMessage' />
+  <message name='checkTransactionStatusResponseMessage'>
+    <part name='response' element='tns:checkTransactionStatusResponse' />
+  </message>
+  <message name='cancelTransactionRequestMessage' />
+  <message name='cancelTransactionResponseMessage'>
+    <part name='response' element='tns:cancelTransactionResponse' />
+  </message>
+  <portType name='veritransVtDirectPortType'>
+    <operation name='getToken'>
+      <documentation></documentation>
+      <input message='tns:getTokenRequestMessage' name='getTokenInput' />
+      <output message='tns:getTokenResponseMessage' name='getTokenOutput' />
+    </operation>
+    <operation name='chargeTransaction'>
+      <documentation></documentation>
+      <input message='tns:chargeTransactionRequestMessage' name='chargeTransactionInput' />
+      <output message='tns:chargeTransactionResponseMessage' name='chargeTransactionOutput' />
+    </operation>
+    <operation name='checkTransactionStatus'>
+      <documentation></documentation>
+      <input message='tns:checkTransactionStatusRequestMessage' name='checkTransactionStatusInput' />
+      <output message='tns:checkTransactionStatusResponseMessage' name='checkTransactionStatusOutput' />
+    </operation>
+    <operation name='cancelTransaction'>
+      <documentation></documentation>
+      <input message='tns:cancelTransactionRequestMessage' name='cancelTransactionInput' />
+      <output message='tns:cancelTransactionResponseMessage' name='cancelTransactionOutput' />
+    </operation>
+  </portType>
+  <binding name='veritransVtDirectBinding' type='tns:veritransVtDirectPortType'>
+    <operation name='getToken'>
+      <soap12:operation soapAction='http://getToken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='chargeTransaction'>
+      <soap12:operation soapAction='http://chargeTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkTransactionStatus'>
+      <soap12:operation soapAction='http://checkTransactionStatus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cancelTransaction'>
+      <soap12:operation soapAction='http://cancelTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='veritransVtDirect'>
+    <documentation>vT Direct is a RESTful API that allows merchants to utilize the Veritrans payment system to process payments VT Direct allows customers to complete payment on the merchant s website without being redirected to Veritrans and yet still allow the merchant to minimize the security risk inherit with processing card payments Find out more information about Veritrans at https veritrans co id</documentation>
+    <port name='veritransVtDirectPort' binding='tns:veritransVtDirectBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://veritransVtDirect' />
+    </port>
+  </service>
+</definitions>

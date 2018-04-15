@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smartpayMobile/' name='smartpayMobile' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smartpayMobile/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smartpayMobile/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smartpayMobile/'>
+      <xsd:element name='merchantParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='merchantid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='merchantpassword' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='merchantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='merchant_name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='merchant_address' type='xsd:string' minOccurs='0' />
+            <xsd:element name='merchant_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reloadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='merchantkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mobilenumber' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='provider' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reloadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='voucherParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='merchantkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='provider' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='voucherResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='instructions' type='xsd:string' minOccurs='0' />
+            <xsd:element name='voucher_code' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='merchantRequestMessage'>
+    <part name='parameters' element='tns:merchantParameters' />
+  </message>
+  <message name='merchantResponseMessage'>
+    <part name='response' element='tns:merchantResponse' />
+  </message>
+  <message name='reloadRequestMessage'>
+    <part name='parameters' element='tns:reloadParameters' />
+  </message>
+  <message name='reloadResponseMessage'>
+    <part name='response' element='tns:reloadResponse' />
+  </message>
+  <message name='voucherRequestMessage'>
+    <part name='parameters' element='tns:voucherParameters' />
+  </message>
+  <message name='voucherResponseMessage'>
+    <part name='response' element='tns:voucherResponse' />
+  </message>
+  <portType name='smartpayMobilePortType'>
+    <operation name='merchant'>
+      <documentation>merchant login</documentation>
+      <input message='tns:merchantRequestMessage' name='merchantInput' />
+      <output message='tns:merchantResponseMessage' name='merchantOutput' />
+    </operation>
+    <operation name='reload'>
+      <documentation>send a reload</documentation>
+      <input message='tns:reloadRequestMessage' name='reloadInput' />
+      <output message='tns:reloadResponseMessage' name='reloadOutput' />
+    </operation>
+    <operation name='voucher'>
+      <documentation>get a recharge voucher</documentation>
+      <input message='tns:voucherRequestMessage' name='voucherInput' />
+      <output message='tns:voucherResponseMessage' name='voucherOutput' />
+    </operation>
+  </portType>
+  <binding name='smartpayMobileBinding' type='tns:smartpayMobilePortType'>
+    <operation name='merchant'>
+      <soap12:operation soapAction='http://merchant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reload'>
+      <soap12:operation soapAction='http://reload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='voucher'>
+      <soap12:operation soapAction='http://voucher' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smartpayMobile'>
+    <documentation>private API for sending reloads getting recharge vouchers and logging in merchants</documentation>
+    <port name='smartpayMobilePort' binding='tns:smartpayMobileBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smartpayMobile' />
+    </port>
+  </service>
+</definitions>

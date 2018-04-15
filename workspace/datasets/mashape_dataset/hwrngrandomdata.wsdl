@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hwrngRandomData/' name='hwrngRandomData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hwrngRandomData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hwrngRandomData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hwrngRandomData/'>
+      <xsd:element name='byteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='byteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kilobyteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kilobyteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='byteRequestMessage'>
+    <part name='parameters' element='tns:byteParameters' />
+  </message>
+  <message name='byteResponseMessage'>
+    <part name='response' element='tns:byteResponse' />
+  </message>
+  <message name='kilobyteRequestMessage'>
+    <part name='parameters' element='tns:kilobyteParameters' />
+  </message>
+  <message name='kilobyteResponseMessage'>
+    <part name='response' element='tns:kilobyteResponse' />
+  </message>
+  <portType name='hwrngRandomDataPortType'>
+    <operation name='byte'>
+      <documentation>get a some Bytes of random data up to KB per Request</documentation>
+      <input message='tns:byteRequestMessage' name='byteInput' />
+      <output message='tns:byteResponseMessage' name='byteOutput' />
+    </operation>
+    <operation name='kilobyte'>
+      <documentation>get some Kilobytes of random data up to MB per Request</documentation>
+      <input message='tns:kilobyteRequestMessage' name='kilobyteInput' />
+      <output message='tns:kilobyteResponseMessage' name='kilobyteOutput' />
+    </operation>
+  </portType>
+  <binding name='hwrngRandomDataBinding' type='tns:hwrngRandomDataPortType'>
+    <operation name='byte'>
+      <soap12:operation soapAction='http://byte' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kilobyte'>
+      <soap12:operation soapAction='http://kilobyte' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hwrngRandomData'>
+    <documentation>this api generates REAL randomness generated with a hardware random generator for applications where a pseudo random generator is not sufficient or to seed a pseudo random generator for better results The logo contains a noise image of a random sample created by this generator</documentation>
+    <port name='hwrngRandomDataPort' binding='tns:hwrngRandomDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hwrngRandomData' />
+    </port>
+  </service>
+</definitions>

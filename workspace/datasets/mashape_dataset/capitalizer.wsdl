@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/capitalizer/' name='capitalizer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/capitalizer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/capitalizer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/capitalizer/'>
+      <xsd:element name='capitalizerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='capitalizerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='capitalizerRequestMessage'>
+    <part name='parameters' element='tns:capitalizerParameters' />
+  </message>
+  <message name='capitalizerResponseMessage'>
+    <part name='response' element='tns:capitalizerResponse' />
+  </message>
+  <portType name='capitalizerPortType'>
+    <operation name='capitalizer'>
+      <documentation>changes the capitalization of incoming text based on language rules of that text and responds with a simple string</documentation>
+      <input message='tns:capitalizerRequestMessage' name='capitalizerInput' />
+      <output message='tns:capitalizerResponseMessage' name='capitalizerOutput' />
+    </operation>
+  </portType>
+  <binding name='capitalizerBinding' type='tns:capitalizerPortType'>
+    <operation name='capitalizer'>
+      <soap12:operation soapAction='http://capitalizer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='capitalizer'>
+    <documentation>changes the capitalization of input text based on language style rules supports over languages including English French German Spanish Italian Russian Swedish Indonesian and more</documentation>
+    <port name='capitalizerPort' binding='tns:capitalizerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://capitalizer' />
+    </port>
+  </service>
+</definitions>

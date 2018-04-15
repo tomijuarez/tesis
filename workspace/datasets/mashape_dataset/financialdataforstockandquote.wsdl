@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/financialDataForStockAndQuote/' name='financialDataForStockAndQuote' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/financialDataForStockAndQuote/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/financialDataForStockAndQuote/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/financialDataForStockAndQuote/'>
+      <xsd:element name='stockParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stockResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='capitalization' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sub_industry' type='xsd:string' minOccurs='0' />
+            <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='yied' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='industry' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sector' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='stockRequestMessage'>
+    <part name='parameters' element='tns:stockParameters' />
+  </message>
+  <message name='stockResponseMessage'>
+    <part name='response' element='tns:stockResponse' />
+  </message>
+  <portType name='financialDataForStockAndQuotePortType'>
+    <operation name='stock'>
+      <documentation>get financial data informations of a quote or holding</documentation>
+      <input message='tns:stockRequestMessage' name='stockInput' />
+      <output message='tns:stockResponseMessage' name='stockOutput' />
+    </operation>
+  </portType>
+  <binding name='financialDataForStockAndQuoteBinding' type='tns:financialDataForStockAndQuotePortType'>
+    <operation name='stock'>
+      <soap12:operation soapAction='http://stock' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='financialDataForStockAndQuote'>
+    <documentation>retrieve Financial Market Data informations from stocks and quotes</documentation>
+    <port name='financialDataForStockAndQuotePort' binding='tns:financialDataForStockAndQuoteBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://financialDataForStockAndQuote' />
+    </port>
+  </service>
+</definitions>

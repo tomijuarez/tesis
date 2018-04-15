@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/simpleWeather/' name='simpleWeather' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/simpleWeather/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/simpleWeather/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/simpleWeather/'>
+      <xsd:element name='weatherForecastParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='unit' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='weatherForecastResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='weather' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='at_time' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='temperature' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='location' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='response' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='time_elapsed' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='api' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api_version' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='weatherForecastRequestMessage'>
+    <part name='parameters' element='tns:weatherForecastParameters' />
+  </message>
+  <message name='weatherForecastResponseMessage'>
+    <part name='response' element='tns:weatherForecastResponse' />
+  </message>
+  <portType name='simpleWeatherPortType'>
+    <operation name='weatherForecast'>
+      <documentation></documentation>
+      <input message='tns:weatherForecastRequestMessage' name='weatherForecastInput' />
+      <output message='tns:weatherForecastResponseMessage' name='weatherForecastOutput' />
+    </operation>
+  </portType>
+  <binding name='simpleWeatherBinding' type='tns:simpleWeatherPortType'>
+    <operation name='weatherForecast'>
+      <soap12:operation soapAction='http://weatherForecast' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='simpleWeather'>
+    <documentation>simple tool for get current weather</documentation>
+    <port name='simpleWeatherPort' binding='tns:simpleWeatherBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://simpleWeather' />
+    </port>
+  </service>
+</definitions>

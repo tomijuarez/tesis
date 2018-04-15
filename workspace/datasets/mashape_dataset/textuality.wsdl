@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textuality/' name='textuality' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textuality/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textuality/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textuality/'>
+      <xsd:element name='webPagesExtractionApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dataurl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='stamp' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='webPagesExtractionApiRequestMessage' />
+  <message name='webPagesExtractionApiResponseMessage'>
+    <part name='response' element='tns:webPagesExtractionApiResponse' />
+  </message>
+  <portType name='textualityPortType'>
+    <operation name='webPagesExtractionApi'>
+      <documentation></documentation>
+      <input message='tns:webPagesExtractionApiRequestMessage' name='webPagesExtractionApiInput' />
+      <output message='tns:webPagesExtractionApiResponseMessage' name='webPagesExtractionApiOutput' />
+    </operation>
+  </portType>
+  <binding name='textualityBinding' type='tns:textualityPortType'>
+    <operation name='webPagesExtractionApi'>
+      <soap12:operation soapAction='http://webPagesExtractionApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textuality'>
+    <documentation>the API service to convert web page to clear text The API which is highly accurate drills down to the most relevant piece of text of web page or a blog and presents it as text Get started with free daily allowance You can use this API for free for scraping upto pages a day Please note free plan allows extracting pages any use over the limit will be charged You can scale to large volume with our paid plans</documentation>
+    <port name='textualityPort' binding='tns:textualityBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textuality' />
+    </port>
+  </service>
+</definitions>

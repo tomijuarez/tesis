@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/askquicklySearch/' name='askquicklySearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/askquicklySearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/askquicklySearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/askquicklySearch/'>
+      <xsd:element name='askquicklyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='adult' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='askquicklyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='askquicklyRequestMessage'>
+    <part name='parameters' element='tns:askquicklyParameters' />
+  </message>
+  <message name='askquicklyResponseMessage'>
+    <part name='response' element='tns:askquicklyResponse' />
+  </message>
+  <portType name='askquicklySearchPortType'>
+    <operation name='askquickly'>
+      <documentation>one hit result with audio</documentation>
+      <input message='tns:askquicklyRequestMessage' name='askquicklyInput' />
+      <output message='tns:askquicklyResponseMessage' name='askquicklyOutput' />
+    </operation>
+  </portType>
+  <binding name='askquicklySearchBinding' type='tns:askquicklySearchPortType'>
+    <operation name='askquickly'>
+      <soap12:operation soapAction='http://askquickly' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='askquicklySearch'>
+    <documentation>single best guess with audio and site preview using the askquickly org platform</documentation>
+    <port name='askquicklySearchPort' binding='tns:askquicklySearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://askquicklySearch' />
+    </port>
+  </service>
+</definitions>

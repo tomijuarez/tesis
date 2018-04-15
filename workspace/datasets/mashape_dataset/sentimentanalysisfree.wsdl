@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentimentAnalysisFree/' name='sentimentAnalysisFree' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentimentAnalysisFree/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentimentAnalysisFree/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentimentAnalysisFree/'>
+      <xsd:element name='analyzeGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='analyzeGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='keywords' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ratio' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='analyzePostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='keywords' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ratio' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='analyzeGetRequestMessage'>
+    <part name='parameters' element='tns:analyzeGetParameters' />
+  </message>
+  <message name='analyzeGetResponseMessage'>
+    <part name='response' element='tns:analyzeGetResponse' />
+  </message>
+  <message name='analyzePostRequestMessage' />
+  <message name='analyzePostResponseMessage'>
+    <part name='response' element='tns:analyzePostResponse' />
+  </message>
+  <portType name='sentimentAnalysisFreePortType'>
+    <operation name='analyzeGet'>
+      <documentation>return sentiment analysis results with score for the given text</documentation>
+      <input message='tns:analyzeGetRequestMessage' name='analyzeGetInput' />
+      <output message='tns:analyzeGetResponseMessage' name='analyzeGetOutput' />
+    </operation>
+    <operation name='analyzePost'>
+      <documentation>return sentiment analysis results with score for the given text</documentation>
+      <input message='tns:analyzePostRequestMessage' name='analyzePostInput' />
+      <output message='tns:analyzePostResponseMessage' name='analyzePostOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentAnalysisFreeBinding' type='tns:sentimentAnalysisFreePortType'>
+    <operation name='analyzeGet'>
+      <soap12:operation soapAction='http://analyzeGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='analyzePost'>
+      <soap12:operation soapAction='http://analyzePost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentimentAnalysisFree'>
+    <documentation>is this comment positive or negative Find out the tone</documentation>
+    <port name='sentimentAnalysisFreePort' binding='tns:sentimentAnalysisFreeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentimentAnalysisFree' />
+    </port>
+  </service>
+</definitions>

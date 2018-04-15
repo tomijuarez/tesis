@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ignComVideoGamesRating/' name='ignComVideoGamesRating' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ignComVideoGamesRating/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ignComVideoGamesRating/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ignComVideoGamesRating/'>
+      <xsd:element name='retrieveGameRatingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='game' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveGameRatingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='short_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='thumb' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='publisher' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='platforms' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='n2' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveGameRatingRequestMessage'>
+    <part name='parameters' element='tns:retrieveGameRatingParameters' />
+  </message>
+  <message name='retrieveGameRatingResponseMessage'>
+    <part name='response' element='tns:retrieveGameRatingResponse' />
+  </message>
+  <portType name='ignComVideoGamesRatingPortType'>
+    <operation name='retrieveGameRating'>
+      <documentation></documentation>
+      <input message='tns:retrieveGameRatingRequestMessage' name='retrieveGameRatingInput' />
+      <output message='tns:retrieveGameRatingResponseMessage' name='retrieveGameRatingOutput' />
+    </operation>
+  </portType>
+  <binding name='ignComVideoGamesRatingBinding' type='tns:ignComVideoGamesRatingPortType'>
+    <operation name='retrieveGameRating'>
+      <soap12:operation soapAction='http://retrieveGameRating' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ignComVideoGamesRating'>
+    <documentation>uses IGN com to retrieve game rating It also retrieves platforms thumbnail and a short description</documentation>
+    <port name='ignComVideoGamesRatingPort' binding='tns:ignComVideoGamesRatingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ignComVideoGamesRating' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qrCodeGeneratorWithMultipleDatatypes/' name='qrCodeGeneratorWithMultipleDatatypes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qrCodeGeneratorWithMultipleDatatypes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qrCodeGeneratorWithMultipleDatatypes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qrCodeGeneratorWithMultipleDatatypes/'>
+      <xsd:element name='getqrcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getqrcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getqrcodeRequestMessage'>
+    <part name='parameters' element='tns:getqrcodeParameters' />
+  </message>
+  <message name='getqrcodeResponseMessage'>
+    <part name='response' element='tns:getqrcodeResponse' />
+  </message>
+  <portType name='qrCodeGeneratorWithMultipleDatatypesPortType'>
+    <operation name='getqrcode'>
+      <documentation>this API will return you an URL of the QR Code image that you can easily embed on to website or download it for your other needs</documentation>
+      <input message='tns:getqrcodeRequestMessage' name='getqrcodeInput' />
+      <output message='tns:getqrcodeResponseMessage' name='getqrcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='qrCodeGeneratorWithMultipleDatatypesBinding' type='tns:qrCodeGeneratorWithMultipleDatatypesPortType'>
+    <operation name='getqrcode'>
+      <soap12:operation soapAction='http://getqrcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qrCodeGeneratorWithMultipleDatatypes'>
+    <documentation>qR code generator with text url tel sms and email datatypes</documentation>
+    <port name='qrCodeGeneratorWithMultipleDatatypesPort' binding='tns:qrCodeGeneratorWithMultipleDatatypesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qrCodeGeneratorWithMultipleDatatypes' />
+    </port>
+  </service>
+</definitions>

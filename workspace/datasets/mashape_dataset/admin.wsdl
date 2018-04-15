@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/admin/' name='admin' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/admin/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/admin/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/admin/'>
+      <xsd:element name='getEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='api' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putUpdateEndpointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='api' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putUpdateEndpointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getEntityRequestMessage'>
+    <part name='parameters' element='tns:getEntityParameters' />
+  </message>
+  <message name='getEntityResponseMessage'>
+    <part name='response' element='tns:getEntityResponse' />
+  </message>
+  <message name='putUpdateEndpointRequestMessage'>
+    <part name='parameters' element='tns:putUpdateEndpointParameters' />
+  </message>
+  <message name='putUpdateEndpointResponseMessage'>
+    <part name='response' element='tns:putUpdateEndpointResponse' />
+  </message>
+  <portType name='adminPortType'>
+    <operation name='getEntity'>
+      <documentation>default GET action to obtain Office entities such as MSOLUser Mailbox etc</documentation>
+      <input message='tns:getEntityRequestMessage' name='getEntityInput' />
+      <output message='tns:getEntityResponseMessage' name='getEntityOutput' />
+    </operation>
+    <operation name='putUpdateEndpoint'>
+      <documentation>use PUT requests to perform updates add remove etc in Office PUT requests will change the data in Office To safely perform a request for data always use GET to ensure that nothing in Office is changed</documentation>
+      <input message='tns:putUpdateEndpointRequestMessage' name='putUpdateEndpointInput' />
+      <output message='tns:putUpdateEndpointResponseMessage' name='putUpdateEndpointOutput' />
+    </operation>
+  </portType>
+  <binding name='adminBinding' type='tns:adminPortType'>
+    <operation name='getEntity'>
+      <soap12:operation soapAction='http://getEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='putUpdateEndpoint'>
+      <soap12:operation soapAction='http://putUpdateEndpoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='admin'>
+    <documentation>need an Office API Create apps that provide custom administration capabilities for Office using this REST JSON based API Sample apps include the Admin mobile app http www yellowshoetechnology com office anywhere admin mobile app</documentation>
+    <port name='adminPort' binding='tns:adminBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://admin' />
+    </port>
+  </service>
+</definitions>

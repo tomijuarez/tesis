@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/viewdns/' name='viewdns' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/viewdns/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/viewdns/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/viewdns/'>
+      <xsd:element name='abuseContactLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='abuseContactLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='abusecontact' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chineseFirewallTestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='chineseFirewallTestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsPropagationCheckerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsPropagationCheckerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='server' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='resultstatus' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='location' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='resultvalue' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='expectedresponse' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsRecordLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recordtype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dnsRecordLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='records' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='data' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='ttl' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='class' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='recordtype' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='freeEmailLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='freeEmailLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipLocationFinderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipLocationFinderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='zipcode' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='dst_offset' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='country_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='region_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='gmt_offset' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='region_code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='iranFirewallTestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='siteurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='iranFirewallTestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='siteurl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='macAddressLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mac' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='macAddressLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pingParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='replys' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='rtt' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='host' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portScannerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='host' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='portScannerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='port' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='service' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='host' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseDnsLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reverseDnsLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rdns' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spamDatabaseLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='spamDatabaseLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dbs' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tracerouteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tracerouteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='hops' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='hostname' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='rtt' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tool' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='whoisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='whoisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='abuseContactLookupRequestMessage'>
+    <part name='parameters' element='tns:abuseContactLookupParameters' />
+  </message>
+  <message name='abuseContactLookupResponseMessage'>
+    <part name='response' element='tns:abuseContactLookupResponse' />
+  </message>
+  <message name='chineseFirewallTestRequestMessage'>
+    <part name='parameters' element='tns:chineseFirewallTestParameters' />
+  </message>
+  <message name='chineseFirewallTestResponseMessage'>
+    <part name='response' element='tns:chineseFirewallTestResponse' />
+  </message>
+  <message name='dnsPropagationCheckerRequestMessage'>
+    <part name='parameters' element='tns:dnsPropagationCheckerParameters' />
+  </message>
+  <message name='dnsPropagationCheckerResponseMessage'>
+    <part name='response' element='tns:dnsPropagationCheckerResponse' />
+  </message>
+  <message name='dnsRecordLookupRequestMessage'>
+    <part name='parameters' element='tns:dnsRecordLookupParameters' />
+  </message>
+  <message name='dnsRecordLookupResponseMessage'>
+    <part name='response' element='tns:dnsRecordLookupResponse' />
+  </message>
+  <message name='freeEmailLookupRequestMessage'>
+    <part name='parameters' element='tns:freeEmailLookupParameters' />
+  </message>
+  <message name='freeEmailLookupResponseMessage'>
+    <part name='response' element='tns:freeEmailLookupResponse' />
+  </message>
+  <message name='ipLocationFinderRequestMessage'>
+    <part name='parameters' element='tns:ipLocationFinderParameters' />
+  </message>
+  <message name='ipLocationFinderResponseMessage'>
+    <part name='response' element='tns:ipLocationFinderResponse' />
+  </message>
+  <message name='iranFirewallTestRequestMessage'>
+    <part name='parameters' element='tns:iranFirewallTestParameters' />
+  </message>
+  <message name='iranFirewallTestResponseMessage'>
+    <part name='response' element='tns:iranFirewallTestResponse' />
+  </message>
+  <message name='macAddressLookupRequestMessage'>
+    <part name='parameters' element='tns:macAddressLookupParameters' />
+  </message>
+  <message name='macAddressLookupResponseMessage'>
+    <part name='response' element='tns:macAddressLookupResponse' />
+  </message>
+  <message name='pingRequestMessage'>
+    <part name='parameters' element='tns:pingParameters' />
+  </message>
+  <message name='pingResponseMessage'>
+    <part name='response' element='tns:pingResponse' />
+  </message>
+  <message name='portScannerRequestMessage'>
+    <part name='parameters' element='tns:portScannerParameters' />
+  </message>
+  <message name='portScannerResponseMessage'>
+    <part name='response' element='tns:portScannerResponse' />
+  </message>
+  <message name='reverseDnsLookupRequestMessage'>
+    <part name='parameters' element='tns:reverseDnsLookupParameters' />
+  </message>
+  <message name='reverseDnsLookupResponseMessage'>
+    <part name='response' element='tns:reverseDnsLookupResponse' />
+  </message>
+  <message name='spamDatabaseLookupRequestMessage'>
+    <part name='parameters' element='tns:spamDatabaseLookupParameters' />
+  </message>
+  <message name='spamDatabaseLookupResponseMessage'>
+    <part name='response' element='tns:spamDatabaseLookupResponse' />
+  </message>
+  <message name='tracerouteRequestMessage'>
+    <part name='parameters' element='tns:tracerouteParameters' />
+  </message>
+  <message name='tracerouteResponseMessage'>
+    <part name='response' element='tns:tracerouteResponse' />
+  </message>
+  <message name='whoisRequestMessage'>
+    <part name='parameters' element='tns:whoisParameters' />
+  </message>
+  <message name='whoisResponseMessage'>
+    <part name='response' element='tns:whoisResponse' />
+  </message>
+  <portType name='viewdnsPortType'>
+    <operation name='abuseContactLookup'>
+      <documentation>used to find the abuse contact address for a domain name This is where you would send complaints about spam originating from that domain</documentation>
+      <input message='tns:abuseContactLookupRequestMessage' name='abuseContactLookupInput' />
+      <output message='tns:abuseContactLookupResponseMessage' name='abuseContactLookupOutput' />
+    </operation>
+    <operation name='chineseFirewallTest'>
+      <documentation>checks whether a site is blocked by the Great Firewall of China This test checks across a number of servers from various locations in mainland China to determine if access to the site provided is possible from behind the Great Firewall of China This test checks for symptoms of DNS poisoning one of the more common methods used by the Chinese government to block access to websites</documentation>
+      <input message='tns:chineseFirewallTestRequestMessage' name='chineseFirewallTestInput' />
+      <output message='tns:chineseFirewallTestResponseMessage' name='chineseFirewallTestOutput' />
+    </operation>
+    <operation name='dnsPropagationChecker'>
+      <documentation>check whether recent changes to DNS entries have propagated to DNS servers all over the world Useful in troubleshooting DNS issues that appear to be isolated to one geographic region Provides a status report on DNS propagation globally</documentation>
+      <input message='tns:dnsPropagationCheckerRequestMessage' name='dnsPropagationCheckerInput' />
+      <output message='tns:dnsPropagationCheckerResponseMessage' name='dnsPropagationCheckerOutput' />
+    </operation>
+    <operation name='dnsRecordLookup'>
+      <documentation>view all configured DNS records A MX CNAME etc for a specified domain name</documentation>
+      <input message='tns:dnsRecordLookupRequestMessage' name='dnsRecordLookupInput' />
+      <output message='tns:dnsRecordLookupResponseMessage' name='dnsRecordLookupOutput' />
+    </operation>
+    <operation name='freeEmailLookup'>
+      <documentation>find out if a domain name provides free email addresses Search is performed on a custom made list of thousands of known free email hosts</documentation>
+      <input message='tns:freeEmailLookupRequestMessage' name='freeEmailLookupInput' />
+      <output message='tns:freeEmailLookupResponseMessage' name='freeEmailLookupOutput' />
+    </operation>
+    <operation name='ipLocationFinder'>
+      <documentation>this tool will display geographic information about a supplied IP address including city country latitude longitude and more</documentation>
+      <input message='tns:ipLocationFinderRequestMessage' name='ipLocationFinderInput' />
+      <output message='tns:ipLocationFinderResponseMessage' name='ipLocationFinderOutput' />
+    </operation>
+    <operation name='iranFirewallTest'>
+      <documentation>test if any website is accessible using the Internet in Iran in real time</documentation>
+      <input message='tns:iranFirewallTestRequestMessage' name='iranFirewallTestInput' />
+      <output message='tns:iranFirewallTestResponseMessage' name='iranFirewallTestOutput' />
+    </operation>
+    <operation name='macAddressLookup'>
+      <documentation>this tool will display the name of the company that manufactured a specific network device based on its MAC Address</documentation>
+      <input message='tns:macAddressLookupRequestMessage' name='macAddressLookupInput' />
+      <output message='tns:macAddressLookupResponseMessage' name='macAddressLookupOutput' />
+    </operation>
+    <operation name='ping'>
+      <documentation>test how long a response from remote system takes to reach the ViewDNS server Useful for detecting latency issues on network connections</documentation>
+      <input message='tns:pingRequestMessage' name='pingInput' />
+      <output message='tns:pingResponseMessage' name='pingOutput' />
+    </operation>
+    <operation name='portScanner'>
+      <documentation>this web based port scanner will test whether common ports are open on a server Useful in determining if a specific service e g HTTP is up or down on a specific server Ports scanned are and</documentation>
+      <input message='tns:portScannerRequestMessage' name='portScannerInput' />
+      <output message='tns:portScannerResponseMessage' name='portScannerOutput' />
+    </operation>
+    <operation name='reverseDnsLookup'>
+      <documentation>find the reverse DNS entry PTR for a given IP This is generally the server or host name</documentation>
+      <input message='tns:reverseDnsLookupRequestMessage' name='reverseDnsLookupInput' />
+      <output message='tns:reverseDnsLookupResponseMessage' name='reverseDnsLookupOutput' />
+    </operation>
+    <operation name='spamDatabaseLookup'>
+      <documentation>find out if your mail server is listed in any spam databases</documentation>
+      <input message='tns:spamDatabaseLookupRequestMessage' name='spamDatabaseLookupInput' />
+      <output message='tns:spamDatabaseLookupResponseMessage' name='spamDatabaseLookupOutput' />
+    </operation>
+    <operation name='traceroute'>
+      <documentation>determines the series of servers that data traverses from the ViewDNS server to the specified domain name or IP address</documentation>
+      <input message='tns:tracerouteRequestMessage' name='tracerouteInput' />
+      <output message='tns:tracerouteResponseMessage' name='tracerouteOutput' />
+    </operation>
+    <operation name='whois'>
+      <documentation>displays owner contact information for a domain name Can also be used to determine if a domain name is registered or not This tool is not available to free API key users Access is restricted to paid API keys only</documentation>
+      <input message='tns:whoisRequestMessage' name='whoisInput' />
+      <output message='tns:whoisResponseMessage' name='whoisOutput' />
+    </operation>
+  </portType>
+  <binding name='viewdnsBinding' type='tns:viewdnsPortType'>
+    <operation name='abuseContactLookup'>
+      <soap12:operation soapAction='http://abuseContactLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='chineseFirewallTest'>
+      <soap12:operation soapAction='http://chineseFirewallTest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dnsPropagationChecker'>
+      <soap12:operation soapAction='http://dnsPropagationChecker' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dnsRecordLookup'>
+      <soap12:operation soapAction='http://dnsRecordLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='freeEmailLookup'>
+      <soap12:operation soapAction='http://freeEmailLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ipLocationFinder'>
+      <soap12:operation soapAction='http://ipLocationFinder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='iranFirewallTest'>
+      <soap12:operation soapAction='http://iranFirewallTest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='macAddressLookup'>
+      <soap12:operation soapAction='http://macAddressLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ping'>
+      <soap12:operation soapAction='http://ping' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='portScanner'>
+      <soap12:operation soapAction='http://portScanner' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reverseDnsLookup'>
+      <soap12:operation soapAction='http://reverseDnsLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='spamDatabaseLookup'>
+      <soap12:operation soapAction='http://spamDatabaseLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='traceroute'>
+      <soap12:operation soapAction='http://traceroute' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='whois'>
+      <soap12:operation soapAction='http://whois' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='viewdns'>
+    <documentation>your one source for DNS related tools dns info reverse ip pagerank portscan port scan lookup records whois ipwhois dnstools web hosting hosting traceroute dns report dnsreport ip location ip location finder spam spam database dnsbl propagation dns propagation checker checker china chinese firewall great firewall is my site down is site down site down down dns propagate</documentation>
+    <port name='viewdnsPort' binding='tns:viewdnsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://viewdns' />
+    </port>
+  </service>
+</definitions>

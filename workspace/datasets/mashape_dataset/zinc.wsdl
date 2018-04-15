@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zinc/' name='zinc' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zinc/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zinc/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zinc/'>
+      <xsd:element name='orderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request_id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewOrderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='requestid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewOrderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='orderRequestMessage' />
+  <message name='orderResponseMessage'>
+    <part name='response' element='tns:orderResponse' />
+  </message>
+  <message name='viewOrderRequestMessage'>
+    <part name='parameters' element='tns:viewOrderParameters' />
+  </message>
+  <message name='viewOrderResponseMessage'>
+    <part name='response' element='tns:viewOrderResponse' />
+  </message>
+  <portType name='zincPortType'>
+    <operation name='order'>
+      <documentation>place an order on Amazon</documentation>
+      <input message='tns:orderRequestMessage' name='orderInput' />
+      <output message='tns:orderResponseMessage' name='orderOutput' />
+    </operation>
+    <operation name='viewOrder'>
+      <documentation>view status of Amazon order</documentation>
+      <input message='tns:viewOrderRequestMessage' name='viewOrderInput' />
+      <output message='tns:viewOrderResponseMessage' name='viewOrderOutput' />
+    </operation>
+  </portType>
+  <binding name='zincBinding' type='tns:zincPortType'>
+    <operation name='order'>
+      <soap12:operation soapAction='http://order' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='viewOrder'>
+      <soap12:operation soapAction='http://viewOrder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zinc'>
+    <documentation>order anything on Amazon with one POST request Amazon provides APIs for just about everything product information search results and ads but one thing is blatantly missing an API for placing an order We ve filled this void for them by developing the first and only public API for ordering on Amazon Fill in the information about your product shipping address billing address and payment information and our system will go through the checkout process on Amazon We work with loyalty programs rewards services sweepstakes and importers to allow them to fulfill orders without ever holding inventory We also work with small businesses and mobile applications to create unique new shopping and checkout experiences If you re interested in our custom plans email max zinc io for more information</documentation>
+    <port name='zincPort' binding='tns:zincBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zinc' />
+    </port>
+  </service>
+</definitions>

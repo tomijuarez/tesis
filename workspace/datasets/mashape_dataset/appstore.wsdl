@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/appStore/' name='appStore' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/appStore/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/appStore/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/appStore/'>
+      <xsd:element name='findApplicationByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findApplicationByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='minimumOsVersion' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='artwork' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='cover-image' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='recommended' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='alternateId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastUpdated' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='fileSize' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='developer' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='parent' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='maturityRating' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findCategoryByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findCategoryByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findCollectionByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findCollectionByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='applications' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findRandomApplicationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findRandomApplicationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='minimumOsVersion' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rating' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='artwork' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='cover-image' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='recommended' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='alternateId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastUpdated' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='fileSize' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='developer' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='parent' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='maturityRating' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCategoriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCollectionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCollectionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='applications' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchApplicationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchApplicationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='minimumOsVersion' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rating' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='average' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='threeStar' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='oneStar' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='fourStar' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='twoStar' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='fiveStar' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='artwork' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='cover-image' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='fullDescription' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='recommended' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='alternateId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastUpdated' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='performance' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='installs' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fileSize' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='developer' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='emailAddress' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='address' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='parent' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='maturityRating' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='messages' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='findApplicationByIdRequestMessage'>
+    <part name='parameters' element='tns:findApplicationByIdParameters' />
+  </message>
+  <message name='findApplicationByIdResponseMessage'>
+    <part name='response' element='tns:findApplicationByIdResponse' />
+  </message>
+  <message name='findCategoryByIdRequestMessage'>
+    <part name='parameters' element='tns:findCategoryByIdParameters' />
+  </message>
+  <message name='findCategoryByIdResponseMessage'>
+    <part name='response' element='tns:findCategoryByIdResponse' />
+  </message>
+  <message name='findCollectionByIdRequestMessage'>
+    <part name='parameters' element='tns:findCollectionByIdParameters' />
+  </message>
+  <message name='findCollectionByIdResponseMessage'>
+    <part name='response' element='tns:findCollectionByIdResponse' />
+  </message>
+  <message name='findRandomApplicationRequestMessage'>
+    <part name='parameters' element='tns:findRandomApplicationParameters' />
+  </message>
+  <message name='findRandomApplicationResponseMessage'>
+    <part name='response' element='tns:findRandomApplicationResponse' />
+  </message>
+  <message name='listCategoriesRequestMessage'>
+    <part name='parameters' element='tns:listCategoriesParameters' />
+  </message>
+  <message name='listCategoriesResponseMessage'>
+    <part name='response' element='tns:listCategoriesResponse' />
+  </message>
+  <message name='listCollectionsRequestMessage'>
+    <part name='parameters' element='tns:listCollectionsParameters' />
+  </message>
+  <message name='listCollectionsResponseMessage'>
+    <part name='response' element='tns:listCollectionsResponse' />
+  </message>
+  <message name='searchApplicationsRequestMessage'>
+    <part name='parameters' element='tns:searchApplicationsParameters' />
+  </message>
+  <message name='searchApplicationsResponseMessage'>
+    <part name='response' element='tns:searchApplicationsResponse' />
+  </message>
+  <portType name='appStorePortType'>
+    <operation name='findApplicationById'>
+      <documentation>get application details by unique identifier</documentation>
+      <input message='tns:findApplicationByIdRequestMessage' name='findApplicationByIdInput' />
+      <output message='tns:findApplicationByIdResponseMessage' name='findApplicationByIdOutput' />
+    </operation>
+    <operation name='findCategoryById'>
+      <documentation>get category details by unique identifier</documentation>
+      <input message='tns:findCategoryByIdRequestMessage' name='findCategoryByIdInput' />
+      <output message='tns:findCategoryByIdResponseMessage' name='findCategoryByIdOutput' />
+    </operation>
+    <operation name='findCollectionById'>
+      <documentation>get collection details by unique identifier</documentation>
+      <input message='tns:findCollectionByIdRequestMessage' name='findCollectionByIdInput' />
+      <output message='tns:findCollectionByIdResponseMessage' name='findCollectionByIdOutput' />
+    </operation>
+    <operation name='findRandomApplication'>
+      <documentation>find a random application with a specific store</documentation>
+      <input message='tns:findRandomApplicationRequestMessage' name='findRandomApplicationInput' />
+      <output message='tns:findRandomApplicationResponseMessage' name='findRandomApplicationOutput' />
+    </operation>
+    <operation name='listCategories'>
+      <documentation>list all categories for the specified app store</documentation>
+      <input message='tns:listCategoriesRequestMessage' name='listCategoriesInput' />
+      <output message='tns:listCategoriesResponseMessage' name='listCategoriesOutput' />
+    </operation>
+    <operation name='listCollections'>
+      <documentation>list available collections for the specified app store</documentation>
+      <input message='tns:listCollectionsRequestMessage' name='listCollectionsInput' />
+      <output message='tns:listCollectionsResponseMessage' name='listCollectionsOutput' />
+    </operation>
+    <operation name='searchApplications'>
+      <documentation>full text application search</documentation>
+      <input message='tns:searchApplicationsRequestMessage' name='searchApplicationsInput' />
+      <output message='tns:searchApplicationsResponseMessage' name='searchApplicationsOutput' />
+    </operation>
+  </portType>
+  <binding name='appStoreBinding' type='tns:appStorePortType'>
+    <operation name='findApplicationById'>
+      <soap12:operation soapAction='http://findApplicationById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findCategoryById'>
+      <soap12:operation soapAction='http://findCategoryById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findCollectionById'>
+      <soap12:operation soapAction='http://findCollectionById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findRandomApplication'>
+      <soap12:operation soapAction='http://findRandomApplication' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCategories'>
+      <soap12:operation soapAction='http://listCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCollections'>
+      <soap12:operation soapAction='http://listCollections' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchApplications'>
+      <soap12:operation soapAction='http://searchApplications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='appStore'>
+    <documentation>mobile app store API Easy access to app data from Google Play and the Apple iTunes</documentation>
+    <port name='appStorePort' binding='tns:appStoreBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://appStore' />
+    </port>
+  </service>
+</definitions>

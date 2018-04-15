@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipInfo/' name='ipInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipInfo/'>
+      <xsd:element name='ipInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='hostname' type='xsd:string' minOccurs='0' />
+            <xsd:element name='country-code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipInfoRequestMessage' />
+  <message name='ipInfoResponseMessage'>
+    <part name='response' element='tns:ipInfoResponse' />
+  </message>
+  <portType name='ipInfoPortType'>
+    <operation name='ipInfo'>
+      <documentation></documentation>
+      <input message='tns:ipInfoRequestMessage' name='ipInfoInput' />
+      <output message='tns:ipInfoResponseMessage' name='ipInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='ipInfoBinding' type='tns:ipInfoPortType'>
+    <operation name='ipInfo'>
+      <soap12:operation soapAction='http://ipInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipInfo'>
+    <documentation>get location information about an IP address Depending on the specific IP address you can determine the country region city longitude and latitude of the address Our high quality database for geolocation data is being constantly updated as the internet address allocation changes the database is usually updated at least once per month This API can also be used to do reverse DNS PTR lookups</documentation>
+    <port name='ipInfoPort' binding='tns:ipInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipInfo' />
+    </port>
+  </service>
+</definitions>

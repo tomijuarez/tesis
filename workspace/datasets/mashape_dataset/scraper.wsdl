@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/scraper/' name='scraper' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/scraper/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/scraper/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/scraper/'>
+      <xsd:element name='vArticleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vArticleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='summary' type='xsd:string' minOccurs='0' />
+            <xsd:element name='author' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='deck' type='xsd:string' minOccurs='0' />
+            <xsd:element name='html' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='published' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='h' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='w' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vQueryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='h' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='w' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vQueryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vRenderParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='h' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vh' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='vw' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='w' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vRenderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTextParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vArticleRequestMessage'>
+    <part name='parameters' element='tns:vArticleParameters' />
+  </message>
+  <message name='vArticleResponseMessage'>
+    <part name='response' element='tns:vArticleResponse' />
+  </message>
+  <message name='vImageRequestMessage'>
+    <part name='parameters' element='tns:vImageParameters' />
+  </message>
+  <message name='vImageResponseMessage'>
+    <part name='response' element='tns:vImageResponse' />
+  </message>
+  <message name='vQueryRequestMessage'>
+    <part name='parameters' element='tns:vQueryParameters' />
+  </message>
+  <message name='vQueryResponseMessage'>
+    <part name='response' element='tns:vQueryResponse' />
+  </message>
+  <message name='vRenderRequestMessage'>
+    <part name='parameters' element='tns:vRenderParameters' />
+  </message>
+  <message name='vRenderResponseMessage'>
+    <part name='response' element='tns:vRenderResponse' />
+  </message>
+  <message name='vTextRequestMessage'>
+    <part name='parameters' element='tns:vTextParameters' />
+  </message>
+  <message name='vTextResponseMessage'>
+    <part name='response' element='tns:vTextResponse' />
+  </message>
+  <portType name='scraperPortType'>
+    <operation name='vArticle'>
+      <documentation>returns information about an article like it s title author as well as it s HTML and text representations</documentation>
+      <input message='tns:vArticleRequestMessage' name='vArticleInput' />
+      <output message='tns:vArticleResponseMessage' name='vArticleOutput' />
+    </operation>
+    <operation name='vImage'>
+      <documentation>extracts the most representative image from the given URL The response body is the image itself The w and h parameters can be used to resize the output image to the desired size If only one of them is non zero the image is resized to the given dimension maintaining its aspect ratio If the new dimensions change the aspect ratio the image is cropped taking the center portion</documentation>
+      <input message='tns:vImageRequestMessage' name='vImageInput' />
+      <output message='tns:vImageResponseMessage' name='vImageOutput' />
+    </operation>
+    <operation name='vQuery'>
+      <documentation>returns the most appropriate image for the given query The response body is the image itself The w and h parameters can be used to resize the output image to the desired size If only one of them is non zero the image is resized to the given dimension maintaining its aspect ratio If the new dimensions change the aspect ratio the image is cropped taking the center portion</documentation>
+      <input message='tns:vQueryRequestMessage' name='vQueryInput' />
+      <output message='tns:vQueryResponseMessage' name='vQueryOutput' />
+    </operation>
+    <operation name='vRender'>
+      <documentation>renders the given URL in a WebKit based browser and returns the result as an image</documentation>
+      <input message='tns:vRenderRequestMessage' name='vRenderInput' />
+      <output message='tns:vRenderResponseMessage' name='vRenderOutput' />
+    </operation>
+    <operation name='vText'>
+      <documentation>returns the article text as a plain text response</documentation>
+      <input message='tns:vTextRequestMessage' name='vTextInput' />
+      <output message='tns:vTextResponseMessage' name='vTextOutput' />
+    </operation>
+  </portType>
+  <binding name='scraperBinding' type='tns:scraperPortType'>
+    <operation name='vArticle'>
+      <soap12:operation soapAction='http://vArticle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vImage'>
+      <soap12:operation soapAction='http://vImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vQuery'>
+      <soap12:operation soapAction='http://vQuery' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vRender'>
+      <soap12:operation soapAction='http://vRender' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vText'>
+      <soap12:operation soapAction='http://vText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='scraper'>
+    <documentation>the Scraper io API extracts multiple types of information from the web This API is very well suited for rich media apps or websites since it allows easily extracting both images text and general article information It also can be used to render any web page as an image</documentation>
+    <port name='scraperPort' binding='tns:scraperBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://scraper' />
+    </port>
+  </service>
+</definitions>

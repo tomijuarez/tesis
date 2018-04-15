@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textClassification/' name='textClassification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textClassification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textClassification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textClassification/'>
+      <xsd:element name='classifyGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='set' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='title' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keywords' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='categories_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Rocking_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Gaming_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Slipper_Chairs' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='keywords_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='chair' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='back' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='comfort' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='taxonomy_set' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keywords' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='categories_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Rocking_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Gaming_Chairs' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Slipper_Chairs' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='keywords_scored' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='chair' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='back' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='comfort' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='taxonomy_set' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifyGetRequestMessage'>
+    <part name='parameters' element='tns:classifyGetParameters' />
+  </message>
+  <message name='classifyGetResponseMessage'>
+    <part name='response' element='tns:classifyGetResponse' />
+  </message>
+  <message name='classifyPostRequestMessage' />
+  <message name='classifyPostResponseMessage'>
+    <part name='response' element='tns:classifyPostResponse' />
+  </message>
+  <portType name='textClassificationPortType'>
+    <operation name='classifyGet'>
+      <documentation>classify and recommend highly related categories for e commerce and other uses</documentation>
+      <input message='tns:classifyGetRequestMessage' name='classifyGetInput' />
+      <output message='tns:classifyGetResponseMessage' name='classifyGetOutput' />
+    </operation>
+    <operation name='classifyPost'>
+      <documentation>classify and recommend highly related categories for e commerce and other uses</documentation>
+      <input message='tns:classifyPostRequestMessage' name='classifyPostInput' />
+      <output message='tns:classifyPostResponseMessage' name='classifyPostOutput' />
+    </operation>
+  </portType>
+  <binding name='textClassificationBinding' type='tns:textClassificationPortType'>
+    <operation name='classifyGet'>
+      <soap12:operation soapAction='http://classifyGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='classifyPost'>
+      <soap12:operation soapAction='http://classifyPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textClassification'>
+    <documentation>suggest related categories for each blog article or post</documentation>
+    <port name='textClassificationPort' binding='tns:textClassificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textClassification' />
+    </port>
+  </service>
+</definitions>

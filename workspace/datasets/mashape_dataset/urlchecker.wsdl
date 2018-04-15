@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/urlchecker/' name='urlchecker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/urlchecker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/urlchecker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/urlchecker/'>
+      <xsd:element name='decodelinkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decodelink' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='responseformat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='decodelinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='decodelinksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='decodelinks' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='responseformat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='decodelinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='linksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='links' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='responseformat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='linksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='responseformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='decodelinkRequestMessage'>
+    <part name='parameters' element='tns:decodelinkParameters' />
+  </message>
+  <message name='decodelinkResponseMessage'>
+    <part name='response' element='tns:decodelinkResponse' />
+  </message>
+  <message name='decodelinksRequestMessage'>
+    <part name='parameters' element='tns:decodelinksParameters' />
+  </message>
+  <message name='decodelinksResponseMessage'>
+    <part name='response' element='tns:decodelinksResponse' />
+  </message>
+  <message name='linksRequestMessage'>
+    <part name='parameters' element='tns:linksParameters' />
+  </message>
+  <message name='linksResponseMessage'>
+    <part name='response' element='tns:linksResponse' />
+  </message>
+  <message name='urlRequestMessage'>
+    <part name='parameters' element='tns:urlParameters' />
+  </message>
+  <message name='urlResponseMessage'>
+    <part name='response' element='tns:urlResponse' />
+  </message>
+  <portType name='urlcheckerPortType'>
+    <operation name='decodelink'>
+      <documentation>decode single link only adf ly safelinking net bit ly</documentation>
+      <input message='tns:decodelinkRequestMessage' name='decodelinkInput' />
+      <output message='tns:decodelinkResponseMessage' name='decodelinkOutput' />
+    </operation>
+    <operation name='decodelinks'>
+      <documentation>decode multi link or website</documentation>
+      <input message='tns:decodelinksRequestMessage' name='decodelinksInput' />
+      <output message='tns:decodelinksResponseMessage' name='decodelinksOutput' />
+    </operation>
+    <operation name='links'>
+      <documentation>single Links see list host support from http urlchecker net hosts rapidgator net mediafire com</documentation>
+      <input message='tns:linksRequestMessage' name='linksInput' />
+      <output message='tns:linksResponseMessage' name='linksOutput' />
+    </operation>
+    <operation name='url'>
+      <documentation>website or folder need extract extract and check</documentation>
+      <input message='tns:urlRequestMessage' name='urlInput' />
+      <output message='tns:urlResponseMessage' name='urlOutput' />
+    </operation>
+  </portType>
+  <binding name='urlcheckerBinding' type='tns:urlcheckerPortType'>
+    <operation name='decodelink'>
+      <soap12:operation soapAction='http://decodelink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='decodelinks'>
+      <soap12:operation soapAction='http://decodelinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='links'>
+      <soap12:operation soapAction='http://links' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='url'>
+      <soap12:operation soapAction='http://url' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='urlchecker'>
+    <documentation>urlchecker net is a website tools to help you find out the link want to download still A Live or Dead get name size and decode encode links</documentation>
+    <port name='urlcheckerPort' binding='tns:urlcheckerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://urlchecker' />
+    </port>
+  </service>
+</definitions>

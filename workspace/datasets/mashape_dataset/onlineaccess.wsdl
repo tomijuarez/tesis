@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onlineAccess/' name='onlineAccess' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onlineAccess/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onlineAccess/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onlineAccess/'>
+      <xsd:element name='runResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='endpoints' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='executors' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='clients' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pending' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='build' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='startup' type='xsd:int' minOccurs='0' />
+            <xsd:element name='jobs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pending' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='errors' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='runRequestMessage' />
+  <message name='runResponseMessage'>
+    <part name='response' element='tns:runResponse' />
+  </message>
+  <message name='statusRequestMessage' />
+  <message name='statusResponseMessage'>
+    <part name='response' element='tns:statusResponse' />
+  </message>
+  <portType name='onlineAccessPortType'>
+    <operation name='run'>
+      <documentation></documentation>
+      <input message='tns:runRequestMessage' name='runInput' />
+      <output message='tns:runResponseMessage' name='runOutput' />
+    </operation>
+    <operation name='status'>
+      <documentation></documentation>
+      <input message='tns:statusRequestMessage' name='statusInput' />
+      <output message='tns:statusResponseMessage' name='statusOutput' />
+    </operation>
+  </portType>
+  <binding name='onlineAccessBinding' type='tns:onlineAccessPortType'>
+    <operation name='run'>
+      <soap12:operation soapAction='http://run' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='status'>
+      <soap12:operation soapAction='http://status' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onlineAccess'>
+    <documentation>online Access API secure way to access your local data anywhere</documentation>
+    <port name='onlineAccessPort' binding='tns:onlineAccessBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onlineAccess' />
+    </port>
+  </service>
+</definitions>

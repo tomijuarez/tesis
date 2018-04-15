@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cscESim/' name='cscESim' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cscESim/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cscESim/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cscESim/'>
+      <xsd:element name='battleParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='battleId' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='server' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='battleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='battleRequestMessage'>
+    <part name='parameters' element='tns:battleParameters' />
+  </message>
+  <message name='battleResponseMessage'>
+    <part name='response' element='tns:battleResponse' />
+  </message>
+  <portType name='cscESimPortType'>
+    <operation name='battle'>
+      <documentation>it will shows the battle statistic of given ID</documentation>
+      <input message='tns:battleRequestMessage' name='battleInput' />
+      <output message='tns:battleResponseMessage' name='battleOutput' />
+    </operation>
+  </portType>
+  <binding name='cscESimBinding' type='tns:cscESimPortType'>
+    <operation name='battle'>
+      <soap12:operation soapAction='http://battle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cscESim'>
+    <documentation>e Sim is an online modern world simulation wherein the player becomes a citizen of one of virtual countries Players can take on a role such as soldier or business owner in order to affect the politics economics and military standing of their country</documentation>
+    <port name='cscESimPort' binding='tns:cscESimBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cscESim' />
+    </port>
+  </service>
+</definitions>

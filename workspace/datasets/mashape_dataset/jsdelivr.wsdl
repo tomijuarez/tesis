@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jsdelivr/' name='jsdelivr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jsdelivr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jsdelivr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jsdelivr/'>
+      <xsd:element name='librariesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='assets' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='author' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='description' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='github' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='homepage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lastversion' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mainfile' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='provider' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='versions' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='librariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mainfile' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='librariesRequestMessage'>
+    <part name='parameters' element='tns:librariesParameters' />
+  </message>
+  <message name='librariesResponseMessage'>
+    <part name='response' element='tns:librariesResponse' />
+  </message>
+  <portType name='jsdelivrPortType'>
+    <operation name='libraries'>
+      <input message='tns:librariesRequestMessage' name='librariesInput' />
+      <output message='tns:librariesResponseMessage' name='librariesOutput' />
+    </operation>
+  </portType>
+  <binding name='jsdelivrBinding' type='tns:jsdelivrPortType'>
+    <operation name='libraries'>
+      <soap12:operation soapAction='http://libraries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jsdelivr'>
+    <documentation>a free super fast CDN for developers and webmasters</documentation>
+    <port name='jsdelivrPort' binding='tns:jsdelivrBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jsdelivr' />
+    </port>
+  </service>
+</definitions>

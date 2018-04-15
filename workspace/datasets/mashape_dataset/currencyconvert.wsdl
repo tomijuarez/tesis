@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/currencyConvert/' name='currencyConvert' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/currencyConvert/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/currencyConvert/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/currencyConvert/'>
+      <xsd:element name='Parameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='eurResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rates' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rates' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage'>
+    <part name='parameters' element='tns:Parameters' />
+  </message>
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <message name='eurRequestMessage' />
+  <message name='eurResponseMessage'>
+    <part name='response' element='tns:eurResponse' />
+  </message>
+  <message name='usdRequestMessage' />
+  <message name='usdResponseMessage'>
+    <part name='response' element='tns:usdResponse' />
+  </message>
+  <portType name='currencyConvertPortType'>
+    <operation name=''>
+      <documentation>currency conversion from source currency to destination</documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+    <operation name='eur'>
+      <documentation>current rates of currencies against EUR</documentation>
+      <input message='tns:eurRequestMessage' name='eurInput' />
+      <output message='tns:eurResponseMessage' name='eurOutput' />
+    </operation>
+    <operation name='usd'>
+      <documentation>current rates of currencies against USD</documentation>
+      <input message='tns:usdRequestMessage' name='usdInput' />
+      <output message='tns:usdResponseMessage' name='usdOutput' />
+    </operation>
+  </portType>
+  <binding name='currencyConvertBinding' type='tns:currencyConvertPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='eur'>
+      <soap12:operation soapAction='http://eur' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='usd'>
+      <soap12:operation soapAction='http://usd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='currencyConvert'>
+    <documentation>fast realtime exchange rates and conversion API</documentation>
+    <port name='currencyConvertPort' binding='tns:currencyConvertBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://currencyConvert' />
+    </port>
+  </service>
+</definitions>

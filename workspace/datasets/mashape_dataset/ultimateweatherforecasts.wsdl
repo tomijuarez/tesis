@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ultimateWeatherForecasts/' name='ultimateWeatherForecasts' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ultimateWeatherForecasts/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ultimateWeatherForecasts/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ultimateWeatherForecasts/'>
+      <xsd:element name='getforecastsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getforecastsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='condition' type='xsd:string' minOccurs='0' />
+            <xsd:element name='high' type='xsd:int' minOccurs='0' />
+            <xsd:element name='low' type='xsd:int' minOccurs='0' />
+            <xsd:element name='high_celsius' type='xsd:int' minOccurs='0' />
+            <xsd:element name='day_of_week' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='low_celsius' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getforecastsRequestMessage'>
+    <part name='parameters' element='tns:getforecastsParameters' />
+  </message>
+  <message name='getforecastsResponseMessage'>
+    <part name='response' element='tns:getforecastsResponse' />
+  </message>
+  <portType name='ultimateWeatherForecastsPortType'>
+    <operation name='getforecasts'>
+      <documentation>gets forecast given a location</documentation>
+      <input message='tns:getforecastsRequestMessage' name='getforecastsInput' />
+      <output message='tns:getforecastsResponseMessage' name='getforecastsOutput' />
+    </operation>
+  </portType>
+  <binding name='ultimateWeatherForecastsBinding' type='tns:ultimateWeatherForecastsPortType'>
+    <operation name='getforecasts'>
+      <soap12:operation soapAction='http://getforecasts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ultimateWeatherForecasts'>
+    <documentation>accurate weather forecasts for today and the next days Easy and free to use</documentation>
+    <port name='ultimateWeatherForecastsPort' binding='tns:ultimateWeatherForecastsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ultimateWeatherForecasts' />
+    </port>
+  </service>
+</definitions>

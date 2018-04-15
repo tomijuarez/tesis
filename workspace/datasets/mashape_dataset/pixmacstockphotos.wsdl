@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pixmacStockPhotos/' name='pixmacStockPhotos' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pixmacStockPhotos/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pixmacStockPhotos/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pixmacStockPhotos/'>
+      <xsd:element name='detailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='velikostID' type='xsd:int' minOccurs='0' />
+            <xsd:element name='original' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='formats' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='license' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='keywords' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='filesize' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='authorId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:int' minOccurs='0' />
+            <xsd:element name='thumbnail_path' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='pixmac_detail_url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='authorName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='width' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uploaded' type='xsd:string' minOccurs='0' />
+            <xsd:element name='exclusive' type='xsd:int' minOccurs='0' />
+            <xsd:element name='preview_path' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='seoname' type='xsd:int' minOccurs='0' />
+            <xsd:element name='model_release' type='xsd:int' minOccurs='0' />
+            <xsd:element name='height' type='xsd:int' minOccurs='0' />
+            <xsd:element name='property_release' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchtext' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='images' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='thumbnail_path' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='author' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='preview_path' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='seoFriendlyUrl' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='seoname' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='onPage' type='xsd:int' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detailRequestMessage'>
+    <part name='parameters' element='tns:detailParameters' />
+  </message>
+  <message name='detailResponseMessage'>
+    <part name='response' element='tns:detailResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='pixmacStockPhotosPortType'>
+    <operation name='detail'>
+      <documentation></documentation>
+      <input message='tns:detailRequestMessage' name='detailInput' />
+      <output message='tns:detailResponseMessage' name='detailOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation></documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='pixmacStockPhotosBinding' type='tns:pixmacStockPhotosPortType'>
+    <operation name='detail'>
+      <soap12:operation soapAction='http://detail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pixmacStockPhotos'>
+    <documentation>sell photos from our database or just access our affiliate program and earn money</documentation>
+    <port name='pixmacStockPhotosPort' binding='tns:pixmacStockPhotosBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pixmacStockPhotos' />
+    </port>
+  </service>
+</definitions>

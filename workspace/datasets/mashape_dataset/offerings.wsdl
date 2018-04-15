@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/offerings/' name='offerings' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/offerings/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/offerings/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/offerings/'>
+      <xsd:element name='offeringsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='description' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxamount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minamount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='offeringsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='offeringsIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='offeringsIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='testModeOfferingsOfferingIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='acceptinvestments' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offeringid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='testModeOfferingsOfferingIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='offering' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='accept_investments' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='offeringsRequestMessage'>
+    <part name='parameters' element='tns:offeringsParameters' />
+  </message>
+  <message name='offeringsResponseMessage'>
+    <part name='response' element='tns:offeringsResponse' />
+  </message>
+  <message name='offeringsIdRequestMessage'>
+    <part name='parameters' element='tns:offeringsIdParameters' />
+  </message>
+  <message name='offeringsIdResponseMessage'>
+    <part name='response' element='tns:offeringsIdResponse' />
+  </message>
+  <message name='testModeOfferingsOfferingIdRequestMessage'>
+    <part name='parameters' element='tns:testModeOfferingsOfferingIdParameters' />
+  </message>
+  <message name='testModeOfferingsOfferingIdResponseMessage'>
+    <part name='response' element='tns:testModeOfferingsOfferingIdResponse' />
+  </message>
+  <portType name='offeringsPortType'>
+    <operation name='offerings'>
+      <documentation>create an offering</documentation>
+      <input message='tns:offeringsRequestMessage' name='offeringsInput' />
+      <output message='tns:offeringsResponseMessage' name='offeringsOutput' />
+    </operation>
+    <operation name='offeringsId'>
+      <documentation></documentation>
+      <input message='tns:offeringsIdRequestMessage' name='offeringsIdInput' />
+      <output message='tns:offeringsIdResponseMessage' name='offeringsIdOutput' />
+    </operation>
+    <operation name='testModeOfferingsOfferingId'>
+      <documentation>offering ID</documentation>
+      <input message='tns:testModeOfferingsOfferingIdRequestMessage' name='testModeOfferingsOfferingIdInput' />
+      <output message='tns:testModeOfferingsOfferingIdResponseMessage' name='testModeOfferingsOfferingIdOutput' />
+    </operation>
+  </portType>
+  <binding name='offeringsBinding' type='tns:offeringsPortType'>
+    <operation name='offerings'>
+      <soap12:operation soapAction='http://offerings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='offeringsId'>
+      <soap12:operation soapAction='http://offeringsId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='testModeOfferingsOfferingId'>
+      <soap12:operation soapAction='http://testModeOfferingsOfferingId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='offerings'>
+    <documentation>virtually every activity in the FundAmerica platform revolves around offerings Escrow payments background checks and documents all require an offering to be attached to</documentation>
+    <port name='offeringsPort' binding='tns:offeringsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://offerings' />
+    </port>
+  </service>
+</definitions>

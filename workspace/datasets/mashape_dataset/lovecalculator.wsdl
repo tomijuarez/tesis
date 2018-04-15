@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/loveCalculator/' name='loveCalculator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/loveCalculator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/loveCalculator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/loveCalculator/'>
+      <xsd:element name='getpercentageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getpercentageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+            <xsd:element name='fname' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sname' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='percentage' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getpercentageRequestMessage'>
+    <part name='parameters' element='tns:getpercentageParameters' />
+  </message>
+  <message name='getpercentageResponseMessage'>
+    <part name='response' element='tns:getpercentageResponse' />
+  </message>
+  <portType name='loveCalculatorPortType'>
+    <operation name='getpercentage'>
+      <documentation></documentation>
+      <input message='tns:getpercentageRequestMessage' name='getpercentageInput' />
+      <output message='tns:getpercentageResponseMessage' name='getpercentageOutput' />
+    </operation>
+  </portType>
+  <binding name='loveCalculatorBinding' type='tns:loveCalculatorPortType'>
+    <operation name='getpercentage'>
+      <soap12:operation soapAction='http://getpercentage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='loveCalculator'>
+    <documentation>enter your name and the name of your partner lover crush to find Love compatibility chances of successful love relationship</documentation>
+    <port name='loveCalculatorPort' binding='tns:loveCalculatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://loveCalculator' />
+    </port>
+  </service>
+</definitions>

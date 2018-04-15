@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/io/' name='io' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/io/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/io/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/io/'>
+      <xsd:element name='longShortParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='longShortResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shortLongParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shorturl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shortLongResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='longShortRequestMessage'>
+    <part name='parameters' element='tns:longShortParameters' />
+  </message>
+  <message name='longShortResponseMessage'>
+    <part name='response' element='tns:longShortResponse' />
+  </message>
+  <message name='shortLongRequestMessage'>
+    <part name='parameters' element='tns:shortLongParameters' />
+  </message>
+  <message name='shortLongResponseMessage'>
+    <part name='response' element='tns:shortLongResponse' />
+  </message>
+  <portType name='ioPortType'>
+    <operation name='longShort'>
+      <documentation>it shortens an URL</documentation>
+      <input message='tns:longShortRequestMessage' name='longShortInput' />
+      <output message='tns:longShortResponseMessage' name='longShortOutput' />
+    </operation>
+    <operation name='shortLong'>
+      <documentation></documentation>
+      <input message='tns:shortLongRequestMessage' name='shortLongInput' />
+      <output message='tns:shortLongResponseMessage' name='shortLongOutput' />
+    </operation>
+  </portType>
+  <binding name='ioBinding' type='tns:ioPortType'>
+    <operation name='longShort'>
+      <soap12:operation soapAction='http://longShort' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='shortLong'>
+      <soap12:operation soapAction='http://shortLong' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='io'>
+    <documentation>io allows users to shorten share and track links URLs Reducing the URL length makes sharing easier</documentation>
+    <port name='ioPort' binding='tns:ioBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://io' />
+    </port>
+  </service>
+</definitions>

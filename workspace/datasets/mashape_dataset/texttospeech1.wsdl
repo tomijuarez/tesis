@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textToSpeech/' name='textToSpeech' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textToSpeech/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textToSpeech/'>
+      <xsd:element name='speechResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='speechRequestMessage' />
+  <message name='speechResponseMessage'>
+    <part name='response' element='tns:speechResponse' />
+  </message>
+  <portType name='textToSpeechPortType'>
+    <operation name='speech'>
+      <documentation></documentation>
+      <input message='tns:speechRequestMessage' name='speechInput' />
+      <output message='tns:speechResponseMessage' name='speechOutput' />
+    </operation>
+  </portType>
+  <binding name='textToSpeechBinding' type='tns:textToSpeechPortType'>
+    <operation name='speech'>
+      <soap12:operation soapAction='http://speech' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textToSpeech'>
+    <documentation>a really simple api that lets you convert text to speech It s free for unlimited usage It has never been simpler and does not require any additional api keys beside mashapes</documentation>
+    <port name='textToSpeechPort' binding='tns:textToSpeechBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textToSpeech' />
+    </port>
+  </service>
+</definitions>

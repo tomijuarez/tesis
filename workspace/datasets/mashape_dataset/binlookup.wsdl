@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/binLookup/' name='binLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/binLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/binLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/binLookup/'>
+      <xsd:element name='binLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='country-code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='card-type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='card-brand' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='card-category' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='issuer-phone' type='xsd:string' minOccurs='0' />
+            <xsd:element name='issuer' type='xsd:string' minOccurs='0' />
+            <xsd:element name='issuer-website' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='binLookupRequestMessage' />
+  <message name='binLookupResponseMessage'>
+    <part name='response' element='tns:binLookupResponse' />
+  </message>
+  <portType name='binLookupPortType'>
+    <operation name='binLookup'>
+      <documentation></documentation>
+      <input message='tns:binLookupRequestMessage' name='binLookupInput' />
+      <output message='tns:binLookupResponseMessage' name='binLookupOutput' />
+    </operation>
+  </portType>
+  <binding name='binLookupBinding' type='tns:binLookupPortType'>
+    <operation name='binLookup'>
+      <soap12:operation soapAction='http://binLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='binLookup'>
+    <documentation>perform a BIN Bank Identification Number or IIN Issuer Identification Number lookup This API is ideal for fraud protection systems and payment analysis Our BIN database is comprehensive and covers all countries we update it on a regular basis as new cards are issued This API also includes some extra fraud detection measures if a customer IP address is passed in In this mode the API will also perform IP geolocation and IP blocklist lookups Please Note processing and transmitting BIN numbers is perfectly safe as long as no other card information is present BIN numbers on there own pose no security risk to the card holder or merchant To prevent abuse this API is restricted to a maximum of API calls per day for Free API accounts</documentation>
+    <port name='binLookupPort' binding='tns:binLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://binLookup' />
+    </port>
+  </service>
+</definitions>

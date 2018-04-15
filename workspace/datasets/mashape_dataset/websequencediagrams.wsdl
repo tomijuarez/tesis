@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/websequencediagrams/' name='websequencediagrams' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/websequencediagrams/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/websequencediagrams/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/websequencediagrams/'>
+      <xsd:element name='createResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='img' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createRequestMessage' />
+  <message name='createResponseMessage'>
+    <part name='response' element='tns:createResponse' />
+  </message>
+  <portType name='websequencediagramsPortType'>
+    <operation name='create'>
+      <documentation>create an image</documentation>
+      <input message='tns:createRequestMessage' name='createInput' />
+      <output message='tns:createResponseMessage' name='createOutput' />
+    </operation>
+  </portType>
+  <binding name='websequencediagramsBinding' type='tns:websequencediagramsPortType'>
+    <operation name='create'>
+      <soap12:operation soapAction='http://create' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='websequencediagrams'>
+    <documentation>the web s UML sequence diagram tool saving you time since</documentation>
+    <port name='websequencediagramsPort' binding='tns:websequencediagramsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://websequencediagrams' />
+    </port>
+  </service>
+</definitions>

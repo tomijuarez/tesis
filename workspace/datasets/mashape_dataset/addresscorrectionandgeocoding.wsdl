@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/addressCorrectionAndGeocoding/' name='addressCorrectionAndGeocoding' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/addressCorrectionAndGeocoding/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/addressCorrectionAndGeocoding/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/addressCorrectionAndGeocoding/'>
+      <xsd:element name='addressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addressline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='addressline' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Zip' type='xsd:int' minOccurs='0' />
+            <xsd:element name='CensusTract' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='CensusBlock' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='PostDir' type='xsd:string' minOccurs='0' />
+            <xsd:element name='City' type='xsd:string' minOccurs='0' />
+            <xsd:element name='County' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Longitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Sec' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='AddressLine2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='AddressLine1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='PreDir' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Suffix' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='SecNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Street' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Zip4' type='xsd:int' minOccurs='0' />
+            <xsd:element name='CountyFP' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ErrorCode' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ErrorMessage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='GeocodePrecision' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StateFP' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressRequestMessage'>
+    <part name='parameters' element='tns:addressParameters' />
+  </message>
+  <message name='addressResponseMessage'>
+    <part name='response' element='tns:addressResponse' />
+  </message>
+  <portType name='addressCorrectionAndGeocodingPortType'>
+    <operation name='address'>
+      <documentation>address</documentation>
+      <input message='tns:addressRequestMessage' name='addressInput' />
+      <output message='tns:addressResponseMessage' name='addressOutput' />
+    </operation>
+  </portType>
+  <binding name='addressCorrectionAndGeocodingBinding' type='tns:addressCorrectionAndGeocodingPortType'>
+    <operation name='address'>
+      <soap12:operation soapAction='http://address' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='addressCorrectionAndGeocoding'>
+    <documentation>yAddress performs correction validation standardization and geocoding of US addresses It combines the cleansing of addresses and determination of their location on the map into a single pass process YAddress corrects thousands of common misspellings abbreviations and alternative names for cities and streets It returns the corrected addresses in the USPS standard form with proper abbreviations and assigns correct ZIP and ZIP codes as well as other address parameters such as county FIPS codes census tract and block numbers etc</documentation>
+    <port name='addressCorrectionAndGeocodingPort' binding='tns:addressCorrectionAndGeocodingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://addressCorrectionAndGeocoding' />
+    </port>
+  </service>
+</definitions>

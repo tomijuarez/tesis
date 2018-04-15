@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/heckYesMarkdown/' name='heckYesMarkdown' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/heckYesMarkdown/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/heckYesMarkdown/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/heckYesMarkdown/'>
+      <xsd:element name='getMarkdownParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domarkdown' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='html' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='output' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='preview' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='showframe' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='u' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMarkdownResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getMarkdownRequestMessage'>
+    <part name='parameters' element='tns:getMarkdownParameters' />
+  </message>
+  <message name='getMarkdownResponseMessage'>
+    <part name='response' element='tns:getMarkdownResponse' />
+  </message>
+  <portType name='heckYesMarkdownPortType'>
+    <operation name='getMarkdown'>
+      <documentation>enter a url or some HTML code to convert the page to Markdown One parameter between u and html must be submitted with the request</documentation>
+      <input message='tns:getMarkdownRequestMessage' name='getMarkdownInput' />
+      <output message='tns:getMarkdownResponseMessage' name='getMarkdownOutput' />
+    </operation>
+  </portType>
+  <binding name='heckYesMarkdownBinding' type='tns:heckYesMarkdownPortType'>
+    <operation name='getMarkdown'>
+      <soap12:operation soapAction='http://getMarkdown' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='heckYesMarkdown'>
+    <documentation>markdownifier</documentation>
+    <port name='heckYesMarkdownPort' binding='tns:heckYesMarkdownBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://heckYesMarkdown' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stupeflixVideoStripCreateAFilmStripImageFromAVideo/' name='stupeflixVideoStripCreateAFilmStripImageFromAVideo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stupeflixVideoStripCreateAFilmStripImageFromAVideo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stupeflixVideoStripCreateAFilmStripImageFromAVideo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stupeflixVideoStripCreateAFilmStripImageFromAVideo/'>
+      <xsd:element name='videoStripCreateFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='videoStripCreateFileRequestMessage' />
+  <message name='videoStripCreateFileResponseMessage'>
+    <part name='response' element='tns:videoStripCreateFileResponse' />
+  </message>
+  <portType name='stupeflixVideoStripCreateAFilmStripImageFromAVideoPortType'>
+    <operation name='videoStripCreateFile'>
+      <documentation>create and queue a video strip Task block until finished and redirect to output image file Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video strip</documentation>
+      <input message='tns:videoStripCreateFileRequestMessage' name='videoStripCreateFileInput' />
+      <output message='tns:videoStripCreateFileResponseMessage' name='videoStripCreateFileOutput' />
+    </operation>
+  </portType>
+  <binding name='stupeflixVideoStripCreateAFilmStripImageFromAVideoBinding' type='tns:stupeflixVideoStripCreateAFilmStripImageFromAVideoPortType'>
+    <operation name='videoStripCreateFile'>
+      <soap12:operation soapAction='http://videoStripCreateFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stupeflixVideoStripCreateAFilmStripImageFromAVideo'>
+    <documentation>create a film strip image showing stitched frames of a video Useful to display a video preview a video trimmer interface or a Video Tooltip Thumbnail in a web view Full API specs at https stupeflix tasks api readthedocs org en v tasks html video strip</documentation>
+    <port name='stupeflixVideoStripCreateAFilmStripImageFromAVideoPort' binding='tns:stupeflixVideoStripCreateAFilmStripImageFromAVideoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stupeflixVideoStripCreateAFilmStripImageFromAVideo' />
+    </port>
+  </service>
+</definitions>

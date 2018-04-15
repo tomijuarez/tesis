@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/paymentservice/' name='paymentservice' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/paymentservice/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/paymentservice/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/paymentservice/'>
+      <xsd:element name='brandParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='letter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='brandResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='info' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='priceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='a' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='priceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='info' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='paymentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='orderid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='paymentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='brandRequestMessage'>
+    <part name='parameters' element='tns:brandParameters' />
+  </message>
+  <message name='brandResponseMessage'>
+    <part name='response' element='tns:brandResponse' />
+  </message>
+  <message name='priceRequestMessage'>
+    <part name='parameters' element='tns:priceParameters' />
+  </message>
+  <message name='priceResponseMessage'>
+    <part name='response' element='tns:priceResponse' />
+  </message>
+  <message name='paymentRequestMessage'>
+    <part name='parameters' element='tns:paymentParameters' />
+  </message>
+  <message name='paymentResponseMessage'>
+    <part name='response' element='tns:paymentResponse' />
+  </message>
+  <portType name='paymentservicePortType'>
+    <operation name='brand'>
+      <documentation></documentation>
+      <input message='tns:brandRequestMessage' name='brandInput' />
+      <output message='tns:brandResponseMessage' name='brandOutput' />
+    </operation>
+    <operation name='price'>
+      <documentation></documentation>
+      <input message='tns:priceRequestMessage' name='priceInput' />
+      <output message='tns:priceResponseMessage' name='priceOutput' />
+    </operation>
+    <operation name='payment'>
+      <documentation>get the price of the order</documentation>
+      <input message='tns:paymentRequestMessage' name='paymentInput' />
+      <output message='tns:paymentResponseMessage' name='paymentOutput' />
+    </operation>
+  </portType>
+  <binding name='paymentserviceBinding' type='tns:paymentservicePortType'>
+    <operation name='brand'>
+      <soap12:operation soapAction='http://brand' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='price'>
+      <soap12:operation soapAction='http://price' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='payment'>
+      <soap12:operation soapAction='http://payment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='paymentservice'>
+    <documentation>get the payment related info</documentation>
+    <port name='paymentservicePort' binding='tns:paymentserviceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://paymentservice' />
+    </port>
+  </service>
+</definitions>

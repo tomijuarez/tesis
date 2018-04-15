@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/openGlobalCallerId/' name='openGlobalCallerId' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/openGlobalCallerId/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/openGlobalCallerId/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/openGlobalCallerId/'>
+      <xsd:element name='whoisitParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cc' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='number' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='whoisitResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='whoisitRequestMessage'>
+    <part name='parameters' element='tns:whoisitParameters' />
+  </message>
+  <message name='whoisitResponseMessage'>
+    <part name='response' element='tns:whoisitResponse' />
+  </message>
+  <portType name='openGlobalCallerIdPortType'>
+    <operation name='whoisit'>
+      <documentation>fetch caller Info</documentation>
+      <input message='tns:whoisitRequestMessage' name='whoisitInput' />
+      <output message='tns:whoisitResponseMessage' name='whoisitOutput' />
+    </operation>
+  </portType>
+  <binding name='openGlobalCallerIdBinding' type='tns:openGlobalCallerIdPortType'>
+    <operation name='whoisit'>
+      <soap12:operation soapAction='http://whoisit' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='openGlobalCallerId'>
+    <documentation>the Open Global Caller ID helps to find the owner information by querying mobile number and country code This is only an experimental version</documentation>
+    <port name='openGlobalCallerIdPort' binding='tns:openGlobalCallerIdBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://openGlobalCallerId' />
+    </port>
+  </service>
+</definitions>

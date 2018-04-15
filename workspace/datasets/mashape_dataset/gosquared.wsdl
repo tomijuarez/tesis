@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/gosquared/' name='gosquared' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/gosquared/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/gosquared/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/gosquared/'>
+      <xsd:element name='aggregatestatsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='aggregatestatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='campaignsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='campaignsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='concurrentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='concurrentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='visitors' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pages' type='xsd:int' minOccurs='0' />
+            <xsd:element name='tagged' type='xsd:int' minOccurs='0' />
+            <xsd:element name='returning' type='xsd:int' minOccurs='0' />
+            <xsd:element name='active' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='engagementResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='timeOnSite' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='average' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='breakdown' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='visitDepth' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='average' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='breakdown' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='functionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='campaign' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='organic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='referer' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visitorsmode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ignoredvisitorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='organicsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pagehash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='organicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='overviewParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='overviewResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='visitors' type='xsd:int' minOccurs='0' />
+            <xsd:element name='pages' type='xsd:int' minOccurs='0' />
+            <xsd:element name='tagged' type='xsd:int' minOccurs='0' />
+            <xsd:element name='returning' type='xsd:int' minOccurs='0' />
+            <xsd:element name='active' type='xsd:int' minOccurs='0' />
+            <xsd:element name='summaries' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='range' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='from' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='to' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='list' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='referrersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='referrersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportpreferencesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='route' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='reportpreferencesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sitesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sitetoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sitesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='owned' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='owner_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tracker_installed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='date_added' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='limit_reached' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='share_list' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='search_term' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='acct' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeseriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='interval' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='metrics' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timezone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeseriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visitorsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='campaign' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='organic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='presenter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='referrer' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visitorid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visitorsmode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='visitorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cardinality' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='aggregatestatsRequestMessage'>
+    <part name='parameters' element='tns:aggregatestatsParameters' />
+  </message>
+  <message name='aggregatestatsResponseMessage'>
+    <part name='response' element='tns:aggregatestatsResponse' />
+  </message>
+  <message name='campaignsRequestMessage'>
+    <part name='parameters' element='tns:campaignsParameters' />
+  </message>
+  <message name='campaignsResponseMessage'>
+    <part name='response' element='tns:campaignsResponse' />
+  </message>
+  <message name='concurrentsRequestMessage'>
+    <part name='parameters' element='tns:concurrentsParameters' />
+  </message>
+  <message name='concurrentsResponseMessage'>
+    <part name='response' element='tns:concurrentsResponse' />
+  </message>
+  <message name='engagementRequestMessage' />
+  <message name='engagementResponseMessage'>
+    <part name='response' element='tns:engagementResponse' />
+  </message>
+  <message name='functionsRequestMessage' />
+  <message name='functionsResponseMessage'>
+    <part name='response' element='tns:functionsResponse' />
+  </message>
+  <message name='geoRequestMessage'>
+    <part name='parameters' element='tns:geoParameters' />
+  </message>
+  <message name='geoResponseMessage'>
+    <part name='response' element='tns:geoResponse' />
+  </message>
+  <message name='ignoredvisitorsRequestMessage' />
+  <message name='ignoredvisitorsResponseMessage'>
+    <part name='response' element='tns:ignoredvisitorsResponse' />
+  </message>
+  <message name='organicsRequestMessage'>
+    <part name='parameters' element='tns:organicsParameters' />
+  </message>
+  <message name='organicsResponseMessage'>
+    <part name='response' element='tns:organicsResponse' />
+  </message>
+  <message name='overviewRequestMessage'>
+    <part name='parameters' element='tns:overviewParameters' />
+  </message>
+  <message name='overviewResponseMessage'>
+    <part name='response' element='tns:overviewResponse' />
+  </message>
+  <message name='pagesRequestMessage'>
+    <part name='parameters' element='tns:pagesParameters' />
+  </message>
+  <message name='pagesResponseMessage'>
+    <part name='response' element='tns:pagesResponse' />
+  </message>
+  <message name='referrersRequestMessage'>
+    <part name='parameters' element='tns:referrersParameters' />
+  </message>
+  <message name='referrersResponseMessage'>
+    <part name='response' element='tns:referrersResponse' />
+  </message>
+  <message name='reportpreferencesRequestMessage'>
+    <part name='parameters' element='tns:reportpreferencesParameters' />
+  </message>
+  <message name='reportpreferencesResponseMessage'>
+    <part name='response' element='tns:reportpreferencesResponse' />
+  </message>
+  <message name='sitesRequestMessage'>
+    <part name='parameters' element='tns:sitesParameters' />
+  </message>
+  <message name='sitesResponseMessage'>
+    <part name='response' element='tns:sitesResponse' />
+  </message>
+  <message name='timeRequestMessage' />
+  <message name='timeResponseMessage'>
+    <part name='response' element='tns:timeResponse' />
+  </message>
+  <message name='timeseriesRequestMessage'>
+    <part name='parameters' element='tns:timeseriesParameters' />
+  </message>
+  <message name='timeseriesResponseMessage'>
+    <part name='response' element='tns:timeseriesResponse' />
+  </message>
+  <message name='visitorsRequestMessage'>
+    <part name='parameters' element='tns:visitorsParameters' />
+  </message>
+  <message name='visitorsResponseMessage'>
+    <part name='response' element='tns:visitorsResponse' />
+  </message>
+  <portType name='gosquaredPortType'>
+    <operation name='aggregatestats'>
+      <documentation>the aggregateStats function provides a breakdown of the browsers countries languages platforms and organisations and provides the number of visitors in each category</documentation>
+      <input message='tns:aggregatestatsRequestMessage' name='aggregatestatsInput' />
+      <output message='tns:aggregatestatsResponseMessage' name='aggregatestatsOutput' />
+    </operation>
+    <operation name='campaigns'>
+      <documentation>the campaigns function shows how your sites campaigns are performing</documentation>
+      <input message='tns:campaignsRequestMessage' name='campaignsInput' />
+      <output message='tns:campaignsResponseMessage' name='campaignsOutput' />
+    </operation>
+    <operation name='concurrents'>
+      <documentation>the concurrents function is very similar to overview It s designed to be quick and is the best way of getting the number of people on your site</documentation>
+      <input message='tns:concurrentsRequestMessage' name='concurrentsInput' />
+      <output message='tns:concurrentsResponseMessage' name='concurrentsOutput' />
+    </operation>
+    <operation name='engagement'>
+      <documentation>the engagement function lets you know how engaged users are on the website For example whether they are active and their time on site</documentation>
+      <input message='tns:engagementRequestMessage' name='engagementInput' />
+      <output message='tns:engagementResponseMessage' name='engagementOutput' />
+    </operation>
+    <operation name='functions'>
+      <documentation>functions responds with a list of all available API functions and their URLs</documentation>
+      <input message='tns:functionsRequestMessage' name='functionsInput' />
+      <output message='tns:functionsResponseMessage' name='functionsOutput' />
+    </operation>
+    <operation name='geo'>
+      <documentation>the geo function responds with the specified site s visitors locations</documentation>
+      <input message='tns:geoRequestMessage' name='geoInput' />
+      <output message='tns:geoResponseMessage' name='geoOutput' />
+    </operation>
+    <operation name='ignoredvisitors'>
+      <documentation>retrieves a list of ignored visitors This list comprises numerical visitor IDs in an array To add or remove visitors IDs to the list use the POST and DELETE HTTP methods</documentation>
+      <input message='tns:ignoredvisitorsRequestMessage' name='ignoredvisitorsInput' />
+      <output message='tns:ignoredvisitorsResponseMessage' name='ignoredvisitorsOutput' />
+    </operation>
+    <operation name='organics'>
+      <documentation>the organics function returns the search providers and queries that referred users to the site</documentation>
+      <input message='tns:organicsRequestMessage' name='organicsInput' />
+      <output message='tns:organicsResponseMessage' name='organicsOutput' />
+    </operation>
+    <operation name='overview'>
+      <documentation>the overview function responds with summary data for the site including people online the number of active pages and more</documentation>
+      <input message='tns:overviewRequestMessage' name='overviewInput' />
+      <output message='tns:overviewResponseMessage' name='overviewOutput' />
+    </operation>
+    <operation name='pages'>
+      <documentation>the pages function returns the pages currently active on the site ordered by the number of visitors online</documentation>
+      <input message='tns:pagesRequestMessage' name='pagesInput' />
+      <output message='tns:pagesResponseMessage' name='pagesOutput' />
+    </operation>
+    <operation name='referrers'>
+      <documentation>the referrers function responds with the websites that have referred users to the site along with the number of visitors currently active from that URL</documentation>
+      <input message='tns:referrersRequestMessage' name='referrersInput' />
+      <output message='tns:referrersResponseMessage' name='referrersOutput' />
+    </operation>
+    <operation name='reportpreferences'>
+      <documentation>this function is not stable and is subject to change Beware Retrieve your site and user report preferences Can be changed and deleted using other methods Report Preferences for specific sites can be accessed changes or deleted by using reportPreferences site token The object can also be expored using the URL route</documentation>
+      <input message='tns:reportpreferencesRequestMessage' name='reportpreferencesInput' />
+      <output message='tns:reportpreferencesResponseMessage' name='reportpreferencesOutput' />
+    </operation>
+    <operation name='sites'>
+      <documentation>the sites function will respond with a list of all of the sites that the user s API Key has access split by whether or not they are shared sites If a site token is provided it will provide the details of just that site</documentation>
+      <input message='tns:sitesRequestMessage' name='sitesInput' />
+      <output message='tns:sitesResponseMessage' name='sitesOutput' />
+    </operation>
+    <operation name='time'>
+      <documentation>the time function responds with the current timestamp</documentation>
+      <input message='tns:timeRequestMessage' name='timeInput' />
+      <output message='tns:timeResponseMessage' name='timeOutput' />
+    </operation>
+    <operation name='timeseries'>
+      <documentation>the timeSeries function responds with the number of concurrent visitors over time as the metric visitors total</documentation>
+      <input message='tns:timeseriesRequestMessage' name='timeseriesInput' />
+      <output message='tns:timeseriesResponseMessage' name='timeseriesOutput' />
+    </operation>
+    <operation name='visitors'>
+      <documentation>the visitors function responds with detailed information about the current visitors on the site They can be filtered by multiple parameters It can also get information for a specific visitor ID by defining the visitorID parameter</documentation>
+      <input message='tns:visitorsRequestMessage' name='visitorsInput' />
+      <output message='tns:visitorsResponseMessage' name='visitorsOutput' />
+    </operation>
+  </portType>
+  <binding name='gosquaredBinding' type='tns:gosquaredPortType'>
+    <operation name='aggregatestats'>
+      <soap12:operation soapAction='http://aggregatestats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='campaigns'>
+      <soap12:operation soapAction='http://campaigns' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='concurrents'>
+      <soap12:operation soapAction='http://concurrents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='engagement'>
+      <soap12:operation soapAction='http://engagement' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='functions'>
+      <soap12:operation soapAction='http://functions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='geo'>
+      <soap12:operation soapAction='http://geo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='ignoredvisitors'>
+      <soap12:operation soapAction='http://ignoredvisitors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='organics'>
+      <soap12:operation soapAction='http://organics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='overview'>
+      <soap12:operation soapAction='http://overview' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='pages'>
+      <soap12:operation soapAction='http://pages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='referrers'>
+      <soap12:operation soapAction='http://referrers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='reportpreferences'>
+      <soap12:operation soapAction='http://reportpreferences' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sites'>
+      <soap12:operation soapAction='http://sites' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='time'>
+      <soap12:operation soapAction='http://time' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='timeseries'>
+      <soap12:operation soapAction='http://timeseries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='visitors'>
+      <soap12:operation soapAction='http://visitors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='gosquared'>
+    <documentation>WARNING This version of the API is deprecated Please see https www gosquared com developer api for the latest documentation</documentation>
+    <port name='gosquaredPort' binding='tns:gosquaredBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://gosquared' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tsaboinCams/' name='tsaboinCams' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tsaboinCams/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tsaboinCams/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tsaboinCams/'>
+      <xsd:element name='camlistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewcamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='camkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewcamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dt' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='new' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='created' type='xsd:string' minOccurs='0' />
+            <xsd:element name='camkey' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='videoid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='live' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notAvailable' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='camlistRequestMessage' />
+  <message name='camlistResponseMessage'>
+    <part name='response' element='tns:camlistResponse' />
+  </message>
+  <message name='viewcamRequestMessage'>
+    <part name='parameters' element='tns:viewcamParameters' />
+  </message>
+  <message name='viewcamResponseMessage'>
+    <part name='response' element='tns:viewcamResponse' />
+  </message>
+  <portType name='tsaboinCamsPortType'>
+    <operation name='camlist'>
+      <documentation>list all available traffic cameras</documentation>
+      <input message='tns:camlistRequestMessage' name='camlistInput' />
+      <output message='tns:camlistResponseMessage' name='camlistOutput' />
+    </operation>
+    <operation name='viewcam'>
+      <documentation>view a particular camera by its key</documentation>
+      <input message='tns:viewcamRequestMessage' name='viewcamInput' />
+      <output message='tns:viewcamResponseMessage' name='viewcamOutput' />
+    </operation>
+  </portType>
+  <binding name='tsaboinCamsBinding' type='tns:tsaboinCamsPortType'>
+    <operation name='camlist'>
+      <soap12:operation soapAction='http://camlist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='viewcam'>
+      <soap12:operation soapAction='http://viewcam' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tsaboinCams'>
+    <documentation>with our API you can extend your projects check terms and conditions for more details by connecting to our servers for traffic details around bus stops and for live traffic cams</documentation>
+    <port name='tsaboinCamsPort' binding='tns:tsaboinCamsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tsaboinCams' />
+    </port>
+  </service>
+</definitions>

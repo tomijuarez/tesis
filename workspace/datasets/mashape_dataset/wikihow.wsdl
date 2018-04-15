@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wikihow/' name='wikihow' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wikihow/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wikihow/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wikihow/'>
+      <xsd:element name='imagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='n1' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='n2' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='n3' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stepsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stepsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='n1' type='xsd:string' minOccurs='0' />
+            <xsd:element name='n2' type='xsd:string' minOccurs='0' />
+            <xsd:element name='n3' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imagesRequestMessage'>
+    <part name='parameters' element='tns:imagesParameters' />
+  </message>
+  <message name='imagesResponseMessage'>
+    <part name='response' element='tns:imagesResponse' />
+  </message>
+  <message name='stepsRequestMessage'>
+    <part name='parameters' element='tns:stepsParameters' />
+  </message>
+  <message name='stepsResponseMessage'>
+    <part name='response' element='tns:stepsResponse' />
+  </message>
+  <portType name='wikihowPortType'>
+    <operation name='images'>
+      <documentation>gets the src URL for random WikiHow images</documentation>
+      <input message='tns:imagesRequestMessage' name='imagesInput' />
+      <output message='tns:imagesResponseMessage' name='imagesOutput' />
+    </operation>
+    <operation name='steps'>
+      <documentation>gets a random selection of WikiHow steps</documentation>
+      <input message='tns:stepsRequestMessage' name='stepsInput' />
+      <output message='tns:stepsResponseMessage' name='stepsOutput' />
+    </operation>
+  </portType>
+  <binding name='wikihowBinding' type='tns:wikihowPortType'>
+    <operation name='images'>
+      <soap12:operation soapAction='http://images' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='steps'>
+      <soap12:operation soapAction='http://steps' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wikihow'>
+    <documentation>retrieves random out of context snippets from WikiHow articles currently the first sentence of instructional steps and step images Fun to mix and match</documentation>
+    <port name='wikihowPort' binding='tns:wikihowBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wikihow' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentimentAnalysis/' name='sentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentimentAnalysis/'>
+      <xsd:element name='sentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='concepts' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entities' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='of' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txt' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='sd' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='segment_list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sd' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='subjectivity' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='score_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sd_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='concept_list' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='endp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='irony' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='inip' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='keyword_list' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='score_tag' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='concept_list' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='subjectivity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='score_tag' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sd_tag' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='concept_list' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='sd' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='score_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sd_tag' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='model' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='irony' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='msg' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='credits' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='remaining_credits' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cs' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dm' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='egp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='of' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='rt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sdg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='st' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeref' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tv' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='txtf' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uw' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='verbose' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sentimentRequestMessage'>
+    <part name='parameters' element='tns:sentimentParameters' />
+  </message>
+  <message name='sentimentResponseMessage'>
+    <part name='response' element='tns:sentimentResponse' />
+  </message>
+  <message name='sentimentRequestMessage'>
+    <part name='parameters' element='tns:sentimentParameters' />
+  </message>
+  <message name='sentimentResponseMessage'>
+    <part name='response' element='tns:sentimentResponse' />
+  </message>
+  <portType name='sentimentAnalysisPortType'>
+    <operation name='sentiment'>
+      <documentation>sentiment analysis of multilingual texts</documentation>
+      <input message='tns:sentimentRequestMessage' name='sentimentInput' />
+      <output message='tns:sentimentResponseMessage' name='sentimentOutput' />
+    </operation>
+    <operation name='sentiment'>
+      <documentation>sentiment analysis of multilingual texts</documentation>
+      <input message='tns:sentimentRequestMessage' name='sentimentInput' />
+      <output message='tns:sentimentResponseMessage' name='sentimentOutput' />
+    </operation>
+  </portType>
+  <binding name='sentimentAnalysisBinding' type='tns:sentimentAnalysisPortType'>
+    <operation name='sentiment'>
+      <soap12:operation soapAction='http://sentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentiment'>
+      <soap12:operation soapAction='http://sentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentimentAnalysis'>
+    <documentation>multilingual sentiment analysis of texts from different sources blogs social networks Besides polarity at sentence and global level Sentiment Analysis uses advanced natural language processing techniques to also detect the polarity associated to both entities and concepts in the text Sentiment Analysis also gives the user the possibility of detecting the polarity of user defined entities and concepts making the service a flexible tool applicable to any kind of scenario Additionally Sentiment Analysis detects if the text processed is subjective or objective and if it contains irony marks beta both at global and sentence level giving the user additional information about the reliability of the polarity obtained from the sentiment analysis</documentation>
+    <port name='sentimentAnalysisPort' binding='tns:sentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

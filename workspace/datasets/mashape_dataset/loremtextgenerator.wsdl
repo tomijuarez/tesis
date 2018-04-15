@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/loremTextGenerator/' name='loremTextGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/loremTextGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/loremTextGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/loremTextGenerator/'>
+      <xsd:element name='paragraphParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='length' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='paragraphResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentenceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='length' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentenceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='paragraphRequestMessage'>
+    <part name='parameters' element='tns:paragraphParameters' />
+  </message>
+  <message name='paragraphResponseMessage'>
+    <part name='response' element='tns:paragraphResponse' />
+  </message>
+  <message name='sentenceRequestMessage'>
+    <part name='parameters' element='tns:sentenceParameters' />
+  </message>
+  <message name='sentenceResponseMessage'>
+    <part name='response' element='tns:sentenceResponse' />
+  </message>
+  <message name='wordRequestMessage'>
+    <part name='parameters' element='tns:wordParameters' />
+  </message>
+  <message name='wordResponseMessage'>
+    <part name='response' element='tns:wordResponse' />
+  </message>
+  <portType name='loremTextGeneratorPortType'>
+    <operation name='paragraph'>
+      <documentation>generates a random lorem ipsum paragraph</documentation>
+      <input message='tns:paragraphRequestMessage' name='paragraphInput' />
+      <output message='tns:paragraphResponseMessage' name='paragraphOutput' />
+    </operation>
+    <operation name='sentence'>
+      <documentation>generates a random lorem ipsum sentence</documentation>
+      <input message='tns:sentenceRequestMessage' name='sentenceInput' />
+      <output message='tns:sentenceResponseMessage' name='sentenceOutput' />
+    </operation>
+    <operation name='word'>
+      <documentation>generate a single random lorem ipsum word</documentation>
+      <input message='tns:wordRequestMessage' name='wordInput' />
+      <output message='tns:wordResponseMessage' name='wordOutput' />
+    </operation>
+  </portType>
+  <binding name='loremTextGeneratorBinding' type='tns:loremTextGeneratorPortType'>
+    <operation name='paragraph'>
+      <soap12:operation soapAction='http://paragraph' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentence'>
+      <soap12:operation soapAction='http://sentence' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='word'>
+      <soap12:operation soapAction='http://word' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='loremTextGenerator'>
+    <documentation>generate lorem ipsum filler text with this easy to use API</documentation>
+    <port name='loremTextGeneratorPort' binding='tns:loremTextGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://loremTextGenerator' />
+    </port>
+  </service>
+</definitions>

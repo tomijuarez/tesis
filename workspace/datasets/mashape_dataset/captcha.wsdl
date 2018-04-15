@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/captcha/' name='captcha' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/captcha/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/captcha/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/captcha/'>
+      <xsd:element name='solveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeout' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='solveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='captcha' type='xsd:string' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='solveRequestMessage'>
+    <part name='parameters' element='tns:solveParameters' />
+  </message>
+  <message name='solveResponseMessage'>
+    <part name='response' element='tns:solveResponse' />
+  </message>
+  <portType name='captchaPortType'>
+    <operation name='solve'>
+      <documentation>solve a Captcha given an image URL</documentation>
+      <input message='tns:solveRequestMessage' name='solveInput' />
+      <output message='tns:solveResponseMessage' name='solveOutput' />
+    </operation>
+  </portType>
+  <binding name='captchaBinding' type='tns:captchaPortType'>
+    <operation name='solve'>
+      <soap12:operation soapAction='http://solve' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='captcha'>
+    <documentation>metropolis can solve any Captcha for you Just pass the Captcha Image and the API will return the text Plain and Simple</documentation>
+    <port name='captchaPort' binding='tns:captchaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://captcha' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/verifyEuVatNumber/' name='verifyEuVatNumber' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/verifyEuVatNumber/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/verifyEuVatNumber/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/verifyEuVatNumber/'>
+      <xsd:element name='detectEuVatNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='detectEuVatNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='address' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='detectEuVatNumberRequestMessage'>
+    <part name='parameters' element='tns:detectEuVatNumberParameters' />
+  </message>
+  <message name='detectEuVatNumberResponseMessage'>
+    <part name='response' element='tns:detectEuVatNumberResponse' />
+  </message>
+  <portType name='verifyEuVatNumberPortType'>
+    <operation name='detectEuVatNumber'>
+      <documentation>this API will allow you to easily detect if a VAT number is valid in the EU or not</documentation>
+      <input message='tns:detectEuVatNumberRequestMessage' name='detectEuVatNumberInput' />
+      <output message='tns:detectEuVatNumberResponseMessage' name='detectEuVatNumberOutput' />
+    </operation>
+  </portType>
+  <binding name='verifyEuVatNumberBinding' type='tns:verifyEuVatNumberPortType'>
+    <operation name='detectEuVatNumber'>
+      <soap12:operation soapAction='http://detectEuVatNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='verifyEuVatNumber'>
+    <documentation>this API will help you to easily detect if a VAT number is valid in the EU or not If the country supports it you will also be able to get the name of the company</documentation>
+    <port name='verifyEuVatNumberPort' binding='tns:verifyEuVatNumberBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://verifyEuVatNumber' />
+    </port>
+  </service>
+</definitions>

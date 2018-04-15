@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cardsearch/' name='cardsearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cardsearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cardsearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cardsearch/'>
+      <xsd:element name='vCardsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='active' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mids' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='names' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vCardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reason' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='succes' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vPricesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mids' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='names' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vPricesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vSetsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vSetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reason' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='succes' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vCardsRequestMessage'>
+    <part name='parameters' element='tns:vCardsParameters' />
+  </message>
+  <message name='vCardsResponseMessage'>
+    <part name='response' element='tns:vCardsResponse' />
+  </message>
+  <message name='vPricesRequestMessage'>
+    <part name='parameters' element='tns:vPricesParameters' />
+  </message>
+  <message name='vPricesResponseMessage'>
+    <part name='response' element='tns:vPricesResponse' />
+  </message>
+  <message name='vSetsRequestMessage'>
+    <part name='parameters' element='tns:vSetsParameters' />
+  </message>
+  <message name='vSetsResponseMessage'>
+    <part name='response' element='tns:vSetsResponse' />
+  </message>
+  <portType name='cardsearchPortType'>
+    <operation name='vCards'>
+      <documentation>get card information</documentation>
+      <input message='tns:vCardsRequestMessage' name='vCardsInput' />
+      <output message='tns:vCardsResponseMessage' name='vCardsOutput' />
+    </operation>
+    <operation name='vPrices'>
+      <documentation>get general price information per card</documentation>
+      <input message='tns:vPricesRequestMessage' name='vPricesInput' />
+      <output message='tns:vPricesResponseMessage' name='vPricesOutput' />
+    </operation>
+    <operation name='vSets'>
+      <documentation>get all sets</documentation>
+      <input message='tns:vSetsRequestMessage' name='vSetsInput' />
+      <output message='tns:vSetsResponseMessage' name='vSetsOutput' />
+    </operation>
+  </portType>
+  <binding name='cardsearchBinding' type='tns:cardsearchPortType'>
+    <operation name='vCards'>
+      <soap12:operation soapAction='http://vCards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vPrices'>
+      <soap12:operation soapAction='http://vPrices' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='vSets'>
+      <soap12:operation soapAction='http://vSets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cardsearch'>
+    <documentation>magic the Gathering card set and Dutch price information Each api call is required to provide a authentication key You can request one by email it s free by the way info cardsearch nl Each api call can provide an additional parameter format with values json xml csv or table Json is the default format Example GET http api cardsearch nl v sets key demo format xml</documentation>
+    <port name='cardsearchPort' binding='tns:cardsearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cardsearch' />
+    </port>
+  </service>
+</definitions>

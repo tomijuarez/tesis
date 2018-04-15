@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/apiCart/' name='apiCart' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/apiCart/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/apiCart/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/apiCart/'>
+      <xsd:element name='bridgeDownloadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bridgeDownloadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartBridgeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartBridgeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='bridge' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='store_key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartCreateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cartid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dbtablesprefix' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ftphost' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ftppassword' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ftpport' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ftpstoredir' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ftpuser' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storeurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='verify' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartCreateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartDeleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartDeleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartDisconnectParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='deletebridge' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartDisconnectResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='connection' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='supported_carts_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='supported_carts' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='cart' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='cart_id' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='cart_name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='cart_type' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartMethodsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartMethodsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='method' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartValidateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cartValidateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='categories_count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryFindParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findparams' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findwhere' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryFindResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='categories_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parent_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='categories_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='parent_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerAddResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='customers_count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerDeleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerFindParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findparams' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findwhere' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerFindResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='customers_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='customer' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='last_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='first_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='customerUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderAddResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customeremail' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customerid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderFindParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customeremail' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customerid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderFindResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customeremail' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customerid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderStatusListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderStatusListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='orderUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='categoryid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='products_count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productFieldsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productFieldsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='product_fields' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='short_description' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='seo_url' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='u_upc' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='meta_keywords' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='avail_sale' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='u_sku' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='u_brand' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='u_model' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='options' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='categories' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='modified_at' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sort_order' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='tier_price' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='images' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='quantity' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='meta_title' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='avail_view' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='weight' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='meta_description' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='special_price' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='create_at' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='u_mpn' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='categories_ids' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productFindParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findparams' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='findwhere' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productFindResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='categoryid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='params' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storekey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='product' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='category_ids' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='products_count' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='return_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='return_code' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='return_code' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bridgeDownloadRequestMessage'>
+    <part name='parameters' element='tns:bridgeDownloadParameters' />
+  </message>
+  <message name='bridgeDownloadResponseMessage'>
+    <part name='response' element='tns:bridgeDownloadResponse' />
+  </message>
+  <message name='cartBridgeRequestMessage'>
+    <part name='parameters' element='tns:cartBridgeParameters' />
+  </message>
+  <message name='cartBridgeResponseMessage'>
+    <part name='response' element='tns:cartBridgeResponse' />
+  </message>
+  <message name='cartCreateRequestMessage'>
+    <part name='parameters' element='tns:cartCreateParameters' />
+  </message>
+  <message name='cartCreateResponseMessage'>
+    <part name='response' element='tns:cartCreateResponse' />
+  </message>
+  <message name='cartDeleteRequestMessage'>
+    <part name='parameters' element='tns:cartDeleteParameters' />
+  </message>
+  <message name='cartDeleteResponseMessage'>
+    <part name='response' element='tns:cartDeleteResponse' />
+  </message>
+  <message name='cartDisconnectRequestMessage'>
+    <part name='parameters' element='tns:cartDisconnectParameters' />
+  </message>
+  <message name='cartDisconnectResponseMessage'>
+    <part name='response' element='tns:cartDisconnectResponse' />
+  </message>
+  <message name='cartListRequestMessage'>
+    <part name='parameters' element='tns:cartListParameters' />
+  </message>
+  <message name='cartListResponseMessage'>
+    <part name='response' element='tns:cartListResponse' />
+  </message>
+  <message name='cartMethodsRequestMessage'>
+    <part name='parameters' element='tns:cartMethodsParameters' />
+  </message>
+  <message name='cartMethodsResponseMessage'>
+    <part name='response' element='tns:cartMethodsResponse' />
+  </message>
+  <message name='cartValidateRequestMessage'>
+    <part name='parameters' element='tns:cartValidateParameters' />
+  </message>
+  <message name='cartValidateResponseMessage'>
+    <part name='response' element='tns:cartValidateResponse' />
+  </message>
+  <message name='categoryCountRequestMessage'>
+    <part name='parameters' element='tns:categoryCountParameters' />
+  </message>
+  <message name='categoryCountResponseMessage'>
+    <part name='response' element='tns:categoryCountResponse' />
+  </message>
+  <message name='categoryFindRequestMessage'>
+    <part name='parameters' element='tns:categoryFindParameters' />
+  </message>
+  <message name='categoryFindResponseMessage'>
+    <part name='response' element='tns:categoryFindResponse' />
+  </message>
+  <message name='categoryInfoRequestMessage'>
+    <part name='parameters' element='tns:categoryInfoParameters' />
+  </message>
+  <message name='categoryInfoResponseMessage'>
+    <part name='response' element='tns:categoryInfoResponse' />
+  </message>
+  <message name='categoryListRequestMessage'>
+    <part name='parameters' element='tns:categoryListParameters' />
+  </message>
+  <message name='categoryListResponseMessage'>
+    <part name='response' element='tns:categoryListResponse' />
+  </message>
+  <message name='customerAddRequestMessage' />
+  <message name='customerAddResponseMessage'>
+    <part name='response' element='tns:customerAddResponse' />
+  </message>
+  <message name='customerCountRequestMessage'>
+    <part name='parameters' element='tns:customerCountParameters' />
+  </message>
+  <message name='customerCountResponseMessage'>
+    <part name='response' element='tns:customerCountResponse' />
+  </message>
+  <message name='customerDeleteRequestMessage' />
+  <message name='customerDeleteResponseMessage'>
+    <part name='response' element='tns:customerDeleteResponse' />
+  </message>
+  <message name='customerFindRequestMessage'>
+    <part name='parameters' element='tns:customerFindParameters' />
+  </message>
+  <message name='customerFindResponseMessage'>
+    <part name='response' element='tns:customerFindResponse' />
+  </message>
+  <message name='customerInfoRequestMessage'>
+    <part name='parameters' element='tns:customerInfoParameters' />
+  </message>
+  <message name='customerInfoResponseMessage'>
+    <part name='response' element='tns:customerInfoResponse' />
+  </message>
+  <message name='customerListRequestMessage'>
+    <part name='parameters' element='tns:customerListParameters' />
+  </message>
+  <message name='customerListResponseMessage'>
+    <part name='response' element='tns:customerListResponse' />
+  </message>
+  <message name='customerUpdateRequestMessage' />
+  <message name='customerUpdateResponseMessage'>
+    <part name='response' element='tns:customerUpdateResponse' />
+  </message>
+  <message name='orderAddRequestMessage' />
+  <message name='orderAddResponseMessage'>
+    <part name='response' element='tns:orderAddResponse' />
+  </message>
+  <message name='orderCountRequestMessage'>
+    <part name='parameters' element='tns:orderCountParameters' />
+  </message>
+  <message name='orderCountResponseMessage'>
+    <part name='response' element='tns:orderCountResponse' />
+  </message>
+  <message name='orderFindRequestMessage'>
+    <part name='parameters' element='tns:orderFindParameters' />
+  </message>
+  <message name='orderFindResponseMessage'>
+    <part name='response' element='tns:orderFindResponse' />
+  </message>
+  <message name='orderInfoRequestMessage'>
+    <part name='parameters' element='tns:orderInfoParameters' />
+  </message>
+  <message name='orderInfoResponseMessage'>
+    <part name='response' element='tns:orderInfoResponse' />
+  </message>
+  <message name='orderListRequestMessage'>
+    <part name='parameters' element='tns:orderListParameters' />
+  </message>
+  <message name='orderListResponseMessage'>
+    <part name='response' element='tns:orderListResponse' />
+  </message>
+  <message name='orderStatusListRequestMessage'>
+    <part name='parameters' element='tns:orderStatusListParameters' />
+  </message>
+  <message name='orderStatusListResponseMessage'>
+    <part name='response' element='tns:orderStatusListResponse' />
+  </message>
+  <message name='orderUpdateRequestMessage' />
+  <message name='orderUpdateResponseMessage'>
+    <part name='response' element='tns:orderUpdateResponse' />
+  </message>
+  <message name='productCountRequestMessage'>
+    <part name='parameters' element='tns:productCountParameters' />
+  </message>
+  <message name='productCountResponseMessage'>
+    <part name='response' element='tns:productCountResponse' />
+  </message>
+  <message name='productFieldsRequestMessage'>
+    <part name='parameters' element='tns:productFieldsParameters' />
+  </message>
+  <message name='productFieldsResponseMessage'>
+    <part name='response' element='tns:productFieldsResponse' />
+  </message>
+  <message name='productFindRequestMessage'>
+    <part name='parameters' element='tns:productFindParameters' />
+  </message>
+  <message name='productFindResponseMessage'>
+    <part name='response' element='tns:productFindResponse' />
+  </message>
+  <message name='productInfoRequestMessage'>
+    <part name='parameters' element='tns:productInfoParameters' />
+  </message>
+  <message name='productInfoResponseMessage'>
+    <part name='response' element='tns:productInfoResponse' />
+  </message>
+  <message name='productListRequestMessage'>
+    <part name='parameters' element='tns:productListParameters' />
+  </message>
+  <message name='productListResponseMessage'>
+    <part name='response' element='tns:productListResponse' />
+  </message>
+  <message name='productUpdateRequestMessage' />
+  <message name='productUpdateResponseMessage'>
+    <part name='response' element='tns:productUpdateResponse' />
+  </message>
+  <portType name='apiCartPortType'>
+    <operation name='bridgeDownload'>
+      <documentation>download bridge for store</documentation>
+      <input message='tns:bridgeDownloadRequestMessage' name='bridgeDownloadInput' />
+      <output message='tns:bridgeDownloadResponseMessage' name='bridgeDownloadOutput' />
+    </operation>
+    <operation name='cartBridge'>
+      <documentation>get bridge key and store key</documentation>
+      <input message='tns:cartBridgeRequestMessage' name='cartBridgeInput' />
+      <output message='tns:cartBridgeResponseMessage' name='cartBridgeOutput' />
+    </operation>
+    <operation name='cartCreate'>
+      <documentation>add store to account</documentation>
+      <input message='tns:cartCreateRequestMessage' name='cartCreateInput' />
+      <output message='tns:cartCreateResponseMessage' name='cartCreateOutput' />
+    </operation>
+    <operation name='cartDelete'>
+      <documentation>remove store Store deletion will be performed without confirmation To add Demo store press Add Demo Store button</documentation>
+      <input message='tns:cartDeleteRequestMessage' name='cartDeleteInput' />
+      <output message='tns:cartDeleteResponseMessage' name='cartDeleteOutput' />
+    </operation>
+    <operation name='cartDisconnect'>
+      <documentation>disconnect with the store and clear store session data</documentation>
+      <input message='tns:cartDisconnectRequestMessage' name='cartDisconnectInput' />
+      <output message='tns:cartDisconnectResponseMessage' name='cartDisconnectOutput' />
+    </operation>
+    <operation name='cartList'>
+      <documentation>get list of supported carts</documentation>
+      <input message='tns:cartListRequestMessage' name='cartListInput' />
+      <output message='tns:cartListResponseMessage' name='cartListOutput' />
+    </operation>
+    <operation name='cartMethods'>
+      <documentation>get list of cart methods</documentation>
+      <input message='tns:cartMethodsRequestMessage' name='cartMethodsInput' />
+      <output message='tns:cartMethodsResponseMessage' name='cartMethodsOutput' />
+    </operation>
+    <operation name='cartValidate'>
+      <documentation>check store availability check bridge connection for the downloadable carts identify database prefix validate API accesses for API carts</documentation>
+      <input message='tns:cartValidateRequestMessage' name='cartValidateInput' />
+      <output message='tns:cartValidateResponseMessage' name='cartValidateOutput' />
+    </operation>
+    <operation name='categoryCount'>
+      <documentation>count categories in store</documentation>
+      <input message='tns:categoryCountRequestMessage' name='categoryCountInput' />
+      <output message='tns:categoryCountResponseMessage' name='categoryCountOutput' />
+    </operation>
+    <operation name='categoryFind'>
+      <documentation>search category in store Laptop is specified here be default</documentation>
+      <input message='tns:categoryFindRequestMessage' name='categoryFindInput' />
+      <output message='tns:categoryFindResponseMessage' name='categoryFindOutput' />
+    </operation>
+    <operation name='categoryInfo'>
+      <documentation>get category info about category ID or specify other category ID</documentation>
+      <input message='tns:categoryInfoRequestMessage' name='categoryInfoInput' />
+      <output message='tns:categoryInfoResponseMessage' name='categoryInfoOutput' />
+    </operation>
+    <operation name='categoryList'>
+      <documentation>get list of categories from store Test method performance with categories</documentation>
+      <input message='tns:categoryListRequestMessage' name='categoryListInput' />
+      <output message='tns:categoryListResponseMessage' name='categoryListOutput' />
+    </operation>
+    <operation name='customerAdd'>
+      <documentation>add customer into store</documentation>
+      <input message='tns:customerAddRequestMessage' name='customerAddInput' />
+      <output message='tns:customerAddResponseMessage' name='customerAddOutput' />
+    </operation>
+    <operation name='customerCount'>
+      <documentation>get count of customers from store</documentation>
+      <input message='tns:customerCountRequestMessage' name='customerCountInput' />
+      <output message='tns:customerCountResponseMessage' name='customerCountOutput' />
+    </operation>
+    <operation name='customerDelete'>
+      <documentation>delete customer from store</documentation>
+      <input message='tns:customerDeleteRequestMessage' name='customerDeleteInput' />
+      <output message='tns:customerDeleteResponseMessage' name='customerDeleteOutput' />
+    </operation>
+    <operation name='customerFind'>
+      <documentation>find customers in store</documentation>
+      <input message='tns:customerFindRequestMessage' name='customerFindInput' />
+      <output message='tns:customerFindResponseMessage' name='customerFindOutput' />
+    </operation>
+    <operation name='customerInfo'>
+      <documentation>get details of customers from store</documentation>
+      <input message='tns:customerInfoRequestMessage' name='customerInfoInput' />
+      <output message='tns:customerInfoResponseMessage' name='customerInfoOutput' />
+    </operation>
+    <operation name='customerList'>
+      <documentation>get list of customers from store</documentation>
+      <input message='tns:customerListRequestMessage' name='customerListInput' />
+      <output message='tns:customerListResponseMessage' name='customerListOutput' />
+    </operation>
+    <operation name='customerUpdate'>
+      <documentation>update information of customer in store</documentation>
+      <input message='tns:customerUpdateRequestMessage' name='customerUpdateInput' />
+      <output message='tns:customerUpdateResponseMessage' name='customerUpdateOutput' />
+    </operation>
+    <operation name='orderAdd'>
+      <documentation>add new order to the cart</documentation>
+      <input message='tns:orderAddRequestMessage' name='orderAddInput' />
+      <output message='tns:orderAddResponseMessage' name='orderAddOutput' />
+    </operation>
+    <operation name='orderCount'>
+      <documentation>count orders in store</documentation>
+      <input message='tns:orderCountRequestMessage' name='orderCountInput' />
+      <output message='tns:orderCountResponseMessage' name='orderCountOutput' />
+    </operation>
+    <operation name='orderFind'>
+      <documentation>find order</documentation>
+      <input message='tns:orderFindRequestMessage' name='orderFindInput' />
+      <output message='tns:orderFindResponseMessage' name='orderFindOutput' />
+    </operation>
+    <operation name='orderInfo'>
+      <documentation>info about order</documentation>
+      <input message='tns:orderInfoRequestMessage' name='orderInfoInput' />
+      <output message='tns:orderInfoResponseMessage' name='orderInfoOutput' />
+    </operation>
+    <operation name='orderList'>
+      <documentation>get list of orders from store Test method performance with orders</documentation>
+      <input message='tns:orderListRequestMessage' name='orderListInput' />
+      <output message='tns:orderListResponseMessage' name='orderListOutput' />
+    </operation>
+    <operation name='orderStatusList'>
+      <documentation>retrieve list of statuses</documentation>
+      <input message='tns:orderStatusListRequestMessage' name='orderStatusListInput' />
+      <output message='tns:orderStatusListResponseMessage' name='orderStatusListOutput' />
+    </operation>
+    <operation name='orderUpdate'>
+      <documentation>update existing order</documentation>
+      <input message='tns:orderUpdateRequestMessage' name='orderUpdateInput' />
+      <output message='tns:orderUpdateResponseMessage' name='orderUpdateOutput' />
+    </operation>
+    <operation name='productCount'>
+      <documentation>count products in store</documentation>
+      <input message='tns:productCountRequestMessage' name='productCountInput' />
+      <output message='tns:productCountResponseMessage' name='productCountOutput' />
+    </operation>
+    <operation name='productFields'>
+      <documentation>retrieve all available fields for product item in store</documentation>
+      <input message='tns:productFieldsRequestMessage' name='productFieldsInput' />
+      <output message='tns:productFieldsResponseMessage' name='productFieldsOutput' />
+    </operation>
+    <operation name='productFind'>
+      <documentation>search product in store catalog Apple is specified here be default</documentation>
+      <input message='tns:productFindRequestMessage' name='productFindInput' />
+      <output message='tns:productFindResponseMessage' name='productFindOutput' />
+    </operation>
+    <operation name='productInfo'>
+      <documentation>get product info about product ID or specify other product ID</documentation>
+      <input message='tns:productInfoRequestMessage' name='productInfoInput' />
+      <output message='tns:productInfoResponseMessage' name='productInfoOutput' />
+    </operation>
+    <operation name='productList'>
+      <documentation>get list of products from your store Test method performance with products</documentation>
+      <input message='tns:productListRequestMessage' name='productListInput' />
+      <output message='tns:productListResponseMessage' name='productListOutput' />
+    </operation>
+    <operation name='productUpdate'>
+      <documentation>update price for specific product</documentation>
+      <input message='tns:productUpdateRequestMessage' name='productUpdateInput' />
+      <output message='tns:productUpdateResponseMessage' name='productUpdateOutput' />
+    </operation>
+  </portType>
+  <binding name='apiCartBinding' type='tns:apiCartPortType'>
+    <operation name='bridgeDownload'>
+      <soap12:operation soapAction='http://bridgeDownload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartBridge'>
+      <soap12:operation soapAction='http://cartBridge' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartCreate'>
+      <soap12:operation soapAction='http://cartCreate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartDelete'>
+      <soap12:operation soapAction='http://cartDelete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartDisconnect'>
+      <soap12:operation soapAction='http://cartDisconnect' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartList'>
+      <soap12:operation soapAction='http://cartList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartMethods'>
+      <soap12:operation soapAction='http://cartMethods' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cartValidate'>
+      <soap12:operation soapAction='http://cartValidate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryCount'>
+      <soap12:operation soapAction='http://categoryCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryFind'>
+      <soap12:operation soapAction='http://categoryFind' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryInfo'>
+      <soap12:operation soapAction='http://categoryInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='categoryList'>
+      <soap12:operation soapAction='http://categoryList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerAdd'>
+      <soap12:operation soapAction='http://customerAdd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerCount'>
+      <soap12:operation soapAction='http://customerCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerDelete'>
+      <soap12:operation soapAction='http://customerDelete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerFind'>
+      <soap12:operation soapAction='http://customerFind' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerInfo'>
+      <soap12:operation soapAction='http://customerInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerList'>
+      <soap12:operation soapAction='http://customerList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='customerUpdate'>
+      <soap12:operation soapAction='http://customerUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderAdd'>
+      <soap12:operation soapAction='http://orderAdd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderCount'>
+      <soap12:operation soapAction='http://orderCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderFind'>
+      <soap12:operation soapAction='http://orderFind' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderInfo'>
+      <soap12:operation soapAction='http://orderInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderList'>
+      <soap12:operation soapAction='http://orderList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderStatusList'>
+      <soap12:operation soapAction='http://orderStatusList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orderUpdate'>
+      <soap12:operation soapAction='http://orderUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productCount'>
+      <soap12:operation soapAction='http://productCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productFields'>
+      <soap12:operation soapAction='http://productFields' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productFind'>
+      <soap12:operation soapAction='http://productFind' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productInfo'>
+      <soap12:operation soapAction='http://productInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productList'>
+      <soap12:operation soapAction='http://productList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='productUpdate'>
+      <soap12:operation soapAction='http://productUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='apiCart'>
+    <documentation>aPI Cart is a unified shopping cart data interface that makes integration with multiple shopping cart APIs simple and effective Service supports integration with eCommerce platforms including Magento PrestaShop OpenCart VirtueMart Shopify BigCommerce WooCommerce and can be used to cooperate with numerous business software in various fields including Mobile Commerce Social Commerce E mail Marketing Inventory Management Order Management Comparison Shopping Engines Analytics System Accounting System and other</documentation>
+    <port name='apiCartPort' binding='tns:apiCartBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://apiCart' />
+    </port>
+  </service>
+</definitions>

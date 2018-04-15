@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/documentSimilarity/' name='documentSimilarity' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/documentSimilarity/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/documentSimilarity/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/documentSimilarity/'>
+      <xsd:element name='documentSimilarityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='similarity' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='documentSimilarityRequestMessage' />
+  <message name='documentSimilarityResponseMessage'>
+    <part name='response' element='tns:documentSimilarityResponse' />
+  </message>
+  <portType name='documentSimilarityPortType'>
+    <operation name='documentSimilarity'>
+      <documentation>document Similarity for two text document give the cosine similarity from to means absolute different means absolute same</documentation>
+      <input message='tns:documentSimilarityRequestMessage' name='documentSimilarityInput' />
+      <output message='tns:documentSimilarityResponseMessage' name='documentSimilarityOutput' />
+    </operation>
+  </portType>
+  <binding name='documentSimilarityBinding' type='tns:documentSimilarityPortType'>
+    <operation name='documentSimilarity'>
+      <soap12:operation soapAction='http://documentSimilarity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='documentSimilarity'>
+    <documentation>document Similarity API is based on advanced Natural Language Processing and Machine Learning technologies and it belongs to text analysis and can be used to analysis the semantic similarity of two text document that user provided The result is cosine similarity from to means absolute different means absolute same</documentation>
+    <port name='documentSimilarityPort' binding='tns:documentSimilarityBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://documentSimilarity' />
+    </port>
+  </service>
+</definitions>

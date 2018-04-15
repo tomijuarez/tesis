@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shopello/' name='shopello' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shopello/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shopello/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shopello/'>
+      <xsd:element name='categoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='categoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='category_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='categoryid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hasimages' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='order' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='orderby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pricemax' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='pricemin' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='storeid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='productsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='relatedProductsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='relatedProductsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='storeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='storeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='storesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='categoriesRequestMessage' />
+  <message name='categoriesResponseMessage'>
+    <part name='response' element='tns:categoriesResponse' />
+  </message>
+  <message name='categoryRequestMessage'>
+    <part name='parameters' element='tns:categoryParameters' />
+  </message>
+  <message name='categoryResponseMessage'>
+    <part name='response' element='tns:categoryResponse' />
+  </message>
+  <message name='productRequestMessage'>
+    <part name='parameters' element='tns:productParameters' />
+  </message>
+  <message name='productResponseMessage'>
+    <part name='response' element='tns:productResponse' />
+  </message>
+  <message name='productsRequestMessage'>
+    <part name='parameters' element='tns:productsParameters' />
+  </message>
+  <message name='productsResponseMessage'>
+    <part name='response' element='tns:productsResponse' />
+  </message>
+  <message name='relatedProductsRequestMessage'>
+    <part name='parameters' element='tns:relatedProductsParameters' />
+  </message>
+  <message name='relatedProductsResponseMessage'>
+    <part name='response' element='tns:relatedProductsResponse' />
+  </message>
+  <message name='storeRequestMessage'>
+    <part name='parameters' element='tns:storeParameters' />
+  </message>
+  <message name='storeResponseMessage'>
+    <part name='response' element='tns:storeResponse' />
+  </message>
+  <message name='storesRequestMessage' />
+  <message name='storesResponseMessage'>
+    <part name='response' element='tns:storesResponse' />
+  </message>
+  <portType name='shopelloPortType'>
+    <operation name='categories'>
+      <documentation></documentation>
+      <input message='tns:categoriesRequestMessage' name='categoriesInput' />
+      <output message='tns:categoriesResponseMessage' name='categoriesOutput' />
+    </operation>
+    <operation name='category'>
+      <documentation></documentation>
+      <input message='tns:categoryRequestMessage' name='categoryInput' />
+      <output message='tns:categoryResponseMessage' name='categoryOutput' />
+    </operation>
+    <operation name='product'>
+      <documentation></documentation>
+      <input message='tns:productRequestMessage' name='productInput' />
+      <output message='tns:productResponseMessage' name='productOutput' />
+    </operation>
+    <operation name='products'>
+      <documentation></documentation>
+      <input message='tns:productsRequestMessage' name='productsInput' />
+      <output message='tns:productsResponseMessage' name='productsOutput' />
+    </operation>
+    <operation name='relatedProducts'>
+      <documentation></documentation>
+      <input message='tns:relatedProductsRequestMessage' name='relatedProductsInput' />
+      <output message='tns:relatedProductsResponseMessage' name='relatedProductsOutput' />
+    </operation>
+    <operation name='store'>
+      <documentation></documentation>
+      <input message='tns:storeRequestMessage' name='storeInput' />
+      <output message='tns:storeResponseMessage' name='storeOutput' />
+    </operation>
+    <operation name='stores'>
+      <documentation></documentation>
+      <input message='tns:storesRequestMessage' name='storesInput' />
+      <output message='tns:storesResponseMessage' name='storesOutput' />
+    </operation>
+  </portType>
+  <binding name='shopelloBinding' type='tns:shopelloPortType'>
+    <operation name='categories'>
+      <soap12:operation soapAction='http://categories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='category'>
+      <soap12:operation soapAction='http://category' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='product'>
+      <soap12:operation soapAction='http://product' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='products'>
+      <soap12:operation soapAction='http://products' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='relatedProducts'>
+      <soap12:operation soapAction='http://relatedProducts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='store'>
+      <soap12:operation soapAction='http://store' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='stores'>
+      <soap12:operation soapAction='http://stores' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shopello'>
+    <documentation>shopello provides an API for a product search engine offering our partners to display products</documentation>
+    <port name='shopelloPort' binding='tns:shopelloBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shopello' />
+    </port>
+  </service>
+</definitions>

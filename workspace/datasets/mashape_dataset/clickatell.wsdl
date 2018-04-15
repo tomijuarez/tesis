@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/clickatell/' name='clickatell' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/clickatell/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/clickatell/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/clickatell/'>
+      <xsd:element name='sendMessageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMessageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendMessageRequestMessage'>
+    <part name='parameters' element='tns:sendMessageParameters' />
+  </message>
+  <message name='sendMessageResponseMessage'>
+    <part name='response' element='tns:sendMessageResponse' />
+  </message>
+  <portType name='clickatellPortType'>
+    <operation name='sendMessage'>
+      <documentation></documentation>
+      <input message='tns:sendMessageRequestMessage' name='sendMessageInput' />
+      <output message='tns:sendMessageResponseMessage' name='sendMessageOutput' />
+    </operation>
+  </portType>
+  <binding name='clickatellBinding' type='tns:clickatellPortType'>
+    <operation name='sendMessage'>
+      <soap12:operation soapAction='http://sendMessage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='clickatell'>
+    <documentation>use Clickatell s global SMS Gateway to send bulk SMS to over billion people on networks in countries territories This product provides an interface between your existing systems and Clickatell s Messaging Gateway</documentation>
+    <port name='clickatellPort' binding='tns:clickatellBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://clickatell' />
+    </port>
+  </service>
+</definitions>

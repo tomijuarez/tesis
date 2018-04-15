@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/models/' name='models' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/models/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/models/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/models/'>
+      <xsd:element name='vModelsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='modelholdings' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='modelperformance' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vModelsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='modelPortfolioList' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='modelPortfolioInfo' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='modelName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='modelID' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='modelSetName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='modelDesc' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='modelPortfolioHoldings' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='allocationPercent' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='apiVersion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tenantName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modelidParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='modelholdings' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='modelperformance' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modelidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vModelsRequestMessage'>
+    <part name='parameters' element='tns:vModelsParameters' />
+  </message>
+  <message name='vModelsResponseMessage'>
+    <part name='response' element='tns:vModelsResponse' />
+  </message>
+  <message name='modelidRequestMessage'>
+    <part name='parameters' element='tns:modelidParameters' />
+  </message>
+  <message name='modelidResponseMessage'>
+    <part name='response' element='tns:modelidResponse' />
+  </message>
+  <portType name='modelsPortType'>
+    <operation name='vModels'>
+      <documentation>the Model Portfolio API can either return a list of model portfolios for a tenant or a specific model s details If you make a request to https sandbox advisorsoftware com v models then all models for the tenant are returned If you include a model ID in the path then the details just for that model portfolio are returned For example https sandbox advisorsoftware com v models would return the details for the model portfolio with ID By default the holdings for each model portfolio are returned in the response but you can prevent the holdings from being returned by including the optional modelHoldings query parameter in the path For example https sandbox advisorsoftware com v models modelHoldings no will return the list of model portfolios for the tenant but without the list of holdings for each model portfolio Likewise you can also use the modelPerformance query parameter to include exclude historical performance data that has been imported for each model portfolio</documentation>
+      <input message='tns:vModelsRequestMessage' name='vModelsInput' />
+      <output message='tns:vModelsResponseMessage' name='vModelsOutput' />
+    </operation>
+    <operation name='modelid'>
+      <documentation>modelID</documentation>
+      <input message='tns:modelidRequestMessage' name='modelidInput' />
+      <output message='tns:modelidResponseMessage' name='modelidOutput' />
+    </operation>
+  </portType>
+  <binding name='modelsBinding' type='tns:modelsPortType'>
+    <operation name='vModels'>
+      <soap12:operation soapAction='http://vModels' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='modelid'>
+      <soap12:operation soapAction='http://modelid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='models'>
+    <documentation>the Model Portfolio API can either return a list of model portfolios for a tenant or a specific model s details If you make a request to https sandbox advisorsoftware com v models then all models for the tenant are returned If you include a model ID in the path then the details just for that model portfolio are returned For example https sandbox advisorsoftware com v models would return the details for the model portfolio with ID By default the holdings for each model portfolio are returned in the response but you can prevent the holdings from being returned by including the optional modelHoldings query parameter in the path For example https sandbox advisorsoftware com v models modelHoldings no will return the list of model portfolios for the tenant but without the list of holdings for each model portfolio Likewise you can also use the modelPerformance query parameter to include exclude historical performance data that has been imported for each model portfolio</documentation>
+    <port name='modelsPort' binding='tns:modelsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://models' />
+    </port>
+  </service>
+</definitions>

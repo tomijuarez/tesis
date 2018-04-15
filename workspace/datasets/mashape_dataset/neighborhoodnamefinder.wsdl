@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/neighborhoodNameFinder/' name='neighborhoodNameFinder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/neighborhoodNameFinder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/neighborhoodNameFinder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/neighborhoodNameFinder/'>
+      <xsd:element name='neighborhoodsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='neighborhoodsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='neighborhood' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='city' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='county' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='neighborhoodsRequestMessage'>
+    <part name='parameters' element='tns:neighborhoodsParameters' />
+  </message>
+  <message name='neighborhoodsResponseMessage'>
+    <part name='response' element='tns:neighborhoodsResponse' />
+  </message>
+  <portType name='neighborhoodNameFinderPortType'>
+    <operation name='neighborhoods'>
+      <documentation></documentation>
+      <input message='tns:neighborhoodsRequestMessage' name='neighborhoodsInput' />
+      <output message='tns:neighborhoodsResponseMessage' name='neighborhoodsOutput' />
+    </operation>
+  </portType>
+  <binding name='neighborhoodNameFinderBinding' type='tns:neighborhoodNameFinderPortType'>
+    <operation name='neighborhoods'>
+      <soap12:operation soapAction='http://neighborhoods' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='neighborhoodNameFinder'>
+    <documentation>gET A NEIGHBORHOOD BY LAT LONG We are an api that translates a lat long point to a neighborhood in the US</documentation>
+    <port name='neighborhoodNameFinderPort' binding='tns:neighborhoodNameFinderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://neighborhoodNameFinder' />
+    </port>
+  </service>
+</definitions>

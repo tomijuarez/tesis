@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/iAmSuperRich/' name='iAmSuperRich' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/iAmSuperRich/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/iAmSuperRich/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/iAmSuperRich/'>
+      <xsd:element name='theAnswerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='theAnswerRequestMessage' />
+  <message name='theAnswerResponseMessage'>
+    <part name='response' element='tns:theAnswerResponse' />
+  </message>
+  <portType name='iAmSuperRichPortType'>
+    <operation name='theAnswer'>
+      <documentation>the answer to life and all things</documentation>
+      <input message='tns:theAnswerRequestMessage' name='theAnswerInput' />
+      <output message='tns:theAnswerResponseMessage' name='theAnswerOutput' />
+    </operation>
+  </portType>
+  <binding name='iAmSuperRichBinding' type='tns:iAmSuperRichPortType'>
+    <operation name='theAnswer'>
+      <soap12:operation soapAction='http://theAnswer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='iAmSuperRich'>
+    <documentation>i am rich I deserve it I am good healthy successful</documentation>
+    <port name='iAmSuperRichPort' binding='tns:iAmSuperRichBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://iAmSuperRich' />
+    </port>
+  </service>
+</definitions>

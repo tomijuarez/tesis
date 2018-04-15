@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/userAgentInfo/' name='userAgentInfo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/userAgentInfo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/userAgentInfo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/userAgentInfo/'>
+      <xsd:element name='userAgentInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobile-model' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='mobile-screen-width' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mobile-browser' type='xsd:string' minOccurs='0' />
+            <xsd:element name='browser-name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='operating-system' type='xsd:string' minOccurs='0' />
+            <xsd:element name='mobile-brand' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='producer' type='xsd:string' minOccurs='0' />
+            <xsd:element name='mobile-screen-height' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='is-mobile' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='userAgentInfoRequestMessage' />
+  <message name='userAgentInfoResponseMessage'>
+    <part name='response' element='tns:userAgentInfoResponse' />
+  </message>
+  <portType name='userAgentInfoPortType'>
+    <operation name='userAgentInfo'>
+      <documentation></documentation>
+      <input message='tns:userAgentInfoRequestMessage' name='userAgentInfoInput' />
+      <output message='tns:userAgentInfoResponseMessage' name='userAgentInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='userAgentInfoBinding' type='tns:userAgentInfoPortType'>
+    <operation name='userAgentInfo'>
+      <soap12:operation soapAction='http://userAgentInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='userAgentInfo'>
+    <documentation>parse validate and get detailed user agent information from a user agent string This API has the following features User Agent Type Determine the general user agent type e g desktop browser or mobile browser Mobile Device Detection Determine if this user agent is a mobile device Mobile Device Features Get mobile device features such as brand browser model and screen size Browser Details Get browser software details like operating system version and producer</documentation>
+    <port name='userAgentInfoPort' binding='tns:userAgentInfoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://userAgentInfo' />
+    </port>
+  </service>
+</definitions>

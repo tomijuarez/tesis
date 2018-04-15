@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentenceAnalyzer/' name='sentenceAnalyzer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentenceAnalyzer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentenceAnalyzer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentenceAnalyzer/'>
+      <xsd:element name='predictResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='predictRequestMessage' />
+  <message name='predictResponseMessage'>
+    <part name='response' element='tns:predictResponse' />
+  </message>
+  <portType name='sentenceAnalyzerPortType'>
+    <operation name='predict'>
+      <documentation></documentation>
+      <input message='tns:predictRequestMessage' name='predictInput' />
+      <output message='tns:predictResponseMessage' name='predictOutput' />
+    </operation>
+  </portType>
+  <binding name='sentenceAnalyzerBinding' type='tns:sentenceAnalyzerPortType'>
+    <operation name='predict'>
+      <soap12:operation soapAction='http://predict' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentenceAnalyzer'>
+    <documentation>this text processing API will analyze a words sentence long and predict if it is a question complain praise comment or a spam A spam is a sentence that does not meet the US UK english structure or does not make sense as a question complain praise or comment</documentation>
+    <port name='sentenceAnalyzerPort' binding='tns:sentenceAnalyzerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentenceAnalyzer' />
+    </port>
+  </service>
+</definitions>

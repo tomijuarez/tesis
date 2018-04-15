@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/chimpRewriter/' name='chimpRewriter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/chimpRewriter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/chimpRewriter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/chimpRewriter/'>
+      <xsd:element name='calcworddensityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='calcworddensity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='calcworddensityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generatespinParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='generatespin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generatespinResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='globalspinParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='globalspin' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='globalspinResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='querystatsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='testconnectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='calcworddensityRequestMessage'>
+    <part name='parameters' element='tns:calcworddensityParameters' />
+  </message>
+  <message name='calcworddensityResponseMessage'>
+    <part name='response' element='tns:calcworddensityResponse' />
+  </message>
+  <message name='generatespinRequestMessage'>
+    <part name='parameters' element='tns:generatespinParameters' />
+  </message>
+  <message name='generatespinResponseMessage'>
+    <part name='response' element='tns:generatespinResponse' />
+  </message>
+  <message name='globalspinRequestMessage'>
+    <part name='parameters' element='tns:globalspinParameters' />
+  </message>
+  <message name='globalspinResponseMessage'>
+    <part name='response' element='tns:globalspinResponse' />
+  </message>
+  <message name='querystatsRequestMessage' />
+  <message name='querystatsResponseMessage'>
+    <part name='response' element='tns:querystatsResponse' />
+  </message>
+  <message name='testconnectionRequestMessage' />
+  <message name='testconnectionResponseMessage'>
+    <part name='response' element='tns:testconnectionResponse' />
+  </message>
+  <portType name='chimpRewriterPortType'>
+    <operation name='calcworddensity'>
+      <documentation>calculates the word densities of words and phrases in the article</documentation>
+      <input message='tns:calcworddensityRequestMessage' name='calcworddensityInput' />
+      <output message='tns:calcworddensityResponseMessage' name='calcworddensityOutput' />
+    </operation>
+    <operation name='generatespin'>
+      <documentation>generates an unspun doc from one with spintax Optionally reorders paragraphs and removes original word</documentation>
+      <input message='tns:generatespinRequestMessage' name='generatespinInput' />
+      <output message='tns:generatespinResponseMessage' name='generatespinOutput' />
+    </operation>
+    <operation name='globalspin'>
+      <documentation>spins an article with various quality paramters and return it either with spintax or as a unique unspun document</documentation>
+      <input message='tns:globalspinRequestMessage' name='globalspinInput' />
+      <output message='tns:globalspinResponseMessage' name='globalspinOutput' />
+    </operation>
+    <operation name='querystats'>
+      <documentation>returns remaining query quota Can also be used to test an account</documentation>
+      <input message='tns:querystatsRequestMessage' name='querystatsInput' />
+      <output message='tns:querystatsResponseMessage' name='querystatsOutput' />
+    </operation>
+    <operation name='testconnection'>
+      <documentation>tests the connection to the API without user credentials</documentation>
+      <input message='tns:testconnectionRequestMessage' name='testconnectionInput' />
+      <output message='tns:testconnectionResponseMessage' name='testconnectionOutput' />
+    </operation>
+  </portType>
+  <binding name='chimpRewriterBinding' type='tns:chimpRewriterPortType'>
+    <operation name='calcworddensity'>
+      <soap12:operation soapAction='http://calcworddensity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='generatespin'>
+      <soap12:operation soapAction='http://generatespin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='globalspin'>
+      <soap12:operation soapAction='http://globalspin' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='querystats'>
+      <soap12:operation soapAction='http://querystats' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='testconnection'>
+      <soap12:operation soapAction='http://testconnection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='chimpRewriter'>
+    <documentation>the Chimp Rewriter API allows developers to access Chimp Rewriter functionality from their own software It is based around HTTP POST making it easy to implement With the help of this guide you should be up and running in a few minutes Authentication is achieved through an API Key so there is no need to send sensitive password details over an unencrypted connection</documentation>
+    <port name='chimpRewriterPort' binding='tns:chimpRewriterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://chimpRewriter' />
+    </port>
+  </service>
+</definitions>

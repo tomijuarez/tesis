@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ventataDynamicPricing/' name='ventataDynamicPricing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ventataDynamicPricing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ventataDynamicPricing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ventataDynamicPricing/'>
+      <xsd:element name='createAStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='URL' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewPriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='productid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getNewPriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postCreateYourProductResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='DateCreated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='CurrentSupply' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Cost' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='MinPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='DateAvailable' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StoreId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Price' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Strategy' type='xsd:string' minOccurs='0' />
+            <xsd:element name='LastEvaluation' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='MaxPrice' type='xsd:int' minOccurs='0' />
+            <xsd:element name='SKU' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DateExpires' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='StartingSupply' type='xsd:int' minOccurs='0' />
+            <xsd:element name='MANUCODE' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='postAnOrderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='OrderDetail' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ManuCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Quantity' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ProductId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='StoreCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='CostPerItem' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='PricePaid' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='StoreId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Taxes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ExternalOrderId' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='TotalPrice' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='ShippingCost' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='DateCreated' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='SubTotal' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createAStoreRequestMessage' />
+  <message name='createAStoreResponseMessage'>
+    <part name='response' element='tns:createAStoreResponse' />
+  </message>
+  <message name='getNewPriceRequestMessage'>
+    <part name='parameters' element='tns:getNewPriceParameters' />
+  </message>
+  <message name='getNewPriceResponseMessage'>
+    <part name='response' element='tns:getNewPriceResponse' />
+  </message>
+  <message name='postCreateYourProductRequestMessage' />
+  <message name='postCreateYourProductResponseMessage'>
+    <part name='response' element='tns:postCreateYourProductResponse' />
+  </message>
+  <message name='postAnOrderRequestMessage' />
+  <message name='postAnOrderResponseMessage'>
+    <part name='response' element='tns:postAnOrderResponse' />
+  </message>
+  <portType name='ventataDynamicPricingPortType'>
+    <operation name='createAStore'>
+      <documentation></documentation>
+      <input message='tns:createAStoreRequestMessage' name='createAStoreInput' />
+      <output message='tns:createAStoreResponseMessage' name='createAStoreOutput' />
+    </operation>
+    <operation name='getNewPrice'>
+      <documentation>the next step is to call for a new price on the product just like the stock market Option default you get a price from ventata to update the product in your database Option add autoupdate to the querystring you get a price that ventata thinks you should charge but we only record it as a suggestion which means you should not update your store price</documentation>
+      <input message='tns:getNewPriceRequestMessage' name='getNewPriceInput' />
+      <output message='tns:getNewPriceResponseMessage' name='getNewPriceOutput' />
+    </operation>
+    <operation name='postCreateYourProduct'>
+      <documentation>pick Between Unlimited Supply and Limited Supply Unlimited Supply You can get as many items as you can sell For example digital items movies mp s or physical items that are virtually unlimited e g t shirts are virtually unlimited You provide cost and start price Limited Supply You only have a certian number of items to sell For example tickets movies sports events concerts etc or a flash sale offering where you need to sell shirts in week You provide cost start price how many you started with how many you currently have a start date and an expiration date</documentation>
+      <input message='tns:postCreateYourProductRequestMessage' name='postCreateYourProductInput' />
+      <output message='tns:postCreateYourProductResponseMessage' name='postCreateYourProductOutput' />
+    </operation>
+    <operation name='postAnOrder'>
+      <documentation></documentation>
+      <input message='tns:postAnOrderRequestMessage' name='postAnOrderInput' />
+      <output message='tns:postAnOrderResponseMessage' name='postAnOrderOutput' />
+    </operation>
+  </portType>
+  <binding name='ventataDynamicPricingBinding' type='tns:ventataDynamicPricingPortType'>
+    <operation name='createAStore'>
+      <soap12:operation soapAction='http://createAStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getNewPrice'>
+      <soap12:operation soapAction='http://getNewPrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postCreateYourProduct'>
+      <soap12:operation soapAction='http://postCreateYourProduct' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='postAnOrder'>
+      <soap12:operation soapAction='http://postAnOrder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ventataDynamicPricing'>
+    <documentation>a REST based dynamic pricing API that maximizes profit in real time https ventata com</documentation>
+    <port name='ventataDynamicPricingPort' binding='tns:ventataDynamicPricingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ventataDynamicPricing' />
+    </port>
+  </service>
+</definitions>

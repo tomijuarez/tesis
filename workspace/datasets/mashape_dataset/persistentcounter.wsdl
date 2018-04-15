@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/persistentCounter/' name='persistentCounter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/persistentCounter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/persistentCounter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/persistentCounter/'>
+      <xsd:element name='incrementResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='valueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='incrementRequestMessage' />
+  <message name='incrementResponseMessage'>
+    <part name='response' element='tns:incrementResponse' />
+  </message>
+  <message name='valueRequestMessage' />
+  <message name='valueResponseMessage'>
+    <part name='response' element='tns:valueResponse' />
+  </message>
+  <portType name='persistentCounterPortType'>
+    <operation name='increment'>
+      <documentation>increment or Decrement the counter use negative value for decrementing</documentation>
+      <input message='tns:incrementRequestMessage' name='incrementInput' />
+      <output message='tns:incrementResponseMessage' name='incrementOutput' />
+    </operation>
+    <operation name='value'>
+      <documentation>get the value of counter</documentation>
+      <input message='tns:valueRequestMessage' name='valueInput' />
+      <output message='tns:valueResponseMessage' name='valueOutput' />
+    </operation>
+  </portType>
+  <binding name='persistentCounterBinding' type='tns:persistentCounterPortType'>
+    <operation name='increment'>
+      <soap12:operation soapAction='http://increment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='value'>
+      <soap12:operation soapAction='http://value' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='persistentCounter'>
+    <documentation>a highly scalable sharded globally persistent counter which can withstand datacenter crashes machine crashes and application crashes Useful for generating monotonically increasing numbers required by certain applications like Coinbase for e g</documentation>
+    <port name='persistentCounterPort' binding='tns:persistentCounterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://persistentCounter' />
+    </port>
+  </service>
+</definitions>

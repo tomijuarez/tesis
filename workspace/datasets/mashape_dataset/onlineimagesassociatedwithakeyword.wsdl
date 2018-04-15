@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onlineImagesAssociatedWithAKeyword/' name='onlineImagesAssociatedWithAKeyword' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onlineImagesAssociatedWithAKeyword/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onlineImagesAssociatedWithAKeyword/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onlineImagesAssociatedWithAKeyword/'>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='MessageDetail' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='httpGobterOrgApiImagelinkKeywordSParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='httpGobterOrgApiImagelinkKeywordSResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage' />
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <message name='httpGobterOrgApiImagelinkKeywordSRequestMessage'>
+    <part name='parameters' element='tns:httpGobterOrgApiImagelinkKeywordSParameters' />
+  </message>
+  <message name='httpGobterOrgApiImagelinkKeywordSResponseMessage'>
+    <part name='response' element='tns:httpGobterOrgApiImagelinkKeywordSResponse' />
+  </message>
+  <portType name='onlineImagesAssociatedWithAKeywordPortType'>
+    <operation name=''>
+      <documentation></documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+    <operation name='httpGobterOrgApiImagelinkKeywordS'>
+      <documentation>for example wikipedia commons will return the links to wikipedia commons collection photos</documentation>
+      <input message='tns:httpGobterOrgApiImagelinkKeywordSRequestMessage' name='httpGobterOrgApiImagelinkKeywordSInput' />
+      <output message='tns:httpGobterOrgApiImagelinkKeywordSResponseMessage' name='httpGobterOrgApiImagelinkKeywordSOutput' />
+    </operation>
+  </portType>
+  <binding name='onlineImagesAssociatedWithAKeywordBinding' type='tns:onlineImagesAssociatedWithAKeywordPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='httpGobterOrgApiImagelinkKeywordS'>
+      <soap12:operation soapAction='http://httpGobterOrgApiImagelinkKeywordS' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onlineImagesAssociatedWithAKeyword'>
+    <documentation>returns a collection of photo links associated with the keyword passed as a parameter Example http gobter org api imagelink bird</documentation>
+    <port name='onlineImagesAssociatedWithAKeywordPort' binding='tns:onlineImagesAssociatedWithAKeywordBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onlineImagesAssociatedWithAKeyword' />
+    </port>
+  </service>
+</definitions>

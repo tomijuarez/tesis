@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tweetSentimentAnalysis/' name='tweetSentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tweetSentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tweetSentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tweetSentimentAnalysis/'>
+      <xsd:element name='tweetSentimentApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tweetSentimentApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='tweetSentimentApiRequestMessage'>
+    <part name='parameters' element='tns:tweetSentimentApiParameters' />
+  </message>
+  <message name='tweetSentimentApiResponseMessage'>
+    <part name='response' element='tns:tweetSentimentApiResponse' />
+  </message>
+  <portType name='tweetSentimentAnalysisPortType'>
+    <operation name='tweetSentimentApi'>
+      <documentation>analyses a string of text and returns sentiment information</documentation>
+      <input message='tns:tweetSentimentApiRequestMessage' name='tweetSentimentApiInput' />
+      <output message='tns:tweetSentimentApiResponseMessage' name='tweetSentimentApiOutput' />
+    </operation>
+  </portType>
+  <binding name='tweetSentimentAnalysisBinding' type='tns:tweetSentimentAnalysisPortType'>
+    <operation name='tweetSentimentApi'>
+      <soap12:operation soapAction='http://tweetSentimentApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tweetSentimentAnalysis'>
+    <documentation>the Tweet Sentiment API lets you send small chunks of text for example Tweets or Facebook Posts and returns information about whether the sentiment is probably positive negative or neutral along with a score indicating how strong that probability is It does this using natural language processing breaking the text down into component parts and comparing those parts to a massive database of human rated historical data</documentation>
+    <port name='tweetSentimentAnalysisPort' binding='tns:tweetSentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tweetSentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

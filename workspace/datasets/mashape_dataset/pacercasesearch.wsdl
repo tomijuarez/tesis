@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pacerCaseSearch/' name='pacerCaseSearch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pacerCaseSearch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pacerCaseSearch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pacerCaseSearch/'>
+      <xsd:element name='pacerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='party' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='selcourt' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='selregion' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pacerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cases' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='cs_date_discharge' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='court_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='case_title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='cs_date_dismiss' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cs_office' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='nature_of_suit' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='disposition' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='party_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='cs_date_term' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cs_year' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='case_link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='case_number_full' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cs_date_filed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='party_role' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cs_number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cs_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cs_chapter' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pacerRequestMessage'>
+    <part name='parameters' element='tns:pacerParameters' />
+  </message>
+  <message name='pacerResponseMessage'>
+    <part name='response' element='tns:pacerResponse' />
+  </message>
+  <portType name='pacerCaseSearchPortType'>
+    <operation name='pacer'>
+      <documentation>pacer API US Court Case Search</documentation>
+      <input message='tns:pacerRequestMessage' name='pacerInput' />
+      <output message='tns:pacerResponseMessage' name='pacerOutput' />
+    </operation>
+  </portType>
+  <binding name='pacerCaseSearchBinding' type='tns:pacerCaseSearchPortType'>
+    <operation name='pacer'>
+      <soap12:operation soapAction='http://pacer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pacerCaseSearch'>
+    <documentation>pacer API Public Access to Court Electronic Records is an API for US Court Case Search This API requires Pacer account You can register it for free at http www pacer gov register html</documentation>
+    <port name='pacerCaseSearchPort' binding='tns:pacerCaseSearchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pacerCaseSearch' />
+    </port>
+  </service>
+</definitions>

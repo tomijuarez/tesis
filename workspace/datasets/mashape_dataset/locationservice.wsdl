@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/locationService/' name='locationService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/locationService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/locationService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/locationService/'>
+      <xsd:element name='locationServiceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='location' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='locationServiceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='locationServiceRequestMessage'>
+    <part name='parameters' element='tns:locationServiceParameters' />
+  </message>
+  <message name='locationServiceResponseMessage'>
+    <part name='response' element='tns:locationServiceResponse' />
+  </message>
+  <portType name='locationServicePortType'>
+    <operation name='locationService'>
+      <documentation>location service</documentation>
+      <input message='tns:locationServiceRequestMessage' name='locationServiceInput' />
+      <output message='tns:locationServiceResponseMessage' name='locationServiceOutput' />
+    </operation>
+  </portType>
+  <binding name='locationServiceBinding' type='tns:locationServicePortType'>
+    <operation name='locationService'>
+      <soap12:operation soapAction='http://locationService' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='locationService'>
+    <documentation>location suburb postcode information which can is used to populate type ahead drop down similar to we have it on Lasoo com au Check right hand side corner on our site This service is available for Australian locations only</documentation>
+    <port name='locationServicePort' binding='tns:locationServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://locationService' />
+    </port>
+  </service>
+</definitions>

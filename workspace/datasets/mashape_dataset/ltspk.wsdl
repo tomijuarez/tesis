@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lTSpK/' name='lTSpK' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lTSpK/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lTSpK/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lTSpK/'>
+      <xsd:element name='decodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='decodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='encodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='encodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='decodeRequestMessage'>
+    <part name='parameters' element='tns:decodeParameters' />
+  </message>
+  <message name='decodeResponseMessage'>
+    <part name='response' element='tns:decodeResponse' />
+  </message>
+  <message name='encodeRequestMessage'>
+    <part name='parameters' element='tns:encodeParameters' />
+  </message>
+  <message name='encodeResponseMessage'>
+    <part name='response' element='tns:encodeResponse' />
+  </message>
+  <portType name='lTSpKPortType'>
+    <operation name='decode'>
+      <documentation></documentation>
+      <input message='tns:decodeRequestMessage' name='decodeInput' />
+      <output message='tns:decodeResponseMessage' name='decodeOutput' />
+    </operation>
+    <operation name='encode'>
+      <documentation></documentation>
+      <input message='tns:encodeRequestMessage' name='encodeInput' />
+      <output message='tns:encodeResponseMessage' name='encodeOutput' />
+    </operation>
+  </portType>
+  <binding name='lTSpKBinding' type='tns:lTSpKPortType'>
+    <operation name='decode'>
+      <soap12:operation soapAction='http://decode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='encode'>
+      <soap12:operation soapAction='http://encode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lTSpK'>
+    <documentation>want to sound like a hacker Translate text to and from l t sp k eleven</documentation>
+    <port name='lTSpKPort' binding='tns:lTSpKBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lTSpK' />
+    </port>
+  </service>
+</definitions>

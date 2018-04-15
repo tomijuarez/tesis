@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/newdo/' name='newdo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/newdo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/newdo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/newdo/'>
+      <xsd:element name='createNewItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createNewItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='objectId' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllItemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllItemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='listId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='createdAt' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='body' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='objectId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updatedAt' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='markDoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='markDoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='objectId' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='searchstring' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='listId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='createdAt' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='body' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='objectId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updatedAt' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='listid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createNewItemRequestMessage'>
+    <part name='parameters' element='tns:createNewItemParameters' />
+  </message>
+  <message name='createNewItemResponseMessage'>
+    <part name='response' element='tns:createNewItemResponse' />
+  </message>
+  <message name='deleteItemRequestMessage'>
+    <part name='parameters' element='tns:deleteItemParameters' />
+  </message>
+  <message name='deleteItemResponseMessage'>
+    <part name='response' element='tns:deleteItemResponse' />
+  </message>
+  <message name='getAllItemsRequestMessage'>
+    <part name='parameters' element='tns:getAllItemsParameters' />
+  </message>
+  <message name='getAllItemsResponseMessage'>
+    <part name='response' element='tns:getAllItemsResponse' />
+  </message>
+  <message name='getItemRequestMessage'>
+    <part name='parameters' element='tns:getItemParameters' />
+  </message>
+  <message name='getItemResponseMessage'>
+    <part name='response' element='tns:getItemResponse' />
+  </message>
+  <message name='markDoneRequestMessage'>
+    <part name='parameters' element='tns:markDoneParameters' />
+  </message>
+  <message name='markDoneResponseMessage'>
+    <part name='response' element='tns:markDoneResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='updateItemRequestMessage'>
+    <part name='parameters' element='tns:updateItemParameters' />
+  </message>
+  <message name='updateItemResponseMessage'>
+    <part name='response' element='tns:updateItemResponse' />
+  </message>
+  <portType name='newdoPortType'>
+    <operation name='createNewItem'>
+      <documentation>create a new item in the given list</documentation>
+      <input message='tns:createNewItemRequestMessage' name='createNewItemInput' />
+      <output message='tns:createNewItemResponseMessage' name='createNewItemOutput' />
+    </operation>
+    <operation name='deleteItem'>
+      <documentation>delete an item from a list</documentation>
+      <input message='tns:deleteItemRequestMessage' name='deleteItemInput' />
+      <output message='tns:deleteItemResponseMessage' name='deleteItemOutput' />
+    </operation>
+    <operation name='getAllItems'>
+      <documentation>get all items in a given list</documentation>
+      <input message='tns:getAllItemsRequestMessage' name='getAllItemsInput' />
+      <output message='tns:getAllItemsResponseMessage' name='getAllItemsOutput' />
+    </operation>
+    <operation name='getItem'>
+      <documentation>get a specified item from a specified list</documentation>
+      <input message='tns:getItemRequestMessage' name='getItemInput' />
+      <output message='tns:getItemResponseMessage' name='getItemOutput' />
+    </operation>
+    <operation name='markDone'>
+      <documentation>marks the specified todo done</documentation>
+      <input message='tns:markDoneRequestMessage' name='markDoneInput' />
+      <output message='tns:markDoneResponseMessage' name='markDoneOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for an item in a list</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='updateItem'>
+      <documentation>update the specified item</documentation>
+      <input message='tns:updateItemRequestMessage' name='updateItemInput' />
+      <output message='tns:updateItemResponseMessage' name='updateItemOutput' />
+    </operation>
+  </portType>
+  <binding name='newdoBinding' type='tns:newdoPortType'>
+    <operation name='createNewItem'>
+      <soap12:operation soapAction='http://createNewItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteItem'>
+      <soap12:operation soapAction='http://deleteItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllItems'>
+      <soap12:operation soapAction='http://getAllItems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getItem'>
+      <soap12:operation soapAction='http://getItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='markDone'>
+      <soap12:operation soapAction='http://markDone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateItem'>
+      <soap12:operation soapAction='http://updateItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='newdo'>
+    <documentation>the API driving the Newdo app at http newdo herokuapp com a simple app for sharable todo lists</documentation>
+    <port name='newdoPort' binding='tns:newdoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://newdo' />
+    </port>
+  </service>
+</definitions>

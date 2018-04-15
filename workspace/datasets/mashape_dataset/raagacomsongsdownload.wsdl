@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/raagaComSongsDownload/' name='raagaComSongsDownload' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/raagaComSongsDownload/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/raagaComSongsDownload/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/raagaComSongsDownload/'>
+      <xsd:element name='browseAlbumsSongsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='l' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='relyear' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='search' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='browseAlbumsSongsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='albums' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albumName' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='cast' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='albumId' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='channelsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='channels' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='channel' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='chId' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='chName' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadStreamSongParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hls' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadStreamSongResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGenreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='l' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGenreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='genre' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='genre-type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='genre-name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mostPopularTopResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='top10' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='song' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='singers' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='song_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='rank' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='nowplaying' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='song' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='song_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='country' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='mostpopular' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='actors' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url_250' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='genrelist' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='genre-lang' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='genre-image' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='genre-type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='genre-name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='genre-link' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='publicplaylist' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='permaid' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='songCnt' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='plName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='usrPerma' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='plImg' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='plDate' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='usrName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='plHits' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='newAtRaaga' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='actors' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url_250' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='newrelease' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='actors' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url_250' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='link' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='notificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='album' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actors' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='view' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='playlist' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='img_wide' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='albumid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='notifyid' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='c' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='l' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='p' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='album' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='song' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='actors' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='year' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='recs' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='songs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='albums' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='singers' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='actors' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='music' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='lyricist' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='album_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='track' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='recs' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='playlists' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='recs' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='link' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='browseAlbumsSongsRequestMessage'>
+    <part name='parameters' element='tns:browseAlbumsSongsParameters' />
+  </message>
+  <message name='browseAlbumsSongsResponseMessage'>
+    <part name='response' element='tns:browseAlbumsSongsResponse' />
+  </message>
+  <message name='channelsRequestMessage' />
+  <message name='channelsResponseMessage'>
+    <part name='response' element='tns:channelsResponse' />
+  </message>
+  <message name='downloadStreamSongRequestMessage'>
+    <part name='parameters' element='tns:downloadStreamSongParameters' />
+  </message>
+  <message name='downloadStreamSongResponseMessage'>
+    <part name='response' element='tns:downloadStreamSongResponse' />
+  </message>
+  <message name='getGenreRequestMessage'>
+    <part name='parameters' element='tns:getGenreParameters' />
+  </message>
+  <message name='getGenreResponseMessage'>
+    <part name='response' element='tns:getGenreResponse' />
+  </message>
+  <message name='mostPopularTopRequestMessage' />
+  <message name='mostPopularTopResponseMessage'>
+    <part name='response' element='tns:mostPopularTopResponse' />
+  </message>
+  <message name='notificationsRequestMessage' />
+  <message name='notificationsResponseMessage'>
+    <part name='response' element='tns:notificationsResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='raagaComSongsDownloadPortType'>
+    <operation name='browseAlbumsSongs'>
+      <documentation>browse Albums Songs</documentation>
+      <input message='tns:browseAlbumsSongsRequestMessage' name='browseAlbumsSongsInput' />
+      <output message='tns:browseAlbumsSongsResponseMessage' name='browseAlbumsSongsOutput' />
+    </operation>
+    <operation name='channels'>
+      <documentation>returns list of all channels</documentation>
+      <input message='tns:channelsRequestMessage' name='channelsInput' />
+      <output message='tns:channelsResponseMessage' name='channelsOutput' />
+    </operation>
+    <operation name='downloadStreamSong'>
+      <documentation>use the URL to download or stream the song</documentation>
+      <input message='tns:downloadStreamSongRequestMessage' name='downloadStreamSongInput' />
+      <output message='tns:downloadStreamSongResponseMessage' name='downloadStreamSongOutput' />
+    </operation>
+    <operation name='getGenre'>
+      <documentation>returns Available Genre</documentation>
+      <input message='tns:getGenreRequestMessage' name='getGenreInput' />
+      <output message='tns:getGenreResponseMessage' name='getGenreOutput' />
+    </operation>
+    <operation name='mostPopularTop'>
+      <documentation></documentation>
+      <input message='tns:mostPopularTopRequestMessage' name='mostPopularTopInput' />
+      <output message='tns:mostPopularTopResponseMessage' name='mostPopularTopOutput' />
+    </operation>
+    <operation name='notifications'>
+      <documentation></documentation>
+      <input message='tns:notificationsRequestMessage' name='notificationsInput' />
+      <output message='tns:notificationsResponseMessage' name='notificationsOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search Albums Songs</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='raagaComSongsDownloadBinding' type='tns:raagaComSongsDownloadPortType'>
+    <operation name='browseAlbumsSongs'>
+      <soap12:operation soapAction='http://browseAlbumsSongs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='channels'>
+      <soap12:operation soapAction='http://channels' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='downloadStreamSong'>
+      <soap12:operation soapAction='http://downloadStreamSong' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getGenre'>
+      <soap12:operation soapAction='http://getGenre' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='mostPopularTop'>
+      <soap12:operation soapAction='http://mostPopularTop' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='notifications'>
+      <soap12:operation soapAction='http://notifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='raagaComSongsDownload'>
+    <documentation>browse Search and Download Songs from Raaga com Raaga has a huge catalog of songs from massive hits to rare gems to cult classics with more added every week Discover enjoy and share the music you love This is unofficial API</documentation>
+    <port name='raagaComSongsDownloadPort' binding='tns:raagaComSongsDownloadBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://raagaComSongsDownload' />
+    </port>
+  </service>
+</definitions>

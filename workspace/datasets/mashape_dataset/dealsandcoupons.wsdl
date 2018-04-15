@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dealsAndCoupons/' name='dealsAndCoupons' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dealsAndCoupons/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dealsAndCoupons/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dealsAndCoupons/'>
+      <xsd:element name='getmerchantsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='submittype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getmerchantsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getoffersbymerchantParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='merchant' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='submittype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getoffersbymerchantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='landing' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='coupon' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='campaign' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='expiry' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='network' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getoffersbynetworkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='network' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='submittype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getoffersbynetworkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='landing' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='coupon' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='campaign' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='expiry' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='network' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getmerchantsRequestMessage'>
+    <part name='parameters' element='tns:getmerchantsParameters' />
+  </message>
+  <message name='getmerchantsResponseMessage'>
+    <part name='response' element='tns:getmerchantsResponse' />
+  </message>
+  <message name='getoffersbymerchantRequestMessage'>
+    <part name='parameters' element='tns:getoffersbymerchantParameters' />
+  </message>
+  <message name='getoffersbymerchantResponseMessage'>
+    <part name='response' element='tns:getoffersbymerchantResponse' />
+  </message>
+  <message name='getoffersbynetworkRequestMessage'>
+    <part name='parameters' element='tns:getoffersbynetworkParameters' />
+  </message>
+  <message name='getoffersbynetworkResponseMessage'>
+    <part name='response' element='tns:getoffersbynetworkResponse' />
+  </message>
+  <portType name='dealsAndCouponsPortType'>
+    <operation name='getmerchants'>
+      <documentation>get all the merchants stores who have atleast active deal offer</documentation>
+      <input message='tns:getmerchantsRequestMessage' name='getmerchantsInput' />
+      <output message='tns:getmerchantsResponseMessage' name='getmerchantsOutput' />
+    </operation>
+    <operation name='getoffersbymerchant'>
+      <documentation>get all deals coupons and offers of a particular merchant or store Merchant can be jabong mcdonalds fashionara etc Get all merchants from getMerchants endpoint</documentation>
+      <input message='tns:getoffersbymerchantRequestMessage' name='getoffersbymerchantInput' />
+      <output message='tns:getoffersbymerchantResponseMessage' name='getoffersbymerchantOutput' />
+    </operation>
+    <operation name='getoffersbynetwork'>
+      <documentation>get all deals coupons and offers of a particular affiliate network Currently we have tied to flipkart tyroo vcommission payoom and icubeswire</documentation>
+      <input message='tns:getoffersbynetworkRequestMessage' name='getoffersbynetworkInput' />
+      <output message='tns:getoffersbynetworkResponseMessage' name='getoffersbynetworkOutput' />
+    </operation>
+  </portType>
+  <binding name='dealsAndCouponsBinding' type='tns:dealsAndCouponsPortType'>
+    <operation name='getmerchants'>
+      <soap12:operation soapAction='http://getmerchants' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getoffersbymerchant'>
+      <soap12:operation soapAction='http://getoffersbymerchant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getoffersbynetwork'>
+      <soap12:operation soapAction='http://getoffersbynetwork' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dealsAndCoupons'>
+    <documentation>get all active Indian deals offers and coupons from different stores like flipkart amazon shopperstop etc This API gets the data from various networks like payoom icubeswire flipkart etc</documentation>
+    <port name='dealsAndCouponsPort' binding='tns:dealsAndCouponsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dealsAndCoupons' />
+    </port>
+  </service>
+</definitions>

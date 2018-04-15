@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/baconIpsum/' name='baconIpsum' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/baconIpsum/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/baconIpsum/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/baconIpsum/'>
+      <xsd:element name='baconizedIpsumParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='paras' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sentences' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startwithlorem' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='baconizedIpsumResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='baconizedIpsumRequestMessage'>
+    <part name='parameters' element='tns:baconizedIpsumParameters' />
+  </message>
+  <message name='baconizedIpsumResponseMessage'>
+    <part name='response' element='tns:baconizedIpsumResponse' />
+  </message>
+  <portType name='baconIpsumPortType'>
+    <operation name='baconizedIpsum'>
+      <documentation></documentation>
+      <input message='tns:baconizedIpsumRequestMessage' name='baconizedIpsumInput' />
+      <output message='tns:baconizedIpsumResponseMessage' name='baconizedIpsumOutput' />
+    </operation>
+  </portType>
+  <binding name='baconIpsumBinding' type='tns:baconIpsumPortType'>
+    <operation name='baconizedIpsum'>
+      <soap12:operation soapAction='http://baconizedIpsum' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='baconIpsum'>
+    <documentation>a meatier lorem ipsum generator Does your lorem ipsum text long for something a little meatier Give our generator a try it s tasty</documentation>
+    <port name='baconIpsumPort' binding='tns:baconIpsumBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://baconIpsum' />
+    </port>
+  </service>
+</definitions>

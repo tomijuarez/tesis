@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stockfluence/' name='stockfluence' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stockfluence/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stockfluence/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stockfluence/'>
+      <xsd:element name='basicParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='basicResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extendedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extendedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sentiment' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='strength' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='keywords' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='mentions' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='keyword' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='hashtags' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='mentions' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='hashtag' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='scores' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='sentiment' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='strength' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='reach' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='change' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='passion' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='reach' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='neutral' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='positive' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='predictions' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='quotes' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='demographic' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n20_-_40' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='men' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n0_-_20' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n60_-_80' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='women' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n40_-_60' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='geo' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='long' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='negative' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='influencers' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='passion' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='updated' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fundPredictionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fundsymbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fundPredictionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='predictions' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n2014-03-27' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n2014-03-26' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n2014-03-28' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n2014-03-25' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n2014-03-24' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='n2014-03-21' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='losersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='popularResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='s' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trendingResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='winnersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='funds' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='strength' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sentimentscore' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='reach' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='change' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='exchange' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passion' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='updated' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='completed_in' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='basicRequestMessage'>
+    <part name='parameters' element='tns:basicParameters' />
+  </message>
+  <message name='basicResponseMessage'>
+    <part name='response' element='tns:basicResponse' />
+  </message>
+  <message name='extendedRequestMessage'>
+    <part name='parameters' element='tns:extendedParameters' />
+  </message>
+  <message name='extendedResponseMessage'>
+    <part name='response' element='tns:extendedResponse' />
+  </message>
+  <message name='fundPredictionsRequestMessage'>
+    <part name='parameters' element='tns:fundPredictionsParameters' />
+  </message>
+  <message name='fundPredictionsResponseMessage'>
+    <part name='response' element='tns:fundPredictionsResponse' />
+  </message>
+  <message name='listRequestMessage' />
+  <message name='listResponseMessage'>
+    <part name='response' element='tns:listResponse' />
+  </message>
+  <message name='losersRequestMessage' />
+  <message name='losersResponseMessage'>
+    <part name='response' element='tns:losersResponse' />
+  </message>
+  <message name='popularRequestMessage' />
+  <message name='popularResponseMessage'>
+    <part name='response' element='tns:popularResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='trendingRequestMessage' />
+  <message name='trendingResponseMessage'>
+    <part name='response' element='tns:trendingResponse' />
+  </message>
+  <message name='winnersRequestMessage' />
+  <message name='winnersResponseMessage'>
+    <part name='response' element='tns:winnersResponse' />
+  </message>
+  <portType name='stockfluencePortType'>
+    <operation name='basic'>
+      <documentation></documentation>
+      <input message='tns:basicRequestMessage' name='basicInput' />
+      <output message='tns:basicResponseMessage' name='basicOutput' />
+    </operation>
+    <operation name='extended'>
+      <documentation></documentation>
+      <input message='tns:extendedRequestMessage' name='extendedInput' />
+      <output message='tns:extendedResponseMessage' name='extendedOutput' />
+    </operation>
+    <operation name='fundPredictions'>
+      <documentation></documentation>
+      <input message='tns:fundPredictionsRequestMessage' name='fundPredictionsInput' />
+      <output message='tns:fundPredictionsResponseMessage' name='fundPredictionsOutput' />
+    </operation>
+    <operation name='list'>
+      <documentation></documentation>
+      <input message='tns:listRequestMessage' name='listInput' />
+      <output message='tns:listResponseMessage' name='listOutput' />
+    </operation>
+    <operation name='losers'>
+      <documentation></documentation>
+      <input message='tns:losersRequestMessage' name='losersInput' />
+      <output message='tns:losersResponseMessage' name='losersOutput' />
+    </operation>
+    <operation name='popular'>
+      <documentation></documentation>
+      <input message='tns:popularRequestMessage' name='popularInput' />
+      <output message='tns:popularResponseMessage' name='popularOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation></documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='trending'>
+      <documentation></documentation>
+      <input message='tns:trendingRequestMessage' name='trendingInput' />
+      <output message='tns:trendingResponseMessage' name='trendingOutput' />
+    </operation>
+    <operation name='winners'>
+      <documentation></documentation>
+      <input message='tns:winnersRequestMessage' name='winnersInput' />
+      <output message='tns:winnersResponseMessage' name='winnersOutput' />
+    </operation>
+  </portType>
+  <binding name='stockfluenceBinding' type='tns:stockfluencePortType'>
+    <operation name='basic'>
+      <soap12:operation soapAction='http://basic' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extended'>
+      <soap12:operation soapAction='http://extended' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fundPredictions'>
+      <soap12:operation soapAction='http://fundPredictions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='list'>
+      <soap12:operation soapAction='http://list' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='losers'>
+      <soap12:operation soapAction='http://losers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='popular'>
+      <soap12:operation soapAction='http://popular' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='trending'>
+      <soap12:operation soapAction='http://trending' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='winners'>
+      <soap12:operation soapAction='http://winners' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stockfluence'>
+    <documentation>stockFluence com provides financial sentiment analysis for investors to discover react and respond to market opinions We monitor social media channels and analyze the overall sentiment with our algorithms Based on the sentiment we make predictions with an accuracy level of</documentation>
+    <port name='stockfluencePort' binding='tns:stockfluenceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stockfluence' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tamuCensusData/' name='tamuCensusData' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tamuCensusData/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tamuCensusData/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tamuCensusData/'>
+      <xsd:element name='censusDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='censusyear' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='notstore' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='s' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='version' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='censusDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='censusDataRequestMessage'>
+    <part name='parameters' element='tns:censusDataParameters' />
+  </message>
+  <message name='censusDataResponseMessage'>
+    <part name='response' element='tns:censusDataResponse' />
+  </message>
+  <portType name='tamuCensusDataPortType'>
+    <operation name='censusData'>
+      <documentation></documentation>
+      <input message='tns:censusDataRequestMessage' name='censusDataInput' />
+      <output message='tns:censusDataResponseMessage' name='censusDataOutput' />
+    </operation>
+  </portType>
+  <binding name='tamuCensusDataBinding' type='tns:tamuCensusDataPortType'>
+    <operation name='censusData'>
+      <soap12:operation soapAction='http://censusData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tamuCensusData'>
+    <documentation>service to associated census data with latitude longitude points Send a lat lon value and get back or census data</documentation>
+    <port name='tamuCensusDataPort' binding='tns:tamuCensusDataBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tamuCensusData' />
+    </port>
+  </service>
+</definitions>

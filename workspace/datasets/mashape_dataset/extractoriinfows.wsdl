@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/extractorIInfoWs/' name='extractorIInfoWs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/extractorIInfoWs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/extractorIInfoWs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/extractorIInfoWs/'>
+      <xsd:element name='extractDocResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='pageCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractDocxResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='pageCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractHtmlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='extractPdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='output' type='xsd:string' minOccurs='0' />
+            <xsd:element name='pageCount' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='extractDocRequestMessage' />
+  <message name='extractDocResponseMessage'>
+    <part name='response' element='tns:extractDocResponse' />
+  </message>
+  <message name='extractDocxRequestMessage' />
+  <message name='extractDocxResponseMessage'>
+    <part name='response' element='tns:extractDocxResponse' />
+  </message>
+  <message name='extractHtmlRequestMessage' />
+  <message name='extractHtmlResponseMessage'>
+    <part name='response' element='tns:extractHtmlResponse' />
+  </message>
+  <message name='extractPdfRequestMessage' />
+  <message name='extractPdfResponseMessage'>
+    <part name='response' element='tns:extractPdfResponse' />
+  </message>
+  <portType name='extractorIInfoWsPortType'>
+    <operation name='extractDoc'>
+      <documentation>extract content from doc Info Each page is charged as request</documentation>
+      <input message='tns:extractDocRequestMessage' name='extractDocInput' />
+      <output message='tns:extractDocResponseMessage' name='extractDocOutput' />
+    </operation>
+    <operation name='extractDocx'>
+      <documentation>extract content from docx Info Each page is charged as request</documentation>
+      <input message='tns:extractDocxRequestMessage' name='extractDocxInput' />
+      <output message='tns:extractDocxResponseMessage' name='extractDocxOutput' />
+    </operation>
+    <operation name='extractHtml'>
+      <documentation>extract content from html Info You have set file or url parameter</documentation>
+      <input message='tns:extractHtmlRequestMessage' name='extractHtmlInput' />
+      <output message='tns:extractHtmlResponseMessage' name='extractHtmlOutput' />
+    </operation>
+    <operation name='extractPdf'>
+      <documentation>extract content from pdf Info Each page is charged as request</documentation>
+      <input message='tns:extractPdfRequestMessage' name='extractPdfInput' />
+      <output message='tns:extractPdfResponseMessage' name='extractPdfOutput' />
+    </operation>
+  </portType>
+  <binding name='extractorIInfoWsBinding' type='tns:extractorIInfoWsPortType'>
+    <operation name='extractDoc'>
+      <soap12:operation soapAction='http://extractDoc' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractDocx'>
+      <soap12:operation soapAction='http://extractDocx' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractHtml'>
+      <soap12:operation soapAction='http://extractHtml' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='extractPdf'>
+      <soap12:operation soapAction='http://extractPdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='extractorIInfoWs'>
+    <documentation>i info ws API is used to extract content from various file types Currently html pdf doc docx Other file types are on the way</documentation>
+    <port name='extractorIInfoWsPort' binding='tns:extractorIInfoWsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://extractorIInfoWs' />
+    </port>
+  </service>
+</definitions>

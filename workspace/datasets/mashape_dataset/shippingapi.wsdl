@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/shippingapi/' name='shippingapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/shippingapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/shippingapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/shippingapi/'>
+      <xsd:element name='bookAShipmentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='liabilityamount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ratecode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='slug' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bookAShipmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shipment' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parcel' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='length' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='width' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='liability_amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='to_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pickup_confirmation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='label_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='customs_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='contents' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='service' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='carrier' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='service_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='vat' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='customer_reference' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='consignment' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='customs' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='estimated_value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cancelAShipmentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='slug' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cancelAShipmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shipment' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parcel' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='length' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='width' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='liability_amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='to_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pickup_confirmation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='label_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='customs_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='contents' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='service' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='carrier' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='service_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='vat' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='customer_reference' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='consignment' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='customs' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='estimated_value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAShipmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shipment' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parcel' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='length' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='width' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='liability_amount' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rates' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='transit_days' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='carrier' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='service_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='vat' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='cutoff' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='delivery_estimate' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='to_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pickup_confirmation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='label_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customs_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='contents' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='service' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customer_reference' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='consignment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customs' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='estimated_value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liabilityOptionsForACarrierParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='carrier' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liabilityOptionsForACarrierResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='liabilities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='amount' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='cost' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listOfCountriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='countries' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trackAShipmentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='slug' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trackAShipmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='events' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='detail' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='timestamp' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewAShipmentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='slug' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='viewAShipmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shipment' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='parcel' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='length' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='width' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='weight' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='liability_amount' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rates' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='transit_days' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='carrier' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='service_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                        <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='price' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='vat' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='cutoff' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='delivery_estimate' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='to_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pickup_confirmation' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='label_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customs_url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pickup_date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='contents' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='service' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customer_reference' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='consignment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customs' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='estimated_value' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='from_address' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='town' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='postcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='company' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line2' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='line1' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bookAShipmentRequestMessage'>
+    <part name='parameters' element='tns:bookAShipmentParameters' />
+  </message>
+  <message name='bookAShipmentResponseMessage'>
+    <part name='response' element='tns:bookAShipmentResponse' />
+  </message>
+  <message name='cancelAShipmentRequestMessage'>
+    <part name='parameters' element='tns:cancelAShipmentParameters' />
+  </message>
+  <message name='cancelAShipmentResponseMessage'>
+    <part name='response' element='tns:cancelAShipmentResponse' />
+  </message>
+  <message name='createAShipmentRequestMessage' />
+  <message name='createAShipmentResponseMessage'>
+    <part name='response' element='tns:createAShipmentResponse' />
+  </message>
+  <message name='liabilityOptionsForACarrierRequestMessage'>
+    <part name='parameters' element='tns:liabilityOptionsForACarrierParameters' />
+  </message>
+  <message name='liabilityOptionsForACarrierResponseMessage'>
+    <part name='response' element='tns:liabilityOptionsForACarrierResponse' />
+  </message>
+  <message name='listOfCountriesRequestMessage' />
+  <message name='listOfCountriesResponseMessage'>
+    <part name='response' element='tns:listOfCountriesResponse' />
+  </message>
+  <message name='trackAShipmentRequestMessage'>
+    <part name='parameters' element='tns:trackAShipmentParameters' />
+  </message>
+  <message name='trackAShipmentResponseMessage'>
+    <part name='response' element='tns:trackAShipmentResponse' />
+  </message>
+  <message name='viewAShipmentRequestMessage'>
+    <part name='parameters' element='tns:viewAShipmentParameters' />
+  </message>
+  <message name='viewAShipmentResponseMessage'>
+    <part name='response' element='tns:viewAShipmentResponse' />
+  </message>
+  <portType name='shippingapiPortType'>
+    <operation name='bookAShipment'>
+      <documentation>this endpoint allows one to book a shipment that was previously created on the system with a given rate code</documentation>
+      <input message='tns:bookAShipmentRequestMessage' name='bookAShipmentInput' />
+      <output message='tns:bookAShipmentResponseMessage' name='bookAShipmentOutput' />
+    </operation>
+    <operation name='cancelAShipment'>
+      <documentation>cancel a shipment and refund the money back</documentation>
+      <input message='tns:cancelAShipmentRequestMessage' name='cancelAShipmentInput' />
+      <output message='tns:cancelAShipmentResponseMessage' name='cancelAShipmentOutput' />
+    </operation>
+    <operation name='createAShipment'>
+      <documentation>this endpoint allows you to create a shipment object This is the first step of the booking process</documentation>
+      <input message='tns:createAShipmentRequestMessage' name='createAShipmentInput' />
+      <output message='tns:createAShipmentResponseMessage' name='createAShipmentOutput' />
+    </operation>
+    <operation name='liabilityOptionsForACarrier'>
+      <documentation>list of available extended liability options for a given carrier</documentation>
+      <input message='tns:liabilityOptionsForACarrierRequestMessage' name='liabilityOptionsForACarrierInput' />
+      <output message='tns:liabilityOptionsForACarrierResponseMessage' name='liabilityOptionsForACarrierOutput' />
+    </operation>
+    <operation name='listOfCountries'>
+      <documentation>we provide a list of countries including their name and code so that you can use the correct country code when booking a shipment</documentation>
+      <input message='tns:listOfCountriesRequestMessage' name='listOfCountriesInput' />
+      <output message='tns:listOfCountriesResponseMessage' name='listOfCountriesOutput' />
+    </operation>
+    <operation name='trackAShipment'>
+      <documentation>track a shipment that was created and booked</documentation>
+      <input message='tns:trackAShipmentRequestMessage' name='trackAShipmentInput' />
+      <output message='tns:trackAShipmentResponseMessage' name='trackAShipmentOutput' />
+    </operation>
+    <operation name='viewAShipment'>
+      <documentation>get the information of a shipment object</documentation>
+      <input message='tns:viewAShipmentRequestMessage' name='viewAShipmentInput' />
+      <output message='tns:viewAShipmentResponseMessage' name='viewAShipmentOutput' />
+    </operation>
+  </portType>
+  <binding name='shippingapiBinding' type='tns:shippingapiPortType'>
+    <operation name='bookAShipment'>
+      <soap12:operation soapAction='http://bookAShipment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cancelAShipment'>
+      <soap12:operation soapAction='http://cancelAShipment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createAShipment'>
+      <soap12:operation soapAction='http://createAShipment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='liabilityOptionsForACarrier'>
+      <soap12:operation soapAction='http://liabilityOptionsForACarrier' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listOfCountries'>
+      <soap12:operation soapAction='http://listOfCountries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='trackAShipment'>
+      <soap12:operation soapAction='http://trackAShipment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='viewAShipment'>
+      <soap12:operation soapAction='http://viewAShipment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='shippingapi'>
+    <documentation>parcelBright Shipping API Generate labels verify addresses track progress and much more More information here https github com parcelbright api docs</documentation>
+    <port name='shippingapiPort' binding='tns:shippingapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://shippingapi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/readysubTeacherPlacementSoftware/' name='readysubTeacherPlacementSoftware' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/readysubTeacherPlacementSoftware/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/readysubTeacherPlacementSoftware/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/readysubTeacherPlacementSoftware/'>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage' />
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='readysubTeacherPlacementSoftwarePortType'>
+    <operation name=''>
+      <documentation>substitute Teacher Placement and Absence Management Software</documentation>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='readysubTeacherPlacementSoftwareBinding' type='tns:readysubTeacherPlacementSoftwarePortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='readysubTeacherPlacementSoftware'>
+    <documentation>readySub is simple and intuitute Teachers and administrators can post new jobs in second Plus teachers can request their favorit substitutes and block others substitutes are notified of new jobs in real time Equipmming substitutes with the tools to discover and fill jobs automatically takes the load off district employees With ReadySub you ll never have an empty classroom again</documentation>
+    <port name='readysubTeacherPlacementSoftwarePort' binding='tns:readysubTeacherPlacementSoftwareBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://readysubTeacherPlacementSoftware' />
+    </port>
+  </service>
+</definitions>

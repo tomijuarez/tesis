@@ -1,0 +1,2714 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/clickmeter/' name='clickmeter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/clickmeter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/clickmeter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/clickmeter/'>
+      <xsd:element name='accountDeailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='companyRole' type='xsd:string' minOccurs='0' />
+            <xsd:element name='boGoVal' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='companyName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='timezonename' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addADomainInWhitelistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addNewIpIntoBlacklistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachOrRemoveATagFromADatapointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachOrRemoveATagFromADatapointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachOrRemoveATagFromAGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachOrRemoveATagFromAGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachRemoveConversionToADatapointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='attachRemoveConversionToADatapointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clickStreamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapoint' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='group' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='withconversion' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clickStreamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rows' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='referer' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='os' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='browser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isUnique' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='metrocode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postalcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='areacode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='isSpider' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entity' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='datapointName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='datapointType' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='datapointTitle' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='destinationUrl' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='accessTime' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='conversionsCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='textsearch' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='conversionsCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='conversionsHitsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='conversionsHitsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDatapointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDatapointInsideGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDatapointInsideGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createMultipleDatapointsAtOnceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='entityData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='groupName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='trackingCode' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='typeTL' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='firstUrl' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='domainId' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='preferred' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='firstConversionId' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createTagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHealthStatusByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapointid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHealthStatusByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHealthStatusesCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='httpcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='isspam' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='latency' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHealthStatusesCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHitListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapointid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointHitListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hits' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='referer' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='os' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='browser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isUnique' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='metrocode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postalcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='areacode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='isSpider' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entity' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='datapointName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='datapointType' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='datapointTitle' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='destinationUrl' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='accessTime' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsAssociatedToATagParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsAssociatedToATagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsAssociatedToConversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsAssociatedToConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsByGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsByGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='datapointsCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteADomainFromWhitelistParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domainhash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteADomainFromWhitelistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteAnIpFromBlacklistParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipblacklisthash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteAnIpFromBlacklistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteConversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDatapointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapointid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteDatapointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTagParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='domainCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='domainCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='editAccountDetailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfConversionsWithStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='favourite' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortdirection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfConversionsWithStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entityId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='activityDay' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entityData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='date' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfDatapointsWithStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='favourite' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortdirection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tag' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfDatapointsWithStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entityId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='activityDay' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entityData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='datapointName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointType' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='datapointTitle' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='destinationUrl' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='tags' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfGroupsWithStatisticsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='favourite' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortdirection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tag' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAFullListOfGroupsWithStatisticsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entityId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='activityDay' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entityData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='linksCount' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAggregatedCountsOnCustomerParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hourly' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAggregatedCountsOnCustomerResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='totalClicks' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uniqueClicks' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lastHitDate' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAggregatedCountsWithDailyBreakdownParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupby' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timeframe' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAggregatedCountsWithDailyBreakdownResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='rows' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='totalClicks' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uniqueClicks' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='lastHitDate' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='activityDay' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getConversionByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getConversionByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='deleted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDatapointByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapointid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDatapointByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='encodeIp' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trackingCode' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='typeTL' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='redirectType' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='domainId' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='tags' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDomainByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domainid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getDomainByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGroupByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getGroupByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+            <xsd:element name='tags' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTagParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsAssociatedToATagParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tagid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsAssociatedToATagResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsCountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsHitsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupsHitsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hits' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='referer' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='os' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='browser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isUnique' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='metrocode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postalcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='areacode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='isSpider' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entity' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='datapointName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='datapointType' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='datapointTitle' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='destinationUrl' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='accessTime' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guestDetailParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='guestid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guestDetailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiKey' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='decimalSeparator' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='dateFormat' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timeZone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='loginCount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='password' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timeFormat' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='numberGroupSeparator' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guestDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guestPermissionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='guestid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='guestPermissionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hitListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fields' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromday' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='today' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='hitListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hits' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='referer' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='os' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='browser' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='familyId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='familyName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='isUnique' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='metrocode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='postalcode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='region' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='areacode' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='isSpider' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='entity' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='datapointName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='datapointType' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='datapointTitle' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='destinationUrl' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='datapointId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='accessTime' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listConversionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listConversionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listCustomBlacklistedIpsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='ip' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDatapointsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDatapointsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDomainsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDomainsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listDomainsWhitelistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listGroupsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='createdafter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='createdbefore' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='status' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tags' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listGroupsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listOfDatapointHealthStatusesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='httpcode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='isspam' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='latency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listOfDatapointHealthStatusesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTagsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entities' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='planDetailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='monthlyEvents' type='xsd:int' minOccurs='0' />
+            <xsd:element name='recurringPeriod' type='xsd:int' minOccurs='0' />
+            <xsd:element name='billingPeriodStart' type='xsd:int' minOccurs='0' />
+            <xsd:element name='recurring' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='profileId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='maximumDatapoints' type='xsd:int' minOccurs='0' />
+            <xsd:element name='usedMonthlyEvents' type='xsd:int' minOccurs='0' />
+            <xsd:element name='billingPeriodEnd' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setGuestPermissionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entitytype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='guestid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setGuestPermissionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='tagsCountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateConversionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='conversionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateConversionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDatapointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datapointid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDatapointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domainid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateDomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateGroupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='groupid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateGroupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateOfMultipleDatapointsAtOnceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='result' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='uri' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='entityData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='groupName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='notes' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='groupId' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='trackingCode' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='creationDate' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='typeTL' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='firstUrl' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='domainId' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='preferred' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='firstConversionId' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountDeailRequestMessage' />
+  <message name='accountDeailResponseMessage'>
+    <part name='response' element='tns:accountDeailResponse' />
+  </message>
+  <message name='addADomainInWhitelistRequestMessage' />
+  <message name='addADomainInWhitelistResponseMessage'>
+    <part name='response' element='tns:addADomainInWhitelistResponse' />
+  </message>
+  <message name='addNewIpIntoBlacklistRequestMessage' />
+  <message name='addNewIpIntoBlacklistResponseMessage'>
+    <part name='response' element='tns:addNewIpIntoBlacklistResponse' />
+  </message>
+  <message name='attachOrRemoveATagFromADatapointRequestMessage'>
+    <part name='parameters' element='tns:attachOrRemoveATagFromADatapointParameters' />
+  </message>
+  <message name='attachOrRemoveATagFromADatapointResponseMessage'>
+    <part name='response' element='tns:attachOrRemoveATagFromADatapointResponse' />
+  </message>
+  <message name='attachOrRemoveATagFromAGroupRequestMessage'>
+    <part name='parameters' element='tns:attachOrRemoveATagFromAGroupParameters' />
+  </message>
+  <message name='attachOrRemoveATagFromAGroupResponseMessage'>
+    <part name='response' element='tns:attachOrRemoveATagFromAGroupResponse' />
+  </message>
+  <message name='attachRemoveConversionToADatapointRequestMessage'>
+    <part name='parameters' element='tns:attachRemoveConversionToADatapointParameters' />
+  </message>
+  <message name='attachRemoveConversionToADatapointResponseMessage'>
+    <part name='response' element='tns:attachRemoveConversionToADatapointResponse' />
+  </message>
+  <message name='clickStreamRequestMessage'>
+    <part name='parameters' element='tns:clickStreamParameters' />
+  </message>
+  <message name='clickStreamResponseMessage'>
+    <part name='response' element='tns:clickStreamResponse' />
+  </message>
+  <message name='conversionsCountRequestMessage'>
+    <part name='parameters' element='tns:conversionsCountParameters' />
+  </message>
+  <message name='conversionsCountResponseMessage'>
+    <part name='response' element='tns:conversionsCountResponse' />
+  </message>
+  <message name='conversionsHitsRequestMessage'>
+    <part name='parameters' element='tns:conversionsHitsParameters' />
+  </message>
+  <message name='conversionsHitsResponseMessage'>
+    <part name='response' element='tns:conversionsHitsResponse' />
+  </message>
+  <message name='createConversionRequestMessage' />
+  <message name='createConversionResponseMessage'>
+    <part name='response' element='tns:createConversionResponse' />
+  </message>
+  <message name='createDatapointRequestMessage' />
+  <message name='createDatapointResponseMessage'>
+    <part name='response' element='tns:createDatapointResponse' />
+  </message>
+  <message name='createDatapointInsideGroupRequestMessage'>
+    <part name='parameters' element='tns:createDatapointInsideGroupParameters' />
+  </message>
+  <message name='createDatapointInsideGroupResponseMessage'>
+    <part name='response' element='tns:createDatapointInsideGroupResponse' />
+  </message>
+  <message name='createDomainRequestMessage' />
+  <message name='createDomainResponseMessage'>
+    <part name='response' element='tns:createDomainResponse' />
+  </message>
+  <message name='createGroupRequestMessage' />
+  <message name='createGroupResponseMessage'>
+    <part name='response' element='tns:createGroupResponse' />
+  </message>
+  <message name='createMultipleDatapointsAtOnceRequestMessage' />
+  <message name='createMultipleDatapointsAtOnceResponseMessage'>
+    <part name='response' element='tns:createMultipleDatapointsAtOnceResponse' />
+  </message>
+  <message name='createTagRequestMessage' />
+  <message name='createTagResponseMessage'>
+    <part name='response' element='tns:createTagResponse' />
+  </message>
+  <message name='datapointHealthStatusByIdRequestMessage'>
+    <part name='parameters' element='tns:datapointHealthStatusByIdParameters' />
+  </message>
+  <message name='datapointHealthStatusByIdResponseMessage'>
+    <part name='response' element='tns:datapointHealthStatusByIdResponse' />
+  </message>
+  <message name='datapointHealthStatusesCountRequestMessage'>
+    <part name='parameters' element='tns:datapointHealthStatusesCountParameters' />
+  </message>
+  <message name='datapointHealthStatusesCountResponseMessage'>
+    <part name='response' element='tns:datapointHealthStatusesCountResponse' />
+  </message>
+  <message name='datapointHitListRequestMessage'>
+    <part name='parameters' element='tns:datapointHitListParameters' />
+  </message>
+  <message name='datapointHitListResponseMessage'>
+    <part name='response' element='tns:datapointHitListResponse' />
+  </message>
+  <message name='datapointsAssociatedToATagRequestMessage'>
+    <part name='parameters' element='tns:datapointsAssociatedToATagParameters' />
+  </message>
+  <message name='datapointsAssociatedToATagResponseMessage'>
+    <part name='response' element='tns:datapointsAssociatedToATagResponse' />
+  </message>
+  <message name='datapointsAssociatedToConversionRequestMessage'>
+    <part name='parameters' element='tns:datapointsAssociatedToConversionParameters' />
+  </message>
+  <message name='datapointsAssociatedToConversionResponseMessage'>
+    <part name='response' element='tns:datapointsAssociatedToConversionResponse' />
+  </message>
+  <message name='datapointsByGroupRequestMessage'>
+    <part name='parameters' element='tns:datapointsByGroupParameters' />
+  </message>
+  <message name='datapointsByGroupResponseMessage'>
+    <part name='response' element='tns:datapointsByGroupResponse' />
+  </message>
+  <message name='datapointsCountRequestMessage'>
+    <part name='parameters' element='tns:datapointsCountParameters' />
+  </message>
+  <message name='datapointsCountResponseMessage'>
+    <part name='response' element='tns:datapointsCountResponse' />
+  </message>
+  <message name='deleteADomainFromWhitelistRequestMessage'>
+    <part name='parameters' element='tns:deleteADomainFromWhitelistParameters' />
+  </message>
+  <message name='deleteADomainFromWhitelistResponseMessage'>
+    <part name='response' element='tns:deleteADomainFromWhitelistResponse' />
+  </message>
+  <message name='deleteAnIpFromBlacklistRequestMessage'>
+    <part name='parameters' element='tns:deleteAnIpFromBlacklistParameters' />
+  </message>
+  <message name='deleteAnIpFromBlacklistResponseMessage'>
+    <part name='response' element='tns:deleteAnIpFromBlacklistResponse' />
+  </message>
+  <message name='deleteConversionRequestMessage'>
+    <part name='parameters' element='tns:deleteConversionParameters' />
+  </message>
+  <message name='deleteConversionResponseMessage'>
+    <part name='response' element='tns:deleteConversionResponse' />
+  </message>
+  <message name='deleteDatapointRequestMessage'>
+    <part name='parameters' element='tns:deleteDatapointParameters' />
+  </message>
+  <message name='deleteDatapointResponseMessage'>
+    <part name='response' element='tns:deleteDatapointResponse' />
+  </message>
+  <message name='deleteGroupRequestMessage'>
+    <part name='parameters' element='tns:deleteGroupParameters' />
+  </message>
+  <message name='deleteGroupResponseMessage'>
+    <part name='response' element='tns:deleteGroupResponse' />
+  </message>
+  <message name='deleteTagRequestMessage'>
+    <part name='parameters' element='tns:deleteTagParameters' />
+  </message>
+  <message name='deleteTagResponseMessage'>
+    <part name='response' element='tns:deleteTagResponse' />
+  </message>
+  <message name='domainCountRequestMessage'>
+    <part name='parameters' element='tns:domainCountParameters' />
+  </message>
+  <message name='domainCountResponseMessage'>
+    <part name='response' element='tns:domainCountResponse' />
+  </message>
+  <message name='editAccountDetailRequestMessage' />
+  <message name='editAccountDetailResponseMessage'>
+    <part name='response' element='tns:editAccountDetailResponse' />
+  </message>
+  <message name='getAFullListOfConversionsWithStatisticsRequestMessage'>
+    <part name='parameters' element='tns:getAFullListOfConversionsWithStatisticsParameters' />
+  </message>
+  <message name='getAFullListOfConversionsWithStatisticsResponseMessage'>
+    <part name='response' element='tns:getAFullListOfConversionsWithStatisticsResponse' />
+  </message>
+  <message name='getAFullListOfDatapointsWithStatisticsRequestMessage'>
+    <part name='parameters' element='tns:getAFullListOfDatapointsWithStatisticsParameters' />
+  </message>
+  <message name='getAFullListOfDatapointsWithStatisticsResponseMessage'>
+    <part name='response' element='tns:getAFullListOfDatapointsWithStatisticsResponse' />
+  </message>
+  <message name='getAFullListOfGroupsWithStatisticsRequestMessage'>
+    <part name='parameters' element='tns:getAFullListOfGroupsWithStatisticsParameters' />
+  </message>
+  <message name='getAFullListOfGroupsWithStatisticsResponseMessage'>
+    <part name='response' element='tns:getAFullListOfGroupsWithStatisticsResponse' />
+  </message>
+  <message name='getAggregatedCountsOnCustomerRequestMessage'>
+    <part name='parameters' element='tns:getAggregatedCountsOnCustomerParameters' />
+  </message>
+  <message name='getAggregatedCountsOnCustomerResponseMessage'>
+    <part name='response' element='tns:getAggregatedCountsOnCustomerResponse' />
+  </message>
+  <message name='getAggregatedCountsWithDailyBreakdownRequestMessage'>
+    <part name='parameters' element='tns:getAggregatedCountsWithDailyBreakdownParameters' />
+  </message>
+  <message name='getAggregatedCountsWithDailyBreakdownResponseMessage'>
+    <part name='response' element='tns:getAggregatedCountsWithDailyBreakdownResponse' />
+  </message>
+  <message name='getConversionByIdRequestMessage'>
+    <part name='parameters' element='tns:getConversionByIdParameters' />
+  </message>
+  <message name='getConversionByIdResponseMessage'>
+    <part name='response' element='tns:getConversionByIdResponse' />
+  </message>
+  <message name='getDatapointByIdRequestMessage'>
+    <part name='parameters' element='tns:getDatapointByIdParameters' />
+  </message>
+  <message name='getDatapointByIdResponseMessage'>
+    <part name='response' element='tns:getDatapointByIdResponse' />
+  </message>
+  <message name='getDomainByIdRequestMessage'>
+    <part name='parameters' element='tns:getDomainByIdParameters' />
+  </message>
+  <message name='getDomainByIdResponseMessage'>
+    <part name='response' element='tns:getDomainByIdResponse' />
+  </message>
+  <message name='getGroupByIdRequestMessage'>
+    <part name='parameters' element='tns:getGroupByIdParameters' />
+  </message>
+  <message name='getGroupByIdResponseMessage'>
+    <part name='response' element='tns:getGroupByIdResponse' />
+  </message>
+  <message name='getTagRequestMessage'>
+    <part name='parameters' element='tns:getTagParameters' />
+  </message>
+  <message name='getTagResponseMessage'>
+    <part name='response' element='tns:getTagResponse' />
+  </message>
+  <message name='groupsAssociatedToATagRequestMessage'>
+    <part name='parameters' element='tns:groupsAssociatedToATagParameters' />
+  </message>
+  <message name='groupsAssociatedToATagResponseMessage'>
+    <part name='response' element='tns:groupsAssociatedToATagResponse' />
+  </message>
+  <message name='groupsCountRequestMessage'>
+    <part name='parameters' element='tns:groupsCountParameters' />
+  </message>
+  <message name='groupsCountResponseMessage'>
+    <part name='response' element='tns:groupsCountResponse' />
+  </message>
+  <message name='groupsHitsRequestMessage'>
+    <part name='parameters' element='tns:groupsHitsParameters' />
+  </message>
+  <message name='groupsHitsResponseMessage'>
+    <part name='response' element='tns:groupsHitsResponse' />
+  </message>
+  <message name='guestDetailRequestMessage'>
+    <part name='parameters' element='tns:guestDetailParameters' />
+  </message>
+  <message name='guestDetailResponseMessage'>
+    <part name='response' element='tns:guestDetailResponse' />
+  </message>
+  <message name='guestDetailsRequestMessage' />
+  <message name='guestDetailsResponseMessage'>
+    <part name='response' element='tns:guestDetailsResponse' />
+  </message>
+  <message name='guestPermissionsRequestMessage'>
+    <part name='parameters' element='tns:guestPermissionsParameters' />
+  </message>
+  <message name='guestPermissionsResponseMessage'>
+    <part name='response' element='tns:guestPermissionsResponse' />
+  </message>
+  <message name='hitListRequestMessage'>
+    <part name='parameters' element='tns:hitListParameters' />
+  </message>
+  <message name='hitListResponseMessage'>
+    <part name='response' element='tns:hitListResponse' />
+  </message>
+  <message name='listConversionsRequestMessage'>
+    <part name='parameters' element='tns:listConversionsParameters' />
+  </message>
+  <message name='listConversionsResponseMessage'>
+    <part name='response' element='tns:listConversionsResponse' />
+  </message>
+  <message name='listCustomBlacklistedIpsRequestMessage' />
+  <message name='listCustomBlacklistedIpsResponseMessage'>
+    <part name='response' element='tns:listCustomBlacklistedIpsResponse' />
+  </message>
+  <message name='listDatapointsRequestMessage'>
+    <part name='parameters' element='tns:listDatapointsParameters' />
+  </message>
+  <message name='listDatapointsResponseMessage'>
+    <part name='response' element='tns:listDatapointsResponse' />
+  </message>
+  <message name='listDomainsRequestMessage'>
+    <part name='parameters' element='tns:listDomainsParameters' />
+  </message>
+  <message name='listDomainsResponseMessage'>
+    <part name='response' element='tns:listDomainsResponse' />
+  </message>
+  <message name='listDomainsWhitelistRequestMessage' />
+  <message name='listDomainsWhitelistResponseMessage'>
+    <part name='response' element='tns:listDomainsWhitelistResponse' />
+  </message>
+  <message name='listGroupsRequestMessage'>
+    <part name='parameters' element='tns:listGroupsParameters' />
+  </message>
+  <message name='listGroupsResponseMessage'>
+    <part name='response' element='tns:listGroupsResponse' />
+  </message>
+  <message name='listOfDatapointHealthStatusesRequestMessage'>
+    <part name='parameters' element='tns:listOfDatapointHealthStatusesParameters' />
+  </message>
+  <message name='listOfDatapointHealthStatusesResponseMessage'>
+    <part name='response' element='tns:listOfDatapointHealthStatusesResponse' />
+  </message>
+  <message name='listTagsRequestMessage' />
+  <message name='listTagsResponseMessage'>
+    <part name='response' element='tns:listTagsResponse' />
+  </message>
+  <message name='planDetailRequestMessage' />
+  <message name='planDetailResponseMessage'>
+    <part name='response' element='tns:planDetailResponse' />
+  </message>
+  <message name='setGuestPermissionsRequestMessage'>
+    <part name='parameters' element='tns:setGuestPermissionsParameters' />
+  </message>
+  <message name='setGuestPermissionsResponseMessage'>
+    <part name='response' element='tns:setGuestPermissionsResponse' />
+  </message>
+  <message name='tagsCountRequestMessage' />
+  <message name='tagsCountResponseMessage'>
+    <part name='response' element='tns:tagsCountResponse' />
+  </message>
+  <message name='updateConversionRequestMessage'>
+    <part name='parameters' element='tns:updateConversionParameters' />
+  </message>
+  <message name='updateConversionResponseMessage'>
+    <part name='response' element='tns:updateConversionResponse' />
+  </message>
+  <message name='updateDatapointRequestMessage'>
+    <part name='parameters' element='tns:updateDatapointParameters' />
+  </message>
+  <message name='updateDatapointResponseMessage'>
+    <part name='response' element='tns:updateDatapointResponse' />
+  </message>
+  <message name='updateDomainRequestMessage'>
+    <part name='parameters' element='tns:updateDomainParameters' />
+  </message>
+  <message name='updateDomainResponseMessage'>
+    <part name='response' element='tns:updateDomainResponse' />
+  </message>
+  <message name='updateGroupRequestMessage'>
+    <part name='parameters' element='tns:updateGroupParameters' />
+  </message>
+  <message name='updateGroupResponseMessage'>
+    <part name='response' element='tns:updateGroupResponse' />
+  </message>
+  <message name='updateOfMultipleDatapointsAtOnceRequestMessage' />
+  <message name='updateOfMultipleDatapointsAtOnceResponseMessage'>
+    <part name='response' element='tns:updateOfMultipleDatapointsAtOnceResponse' />
+  </message>
+  <portType name='clickmeterPortType'>
+    <operation name='accountDeail'>
+      <documentation>get details of the current logged account</documentation>
+      <input message='tns:accountDeailRequestMessage' name='accountDeailInput' />
+      <output message='tns:accountDeailResponseMessage' name='accountDeailOutput' />
+    </operation>
+    <operation name='addADomainInWhitelist'>
+      <documentation>add a domain in whitelist</documentation>
+      <input message='tns:addADomainInWhitelistRequestMessage' name='addADomainInWhitelistInput' />
+      <output message='tns:addADomainInWhitelistResponseMessage' name='addADomainInWhitelistOutput' />
+    </operation>
+    <operation name='addNewIpIntoBlacklist'>
+      <documentation>add new IP into blacklist</documentation>
+      <input message='tns:addNewIpIntoBlacklistRequestMessage' name='addNewIpIntoBlacklistInput' />
+      <output message='tns:addNewIpIntoBlacklistResponseMessage' name='addNewIpIntoBlacklistOutput' />
+    </operation>
+    <operation name='attachOrRemoveATagFromADatapoint'>
+      <documentation>attach or remove a tag from a datapoint</documentation>
+      <input message='tns:attachOrRemoveATagFromADatapointRequestMessage' name='attachOrRemoveATagFromADatapointInput' />
+      <output message='tns:attachOrRemoveATagFromADatapointResponseMessage' name='attachOrRemoveATagFromADatapointOutput' />
+    </operation>
+    <operation name='attachOrRemoveATagFromAGroup'>
+      <documentation>attach or remove a tag from a group</documentation>
+      <input message='tns:attachOrRemoveATagFromAGroupRequestMessage' name='attachOrRemoveATagFromAGroupInput' />
+      <output message='tns:attachOrRemoveATagFromAGroupResponseMessage' name='attachOrRemoveATagFromAGroupOutput' />
+    </operation>
+    <operation name='attachRemoveConversionToADatapoint'>
+      <documentation>patch a conversion to be assigned or removed from a datapoint</documentation>
+      <input message='tns:attachRemoveConversionToADatapointRequestMessage' name='attachRemoveConversionToADatapointInput' />
+      <output message='tns:attachRemoveConversionToADatapointResponseMessage' name='attachRemoveConversionToADatapointOutput' />
+    </operation>
+    <operation name='clickStream'>
+      <documentation>return the clickstream for the desired object</documentation>
+      <input message='tns:clickStreamRequestMessage' name='clickStreamInput' />
+      <output message='tns:clickStreamResponseMessage' name='clickStreamOutput' />
+    </operation>
+    <operation name='conversionsCount'>
+      <documentation>conversions count</documentation>
+      <input message='tns:conversionsCountRequestMessage' name='conversionsCountInput' />
+      <output message='tns:conversionsCountResponseMessage' name='conversionsCountOutput' />
+    </operation>
+    <operation name='conversionsHits'>
+      <documentation>a detailed hits list for the last days maximum by conversion</documentation>
+      <input message='tns:conversionsHitsRequestMessage' name='conversionsHitsInput' />
+      <output message='tns:conversionsHitsResponseMessage' name='conversionsHitsOutput' />
+    </operation>
+    <operation name='createConversion'>
+      <documentation>create conversion</documentation>
+      <input message='tns:createConversionRequestMessage' name='createConversionInput' />
+      <output message='tns:createConversionResponseMessage' name='createConversionOutput' />
+    </operation>
+    <operation name='createDatapoint'>
+      <documentation>create a new datapoint</documentation>
+      <input message='tns:createDatapointRequestMessage' name='createDatapointInput' />
+      <output message='tns:createDatapointResponseMessage' name='createDatapointOutput' />
+    </operation>
+    <operation name='createDatapointInsideGroup'>
+      <documentation>create datapoint inside given group</documentation>
+      <input message='tns:createDatapointInsideGroupRequestMessage' name='createDatapointInsideGroupInput' />
+      <output message='tns:createDatapointInsideGroupResponseMessage' name='createDatapointInsideGroupOutput' />
+    </operation>
+    <operation name='createDomain'>
+      <documentation>create a new personal domain to use in your datapoints</documentation>
+      <input message='tns:createDomainRequestMessage' name='createDomainInput' />
+      <output message='tns:createDomainResponseMessage' name='createDomainOutput' />
+    </operation>
+    <operation name='createGroup'>
+      <documentation>create group</documentation>
+      <input message='tns:createGroupRequestMessage' name='createGroupInput' />
+      <output message='tns:createGroupResponseMessage' name='createGroupOutput' />
+    </operation>
+    <operation name='createMultipleDatapointsAtOnce'>
+      <documentation>create multiple datapoints at once</documentation>
+      <input message='tns:createMultipleDatapointsAtOnceRequestMessage' name='createMultipleDatapointsAtOnceInput' />
+      <output message='tns:createMultipleDatapointsAtOnceResponseMessage' name='createMultipleDatapointsAtOnceOutput' />
+    </operation>
+    <operation name='createTag'>
+      <documentation>create a tag associated to the current user</documentation>
+      <input message='tns:createTagRequestMessage' name='createTagInput' />
+      <output message='tns:createTagResponseMessage' name='createTagOutput' />
+    </operation>
+    <operation name='datapointHealthStatusById'>
+      <documentation>retrieve some informations about the status of the destination URL associated to a datapoint Available info depends on the account plan</documentation>
+      <input message='tns:datapointHealthStatusByIdRequestMessage' name='datapointHealthStatusByIdInput' />
+      <output message='tns:datapointHealthStatusByIdResponseMessage' name='datapointHealthStatusByIdOutput' />
+    </operation>
+    <operation name='datapointHealthStatusesCount'>
+      <documentation>datapoint health statuses Count</documentation>
+      <input message='tns:datapointHealthStatusesCountRequestMessage' name='datapointHealthStatusesCountInput' />
+      <output message='tns:datapointHealthStatusesCountResponseMessage' name='datapointHealthStatusesCountOutput' />
+    </operation>
+    <operation name='datapointHitList'>
+      <documentation>a detailed hits list for the last days maximum by DataPoint</documentation>
+      <input message='tns:datapointHitListRequestMessage' name='datapointHitListInput' />
+      <output message='tns:datapointHitListResponseMessage' name='datapointHitListOutput' />
+    </operation>
+    <operation name='datapointsAssociatedToATag'>
+      <documentation>list of all the datapoints associated to the user and to the selected tag</documentation>
+      <input message='tns:datapointsAssociatedToATagRequestMessage' name='datapointsAssociatedToATagInput' />
+      <output message='tns:datapointsAssociatedToATagResponseMessage' name='datapointsAssociatedToATagOutput' />
+    </operation>
+    <operation name='datapointsAssociatedToConversion'>
+      <documentation>list all datapoints associated to this conversion</documentation>
+      <input message='tns:datapointsAssociatedToConversionRequestMessage' name='datapointsAssociatedToConversionInput' />
+      <output message='tns:datapointsAssociatedToConversionResponseMessage' name='datapointsAssociatedToConversionOutput' />
+    </operation>
+    <operation name='datapointsByGroup'>
+      <documentation>datapoints by group</documentation>
+      <input message='tns:datapointsByGroupRequestMessage' name='datapointsByGroupInput' />
+      <output message='tns:datapointsByGroupResponseMessage' name='datapointsByGroupOutput' />
+    </operation>
+    <operation name='datapointsCount'>
+      <documentation>datapoints count</documentation>
+      <input message='tns:datapointsCountRequestMessage' name='datapointsCountInput' />
+      <output message='tns:datapointsCountResponseMessage' name='datapointsCountOutput' />
+    </operation>
+    <operation name='deleteADomainFromWhitelist'>
+      <documentation>delete a domain from whitelist</documentation>
+      <input message='tns:deleteADomainFromWhitelistRequestMessage' name='deleteADomainFromWhitelistInput' />
+      <output message='tns:deleteADomainFromWhitelistResponseMessage' name='deleteADomainFromWhitelistOutput' />
+    </operation>
+    <operation name='deleteAnIpFromBlacklist'>
+      <documentation>delete an IP from blacklist</documentation>
+      <input message='tns:deleteAnIpFromBlacklistRequestMessage' name='deleteAnIpFromBlacklistInput' />
+      <output message='tns:deleteAnIpFromBlacklistResponseMessage' name='deleteAnIpFromBlacklistOutput' />
+    </operation>
+    <operation name='deleteConversion'>
+      <documentation>delete conversion</documentation>
+      <input message='tns:deleteConversionRequestMessage' name='deleteConversionInput' />
+      <output message='tns:deleteConversionResponseMessage' name='deleteConversionOutput' />
+    </operation>
+    <operation name='deleteDatapoint'>
+      <documentation>delete datapoint by id</documentation>
+      <input message='tns:deleteDatapointRequestMessage' name='deleteDatapointInput' />
+      <output message='tns:deleteDatapointResponseMessage' name='deleteDatapointOutput' />
+    </operation>
+    <operation name='deleteGroup'>
+      <documentation>delete group</documentation>
+      <input message='tns:deleteGroupRequestMessage' name='deleteGroupInput' />
+      <output message='tns:deleteGroupResponseMessage' name='deleteGroupOutput' />
+    </operation>
+    <operation name='deleteTag'>
+      <documentation>delete a tag</documentation>
+      <input message='tns:deleteTagRequestMessage' name='deleteTagInput' />
+      <output message='tns:deleteTagResponseMessage' name='deleteTagOutput' />
+    </operation>
+    <operation name='domainCount'>
+      <documentation>get a count of domains available</documentation>
+      <input message='tns:domainCountRequestMessage' name='domainCountInput' />
+      <output message='tns:domainCountResponseMessage' name='domainCountOutput' />
+    </operation>
+    <operation name='editAccountDetail'>
+      <documentation>update your account data</documentation>
+      <input message='tns:editAccountDetailRequestMessage' name='editAccountDetailInput' />
+      <output message='tns:editAccountDetailResponseMessage' name='editAccountDetailOutput' />
+    </operation>
+    <operation name='getAFullListOfConversionsWithStatistics'>
+      <documentation>get a full list of conversions with statistics</documentation>
+      <input message='tns:getAFullListOfConversionsWithStatisticsRequestMessage' name='getAFullListOfConversionsWithStatisticsInput' />
+      <output message='tns:getAFullListOfConversionsWithStatisticsResponseMessage' name='getAFullListOfConversionsWithStatisticsOutput' />
+    </operation>
+    <operation name='getAFullListOfDatapointsWithStatistics'>
+      <documentation>get a full list of datapoints with statistics based on filters</documentation>
+      <input message='tns:getAFullListOfDatapointsWithStatisticsRequestMessage' name='getAFullListOfDatapointsWithStatisticsInput' />
+      <output message='tns:getAFullListOfDatapointsWithStatisticsResponseMessage' name='getAFullListOfDatapointsWithStatisticsOutput' />
+    </operation>
+    <operation name='getAFullListOfGroupsWithStatistics'>
+      <documentation>get a full list of groups with statistics</documentation>
+      <input message='tns:getAFullListOfGroupsWithStatisticsRequestMessage' name='getAFullListOfGroupsWithStatisticsInput' />
+      <output message='tns:getAFullListOfGroupsWithStatisticsResponseMessage' name='getAFullListOfGroupsWithStatisticsOutput' />
+    </operation>
+    <operation name='getAggregatedCountsOnCustomer'>
+      <documentation>get aggregated counts on customer</documentation>
+      <input message='tns:getAggregatedCountsOnCustomerRequestMessage' name='getAggregatedCountsOnCustomerInput' />
+      <output message='tns:getAggregatedCountsOnCustomerResponseMessage' name='getAggregatedCountsOnCustomerOutput' />
+    </operation>
+    <operation name='getAggregatedCountsWithDailyBreakdown'>
+      <documentation>get aggregated counts with daily breakdown</documentation>
+      <input message='tns:getAggregatedCountsWithDailyBreakdownRequestMessage' name='getAggregatedCountsWithDailyBreakdownInput' />
+      <output message='tns:getAggregatedCountsWithDailyBreakdownResponseMessage' name='getAggregatedCountsWithDailyBreakdownOutput' />
+    </operation>
+    <operation name='getConversionById'>
+      <documentation>get conversion by id</documentation>
+      <input message='tns:getConversionByIdRequestMessage' name='getConversionByIdInput' />
+      <output message='tns:getConversionByIdResponseMessage' name='getConversionByIdOutput' />
+    </operation>
+    <operation name='getDatapointById'>
+      <documentation>datapoint details</documentation>
+      <input message='tns:getDatapointByIdRequestMessage' name='getDatapointByIdInput' />
+      <output message='tns:getDatapointByIdResponseMessage' name='getDatapointByIdOutput' />
+    </operation>
+    <operation name='getDomainById'>
+      <documentation>get the detail about a domain</documentation>
+      <input message='tns:getDomainByIdRequestMessage' name='getDomainByIdInput' />
+      <output message='tns:getDomainByIdResponseMessage' name='getDomainByIdOutput' />
+    </operation>
+    <operation name='getGroupById'>
+      <documentation>get group by id</documentation>
+      <input message='tns:getGroupByIdRequestMessage' name='getGroupByIdInput' />
+      <output message='tns:getGroupByIdResponseMessage' name='getGroupByIdOutput' />
+    </operation>
+    <operation name='getTag'>
+      <documentation>get the specified tag</documentation>
+      <input message='tns:getTagRequestMessage' name='getTagInput' />
+      <output message='tns:getTagResponseMessage' name='getTagOutput' />
+    </operation>
+    <operation name='groupsAssociatedToATag'>
+      <documentation>list of all the groups associated to the user and to the selected tag</documentation>
+      <input message='tns:groupsAssociatedToATagRequestMessage' name='groupsAssociatedToATagInput' />
+      <output message='tns:groupsAssociatedToATagResponseMessage' name='groupsAssociatedToATagOutput' />
+    </operation>
+    <operation name='groupsCount'>
+      <documentation>groups count</documentation>
+      <input message='tns:groupsCountRequestMessage' name='groupsCountInput' />
+      <output message='tns:groupsCountResponseMessage' name='groupsCountOutput' />
+    </operation>
+    <operation name='groupsHits'>
+      <documentation>groups Hits</documentation>
+      <input message='tns:groupsHitsRequestMessage' name='groupsHitsInput' />
+      <output message='tns:groupsHitsResponseMessage' name='groupsHitsOutput' />
+    </operation>
+    <operation name='guestDetail'>
+      <documentation>guest detail Access only for master key</documentation>
+      <input message='tns:guestDetailRequestMessage' name='guestDetailInput' />
+      <output message='tns:guestDetailResponseMessage' name='guestDetailOutput' />
+    </operation>
+    <operation name='guestDetails'>
+      <documentation>guest list account Access only for master key</documentation>
+      <input message='tns:guestDetailsRequestMessage' name='guestDetailsInput' />
+      <output message='tns:guestDetailsResponseMessage' name='guestDetailsOutput' />
+    </operation>
+    <operation name='guestPermissions'>
+      <documentation>a list of permission that guest have</documentation>
+      <input message='tns:guestPermissionsRequestMessage' name='guestPermissionsInput' />
+      <output message='tns:guestPermissionsResponseMessage' name='guestPermissionsOutput' />
+    </operation>
+    <operation name='hitList'>
+      <documentation>a detailed hits list for the last days maximum</documentation>
+      <input message='tns:hitListRequestMessage' name='hitListInput' />
+      <output message='tns:hitListResponseMessage' name='hitListOutput' />
+    </operation>
+    <operation name='listConversions'>
+      <documentation>list conversions</documentation>
+      <input message='tns:listConversionsRequestMessage' name='listConversionsInput' />
+      <output message='tns:listConversionsResponseMessage' name='listConversionsOutput' />
+    </operation>
+    <operation name='listCustomBlacklistedIps'>
+      <documentation>list custom blacklisted IPs</documentation>
+      <input message='tns:listCustomBlacklistedIpsRequestMessage' name='listCustomBlacklistedIpsInput' />
+      <output message='tns:listCustomBlacklistedIpsResponseMessage' name='listCustomBlacklistedIpsOutput' />
+    </operation>
+    <operation name='listDatapoints'>
+      <documentation>list of all the datapoints associated to the user</documentation>
+      <input message='tns:listDatapointsRequestMessage' name='listDatapointsInput' />
+      <output message='tns:listDatapointsResponseMessage' name='listDatapointsOutput' />
+    </operation>
+    <operation name='listDomains'>
+      <documentation>list domains to which is possible to register a datapoint</documentation>
+      <input message='tns:listDomainsRequestMessage' name='listDomainsInput' />
+      <output message='tns:listDomainsResponseMessage' name='listDomainsOutput' />
+    </operation>
+    <operation name='listDomainsWhitelist'>
+      <documentation>list domains whitelist</documentation>
+      <input message='tns:listDomainsWhitelistRequestMessage' name='listDomainsWhitelistInput' />
+      <output message='tns:listDomainsWhitelistResponseMessage' name='listDomainsWhitelistOutput' />
+    </operation>
+    <operation name='listGroups'>
+      <documentation>list groups</documentation>
+      <input message='tns:listGroupsRequestMessage' name='listGroupsInput' />
+      <output message='tns:listGroupsResponseMessage' name='listGroupsOutput' />
+    </operation>
+    <operation name='listOfDatapointHealthStatuses'>
+      <documentation>retrieve the list of the links which have some status information attached</documentation>
+      <input message='tns:listOfDatapointHealthStatusesRequestMessage' name='listOfDatapointHealthStatusesInput' />
+      <output message='tns:listOfDatapointHealthStatusesResponseMessage' name='listOfDatapointHealthStatusesOutput' />
+    </operation>
+    <operation name='listTags'>
+      <documentation>list of all the tags associated to the user</documentation>
+      <input message='tns:listTagsRequestMessage' name='listTagsInput' />
+      <output message='tns:listTagsResponseMessage' name='listTagsOutput' />
+    </operation>
+    <operation name='planDetail'>
+      <documentation>get detail of the plan used by this account Valid only for MASTER key</documentation>
+      <input message='tns:planDetailRequestMessage' name='planDetailInput' />
+      <output message='tns:planDetailResponseMessage' name='planDetailOutput' />
+    </operation>
+    <operation name='setGuestPermissions'>
+      <documentation>add or remove guest permissions Access only for master key</documentation>
+      <input message='tns:setGuestPermissionsRequestMessage' name='setGuestPermissionsInput' />
+      <output message='tns:setGuestPermissionsResponseMessage' name='setGuestPermissionsOutput' />
+    </operation>
+    <operation name='tagsCount'>
+      <documentation>get a count of the tags You can use the same filters of tags</documentation>
+      <input message='tns:tagsCountRequestMessage' name='tagsCountInput' />
+      <output message='tns:tagsCountResponseMessage' name='tagsCountOutput' />
+    </operation>
+    <operation name='updateConversion'>
+      <documentation>update conversion</documentation>
+      <input message='tns:updateConversionRequestMessage' name='updateConversionInput' />
+      <output message='tns:updateConversionResponseMessage' name='updateConversionOutput' />
+    </operation>
+    <operation name='updateDatapoint'>
+      <documentation>update datapoint</documentation>
+      <input message='tns:updateDatapointRequestMessage' name='updateDatapointInput' />
+      <output message='tns:updateDatapointResponseMessage' name='updateDatapointOutput' />
+    </operation>
+    <operation name='updateDomain'>
+      <documentation>update a domain object</documentation>
+      <input message='tns:updateDomainRequestMessage' name='updateDomainInput' />
+      <output message='tns:updateDomainResponseMessage' name='updateDomainOutput' />
+    </operation>
+    <operation name='updateGroup'>
+      <documentation>update group</documentation>
+      <input message='tns:updateGroupRequestMessage' name='updateGroupInput' />
+      <output message='tns:updateGroupResponseMessage' name='updateGroupOutput' />
+    </operation>
+    <operation name='updateOfMultipleDatapointsAtOnce'>
+      <documentation>update of multiple datapoints at once</documentation>
+      <input message='tns:updateOfMultipleDatapointsAtOnceRequestMessage' name='updateOfMultipleDatapointsAtOnceInput' />
+      <output message='tns:updateOfMultipleDatapointsAtOnceResponseMessage' name='updateOfMultipleDatapointsAtOnceOutput' />
+    </operation>
+  </portType>
+  <binding name='clickmeterBinding' type='tns:clickmeterPortType'>
+    <operation name='accountDeail'>
+      <soap12:operation soapAction='http://accountDeail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addADomainInWhitelist'>
+      <soap12:operation soapAction='http://addADomainInWhitelist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='addNewIpIntoBlacklist'>
+      <soap12:operation soapAction='http://addNewIpIntoBlacklist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='attachOrRemoveATagFromADatapoint'>
+      <soap12:operation soapAction='http://attachOrRemoveATagFromADatapoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='attachOrRemoveATagFromAGroup'>
+      <soap12:operation soapAction='http://attachOrRemoveATagFromAGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='attachRemoveConversionToADatapoint'>
+      <soap12:operation soapAction='http://attachRemoveConversionToADatapoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clickStream'>
+      <soap12:operation soapAction='http://clickStream' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='conversionsCount'>
+      <soap12:operation soapAction='http://conversionsCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='conversionsHits'>
+      <soap12:operation soapAction='http://conversionsHits' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createConversion'>
+      <soap12:operation soapAction='http://createConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createDatapoint'>
+      <soap12:operation soapAction='http://createDatapoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createDatapointInsideGroup'>
+      <soap12:operation soapAction='http://createDatapointInsideGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createDomain'>
+      <soap12:operation soapAction='http://createDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createGroup'>
+      <soap12:operation soapAction='http://createGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createMultipleDatapointsAtOnce'>
+      <soap12:operation soapAction='http://createMultipleDatapointsAtOnce' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createTag'>
+      <soap12:operation soapAction='http://createTag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointHealthStatusById'>
+      <soap12:operation soapAction='http://datapointHealthStatusById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointHealthStatusesCount'>
+      <soap12:operation soapAction='http://datapointHealthStatusesCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointHitList'>
+      <soap12:operation soapAction='http://datapointHitList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointsAssociatedToATag'>
+      <soap12:operation soapAction='http://datapointsAssociatedToATag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointsAssociatedToConversion'>
+      <soap12:operation soapAction='http://datapointsAssociatedToConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointsByGroup'>
+      <soap12:operation soapAction='http://datapointsByGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='datapointsCount'>
+      <soap12:operation soapAction='http://datapointsCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteADomainFromWhitelist'>
+      <soap12:operation soapAction='http://deleteADomainFromWhitelist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteAnIpFromBlacklist'>
+      <soap12:operation soapAction='http://deleteAnIpFromBlacklist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteConversion'>
+      <soap12:operation soapAction='http://deleteConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteDatapoint'>
+      <soap12:operation soapAction='http://deleteDatapoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteGroup'>
+      <soap12:operation soapAction='http://deleteGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteTag'>
+      <soap12:operation soapAction='http://deleteTag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='domainCount'>
+      <soap12:operation soapAction='http://domainCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='editAccountDetail'>
+      <soap12:operation soapAction='http://editAccountDetail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAFullListOfConversionsWithStatistics'>
+      <soap12:operation soapAction='http://getAFullListOfConversionsWithStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAFullListOfDatapointsWithStatistics'>
+      <soap12:operation soapAction='http://getAFullListOfDatapointsWithStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAFullListOfGroupsWithStatistics'>
+      <soap12:operation soapAction='http://getAFullListOfGroupsWithStatistics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAggregatedCountsOnCustomer'>
+      <soap12:operation soapAction='http://getAggregatedCountsOnCustomer' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAggregatedCountsWithDailyBreakdown'>
+      <soap12:operation soapAction='http://getAggregatedCountsWithDailyBreakdown' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getConversionById'>
+      <soap12:operation soapAction='http://getConversionById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDatapointById'>
+      <soap12:operation soapAction='http://getDatapointById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getDomainById'>
+      <soap12:operation soapAction='http://getDomainById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getGroupById'>
+      <soap12:operation soapAction='http://getGroupById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTag'>
+      <soap12:operation soapAction='http://getTag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='groupsAssociatedToATag'>
+      <soap12:operation soapAction='http://groupsAssociatedToATag' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='groupsCount'>
+      <soap12:operation soapAction='http://groupsCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='groupsHits'>
+      <soap12:operation soapAction='http://groupsHits' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='guestDetail'>
+      <soap12:operation soapAction='http://guestDetail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='guestDetails'>
+      <soap12:operation soapAction='http://guestDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='guestPermissions'>
+      <soap12:operation soapAction='http://guestPermissions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='hitList'>
+      <soap12:operation soapAction='http://hitList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listConversions'>
+      <soap12:operation soapAction='http://listConversions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listCustomBlacklistedIps'>
+      <soap12:operation soapAction='http://listCustomBlacklistedIps' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDatapoints'>
+      <soap12:operation soapAction='http://listDatapoints' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDomains'>
+      <soap12:operation soapAction='http://listDomains' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listDomainsWhitelist'>
+      <soap12:operation soapAction='http://listDomainsWhitelist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listGroups'>
+      <soap12:operation soapAction='http://listGroups' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listOfDatapointHealthStatuses'>
+      <soap12:operation soapAction='http://listOfDatapointHealthStatuses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTags'>
+      <soap12:operation soapAction='http://listTags' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='planDetail'>
+      <soap12:operation soapAction='http://planDetail' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setGuestPermissions'>
+      <soap12:operation soapAction='http://setGuestPermissions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='tagsCount'>
+      <soap12:operation soapAction='http://tagsCount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateConversion'>
+      <soap12:operation soapAction='http://updateConversion' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateDatapoint'>
+      <soap12:operation soapAction='http://updateDatapoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateDomain'>
+      <soap12:operation soapAction='http://updateDomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateGroup'>
+      <soap12:operation soapAction='http://updateGroup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateOfMultipleDatapointsAtOnce'>
+      <soap12:operation soapAction='http://updateOfMultipleDatapointsAtOnce' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='clickmeter'>
+    <documentation>the easiest way to Manage your Marketing Links</documentation>
+    <port name='clickmeterPort' binding='tns:clickmeterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://clickmeter' />
+    </port>
+  </service>
+</definitions>

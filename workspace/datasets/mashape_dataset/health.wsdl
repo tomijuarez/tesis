@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/health/' name='health' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/health/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/health/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/health/'>
+      <xsd:element name='bmiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='weight' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bmiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='ideal_weight' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='woman' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='man' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bmiRequestMessage'>
+    <part name='parameters' element='tns:bmiParameters' />
+  </message>
+  <message name='bmiResponseMessage'>
+    <part name='response' element='tns:bmiResponse' />
+  </message>
+  <portType name='healthPortType'>
+    <operation name='bmi'>
+      <documentation>returns the physical state of the body and the number of total muscle mass</documentation>
+      <input message='tns:bmiRequestMessage' name='bmiInput' />
+      <output message='tns:bmiResponseMessage' name='bmiOutput' />
+    </operation>
+  </portType>
+  <binding name='healthBinding' type='tns:healthPortType'>
+    <operation name='bmi'>
+      <soap12:operation soapAction='http://bmi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='health'>
+    <documentation>data to regulate your physical condition Calculate Your BMI body mass index</documentation>
+    <port name='healthPort' binding='tns:healthBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://health' />
+    </port>
+  </service>
+</definitions>

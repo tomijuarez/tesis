@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/webp/' name='webp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/webp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/webp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/webp/'>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertRequestMessage' />
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <portType name='webpPortType'>
+    <operation name='convert'>
+      <documentation></documentation>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+  </portType>
+  <binding name='webpBinding' type='tns:webpPortType'>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='webp'>
+    <documentation>convert images to webp format https developers google com speed webp</documentation>
+    <port name='webpPort' binding='tns:webpBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://webp' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/drawbridgeAdRequest/' name='drawbridgeAdRequest' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/drawbridgeAdRequest/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/drawbridgeAdRequest/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/drawbridgeAdRequest/'>
+      <xsd:element name='adRequestParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='aid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='clip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='did' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ifa' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pu' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='puuid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ua' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='adRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='adRequestRequestMessage'>
+    <part name='parameters' element='tns:adRequestParameters' />
+  </message>
+  <message name='adRequestResponseMessage'>
+    <part name='response' element='tns:adRequestResponse' />
+  </message>
+  <portType name='drawbridgeAdRequestPortType'>
+    <operation name='adRequest'>
+      <documentation>please check http doc drawbrid ge for additional optional parameters Server to server integration for mediation and ad exchanges With server to server integration mediation and ad exchanges can let Drawbridge programmaticaly buy and serve ad impressions on their network The APIs are based on standard HTTP protocol making the integration simple and easy to maintain In most cases the integration takes as little as one or two days</documentation>
+      <input message='tns:adRequestRequestMessage' name='adRequestInput' />
+      <output message='tns:adRequestResponseMessage' name='adRequestOutput' />
+    </operation>
+  </portType>
+  <binding name='drawbridgeAdRequestBinding' type='tns:drawbridgeAdRequestPortType'>
+    <operation name='adRequest'>
+      <soap12:operation soapAction='http://adRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='drawbridgeAdRequest'>
+    <documentation>precisely target mobile audiences and increase ROI Drawbridge technology enables targeting across devices to drive CPI CPL CPA and customer lifetime value Drawbridge s technology bridges audiences across devices and enables two mobile targeting and optimization products</documentation>
+    <port name='drawbridgeAdRequestPort' binding='tns:drawbridgeAdRequestBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://drawbridgeAdRequest' />
+    </port>
+  </service>
+</definitions>

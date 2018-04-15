@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/idylCloud/' name='idylCloud' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/idylCloud/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/idylCloud/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/idylCloud/'>
+      <xsd:element name='entityDisambiguationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='class' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityDisambiguationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityEnrichmentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entityuri' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='maxenrichments' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityEnrichmentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Birth_Date' type='xsd:date' minOccurs='0' />
+            <xsd:element name='Birth_Place' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Term_Period' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Position' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='College' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Active_Years_End_Year' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Active_Years_Start_Year' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Height' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='Weight' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityExtractionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='class' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minconfidence' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityExtractionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='endPosition' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='probability' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='startPosition' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityExtractionForTweetsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tweet' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='entityExtractionForTweetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='keywordsExtractionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='maxkeywords' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='keywordsExtractionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='keywords' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='languageDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentDetectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sentimentDetectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentimentValue' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sentimentName' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='entityDisambiguationRequestMessage'>
+    <part name='parameters' element='tns:entityDisambiguationParameters' />
+  </message>
+  <message name='entityDisambiguationResponseMessage'>
+    <part name='response' element='tns:entityDisambiguationResponse' />
+  </message>
+  <message name='entityEnrichmentRequestMessage'>
+    <part name='parameters' element='tns:entityEnrichmentParameters' />
+  </message>
+  <message name='entityEnrichmentResponseMessage'>
+    <part name='response' element='tns:entityEnrichmentResponse' />
+  </message>
+  <message name='entityExtractionRequestMessage'>
+    <part name='parameters' element='tns:entityExtractionParameters' />
+  </message>
+  <message name='entityExtractionResponseMessage'>
+    <part name='response' element='tns:entityExtractionResponse' />
+  </message>
+  <message name='entityExtractionForTweetsRequestMessage'>
+    <part name='parameters' element='tns:entityExtractionForTweetsParameters' />
+  </message>
+  <message name='entityExtractionForTweetsResponseMessage'>
+    <part name='response' element='tns:entityExtractionForTweetsResponse' />
+  </message>
+  <message name='keywordsExtractionRequestMessage'>
+    <part name='parameters' element='tns:keywordsExtractionParameters' />
+  </message>
+  <message name='keywordsExtractionResponseMessage'>
+    <part name='response' element='tns:keywordsExtractionResponse' />
+  </message>
+  <message name='languageDetectionRequestMessage'>
+    <part name='parameters' element='tns:languageDetectionParameters' />
+  </message>
+  <message name='languageDetectionResponseMessage'>
+    <part name='response' element='tns:languageDetectionResponse' />
+  </message>
+  <message name='sentimentDetectionRequestMessage'>
+    <part name='parameters' element='tns:sentimentDetectionParameters' />
+  </message>
+  <message name='sentimentDetectionResponseMessage'>
+    <part name='response' element='tns:sentimentDetectionResponse' />
+  </message>
+  <portType name='idylCloudPortType'>
+    <operation name='entityDisambiguation'>
+      <documentation>this endpoint dissambiguates an entity given the entity and text containing the entity If the entity cannot be disambiguated tns will be returned Successful disambiguations will return a URI that uniquely identifies the entity</documentation>
+      <input message='tns:entityDisambiguationRequestMessage' name='entityDisambiguationInput' />
+      <output message='tns:entityDisambiguationResponseMessage' name='entityDisambiguationOutput' />
+    </operation>
+    <operation name='entityEnrichment'>
+      <documentation>enrich entities with publicly available facts</documentation>
+      <input message='tns:entityEnrichmentRequestMessage' name='entityEnrichmentInput' />
+      <output message='tns:entityEnrichmentResponseMessage' name='entityEnrichmentOutput' />
+    </operation>
+    <operation name='entityExtraction'>
+      <documentation>extract entities from natural language text</documentation>
+      <input message='tns:entityExtractionRequestMessage' name='entityExtractionInput' />
+      <output message='tns:entityExtractionResponseMessage' name='entityExtractionOutput' />
+    </operation>
+    <operation name='entityExtractionForTweets'>
+      <documentation>extract entities from a tweet The provided tweet must be between and characters</documentation>
+      <input message='tns:entityExtractionForTweetsRequestMessage' name='entityExtractionForTweetsInput' />
+      <output message='tns:entityExtractionForTweetsResponseMessage' name='entityExtractionForTweetsOutput' />
+    </operation>
+    <operation name='keywordsExtraction'>
+      <documentation>extract keywords for text</documentation>
+      <input message='tns:keywordsExtractionRequestMessage' name='keywordsExtractionInput' />
+      <output message='tns:keywordsExtractionResponseMessage' name='keywordsExtractionOutput' />
+    </operation>
+    <operation name='languageDetection'>
+      <documentation>determine language of input text</documentation>
+      <input message='tns:languageDetectionRequestMessage' name='languageDetectionInput' />
+      <output message='tns:languageDetectionResponseMessage' name='languageDetectionOutput' />
+    </operation>
+    <operation name='sentimentDetection'>
+      <documentation>detect sentiment negative positive neutral for text</documentation>
+      <input message='tns:sentimentDetectionRequestMessage' name='sentimentDetectionInput' />
+      <output message='tns:sentimentDetectionResponseMessage' name='sentimentDetectionOutput' />
+    </operation>
+  </portType>
+  <binding name='idylCloudBinding' type='tns:idylCloudPortType'>
+    <operation name='entityDisambiguation'>
+      <soap12:operation soapAction='http://entityDisambiguation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entityEnrichment'>
+      <soap12:operation soapAction='http://entityEnrichment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entityExtraction'>
+      <soap12:operation soapAction='http://entityExtraction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='entityExtractionForTweets'>
+      <soap12:operation soapAction='http://entityExtractionForTweets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='keywordsExtraction'>
+      <soap12:operation soapAction='http://keywordsExtraction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='languageDetection'>
+      <soap12:operation soapAction='http://languageDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sentimentDetection'>
+      <soap12:operation soapAction='http://sentimentDetection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='idylCloud'>
+    <documentation>extract named entities from natural English language text Idyl Cloud can detect and extract millions of person entities Use Idyl Cloud to power name recognition in your apps Idyl Cloud also supports language detection for over languages Simple REST interface and easy to use</documentation>
+    <port name='idylCloudPort' binding='tns:idylCloudBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://idylCloud' />
+    </port>
+  </service>
+</definitions>

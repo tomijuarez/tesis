@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onlineStation/' name='onlineStation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onlineStation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onlineStation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onlineStation/'>
+      <xsd:element name='newsFeedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='publickey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newsFeedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cache_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='section_cache' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='content_list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='contents' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='created_time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='updated_time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='game_thumb' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='poster_thumb' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='game_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='online_time' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='content_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sub_content_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='subtitle' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='platform_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='img_thumb' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='poster_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='poster' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='game_id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='section' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='execute_time' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='newsFeedRequestMessage'>
+    <part name='parameters' element='tns:newsFeedParameters' />
+  </message>
+  <message name='newsFeedResponseMessage'>
+    <part name='response' element='tns:newsFeedResponse' />
+  </message>
+  <portType name='onlineStationPortType'>
+    <operation name='newsFeed'>
+      <documentation>games news feed</documentation>
+      <input message='tns:newsFeedRequestMessage' name='newsFeedInput' />
+      <output message='tns:newsFeedResponseMessage' name='newsFeedOutput' />
+    </operation>
+  </portType>
+  <binding name='onlineStationBinding' type='tns:onlineStationPortType'>
+    <operation name='newsFeed'>
+      <soap12:operation soapAction='http://newsFeed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onlineStation'>
+    <documentation>game news data API Thai language only in this version</documentation>
+    <port name='onlineStationPort' binding='tns:onlineStationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onlineStation' />
+    </port>
+  </service>
+</definitions>

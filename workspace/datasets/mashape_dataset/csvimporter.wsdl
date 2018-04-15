@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/csvImporter/' name='csvImporter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/csvImporter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/csvImporter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/csvImporter/'>
+      <xsd:element name='inputCsvFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='inputCsvFileRequestMessage' />
+  <message name='inputCsvFileResponseMessage'>
+    <part name='response' element='tns:inputCsvFileResponse' />
+  </message>
+  <portType name='csvImporterPortType'>
+    <operation name='inputCsvFile'>
+      <documentation>the file you wish to be parsed to an array</documentation>
+      <input message='tns:inputCsvFileRequestMessage' name='inputCsvFileInput' />
+      <output message='tns:inputCsvFileResponseMessage' name='inputCsvFileOutput' />
+    </operation>
+  </portType>
+  <binding name='csvImporterBinding' type='tns:csvImporterPortType'>
+    <operation name='inputCsvFile'>
+      <soap12:operation soapAction='http://inputCsvFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='csvImporter'>
+    <documentation>cSV Import is a powerful csv file parsing solution that automatically detects different delimiters and works on them The API returns an associative array containing the values as parsed with the keys as the fields and the values in the csv mapped to the values in the array</documentation>
+    <port name='csvImporterPort' binding='tns:csvImporterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://csvImporter' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nlptools/' name='nlptools' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nlptools/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nlptools/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nlptools/'>
+      <xsd:element name='sentimentAnalysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sentimentAnalysisRequestMessage' />
+  <message name='sentimentAnalysisResponseMessage'>
+    <part name='response' element='tns:sentimentAnalysisResponse' />
+  </message>
+  <portType name='nlptoolsPortType'>
+    <operation name='sentimentAnalysis'>
+      <documentation>sentiment analysis of online news media general purpose multiple topics See http nlptools atrilla net web api php for more details</documentation>
+      <input message='tns:sentimentAnalysisRequestMessage' name='sentimentAnalysisInput' />
+      <output message='tns:sentimentAnalysisResponseMessage' name='sentimentAnalysisOutput' />
+    </operation>
+  </portType>
+  <binding name='nlptoolsBinding' type='tns:nlptoolsPortType'>
+    <operation name='sentimentAnalysis'>
+      <soap12:operation soapAction='http://sentimentAnalysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nlptools'>
+    <documentation>text processing framework to analyse Natural Language It is especially focused on text classification and sentiment analysis of online news media general purpose multiple topics</documentation>
+    <port name='nlptoolsPort' binding='tns:nlptoolsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nlptools' />
+    </port>
+  </service>
+</definitions>

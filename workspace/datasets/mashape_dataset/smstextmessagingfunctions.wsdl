@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/smsTextMessagingFunctions/' name='smsTextMessagingFunctions' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/smsTextMessagingFunctions/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/smsTextMessagingFunctions/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/smsTextMessagingFunctions/'>
+      <xsd:element name='availableDeliveryReportsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getADeliveryReportParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getADeliveryReportResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsCreditsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='availableDeliveryReportsRequestMessage' />
+  <message name='availableDeliveryReportsResponseMessage'>
+    <part name='response' element='tns:availableDeliveryReportsResponse' />
+  </message>
+  <message name='getADeliveryReportRequestMessage'>
+    <part name='parameters' element='tns:getADeliveryReportParameters' />
+  </message>
+  <message name='getADeliveryReportResponseMessage'>
+    <part name='response' element='tns:getADeliveryReportResponse' />
+  </message>
+  <message name='sendSmsRequestMessage' />
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <message name='smsCreditsRequestMessage' />
+  <message name='smsCreditsResponseMessage'>
+    <part name='response' element='tns:smsCreditsResponse' />
+  </message>
+  <portType name='smsTextMessagingFunctionsPortType'>
+    <operation name='availableDeliveryReports'>
+      <documentation>get a list of delivery reports available</documentation>
+      <input message='tns:availableDeliveryReportsRequestMessage' name='availableDeliveryReportsInput' />
+      <output message='tns:availableDeliveryReportsResponseMessage' name='availableDeliveryReportsOutput' />
+    </operation>
+    <operation name='getADeliveryReport'>
+      <documentation>get the contents of a delivery report whose name is name as derived from deliveryReports Using a name of all retrieves all reports</documentation>
+      <input message='tns:getADeliveryReportRequestMessage' name='getADeliveryReportInput' />
+      <output message='tns:getADeliveryReportResponseMessage' name='getADeliveryReportOutput' />
+    </operation>
+    <operation name='sendSms'>
+      <documentation>send an SMS message or text with up to characters</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+    <operation name='smsCredits'>
+      <documentation>see how many credits you have left credit sms chars</documentation>
+      <input message='tns:smsCreditsRequestMessage' name='smsCreditsInput' />
+      <output message='tns:smsCreditsResponseMessage' name='smsCreditsOutput' />
+    </operation>
+  </portType>
+  <binding name='smsTextMessagingFunctionsBinding' type='tns:smsTextMessagingFunctionsPortType'>
+    <operation name='availableDeliveryReports'>
+      <soap12:operation soapAction='http://availableDeliveryReports' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getADeliveryReport'>
+      <soap12:operation soapAction='http://getADeliveryReport' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='smsCredits'>
+      <soap12:operation soapAction='http://smsCredits' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='smsTextMessagingFunctions'>
+    <documentation>comprehensive SMS messaging functions Direct UK connections set the sender ID and send texts up to characters Send SMS to the UK and Europe Functions include Send SMS Receive SMS Schedule SMS Delivery Reporting Branch Level Identification You can also control your Text Marketer account programmatically for example Inject mobile numbers direct into your account create new sub accounts and move credits between them and create new groups Used by well know brands through to start ups low cost and reliability is our strength See read me to give it a try</documentation>
+    <port name='smsTextMessagingFunctionsPort' binding='tns:smsTextMessagingFunctionsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://smsTextMessagingFunctions' />
+    </port>
+  </service>
+</definitions>

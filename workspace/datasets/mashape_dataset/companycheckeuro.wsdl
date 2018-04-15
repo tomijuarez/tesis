@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/companyCheckEuro/' name='companyCheckEuro' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/companyCheckEuro/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/companyCheckEuro/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/companyCheckEuro/'>
+      <xsd:element name='euroCompanyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='euroCompanyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='euroCompanyBasicParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='euroCompanyBasicResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='euroCompanySearchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='euroCompanySearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='euroCompanyRequestMessage'>
+    <part name='parameters' element='tns:euroCompanyParameters' />
+  </message>
+  <message name='euroCompanyResponseMessage'>
+    <part name='response' element='tns:euroCompanyResponse' />
+  </message>
+  <message name='euroCompanyBasicRequestMessage'>
+    <part name='parameters' element='tns:euroCompanyBasicParameters' />
+  </message>
+  <message name='euroCompanyBasicResponseMessage'>
+    <part name='response' element='tns:euroCompanyBasicResponse' />
+  </message>
+  <message name='euroCompanySearchRequestMessage'>
+    <part name='parameters' element='tns:euroCompanySearchParameters' />
+  </message>
+  <message name='euroCompanySearchResponseMessage'>
+    <part name='response' element='tns:euroCompanySearchResponse' />
+  </message>
+  <portType name='companyCheckEuroPortType'>
+    <operation name='euroCompany'>
+      <documentation></documentation>
+      <input message='tns:euroCompanyRequestMessage' name='euroCompanyInput' />
+      <output message='tns:euroCompanyResponseMessage' name='euroCompanyOutput' />
+    </operation>
+    <operation name='euroCompanyBasic'>
+      <documentation></documentation>
+      <input message='tns:euroCompanyBasicRequestMessage' name='euroCompanyBasicInput' />
+      <output message='tns:euroCompanyBasicResponseMessage' name='euroCompanyBasicOutput' />
+    </operation>
+    <operation name='euroCompanySearch'>
+      <documentation></documentation>
+      <input message='tns:euroCompanySearchRequestMessage' name='euroCompanySearchInput' />
+      <output message='tns:euroCompanySearchResponseMessage' name='euroCompanySearchOutput' />
+    </operation>
+  </portType>
+  <binding name='companyCheckEuroBinding' type='tns:companyCheckEuroPortType'>
+    <operation name='euroCompany'>
+      <soap12:operation soapAction='http://euroCompany' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='euroCompanyBasic'>
+      <soap12:operation soapAction='http://euroCompanyBasic' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='euroCompanySearch'>
+      <soap12:operation soapAction='http://euroCompanySearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='companyCheckEuro'>
+    <documentation>use the Company Check Euro API platform to integrate company director financial and credit data in to your own software and bespoke applications Over million company and director records across countries</documentation>
+    <port name='companyCheckEuroPort' binding='tns:companyCheckEuroBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://companyCheckEuro' />
+    </port>
+  </service>
+</definitions>

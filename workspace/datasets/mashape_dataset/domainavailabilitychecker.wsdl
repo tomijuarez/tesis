@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/domainAvailabilityChecker/' name='domainAvailabilityChecker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/domainAvailabilityChecker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/domainAvailabilityChecker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/domainAvailabilityChecker/'>
+      <xsd:element name='googleComResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='available' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='tld' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='googleComRequestMessage' />
+  <message name='googleComResponseMessage'>
+    <part name='response' element='tns:googleComResponse' />
+  </message>
+  <portType name='domainAvailabilityCheckerPortType'>
+    <operation name='googleCom'>
+      <documentation>currently only supports following TLDs com net org info in</documentation>
+      <input message='tns:googleComRequestMessage' name='googleComInput' />
+      <output message='tns:googleComResponseMessage' name='googleComOutput' />
+    </operation>
+  </portType>
+  <binding name='domainAvailabilityCheckerBinding' type='tns:domainAvailabilityCheckerPortType'>
+    <operation name='googleCom'>
+      <soap12:operation soapAction='http://googleCom' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='domainAvailabilityChecker'>
+    <documentation>domain Availability Checker</documentation>
+    <port name='domainAvailabilityCheckerPort' binding='tns:domainAvailabilityCheckerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://domainAvailabilityChecker' />
+    </port>
+  </service>
+</definitions>

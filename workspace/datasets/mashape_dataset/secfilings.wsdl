@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/secFilings/' name='secFilings' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/secFilings/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/secFilings/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/secFilings/'>
+      <xsd:element name='listSecFilingTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filing_types' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='filing_type_description' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='filing_type' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='secFilingsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='filingtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ticker' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='secFilingsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='items_per_page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='next_page_paremeters' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='filings' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date_filed' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='date_filed_long' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='files' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='entity' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+            <xsd:element name='contains_next_page' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='parameters' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listSecFilingTypesRequestMessage' />
+  <message name='listSecFilingTypesResponseMessage'>
+    <part name='response' element='tns:listSecFilingTypesResponse' />
+  </message>
+  <message name='secFilingsRequestMessage'>
+    <part name='parameters' element='tns:secFilingsParameters' />
+  </message>
+  <message name='secFilingsResponseMessage'>
+    <part name='response' element='tns:secFilingsResponse' />
+  </message>
+  <portType name='secFilingsPortType'>
+    <operation name='listSecFilingTypes'>
+      <documentation>complete list of SEC Filing types with descriptions S K Q etc</documentation>
+      <input message='tns:listSecFilingTypesRequestMessage' name='listSecFilingTypesInput' />
+      <output message='tns:listSecFilingTypesResponseMessage' name='listSecFilingTypesOutput' />
+    </operation>
+    <operation name='secFilings'>
+      <documentation>get latest SEC Filings by company ticket symbol SEC Filing type or latest sorted by date</documentation>
+      <input message='tns:secFilingsRequestMessage' name='secFilingsInput' />
+      <output message='tns:secFilingsResponseMessage' name='secFilingsOutput' />
+    </operation>
+  </portType>
+  <binding name='secFilingsBinding' type='tns:secFilingsPortType'>
+    <operation name='listSecFilingTypes'>
+      <soap12:operation soapAction='http://listSecFilingTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='secFilings'>
+      <soap12:operation soapAction='http://secFilings' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='secFilings'>
+    <documentation>query millions of SEC Filings such as Annual Reports K Statements Quarterly Reports Q Statements IPO Filings S Filings and almost other SEC Filing types The complete list of files submitted to the SEC is returned including exhibits contracts lease agreements and any other item submitted as part of the filing Search for Insider Transactions Form D Filings commonly used by startups raising money and more Please email info marketbrief com with any additional questions</documentation>
+    <port name='secFilingsPort' binding='tns:secFilingsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://secFilings' />
+    </port>
+  </service>
+</definitions>

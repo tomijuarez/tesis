@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pageImagesWebsiteThumbnail/' name='pageImagesWebsiteThumbnail' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pageImagesWebsiteThumbnail/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pageImagesWebsiteThumbnail/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pageImagesWebsiteThumbnail/'>
+      <xsd:element name='restfullinkGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='pidevice' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pifullpage' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='piimageformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pirefresh' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='piscreen' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pisize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='piurl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='piwait' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='restfullinkGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='restfullinkGetRequestMessage'>
+    <part name='parameters' element='tns:restfullinkGetParameters' />
+  </message>
+  <message name='restfullinkGetResponseMessage'>
+    <part name='response' element='tns:restfullinkGetResponse' />
+  </message>
+  <portType name='pageImagesWebsiteThumbnailPortType'>
+    <operation name='restfullinkGet'>
+      <documentation></documentation>
+      <input message='tns:restfullinkGetRequestMessage' name='restfullinkGetInput' />
+      <output message='tns:restfullinkGetResponseMessage' name='restfullinkGetOutput' />
+    </operation>
+  </portType>
+  <binding name='pageImagesWebsiteThumbnailBinding' type='tns:pageImagesWebsiteThumbnailPortType'>
+    <operation name='restfullinkGet'>
+      <soap12:operation soapAction='http://restfullinkGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pageImagesWebsiteThumbnail'>
+    <documentation>send us a url We return the image of it Support iPhone Android iPad</documentation>
+    <port name='pageImagesWebsiteThumbnailPort' binding='tns:pageImagesWebsiteThumbnailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pageImagesWebsiteThumbnail' />
+    </port>
+  </service>
+</definitions>

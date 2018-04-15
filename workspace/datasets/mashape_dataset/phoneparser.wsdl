@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/phoneParser/' name='phoneParser' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/phoneParser/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/phoneParser/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/phoneParser/'>
+      <xsd:element name='phoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='phoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='extension' type='xsd:int' minOccurs='0' />
+            <xsd:element name='original' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sanitized' type='xsd:string' minOccurs='0' />
+            <xsd:element name='formatted' type='xsd:string' minOccurs='0' />
+            <xsd:element name='is_valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='countries' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='is_possible' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='phoneRequestMessage'>
+    <part name='parameters' element='tns:phoneParameters' />
+  </message>
+  <message name='phoneResponseMessage'>
+    <part name='response' element='tns:phoneResponse' />
+  </message>
+  <portType name='phoneParserPortType'>
+    <operation name='phone'>
+      <documentation>phone number parser</documentation>
+      <input message='tns:phoneRequestMessage' name='phoneInput' />
+      <output message='tns:phoneResponseMessage' name='phoneOutput' />
+    </operation>
+  </portType>
+  <binding name='phoneParserBinding' type='tns:phoneParserPortType'>
+    <operation name='phone'>
+      <soap12:operation soapAction='http://phone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='phoneParser'>
+    <documentation>phone number parser using Google phonelib library</documentation>
+    <port name='phoneParserPort' binding='tns:phoneParserBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://phoneParser' />
+    </port>
+  </service>
+</definitions>

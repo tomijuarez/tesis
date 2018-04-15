@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/getWebsiteTechnologiesInformation/' name='getWebsiteTechnologiesInformation' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/getWebsiteTechnologiesInformation/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/getWebsiteTechnologiesInformation/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/getWebsiteTechnologiesInformation/'>
+      <xsd:element name='websiteTechnologiesInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='websiteTechnologiesInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='profile' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='extracted' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rid' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='websiteTechnologiesInfoRequestMessage'>
+    <part name='parameters' element='tns:websiteTechnologiesInfoParameters' />
+  </message>
+  <message name='websiteTechnologiesInfoResponseMessage'>
+    <part name='response' element='tns:websiteTechnologiesInfoResponse' />
+  </message>
+  <portType name='getWebsiteTechnologiesInformationPortType'>
+    <operation name='websiteTechnologiesInfo'>
+      <documentation>information about website technologies</documentation>
+      <input message='tns:websiteTechnologiesInfoRequestMessage' name='websiteTechnologiesInfoInput' />
+      <output message='tns:websiteTechnologiesInfoResponseMessage' name='websiteTechnologiesInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='getWebsiteTechnologiesInformationBinding' type='tns:getWebsiteTechnologiesInformationPortType'>
+    <operation name='websiteTechnologiesInfo'>
+      <soap12:operation soapAction='http://websiteTechnologiesInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='getWebsiteTechnologiesInformation'>
+    <documentation>this API helps to detect website technologies used by admins and webmasters</documentation>
+    <port name='getWebsiteTechnologiesInformationPort' binding='tns:getWebsiteTechnologiesInformationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://getWebsiteTechnologiesInformation' />
+    </port>
+  </service>
+</definitions>

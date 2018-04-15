@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/passkit/' name='passkit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/passkit/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/passkit/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/passkit/'>
+      <xsd:element name='authenticateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getImageDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getImageDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='thumbnail' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='imageID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='logo' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassDetailsByPassIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassDetailsByPassIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serialNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='templateName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='passID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='passRecord' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='passMeta' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='passStatus' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='shareID' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='issueDate' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='passData' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='barcodeAltContent' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='phoneback' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='emailback' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='barcodeContent' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='templateLastUpdated' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassDetailsByTemplateAndSerialParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassDetailsByTemplateAndSerialResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serialNumber' type='xsd:int' minOccurs='0' />
+            <xsd:element name='templateName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='passRecords' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pass_1' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='passMeta' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='installIPCountry' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='installIPCity' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='passStatus' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='lastDataChange' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='recoveryURL' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='installIP' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='issueDate' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='passData' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='barcodeAltContent' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='phone' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='phoneback' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='emailback' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='barcodeContent' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='totalPasses' type='xsd:int' minOccurs='0' />
+            <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='templateLastUpdated' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassesForTemplateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='nexttoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPassesForTemplateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTemplateFieldNamesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTemplateFieldNamesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTemplateFieldNamesFullParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTemplateFieldNamesFullResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUniquePassIdByShareIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shareid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUniquePassIdByShareIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='invalidatePassByPassIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='invalidatePassByPassIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passes' type='xsd:int' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='device_ids' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='device_1' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='device_2' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='invalidatePassByTemplateNameAndSerialParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='invalidatePassByTemplateNameAndSerialResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='issuePassParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='issuePassResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:int' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='shareID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='issuePassBatchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='issuePassBatchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='request_time' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='passes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='pass_1' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='serial' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='shareID' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pass_3' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='serial' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='shareID' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='pass_2' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='serial' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='passbookSerial' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='shareID' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='uniqueID' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTemplatesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resetTemplateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='resetTemplateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassByPassIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='passid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='push' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassByPassIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassByTemplateNameSerialParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='push' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='serialnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePassByTemplateNameSerialResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTemplateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='push' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='templatename' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTemplateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imagetype' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='usage' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageByUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imagetype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageByUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imageID' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='usage' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='authenticateRequestMessage' />
+  <message name='authenticateResponseMessage'>
+    <part name='response' element='tns:authenticateResponse' />
+  </message>
+  <message name='getImageDataRequestMessage'>
+    <part name='parameters' element='tns:getImageDataParameters' />
+  </message>
+  <message name='getImageDataResponseMessage'>
+    <part name='response' element='tns:getImageDataResponse' />
+  </message>
+  <message name='getPassDetailsByPassIdRequestMessage'>
+    <part name='parameters' element='tns:getPassDetailsByPassIdParameters' />
+  </message>
+  <message name='getPassDetailsByPassIdResponseMessage'>
+    <part name='response' element='tns:getPassDetailsByPassIdResponse' />
+  </message>
+  <message name='getPassDetailsByTemplateAndSerialRequestMessage'>
+    <part name='parameters' element='tns:getPassDetailsByTemplateAndSerialParameters' />
+  </message>
+  <message name='getPassDetailsByTemplateAndSerialResponseMessage'>
+    <part name='response' element='tns:getPassDetailsByTemplateAndSerialResponse' />
+  </message>
+  <message name='getPassesForTemplateRequestMessage'>
+    <part name='parameters' element='tns:getPassesForTemplateParameters' />
+  </message>
+  <message name='getPassesForTemplateResponseMessage'>
+    <part name='response' element='tns:getPassesForTemplateResponse' />
+  </message>
+  <message name='getTemplateFieldNamesRequestMessage'>
+    <part name='parameters' element='tns:getTemplateFieldNamesParameters' />
+  </message>
+  <message name='getTemplateFieldNamesResponseMessage'>
+    <part name='response' element='tns:getTemplateFieldNamesResponse' />
+  </message>
+  <message name='getTemplateFieldNamesFullRequestMessage'>
+    <part name='parameters' element='tns:getTemplateFieldNamesFullParameters' />
+  </message>
+  <message name='getTemplateFieldNamesFullResponseMessage'>
+    <part name='response' element='tns:getTemplateFieldNamesFullResponse' />
+  </message>
+  <message name='getUniquePassIdByShareIdRequestMessage'>
+    <part name='parameters' element='tns:getUniquePassIdByShareIdParameters' />
+  </message>
+  <message name='getUniquePassIdByShareIdResponseMessage'>
+    <part name='response' element='tns:getUniquePassIdByShareIdResponse' />
+  </message>
+  <message name='invalidatePassByPassIdRequestMessage'>
+    <part name='parameters' element='tns:invalidatePassByPassIdParameters' />
+  </message>
+  <message name='invalidatePassByPassIdResponseMessage'>
+    <part name='response' element='tns:invalidatePassByPassIdResponse' />
+  </message>
+  <message name='invalidatePassByTemplateNameAndSerialRequestMessage'>
+    <part name='parameters' element='tns:invalidatePassByTemplateNameAndSerialParameters' />
+  </message>
+  <message name='invalidatePassByTemplateNameAndSerialResponseMessage'>
+    <part name='response' element='tns:invalidatePassByTemplateNameAndSerialResponse' />
+  </message>
+  <message name='issuePassRequestMessage'>
+    <part name='parameters' element='tns:issuePassParameters' />
+  </message>
+  <message name='issuePassResponseMessage'>
+    <part name='response' element='tns:issuePassResponse' />
+  </message>
+  <message name='issuePassBatchRequestMessage'>
+    <part name='parameters' element='tns:issuePassBatchParameters' />
+  </message>
+  <message name='issuePassBatchResponseMessage'>
+    <part name='response' element='tns:issuePassBatchResponse' />
+  </message>
+  <message name='listTemplatesRequestMessage' />
+  <message name='listTemplatesResponseMessage'>
+    <part name='response' element='tns:listTemplatesResponse' />
+  </message>
+  <message name='resetTemplateRequestMessage'>
+    <part name='parameters' element='tns:resetTemplateParameters' />
+  </message>
+  <message name='resetTemplateResponseMessage'>
+    <part name='response' element='tns:resetTemplateResponse' />
+  </message>
+  <message name='updatePassByPassIdRequestMessage'>
+    <part name='parameters' element='tns:updatePassByPassIdParameters' />
+  </message>
+  <message name='updatePassByPassIdResponseMessage'>
+    <part name='response' element='tns:updatePassByPassIdResponse' />
+  </message>
+  <message name='updatePassByTemplateNameSerialRequestMessage'>
+    <part name='parameters' element='tns:updatePassByTemplateNameSerialParameters' />
+  </message>
+  <message name='updatePassByTemplateNameSerialResponseMessage'>
+    <part name='response' element='tns:updatePassByTemplateNameSerialResponse' />
+  </message>
+  <message name='updateTemplateRequestMessage'>
+    <part name='parameters' element='tns:updateTemplateParameters' />
+  </message>
+  <message name='updateTemplateResponseMessage'>
+    <part name='response' element='tns:updateTemplateResponse' />
+  </message>
+  <message name='uploadImageRequestMessage'>
+    <part name='parameters' element='tns:uploadImageParameters' />
+  </message>
+  <message name='uploadImageResponseMessage'>
+    <part name='response' element='tns:uploadImageResponse' />
+  </message>
+  <message name='uploadImageByUrlRequestMessage'>
+    <part name='parameters' element='tns:uploadImageByUrlParameters' />
+  </message>
+  <message name='uploadImageByUrlResponseMessage'>
+    <part name='response' element='tns:uploadImageByUrlResponse' />
+  </message>
+  <portType name='passkitPortType'>
+    <operation name='authenticate'>
+      <documentation>authenticates access to the API IMPORTANT You will need to pair your PassKit API Key and Secret with your Mashape username BEFORE you can use this or any other method via mashape To do this use a browser to visit https api passkit com v mashape mashape username replace mashape username with your username Authenticate with your PassKit API KEY and API SECRET if you are successful then you will receive a JSON response in your browser window then you can test everything is working by clicking the Test Endpoint button for this method For more info https code google com p passkit wiki Authenticate</documentation>
+      <input message='tns:authenticateRequestMessage' name='authenticateInput' />
+      <output message='tns:authenticateResponseMessage' name='authenticateOutput' />
+    </operation>
+    <operation name='getImageData'>
+      <documentation>this method returns data about a particular imageID specifically te useage types that it has been processed for More info at https code google com p passkit wiki GetImageData</documentation>
+      <input message='tns:getImageDataRequestMessage' name='getImageDataInput' />
+      <output message='tns:getImageDataResponseMessage' name='getImageDataOutput' />
+    </operation>
+    <operation name='getPassDetailsByPassId'>
+      <documentation>retrieves the pass details by Pass ID</documentation>
+      <input message='tns:getPassDetailsByPassIdRequestMessage' name='getPassDetailsByPassIdInput' />
+      <output message='tns:getPassDetailsByPassIdResponseMessage' name='getPassDetailsByPassIdOutput' />
+    </operation>
+    <operation name='getPassDetailsByTemplateAndSerial'>
+      <documentation></documentation>
+      <input message='tns:getPassDetailsByTemplateAndSerialRequestMessage' name='getPassDetailsByTemplateAndSerialInput' />
+      <output message='tns:getPassDetailsByTemplateAndSerialResponseMessage' name='getPassDetailsByTemplateAndSerialOutput' />
+    </operation>
+    <operation name='getPassesForTemplate'>
+      <documentation>this method returns some basic template information and all the passes for the template pass meta and field data More information at https code google com p passkit wiki GetPassesForTemplate</documentation>
+      <input message='tns:getPassesForTemplateRequestMessage' name='getPassesForTemplateInput' />
+      <output message='tns:getPassesForTemplateResponseMessage' name='getPassesForTemplateOutput' />
+    </operation>
+    <operation name='getTemplateFieldNames'>
+      <documentation>this method returns the field names that can be used with the Issue Pass and Update Pass methods for a particular template More info https code google com p passkit wiki GetTemplateDetails</documentation>
+      <input message='tns:getTemplateFieldNamesRequestMessage' name='getTemplateFieldNamesInput' />
+      <output message='tns:getTemplateFieldNamesResponseMessage' name='getTemplateFieldNamesOutput' />
+    </operation>
+    <operation name='getTemplateFieldNamesFull'>
+      <documentation>this method returns the full field names that can be used with the Issue Pass and Update Pass methods for a particular template More info https code google com p passkit wiki GetTemplateDetails</documentation>
+      <input message='tns:getTemplateFieldNamesFullRequestMessage' name='getTemplateFieldNamesFullInput' />
+      <output message='tns:getTemplateFieldNamesFullResponseMessage' name='getTemplateFieldNamesFullOutput' />
+    </operation>
+    <operation name='getUniquePassIdByShareId'>
+      <documentation></documentation>
+      <input message='tns:getUniquePassIdByShareIdRequestMessage' name='getUniquePassIdByShareIdInput' />
+      <output message='tns:getUniquePassIdByShareIdResponseMessage' name='getUniquePassIdByShareIdOutput' />
+    </operation>
+    <operation name='invalidatePassByPassId'>
+      <documentation></documentation>
+      <input message='tns:invalidatePassByPassIdRequestMessage' name='invalidatePassByPassIdInput' />
+      <output message='tns:invalidatePassByPassIdResponseMessage' name='invalidatePassByPassIdOutput' />
+    </operation>
+    <operation name='invalidatePassByTemplateNameAndSerial'>
+      <documentation></documentation>
+      <input message='tns:invalidatePassByTemplateNameAndSerialRequestMessage' name='invalidatePassByTemplateNameAndSerialInput' />
+      <output message='tns:invalidatePassByTemplateNameAndSerialResponseMessage' name='invalidatePassByTemplateNameAndSerialOutput' />
+    </operation>
+    <operation name='issuePass'>
+      <documentation>this method is used for creating passes If all fields are fixed or not updatable by the user then it is not necessary to post any JSON otherwise requires a data dictionary using a key value key value format using the keys returned by the Get Template Field Names call</documentation>
+      <input message='tns:issuePassRequestMessage' name='issuePassInput' />
+      <output message='tns:issuePassResponseMessage' name='issuePassOutput' />
+    </operation>
+    <operation name='issuePassBatch'>
+      <documentation>this method is used for creating batches of up to passes More info at https code google com p passkit wiki BatchIssuePass</documentation>
+      <input message='tns:issuePassBatchRequestMessage' name='issuePassBatchInput' />
+      <output message='tns:issuePassBatchResponseMessage' name='issuePassBatchOutput' />
+    </operation>
+    <operation name='listTemplates'>
+      <documentation>this method returns all the templates for the user account API key secret More info at https code google com p passkit wiki ListTemplates</documentation>
+      <input message='tns:listTemplatesRequestMessage' name='listTemplatesInput' />
+      <output message='tns:listTemplatesResponseMessage' name='listTemplatesOutput' />
+    </operation>
+    <operation name='resetTemplate'>
+      <documentation>this method resets each pass record to the default values This only affects values that the user cannot edit The method also removes all data fields from each pass record More info at https code google com p passkit wiki ResetTemplate</documentation>
+      <input message='tns:resetTemplateRequestMessage' name='resetTemplateInput' />
+      <output message='tns:resetTemplateResponseMessage' name='resetTemplateOutput' />
+    </operation>
+    <operation name='updatePassByPassId'>
+      <documentation>this method is used for updating a pass by pass id It accepts the parameters returned by the Get Template Field Names method plus relevance fields for date and for up to locations More info at https api passkit com v pass update passid passId</documentation>
+      <input message='tns:updatePassByPassIdRequestMessage' name='updatePassByPassIdInput' />
+      <output message='tns:updatePassByPassIdResponseMessage' name='updatePassByPassIdOutput' />
+    </operation>
+    <operation name='updatePassByTemplateNameSerial'>
+      <documentation>this method is used for updating a pass by template name serial It accepts the parameters returned by the Get Template Field Names method plus relevance fields for date and for up to locations More info at https code google com p passkit wiki UpdatePass</documentation>
+      <input message='tns:updatePassByTemplateNameSerialRequestMessage' name='updatePassByTemplateNameSerialInput' />
+      <output message='tns:updatePassByTemplateNameSerialResponseMessage' name='updatePassByTemplateNameSerialOutput' />
+    </operation>
+    <operation name='updateTemplate'>
+      <documentation>this method allows for static fields of default values of dynamic fields of templates to be changed and potentially pushed to all passes More info at https code google com p passkit wiki UpdateTemplate</documentation>
+      <input message='tns:updateTemplateRequestMessage' name='updateTemplateInput' />
+      <output message='tns:updateTemplateResponseMessage' name='updateTemplateOutput' />
+    </operation>
+    <operation name='uploadImage'>
+      <documentation>this method allows you to upload images for use with other methods such as template methods and pass methods More info at https code google com p passkit wiki UploadImage</documentation>
+      <input message='tns:uploadImageRequestMessage' name='uploadImageInput' />
+      <output message='tns:uploadImageResponseMessage' name='uploadImageOutput' />
+    </operation>
+    <operation name='uploadImageByUrl'>
+      <documentation>same as Upload Image method only instead of uploading image you can use an image URL</documentation>
+      <input message='tns:uploadImageByUrlRequestMessage' name='uploadImageByUrlInput' />
+      <output message='tns:uploadImageByUrlResponseMessage' name='uploadImageByUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='passkitBinding' type='tns:passkitPortType'>
+    <operation name='authenticate'>
+      <soap12:operation soapAction='http://authenticate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getImageData'>
+      <soap12:operation soapAction='http://getImageData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPassDetailsByPassId'>
+      <soap12:operation soapAction='http://getPassDetailsByPassId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPassDetailsByTemplateAndSerial'>
+      <soap12:operation soapAction='http://getPassDetailsByTemplateAndSerial' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPassesForTemplate'>
+      <soap12:operation soapAction='http://getPassesForTemplate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTemplateFieldNames'>
+      <soap12:operation soapAction='http://getTemplateFieldNames' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getTemplateFieldNamesFull'>
+      <soap12:operation soapAction='http://getTemplateFieldNamesFull' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUniquePassIdByShareId'>
+      <soap12:operation soapAction='http://getUniquePassIdByShareId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='invalidatePassByPassId'>
+      <soap12:operation soapAction='http://invalidatePassByPassId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='invalidatePassByTemplateNameAndSerial'>
+      <soap12:operation soapAction='http://invalidatePassByTemplateNameAndSerial' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='issuePass'>
+      <soap12:operation soapAction='http://issuePass' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='issuePassBatch'>
+      <soap12:operation soapAction='http://issuePassBatch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTemplates'>
+      <soap12:operation soapAction='http://listTemplates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='resetTemplate'>
+      <soap12:operation soapAction='http://resetTemplate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatePassByPassId'>
+      <soap12:operation soapAction='http://updatePassByPassId' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatePassByTemplateNameSerial'>
+      <soap12:operation soapAction='http://updatePassByTemplateNameSerial' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateTemplate'>
+      <soap12:operation soapAction='http://updateTemplate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadImage'>
+      <soap12:operation soapAction='http://uploadImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadImageByUrl'>
+      <soap12:operation soapAction='http://uploadImageByUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='passkit'>
+    <documentation>passKit Create Distribute and Manage Apple Passbook Passes PassKit is a set of tool and methods that allow businesses and developers quickly easily and affordably design create distribute update analyse and manage content for Apple Passbook PassKit helps you and your business at every step of the Passbook Pass Lifecycle API to access PassKit Create passkit API account Goto https api passkit com v mashape mashape username Authenticate with API KEY and SECRET pairs mashape with PassKit account</documentation>
+    <port name='passkitPort' binding='tns:passkitBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://passkit' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kennethTodos/' name='kennethTodos' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kennethTodos/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kennethTodos/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kennethTodos/'>
+      <xsd:element name='createATaskResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='order' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTaskParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteTaskResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTasksParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listTasksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='order' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTaskParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveTaskResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='order' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTaskParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateTaskResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='order' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createATaskRequestMessage' />
+  <message name='createATaskResponseMessage'>
+    <part name='response' element='tns:createATaskResponse' />
+  </message>
+  <message name='deleteTaskRequestMessage'>
+    <part name='parameters' element='tns:deleteTaskParameters' />
+  </message>
+  <message name='deleteTaskResponseMessage'>
+    <part name='response' element='tns:deleteTaskResponse' />
+  </message>
+  <message name='listTasksRequestMessage'>
+    <part name='parameters' element='tns:listTasksParameters' />
+  </message>
+  <message name='listTasksResponseMessage'>
+    <part name='response' element='tns:listTasksResponse' />
+  </message>
+  <message name='retrieveTaskRequestMessage'>
+    <part name='parameters' element='tns:retrieveTaskParameters' />
+  </message>
+  <message name='retrieveTaskResponseMessage'>
+    <part name='response' element='tns:retrieveTaskResponse' />
+  </message>
+  <message name='updateTaskRequestMessage'>
+    <part name='parameters' element='tns:updateTaskParameters' />
+  </message>
+  <message name='updateTaskResponseMessage'>
+    <part name='response' element='tns:updateTaskResponse' />
+  </message>
+  <portType name='kennethTodosPortType'>
+    <operation name='createATask'>
+      <documentation>create a task with the todo list</documentation>
+      <input message='tns:createATaskRequestMessage' name='createATaskInput' />
+      <output message='tns:createATaskResponseMessage' name='createATaskOutput' />
+    </operation>
+    <operation name='deleteTask'>
+      <documentation>delete unwanted tasks</documentation>
+      <input message='tns:deleteTaskRequestMessage' name='deleteTaskInput' />
+      <output message='tns:deleteTaskResponseMessage' name='deleteTaskOutput' />
+    </operation>
+    <operation name='listTasks'>
+      <documentation>retrieve list of tasks Search by providing a search query with the q parameter</documentation>
+      <input message='tns:listTasksRequestMessage' name='listTasksInput' />
+      <output message='tns:listTasksResponseMessage' name='listTasksOutput' />
+    </operation>
+    <operation name='retrieveTask'>
+      <documentation>get a single task by id</documentation>
+      <input message='tns:retrieveTaskRequestMessage' name='retrieveTaskInput' />
+      <output message='tns:retrieveTaskResponseMessage' name='retrieveTaskOutput' />
+    </operation>
+    <operation name='updateTask'>
+      <documentation>use this to mark tasks as complete or not</documentation>
+      <input message='tns:updateTaskRequestMessage' name='updateTaskInput' />
+      <output message='tns:updateTaskResponseMessage' name='updateTaskOutput' />
+    </operation>
+  </portType>
+  <binding name='kennethTodosBinding' type='tns:kennethTodosPortType'>
+    <operation name='createATask'>
+      <soap12:operation soapAction='http://createATask' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteTask'>
+      <soap12:operation soapAction='http://deleteTask' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listTasks'>
+      <soap12:operation soapAction='http://listTasks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveTask'>
+      <soap12:operation soapAction='http://retrieveTask' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateTask'>
+      <soap12:operation soapAction='http://updateTask' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kennethTodos'>
+    <documentation>kenneth s todo list</documentation>
+    <port name='kennethTodosPort' binding='tns:kennethTodosBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kennethTodos' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/swissknifedocs/' name='swissknifedocs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/swissknifedocs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/swissknifedocs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/swissknifedocs/'>
+      <xsd:element name='docsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dropbox_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='file_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='file' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='downloadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='file' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dropbox_status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='file_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='docsRequestMessage' />
+  <message name='docsResponseMessage'>
+    <part name='response' element='tns:docsResponse' />
+  </message>
+  <message name='downloadRequestMessage'>
+    <part name='parameters' element='tns:downloadParameters' />
+  </message>
+  <message name='downloadResponseMessage'>
+    <part name='response' element='tns:downloadResponse' />
+  </message>
+  <message name='imagesRequestMessage' />
+  <message name='imagesResponseMessage'>
+    <part name='response' element='tns:imagesResponse' />
+  </message>
+  <portType name='swissknifedocsPortType'>
+    <operation name='docs'>
+      <documentation>allows to convert a document to another document</documentation>
+      <input message='tns:docsRequestMessage' name='docsInput' />
+      <output message='tns:docsResponseMessage' name='docsOutput' />
+    </operation>
+    <operation name='download'>
+      <documentation>download the converted documents</documentation>
+      <input message='tns:downloadRequestMessage' name='downloadInput' />
+      <output message='tns:downloadResponseMessage' name='downloadOutput' />
+    </operation>
+    <operation name='images'>
+      <documentation>convert documents into images</documentation>
+      <input message='tns:imagesRequestMessage' name='imagesInput' />
+      <output message='tns:imagesResponseMessage' name='imagesOutput' />
+    </operation>
+  </portType>
+  <binding name='swissknifedocsBinding' type='tns:swissknifedocsPortType'>
+    <operation name='docs'>
+      <soap12:operation soapAction='http://docs' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='download'>
+      <soap12:operation soapAction='http://download' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='images'>
+      <soap12:operation soapAction='http://images' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='swissknifedocs'>
+    <documentation>this API can convert documents into another document format You can convert documents into images too or you can simply fill the merge fields inside your docx or doc document and convert it into whatever format you want</documentation>
+    <port name='swissknifedocsPort' binding='tns:swissknifedocsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://swissknifedocs' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kittenPlaceholder/' name='kittenPlaceholder' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kittenPlaceholder/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kittenPlaceholder/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kittenPlaceholder/'>
+      <xsd:element name='catResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='source' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='kittenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='source' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='catRequestMessage' />
+  <message name='catResponseMessage'>
+    <part name='response' element='tns:catResponse' />
+  </message>
+  <message name='kittenRequestMessage' />
+  <message name='kittenResponseMessage'>
+    <part name='response' element='tns:kittenResponse' />
+  </message>
+  <portType name='kittenPlaceholderPortType'>
+    <operation name='cat'>
+      <documentation>fetches a random cat picture</documentation>
+      <input message='tns:catRequestMessage' name='catInput' />
+      <output message='tns:catResponseMessage' name='catOutput' />
+    </operation>
+    <operation name='kitten'>
+      <documentation>fetches random kitten image</documentation>
+      <input message='tns:kittenRequestMessage' name='kittenInput' />
+      <output message='tns:kittenResponseMessage' name='kittenOutput' />
+    </operation>
+  </portType>
+  <binding name='kittenPlaceholderBinding' type='tns:kittenPlaceholderPortType'>
+    <operation name='cat'>
+      <soap12:operation soapAction='http://cat' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='kitten'>
+      <soap12:operation soapAction='http://kitten' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kittenPlaceholder'>
+    <documentation>generate random pictures of cute kittens or adorable cats for your applications website or just for your personal amusement Show me your creativity</documentation>
+    <port name='kittenPlaceholderPort' binding='tns:kittenPlaceholderBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kittenPlaceholder' />
+    </port>
+  </service>
+</definitions>

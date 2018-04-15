@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hummingbirdV/' name='hummingbirdV' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hummingbirdV/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hummingbirdV/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hummingbirdV/'>
+      <xsd:element name='animeDetailsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='animeDetailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='animeDetailsRequestMessage'>
+    <part name='parameters' element='tns:animeDetailsParameters' />
+  </message>
+  <message name='animeDetailsResponseMessage'>
+    <part name='response' element='tns:animeDetailsResponse' />
+  </message>
+  <portType name='hummingbirdVPortType'>
+    <operation name='animeDetails'>
+      <documentation></documentation>
+      <input message='tns:animeDetailsRequestMessage' name='animeDetailsInput' />
+      <output message='tns:animeDetailsResponseMessage' name='animeDetailsOutput' />
+    </operation>
+  </portType>
+  <binding name='hummingbirdVBinding' type='tns:hummingbirdVPortType'>
+    <operation name='animeDetails'>
+      <soap12:operation soapAction='http://animeDetails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hummingbirdV'>
+    <documentation>aPI for Hummingbird the easiest way to track share and discover new anime Free for non commercial use Note that this is not stable at the moment</documentation>
+    <port name='hummingbirdVPort' binding='tns:hummingbirdVBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hummingbirdV' />
+    </port>
+  </service>
+</definitions>

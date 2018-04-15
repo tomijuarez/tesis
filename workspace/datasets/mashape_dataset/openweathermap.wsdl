@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/openWeatherMap/' name='openWeatherMap' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/openWeatherMap/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/openWeatherMap/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/openWeatherMap/'>
+      <xsd:element name='currentWeatherDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='units' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='currentWeatherDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dt' type='xsd:int' minOccurs='0' />
+            <xsd:element name='rain' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n1h' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='coord' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='weather' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='icon' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='main' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cod' type='xsd:int' minOccurs='0' />
+            <xsd:element name='main' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='temp' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='temp_min' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='humidity' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='pressure' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='temp_max' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='clouds' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='all' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sys' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sunrise' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sunset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='base' type='xsd:string' minOccurs='0' />
+            <xsd:element name='wind' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='deg' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='speed' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='gust' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dailyForecastWeatherDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cnt' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='units' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dailyForecastWeatherDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forecastWeatherDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forecastWeatherDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='city' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='country' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='coord' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sys' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='population' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='population' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='cnt' type='xsd:int' minOccurs='0' />
+            <xsd:element name='cod' type='xsd:int' minOccurs='0' />
+            <xsd:element name='message' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='list' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dt' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='rain' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n3h' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='dt_txt' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='weather' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='icon' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='main' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='main' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='temp' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='temp_min' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='grnd_level' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='temp_kf' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='humidity' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='pressure' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='sea_level' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='temp_max' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='clouds' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='all' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sys' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='pod' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='wind' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='deg' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='speed' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchWeatherDataParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='cnt' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='units' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchWeatherDataResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='currentWeatherDataRequestMessage'>
+    <part name='parameters' element='tns:currentWeatherDataParameters' />
+  </message>
+  <message name='currentWeatherDataResponseMessage'>
+    <part name='response' element='tns:currentWeatherDataResponse' />
+  </message>
+  <message name='dailyForecastWeatherDataRequestMessage'>
+    <part name='parameters' element='tns:dailyForecastWeatherDataParameters' />
+  </message>
+  <message name='dailyForecastWeatherDataResponseMessage'>
+    <part name='response' element='tns:dailyForecastWeatherDataResponse' />
+  </message>
+  <message name='forecastWeatherDataRequestMessage'>
+    <part name='parameters' element='tns:forecastWeatherDataParameters' />
+  </message>
+  <message name='forecastWeatherDataResponseMessage'>
+    <part name='response' element='tns:forecastWeatherDataResponse' />
+  </message>
+  <message name='searchWeatherDataRequestMessage'>
+    <part name='parameters' element='tns:searchWeatherDataParameters' />
+  </message>
+  <message name='searchWeatherDataResponseMessage'>
+    <part name='response' element='tns:searchWeatherDataResponse' />
+  </message>
+  <portType name='openWeatherMapPortType'>
+    <operation name='currentWeatherData'>
+      <documentation>using this kind of requests you can get weather data in any location on the earth The current weather data are updated online based on data from more than weather stations</documentation>
+      <input message='tns:currentWeatherDataRequestMessage' name='currentWeatherDataInput' />
+      <output message='tns:currentWeatherDataResponseMessage' name='currentWeatherDataOutput' />
+    </operation>
+    <operation name='dailyForecastWeatherData'>
+      <documentation>you can get weather forecast for days All weather data can be obtained in JSON or XML format</documentation>
+      <input message='tns:dailyForecastWeatherDataRequestMessage' name='dailyForecastWeatherDataInput' />
+      <output message='tns:dailyForecastWeatherDataResponseMessage' name='dailyForecastWeatherDataOutput' />
+    </operation>
+    <operation name='forecastWeatherData'>
+      <documentation>you can recieve weather forecast in any location on the earth The flexible algorithm of weather calculation let us provide weather data not only for cities but for any geographic coordinates It is important for megapolices for example where weather is different on opposit city edges You can get forecast data every hours or daily The hours forecast is available for days Daily forecast is available for days All weather data can be obtained in JSON or XML format</documentation>
+      <input message='tns:forecastWeatherDataRequestMessage' name='forecastWeatherDataInput' />
+      <output message='tns:forecastWeatherDataResponseMessage' name='forecastWeatherDataOutput' />
+    </operation>
+    <operation name='searchWeatherData'>
+      <documentation>by city name Put the city name or its part and get the list of the most proper cities in the world Example Lon or Lond or London The more precise city name you put the more precise list you will get To make it more precise put the city s name or its part comma the name of the county or letter country code You will get all proper cities in chosen county The order is important the first is city name than comma than county Example Lon UK or Lon GB or London GB or Lon England By geographic coordinates</documentation>
+      <input message='tns:searchWeatherDataRequestMessage' name='searchWeatherDataInput' />
+      <output message='tns:searchWeatherDataResponseMessage' name='searchWeatherDataOutput' />
+    </operation>
+  </portType>
+  <binding name='openWeatherMapBinding' type='tns:openWeatherMapPortType'>
+    <operation name='currentWeatherData'>
+      <soap12:operation soapAction='http://currentWeatherData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='dailyForecastWeatherData'>
+      <soap12:operation soapAction='http://dailyForecastWeatherData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='forecastWeatherData'>
+      <soap12:operation soapAction='http://forecastWeatherData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchWeatherData'>
+      <soap12:operation soapAction='http://searchWeatherData' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='openWeatherMap'>
+    <documentation>get weather and weather forecasts for multiple cities</documentation>
+    <port name='openWeatherMapPort' binding='tns:openWeatherMapBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://openWeatherMap' />
+    </port>
+  </service>
+</definitions>

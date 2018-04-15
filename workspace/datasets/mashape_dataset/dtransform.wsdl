@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dTransform/' name='dTransform' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dTransform/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dTransform/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dTransform/'>
+      <xsd:element name='dTransformApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dTransformApiRequestMessage' />
+  <message name='dTransformApiResponseMessage'>
+    <part name='response' element='tns:dTransformApiResponse' />
+  </message>
+  <portType name='dTransformPortType'>
+    <operation name='dTransformApi'>
+      <documentation></documentation>
+      <input message='tns:dTransformApiRequestMessage' name='dTransformApiInput' />
+      <output message='tns:dTransformApiResponseMessage' name='dTransformApiOutput' />
+    </operation>
+  </portType>
+  <binding name='dTransformBinding' type='tns:dTransformPortType'>
+    <operation name='dTransformApi'>
+      <soap12:operation soapAction='http://dTransformApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dTransform'>
+    <documentation>D Transform will convert most types of D models to the STL format used in D printing STL files are used by D printers to create objects The following file extension types can be sent to the API igs iges stp step brep ds ase dxf stla stlb stl wrl iv obj swv gmod iv</documentation>
+    <port name='dTransformPort' binding='tns:dTransformBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dTransform' />
+    </port>
+  </service>
+</definitions>

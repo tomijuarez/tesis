@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/printOnDemandPostcards/' name='printOnDemandPostcards' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/printOnDemandPostcards/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/printOnDemandPostcards/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/printOnDemandPostcards/'>
+      <xsd:element name='apiCallResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiCallRequestMessage' />
+  <message name='apiCallResponseMessage'>
+    <part name='response' element='tns:apiCallResponse' />
+  </message>
+  <portType name='printOnDemandPostcardsPortType'>
+    <operation name='apiCall'>
+      <documentation>call the API to create a card or show your available credits</documentation>
+      <input message='tns:apiCallRequestMessage' name='apiCallInput' />
+      <output message='tns:apiCallResponseMessage' name='apiCallOutput' />
+    </operation>
+  </portType>
+  <binding name='printOnDemandPostcardsBinding' type='tns:printOnDemandPostcardsPortType'>
+    <operation name='apiCall'>
+      <soap12:operation soapAction='http://apiCall' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='printOnDemandPostcards'>
+    <documentation>images into real postcards Send us a picture a message and an address and we will turn this into a real printed postcard which we will dispatch same day by Royal Mail Prepay with credits on your API key and as the cards are dispatched your balance will be reduced Send cards to anywhere in the world Cards sent to the UK cost credit cards to ROW are credits We have a tiered pricing structure based on volume of credits purchased Starting at p and reducing to p with volume We are happy to give free credits to any trial platform API keys can be obtained by contacting the Stannp team at http www stannp com apicontact php</documentation>
+    <port name='printOnDemandPostcardsPort' binding='tns:printOnDemandPostcardsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://printOnDemandPostcards' />
+    </port>
+  </service>
+</definitions>

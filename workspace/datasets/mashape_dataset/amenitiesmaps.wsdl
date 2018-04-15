@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/amenitiesMaps/' name='amenitiesMaps' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/amenitiesMaps/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/amenitiesMaps/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/amenitiesMaps/'>
+      <xsd:element name='getAmenityLocationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amenity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mylat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mylon' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAmenityLocationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='markers' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='wheelchair' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='fee' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getAmenityLocationsRequestMessage'>
+    <part name='parameters' element='tns:getAmenityLocationsParameters' />
+  </message>
+  <message name='getAmenityLocationsResponseMessage'>
+    <part name='response' element='tns:getAmenityLocationsResponse' />
+  </message>
+  <portType name='amenitiesMapsPortType'>
+    <operation name='getAmenityLocations'>
+      <documentation></documentation>
+      <input message='tns:getAmenityLocationsRequestMessage' name='getAmenityLocationsInput' />
+      <output message='tns:getAmenityLocationsResponseMessage' name='getAmenityLocationsOutput' />
+    </operation>
+  </portType>
+  <binding name='amenitiesMapsBinding' type='tns:amenitiesMapsPortType'>
+    <operation name='getAmenityLocations'>
+      <soap12:operation soapAction='http://getAmenityLocations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='amenitiesMaps'>
+    <documentation>ameniMaps brings you a collection of Android Maps for various cities and other interesting places in the world With the App you will be able to use the free offline map of the place and quickly locate essential amenities like public toilets bank machines subway entrances benches water fountains and many others with ease data from OpenStreetMap org</documentation>
+    <port name='amenitiesMapsPort' binding='tns:amenitiesMapsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://amenitiesMaps' />
+    </port>
+  </service>
+</definitions>

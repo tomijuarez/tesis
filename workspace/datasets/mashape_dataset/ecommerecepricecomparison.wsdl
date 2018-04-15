@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ecommerecePriceComparison/' name='ecommerecePriceComparison' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ecommerecePriceComparison/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ecommerecePriceComparison/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ecommerecePriceComparison/'>
+      <xsd:element name='comparePriceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='page' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='product' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='comparePriceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='available_price' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='mrp' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='comparePriceRequestMessage'>
+    <part name='parameters' element='tns:comparePriceParameters' />
+  </message>
+  <message name='comparePriceResponseMessage'>
+    <part name='response' element='tns:comparePriceResponse' />
+  </message>
+  <portType name='ecommerecePriceComparisonPortType'>
+    <operation name='comparePrice'>
+      <documentation>compare Price of any product</documentation>
+      <input message='tns:comparePriceRequestMessage' name='comparePriceInput' />
+      <output message='tns:comparePriceResponseMessage' name='comparePriceOutput' />
+    </operation>
+  </portType>
+  <binding name='ecommerecePriceComparisonBinding' type='tns:ecommerecePriceComparisonPortType'>
+    <operation name='comparePrice'>
+      <soap12:operation soapAction='http://comparePrice' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ecommerecePriceComparison'>
+    <documentation>this data API lets users access latest product prices across different e commerce portals in India on a daily basis Users can enter the product they wish to know the prices for and access the results</documentation>
+    <port name='ecommerecePriceComparisonPort' binding='tns:ecommerecePriceComparisonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ecommerecePriceComparison' />
+    </port>
+  </service>
+</definitions>

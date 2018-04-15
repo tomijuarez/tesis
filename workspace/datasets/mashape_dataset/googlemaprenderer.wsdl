@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/googleMapRenderer/' name='googleMapRenderer' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/googleMapRenderer/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/googleMapRenderer/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/googleMapRenderer/'>
+      <xsd:element name='showmapFunctionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appkey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='locationname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='showmapFunctionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='showmapFunctionRequestMessage'>
+    <part name='parameters' element='tns:showmapFunctionParameters' />
+  </message>
+  <message name='showmapFunctionResponseMessage'>
+    <part name='response' element='tns:showmapFunctionResponse' />
+  </message>
+  <portType name='googleMapRendererPortType'>
+    <operation name='showmapFunction'>
+      <documentation></documentation>
+      <input message='tns:showmapFunctionRequestMessage' name='showmapFunctionInput' />
+      <output message='tns:showmapFunctionResponseMessage' name='showmapFunctionOutput' />
+    </operation>
+  </portType>
+  <binding name='googleMapRendererBinding' type='tns:googleMapRendererPortType'>
+    <operation name='showmapFunction'>
+      <soap12:operation soapAction='http://showmapFunction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='googleMapRenderer'>
+    <documentation>when you need to render a map on your application by searching the physical address our Google Map Renderer can be a solution You have to pass these parameters address a physical US address locationName a name of the physical address width a map width in pixels height a map height in pixels</documentation>
+    <port name='googleMapRendererPort' binding='tns:googleMapRendererBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://googleMapRenderer' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/instantMessaging/' name='instantMessaging' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/instantMessaging/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/instantMessaging/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/instantMessaging/'>
+      <xsd:element name='messagesInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='messageid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messagesInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sender' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ims' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messagesSendParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='imsid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='message' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='recipient' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messagesSendResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='recipient' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ims' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='messagesInfoRequestMessage'>
+    <part name='parameters' element='tns:messagesInfoParameters' />
+  </message>
+  <message name='messagesInfoResponseMessage'>
+    <part name='response' element='tns:messagesInfoResponse' />
+  </message>
+  <message name='messagesSendRequestMessage'>
+    <part name='parameters' element='tns:messagesSendParameters' />
+  </message>
+  <message name='messagesSendResponseMessage'>
+    <part name='response' element='tns:messagesSendResponse' />
+  </message>
+  <portType name='instantMessagingPortType'>
+    <operation name='messagesInfo'>
+      <documentation>this method allows you to get the information for a sent instant message</documentation>
+      <input message='tns:messagesInfoRequestMessage' name='messagesInfoInput' />
+      <output message='tns:messagesInfoResponseMessage' name='messagesInfoOutput' />
+    </operation>
+    <operation name='messagesSend'>
+      <documentation>this method allows you to send a new instant message to your recipient</documentation>
+      <input message='tns:messagesSendRequestMessage' name='messagesSendInput' />
+      <output message='tns:messagesSendResponseMessage' name='messagesSendOutput' />
+    </operation>
+  </portType>
+  <binding name='instantMessagingBinding' type='tns:instantMessagingPortType'>
+    <operation name='messagesInfo'>
+      <soap12:operation soapAction='http://messagesInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='messagesSend'>
+      <soap12:operation soapAction='http://messagesSend' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='instantMessaging'>
+    <documentation>you need almost only one line of code in your application to start sending instant messages Add another line of code if you need to check the status</documentation>
+    <port name='instantMessagingPort' binding='tns:instantMessagingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://instantMessaging' />
+    </port>
+  </service>
+</definitions>

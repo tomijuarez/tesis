@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/envoy/' name='envoy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/envoy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/envoy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/envoy/'>
+      <xsd:element name='retrieveAllResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveMetadataFromDateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fromdate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='todate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveMetadataFromDateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='specificMetadataRetrieveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadingAListOfPreRegisteredGuestsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadingAnEmployeeListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='retrieveAllRequestMessage' />
+  <message name='retrieveAllResponseMessage'>
+    <part name='response' element='tns:retrieveAllResponse' />
+  </message>
+  <message name='retrieveMetadataFromDateRequestMessage'>
+    <part name='parameters' element='tns:retrieveMetadataFromDateParameters' />
+  </message>
+  <message name='retrieveMetadataFromDateResponseMessage'>
+    <part name='response' element='tns:retrieveMetadataFromDateResponse' />
+  </message>
+  <message name='specificMetadataRetrieveRequestMessage' />
+  <message name='specificMetadataRetrieveResponseMessage'>
+    <part name='response' element='tns:specificMetadataRetrieveResponse' />
+  </message>
+  <message name='uploadingAListOfPreRegisteredGuestsRequestMessage' />
+  <message name='uploadingAListOfPreRegisteredGuestsResponseMessage'>
+    <part name='response' element='tns:uploadingAListOfPreRegisteredGuestsResponse' />
+  </message>
+  <message name='uploadingAnEmployeeListRequestMessage' />
+  <message name='uploadingAnEmployeeListResponseMessage'>
+    <part name='response' element='tns:uploadingAnEmployeeListResponse' />
+  </message>
+  <portType name='envoyPortType'>
+    <operation name='retrieveAll'>
+      <documentation>retrieve the metadata associated with all entries on the account Note that the S URLs that are returned expire after one hour</documentation>
+      <input message='tns:retrieveAllRequestMessage' name='retrieveAllInput' />
+      <output message='tns:retrieveAllResponseMessage' name='retrieveAllOutput' />
+    </operation>
+    <operation name='retrieveMetadataFromDate'>
+      <documentation>retrieve the metadata associated with all entries on the account starting from from date and ending on to date Note that the S URLs that are returned expire after one hour</documentation>
+      <input message='tns:retrieveMetadataFromDateRequestMessage' name='retrieveMetadataFromDateInput' />
+      <output message='tns:retrieveMetadataFromDateResponseMessage' name='retrieveMetadataFromDateOutput' />
+    </operation>
+    <operation name='specificMetadataRetrieve'>
+      <documentation>retrieve the metadata associated with a specific entry id Note that the S URLs that are returned expire after one hour</documentation>
+      <input message='tns:specificMetadataRetrieveRequestMessage' name='specificMetadataRetrieveInput' />
+      <output message='tns:specificMetadataRetrieveResponseMessage' name='specificMetadataRetrieveOutput' />
+    </operation>
+    <operation name='uploadingAListOfPreRegisteredGuests'>
+      <documentation>upload a list of guests to pre register via CSV The CSV has to be in this format invitee name invitee email expected arrival time private notes host name Note that invitee email and private notes can be blank but the rest of the fields are required host name must also be an exact match to a name on the Directory for that location</documentation>
+      <input message='tns:uploadingAListOfPreRegisteredGuestsRequestMessage' name='uploadingAListOfPreRegisteredGuestsInput' />
+      <output message='tns:uploadingAListOfPreRegisteredGuestsResponseMessage' name='uploadingAListOfPreRegisteredGuestsOutput' />
+    </operation>
+    <operation name='uploadingAnEmployeeList'>
+      <documentation>update the Directory with a new list of hosts via CSV file New names in the CSV will be added to the Directory Missing names will be removed from the Directory and Matching Name Email combos will be updated The CSV Format is as follows host full name host email address host phone</documentation>
+      <input message='tns:uploadingAnEmployeeListRequestMessage' name='uploadingAnEmployeeListInput' />
+      <output message='tns:uploadingAnEmployeeListResponseMessage' name='uploadingAnEmployeeListOutput' />
+    </operation>
+  </portType>
+  <binding name='envoyBinding' type='tns:envoyPortType'>
+    <operation name='retrieveAll'>
+      <soap12:operation soapAction='http://retrieveAll' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveMetadataFromDate'>
+      <soap12:operation soapAction='http://retrieveMetadataFromDate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='specificMetadataRetrieve'>
+      <soap12:operation soapAction='http://specificMetadataRetrieve' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadingAListOfPreRegisteredGuests'>
+      <soap12:operation soapAction='http://uploadingAListOfPreRegisteredGuests' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadingAnEmployeeList'>
+      <soap12:operation soapAction='http://uploadingAnEmployeeList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='envoy'>
+    <documentation>envoy API modernizes your front desk From collecting names emails and NDAs to pre registering visitors and texting their host when they arrive Envoy makes visitor management simple and it s a joy to use</documentation>
+    <port name='envoyPort' binding='tns:envoyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://envoy' />
+    </port>
+  </service>
+</definitions>

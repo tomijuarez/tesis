@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/plantlink/' name='plantlink' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/plantlink/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/plantlink/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/plantlink/'>
+      <xsd:element name='checkPasswordResetTokenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tokenid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkPasswordResetTokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clearAllNotificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clearPlantMeasurementCacheParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='plantid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clearPlantMeasurementCacheResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='completePasswordResetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='tokenid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='completePasswordResetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createBugReportResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createContactUsRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPasswordResetTokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createPlantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createSmsNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='formatted_string' type='xsd:string' minOccurs='0' />
+            <xsd:element name='e164_string' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteBasestationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteBasestationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mac' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteLinkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteLinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='basestation_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='serial' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='plants_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_synced' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='poll_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteNotificationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='notificationid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteNotificationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletePlantParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deletePlantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteSmsNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteSmsNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='formatted_string' type='xsd:string' minOccurs='0' />
+            <xsd:element name='e164_string' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBasestationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='basestationid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getBasestationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mac' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLinkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='linkid' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='basestation_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='serial' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='plants_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_synced' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='poll_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlantParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlantTypeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='plantid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getPlantTypeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='p_value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSoilTypeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='soilid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getSoilTypeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='theta_wp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='theta_fc' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listBasestationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mac' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listHardwareNotificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listLinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='basestation_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='serial' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='plants_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_synced' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='poll_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listMeasurementsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='enddatetime' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='plantid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='queryformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startdatetime' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listMeasurementsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='moisture_raw_reading' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='link_serial' type='xsd:int' minOccurs='0' />
+            <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='moisture' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='resistance' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='resistivity' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listNotificationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='markread' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listNotificationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='severity' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='linked_object' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='marked_read' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPlantTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='p_value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listPlantsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSoilTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='theta_wp' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='theta_fc' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='logoutResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putBasestationIntoDiscoveryModeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='putBasestationIntoDiscoveryModeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mac' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerBasestationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='mac' type='xsd:string' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registerUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsConfirmationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='confirmationkey' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsConfirmationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateLinkParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='serial' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateLinkResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='basestation_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='serial' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='plants_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_synced' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='poll_time' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePlantParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='plantid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updatePlantResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='links_key' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='last_measurements' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='predicted_water_needed' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='plant_fuel_level' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='battery' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='signal' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='user_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='user_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='plant_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='default_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='user_upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='environment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='default_lower_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='upper_moisture_threshold' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='soil_type_key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='updated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='user_tz' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='global_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='push_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='sms_phone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='email_notifications_enabled' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='notification_time_of_day' type='xsd:int' minOccurs='0' />
+            <xsd:element name='phone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sms_verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateSmsNumberParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateSmsNumberResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='formatted_string' type='xsd:string' minOccurs='0' />
+            <xsd:element name='e164_string' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='key' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkPasswordResetTokenRequestMessage'>
+    <part name='parameters' element='tns:checkPasswordResetTokenParameters' />
+  </message>
+  <message name='checkPasswordResetTokenResponseMessage'>
+    <part name='response' element='tns:checkPasswordResetTokenResponse' />
+  </message>
+  <message name='clearAllNotificationsRequestMessage' />
+  <message name='clearAllNotificationsResponseMessage'>
+    <part name='response' element='tns:clearAllNotificationsResponse' />
+  </message>
+  <message name='clearPlantMeasurementCacheRequestMessage'>
+    <part name='parameters' element='tns:clearPlantMeasurementCacheParameters' />
+  </message>
+  <message name='clearPlantMeasurementCacheResponseMessage'>
+    <part name='response' element='tns:clearPlantMeasurementCacheResponse' />
+  </message>
+  <message name='completePasswordResetRequestMessage'>
+    <part name='parameters' element='tns:completePasswordResetParameters' />
+  </message>
+  <message name='completePasswordResetResponseMessage'>
+    <part name='response' element='tns:completePasswordResetResponse' />
+  </message>
+  <message name='createBugReportRequestMessage' />
+  <message name='createBugReportResponseMessage'>
+    <part name='response' element='tns:createBugReportResponse' />
+  </message>
+  <message name='createContactUsRequestRequestMessage' />
+  <message name='createContactUsRequestResponseMessage'>
+    <part name='response' element='tns:createContactUsRequestResponse' />
+  </message>
+  <message name='createPasswordResetTokenRequestMessage' />
+  <message name='createPasswordResetTokenResponseMessage'>
+    <part name='response' element='tns:createPasswordResetTokenResponse' />
+  </message>
+  <message name='createPlantRequestMessage' />
+  <message name='createPlantResponseMessage'>
+    <part name='response' element='tns:createPlantResponse' />
+  </message>
+  <message name='createSmsNumberRequestMessage' />
+  <message name='createSmsNumberResponseMessage'>
+    <part name='response' element='tns:createSmsNumberResponse' />
+  </message>
+  <message name='deleteBasestationRequestMessage'>
+    <part name='parameters' element='tns:deleteBasestationParameters' />
+  </message>
+  <message name='deleteBasestationResponseMessage'>
+    <part name='response' element='tns:deleteBasestationResponse' />
+  </message>
+  <message name='deleteLinkRequestMessage'>
+    <part name='parameters' element='tns:deleteLinkParameters' />
+  </message>
+  <message name='deleteLinkResponseMessage'>
+    <part name='response' element='tns:deleteLinkResponse' />
+  </message>
+  <message name='deleteNotificationRequestMessage'>
+    <part name='parameters' element='tns:deleteNotificationParameters' />
+  </message>
+  <message name='deleteNotificationResponseMessage'>
+    <part name='response' element='tns:deleteNotificationResponse' />
+  </message>
+  <message name='deletePlantRequestMessage'>
+    <part name='parameters' element='tns:deletePlantParameters' />
+  </message>
+  <message name='deletePlantResponseMessage'>
+    <part name='response' element='tns:deletePlantResponse' />
+  </message>
+  <message name='deleteSmsNumberRequestMessage'>
+    <part name='parameters' element='tns:deleteSmsNumberParameters' />
+  </message>
+  <message name='deleteSmsNumberResponseMessage'>
+    <part name='response' element='tns:deleteSmsNumberResponse' />
+  </message>
+  <message name='getBasestationRequestMessage'>
+    <part name='parameters' element='tns:getBasestationParameters' />
+  </message>
+  <message name='getBasestationResponseMessage'>
+    <part name='response' element='tns:getBasestationResponse' />
+  </message>
+  <message name='getLinkRequestMessage'>
+    <part name='parameters' element='tns:getLinkParameters' />
+  </message>
+  <message name='getLinkResponseMessage'>
+    <part name='response' element='tns:getLinkResponse' />
+  </message>
+  <message name='getPlantRequestMessage'>
+    <part name='parameters' element='tns:getPlantParameters' />
+  </message>
+  <message name='getPlantResponseMessage'>
+    <part name='response' element='tns:getPlantResponse' />
+  </message>
+  <message name='getPlantTypeRequestMessage'>
+    <part name='parameters' element='tns:getPlantTypeParameters' />
+  </message>
+  <message name='getPlantTypeResponseMessage'>
+    <part name='response' element='tns:getPlantTypeResponse' />
+  </message>
+  <message name='getSoilTypeRequestMessage'>
+    <part name='parameters' element='tns:getSoilTypeParameters' />
+  </message>
+  <message name='getSoilTypeResponseMessage'>
+    <part name='response' element='tns:getSoilTypeResponse' />
+  </message>
+  <message name='getUserRequestMessage' />
+  <message name='getUserResponseMessage'>
+    <part name='response' element='tns:getUserResponse' />
+  </message>
+  <message name='listBasestationsRequestMessage' />
+  <message name='listBasestationsResponseMessage'>
+    <part name='response' element='tns:listBasestationsResponse' />
+  </message>
+  <message name='listHardwareNotificationsRequestMessage' />
+  <message name='listHardwareNotificationsResponseMessage'>
+    <part name='response' element='tns:listHardwareNotificationsResponse' />
+  </message>
+  <message name='listLinksRequestMessage' />
+  <message name='listLinksResponseMessage'>
+    <part name='response' element='tns:listLinksResponse' />
+  </message>
+  <message name='listMeasurementsRequestMessage'>
+    <part name='parameters' element='tns:listMeasurementsParameters' />
+  </message>
+  <message name='listMeasurementsResponseMessage'>
+    <part name='response' element='tns:listMeasurementsResponse' />
+  </message>
+  <message name='listNotificationsRequestMessage'>
+    <part name='parameters' element='tns:listNotificationsParameters' />
+  </message>
+  <message name='listNotificationsResponseMessage'>
+    <part name='response' element='tns:listNotificationsResponse' />
+  </message>
+  <message name='listPlantTypesRequestMessage' />
+  <message name='listPlantTypesResponseMessage'>
+    <part name='response' element='tns:listPlantTypesResponse' />
+  </message>
+  <message name='listPlantsRequestMessage' />
+  <message name='listPlantsResponseMessage'>
+    <part name='response' element='tns:listPlantsResponse' />
+  </message>
+  <message name='listSoilTypesRequestMessage' />
+  <message name='listSoilTypesResponseMessage'>
+    <part name='response' element='tns:listSoilTypesResponse' />
+  </message>
+  <message name='loginRequestMessage' />
+  <message name='loginResponseMessage'>
+    <part name='response' element='tns:loginResponse' />
+  </message>
+  <message name='logoutRequestMessage' />
+  <message name='logoutResponseMessage'>
+    <part name='response' element='tns:logoutResponse' />
+  </message>
+  <message name='putBasestationIntoDiscoveryModeRequestMessage'>
+    <part name='parameters' element='tns:putBasestationIntoDiscoveryModeParameters' />
+  </message>
+  <message name='putBasestationIntoDiscoveryModeResponseMessage'>
+    <part name='response' element='tns:putBasestationIntoDiscoveryModeResponse' />
+  </message>
+  <message name='registerBasestationRequestMessage' />
+  <message name='registerBasestationResponseMessage'>
+    <part name='response' element='tns:registerBasestationResponse' />
+  </message>
+  <message name='registerUserRequestMessage' />
+  <message name='registerUserResponseMessage'>
+    <part name='response' element='tns:registerUserResponse' />
+  </message>
+  <message name='smsConfirmationRequestMessage'>
+    <part name='parameters' element='tns:smsConfirmationParameters' />
+  </message>
+  <message name='smsConfirmationResponseMessage'>
+    <part name='response' element='tns:smsConfirmationResponse' />
+  </message>
+  <message name='updateLinkRequestMessage'>
+    <part name='parameters' element='tns:updateLinkParameters' />
+  </message>
+  <message name='updateLinkResponseMessage'>
+    <part name='response' element='tns:updateLinkResponse' />
+  </message>
+  <message name='updatePlantRequestMessage'>
+    <part name='parameters' element='tns:updatePlantParameters' />
+  </message>
+  <message name='updatePlantResponseMessage'>
+    <part name='response' element='tns:updatePlantResponse' />
+  </message>
+  <message name='updateUserRequestMessage' />
+  <message name='updateUserResponseMessage'>
+    <part name='response' element='tns:updateUserResponse' />
+  </message>
+  <message name='validateSmsNumberRequestMessage'>
+    <part name='parameters' element='tns:validateSmsNumberParameters' />
+  </message>
+  <message name='validateSmsNumberResponseMessage'>
+    <part name='response' element='tns:validateSmsNumberResponse' />
+  </message>
+  <portType name='plantlinkPortType'>
+    <operation name='checkPasswordResetToken'>
+      <documentation>checks if a password reset token exists for the given user</documentation>
+      <input message='tns:checkPasswordResetTokenRequestMessage' name='checkPasswordResetTokenInput' />
+      <output message='tns:checkPasswordResetTokenResponseMessage' name='checkPasswordResetTokenOutput' />
+    </operation>
+    <operation name='clearAllNotifications'>
+      <documentation></documentation>
+      <input message='tns:clearAllNotificationsRequestMessage' name='clearAllNotificationsInput' />
+      <output message='tns:clearAllNotificationsResponseMessage' name='clearAllNotificationsOutput' />
+    </operation>
+    <operation name='clearPlantMeasurementCache'>
+      <documentation></documentation>
+      <input message='tns:clearPlantMeasurementCacheRequestMessage' name='clearPlantMeasurementCacheInput' />
+      <output message='tns:clearPlantMeasurementCacheResponseMessage' name='clearPlantMeasurementCacheOutput' />
+    </operation>
+    <operation name='completePasswordReset'>
+      <documentation>should also log the user in</documentation>
+      <input message='tns:completePasswordResetRequestMessage' name='completePasswordResetInput' />
+      <output message='tns:completePasswordResetResponseMessage' name='completePasswordResetOutput' />
+    </operation>
+    <operation name='createBugReport'>
+      <input message='tns:createBugReportRequestMessage' name='createBugReportInput' />
+      <output message='tns:createBugReportResponseMessage' name='createBugReportOutput' />
+    </operation>
+    <operation name='createContactUsRequest'>
+      <input message='tns:createContactUsRequestRequestMessage' name='createContactUsRequestInput' />
+      <output message='tns:createContactUsRequestResponseMessage' name='createContactUsRequestOutput' />
+    </operation>
+    <operation name='createPasswordResetToken'>
+      <documentation>starts the password reset process by requesting that a password reset token is sent to the user s email</documentation>
+      <input message='tns:createPasswordResetTokenRequestMessage' name='createPasswordResetTokenInput' />
+      <output message='tns:createPasswordResetTokenResponseMessage' name='createPasswordResetTokenOutput' />
+    </operation>
+    <operation name='createPlant'>
+      <input message='tns:createPlantRequestMessage' name='createPlantInput' />
+      <output message='tns:createPlantResponseMessage' name='createPlantOutput' />
+    </operation>
+    <operation name='createSmsNumber'>
+      <input message='tns:createSmsNumberRequestMessage' name='createSmsNumberInput' />
+      <output message='tns:createSmsNumberResponseMessage' name='createSmsNumberOutput' />
+    </operation>
+    <operation name='deleteBasestation'>
+      <documentation></documentation>
+      <input message='tns:deleteBasestationRequestMessage' name='deleteBasestationInput' />
+      <output message='tns:deleteBasestationResponseMessage' name='deleteBasestationOutput' />
+    </operation>
+    <operation name='deleteLink'>
+      <documentation></documentation>
+      <input message='tns:deleteLinkRequestMessage' name='deleteLinkInput' />
+      <output message='tns:deleteLinkResponseMessage' name='deleteLinkOutput' />
+    </operation>
+    <operation name='deleteNotification'>
+      <documentation>returns an empty list</documentation>
+      <input message='tns:deleteNotificationRequestMessage' name='deleteNotificationInput' />
+      <output message='tns:deleteNotificationResponseMessage' name='deleteNotificationOutput' />
+    </operation>
+    <operation name='deletePlant'>
+      <documentation></documentation>
+      <input message='tns:deletePlantRequestMessage' name='deletePlantInput' />
+      <output message='tns:deletePlantResponseMessage' name='deletePlantOutput' />
+    </operation>
+    <operation name='deleteSmsNumber'>
+      <documentation></documentation>
+      <input message='tns:deleteSmsNumberRequestMessage' name='deleteSmsNumberInput' />
+      <output message='tns:deleteSmsNumberResponseMessage' name='deleteSmsNumberOutput' />
+    </operation>
+    <operation name='getBasestation'>
+      <documentation>serial can actually be empty as long as basestation id is set</documentation>
+      <input message='tns:getBasestationRequestMessage' name='getBasestationInput' />
+      <output message='tns:getBasestationResponseMessage' name='getBasestationOutput' />
+    </operation>
+    <operation name='getLink'>
+      <documentation></documentation>
+      <input message='tns:getLinkRequestMessage' name='getLinkInput' />
+      <output message='tns:getLinkResponseMessage' name='getLinkOutput' />
+    </operation>
+    <operation name='getPlant'>
+      <documentation></documentation>
+      <input message='tns:getPlantRequestMessage' name='getPlantInput' />
+      <output message='tns:getPlantResponseMessage' name='getPlantOutput' />
+    </operation>
+    <operation name='getPlantType'>
+      <documentation></documentation>
+      <input message='tns:getPlantTypeRequestMessage' name='getPlantTypeInput' />
+      <output message='tns:getPlantTypeResponseMessage' name='getPlantTypeOutput' />
+    </operation>
+    <operation name='getSoilType'>
+      <documentation></documentation>
+      <input message='tns:getSoilTypeRequestMessage' name='getSoilTypeInput' />
+      <output message='tns:getSoilTypeResponseMessage' name='getSoilTypeOutput' />
+    </operation>
+    <operation name='getUser'>
+      <documentation></documentation>
+      <input message='tns:getUserRequestMessage' name='getUserInput' />
+      <output message='tns:getUserResponseMessage' name='getUserOutput' />
+    </operation>
+    <operation name='listBasestations'>
+      <documentation></documentation>
+      <input message='tns:listBasestationsRequestMessage' name='listBasestationsInput' />
+      <output message='tns:listBasestationsResponseMessage' name='listBasestationsOutput' />
+    </operation>
+    <operation name='listHardwareNotifications'>
+      <documentation></documentation>
+      <input message='tns:listHardwareNotificationsRequestMessage' name='listHardwareNotificationsInput' />
+      <output message='tns:listHardwareNotificationsResponseMessage' name='listHardwareNotificationsOutput' />
+    </operation>
+    <operation name='listLinks'>
+      <documentation></documentation>
+      <input message='tns:listLinksRequestMessage' name='listLinksInput' />
+      <output message='tns:listLinksResponseMessage' name='listLinksOutput' />
+    </operation>
+    <operation name='listMeasurements'>
+      <documentation></documentation>
+      <input message='tns:listMeasurementsRequestMessage' name='listMeasurementsInput' />
+      <output message='tns:listMeasurementsResponseMessage' name='listMeasurementsOutput' />
+    </operation>
+    <operation name='listNotifications'>
+      <documentation></documentation>
+      <input message='tns:listNotificationsRequestMessage' name='listNotificationsInput' />
+      <output message='tns:listNotificationsResponseMessage' name='listNotificationsOutput' />
+    </operation>
+    <operation name='listPlantTypes'>
+      <documentation></documentation>
+      <input message='tns:listPlantTypesRequestMessage' name='listPlantTypesInput' />
+      <output message='tns:listPlantTypesResponseMessage' name='listPlantTypesOutput' />
+    </operation>
+    <operation name='listPlants'>
+      <documentation></documentation>
+      <input message='tns:listPlantsRequestMessage' name='listPlantsInput' />
+      <output message='tns:listPlantsResponseMessage' name='listPlantsOutput' />
+    </operation>
+    <operation name='listSoilTypes'>
+      <documentation></documentation>
+      <input message='tns:listSoilTypesRequestMessage' name='listSoilTypesInput' />
+      <output message='tns:listSoilTypesResponseMessage' name='listSoilTypesOutput' />
+    </operation>
+    <operation name='login'>
+      <documentation></documentation>
+      <input message='tns:loginRequestMessage' name='loginInput' />
+      <output message='tns:loginResponseMessage' name='loginOutput' />
+    </operation>
+    <operation name='logout'>
+      <documentation>ends the user s session</documentation>
+      <input message='tns:logoutRequestMessage' name='logoutInput' />
+      <output message='tns:logoutResponseMessage' name='logoutOutput' />
+    </operation>
+    <operation name='putBasestationIntoDiscoveryMode'>
+      <documentation></documentation>
+      <input message='tns:putBasestationIntoDiscoveryModeRequestMessage' name='putBasestationIntoDiscoveryModeInput' />
+      <output message='tns:putBasestationIntoDiscoveryModeResponseMessage' name='putBasestationIntoDiscoveryModeOutput' />
+    </operation>
+    <operation name='registerBasestation'>
+      <documentation></documentation>
+      <input message='tns:registerBasestationRequestMessage' name='registerBasestationInput' />
+      <output message='tns:registerBasestationResponseMessage' name='registerBasestationOutput' />
+    </operation>
+    <operation name='registerUser'>
+      <documentation>registers the user</documentation>
+      <input message='tns:registerUserRequestMessage' name='registerUserInput' />
+      <output message='tns:registerUserResponseMessage' name='registerUserOutput' />
+    </operation>
+    <operation name='smsConfirmation'>
+      <documentation>this endpoint is used to confirm the owner of sms numbers The sms user is sent a text with a url to this endpoint with a temporary and unique key given the sms number If a hit is registered to this endpoint the sms number is considered confirmed</documentation>
+      <input message='tns:smsConfirmationRequestMessage' name='smsConfirmationInput' />
+      <output message='tns:smsConfirmationResponseMessage' name='smsConfirmationOutput' />
+    </operation>
+    <operation name='updateLink'>
+      <input message='tns:updateLinkRequestMessage' name='updateLinkInput' />
+      <output message='tns:updateLinkResponseMessage' name='updateLinkOutput' />
+    </operation>
+    <operation name='updatePlant'>
+      <input message='tns:updatePlantRequestMessage' name='updatePlantInput' />
+      <output message='tns:updatePlantResponseMessage' name='updatePlantOutput' />
+    </operation>
+    <operation name='updateUser'>
+      <input message='tns:updateUserRequestMessage' name='updateUserInput' />
+      <output message='tns:updateUserResponseMessage' name='updateUserOutput' />
+    </operation>
+    <operation name='validateSmsNumber'>
+      <documentation></documentation>
+      <input message='tns:validateSmsNumberRequestMessage' name='validateSmsNumberInput' />
+      <output message='tns:validateSmsNumberResponseMessage' name='validateSmsNumberOutput' />
+    </operation>
+  </portType>
+  <binding name='plantlinkBinding' type='tns:plantlinkPortType'>
+    <operation name='checkPasswordResetToken'>
+      <soap12:operation soapAction='http://checkPasswordResetToken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clearAllNotifications'>
+      <soap12:operation soapAction='http://clearAllNotifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clearPlantMeasurementCache'>
+      <soap12:operation soapAction='http://clearPlantMeasurementCache' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='completePasswordReset'>
+      <soap12:operation soapAction='http://completePasswordReset' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createBugReport'>
+      <soap12:operation soapAction='http://createBugReport' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createContactUsRequest'>
+      <soap12:operation soapAction='http://createContactUsRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createPasswordResetToken'>
+      <soap12:operation soapAction='http://createPasswordResetToken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createPlant'>
+      <soap12:operation soapAction='http://createPlant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createSmsNumber'>
+      <soap12:operation soapAction='http://createSmsNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteBasestation'>
+      <soap12:operation soapAction='http://deleteBasestation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteLink'>
+      <soap12:operation soapAction='http://deleteLink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteNotification'>
+      <soap12:operation soapAction='http://deleteNotification' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deletePlant'>
+      <soap12:operation soapAction='http://deletePlant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteSmsNumber'>
+      <soap12:operation soapAction='http://deleteSmsNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getBasestation'>
+      <soap12:operation soapAction='http://getBasestation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLink'>
+      <soap12:operation soapAction='http://getLink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPlant'>
+      <soap12:operation soapAction='http://getPlant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getPlantType'>
+      <soap12:operation soapAction='http://getPlantType' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getSoilType'>
+      <soap12:operation soapAction='http://getSoilType' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getUser'>
+      <soap12:operation soapAction='http://getUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listBasestations'>
+      <soap12:operation soapAction='http://listBasestations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listHardwareNotifications'>
+      <soap12:operation soapAction='http://listHardwareNotifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listLinks'>
+      <soap12:operation soapAction='http://listLinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listMeasurements'>
+      <soap12:operation soapAction='http://listMeasurements' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listNotifications'>
+      <soap12:operation soapAction='http://listNotifications' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPlantTypes'>
+      <soap12:operation soapAction='http://listPlantTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listPlants'>
+      <soap12:operation soapAction='http://listPlants' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listSoilTypes'>
+      <soap12:operation soapAction='http://listSoilTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='login'>
+      <soap12:operation soapAction='http://login' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='logout'>
+      <soap12:operation soapAction='http://logout' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='putBasestationIntoDiscoveryMode'>
+      <soap12:operation soapAction='http://putBasestationIntoDiscoveryMode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='registerBasestation'>
+      <soap12:operation soapAction='http://registerBasestation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='registerUser'>
+      <soap12:operation soapAction='http://registerUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='smsConfirmation'>
+      <soap12:operation soapAction='http://smsConfirmation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateLink'>
+      <soap12:operation soapAction='http://updateLink' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updatePlant'>
+      <soap12:operation soapAction='http://updatePlant' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateUser'>
+      <soap12:operation soapAction='http://updateUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateSmsNumber'>
+      <soap12:operation soapAction='http://validateSmsNumber' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='plantlink'>
+    <documentation>plantLink is a soil moisture sensors for home gardeners Purchase one from www myplantlink com and we can help you water your plants This api details the methods to access and manipulate data and settings for the PlantLink application</documentation>
+    <port name='plantlinkPort' binding='tns:plantlinkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://plantlink' />
+    </port>
+  </service>
+</definitions>

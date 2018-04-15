@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/progressToGoal/' name='progressToGoal' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/progressToGoal/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/progressToGoal/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/progressToGoal/'>
+      <xsd:element name='vProgressToGoalParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountreturn' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='accountvalue' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='contributionamount' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='contributionendyear' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='contributionfrequency' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='contributionstartyear' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='goalname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timehorizon' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vProgressToGoalResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vProgressToGoalRequestMessage'>
+    <part name='parameters' element='tns:vProgressToGoalParameters' />
+  </message>
+  <message name='vProgressToGoalResponseMessage'>
+    <part name='response' element='tns:vProgressToGoalResponse' />
+  </message>
+  <portType name='progressToGoalPortType'>
+    <operation name='vProgressToGoal'>
+      <documentation></documentation>
+      <input message='tns:vProgressToGoalRequestMessage' name='vProgressToGoalInput' />
+      <output message='tns:vProgressToGoalResponseMessage' name='vProgressToGoalOutput' />
+    </operation>
+  </portType>
+  <binding name='progressToGoalBinding' type='tns:progressToGoalPortType'>
+    <operation name='vProgressToGoal'>
+      <soap12:operation soapAction='http://vProgressToGoal' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='progressToGoal'>
+    <documentation>the Progress to Goal API is used to determine the percentage currently funded of a goal and the additional monthly savings needed to fund a goal Currently only goal can be included per request</documentation>
+    <port name='progressToGoalPort' binding='tns:progressToGoalBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://progressToGoal' />
+    </port>
+  </service>
+</definitions>

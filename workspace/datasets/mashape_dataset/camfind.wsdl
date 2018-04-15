@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/camfind/' name='camfind' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/camfind/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/camfind/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/camfind/'>
+      <xsd:element name='imageRequestResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageResponseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imageResponseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageRequestRequestMessage' />
+  <message name='imageRequestResponseMessage'>
+    <part name='response' element='tns:imageRequestResponse' />
+  </message>
+  <message name='imageResponseRequestMessage'>
+    <part name='parameters' element='tns:imageResponseParameters' />
+  </message>
+  <message name='imageResponseResponseMessage'>
+    <part name='response' element='tns:imageResponseResponse' />
+  </message>
+  <portType name='camfindPortType'>
+    <operation name='imageRequest'>
+      <documentation>this endpoint lets you upload the image to be identified along with other attributes minimum required parameters are image request locale and image request image The response is a token to be used in the Image Response endpoint to retrieve the result</documentation>
+      <input message='tns:imageRequestRequestMessage' name='imageRequestInput' />
+      <output message='tns:imageRequestResponseMessage' name='imageRequestOutput' />
+    </operation>
+    <operation name='imageResponse'>
+      <documentation>this endpoint retrieves the result of the image you identified You need to supply the token result from the Image Request endpoint</documentation>
+      <input message='tns:imageResponseRequestMessage' name='imageResponseInput' />
+      <output message='tns:imageResponseResponseMessage' name='imageResponseOutput' />
+    </operation>
+  </portType>
+  <binding name='camfindBinding' type='tns:camfindPortType'>
+    <operation name='imageRequest'>
+      <soap12:operation soapAction='http://imageRequest' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='imageResponse'>
+      <soap12:operation soapAction='http://imageResponse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='camfind'>
+    <documentation>camFind API is the image recognition and reverse image search that powers the popular mobile visual search engine app CamFind It is the welcomed replacement for the void left following the purchase of IQ Engines by Yahoo CamFind API promises to be the best solution for state of the art image recognition and reverse image recognition which developers can incorporate into both apps and web applications</documentation>
+    <port name='camfindPort' binding='tns:camfindBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://camfind' />
+    </port>
+  </service>
+</definitions>

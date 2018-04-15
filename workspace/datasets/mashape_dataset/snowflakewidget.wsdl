@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/snowflakeWidget/' name='snowflakeWidget' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/snowflakeWidget/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/snowflakeWidget/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/snowflakeWidget/'>
+      <xsd:element name='exchangeAndTickerSymbolForStockToBeRetrievedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='exchangeticker' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='exchangeAndTickerSymbolForStockToBeRetrievedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='errors' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='unique_symbol' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='exchangeAndTickerSymbolForStockToBeRetrievedRequestMessage'>
+    <part name='parameters' element='tns:exchangeAndTickerSymbolForStockToBeRetrievedParameters' />
+  </message>
+  <message name='exchangeAndTickerSymbolForStockToBeRetrievedResponseMessage'>
+    <part name='response' element='tns:exchangeAndTickerSymbolForStockToBeRetrievedResponse' />
+  </message>
+  <portType name='snowflakeWidgetPortType'>
+    <operation name='exchangeAndTickerSymbolForStockToBeRetrieved'>
+      <documentation>e g ASX TLS</documentation>
+      <input message='tns:exchangeAndTickerSymbolForStockToBeRetrievedRequestMessage' name='exchangeAndTickerSymbolForStockToBeRetrievedInput' />
+      <output message='tns:exchangeAndTickerSymbolForStockToBeRetrievedResponseMessage' name='exchangeAndTickerSymbolForStockToBeRetrievedOutput' />
+    </operation>
+  </portType>
+  <binding name='snowflakeWidgetBinding' type='tns:snowflakeWidgetPortType'>
+    <operation name='exchangeAndTickerSymbolForStockToBeRetrieved'>
+      <soap12:operation soapAction='http://exchangeAndTickerSymbolForStockToBeRetrieved' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='snowflakeWidget'>
+    <documentation>the Snowflake Widget API allows rd party sites to display the Simply Wall St s Snowflake for any company in the Simply Wall St database or display another company at random that fits a specific criteria The Snowflake is generated daily by Simply Wall St and an associated infographic for companies on the NYSE Nasdaq LSE and ASX Our Snowflake is generated from financial checks in different core areas of a company specifically Value value based on future cash flows and its price relative to the stock market Future Performance expected performance in the next years Past Performance historical performance over the past years Health financial health and the level of debt Income the current dividend yield its volatility and sustainability</documentation>
+    <port name='snowflakeWidgetPort' binding='tns:snowflakeWidgetBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://snowflakeWidget' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ducksboard/' name='ducksboard' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ducksboard/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ducksboard/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ducksboard/'>
+      <xsd:element name='pushParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='label' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pushResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pushRequestMessage'>
+    <part name='parameters' element='tns:pushParameters' />
+  </message>
+  <message name='pushResponseMessage'>
+    <part name='response' element='tns:pushResponse' />
+  </message>
+  <portType name='ducksboardPortType'>
+    <operation name='push'>
+      <documentation>the Push API allows sending your own data to Ducksboard A special custom family of widgets can be used to display data sent that way Check out the Readme tab</documentation>
+      <input message='tns:pushRequestMessage' name='pushInput' />
+      <output message='tns:pushResponseMessage' name='pushOutput' />
+    </operation>
+  </portType>
+  <binding name='ducksboardBinding' type='tns:ducksboardPortType'>
+    <operation name='push'>
+      <soap12:operation soapAction='http://push' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ducksboard'>
+    <documentation>ducksboard is a real time dashboard to visually monitor data in a single place It includes hundreds of widgets to connect most important online services with a click And also allows customised integrations through its easy to use API Any data can be uploaded from sales metrics to M M sensor streams and be simply visualized with our Dashboards Ducksboard s API enables you to not only complement data from your SaaS apps with internal metrics but to also access all data stored by Ducksboard and create dashboards and widgets through simple API calls</documentation>
+    <port name='ducksboardPort' binding='tns:ducksboardBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ducksboard' />
+    </port>
+  </service>
+</definitions>

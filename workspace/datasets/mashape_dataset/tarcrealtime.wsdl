@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tarcRealtime/' name='tarcRealtime' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tarcRealtime/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tarcRealtime/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tarcRealtime/'>
+      <xsd:element name='bussesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Trip' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='CrimeColor' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Stamp' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Stop' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Ago' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Time' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Bear' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Delay' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='CrimeScore' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='CrimeGrade' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='Name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Line' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Route' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Lat' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='trip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routestopsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='color' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='trip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='routestopsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bussesRequestMessage' />
+  <message name='bussesResponseMessage'>
+    <part name='response' element='tns:bussesResponse' />
+  </message>
+  <message name='routeRequestMessage'>
+    <part name='parameters' element='tns:routeParameters' />
+  </message>
+  <message name='routeResponseMessage'>
+    <part name='response' element='tns:routeResponse' />
+  </message>
+  <message name='routestopsRequestMessage'>
+    <part name='parameters' element='tns:routestopsParameters' />
+  </message>
+  <message name='routestopsResponseMessage'>
+    <part name='response' element='tns:routestopsResponse' />
+  </message>
+  <portType name='tarcRealtimePortType'>
+    <operation name='busses'>
+      <documentation>location of all busses from most recent GPS check ins</documentation>
+      <input message='tns:bussesRequestMessage' name='bussesInput' />
+      <output message='tns:bussesResponseMessage' name='bussesOutput' />
+    </operation>
+    <operation name='route'>
+      <documentation>kML overlay of a specific bus route</documentation>
+      <input message='tns:routeRequestMessage' name='routeInput' />
+      <output message='tns:routeResponseMessage' name='routeOutput' />
+    </operation>
+    <operation name='routestops'>
+      <documentation>kML of next stops along a route</documentation>
+      <input message='tns:routestopsRequestMessage' name='routestopsInput' />
+      <output message='tns:routestopsResponseMessage' name='routestopsOutput' />
+    </operation>
+  </portType>
+  <binding name='tarcRealtimeBinding' type='tns:tarcRealtimePortType'>
+    <operation name='busses'>
+      <soap12:operation soapAction='http://busses' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='route'>
+      <soap12:operation soapAction='http://route' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='routestops'>
+      <soap12:operation soapAction='http://routestops' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tarcRealtime'>
+    <documentation>real time GPS location of Louisville TARC transportation system busses from GTFS feed Easy to consume JSON format updated every minute Not affiliated with TARC</documentation>
+    <port name='tarcRealtimePort' binding='tns:tarcRealtimeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tarcRealtime' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/screengrab/' name='screengrab' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/screengrab/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/screengrab/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/screengrab/'>
+      <xsd:element name='grabScreenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='grabScreenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='grabScreenRequestMessage'>
+    <part name='parameters' element='tns:grabScreenParameters' />
+  </message>
+  <message name='grabScreenResponseMessage'>
+    <part name='response' element='tns:grabScreenResponse' />
+  </message>
+  <portType name='screengrabPortType'>
+    <operation name='grabScreen'>
+      <documentation>takes a screenshot with option to customize viewport and serve the resulting png from the same link</documentation>
+      <input message='tns:grabScreenRequestMessage' name='grabScreenInput' />
+      <output message='tns:grabScreenResponseMessage' name='grabScreenOutput' />
+    </operation>
+  </portType>
+  <binding name='screengrabBinding' type='tns:screengrabPortType'>
+    <operation name='grabScreen'>
+      <soap12:operation soapAction='http://grabScreen' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='screengrab'>
+    <documentation>a web service to grab and serve webpage screenshots</documentation>
+    <port name='screengrabPort' binding='tns:screengrabBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://screengrab' />
+    </port>
+  </service>
+</definitions>

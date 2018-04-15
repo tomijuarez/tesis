@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/telldus/' name='telldus' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/telldus/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/telldus/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/telldus/'>
+      <xsd:element name='clientInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='extras' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uuid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+            <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='timezoneAutodetected' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='online' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:string' minOccurs='0' />
+            <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:int' minOccurs='0' />
+            <xsd:element name='tzoffset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientRegisterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uuid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientRegisterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientRemoveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientRemoveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sensor' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ignored' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='clientName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='client' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientSetnameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientSetnameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientsListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='extras' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='clientsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='client' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timezone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='timezoneAutodetected' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='version' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='tzoffset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceAddParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='protocol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceAddResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceBellParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceBellResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceCommandParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceCommandResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceDimParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='level' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceDimResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceDownParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceDownResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='extras' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='supportedmethods' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sensor' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ignored' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='clientName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='client' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceLearnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceLearnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceRemoveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceRemoveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetmodelParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='model' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetmodelResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetnameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetnameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetparameterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='parameter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetparameterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetprotocolParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='protocol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceSetprotocolResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceStopParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceStopResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceTurnoffParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceTurnoffResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceTurnonParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceTurnonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceUpParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deviceUpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='devicesListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='extras' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='supportedmethods' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='devicesListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sensor' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ignored' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='clientName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='client' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupAddParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='clientid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='devices' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupAddResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupRemoveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='groupRemoveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerJobinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerJobinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='randomInterval' type='xsd:int' minOccurs='0' />
+            <xsd:element name='reps' type='xsd:int' minOccurs='0' />
+            <xsd:element name='method' type='xsd:int' minOccurs='0' />
+            <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='weekdays' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='methodValue' type='xsd:int' minOccurs='0' />
+            <xsd:element name='active' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='deviceId' type='xsd:int' minOccurs='0' />
+            <xsd:element name='minute' type='xsd:int' minOccurs='0' />
+            <xsd:element name='retries' type='xsd:int' minOccurs='0' />
+            <xsd:element name='nextRunTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hour' type='xsd:int' minOccurs='0' />
+            <xsd:element name='retryInterval' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerJoblistResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='job' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='randomInterval' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reps' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='method' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='offset' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='weekdays' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='methodValue' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='active' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='deviceId' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='minute' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='retries' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='nextRunTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hour' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='retryInterval' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerRemovejobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerRemovejobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerSetjobParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='active' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='deviceid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hour' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='method' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='methodvalue' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='minute' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='randominterval' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reps' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='retries' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='retryinterval' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='weekdays' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='schedulerSetjobResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lastUpdated' type='xsd:int' minOccurs='0' />
+            <xsd:element name='ignored' type='xsd:int' minOccurs='0' />
+            <xsd:element name='protocol' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='clientName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timezoneoffset' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sensorId' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorSetignoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ignore' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorSetignoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorSetnameParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorSetnameResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorsListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='includeignored' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sensorsListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sensor' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdated' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ignored' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='clientName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editable' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='client' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='clientInfoRequestMessage'>
+    <part name='parameters' element='tns:clientInfoParameters' />
+  </message>
+  <message name='clientInfoResponseMessage'>
+    <part name='response' element='tns:clientInfoResponse' />
+  </message>
+  <message name='clientRegisterRequestMessage'>
+    <part name='parameters' element='tns:clientRegisterParameters' />
+  </message>
+  <message name='clientRegisterResponseMessage'>
+    <part name='response' element='tns:clientRegisterResponse' />
+  </message>
+  <message name='clientRemoveRequestMessage'>
+    <part name='parameters' element='tns:clientRemoveParameters' />
+  </message>
+  <message name='clientRemoveResponseMessage'>
+    <part name='response' element='tns:clientRemoveResponse' />
+  </message>
+  <message name='clientSetnameRequestMessage'>
+    <part name='parameters' element='tns:clientSetnameParameters' />
+  </message>
+  <message name='clientSetnameResponseMessage'>
+    <part name='response' element='tns:clientSetnameResponse' />
+  </message>
+  <message name='clientsListRequestMessage'>
+    <part name='parameters' element='tns:clientsListParameters' />
+  </message>
+  <message name='clientsListResponseMessage'>
+    <part name='response' element='tns:clientsListResponse' />
+  </message>
+  <message name='deviceAddRequestMessage'>
+    <part name='parameters' element='tns:deviceAddParameters' />
+  </message>
+  <message name='deviceAddResponseMessage'>
+    <part name='response' element='tns:deviceAddResponse' />
+  </message>
+  <message name='deviceBellRequestMessage'>
+    <part name='parameters' element='tns:deviceBellParameters' />
+  </message>
+  <message name='deviceBellResponseMessage'>
+    <part name='response' element='tns:deviceBellResponse' />
+  </message>
+  <message name='deviceCommandRequestMessage'>
+    <part name='parameters' element='tns:deviceCommandParameters' />
+  </message>
+  <message name='deviceCommandResponseMessage'>
+    <part name='response' element='tns:deviceCommandResponse' />
+  </message>
+  <message name='deviceDimRequestMessage'>
+    <part name='parameters' element='tns:deviceDimParameters' />
+  </message>
+  <message name='deviceDimResponseMessage'>
+    <part name='response' element='tns:deviceDimResponse' />
+  </message>
+  <message name='deviceDownRequestMessage'>
+    <part name='parameters' element='tns:deviceDownParameters' />
+  </message>
+  <message name='deviceDownResponseMessage'>
+    <part name='response' element='tns:deviceDownResponse' />
+  </message>
+  <message name='deviceInfoRequestMessage'>
+    <part name='parameters' element='tns:deviceInfoParameters' />
+  </message>
+  <message name='deviceInfoResponseMessage'>
+    <part name='response' element='tns:deviceInfoResponse' />
+  </message>
+  <message name='deviceLearnRequestMessage'>
+    <part name='parameters' element='tns:deviceLearnParameters' />
+  </message>
+  <message name='deviceLearnResponseMessage'>
+    <part name='response' element='tns:deviceLearnResponse' />
+  </message>
+  <message name='deviceRemoveRequestMessage'>
+    <part name='parameters' element='tns:deviceRemoveParameters' />
+  </message>
+  <message name='deviceRemoveResponseMessage'>
+    <part name='response' element='tns:deviceRemoveResponse' />
+  </message>
+  <message name='deviceSetmodelRequestMessage'>
+    <part name='parameters' element='tns:deviceSetmodelParameters' />
+  </message>
+  <message name='deviceSetmodelResponseMessage'>
+    <part name='response' element='tns:deviceSetmodelResponse' />
+  </message>
+  <message name='deviceSetnameRequestMessage'>
+    <part name='parameters' element='tns:deviceSetnameParameters' />
+  </message>
+  <message name='deviceSetnameResponseMessage'>
+    <part name='response' element='tns:deviceSetnameResponse' />
+  </message>
+  <message name='deviceSetparameterRequestMessage'>
+    <part name='parameters' element='tns:deviceSetparameterParameters' />
+  </message>
+  <message name='deviceSetparameterResponseMessage'>
+    <part name='response' element='tns:deviceSetparameterResponse' />
+  </message>
+  <message name='deviceSetprotocolRequestMessage'>
+    <part name='parameters' element='tns:deviceSetprotocolParameters' />
+  </message>
+  <message name='deviceSetprotocolResponseMessage'>
+    <part name='response' element='tns:deviceSetprotocolResponse' />
+  </message>
+  <message name='deviceStopRequestMessage'>
+    <part name='parameters' element='tns:deviceStopParameters' />
+  </message>
+  <message name='deviceStopResponseMessage'>
+    <part name='response' element='tns:deviceStopResponse' />
+  </message>
+  <message name='deviceTurnoffRequestMessage'>
+    <part name='parameters' element='tns:deviceTurnoffParameters' />
+  </message>
+  <message name='deviceTurnoffResponseMessage'>
+    <part name='response' element='tns:deviceTurnoffResponse' />
+  </message>
+  <message name='deviceTurnonRequestMessage'>
+    <part name='parameters' element='tns:deviceTurnonParameters' />
+  </message>
+  <message name='deviceTurnonResponseMessage'>
+    <part name='response' element='tns:deviceTurnonResponse' />
+  </message>
+  <message name='deviceUpRequestMessage'>
+    <part name='parameters' element='tns:deviceUpParameters' />
+  </message>
+  <message name='deviceUpResponseMessage'>
+    <part name='response' element='tns:deviceUpResponse' />
+  </message>
+  <message name='devicesListRequestMessage'>
+    <part name='parameters' element='tns:devicesListParameters' />
+  </message>
+  <message name='devicesListResponseMessage'>
+    <part name='response' element='tns:devicesListResponse' />
+  </message>
+  <message name='groupAddRequestMessage'>
+    <part name='parameters' element='tns:groupAddParameters' />
+  </message>
+  <message name='groupAddResponseMessage'>
+    <part name='response' element='tns:groupAddResponse' />
+  </message>
+  <message name='groupRemoveRequestMessage'>
+    <part name='parameters' element='tns:groupRemoveParameters' />
+  </message>
+  <message name='groupRemoveResponseMessage'>
+    <part name='response' element='tns:groupRemoveResponse' />
+  </message>
+  <message name='schedulerJobinfoRequestMessage'>
+    <part name='parameters' element='tns:schedulerJobinfoParameters' />
+  </message>
+  <message name='schedulerJobinfoResponseMessage'>
+    <part name='response' element='tns:schedulerJobinfoResponse' />
+  </message>
+  <message name='schedulerJoblistRequestMessage' />
+  <message name='schedulerJoblistResponseMessage'>
+    <part name='response' element='tns:schedulerJoblistResponse' />
+  </message>
+  <message name='schedulerRemovejobRequestMessage'>
+    <part name='parameters' element='tns:schedulerRemovejobParameters' />
+  </message>
+  <message name='schedulerRemovejobResponseMessage'>
+    <part name='response' element='tns:schedulerRemovejobResponse' />
+  </message>
+  <message name='schedulerSetjobRequestMessage'>
+    <part name='parameters' element='tns:schedulerSetjobParameters' />
+  </message>
+  <message name='schedulerSetjobResponseMessage'>
+    <part name='response' element='tns:schedulerSetjobResponse' />
+  </message>
+  <message name='sensorInfoRequestMessage'>
+    <part name='parameters' element='tns:sensorInfoParameters' />
+  </message>
+  <message name='sensorInfoResponseMessage'>
+    <part name='response' element='tns:sensorInfoResponse' />
+  </message>
+  <message name='sensorSetignoreRequestMessage'>
+    <part name='parameters' element='tns:sensorSetignoreParameters' />
+  </message>
+  <message name='sensorSetignoreResponseMessage'>
+    <part name='response' element='tns:sensorSetignoreResponse' />
+  </message>
+  <message name='sensorSetnameRequestMessage'>
+    <part name='parameters' element='tns:sensorSetnameParameters' />
+  </message>
+  <message name='sensorSetnameResponseMessage'>
+    <part name='response' element='tns:sensorSetnameResponse' />
+  </message>
+  <message name='sensorsListRequestMessage'>
+    <part name='parameters' element='tns:sensorsListParameters' />
+  </message>
+  <message name='sensorsListResponseMessage'>
+    <part name='response' element='tns:sensorsListResponse' />
+  </message>
+  <portType name='telldusPortType'>
+    <operation name='clientInfo'>
+      <documentation>returns informaiton about a specific client</documentation>
+      <input message='tns:clientInfoRequestMessage' name='clientInfoInput' />
+      <output message='tns:clientInfoResponseMessage' name='clientInfoOutput' />
+    </operation>
+    <operation name='clientRegister'>
+      <documentation>register an unregistered client to the calling user</documentation>
+      <input message='tns:clientRegisterRequestMessage' name='clientRegisterInput' />
+      <output message='tns:clientRegisterResponseMessage' name='clientRegisterOutput' />
+    </operation>
+    <operation name='clientRemove'>
+      <documentation>removes a client from the user The client needs to be activated again in order to be used</documentation>
+      <input message='tns:clientRemoveRequestMessage' name='clientRemoveInput' />
+      <output message='tns:clientRemoveResponseMessage' name='clientRemoveOutput' />
+    </operation>
+    <operation name='clientSetname'>
+      <documentation>renames a client</documentation>
+      <input message='tns:clientSetnameRequestMessage' name='clientSetnameInput' />
+      <output message='tns:clientSetnameResponseMessage' name='clientSetnameOutput' />
+    </operation>
+    <operation name='clientsList'>
+      <documentation>returns a list of all clients associated with the current user</documentation>
+      <input message='tns:clientsListRequestMessage' name='clientsListInput' />
+      <output message='tns:clientsListResponseMessage' name='clientsListOutput' />
+    </operation>
+    <operation name='deviceAdd'>
+      <documentation>adds a new device and connects it to a client The client must be editable for this to work</documentation>
+      <input message='tns:deviceAddRequestMessage' name='deviceAddInput' />
+      <output message='tns:deviceAddResponseMessage' name='deviceAddOutput' />
+    </operation>
+    <operation name='deviceBell'>
+      <documentation>sends bell command to devices supporting this</documentation>
+      <input message='tns:deviceBellRequestMessage' name='deviceBellInput' />
+      <output message='tns:deviceBellResponseMessage' name='deviceBellOutput' />
+    </operation>
+    <operation name='deviceCommand'>
+      <documentation>sends a command to a device</documentation>
+      <input message='tns:deviceCommandRequestMessage' name='deviceCommandInput' />
+      <output message='tns:deviceCommandResponseMessage' name='deviceCommandOutput' />
+    </operation>
+    <operation name='deviceDim'>
+      <documentation></documentation>
+      <input message='tns:deviceDimRequestMessage' name='deviceDimInput' />
+      <output message='tns:deviceDimResponseMessage' name='deviceDimOutput' />
+    </operation>
+    <operation name='deviceDown'>
+      <documentation>sends a down command to devices supporting this</documentation>
+      <input message='tns:deviceDownRequestMessage' name='deviceDownInput' />
+      <output message='tns:deviceDownResponseMessage' name='deviceDownOutput' />
+    </operation>
+    <operation name='deviceInfo'>
+      <documentation>returns information about a specific device</documentation>
+      <input message='tns:deviceInfoRequestMessage' name='deviceInfoInput' />
+      <output message='tns:deviceInfoResponseMessage' name='deviceInfoOutput' />
+    </operation>
+    <operation name='deviceLearn'>
+      <documentation>sends a special learn command to some devices that need a special learn command to be used from TellStick</documentation>
+      <input message='tns:deviceLearnRequestMessage' name='deviceLearnInput' />
+      <output message='tns:deviceLearnResponseMessage' name='deviceLearnOutput' />
+    </operation>
+    <operation name='deviceRemove'>
+      <documentation>removes a device It is only possible to remove editable devices</documentation>
+      <input message='tns:deviceRemoveRequestMessage' name='deviceRemoveInput' />
+      <output message='tns:deviceRemoveResponseMessage' name='deviceRemoveOutput' />
+    </operation>
+    <operation name='deviceSetmodel'>
+      <documentation>set device model</documentation>
+      <input message='tns:deviceSetmodelRequestMessage' name='deviceSetmodelInput' />
+      <output message='tns:deviceSetmodelResponseMessage' name='deviceSetmodelOutput' />
+    </operation>
+    <operation name='deviceSetname'>
+      <documentation>renames a device</documentation>
+      <input message='tns:deviceSetnameRequestMessage' name='deviceSetnameInput' />
+      <output message='tns:deviceSetnameResponseMessage' name='deviceSetnameOutput' />
+    </operation>
+    <operation name='deviceSetparameter'>
+      <documentation>set a device parameter</documentation>
+      <input message='tns:deviceSetparameterRequestMessage' name='deviceSetparameterInput' />
+      <output message='tns:deviceSetparameterResponseMessage' name='deviceSetparameterOutput' />
+    </operation>
+    <operation name='deviceSetprotocol'>
+      <documentation>set device protocol</documentation>
+      <input message='tns:deviceSetprotocolRequestMessage' name='deviceSetprotocolInput' />
+      <output message='tns:deviceSetprotocolResponseMessage' name='deviceSetprotocolOutput' />
+    </operation>
+    <operation name='deviceStop'>
+      <documentation>send a stop command to device</documentation>
+      <input message='tns:deviceStopRequestMessage' name='deviceStopInput' />
+      <output message='tns:deviceStopResponseMessage' name='deviceStopOutput' />
+    </operation>
+    <operation name='deviceTurnoff'>
+      <documentation>turns a device off</documentation>
+      <input message='tns:deviceTurnoffRequestMessage' name='deviceTurnoffInput' />
+      <output message='tns:deviceTurnoffResponseMessage' name='deviceTurnoffOutput' />
+    </operation>
+    <operation name='deviceTurnon'>
+      <documentation>turns a device on</documentation>
+      <input message='tns:deviceTurnonRequestMessage' name='deviceTurnonInput' />
+      <output message='tns:deviceTurnonResponseMessage' name='deviceTurnonOutput' />
+    </operation>
+    <operation name='deviceUp'>
+      <documentation>send an up command to device</documentation>
+      <input message='tns:deviceUpRequestMessage' name='deviceUpInput' />
+      <output message='tns:deviceUpResponseMessage' name='deviceUpOutput' />
+    </operation>
+    <operation name='devicesList'>
+      <documentation>returns a list of all devices associated with the current user</documentation>
+      <input message='tns:devicesListRequestMessage' name='devicesListInput' />
+      <output message='tns:devicesListResponseMessage' name='devicesListOutput' />
+    </operation>
+    <operation name='groupAdd'>
+      <documentation>adds a new group with devices and connects it to a client The client must be editable for this to work Please note that groups are devices as well This means that all device commands will work for groups too</documentation>
+      <input message='tns:groupAddRequestMessage' name='groupAddInput' />
+      <output message='tns:groupAddResponseMessage' name='groupAddOutput' />
+    </operation>
+    <operation name='groupRemove'>
+      <documentation>removes a group</documentation>
+      <input message='tns:groupRemoveRequestMessage' name='groupRemoveInput' />
+      <output message='tns:groupRemoveResponseMessage' name='groupRemoveOutput' />
+    </operation>
+    <operation name='schedulerJobinfo'>
+      <documentation>retrieves info about a specific job</documentation>
+      <input message='tns:schedulerJobinfoRequestMessage' name='schedulerJobinfoInput' />
+      <output message='tns:schedulerJobinfoResponseMessage' name='schedulerJobinfoOutput' />
+    </operation>
+    <operation name='schedulerJoblist'>
+      <documentation>lists all jobs The list is sorted by nextRunTime If nextRunTime is it means the job will not be run at all</documentation>
+      <input message='tns:schedulerJoblistRequestMessage' name='schedulerJoblistInput' />
+      <output message='tns:schedulerJoblistResponseMessage' name='schedulerJoblistOutput' />
+    </operation>
+    <operation name='schedulerRemovejob'>
+      <documentation>removes a job</documentation>
+      <input message='tns:schedulerRemovejobRequestMessage' name='schedulerRemovejobInput' />
+      <output message='tns:schedulerRemovejobResponseMessage' name='schedulerRemovejobOutput' />
+    </operation>
+    <operation name='schedulerSetjob'>
+      <documentation>creates or updates a job Set id to if you want to create a new job If you are creating a new job the deviceId must also be set The deviceId can only be set upon creating a new job When updating an existing job the deviceId parameter must be omitted Note Only editable devices can be scheduled</documentation>
+      <input message='tns:schedulerSetjobRequestMessage' name='schedulerSetjobInput' />
+      <output message='tns:schedulerSetjobResponseMessage' name='schedulerSetjobOutput' />
+    </operation>
+    <operation name='sensorInfo'>
+      <documentation>returns information about a specific sensor</documentation>
+      <input message='tns:sensorInfoRequestMessage' name='sensorInfoInput' />
+      <output message='tns:sensorInfoResponseMessage' name='sensorInfoOutput' />
+    </operation>
+    <operation name='sensorSetignore'>
+      <documentation></documentation>
+      <input message='tns:sensorSetignoreRequestMessage' name='sensorSetignoreInput' />
+      <output message='tns:sensorSetignoreResponseMessage' name='sensorSetignoreOutput' />
+    </operation>
+    <operation name='sensorSetname'>
+      <documentation>renames a sensor</documentation>
+      <input message='tns:sensorSetnameRequestMessage' name='sensorSetnameInput' />
+      <output message='tns:sensorSetnameResponseMessage' name='sensorSetnameOutput' />
+    </operation>
+    <operation name='sensorsList'>
+      <documentation>returns a list of all sensors associated with the current user</documentation>
+      <input message='tns:sensorsListRequestMessage' name='sensorsListInput' />
+      <output message='tns:sensorsListResponseMessage' name='sensorsListOutput' />
+    </operation>
+  </portType>
+  <binding name='telldusBinding' type='tns:telldusPortType'>
+    <operation name='clientInfo'>
+      <soap12:operation soapAction='http://clientInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clientRegister'>
+      <soap12:operation soapAction='http://clientRegister' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clientRemove'>
+      <soap12:operation soapAction='http://clientRemove' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clientSetname'>
+      <soap12:operation soapAction='http://clientSetname' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='clientsList'>
+      <soap12:operation soapAction='http://clientsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceAdd'>
+      <soap12:operation soapAction='http://deviceAdd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceBell'>
+      <soap12:operation soapAction='http://deviceBell' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceCommand'>
+      <soap12:operation soapAction='http://deviceCommand' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceDim'>
+      <soap12:operation soapAction='http://deviceDim' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceDown'>
+      <soap12:operation soapAction='http://deviceDown' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceInfo'>
+      <soap12:operation soapAction='http://deviceInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceLearn'>
+      <soap12:operation soapAction='http://deviceLearn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceRemove'>
+      <soap12:operation soapAction='http://deviceRemove' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceSetmodel'>
+      <soap12:operation soapAction='http://deviceSetmodel' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceSetname'>
+      <soap12:operation soapAction='http://deviceSetname' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceSetparameter'>
+      <soap12:operation soapAction='http://deviceSetparameter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceSetprotocol'>
+      <soap12:operation soapAction='http://deviceSetprotocol' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceStop'>
+      <soap12:operation soapAction='http://deviceStop' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceTurnoff'>
+      <soap12:operation soapAction='http://deviceTurnoff' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceTurnon'>
+      <soap12:operation soapAction='http://deviceTurnon' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deviceUp'>
+      <soap12:operation soapAction='http://deviceUp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='devicesList'>
+      <soap12:operation soapAction='http://devicesList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='groupAdd'>
+      <soap12:operation soapAction='http://groupAdd' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='groupRemove'>
+      <soap12:operation soapAction='http://groupRemove' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='schedulerJobinfo'>
+      <soap12:operation soapAction='http://schedulerJobinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='schedulerJoblist'>
+      <soap12:operation soapAction='http://schedulerJoblist' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='schedulerRemovejob'>
+      <soap12:operation soapAction='http://schedulerRemovejob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='schedulerSetjob'>
+      <soap12:operation soapAction='http://schedulerSetjob' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sensorInfo'>
+      <soap12:operation soapAction='http://sensorInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sensorSetignore'>
+      <soap12:operation soapAction='http://sensorSetignore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sensorSetname'>
+      <soap12:operation soapAction='http://sensorSetname' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sensorsList'>
+      <soap12:operation soapAction='http://sensorsList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='telldus'>
+    <documentation>this is the telldus API to manage your tellstick live device to manage your devices and turn on and off lights from the web</documentation>
+    <port name='telldusPort' binding='tns:telldusBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://telldus' />
+    </port>
+  </service>
+</definitions>

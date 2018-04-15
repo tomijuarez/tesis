@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/flightSchedulesOneDayUriMethod/' name='flightSchedulesOneDayUriMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/flightSchedulesOneDayUriMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/flightSchedulesOneDayUriMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/flightSchedulesOneDayUriMethod/'>
+      <xsd:element name='timetableParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='airline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hops' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='interline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sortorder' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timetableResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='timetableRequestMessage'>
+    <part name='parameters' element='tns:timetableParameters' />
+  </message>
+  <message name='timetableResponseMessage'>
+    <part name='response' element='tns:timetableResponse' />
+  </message>
+  <portType name='flightSchedulesOneDayUriMethodPortType'>
+    <operation name='timetable'>
+      <documentation>this method returns timetable data from a specified airport to a specified airport on a specified date</documentation>
+      <input message='tns:timetableRequestMessage' name='timetableInput' />
+      <output message='tns:timetableResponseMessage' name='timetableOutput' />
+    </operation>
+  </portType>
+  <binding name='flightSchedulesOneDayUriMethodBinding' type='tns:flightSchedulesOneDayUriMethodPortType'>
+    <operation name='timetable'>
+      <soap12:operation soapAction='http://timetable' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='flightSchedulesOneDayUriMethod'>
+    <documentation>flightLookup Timetable Access our worldwide schedules including low cost carriers and build connections using the dynamic connections engine If you are looking for airline schedules to provide timetables this is the service for you Origin and Destination Worldwide passenger airline flight schedules Single Day day and Multi day lookups Search criteria includes Time Airline Interline Number of Routes Number of Connections etc Route Information Detail Segment Information</documentation>
+    <port name='flightSchedulesOneDayUriMethodPort' binding='tns:flightSchedulesOneDayUriMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://flightSchedulesOneDayUriMethod' />
+    </port>
+  </service>
+</definitions>

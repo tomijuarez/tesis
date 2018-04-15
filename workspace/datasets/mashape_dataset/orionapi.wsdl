@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/orionapi/' name='orionapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/orionapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/orionapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/orionapi/'>
+      <xsd:element name='statusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='message' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='steamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='steamcommunityname' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='steamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='identifier' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='online' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='xboxLiveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='gamertag' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='xboxLiveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='statusRequestMessage' />
+  <message name='statusResponseMessage'>
+    <part name='response' element='tns:statusResponse' />
+  </message>
+  <message name='steamRequestMessage'>
+    <part name='parameters' element='tns:steamParameters' />
+  </message>
+  <message name='steamResponseMessage'>
+    <part name='response' element='tns:steamResponse' />
+  </message>
+  <message name='xboxLiveRequestMessage'>
+    <part name='parameters' element='tns:xboxLiveParameters' />
+  </message>
+  <message name='xboxLiveResponseMessage'>
+    <part name='response' element='tns:xboxLiveResponse' />
+  </message>
+  <portType name='orionapiPortType'>
+    <operation name='status'>
+      <documentation>grabs the current status offline online of each platform from the official website of that platform</documentation>
+      <input message='tns:statusRequestMessage' name='statusInput' />
+      <output message='tns:statusResponseMessage' name='statusOutput' />
+    </operation>
+    <operation name='steam'>
+      <documentation>steam Profile</documentation>
+      <input message='tns:steamRequestMessage' name='steamInput' />
+      <output message='tns:steamResponseMessage' name='steamOutput' />
+    </operation>
+    <operation name='xboxLive'>
+      <documentation>xbox Live Profile</documentation>
+      <input message='tns:xboxLiveRequestMessage' name='xboxLiveInput' />
+      <output message='tns:xboxLiveResponseMessage' name='xboxLiveOutput' />
+    </operation>
+  </portType>
+  <binding name='orionapiBinding' type='tns:orionapiPortType'>
+    <operation name='status'>
+      <soap12:operation soapAction='http://status' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='steam'>
+      <soap12:operation soapAction='http://steam' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='xboxLive'>
+      <soap12:operation soapAction='http://xboxLive' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='orionapi'>
+    <documentation>orion API One API for PSN Xbox live and Steam The information you will receive The Avatar GamerTag Name and the games played Additional for Xbox live and Steam you will be able to see friends Email us for any questions admin bundlecamp com</documentation>
+    <port name='orionapiPort' binding='tns:orionapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://orionapi' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tamilDictionary/' name='tamilDictionary' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tamilDictionary/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tamilDictionary/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tamilDictionary/'>
+      <xsd:element name='listDictionariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dictionaries' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='umadraslexicon' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='mcalpin' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='fabricius' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='agarathi' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='winslow' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='agaramuthali' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dictionary' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='contents' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='dictionary' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='word' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listDictionariesRequestMessage' />
+  <message name='listDictionariesResponseMessage'>
+    <part name='response' element='tns:listDictionariesResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='tamilDictionaryPortType'>
+    <operation name='listDictionaries'>
+      <documentation>list the available Dictionaries</documentation>
+      <input message='tns:listDictionariesRequestMessage' name='listDictionariesInput' />
+      <output message='tns:listDictionariesResponseMessage' name='listDictionariesOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search a word in agarathi com dictionaries</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='tamilDictionaryBinding' type='tns:tamilDictionaryPortType'>
+    <operation name='listDictionaries'>
+      <soap12:operation soapAction='http://listDictionaries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tamilDictionary'>
+    <documentation>tamil Dictionary API Access agarathi com tamil dictionary functionality in an easy to use REST API form The following dictionaries are available University of Madras Lexicon J P Fabricius Tamil and English Dictionary Miron Winslow A Comprehensive Tamil and English Dictionary David McAlpin A Core vocabulary for Tamil agarathi com dictionary</documentation>
+    <port name='tamilDictionaryPort' binding='tns:tamilDictionaryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tamilDictionary' />
+    </port>
+  </service>
+</definitions>

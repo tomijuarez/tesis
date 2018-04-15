@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zajalpush/' name='zajalpush' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zajalpush/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zajalpush/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zajalpush/'>
+      <xsd:element name='apiPhpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiPhpRequestMessage' />
+  <message name='apiPhpResponseMessage'>
+    <part name='response' element='tns:apiPhpResponse' />
+  </message>
+  <portType name='zajalpushPortType'>
+    <operation name='apiPhp'>
+      <documentation>send alerts to the iPhone and iPad</documentation>
+      <input message='tns:apiPhpRequestMessage' name='apiPhpInput' />
+      <output message='tns:apiPhpResponseMessage' name='apiPhpOutput' />
+    </operation>
+  </portType>
+  <binding name='zajalpushBinding' type='tns:zajalpushPortType'>
+    <operation name='apiPhp'>
+      <soap12:operation soapAction='http://apiPhp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zajalpush'>
+    <documentation>send alerts to the iPhone and iPad from your own site https faisal bz publicapi web</documentation>
+    <port name='zajalpushPort' binding='tns:zajalpushBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zajalpush' />
+    </port>
+  </service>
+</definitions>

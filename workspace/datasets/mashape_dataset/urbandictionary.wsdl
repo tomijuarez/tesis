@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/urbanDictionary/' name='urbanDictionary' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/urbanDictionary/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/urbanDictionary/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/urbanDictionary/'>
+      <xsd:element name='defineParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='defineResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='defineRequestMessage'>
+    <part name='parameters' element='tns:defineParameters' />
+  </message>
+  <message name='defineResponseMessage'>
+    <part name='response' element='tns:defineResponse' />
+  </message>
+  <portType name='urbanDictionaryPortType'>
+    <operation name='define'>
+      <documentation></documentation>
+      <input message='tns:defineRequestMessage' name='defineInput' />
+      <output message='tns:defineResponseMessage' name='defineOutput' />
+    </operation>
+  </portType>
+  <binding name='urbanDictionaryBinding' type='tns:urbanDictionaryPortType'>
+    <operation name='define'>
+      <soap12:operation soapAction='http://define' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='urbanDictionary'>
+    <documentation>urban Dictionary is the dictionary you write This is the unofficial secret API</documentation>
+    <port name='urbanDictionaryPort' binding='tns:urbanDictionaryBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://urbanDictionary' />
+    </port>
+  </service>
+</definitions>

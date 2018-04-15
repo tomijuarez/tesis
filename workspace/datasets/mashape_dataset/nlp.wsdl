@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nlp/' name='nlp' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nlp/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nlp/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nlp/'>
+      <xsd:element name='nameGenderDisambiguationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='locale' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='strict' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='trace' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nameGenderDisambiguationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Trace' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='locale' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='gender' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nameGenderDisambiguationRequestMessage'>
+    <part name='parameters' element='tns:nameGenderDisambiguationParameters' />
+  </message>
+  <message name='nameGenderDisambiguationResponseMessage'>
+    <part name='response' element='tns:nameGenderDisambiguationResponse' />
+  </message>
+  <portType name='nlpPortType'>
+    <operation name='nameGenderDisambiguation'>
+      <documentation>determine gender from African Kenyan names</documentation>
+      <input message='tns:nameGenderDisambiguationRequestMessage' name='nameGenderDisambiguationInput' />
+      <output message='tns:nameGenderDisambiguationResponseMessage' name='nameGenderDisambiguationOutput' />
+    </operation>
+  </portType>
+  <binding name='nlpBinding' type='tns:nlpPortType'>
+    <operation name='nameGenderDisambiguation'>
+      <soap12:operation soapAction='http://nameGenderDisambiguation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nlp'>
+    <documentation>some NLP API s</documentation>
+    <port name='nlpPort' binding='tns:nlpBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nlp' />
+    </port>
+  </service>
+</definitions>

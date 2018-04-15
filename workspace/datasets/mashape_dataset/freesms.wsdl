@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/freesms/' name='freesms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/freesms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/freesms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/freesms/'>
+      <xsd:element name='sendSmsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pwd' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendSmsRequestMessage'>
+    <part name='parameters' element='tns:sendSmsParameters' />
+  </message>
+  <message name='sendSmsResponseMessage'>
+    <part name='response' element='tns:sendSmsResponse' />
+  </message>
+  <portType name='freesmsPortType'>
+    <operation name='sendSms'>
+      <documentation>send SMS using this endpoint</documentation>
+      <input message='tns:sendSmsRequestMessage' name='sendSmsInput' />
+      <output message='tns:sendSmsResponseMessage' name='sendSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='freesmsBinding' type='tns:freesmsPortType'>
+    <operation name='sendSms'>
+      <soap12:operation soapAction='http://sendSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='freesms'>
+    <documentation>send unlimited SMS to any Indian mobile number using this API all you need is an account from freesms co in</documentation>
+    <port name='freesmsPort' binding='tns:freesmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://freesms' />
+    </port>
+  </service>
+</definitions>

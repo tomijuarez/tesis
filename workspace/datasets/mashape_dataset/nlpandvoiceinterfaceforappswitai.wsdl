@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nlpAndVoiceInterfaceForAppsWitAi/' name='nlpAndVoiceInterfaceForAppsWitAi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nlpAndVoiceInterfaceForAppsWitAi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nlpAndVoiceInterfaceForAppsWitAi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nlpAndVoiceInterfaceForAppsWitAi/'>
+      <xsd:element name='messageParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg_body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='msg_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='outcome' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='entities' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='task' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='value' type='xsd:string' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='time' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='start' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='end' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='value' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='from' type='xsd:normalizedString' minOccurs='0' />
+                                    <xsd:element name='to' type='xsd:normalizedString' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='intent' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='messageRequestMessage'>
+    <part name='parameters' element='tns:messageParameters' />
+  </message>
+  <message name='messageResponseMessage'>
+    <part name='response' element='tns:messageResponse' />
+  </message>
+  <portType name='nlpAndVoiceInterfaceForAppsWitAiPortType'>
+    <operation name='message'>
+      <documentation>turn text into structured meaning</documentation>
+      <input message='tns:messageRequestMessage' name='messageInput' />
+      <output message='tns:messageResponseMessage' name='messageOutput' />
+    </operation>
+  </portType>
+  <binding name='nlpAndVoiceInterfaceForAppsWitAiBinding' type='tns:nlpAndVoiceInterfaceForAppsWitAiPortType'>
+    <operation name='message'>
+      <soap12:operation soapAction='http://message' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nlpAndVoiceInterfaceForAppsWitAi'>
+    <documentation>wit ai enables developers to build apps and devices that users can talk to</documentation>
+    <port name='nlpAndVoiceInterfaceForAppsWitAiPort' binding='tns:nlpAndVoiceInterfaceForAppsWitAiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nlpAndVoiceInterfaceForAppsWitAi' />
+    </port>
+  </service>
+</definitions>

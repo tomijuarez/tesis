@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/missedBasedMobileNumberVerification/' name='missedBasedMobileNumberVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/missedBasedMobileNumberVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/missedBasedMobileNumberVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/missedBasedMobileNumberVerification/'>
+      <xsd:element name='confirmParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='keymatch' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='otp' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='confirmResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobile' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='errors' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n401' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='initiateCallParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mobile' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='initiateCallResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobile' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='otp_start' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='keymatch' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='confirmRequestMessage'>
+    <part name='parameters' element='tns:confirmParameters' />
+  </message>
+  <message name='confirmResponseMessage'>
+    <part name='response' element='tns:confirmResponse' />
+  </message>
+  <message name='initiateCallRequestMessage'>
+    <part name='parameters' element='tns:initiateCallParameters' />
+  </message>
+  <message name='initiateCallResponseMessage'>
+    <part name='response' element='tns:initiateCallResponse' />
+  </message>
+  <portType name='missedBasedMobileNumberVerificationPortType'>
+    <operation name='confirm'>
+      <documentation>confirmation api to check the entered OTP is correct</documentation>
+      <input message='tns:confirmRequestMessage' name='confirmInput' />
+      <output message='tns:confirmResponseMessage' name='confirmOutput' />
+    </operation>
+    <operation name='initiateCall'>
+      <input message='tns:initiateCallRequestMessage' name='initiateCallInput' />
+      <output message='tns:initiateCallResponseMessage' name='initiateCallOutput' />
+    </operation>
+  </portType>
+  <binding name='missedBasedMobileNumberVerificationBinding' type='tns:missedBasedMobileNumberVerificationPortType'>
+    <operation name='confirm'>
+      <soap12:operation soapAction='http://confirm' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='initiateCall'>
+      <soap12:operation soapAction='http://initiateCall' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='missedBasedMobileNumberVerification'>
+    <documentation>missed call based mobile number verification for all platforms</documentation>
+    <port name='missedBasedMobileNumberVerificationPort' binding='tns:missedBasedMobileNumberVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://missedBasedMobileNumberVerification' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/superfeedr/' name='superfeedr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/superfeedr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/superfeedr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/superfeedr/'>
+      <xsd:element name='listingSubscriptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bypage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='detailed' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='page' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='search' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listingSubscriptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='subscriptions' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='subscription' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='feed' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='status' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='feed' type='xsd:anyURI' minOccurs='0' />
+                                    <xsd:element name='nextFetch' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='period' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='entriesCountSinceLastMaintenance' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='pornRank' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='bozoRank' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='http' type='xsd:string' minOccurs='0' />
+                                    <xsd:element name='lastParse' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='velocity' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='lastMaintenanceAt' type='xsd:int' minOccurs='0' />
+                                    <xsd:element name='lastFetch' type='xsd:int' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='endpoint' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='secret' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='meta' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='total' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='search' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='page' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='by_page' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievingPastContentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='after' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='before' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubcallback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubtopic' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrievingPastContentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subscribeToHttpResourceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubcallback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubsecret' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubtopic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubverify' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='retrieve' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subscribeToHttpResourceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unsubscribeFromHttpResourceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hubcallback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubmode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubtopic' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='hubverify' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unsubscribeFromHttpResourceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='listingSubscriptionsRequestMessage'>
+    <part name='parameters' element='tns:listingSubscriptionsParameters' />
+  </message>
+  <message name='listingSubscriptionsResponseMessage'>
+    <part name='response' element='tns:listingSubscriptionsResponse' />
+  </message>
+  <message name='retrievingPastContentRequestMessage'>
+    <part name='parameters' element='tns:retrievingPastContentParameters' />
+  </message>
+  <message name='retrievingPastContentResponseMessage'>
+    <part name='response' element='tns:retrievingPastContentResponse' />
+  </message>
+  <message name='subscribeToHttpResourceRequestMessage'>
+    <part name='parameters' element='tns:subscribeToHttpResourceParameters' />
+  </message>
+  <message name='subscribeToHttpResourceResponseMessage'>
+    <part name='response' element='tns:subscribeToHttpResourceResponse' />
+  </message>
+  <message name='unsubscribeFromHttpResourceRequestMessage'>
+    <part name='parameters' element='tns:unsubscribeFromHttpResourceParameters' />
+  </message>
+  <message name='unsubscribeFromHttpResourceResponseMessage'>
+    <part name='response' element='tns:unsubscribeFromHttpResourceResponse' />
+  </message>
+  <portType name='superfeedrPortType'>
+    <operation name='listingSubscriptions'>
+      <documentation>this call will allow you to retrieve subscriptions on your account This call allows you to retrieve subscriptions on your account You can also use the search parameter to find subscriptions to specific feeds</documentation>
+      <input message='tns:listingSubscriptionsRequestMessage' name='listingSubscriptionsInput' />
+      <output message='tns:listingSubscriptionsResponseMessage' name='listingSubscriptionsOutput' />
+    </operation>
+    <operation name='retrievingPastContent'>
+      <documentation>this call allows you to retrieve past entries from one or more feeds Note that you need to be subscribed to the feed s in order to do this</documentation>
+      <input message='tns:retrievingPastContentRequestMessage' name='retrievingPastContentInput' />
+      <output message='tns:retrievingPastContentResponseMessage' name='retrievingPastContentOutput' />
+    </operation>
+    <operation name='subscribeToHttpResource'>
+      <documentation></documentation>
+      <input message='tns:subscribeToHttpResourceRequestMessage' name='subscribeToHttpResourceInput' />
+      <output message='tns:subscribeToHttpResourceResponseMessage' name='subscribeToHttpResourceOutput' />
+    </operation>
+    <operation name='unsubscribeFromHttpResource'>
+      <documentation></documentation>
+      <input message='tns:unsubscribeFromHttpResourceRequestMessage' name='unsubscribeFromHttpResourceInput' />
+      <output message='tns:unsubscribeFromHttpResourceResponseMessage' name='unsubscribeFromHttpResourceOutput' />
+    </operation>
+  </portType>
+  <binding name='superfeedrBinding' type='tns:superfeedrPortType'>
+    <operation name='listingSubscriptions'>
+      <soap12:operation soapAction='http://listingSubscriptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrievingPastContent'>
+      <soap12:operation soapAction='http://retrievingPastContent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='subscribeToHttpResource'>
+      <soap12:operation soapAction='http://subscribeToHttpResource' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unsubscribeFromHttpResource'>
+      <soap12:operation soapAction='http://unsubscribeFromHttpResource' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='superfeedr'>
+    <documentation>superfeedr allows you to subscribe to content on the web and receive push notifications in real time when new content is published It also allows you to retrieve past content and we ve also got a range of normalization options that make for easier consumption</documentation>
+    <port name='superfeedrPort' binding='tns:superfeedrBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://superfeedr' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/magisto/' name='magisto' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/magisto/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/magisto/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/magisto/'>
+      <xsd:element name='cancelMovieSessionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkMovieStatusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='vsid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkMovieStatusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='endMovieSessionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMovieParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='vsid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getMovieResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='setSessionTitleResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='startMovieSessionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadSoundtrackResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadSourceVideoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cancelMovieSessionRequestMessage' />
+  <message name='cancelMovieSessionResponseMessage'>
+    <part name='response' element='tns:cancelMovieSessionResponse' />
+  </message>
+  <message name='checkMovieStatusRequestMessage'>
+    <part name='parameters' element='tns:checkMovieStatusParameters' />
+  </message>
+  <message name='checkMovieStatusResponseMessage'>
+    <part name='response' element='tns:checkMovieStatusResponse' />
+  </message>
+  <message name='endMovieSessionRequestMessage' />
+  <message name='endMovieSessionResponseMessage'>
+    <part name='response' element='tns:endMovieSessionResponse' />
+  </message>
+  <message name='getMovieRequestMessage'>
+    <part name='parameters' element='tns:getMovieParameters' />
+  </message>
+  <message name='getMovieResponseMessage'>
+    <part name='response' element='tns:getMovieResponse' />
+  </message>
+  <message name='setSessionTitleRequestMessage' />
+  <message name='setSessionTitleResponseMessage'>
+    <part name='response' element='tns:setSessionTitleResponse' />
+  </message>
+  <message name='startMovieSessionRequestMessage' />
+  <message name='startMovieSessionResponseMessage'>
+    <part name='response' element='tns:startMovieSessionResponse' />
+  </message>
+  <message name='uploadSoundtrackRequestMessage' />
+  <message name='uploadSoundtrackResponseMessage'>
+    <part name='response' element='tns:uploadSoundtrackResponse' />
+  </message>
+  <message name='uploadSourceVideoRequestMessage' />
+  <message name='uploadSourceVideoResponseMessage'>
+    <part name='response' element='tns:uploadSourceVideoResponse' />
+  </message>
+  <portType name='magistoPortType'>
+    <operation name='cancelMovieSession'>
+      <documentation>terminates a movie session that has been started</documentation>
+      <input message='tns:cancelMovieSessionRequestMessage' name='cancelMovieSessionInput' />
+      <output message='tns:cancelMovieSessionResponseMessage' name='cancelMovieSessionOutput' />
+    </operation>
+    <operation name='checkMovieStatus'>
+      <documentation>check the state of the movie session</documentation>
+      <input message='tns:checkMovieStatusRequestMessage' name='checkMovieStatusInput' />
+      <output message='tns:checkMovieStatusResponseMessage' name='checkMovieStatusOutput' />
+    </operation>
+    <operation name='endMovieSession'>
+      <documentation>indicates no more inputs required initiates processing of the input to produce the movie session will not terminate until the movie is created or the process is cancelled</documentation>
+      <input message='tns:endMovieSessionRequestMessage' name='endMovieSessionInput' />
+      <output message='tns:endMovieSessionResponseMessage' name='endMovieSessionOutput' />
+    </operation>
+    <operation name='getMovie'>
+      <documentation>downloading of the completed movie</documentation>
+      <input message='tns:getMovieRequestMessage' name='getMovieInput' />
+      <output message='tns:getMovieResponseMessage' name='getMovieOutput' />
+    </operation>
+    <operation name='setSessionTitle'>
+      <documentation>appending of meta data Currently only movie title more options to be added in the future</documentation>
+      <input message='tns:setSessionTitleRequestMessage' name='setSessionTitleInput' />
+      <output message='tns:setSessionTitleResponseMessage' name='setSessionTitleOutput' />
+    </operation>
+    <operation name='startMovieSession'>
+      <documentation>initiates the session for uploading of video clips soundtrack and any other inputs required the session remains open until End Movie Session API is called</documentation>
+      <input message='tns:startMovieSessionRequestMessage' name='startMovieSessionInput' />
+      <output message='tns:startMovieSessionResponseMessage' name='startMovieSessionOutput' />
+    </operation>
+    <operation name='uploadSoundtrack'>
+      <documentation>uploading of a single music file providing the background music for the movie</documentation>
+      <input message='tns:uploadSoundtrackRequestMessage' name='uploadSoundtrackInput' />
+      <output message='tns:uploadSoundtrackResponseMessage' name='uploadSoundtrackOutput' />
+    </operation>
+    <operation name='uploadSourceVideo'>
+      <documentation>upload a single video file to be incorporated into the movie If there is more than one file each one must be uploaded using a separate request There are some limits on files to upload see Limits All standard video formats are supported including MOV G GP ASF AVI FLV MOV MP MPG MOD MTS and M TS Make sure to generate a new signature for each request</documentation>
+      <input message='tns:uploadSourceVideoRequestMessage' name='uploadSourceVideoInput' />
+      <output message='tns:uploadSourceVideoResponseMessage' name='uploadSourceVideoOutput' />
+    </operation>
+  </portType>
+  <binding name='magistoBinding' type='tns:magistoPortType'>
+    <operation name='cancelMovieSession'>
+      <soap12:operation soapAction='http://cancelMovieSession' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='checkMovieStatus'>
+      <soap12:operation soapAction='http://checkMovieStatus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='endMovieSession'>
+      <soap12:operation soapAction='http://endMovieSession' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getMovie'>
+      <soap12:operation soapAction='http://getMovie' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='setSessionTitle'>
+      <soap12:operation soapAction='http://setSessionTitle' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='startMovieSession'>
+      <soap12:operation soapAction='http://startMovieSession' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadSoundtrack'>
+      <soap12:operation soapAction='http://uploadSoundtrack' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadSourceVideo'>
+      <soap12:operation soapAction='http://uploadSourceVideo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='magisto'>
+    <documentation>magically transform your videos Magisto turns your everyday videos into exciting memorable movies you ll want to watch again and again</documentation>
+    <port name='magistoPort' binding='tns:magistoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://magisto' />
+    </port>
+  </service>
+</definitions>

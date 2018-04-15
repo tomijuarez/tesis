@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipCurrency/' name='ipCurrency' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipCurrency/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipCurrency/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipCurrency/'>
+      <xsd:element name='ipCurrencyApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='fromamount' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fromcurrencycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='license' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tocurrencycode' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='visitorip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipCurrencyApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipCurrencyApiRequestMessage'>
+    <part name='parameters' element='tns:ipCurrencyApiParameters' />
+  </message>
+  <message name='ipCurrencyApiResponseMessage'>
+    <part name='response' element='tns:ipCurrencyApiResponse' />
+  </message>
+  <portType name='ipCurrencyPortType'>
+    <operation name='ipCurrencyApi'>
+      <documentation>currency by IP Geolocation API</documentation>
+      <input message='tns:ipCurrencyApiRequestMessage' name='ipCurrencyApiInput' />
+      <output message='tns:ipCurrencyApiResponseMessage' name='ipCurrencyApiOutput' />
+    </operation>
+  </portType>
+  <binding name='ipCurrencyBinding' type='tns:ipCurrencyPortType'>
+    <operation name='ipCurrencyApi'>
+      <soap12:operation soapAction='http://ipCurrencyApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipCurrency'>
+    <documentation>iP Currency Exchange Rate Web Service provides the user with an easy way to get a localized latest Currency Exchange Rate based on the visitor s IP address Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</documentation>
+    <port name='ipCurrencyPort' binding='tns:ipCurrencyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipCurrency' />
+    </port>
+  </service>
+</definitions>

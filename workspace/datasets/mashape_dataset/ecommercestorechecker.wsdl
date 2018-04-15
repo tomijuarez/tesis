@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ecommerceStoreChecker/' name='ecommerceStoreChecker' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ecommerceStoreChecker/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ecommerceStoreChecker/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ecommerceStoreChecker/'>
+      <xsd:element name='isEcommerceStoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='customidentifiers' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='website' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='isEcommerceStoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reason' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='is_ecommerce' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='isEcommerceStoreRequestMessage'>
+    <part name='parameters' element='tns:isEcommerceStoreParameters' />
+  </message>
+  <message name='isEcommerceStoreResponseMessage'>
+    <part name='response' element='tns:isEcommerceStoreResponse' />
+  </message>
+  <portType name='ecommerceStoreCheckerPortType'>
+    <operation name='isEcommerceStore'>
+      <documentation>determines if the site is an e commerce site An e commerce site is a site that some underlying feature about it</documentation>
+      <input message='tns:isEcommerceStoreRequestMessage' name='isEcommerceStoreInput' />
+      <output message='tns:isEcommerceStoreResponseMessage' name='isEcommerceStoreOutput' />
+    </operation>
+  </portType>
+  <binding name='ecommerceStoreCheckerBinding' type='tns:ecommerceStoreCheckerPortType'>
+    <operation name='isEcommerceStore'>
+      <soap12:operation soapAction='http://isEcommerceStore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ecommerceStoreChecker'>
+    <documentation>this is an API to check a website to determine if it s an online ecommerce store We do this in a few ways first we check to see if it matches common e commerce store platforms ie Shopify Magento etc Next we check the page text to see if we can determine it has characteristics of an online store Finally we parse the DOM looking for clues to see if it links to the server that has a e commerce backend</documentation>
+    <port name='ecommerceStoreCheckerPort' binding='tns:ecommerceStoreCheckerBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ecommerceStoreChecker' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/hummingbirdApiv/' name='hummingbirdApiv' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/hummingbirdApiv/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/hummingbirdApiv/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/hummingbirdApiv/'>
+      <xsd:element name='animeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='animeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='show_type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='episode_count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='genres' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='synopsis' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:string' minOccurs='0' />
+            <xsd:element name='alternate_title' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='authenticateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='favouritesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='favouritesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='fav_rank' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='show_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='fav_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='episode_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='genres' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='synopsis' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='alternate_title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='feedParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='feedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='story_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='self_post' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='updated_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='substories_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='substories' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='permissions' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='substory_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='comment' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='user' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nb' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='avatar_small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='poster' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='nb' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='avatar_small' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='libraryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='libraryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='private' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='last_watched' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rewatching' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='episodes_watched' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='rating' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rewatched_times' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='notes_present' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='anime' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='show_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='episode_count' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='synopsis' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='alternate_title' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='animeid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='show_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='episode_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='synopsis' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='alternate_title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='animeid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='private' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='last_watched' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='notes' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rewatching' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='episodes_watched' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='rating' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='rewatched_times' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='notes_present' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='anime' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='show_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='episode_count' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='synopsis' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='slug' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='alternate_title' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='userResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='favorites' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='fav_rank' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='updated_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='user_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='item_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='item_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='karma' type='xsd:int' minOccurs='0' />
+            <xsd:element name='website' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='about' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='bio' type='xsd:string' minOccurs='0' />
+            <xsd:element name='avatar' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='waifu_or_husbando' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='waifu' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='following' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='waifu_char_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='show_adult_content' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='last_library_update' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='life_spent_on_anime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='online' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='location' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title_language_preference' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cover_image' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='waifu_slug' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='animeRequestMessage'>
+    <part name='parameters' element='tns:animeParameters' />
+  </message>
+  <message name='animeResponseMessage'>
+    <part name='response' element='tns:animeResponse' />
+  </message>
+  <message name='authenticateRequestMessage' />
+  <message name='authenticateResponseMessage'>
+    <part name='response' element='tns:authenticateResponse' />
+  </message>
+  <message name='favouritesRequestMessage'>
+    <part name='parameters' element='tns:favouritesParameters' />
+  </message>
+  <message name='favouritesResponseMessage'>
+    <part name='response' element='tns:favouritesResponse' />
+  </message>
+  <message name='feedRequestMessage'>
+    <part name='parameters' element='tns:feedParameters' />
+  </message>
+  <message name='feedResponseMessage'>
+    <part name='response' element='tns:feedResponse' />
+  </message>
+  <message name='libraryRequestMessage'>
+    <part name='parameters' element='tns:libraryParameters' />
+  </message>
+  <message name='libraryResponseMessage'>
+    <part name='response' element='tns:libraryResponse' />
+  </message>
+  <message name='removeRequestMessage'>
+    <part name='parameters' element='tns:removeParameters' />
+  </message>
+  <message name='removeResponseMessage'>
+    <part name='response' element='tns:removeResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='updateRequestMessage'>
+    <part name='parameters' element='tns:updateParameters' />
+  </message>
+  <message name='updateResponseMessage'>
+    <part name='response' element='tns:updateResponse' />
+  </message>
+  <message name='userRequestMessage'>
+    <part name='parameters' element='tns:userParameters' />
+  </message>
+  <message name='userResponseMessage'>
+    <part name='response' element='tns:userResponse' />
+  </message>
+  <portType name='hummingbirdApivPortType'>
+    <operation name='anime'>
+      <documentation>get information about a single anime</documentation>
+      <input message='tns:animeRequestMessage' name='animeInput' />
+      <output message='tns:animeResponseMessage' name='animeOutput' />
+    </operation>
+    <operation name='authenticate'>
+      <documentation>authenticate request to get a user s auth token</documentation>
+      <input message='tns:authenticateRequestMessage' name='authenticateInput' />
+      <output message='tns:authenticateResponseMessage' name='authenticateOutput' />
+    </operation>
+    <operation name='favourites'>
+      <documentation>get a user s favourite anime</documentation>
+      <input message='tns:favouritesRequestMessage' name='favouritesInput' />
+      <output message='tns:favouritesResponseMessage' name='favouritesOutput' />
+    </operation>
+    <operation name='feed'>
+      <documentation>get the latest posts on a user s feed</documentation>
+      <input message='tns:feedRequestMessage' name='feedInput' />
+      <output message='tns:feedResponseMessage' name='feedOutput' />
+    </operation>
+    <operation name='library'>
+      <documentation>get a user s anime library</documentation>
+      <input message='tns:libraryRequestMessage' name='libraryInput' />
+      <output message='tns:libraryResponseMessage' name='libraryOutput' />
+    </operation>
+    <operation name='remove'>
+      <documentation>remove an anime from a user s library</documentation>
+      <input message='tns:removeRequestMessage' name='removeInput' />
+      <output message='tns:removeResponseMessage' name='removeOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>search for an anime supports fuzzy search</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='update'>
+      <documentation>update an entry in a user s library</documentation>
+      <input message='tns:updateRequestMessage' name='updateInput' />
+      <output message='tns:updateResponseMessage' name='updateOutput' />
+    </operation>
+    <operation name='user'>
+      <documentation>get informations about a single user</documentation>
+      <input message='tns:userRequestMessage' name='userInput' />
+      <output message='tns:userResponseMessage' name='userOutput' />
+    </operation>
+  </portType>
+  <binding name='hummingbirdApivBinding' type='tns:hummingbirdApivPortType'>
+    <operation name='anime'>
+      <soap12:operation soapAction='http://anime' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='authenticate'>
+      <soap12:operation soapAction='http://authenticate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='favourites'>
+      <soap12:operation soapAction='http://favourites' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='feed'>
+      <soap12:operation soapAction='http://feed' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='library'>
+      <soap12:operation soapAction='http://library' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='remove'>
+      <soap12:operation soapAction='http://remove' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='update'>
+      <soap12:operation soapAction='http://update' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='user'>
+      <soap12:operation soapAction='http://user' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='hummingbirdApiv'>
+    <documentation>aPIv is the old Hummingbird API that is already implemented in multiple applications its syntax and functionality will surely not change in the future so it is recommended to use this for any long running projects</documentation>
+    <port name='hummingbirdApivPort' binding='tns:hummingbirdApivBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://hummingbirdApiv' />
+    </port>
+  </service>
+</definitions>

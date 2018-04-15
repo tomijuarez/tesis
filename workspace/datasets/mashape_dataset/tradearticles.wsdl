@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/tradeArticles/' name='tradeArticles' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/tradeArticles/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/tradeArticles/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/tradeArticles/'>
+      <xsd:element name='apiTradeGovVTradeArticlesSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiTradeGovVTradeArticlesSearchRequestMessage' />
+  <message name='apiTradeGovVTradeArticlesSearchResponseMessage'>
+    <part name='response' element='tns:apiTradeGovVTradeArticlesSearchResponse' />
+  </message>
+  <portType name='tradeArticlesPortType'>
+    <operation name='apiTradeGovVTradeArticlesSearch'>
+      <input message='tns:apiTradeGovVTradeArticlesSearchRequestMessage' name='apiTradeGovVTradeArticlesSearchInput' />
+      <output message='tns:apiTradeGovVTradeArticlesSearchResponseMessage' name='apiTradeGovVTradeArticlesSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='tradeArticlesBinding' type='tns:tradeArticlesPortType'>
+    <operation name='apiTradeGovVTradeArticlesSearch'>
+      <soap12:operation soapAction='http://apiTradeGovVTradeArticlesSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='tradeArticles'>
+    <documentation>the Trade News Articles API provides in depth news and articles written by Trade Specialists working in the Federal government The authors include staff from ITA as well as other Trade Promotion Coordinating Committee TPCC agencies such as Export Import Bank Overseas Private Investment Corporation OPIC U S Trade and Development Agency USTDA Small Business Administration SBA</documentation>
+    <port name='tradeArticlesPort' binding='tns:tradeArticlesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://tradeArticles' />
+    </port>
+  </service>
+</definitions>

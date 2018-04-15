@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twitch/' name='twitch' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twitch/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twitch/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twitch/'>
+      <xsd:element name='getTopGamesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getTopGamesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='top' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='game' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='_links' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='giantbomb_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='logo' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='template' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='box' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='small' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='template' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='large' type='xsd:anyURI' minOccurs='0' />
+                              <xsd:element name='medium' type='xsd:anyURI' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='_id' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='viewers' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='channels' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='_links' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='next' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='self' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='_total' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getTopGamesRequestMessage'>
+    <part name='parameters' element='tns:getTopGamesParameters' />
+  </message>
+  <message name='getTopGamesResponseMessage'>
+    <part name='response' element='tns:getTopGamesResponse' />
+  </message>
+  <portType name='twitchPortType'>
+    <operation name='getTopGames'>
+      <documentation>returns an array of top games on Twitch by current viewers</documentation>
+      <input message='tns:getTopGamesRequestMessage' name='getTopGamesInput' />
+      <output message='tns:getTopGamesResponseMessage' name='getTopGamesOutput' />
+    </operation>
+  </portType>
+  <binding name='twitchBinding' type='tns:twitchPortType'>
+    <operation name='getTopGames'>
+      <soap12:operation soapAction='http://getTopGames' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twitch'>
+    <documentation>retrieve or update Twitch content via REST API char</documentation>
+    <port name='twitchPort' binding='tns:twitchBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twitch' />
+    </port>
+  </service>
+</definitions>

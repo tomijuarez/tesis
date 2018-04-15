@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mauiPro/' name='mauiPro' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mauiPro/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mauiPro/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mauiPro/'>
+      <xsd:element name='keywordsFromTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='original' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='probability' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='locations' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:int' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='keywordsFromUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='original' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='probability' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='locations' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' type='xsd:int' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='synonymFinderResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='results' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='is_synonym' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='features' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='keyphraseness' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='meaning_ambiguity' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='occurance_count' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='keywordsFromTextRequestMessage' />
+  <message name='keywordsFromTextResponseMessage'>
+    <part name='response' element='tns:keywordsFromTextResponse' />
+  </message>
+  <message name='keywordsFromUrlRequestMessage' />
+  <message name='keywordsFromUrlResponseMessage'>
+    <part name='response' element='tns:keywordsFromUrlResponse' />
+  </message>
+  <message name='synonymFinderRequestMessage' />
+  <message name='synonymFinderResponseMessage'>
+    <part name='response' element='tns:synonymFinderResponse' />
+  </message>
+  <portType name='mauiProPortType'>
+    <operation name='keywordsFromText'>
+      <documentation>extract keywords from text The text must be JSON encoded i e newlines represented as n The possible parameters for Thesaurus are AGROVOC MESH LCSH German Wikipedia and English Wikipedia</documentation>
+      <input message='tns:keywordsFromTextRequestMessage' name='keywordsFromTextInput' />
+      <output message='tns:keywordsFromTextResponseMessage' name='keywordsFromTextOutput' />
+    </operation>
+    <operation name='keywordsFromUrl'>
+      <documentation>extract keywords from a given URL We attempt to determine the main body of text held at the URL provided and use this as input to the extraction</documentation>
+      <input message='tns:keywordsFromUrlRequestMessage' name='keywordsFromUrlInput' />
+      <output message='tns:keywordsFromUrlResponseMessage' name='keywordsFromUrlOutput' />
+    </operation>
+    <operation name='synonymFinder'>
+      <documentation>this endpoint takes a noun and finds synonyms</documentation>
+      <input message='tns:synonymFinderRequestMessage' name='synonymFinderInput' />
+      <output message='tns:synonymFinderResponseMessage' name='synonymFinderOutput' />
+    </operation>
+  </portType>
+  <binding name='mauiProBinding' type='tns:mauiProPortType'>
+    <operation name='keywordsFromText'>
+      <soap12:operation soapAction='http://keywordsFromText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='keywordsFromUrl'>
+      <soap12:operation soapAction='http://keywordsFromUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='synonymFinder'>
+      <soap12:operation soapAction='http://synonymFinder' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mauiPro'>
+    <documentation>m ui finds key concepts and entities in text M ui links words and phrases that appear in text to the semantically related concept in Wikipedia or a specific vocabulary and ranks them in order of their importance The API published on MashApe is the commercial pro version of the open source M ui Please contact Entopix if the published plans don t suit or you require a custom taxonomy</documentation>
+    <port name='mauiProPort' binding='tns:mauiProBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mauiPro' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bsnlBalance/' name='bsnlBalance' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bsnlBalance/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bsnlBalance/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bsnlBalance/'>
+      <xsd:element name='gsmBalanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobileno' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='gsmBalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='expiryDate' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='balance' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='mobileno' type='xsd:int' minOccurs='0' />
+            <xsd:element name='state' type='xsd:string' minOccurs='0' />
+            <xsd:element name='region' type='xsd:string' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='poweredBy' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='gsmBalanceRequestMessage'>
+    <part name='parameters' element='tns:gsmBalanceParameters' />
+  </message>
+  <message name='gsmBalanceResponseMessage'>
+    <part name='response' element='tns:gsmBalanceResponse' />
+  </message>
+  <portType name='bsnlBalancePortType'>
+    <operation name='gsmBalance'>
+      <documentation>get Account Details of BSNL GSM number</documentation>
+      <input message='tns:gsmBalanceRequestMessage' name='gsmBalanceInput' />
+      <output message='tns:gsmBalanceResponseMessage' name='gsmBalanceOutput' />
+    </operation>
+  </portType>
+  <binding name='bsnlBalanceBinding' type='tns:bsnlBalancePortType'>
+    <operation name='gsmBalance'>
+      <soap12:operation soapAction='http://gsmBalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bsnlBalance'>
+    <documentation>using this API you can check any BSNL prepaid number balance and account information</documentation>
+    <port name='bsnlBalancePort' binding='tns:bsnlBalanceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bsnlBalance' />
+    </port>
+  </service>
+</definitions>

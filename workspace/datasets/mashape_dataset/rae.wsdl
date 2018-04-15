@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rae/' name='rae' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rae/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rae/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rae/'>
+      <xsd:element name='queryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='queryRequestMessage'>
+    <part name='parameters' element='tns:queryParameters' />
+  </message>
+  <message name='queryResponseMessage'>
+    <part name='response' element='tns:queryResponse' />
+  </message>
+  <portType name='raePortType'>
+    <operation name='query'>
+      <documentation></documentation>
+      <input message='tns:queryRequestMessage' name='queryInput' />
+      <output message='tns:queryResponseMessage' name='queryOutput' />
+    </operation>
+  </portType>
+  <binding name='raeBinding' type='tns:raePortType'>
+    <operation name='query'>
+      <soap12:operation soapAction='http://query' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rae'>
+    <documentation>diccionario de la Real Academia Espa ola RAE</documentation>
+    <port name='raePort' binding='tns:raeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rae' />
+    </port>
+  </service>
+</definitions>

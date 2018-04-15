@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/manstonMetar/' name='manstonMetar' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/manstonMetar/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/manstonMetar/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/manstonMetar/'>
+      <xsd:element name='egmhJsonResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='metar' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='time' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='egmhJsonRequestMessage' />
+  <message name='egmhJsonResponseMessage'>
+    <part name='response' element='tns:egmhJsonResponse' />
+  </message>
+  <portType name='manstonMetarPortType'>
+    <operation name='egmhJson'>
+      <input message='tns:egmhJsonRequestMessage' name='egmhJsonInput' />
+      <output message='tns:egmhJsonResponseMessage' name='egmhJsonOutput' />
+    </operation>
+  </portType>
+  <binding name='manstonMetarBinding' type='tns:manstonMetarPortType'>
+    <operation name='egmhJson'>
+      <soap12:operation soapAction='http://egmhJson' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='manstonMetar'>
+    <documentation>providing a basic weather service for Manston Kent s International Airport EGMH to pilots airlines and operating authorities alike</documentation>
+    <port name='manstonMetarPort' binding='tns:manstonMetarBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://manstonMetar' />
+    </port>
+  </service>
+</definitions>

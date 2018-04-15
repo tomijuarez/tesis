@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/speechTopics/' name='speechTopics' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/speechTopics/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/speechTopics/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/speechTopics/'>
+      <xsd:element name='streamParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='adset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='guid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='tx' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streamResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='transcript' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='p' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='w' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='ts' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='topics' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='topics' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='complete' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='ts' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='length' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='streamRequestMessage'>
+    <part name='parameters' element='tns:streamParameters' />
+  </message>
+  <message name='streamResponseMessage'>
+    <part name='response' element='tns:streamResponse' />
+  </message>
+  <portType name='speechTopicsPortType'>
+    <operation name='stream'>
+      <documentation>access the status of a Speech Topics stream</documentation>
+      <input message='tns:streamRequestMessage' name='streamInput' />
+      <output message='tns:streamResponseMessage' name='streamOutput' />
+    </operation>
+  </portType>
+  <binding name='speechTopicsBinding' type='tns:speechTopicsPortType'>
+    <operation name='stream'>
+      <soap12:operation soapAction='http://stream' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='speechTopics'>
+    <documentation>yactraq Speech Topics is a cloud service that converts audiovisual content into topic metadata via speech recognition natural language processing Customers use Yactraq metadata to target ads build UX features like content search discovery and mine Youtube videos for brand sentiment In the past such services have been expensive and only used by large video publishers The unique thing about Yactraq is we deliver our service at a price any product developer can afford</documentation>
+    <port name='speechTopicsPort' binding='tns:speechTopicsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://speechTopics' />
+    </port>
+  </service>
+</definitions>

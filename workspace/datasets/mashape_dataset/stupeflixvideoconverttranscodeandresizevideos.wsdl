@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/stupeflixVideoConvertTranscodeAndResizeVideos/' name='stupeflixVideoConvertTranscodeAndResizeVideos' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/stupeflixVideoConvertTranscodeAndResizeVideos/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/stupeflixVideoConvertTranscodeAndResizeVideos/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/stupeflixVideoConvertTranscodeAndResizeVideos/'>
+      <xsd:element name='videoConvertCreateFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='videoConvertCreateFileRequestMessage' />
+  <message name='videoConvertCreateFileResponseMessage'>
+    <part name='response' element='tns:videoConvertCreateFileResponse' />
+  </message>
+  <portType name='stupeflixVideoConvertTranscodeAndResizeVideosPortType'>
+    <operation name='videoConvertCreateFile'>
+      <documentation>create and queue a video convert Task block until finished and redirect to output image file Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video convert Create API keys here http developer stupeflix com dragon keychain new</documentation>
+      <input message='tns:videoConvertCreateFileRequestMessage' name='videoConvertCreateFileInput' />
+      <output message='tns:videoConvertCreateFileResponseMessage' name='videoConvertCreateFileOutput' />
+    </operation>
+  </portType>
+  <binding name='stupeflixVideoConvertTranscodeAndResizeVideosBinding' type='tns:stupeflixVideoConvertTranscodeAndResizeVideosPortType'>
+    <operation name='videoConvertCreateFile'>
+      <soap12:operation soapAction='http://videoConvertCreateFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='stupeflixVideoConvertTranscodeAndResizeVideos'>
+    <documentation>create a transcoded video file of custom dimensions Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video convert</documentation>
+    <port name='stupeflixVideoConvertTranscodeAndResizeVideosPort' binding='tns:stupeflixVideoConvertTranscodeAndResizeVideosBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://stupeflixVideoConvertTranscodeAndResizeVideos' />
+    </port>
+  </service>
+</definitions>

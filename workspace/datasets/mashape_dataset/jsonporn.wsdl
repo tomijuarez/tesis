@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jsonPorn/' name='jsonPorn' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jsonPorn/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jsonPorn/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jsonPorn/'>
+      <xsd:element name='actorsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actorid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='actorname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='actorsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='statusMessage' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='statusCode' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='imagekeyid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='imagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pornParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='pornResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='statusMessage' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='statusCode' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='statusMessage' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='statusCode' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='actorsRequestMessage'>
+    <part name='parameters' element='tns:actorsParameters' />
+  </message>
+  <message name='actorsResponseMessage'>
+    <part name='response' element='tns:actorsResponse' />
+  </message>
+  <message name='imagesRequestMessage'>
+    <part name='parameters' element='tns:imagesParameters' />
+  </message>
+  <message name='imagesResponseMessage'>
+    <part name='response' element='tns:imagesResponse' />
+  </message>
+  <message name='pornRequestMessage'>
+    <part name='parameters' element='tns:pornParameters' />
+  </message>
+  <message name='pornResponseMessage'>
+    <part name='response' element='tns:pornResponse' />
+  </message>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <portType name='jsonPornPortType'>
+    <operation name='actors'>
+      <documentation>returns an array of actors matching your request If you have an actor key ID use only the actorId parameter If you are looking for a name use the actorName param Keep in mind that the actorName matches using the startsWith function If you want an advanced search including actor nick names use the search endpoint If you don t specify a name or an id the endpoint will return all available actors in alphabetical order</documentation>
+      <input message='tns:actorsRequestMessage' name='actorsInput' />
+      <output message='tns:actorsResponseMessage' name='actorsOutput' />
+    </operation>
+    <operation name='images'>
+      <documentation>serves images by a given imageKeyId and resizes them as requested If the requested image width exceeds the original width the image will be served in its original resolution</documentation>
+      <input message='tns:imagesRequestMessage' name='imagesInput' />
+      <output message='tns:imagesResponseMessage' name='imagesOutput' />
+    </operation>
+    <operation name='porn'>
+      <documentation>returns an array of the latest porn entries</documentation>
+      <input message='tns:pornRequestMessage' name='pornInput' />
+      <output message='tns:pornResponseMessage' name='pornOutput' />
+    </operation>
+    <operation name='search'>
+      <documentation>endpoints to search for actors or porn entries Returns an array of actors and porn entries matching the search query</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+  </portType>
+  <binding name='jsonPornBinding' type='tns:jsonPornPortType'>
+    <operation name='actors'>
+      <soap12:operation soapAction='http://actors' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='images'>
+      <soap12:operation soapAction='http://images' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='porn'>
+      <soap12:operation soapAction='http://porn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jsonPorn'>
+    <documentation>the porn JSON api will serve movies clips picture galleries and siterips of adult content Be it through streams torrents or direct downloads from well known file hosters</documentation>
+    <port name='jsonPornPort' binding='tns:jsonPornBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jsonPorn' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/runuUrl/' name='runuUrl' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/runuUrl/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/runuUrl/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/runuUrl/'>
+      <xsd:element name='getShortUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='custom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='expire' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uses' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getShortUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='full' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getShortUrlRequestMessage'>
+    <part name='parameters' element='tns:getShortUrlParameters' />
+  </message>
+  <message name='getShortUrlResponseMessage'>
+    <part name='response' element='tns:getShortUrlResponse' />
+  </message>
+  <portType name='runuUrlPortType'>
+    <operation name='getShortUrl'>
+      <documentation>get Short and Custom Urls</documentation>
+      <input message='tns:getShortUrlRequestMessage' name='getShortUrlInput' />
+      <output message='tns:getShortUrlResponseMessage' name='getShortUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='runuUrlBinding' type='tns:runuUrlPortType'>
+    <operation name='getShortUrl'>
+      <soap12:operation soapAction='http://getShortUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='runuUrl'>
+    <documentation>ruGu Short Url API Set Custom Passwors Set Date to expire Set Max Clicks Set Custom Url etc with Metro Controls Easy to use Short URL API Presented by http sphirelabs com</documentation>
+    <port name='runuUrlPort' binding='tns:runuUrlBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://runuUrl' />
+    </port>
+  </service>
+</definitions>

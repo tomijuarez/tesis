@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/foodSearchEngine/' name='foodSearchEngine' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/foodSearchEngine/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/foodSearchEngine/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/foodSearchEngine/'>
+      <xsd:element name='searchParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='start' type='xsd:int' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='suggestionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lang' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='radius' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='suggestionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='start' type='xsd:int' minOccurs='0' />
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='backgroundPicture' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='searchRequestMessage'>
+    <part name='parameters' element='tns:searchParameters' />
+  </message>
+  <message name='searchResponseMessage'>
+    <part name='response' element='tns:searchResponse' />
+  </message>
+  <message name='suggestionsRequestMessage'>
+    <part name='parameters' element='tns:suggestionsParameters' />
+  </message>
+  <message name='suggestionsResponseMessage'>
+    <part name='response' element='tns:suggestionsResponse' />
+  </message>
+  <portType name='foodSearchEnginePortType'>
+    <operation name='search'>
+      <documentation>semantic Search Engine for dishes It allows developers to find best dishes given a query and a position</documentation>
+      <input message='tns:searchRequestMessage' name='searchInput' />
+      <output message='tns:searchResponseMessage' name='searchOutput' />
+    </operation>
+    <operation name='suggestions'>
+      <documentation>this endpoint allows developers to get best dishes suggested by Appetitoso nearby</documentation>
+      <input message='tns:suggestionsRequestMessage' name='suggestionsInput' />
+      <output message='tns:suggestionsResponseMessage' name='suggestionsOutput' />
+    </operation>
+  </portType>
+  <binding name='foodSearchEngineBinding' type='tns:foodSearchEnginePortType'>
+    <operation name='search'>
+      <soap12:operation soapAction='http://search' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='suggestions'>
+      <soap12:operation soapAction='http://suggestions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='foodSearchEngine'>
+    <documentation>appetitoso is a semantic search engine for dishes It allows developers to include a search engine and a recommender system into their applications by suggesting to the final users only the best dishes prepared by the restaurant near a location Each dish has a score computed by Appetitoso taking into account more than different parameter</documentation>
+    <port name='foodSearchEnginePort' binding='tns:foodSearchEngineBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://foodSearchEngine' />
+    </port>
+  </service>
+</definitions>

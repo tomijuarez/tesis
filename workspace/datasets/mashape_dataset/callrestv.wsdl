@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/callRestV/' name='callRestV' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/callRestV/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/callRestV/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/callRestV/'>
+      <xsd:element name='ratesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='m' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='numbers' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ratesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='codes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='body' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='rates' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='array' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='destinationname' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='price' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='prefix' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='currency' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='smsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='codes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='body' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='customeraccountstate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customernumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='accountnumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='smsbilledId' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='customercurrency' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ratesRequestMessage'>
+    <part name='parameters' element='tns:ratesParameters' />
+  </message>
+  <message name='ratesResponseMessage'>
+    <part name='response' element='tns:ratesResponse' />
+  </message>
+  <message name='smsRequestMessage' />
+  <message name='smsResponseMessage'>
+    <part name='response' element='tns:smsResponse' />
+  </message>
+  <portType name='callRestVPortType'>
+    <operation name='rates'>
+      <documentation>the rate module</documentation>
+      <input message='tns:ratesRequestMessage' name='ratesInput' />
+      <output message='tns:ratesResponseMessage' name='ratesOutput' />
+    </operation>
+    <operation name='sms'>
+      <documentation>the sms module</documentation>
+      <input message='tns:smsRequestMessage' name='smsInput' />
+      <output message='tns:smsResponseMessage' name='smsOutput' />
+    </operation>
+  </portType>
+  <binding name='callRestVBinding' type='tns:callRestVPortType'>
+    <operation name='rates'>
+      <soap12:operation soapAction='http://rates' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sms'>
+      <soap12:operation soapAction='http://sms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='callRestV'>
+    <documentation>this is version two of the public REST API of com Please get an account http login call com to check it out Check the README</documentation>
+    <port name='callRestVPort' binding='tns:callRestVBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://callRestV' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textSentiment/' name='textSentiment' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textSentiment/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textSentiment/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textSentiment/'>
+      <xsd:element name='stockSentimentAnalysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='twitterSentimentAnalysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confidence' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='stockSentimentAnalysisRequestMessage' />
+  <message name='stockSentimentAnalysisResponseMessage'>
+    <part name='response' element='tns:stockSentimentAnalysisResponse' />
+  </message>
+  <message name='twitterSentimentAnalysisRequestMessage' />
+  <message name='twitterSentimentAnalysisResponseMessage'>
+    <part name='response' element='tns:twitterSentimentAnalysisResponse' />
+  </message>
+  <portType name='textSentimentPortType'>
+    <operation name='stockSentimentAnalysis'>
+      <documentation>stock text sentiment analysis which based on the model trained by the stock related text we collected from the website the sentiment will be bullish or bearish with confidence</documentation>
+      <input message='tns:stockSentimentAnalysisRequestMessage' name='stockSentimentAnalysisInput' />
+      <output message='tns:stockSentimentAnalysisResponseMessage' name='stockSentimentAnalysisOutput' />
+    </operation>
+    <operation name='twitterSentimentAnalysis'>
+      <documentation>twitter text sentiment analysis which based on the model trained by the twitter related text that we collected from the website the sentiment will be positive or negative with confidence</documentation>
+      <input message='tns:twitterSentimentAnalysisRequestMessage' name='twitterSentimentAnalysisInput' />
+      <output message='tns:twitterSentimentAnalysisResponseMessage' name='twitterSentimentAnalysisOutput' />
+    </operation>
+  </portType>
+  <binding name='textSentimentBinding' type='tns:textSentimentPortType'>
+    <operation name='stockSentimentAnalysis'>
+      <soap12:operation soapAction='http://stockSentimentAnalysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='twitterSentimentAnalysis'>
+      <soap12:operation soapAction='http://twitterSentimentAnalysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textSentiment'>
+    <documentation>text Sentiment API provides professional text sentiment analysis service which includes stock sentiment analysis and twitter sentiment analysis it is based on advanced Natural Language Processing and Machine Learning technologies It can be used to sentiment text that user provided and give the result with the sentiment and confidence for the text For more information you can test those service by the demo on our website http textsentiment com</documentation>
+    <port name='textSentimentPort' binding='tns:textSentimentBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textSentiment' />
+    </port>
+  </service>
+</definitions>

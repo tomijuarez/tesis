@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/makeplans/' name='makeplans' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/makeplans/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/makeplans/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/makeplans/'>
+      <xsd:element name='servicesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='servicesRequestMessage' />
+  <message name='servicesResponseMessage'>
+    <part name='response' element='tns:servicesResponse' />
+  </message>
+  <portType name='makeplansPortType'>
+    <operation name='services'>
+      <documentation></documentation>
+      <input message='tns:servicesRequestMessage' name='servicesInput' />
+      <output message='tns:servicesResponseMessage' name='servicesOutput' />
+    </operation>
+  </portType>
+  <binding name='makeplansBinding' type='tns:makeplansPortType'>
+    <operation name='services'>
+      <soap12:operation soapAction='http://services' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='makeplans'>
+    <documentation>makePlans is a simple and flexible scheduling and appointment booking system which lets your customers book online quick and easy</documentation>
+    <port name='makeplansPort' binding='tns:makeplansBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://makeplans' />
+    </port>
+  </service>
+</definitions>

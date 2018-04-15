@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/languageScoring/' name='languageScoring' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/languageScoring/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/languageScoring/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/languageScoring/'>
+      <xsd:element name='textGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='textPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entry' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result_msg' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='entry' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='request' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='ten_degree' type='xsd:int' minOccurs='0' />
+            <xsd:element name='response' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='value' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textGetRequestMessage'>
+    <part name='parameters' element='tns:textGetParameters' />
+  </message>
+  <message name='textGetResponseMessage'>
+    <part name='response' element='tns:textGetResponse' />
+  </message>
+  <message name='textPostRequestMessage' />
+  <message name='textPostResponseMessage'>
+    <part name='response' element='tns:textPostResponse' />
+  </message>
+  <message name='wordGetRequestMessage'>
+    <part name='parameters' element='tns:wordGetParameters' />
+  </message>
+  <message name='wordGetResponseMessage'>
+    <part name='response' element='tns:wordGetResponse' />
+  </message>
+  <message name='wordPostRequestMessage' />
+  <message name='wordPostResponseMessage'>
+    <part name='response' element='tns:wordPostResponse' />
+  </message>
+  <portType name='languageScoringPortType'>
+    <operation name='textGet'>
+      <documentation>evaluate the difficulty level of a word sentence or paragraph</documentation>
+      <input message='tns:textGetRequestMessage' name='textGetInput' />
+      <output message='tns:textGetResponseMessage' name='textGetOutput' />
+    </operation>
+    <operation name='textPost'>
+      <documentation>evaluate the difficulty level of a word sentence or paragraph</documentation>
+      <input message='tns:textPostRequestMessage' name='textPostInput' />
+      <output message='tns:textPostResponseMessage' name='textPostOutput' />
+    </operation>
+    <operation name='wordGet'>
+      <documentation>evaluate the difficulty level of a word</documentation>
+      <input message='tns:wordGetRequestMessage' name='wordGetInput' />
+      <output message='tns:wordGetResponseMessage' name='wordGetOutput' />
+    </operation>
+    <operation name='wordPost'>
+      <documentation>evaluate the difficulty level of a word</documentation>
+      <input message='tns:wordPostRequestMessage' name='wordPostInput' />
+      <output message='tns:wordPostResponseMessage' name='wordPostOutput' />
+    </operation>
+  </portType>
+  <binding name='languageScoringBinding' type='tns:languageScoringPortType'>
+    <operation name='textGet'>
+      <soap12:operation soapAction='http://textGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='textPost'>
+      <soap12:operation soapAction='http://textPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordGet'>
+      <soap12:operation soapAction='http://wordGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordPost'>
+      <soap12:operation soapAction='http://wordPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='languageScoring'>
+    <documentation>what s the difficulty level of this article Evaluate the difficulty level of a word sentence or paragraph and compare it with another</documentation>
+    <port name='languageScoringPort' binding='tns:languageScoringBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://languageScoring' />
+    </port>
+  </service>
+</definitions>

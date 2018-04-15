@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textSentimentObjectiveSubjectiveAnalysis/' name='textSentimentObjectiveSubjectiveAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textSentimentObjectiveSubjectiveAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textSentimentObjectiveSubjectiveAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textSentimentObjectiveSubjectiveAnalysis/'>
+      <xsd:element name='parseTextSentimentParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='parseTextSentimentResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='parseTextSentimentRequestMessage'>
+    <part name='parameters' element='tns:parseTextSentimentParameters' />
+  </message>
+  <message name='parseTextSentimentResponseMessage'>
+    <part name='response' element='tns:parseTextSentimentResponse' />
+  </message>
+  <portType name='textSentimentObjectiveSubjectiveAnalysisPortType'>
+    <operation name='parseTextSentiment'>
+      <input message='tns:parseTextSentimentRequestMessage' name='parseTextSentimentInput' />
+      <output message='tns:parseTextSentimentResponseMessage' name='parseTextSentimentOutput' />
+    </operation>
+  </portType>
+  <binding name='textSentimentObjectiveSubjectiveAnalysisBinding' type='tns:textSentimentObjectiveSubjectiveAnalysisPortType'>
+    <operation name='parseTextSentiment'>
+      <soap12:operation soapAction='http://parseTextSentiment' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textSentimentObjectiveSubjectiveAnalysis'>
+    <documentation>this tool analyses sentiment objective subjective confidence of author and readability of text</documentation>
+    <port name='textSentimentObjectiveSubjectiveAnalysisPort' binding='tns:textSentimentObjectiveSubjectiveAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textSentimentObjectiveSubjectiveAnalysis' />
+    </port>
+  </service>
+</definitions>

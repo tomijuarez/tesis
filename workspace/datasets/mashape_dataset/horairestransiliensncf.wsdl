@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/horairesTransilienSncf/' name='horairesTransilienSncf' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/horairesTransilienSncf/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/horairesTransilienSncf/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/horairesTransilienSncf/'>
+      <xsd:element name='lastRefreshResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liveTimesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='arrival' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='departure' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='liveTimesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='offlineTimesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='arrival' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='departure' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='offlineTimesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stationNamesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='stationNamesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='placeStationnementReserve' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='eveilVigilance' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='distance' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lignes' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='externalCode' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='idLigne' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='podcastURL' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='gares' type='xsd:normalizedString' maxOccurs='unbounded' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='boucleMagnetiqueMalentendant' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='donneesActualisees' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='codeTR3A' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='guichetAdapte' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='accesPlusTransilien' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='portillonControleBillet' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='rampeAccesQuai' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='typeART' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='nbART' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='distanceValue' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ouverture' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='mixte' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='baliseSonoreLocalisation' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='lastRefreshRequestMessage' />
+  <message name='lastRefreshResponseMessage'>
+    <part name='response' element='tns:lastRefreshResponse' />
+  </message>
+  <message name='liveTimesRequestMessage'>
+    <part name='parameters' element='tns:liveTimesParameters' />
+  </message>
+  <message name='liveTimesResponseMessage'>
+    <part name='response' element='tns:liveTimesResponse' />
+  </message>
+  <message name='offlineTimesRequestMessage'>
+    <part name='parameters' element='tns:offlineTimesParameters' />
+  </message>
+  <message name='offlineTimesResponseMessage'>
+    <part name='response' element='tns:offlineTimesResponse' />
+  </message>
+  <message name='stationNamesRequestMessage'>
+    <part name='parameters' element='tns:stationNamesParameters' />
+  </message>
+  <message name='stationNamesResponseMessage'>
+    <part name='response' element='tns:stationNamesResponse' />
+  </message>
+  <portType name='horairesTransilienSncfPortType'>
+    <operation name='lastRefresh'>
+      <documentation>get the timestamp of the last refresh of offline times</documentation>
+      <input message='tns:lastRefreshRequestMessage' name='lastRefreshInput' />
+      <output message='tns:lastRefreshResponseMessage' name='lastRefreshOutput' />
+    </operation>
+    <operation name='liveTimes'>
+      <documentation>live train times for a designated departure and arrival stations</documentation>
+      <input message='tns:liveTimesRequestMessage' name='liveTimesInput' />
+      <output message='tns:liveTimesResponseMessage' name='liveTimesOutput' />
+    </operation>
+    <operation name='offlineTimes'>
+      <documentation>get the offline times for a trip</documentation>
+      <input message='tns:offlineTimesRequestMessage' name='offlineTimesInput' />
+      <output message='tns:offlineTimesResponseMessage' name='offlineTimesOutput' />
+    </operation>
+    <operation name='stationNames'>
+      <documentation>search the stations by name</documentation>
+      <input message='tns:stationNamesRequestMessage' name='stationNamesInput' />
+      <output message='tns:stationNamesResponseMessage' name='stationNamesOutput' />
+    </operation>
+  </portType>
+  <binding name='horairesTransilienSncfBinding' type='tns:horairesTransilienSncfPortType'>
+    <operation name='lastRefresh'>
+      <soap12:operation soapAction='http://lastRefresh' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='liveTimes'>
+      <soap12:operation soapAction='http://liveTimes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='offlineTimes'>
+      <soap12:operation soapAction='http://offlineTimes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='stationNames'>
+      <soap12:operation soapAction='http://stationNames' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='horairesTransilienSncf'>
+    <documentation>aPI for SNCF trains Transilien in Paris</documentation>
+    <port name='horairesTransilienSncfPort' binding='tns:horairesTransilienSncfBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://horairesTransilienSncf' />
+    </port>
+  </service>
+</definitions>

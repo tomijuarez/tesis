@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/googlePlaystoreDownloaderAndScrapper/' name='googlePlaystoreDownloaderAndScrapper' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/googlePlaystoreDownloaderAndScrapper/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/googlePlaystoreDownloaderAndScrapper/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/googlePlaystoreDownloaderAndScrapper/'>
+      <xsd:element name='googlePlaystoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='packid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='googlePlaystoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Current_Installs-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='App_Size-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='App_Info-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Maturity-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Developer_Name-' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Category-' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Recent_Update-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Current_Version-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Download_Link-' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='Package-' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Req_Version-' type='xsd:string' minOccurs='0' />
+            <xsd:element name='App_Rating-' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='googlePlaystoreRequestMessage'>
+    <part name='parameters' element='tns:googlePlaystoreParameters' />
+  </message>
+  <message name='googlePlaystoreResponseMessage'>
+    <part name='response' element='tns:googlePlaystoreResponse' />
+  </message>
+  <portType name='googlePlaystoreDownloaderAndScrapperPortType'>
+    <operation name='googlePlaystore'>
+      <documentation>get Direct Download Link and App Details</documentation>
+      <input message='tns:googlePlaystoreRequestMessage' name='googlePlaystoreInput' />
+      <output message='tns:googlePlaystoreResponseMessage' name='googlePlaystoreOutput' />
+    </operation>
+  </portType>
+  <binding name='googlePlaystoreDownloaderAndScrapperBinding' type='tns:googlePlaystoreDownloaderAndScrapperPortType'>
+    <operation name='googlePlaystore'>
+      <soap12:operation soapAction='http://googlePlaystore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='googlePlaystoreDownloaderAndScrapper'>
+    <documentation>using this API You can generate direct download link of apk files and also grab details about the APK file from Google play store This Google Play Store API is an unofficial one This API is only for educational Purpose</documentation>
+    <port name='googlePlaystoreDownloaderAndScrapperPort' binding='tns:googlePlaystoreDownloaderAndScrapperBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://googlePlaystoreDownloaderAndScrapper' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/flvgoapi/' name='flvgoapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/flvgoapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/flvgoapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/flvgoapi/'>
+      <xsd:element name='downloadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='time_length' type='xsd:int' minOccurs='0' />
+            <xsd:element name='have_timeout' type='xsd:int' minOccurs='0' />
+            <xsd:element name='site' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='frame_count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='total_size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='logo' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='is_error' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='error_code' type='xsd:string' minOccurs='0' />
+            <xsd:element name='segs' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='seg_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='seg_files' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='seconds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='size' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='tags' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='downloadRequestMessage' />
+  <message name='downloadResponseMessage'>
+    <part name='response' element='tns:downloadResponse' />
+  </message>
+  <portType name='flvgoapiPortType'>
+    <operation name='download'>
+      <documentation></documentation>
+      <input message='tns:downloadRequestMessage' name='downloadInput' />
+      <output message='tns:downloadResponseMessage' name='downloadOutput' />
+    </operation>
+  </portType>
+  <binding name='flvgoapiBinding' type='tns:flvgoapiPortType'>
+    <operation name='download'>
+      <soap12:operation soapAction='http://download' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='flvgoapi'>
+    <documentation>extract direct links to videos for many popular video hosting sites e g Youku Tudou Sohu Iqiyi Letv YouTube Vimeo etc</documentation>
+    <port name='flvgoapiPort' binding='tns:flvgoapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://flvgoapi' />
+    </port>
+  </service>
+</definitions>

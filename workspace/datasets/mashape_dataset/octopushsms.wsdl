@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/octopushSms/' name='octopushSms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/octopushSms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/octopushSms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/octopushSms/'>
+      <xsd:element name='apiSmsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiSmsRequestMessage' />
+  <message name='apiSmsResponseMessage'>
+    <part name='response' element='tns:apiSmsResponse' />
+  </message>
+  <portType name='octopushSmsPortType'>
+    <operation name='apiSms'>
+      <input message='tns:apiSmsRequestMessage' name='apiSmsInput' />
+      <output message='tns:apiSmsResponseMessage' name='apiSmsOutput' />
+    </operation>
+  </portType>
+  <binding name='octopushSmsBinding' type='tns:octopushSmsPortType'>
+    <operation name='apiSms'>
+      <soap12:operation soapAction='http://apiSms' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='octopushSms'>
+    <documentation>octopush SMS allow you to automatically send SMS to over countries We provide API in either HTTP or SMTP and in languages Java C VBA PHP and ASP Best ever simple service with a scalable cloud architecture</documentation>
+    <port name='octopushSmsPort' binding='tns:octopushSmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://octopushSms' />
+    </port>
+  </service>
+</definitions>

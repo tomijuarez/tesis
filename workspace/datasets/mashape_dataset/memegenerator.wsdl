@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/memeGenerator/' name='memeGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/memeGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/memeGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/memeGenerator/'>
+      <xsd:element name='generateMemeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bottom' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='font' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='fontsize' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='meme' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='top' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateMemeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getFontsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getImagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadFontResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadImageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generateMemeRequestMessage'>
+    <part name='parameters' element='tns:generateMemeParameters' />
+  </message>
+  <message name='generateMemeResponseMessage'>
+    <part name='response' element='tns:generateMemeResponse' />
+  </message>
+  <message name='getFontsRequestMessage' />
+  <message name='getFontsResponseMessage'>
+    <part name='response' element='tns:getFontsResponse' />
+  </message>
+  <message name='getImagesRequestMessage' />
+  <message name='getImagesResponseMessage'>
+    <part name='response' element='tns:getImagesResponse' />
+  </message>
+  <message name='uploadFontRequestMessage' />
+  <message name='uploadFontResponseMessage'>
+    <part name='response' element='tns:uploadFontResponse' />
+  </message>
+  <message name='uploadImageRequestMessage' />
+  <message name='uploadImageResponseMessage'>
+    <part name='response' element='tns:uploadImageResponse' />
+  </message>
+  <portType name='memeGeneratorPortType'>
+    <operation name='generateMeme'>
+      <documentation>simple meme generator that uses a predefined set of images</documentation>
+      <input message='tns:generateMemeRequestMessage' name='generateMemeInput' />
+      <output message='tns:generateMemeResponseMessage' name='generateMemeOutput' />
+    </operation>
+    <operation name='getFonts'>
+      <documentation></documentation>
+      <input message='tns:getFontsRequestMessage' name='getFontsInput' />
+      <output message='tns:getFontsResponseMessage' name='getFontsOutput' />
+    </operation>
+    <operation name='getImages'>
+      <documentation></documentation>
+      <input message='tns:getImagesRequestMessage' name='getImagesInput' />
+      <output message='tns:getImagesResponseMessage' name='getImagesOutput' />
+    </operation>
+    <operation name='uploadFont'>
+      <documentation></documentation>
+      <input message='tns:uploadFontRequestMessage' name='uploadFontInput' />
+      <output message='tns:uploadFontResponseMessage' name='uploadFontOutput' />
+    </operation>
+    <operation name='uploadImage'>
+      <documentation></documentation>
+      <input message='tns:uploadImageRequestMessage' name='uploadImageInput' />
+      <output message='tns:uploadImageResponseMessage' name='uploadImageOutput' />
+    </operation>
+  </portType>
+  <binding name='memeGeneratorBinding' type='tns:memeGeneratorPortType'>
+    <operation name='generateMeme'>
+      <soap12:operation soapAction='http://generateMeme' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getFonts'>
+      <soap12:operation soapAction='http://getFonts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getImages'>
+      <soap12:operation soapAction='http://getImages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadFont'>
+      <soap12:operation soapAction='http://uploadFont' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='uploadImage'>
+      <soap12:operation soapAction='http://uploadImage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='memeGenerator'>
+    <documentation>a simple meme generator that generates memes by choosing a preloaded images and short top and bottom text sentences Memes are served in the JPEG image file format</documentation>
+    <port name='memeGeneratorPort' binding='tns:memeGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://memeGenerator' />
+    </port>
+  </service>
+</definitions>

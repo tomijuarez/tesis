@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/septa/' name='septa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/septa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/septa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/septa/'>
+      <xsd:element name='busDetoursParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busDetoursResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='route_id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='route_info' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='current_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reason' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='route_direction' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleyLocationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='route' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleyLocationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bus' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='destination' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='VehicleID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='BlockID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='label' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Direction' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='TripID' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Offset' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleyRoutesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleyRoutesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='stopid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='stopname' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleySchedulesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='busTrolleySchedulesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='StopName' type='xsd:string' minOccurs='0' />
+            <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='DateCalender' type='xsd:string' minOccurs='0' />
+            <xsd:element name='day' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Direction' type='xsd:int' minOccurs='0' />
+            <xsd:element name='Route' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAlertsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAlertsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='current_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='advisory_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='detour_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='detour_start_date_time' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='last_updated' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='route_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='detour_end_date_time' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='route_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='detour_reason' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='detour_start_location' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLocationsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='radius' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLocationsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='location_name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='distance' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='location_data' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='hours' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='endDate' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='address2' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='address1' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='location_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='location_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='phone' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='loc_name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='startDate' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='location_lon' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='location_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='location_lat' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='location_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nextToArriveParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='nextToArriveResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='term_delay' type='xsd:string' minOccurs='0' />
+            <xsd:element name='orig_line' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='orig_departure_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='orig_arrival_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Connection' type='xsd:string' minOccurs='0' />
+            <xsd:element name='orig_train' type='xsd:int' minOccurs='0' />
+            <xsd:element name='term_line' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='isdirect' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='term_depart_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='term_train' type='xsd:int' minOccurs='0' />
+            <xsd:element name='orig_delay' type='xsd:string' minOccurs='0' />
+            <xsd:element name='term_arrival_time' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='plainTextBusSchedulesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='req' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='plainTextBusSchedulesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='regionalRailSchedulesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='regionalRailSchedulesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='est_tm' type='xsd:string' minOccurs='0' />
+            <xsd:element name='sched_tm' type='xsd:string' minOccurs='0' />
+            <xsd:element name='station' type='xsd:string' minOccurs='0' />
+            <xsd:element name='act_tm' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='trainviewResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='nextstop' type='xsd:string' minOccurs='0' />
+            <xsd:element name='late' type='xsd:int' minOccurs='0' />
+            <xsd:element name='service' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='SOURCE' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lon' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='trainno' type='xsd:int' minOccurs='0' />
+            <xsd:element name='dest' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='twitterParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='req' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='twitterResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='in_reply_to_status_id_str' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='in_reply_to_status_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='coordinates' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='created_at' type='xsd:string' minOccurs='0' />
+            <xsd:element name='truncated' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='in_reply_to_user_id_str' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='source' type='xsd:string' minOccurs='0' />
+            <xsd:element name='retweet_count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='retweeted' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='geo' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='in_reply_to_screen_name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id_str' type='xsd:int' minOccurs='0' />
+            <xsd:element name='in_reply_to_user_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='favorite_count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:int' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='place' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='contributors' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='user' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='utc_offset' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='friends_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='profile_image_url_https' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='listed_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='profile_background_image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='default_profile_image' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='favourites_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='created_at' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='is_translator' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='profile_background_image_url_https' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='protected' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='screen_name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id_str' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='profile_link_color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='geo_enabled' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='profile_background_color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lang' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='profile_sidebar_border_color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='profile_text_color' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='verified' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='profile_image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='time_zone' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='contributors_enabled' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='profile_background_tile' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='statuses_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='follow_request_sent' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='followers_count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='profile_use_background_image' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='default_profile' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='following' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='profile_sidebar_fill_color' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='notifications' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='favorited' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='busDetoursRequestMessage'>
+    <part name='parameters' element='tns:busDetoursParameters' />
+  </message>
+  <message name='busDetoursResponseMessage'>
+    <part name='response' element='tns:busDetoursResponse' />
+  </message>
+  <message name='busTrolleyLocationsRequestMessage'>
+    <part name='parameters' element='tns:busTrolleyLocationsParameters' />
+  </message>
+  <message name='busTrolleyLocationsResponseMessage'>
+    <part name='response' element='tns:busTrolleyLocationsResponse' />
+  </message>
+  <message name='busTrolleyRoutesRequestMessage'>
+    <part name='parameters' element='tns:busTrolleyRoutesParameters' />
+  </message>
+  <message name='busTrolleyRoutesResponseMessage'>
+    <part name='response' element='tns:busTrolleyRoutesResponse' />
+  </message>
+  <message name='busTrolleySchedulesRequestMessage'>
+    <part name='parameters' element='tns:busTrolleySchedulesParameters' />
+  </message>
+  <message name='busTrolleySchedulesResponseMessage'>
+    <part name='response' element='tns:busTrolleySchedulesResponse' />
+  </message>
+  <message name='getAlertsRequestMessage'>
+    <part name='parameters' element='tns:getAlertsParameters' />
+  </message>
+  <message name='getAlertsResponseMessage'>
+    <part name='response' element='tns:getAlertsResponse' />
+  </message>
+  <message name='getLocationsRequestMessage'>
+    <part name='parameters' element='tns:getLocationsParameters' />
+  </message>
+  <message name='getLocationsResponseMessage'>
+    <part name='response' element='tns:getLocationsResponse' />
+  </message>
+  <message name='nextToArriveRequestMessage'>
+    <part name='parameters' element='tns:nextToArriveParameters' />
+  </message>
+  <message name='nextToArriveResponseMessage'>
+    <part name='response' element='tns:nextToArriveResponse' />
+  </message>
+  <message name='plainTextBusSchedulesRequestMessage'>
+    <part name='parameters' element='tns:plainTextBusSchedulesParameters' />
+  </message>
+  <message name='plainTextBusSchedulesResponseMessage'>
+    <part name='response' element='tns:plainTextBusSchedulesResponse' />
+  </message>
+  <message name='regionalRailSchedulesRequestMessage'>
+    <part name='parameters' element='tns:regionalRailSchedulesParameters' />
+  </message>
+  <message name='regionalRailSchedulesResponseMessage'>
+    <part name='response' element='tns:regionalRailSchedulesResponse' />
+  </message>
+  <message name='trainviewRequestMessage' />
+  <message name='trainviewResponseMessage'>
+    <part name='response' element='tns:trainviewResponse' />
+  </message>
+  <message name='twitterRequestMessage'>
+    <part name='parameters' element='tns:twitterParameters' />
+  </message>
+  <message name='twitterResponseMessage'>
+    <part name='response' element='tns:twitterResponse' />
+  </message>
+  <portType name='septaPortType'>
+    <operation name='busDetours'>
+      <documentation></documentation>
+      <input message='tns:busDetoursRequestMessage' name='busDetoursInput' />
+      <output message='tns:busDetoursResponseMessage' name='busDetoursOutput' />
+    </operation>
+    <operation name='busTrolleyLocations'>
+      <documentation></documentation>
+      <input message='tns:busTrolleyLocationsRequestMessage' name='busTrolleyLocationsInput' />
+      <output message='tns:busTrolleyLocationsResponseMessage' name='busTrolleyLocationsOutput' />
+    </operation>
+    <operation name='busTrolleyRoutes'>
+      <documentation></documentation>
+      <input message='tns:busTrolleyRoutesRequestMessage' name='busTrolleyRoutesInput' />
+      <output message='tns:busTrolleyRoutesResponseMessage' name='busTrolleyRoutesOutput' />
+    </operation>
+    <operation name='busTrolleySchedules'>
+      <documentation></documentation>
+      <input message='tns:busTrolleySchedulesRequestMessage' name='busTrolleySchedulesInput' />
+      <output message='tns:busTrolleySchedulesResponseMessage' name='busTrolleySchedulesOutput' />
+    </operation>
+    <operation name='getAlerts'>
+      <documentation></documentation>
+      <input message='tns:getAlertsRequestMessage' name='getAlertsInput' />
+      <output message='tns:getAlertsResponseMessage' name='getAlertsOutput' />
+    </operation>
+    <operation name='getLocations'>
+      <documentation></documentation>
+      <input message='tns:getLocationsRequestMessage' name='getLocationsInput' />
+      <output message='tns:getLocationsResponseMessage' name='getLocationsOutput' />
+    </operation>
+    <operation name='nextToArrive'>
+      <documentation>fetch a list of regional rail trains that will soon be traveling from point A to point B</documentation>
+      <input message='tns:nextToArriveRequestMessage' name='nextToArriveInput' />
+      <output message='tns:nextToArriveResponseMessage' name='nextToArriveOutput' />
+    </operation>
+    <operation name='plainTextBusSchedules'>
+      <documentation>intended for SMS</documentation>
+      <input message='tns:plainTextBusSchedulesRequestMessage' name='plainTextBusSchedulesInput' />
+      <output message='tns:plainTextBusSchedulesResponseMessage' name='plainTextBusSchedulesOutput' />
+    </operation>
+    <operation name='regionalRailSchedules'>
+      <documentation>by train number lol</documentation>
+      <input message='tns:regionalRailSchedulesRequestMessage' name='regionalRailSchedulesInput' />
+      <output message='tns:regionalRailSchedulesResponseMessage' name='regionalRailSchedulesOutput' />
+    </operation>
+    <operation name='trainview'>
+      <documentation>regional Rail real time train locations</documentation>
+      <input message='tns:trainviewRequestMessage' name='trainviewInput' />
+      <output message='tns:trainviewResponseMessage' name='trainviewOutput' />
+    </operation>
+    <operation name='twitter'>
+      <documentation></documentation>
+      <input message='tns:twitterRequestMessage' name='twitterInput' />
+      <output message='tns:twitterResponseMessage' name='twitterOutput' />
+    </operation>
+  </portType>
+  <binding name='septaBinding' type='tns:septaPortType'>
+    <operation name='busDetours'>
+      <soap12:operation soapAction='http://busDetours' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='busTrolleyLocations'>
+      <soap12:operation soapAction='http://busTrolleyLocations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='busTrolleyRoutes'>
+      <soap12:operation soapAction='http://busTrolleyRoutes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='busTrolleySchedules'>
+      <soap12:operation soapAction='http://busTrolleySchedules' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAlerts'>
+      <soap12:operation soapAction='http://getAlerts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getLocations'>
+      <soap12:operation soapAction='http://getLocations' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='nextToArrive'>
+      <soap12:operation soapAction='http://nextToArrive' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='plainTextBusSchedules'>
+      <soap12:operation soapAction='http://plainTextBusSchedules' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='regionalRailSchedules'>
+      <soap12:operation soapAction='http://regionalRailSchedules' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='trainview'>
+      <soap12:operation soapAction='http://trainview' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='twitter'>
+      <soap12:operation soapAction='http://twitter' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='septa'>
+    <documentation>provides hackathon style access to the SEPTA API Allows introspection of the SEPTA locations and routes and provides basically realtime data on delays alerts vehicles and routes</documentation>
+    <port name='septaPort' binding='tns:septaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://septa' />
+    </port>
+  </service>
+</definitions>

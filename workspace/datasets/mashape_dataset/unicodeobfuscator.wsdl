@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/unicodeObfuscator/' name='unicodeObfuscator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/unicodeObfuscator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/unicodeObfuscator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/unicodeObfuscator/'>
+      <xsd:element name='obfuscateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='level' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='word' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='obfuscateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='obfuscation' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sdfResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='obfuscateRequestMessage'>
+    <part name='parameters' element='tns:obfuscateParameters' />
+  </message>
+  <message name='obfuscateResponseMessage'>
+    <part name='response' element='tns:obfuscateResponse' />
+  </message>
+  <message name='sdfRequestMessage' />
+  <message name='sdfResponseMessage'>
+    <part name='response' element='tns:sdfResponse' />
+  </message>
+  <portType name='unicodeObfuscatorPortType'>
+    <operation name='obfuscate'>
+      <documentation>takes a word as parameter obfuscates it using a proprietary Unicode Character codex</documentation>
+      <input message='tns:obfuscateRequestMessage' name='obfuscateInput' />
+      <output message='tns:obfuscateResponseMessage' name='obfuscateOutput' />
+    </operation>
+    <operation name='sdf'>
+      <documentation>sdfsdf</documentation>
+      <input message='tns:sdfRequestMessage' name='sdfInput' />
+      <output message='tns:sdfResponseMessage' name='sdfOutput' />
+    </operation>
+  </portType>
+  <binding name='unicodeObfuscatorBinding' type='tns:unicodeObfuscatorPortType'>
+    <operation name='obfuscate'>
+      <soap12:operation soapAction='http://obfuscate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sdf'>
+      <soap12:operation soapAction='http://sdf' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='unicodeObfuscator'>
+    <documentation>obfuscate words with this simple Unicode Codex It is very simple to use and works with words and sentences We hope you enjoy it let us know where you put it to use</documentation>
+    <port name='unicodeObfuscatorPort' binding='tns:unicodeObfuscatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://unicodeObfuscator' />
+    </port>
+  </service>
+</definitions>

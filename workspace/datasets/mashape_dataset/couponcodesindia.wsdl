@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/couponCodesIndia/' name='couponCodesIndia' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/couponCodesIndia/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/couponCodesIndia/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/couponCodesIndia/'>
+      <xsd:element name='getCoupenCodesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='store' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCoupenCodesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status_code' type='xsd:int' minOccurs='0' />
+            <xsd:element name='data' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='coupon_description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='coupon_title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='crawl_time' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='coupon_code' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='last_tested' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='expiry_date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='coupon_link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='store' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='published_date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='success_rate' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='status_text' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getCoupenCodesRequestMessage'>
+    <part name='parameters' element='tns:getCoupenCodesParameters' />
+  </message>
+  <message name='getCoupenCodesResponseMessage'>
+    <part name='response' element='tns:getCoupenCodesResponse' />
+  </message>
+  <portType name='couponCodesIndiaPortType'>
+    <operation name='getCoupenCodes'>
+      <documentation>get Coupen Codes</documentation>
+      <input message='tns:getCoupenCodesRequestMessage' name='getCoupenCodesInput' />
+      <output message='tns:getCoupenCodesResponseMessage' name='getCoupenCodesOutput' />
+    </operation>
+  </portType>
+  <binding name='couponCodesIndiaBinding' type='tns:couponCodesIndiaPortType'>
+    <operation name='getCoupenCodes'>
+      <soap12:operation soapAction='http://getCoupenCodes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='couponCodesIndia'>
+    <documentation>check all coupon code information aggregated from a list of diverse sources on the Web One can use this API to build interesting applications offerings using coupons</documentation>
+    <port name='couponCodesIndiaPort' binding='tns:couponCodesIndiaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://couponCodesIndia' />
+    </port>
+  </service>
+</definitions>

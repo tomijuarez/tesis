@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/getaddressIo/' name='getaddressIo' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/getaddressIo/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/getaddressIo/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/getaddressIo/'>
+      <xsd:element name='addressesbypostcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressesbypostcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findbypostcodeandhouseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='house' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='findbypostcodeandhouseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressesbypostcodeRequestMessage'>
+    <part name='parameters' element='tns:addressesbypostcodeParameters' />
+  </message>
+  <message name='addressesbypostcodeResponseMessage'>
+    <part name='response' element='tns:addressesbypostcodeResponse' />
+  </message>
+  <message name='findbypostcodeandhouseRequestMessage'>
+    <part name='parameters' element='tns:findbypostcodeandhouseParameters' />
+  </message>
+  <message name='findbypostcodeandhouseResponseMessage'>
+    <part name='response' element='tns:findbypostcodeandhouseResponse' />
+  </message>
+  <portType name='getaddressIoPortType'>
+    <operation name='addressesbypostcode'>
+      <documentation>finds UK postal addresses by postcode</documentation>
+      <input message='tns:addressesbypostcodeRequestMessage' name='addressesbypostcodeInput' />
+      <output message='tns:addressesbypostcodeResponseMessage' name='addressesbypostcodeOutput' />
+    </operation>
+    <operation name='findbypostcodeandhouse'>
+      <documentation>finds UK postal addresses by postcode and house name</documentation>
+      <input message='tns:findbypostcodeandhouseRequestMessage' name='findbypostcodeandhouseInput' />
+      <output message='tns:findbypostcodeandhouseResponseMessage' name='findbypostcodeandhouseOutput' />
+    </operation>
+  </portType>
+  <binding name='getaddressIoBinding' type='tns:getaddressIoPortType'>
+    <operation name='addressesbypostcode'>
+      <soap12:operation soapAction='http://addressesbypostcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='findbypostcodeandhouse'>
+      <soap12:operation soapAction='http://findbypostcodeandhouse' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='getaddressIo'>
+    <documentation>finds UK postal addresses by postcode</documentation>
+    <port name='getaddressIoPort' binding='tns:getaddressIoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://getaddressIo' />
+    </port>
+  </service>
+</definitions>

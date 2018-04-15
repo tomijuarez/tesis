@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/deckbrew/' name='deckbrew' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/deckbrew/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/deckbrew/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/deckbrew/'>
+      <xsd:element name='getASingleCardParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASingleCardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cost' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='formats' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='commander' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='legacy' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='vintage' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='editions' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='set' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='multiverse_id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='set_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='flavor' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='layout' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='price' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='note' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='high' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='median' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='low' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='set_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cmc' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='colors' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASingleSetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getASingleSetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='border' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='cards_url' type='xsd:string' minOccurs='0' />
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='url' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllCardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cost' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='formats' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='colors' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='subtypes' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editions' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='set' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='multiverse_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='set_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='flavor' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='layout' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='price' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='note' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='high' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='median' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='low' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='set_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cmc' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='power' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='toughness' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllSetsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='border' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cards_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listAllTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='typeaheadAutocompleteForCardSearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cost' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='formats' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='colors' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='subtypes' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='editions' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='set' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='multiverse_id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='image_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='set_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='store_url' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='flavor' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='layout' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='number' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='price' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='note' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='high' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='median' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='low' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='set_id' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='rarity' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='cmc' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='power' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='toughness' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getASingleCardRequestMessage'>
+    <part name='parameters' element='tns:getASingleCardParameters' />
+  </message>
+  <message name='getASingleCardResponseMessage'>
+    <part name='response' element='tns:getASingleCardResponse' />
+  </message>
+  <message name='getASingleSetRequestMessage'>
+    <part name='parameters' element='tns:getASingleSetParameters' />
+  </message>
+  <message name='getASingleSetResponseMessage'>
+    <part name='response' element='tns:getASingleSetResponse' />
+  </message>
+  <message name='listAllCardsRequestMessage' />
+  <message name='listAllCardsResponseMessage'>
+    <part name='response' element='tns:listAllCardsResponse' />
+  </message>
+  <message name='listAllSetsRequestMessage' />
+  <message name='listAllSetsResponseMessage'>
+    <part name='response' element='tns:listAllSetsResponse' />
+  </message>
+  <message name='listAllTypesRequestMessage' />
+  <message name='listAllTypesResponseMessage'>
+    <part name='response' element='tns:listAllTypesResponse' />
+  </message>
+  <message name='typeaheadAutocompleteForCardSearchRequestMessage' />
+  <message name='typeaheadAutocompleteForCardSearchResponseMessage'>
+    <part name='response' element='tns:typeaheadAutocompleteForCardSearchResponse' />
+  </message>
+  <portType name='deckbrewPortType'>
+    <operation name='getASingleCard'>
+      <documentation></documentation>
+      <input message='tns:getASingleCardRequestMessage' name='getASingleCardInput' />
+      <output message='tns:getASingleCardResponseMessage' name='getASingleCardOutput' />
+    </operation>
+    <operation name='getASingleSet'>
+      <documentation></documentation>
+      <input message='tns:getASingleSetRequestMessage' name='getASingleSetInput' />
+      <output message='tns:getASingleSetResponseMessage' name='getASingleSetOutput' />
+    </operation>
+    <operation name='listAllCards'>
+      <documentation>return a list of all Magic cards Can be filtered using query string parameters to narrow the search</documentation>
+      <input message='tns:listAllCardsRequestMessage' name='listAllCardsInput' />
+      <output message='tns:listAllCardsResponseMessage' name='listAllCardsOutput' />
+    </operation>
+    <operation name='listAllSets'>
+      <documentation>list all sets</documentation>
+      <input message='tns:listAllSetsRequestMessage' name='listAllSetsInput' />
+      <output message='tns:listAllSetsResponseMessage' name='listAllSetsOutput' />
+    </operation>
+    <operation name='listAllTypes'>
+      <documentation></documentation>
+      <input message='tns:listAllTypesRequestMessage' name='listAllTypesInput' />
+      <output message='tns:listAllTypesResponseMessage' name='listAllTypesOutput' />
+    </operation>
+    <operation name='typeaheadAutocompleteForCardSearch'>
+      <documentation>this endpoint returns a list of cards the same format as the mtg cards endpoint that match the beginning of the search term This endpoint is great for building interactive autocomplete search for Magic cards</documentation>
+      <input message='tns:typeaheadAutocompleteForCardSearchRequestMessage' name='typeaheadAutocompleteForCardSearchInput' />
+      <output message='tns:typeaheadAutocompleteForCardSearchResponseMessage' name='typeaheadAutocompleteForCardSearchOutput' />
+    </operation>
+  </portType>
+  <binding name='deckbrewBinding' type='tns:deckbrewPortType'>
+    <operation name='getASingleCard'>
+      <soap12:operation soapAction='http://getASingleCard' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getASingleSet'>
+      <soap12:operation soapAction='http://getASingleSet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllCards'>
+      <soap12:operation soapAction='http://listAllCards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllSets'>
+      <soap12:operation soapAction='http://listAllSets' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listAllTypes'>
+      <soap12:operation soapAction='http://listAllTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='typeaheadAutocompleteForCardSearch'>
+      <soap12:operation soapAction='http://typeaheadAutocompleteForCardSearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='deckbrew'>
+    <documentation>the DeckBrew Magic The Gathering API is open source Please report any issues or bugs you encounter This API wouldn t have been possible without the amazing mtgjson and mtgimage resources</documentation>
+    <port name='deckbrewPort' binding='tns:deckbrewBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://deckbrew' />
+    </port>
+  </service>
+</definitions>

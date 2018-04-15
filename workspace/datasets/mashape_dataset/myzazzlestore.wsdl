@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/myzazzlestore/' name='myzazzlestore' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/myzazzlestore/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/myzazzlestore/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/myzazzlestore/'>
+      <xsd:element name='myzazzlestoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='a' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='i' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='p' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='myzazzlestoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='myzazzlestoreRequestMessage'>
+    <part name='parameters' element='tns:myzazzlestoreParameters' />
+  </message>
+  <message name='myzazzlestoreResponseMessage'>
+    <part name='response' element='tns:myzazzlestoreResponse' />
+  </message>
+  <portType name='myzazzlestorePortType'>
+    <operation name='myzazzlestore'>
+      <documentation></documentation>
+      <input message='tns:myzazzlestoreRequestMessage' name='myzazzlestoreInput' />
+      <output message='tns:myzazzlestoreResponseMessage' name='myzazzlestoreOutput' />
+    </operation>
+  </portType>
+  <binding name='myzazzlestoreBinding' type='tns:myzazzlestorePortType'>
+    <operation name='myzazzlestore'>
+      <soap12:operation soapAction='http://myzazzlestore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='myzazzlestore'>
+    <documentation>with MYZazzleStore SERVICE it s really simple to add a gift shop to your web application for your users With a simple call internet link you can give your users the opportunity to purchase T shirts personalized mugs iphone ipad covers and other types of gifts It also allows you to increase financial gains and increase the popularity of your products</documentation>
+    <port name='myzazzlestorePort' binding='tns:myzazzlestoreBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://myzazzlestore' />
+    </port>
+  </service>
+</definitions>

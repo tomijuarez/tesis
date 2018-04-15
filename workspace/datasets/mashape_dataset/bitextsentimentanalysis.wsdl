@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/bitextSentimentAnalysis/' name='bitextSentimentAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/bitextSentimentAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/bitextSentimentAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/bitextSentimentAnalysis/'>
+      <xsd:element name='wsNopsValResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='details' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='valuables_norm' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='valuers_norm' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='global_value' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='wsNopsValRequestMessage' />
+  <message name='wsNopsValResponseMessage'>
+    <part name='response' element='tns:wsNopsValResponse' />
+  </message>
+  <portType name='bitextSentimentAnalysisPortType'>
+    <operation name='wsNopsVal'>
+      <documentation></documentation>
+      <input message='tns:wsNopsValRequestMessage' name='wsNopsValInput' />
+      <output message='tns:wsNopsValResponseMessage' name='wsNopsValOutput' />
+    </operation>
+  </portType>
+  <binding name='bitextSentimentAnalysisBinding' type='tns:bitextSentimentAnalysisPortType'>
+    <operation name='wsNopsVal'>
+      <soap12:operation soapAction='http://wsNopsVal' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='bitextSentimentAnalysis'>
+    <documentation>the purpose of this service is to extract opinions from text An opinion represents the subject an author is writing about and a sentiment score that classifies how positively or negatively the author feels towards that subject Deep Linguistic Analysis is used to identify the subject the author is discussing This can be an entity brand person product place a concept like global warming public policies or financial crisis The sentiment analysis service will also break the opinion down to detect exactly which features or attributes or elements of the subject are being discussed For a product this could be the main components or accessories as for example the screen in the screen of the Galaxy Tab or the case in my new iPad case For a person this could be the activities or attitudes associated with them For a place it could be the specific buildings or institutions located there</documentation>
+    <port name='bitextSentimentAnalysisPort' binding='tns:bitextSentimentAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://bitextSentimentAnalysis' />
+    </port>
+  </service>
+</definitions>

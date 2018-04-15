@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/qrcode/' name='qrcode' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/qrcode/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/qrcode/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/qrcode/'>
+      <xsd:element name='qrcodeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='backcolor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ecl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='forecolor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='pixel' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='type' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='qrcodeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='qrcodeRequestMessage'>
+    <part name='parameters' element='tns:qrcodeParameters' />
+  </message>
+  <message name='qrcodeResponseMessage'>
+    <part name='response' element='tns:qrcodeResponse' />
+  </message>
+  <portType name='qrcodePortType'>
+    <operation name='qrcode'>
+      <documentation>aPI to create QR Code and get the image URL on the fly You may also try the online demo at http qrcode youlikeshare com</documentation>
+      <input message='tns:qrcodeRequestMessage' name='qrcodeInput' />
+      <output message='tns:qrcodeResponseMessage' name='qrcodeOutput' />
+    </operation>
+  </portType>
+  <binding name='qrcodeBinding' type='tns:qrcodePortType'>
+    <operation name='qrcode'>
+      <soap12:operation soapAction='http://qrcode' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='qrcode'>
+    <documentation>this API allows you to create QR code on the fly The API will return you an URL of the QR Code image that you can easily embed on to website or download it for your other needs You also try the online demo at http qrcode youlikeshare com</documentation>
+    <port name='qrcodePort' binding='tns:qrcodeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://qrcode' />
+    </port>
+  </service>
+</definitions>

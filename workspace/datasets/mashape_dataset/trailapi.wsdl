@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/trailapi/' name='trailapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/trailapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/trailapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/trailapi/'>
+      <xsd:element name='activityInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='lat' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='lon' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='qactivitiesactivitynamecont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qactivitiesactivitytypenameeq' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qcitycont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qcountrycont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='qstatecont' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='radius' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='activityInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='activityInfoRequestMessage'>
+    <part name='parameters' element='tns:activityInfoParameters' />
+  </message>
+  <message name='activityInfoResponseMessage'>
+    <part name='response' element='tns:activityInfoResponse' />
+  </message>
+  <portType name='trailapiPortType'>
+    <operation name='activityInfo'>
+      <documentation></documentation>
+      <input message='tns:activityInfoRequestMessage' name='activityInfoInput' />
+      <output message='tns:activityInfoResponseMessage' name='activityInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='trailapiBinding' type='tns:trailapiPortType'>
+    <operation name='activityInfo'>
+      <soap12:operation soapAction='http://activityInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='trailapi'>
+    <documentation>information and photos for tens of thousands of outdoor recreation locations including hiking and mountain biking trails campgrounds ski resorts ATV trails and more</documentation>
+    <port name='trailapiPort' binding='tns:trailapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://trailapi' />
+    </port>
+  </service>
+</definitions>

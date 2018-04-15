@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/maxmindGeoip/' name='maxmindGeoip' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/maxmindGeoip/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/maxmindGeoip/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/maxmindGeoip/'>
+      <xsd:element name='cityPrecisionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cityPrecisionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cityIspOrgPrecisionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cityIspOrgPrecisionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='countryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='omniPrecisionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ipaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='omniPrecisionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cityPrecisionRequestMessage'>
+    <part name='parameters' element='tns:cityPrecisionParameters' />
+  </message>
+  <message name='cityPrecisionResponseMessage'>
+    <part name='response' element='tns:cityPrecisionResponse' />
+  </message>
+  <message name='cityIspOrgPrecisionRequestMessage'>
+    <part name='parameters' element='tns:cityIspOrgPrecisionParameters' />
+  </message>
+  <message name='cityIspOrgPrecisionResponseMessage'>
+    <part name='response' element='tns:cityIspOrgPrecisionResponse' />
+  </message>
+  <message name='countryRequestMessage'>
+    <part name='parameters' element='tns:countryParameters' />
+  </message>
+  <message name='countryResponseMessage'>
+    <part name='response' element='tns:countryResponse' />
+  </message>
+  <message name='omniPrecisionRequestMessage'>
+    <part name='parameters' element='tns:omniPrecisionParameters' />
+  </message>
+  <message name='omniPrecisionResponseMessage'>
+    <part name='response' element='tns:omniPrecisionResponse' />
+  </message>
+  <portType name='maxmindGeoipPortType'>
+    <operation name='cityPrecision'>
+      <documentation></documentation>
+      <input message='tns:cityPrecisionRequestMessage' name='cityPrecisionInput' />
+      <output message='tns:cityPrecisionResponseMessage' name='cityPrecisionOutput' />
+    </operation>
+    <operation name='cityIspOrgPrecision'>
+      <documentation></documentation>
+      <input message='tns:cityIspOrgPrecisionRequestMessage' name='cityIspOrgPrecisionInput' />
+      <output message='tns:cityIspOrgPrecisionResponseMessage' name='cityIspOrgPrecisionOutput' />
+    </operation>
+    <operation name='country'>
+      <documentation></documentation>
+      <input message='tns:countryRequestMessage' name='countryInput' />
+      <output message='tns:countryResponseMessage' name='countryOutput' />
+    </operation>
+    <operation name='omniPrecision'>
+      <documentation></documentation>
+      <input message='tns:omniPrecisionRequestMessage' name='omniPrecisionInput' />
+      <output message='tns:omniPrecisionResponseMessage' name='omniPrecisionOutput' />
+    </operation>
+  </portType>
+  <binding name='maxmindGeoipBinding' type='tns:maxmindGeoipPortType'>
+    <operation name='cityPrecision'>
+      <soap12:operation soapAction='http://cityPrecision' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='cityIspOrgPrecision'>
+      <soap12:operation soapAction='http://cityIspOrgPrecision' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='country'>
+      <soap12:operation soapAction='http://country' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='omniPrecision'>
+      <soap12:operation soapAction='http://omniPrecision' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='maxmindGeoip'>
+    <documentation>determine the geographical location of website visitors based on the IP addresses for applications such as fraud detection content localization geo targeted</documentation>
+    <port name='maxmindGeoipPort' binding='tns:maxmindGeoipBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://maxmindGeoip' />
+    </port>
+  </service>
+</definitions>

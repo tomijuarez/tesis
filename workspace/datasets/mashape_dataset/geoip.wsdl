@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/geoip/' name='geoip' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/geoip/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/geoip/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/geoip/'>
+      <xsd:element name='geoLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='geoLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='country' type='xsd:string' minOccurs='0' />
+            <xsd:element name='country_code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='places' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='formatted_address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='geometry' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='viewport' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='southwest' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name='northeast' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                                    <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='location' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='location_type' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='address_components' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='types' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='short_name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='long_name' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='formatted_address' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='IP' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='region' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='postal_code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='geoLocationRequestMessage'>
+    <part name='parameters' element='tns:geoLocationParameters' />
+  </message>
+  <message name='geoLocationResponseMessage'>
+    <part name='response' element='tns:geoLocationResponse' />
+  </message>
+  <portType name='geoipPortType'>
+    <operation name='geoLocation'>
+      <documentation>high detailed geo location of the ip address</documentation>
+      <input message='tns:geoLocationRequestMessage' name='geoLocationInput' />
+      <output message='tns:geoLocationResponseMessage' name='geoLocationOutput' />
+    </operation>
+  </portType>
+  <binding name='geoipBinding' type='tns:geoipPortType'>
+    <operation name='geoLocation'>
+      <soap12:operation soapAction='http://geoLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='geoip'>
+    <documentation>geoIP query more than different source to provide an high precision highly detailed geo coding of the ip address</documentation>
+    <port name='geoipPort' binding='tns:geoipBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://geoip' />
+    </port>
+  </service>
+</definitions>

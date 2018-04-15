@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/motpSmsLessTwoFactorAuthentication/' name='motpSmsLessTwoFactorAuthentication' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/motpSmsLessTwoFactorAuthentication/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/motpSmsLessTwoFactorAuthentication/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/motpSmsLessTwoFactorAuthentication/'>
+      <xsd:element name='generateApiKeyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='emailadd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='generateApiKeyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Result' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMotpToUserSPhoneParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phonewithisd' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendMotpToUserSPhoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Result' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateTheMotpEnteredByUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sessionid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='validateTheMotpEnteredByUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Result' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='generateApiKeyRequestMessage'>
+    <part name='parameters' element='tns:generateApiKeyParameters' />
+  </message>
+  <message name='generateApiKeyResponseMessage'>
+    <part name='response' element='tns:generateApiKeyResponse' />
+  </message>
+  <message name='sendMotpToUserSPhoneRequestMessage'>
+    <part name='parameters' element='tns:sendMotpToUserSPhoneParameters' />
+  </message>
+  <message name='sendMotpToUserSPhoneResponseMessage'>
+    <part name='response' element='tns:sendMotpToUserSPhoneResponse' />
+  </message>
+  <message name='validateTheMotpEnteredByUserRequestMessage'>
+    <part name='parameters' element='tns:validateTheMotpEnteredByUserParameters' />
+  </message>
+  <message name='validateTheMotpEnteredByUserResponseMessage'>
+    <part name='response' element='tns:validateTheMotpEnteredByUserResponse' />
+  </message>
+  <portType name='motpSmsLessTwoFactorAuthenticationPortType'>
+    <operation name='generateApiKey'>
+      <documentation>aPI Call to generate user API Key</documentation>
+      <input message='tns:generateApiKeyRequestMessage' name='generateApiKeyInput' />
+      <output message='tns:generateApiKeyResponseMessage' name='generateApiKeyOutput' />
+    </operation>
+    <operation name='sendMotpToUserSPhone'>
+      <documentation>this call is used to send missed call OTP to end user s phone device</documentation>
+      <input message='tns:sendMotpToUserSPhoneRequestMessage' name='sendMotpToUserSPhoneInput' />
+      <output message='tns:sendMotpToUserSPhoneResponseMessage' name='sendMotpToUserSPhoneOutput' />
+    </operation>
+    <operation name='validateTheMotpEnteredByUser'>
+      <documentation>when a user enters mOTP received This API Call can be made to check if the mOTP is correct</documentation>
+      <input message='tns:validateTheMotpEnteredByUserRequestMessage' name='validateTheMotpEnteredByUserInput' />
+      <output message='tns:validateTheMotpEnteredByUserResponseMessage' name='validateTheMotpEnteredByUserOutput' />
+    </operation>
+  </portType>
+  <binding name='motpSmsLessTwoFactorAuthenticationBinding' type='tns:motpSmsLessTwoFactorAuthenticationPortType'>
+    <operation name='generateApiKey'>
+      <soap12:operation soapAction='http://generateApiKey' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendMotpToUserSPhone'>
+      <soap12:operation soapAction='http://sendMotpToUserSPhone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='validateTheMotpEnteredByUser'>
+      <soap12:operation soapAction='http://validateTheMotpEnteredByUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='motpSmsLessTwoFactorAuthentication'>
+    <documentation>mOTP is an Open API Alternative to sms based One Time Password It is a hosted secured scalable solution for customer phone verification that works without SMS mOTP brings an innovative approach for customer phone verification It replaces SMS based one time password with an OTP over a missed call to mobile landline phone Thereby eliminating any Cost Delay Dnd Hurdles</documentation>
+    <port name='motpSmsLessTwoFactorAuthenticationPort' binding='tns:motpSmsLessTwoFactorAuthenticationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://motpSmsLessTwoFactorAuthentication' />
+    </port>
+  </service>
+</definitions>

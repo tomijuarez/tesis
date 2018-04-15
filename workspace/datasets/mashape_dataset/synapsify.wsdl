@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/synapsify/' name='synapsify' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/synapsify/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/synapsify/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/synapsify/'>
+      <xsd:element name='queryAndCategorizeTextResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='uuid' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getIndexingResultParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='indexid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timestamp' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='uuid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='verbatimauthor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='verbatimtitle' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getIndexingResultResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='para-list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='tension' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='thematics' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='num' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='quotability' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='credibility' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='meaningfulness' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='top-themes' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='paraNum' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='storyArcAlist' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n0' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='subThemesString' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='gravitas5' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='verbatim' type='xsd:string' minOccurs='0' />
+            <xsd:element name='quality' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='synapsify' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='queryAndCategorizeTextRequestMessage' />
+  <message name='queryAndCategorizeTextResponseMessage'>
+    <part name='response' element='tns:queryAndCategorizeTextResponse' />
+  </message>
+  <message name='getIndexingResultRequestMessage'>
+    <part name='parameters' element='tns:getIndexingResultParameters' />
+  </message>
+  <message name='getIndexingResultResponseMessage'>
+    <part name='response' element='tns:getIndexingResultResponse' />
+  </message>
+  <portType name='synapsifyPortType'>
+    <operation name='queryAndCategorizeText'>
+      <documentation>query and categorize text under a named index This is the most important type of request within the Synapsify API allowing for super accurate querying and categorization of text under a named index On success returns a UUID universally unique identifier which should be passed in any subsequent GET request to retrieve the analysis result</documentation>
+      <input message='tns:queryAndCategorizeTextRequestMessage' name='queryAndCategorizeTextInput' />
+      <output message='tns:queryAndCategorizeTextResponseMessage' name='queryAndCategorizeTextOutput' />
+    </operation>
+    <operation name='getIndexingResult'>
+      <documentation>on success returns as a JSON object the result of an indexing analysis otherwise a status message showing percentage done</documentation>
+      <input message='tns:getIndexingResultRequestMessage' name='getIndexingResultInput' />
+      <output message='tns:getIndexingResultResponseMessage' name='getIndexingResultOutput' />
+    </operation>
+  </portType>
+  <binding name='synapsifyBinding' type='tns:synapsifyPortType'>
+    <operation name='queryAndCategorizeText'>
+      <soap12:operation soapAction='http://queryAndCategorizeText' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getIndexingResult'>
+      <soap12:operation soapAction='http://getIndexingResult' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='synapsify'>
+    <documentation>synapsify s REST API is based on a core set of linguistic algorithms utilizing phonemics natural language processing NLP machine learning etc The API has been designed to be as flexible as possible and can be adapted to a very wide range of domains and fields of interest including Reading any type of written content based on several dimensions Revealing the quality balance credibility and quotablity of such content and its most important topics and phrases Indexing and matching against other written content or customized indexes Enhancing the ability to discover understand and segment actionable insights</documentation>
+    <port name='synapsifyPort' binding='tns:synapsifyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://synapsify' />
+    </port>
+  </service>
+</definitions>

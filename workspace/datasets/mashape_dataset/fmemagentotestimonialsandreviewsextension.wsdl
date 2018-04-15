@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fmeMagentoTestimonialsAndReviewsExtension/' name='fmeMagentoTestimonialsAndReviewsExtension' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fmeMagentoTestimonialsAndReviewsExtension/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fmeMagentoTestimonialsAndReviewsExtension/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fmeMagentoTestimonialsAndReviewsExtension/'>
+      <xsd:element name='userGuideResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='userGuideRequestMessage' />
+  <message name='userGuideResponseMessage'>
+    <part name='response' element='tns:userGuideResponse' />
+  </message>
+  <portType name='fmeMagentoTestimonialsAndReviewsExtensionPortType'>
+    <operation name='userGuide'>
+      <documentation></documentation>
+      <input message='tns:userGuideRequestMessage' name='userGuideInput' />
+      <output message='tns:userGuideResponseMessage' name='userGuideOutput' />
+    </operation>
+  </portType>
+  <binding name='fmeMagentoTestimonialsAndReviewsExtensionBinding' type='tns:fmeMagentoTestimonialsAndReviewsExtensionPortType'>
+    <operation name='userGuide'>
+      <soap12:operation soapAction='http://userGuide' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fmeMagentoTestimonialsAndReviewsExtension'>
+    <documentation>fME Product testimonials extension allows you to show customer reviews on product page and home page using an elegant slider This module also enables users to like unlike comment and rage testimonials User reviews are shown in threaded view This module creates a separate landing page for reviews as well as each one has its own page Learn more about the features on product page</documentation>
+    <port name='fmeMagentoTestimonialsAndReviewsExtensionPort' binding='tns:fmeMagentoTestimonialsAndReviewsExtensionBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fmeMagentoTestimonialsAndReviewsExtension' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/openfema/' name='openfema' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/openfema/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/openfema/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/openfema/'>
+      <xsd:element name='getEntityParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='metadata' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='filter' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='select' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='top' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='entityname' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='orderby' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='skip' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='DisasterDeclarationsSummaries' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='incidentEndDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='declarationDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='disasterType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hmProgramDeclared' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='incidentType' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='disasterCloseOutDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='declaredCountyArea' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='ihProgramDeclared' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='incidentBeginDate' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='iaProgramDeclared' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='paProgramDeclared' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='disasterNumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='_id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityByIdParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='entity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getEntityByIdResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='metadata' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='filter' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='select' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='top' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='format' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='entityname' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='orderby' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='skip' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='DisasterDeclarationsSummaries' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getEntityRequestMessage'>
+    <part name='parameters' element='tns:getEntityParameters' />
+  </message>
+  <message name='getEntityResponseMessage'>
+    <part name='response' element='tns:getEntityResponse' />
+  </message>
+  <message name='getEntityByIdRequestMessage'>
+    <part name='parameters' element='tns:getEntityByIdParameters' />
+  </message>
+  <message name='getEntityByIdResponseMessage'>
+    <part name='response' element='tns:getEntityByIdResponse' />
+  </message>
+  <portType name='openfemaPortType'>
+    <operation name='getEntity'>
+      <documentation>you can find a full list of supported Entities at http www fema gov data feeds APIs</documentation>
+      <input message='tns:getEntityRequestMessage' name='getEntityInput' />
+      <output message='tns:getEntityResponseMessage' name='getEntityOutput' />
+    </operation>
+    <operation name='getEntityById'>
+      <documentation>retrieves a specific record identified by its ID field id</documentation>
+      <input message='tns:getEntityByIdRequestMessage' name='getEntityByIdInput' />
+      <output message='tns:getEntityByIdResponseMessage' name='getEntityByIdOutput' />
+    </operation>
+  </portType>
+  <binding name='openfemaBinding' type='tns:openfemaPortType'>
+    <operation name='getEntity'>
+      <soap12:operation soapAction='http://getEntity' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getEntityById'>
+      <soap12:operation soapAction='http://getEntityById' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='openfema'>
+    <documentation>openFEMA is an authoritative source for FEMA s public data which has been released as part of the Open Government Initiative The OpenFEMA API provides the public with free read only access to FEMA datasets that include information on public assistance funded projects public assistance applicants hazard mitigation grants and disaster declarations The API can also be used to retrieve its own documentation and a listing of the available datasets</documentation>
+    <port name='openfemaPort' binding='tns:openfemaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://openfema' />
+    </port>
+  </service>
+</definitions>

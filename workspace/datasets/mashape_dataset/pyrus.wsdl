@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pyrus/' name='pyrus' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pyrus/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pyrus/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pyrus/'>
+      <xsd:element name='businessParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='description' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='businessResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='businessRequestMessage'>
+    <part name='parameters' element='tns:businessParameters' />
+  </message>
+  <message name='businessResponseMessage'>
+    <part name='response' element='tns:businessResponse' />
+  </message>
+  <portType name='pyrusPortType'>
+    <operation name='business'>
+      <documentation>collaboration</documentation>
+      <input message='tns:businessRequestMessage' name='businessInput' />
+      <output message='tns:businessResponseMessage' name='businessOutput' />
+    </operation>
+  </portType>
+  <binding name='pyrusBinding' type='tns:pyrusPortType'>
+    <operation name='business'>
+      <soap12:operation soapAction='http://business' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pyrus'>
+    <documentation>pyrus redefines collaborative work It is a platform that supports workplace exchanges transparently manages responsibility for every unit of work and streamlines workflows Pyrus makes your work day smarter by automating your tedious yet essential business processes You can set up customized workflows with just a few clicks such as automatically requesting approvals routing business forms or simply delegating routine tasks to several employees It s easy to implement it saves both you and your colleagues time and lets you get back to actually getting work done</documentation>
+    <port name='pyrusPort' binding='tns:pyrusBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pyrus' />
+    </port>
+  </service>
+</definitions>

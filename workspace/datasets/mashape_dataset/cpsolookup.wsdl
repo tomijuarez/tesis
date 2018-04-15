@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/cpsoLookup/' name='cpsoLookup' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/cpsoLookup/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/cpsoLookup/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/cpsoLookup/'>
+      <xsd:element name='physicianLookupParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='physicianLookupResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='physicianLookupRequestMessage'>
+    <part name='parameters' element='tns:physicianLookupParameters' />
+  </message>
+  <message name='physicianLookupResponseMessage'>
+    <part name='response' element='tns:physicianLookupResponse' />
+  </message>
+  <portType name='cpsoLookupPortType'>
+    <operation name='physicianLookup'>
+      <documentation>find Physician by Name</documentation>
+      <input message='tns:physicianLookupRequestMessage' name='physicianLookupInput' />
+      <output message='tns:physicianLookupResponseMessage' name='physicianLookupOutput' />
+    </operation>
+  </portType>
+  <binding name='cpsoLookupBinding' type='tns:cpsoLookupPortType'>
+    <operation name='physicianLookup'>
+      <soap12:operation soapAction='http://physicianLookup' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='cpsoLookup'>
+    <documentation>aPI to find Physician CPSO numbers based on physican name address site location etc</documentation>
+    <port name='cpsoLookupPort' binding='tns:cpsoLookupBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://cpsoLookup' />
+    </port>
+  </service>
+</definitions>

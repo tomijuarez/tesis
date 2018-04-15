@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/quickEmailVerification/' name='quickEmailVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/quickEmailVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/quickEmailVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/quickEmailVerification/'>
+      <xsd:element name='vVerifyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='vVerifyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='reason' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='role' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='accept_all' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='user' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='disposable' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='vVerifyRequestMessage'>
+    <part name='parameters' element='tns:vVerifyParameters' />
+  </message>
+  <message name='vVerifyResponseMessage'>
+    <part name='response' element='tns:vVerifyResponse' />
+  </message>
+  <portType name='quickEmailVerificationPortType'>
+    <operation name='vVerify'>
+      <documentation></documentation>
+      <input message='tns:vVerifyRequestMessage' name='vVerifyInput' />
+      <output message='tns:vVerifyResponseMessage' name='vVerifyOutput' />
+    </operation>
+  </portType>
+  <binding name='quickEmailVerificationBinding' type='tns:quickEmailVerificationPortType'>
+    <operation name='vVerify'>
+      <soap12:operation soapAction='http://vVerify' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='quickEmailVerification'>
+    <documentation>improve your mail deliverability rates and protect your IP reputation by using our Free Email Verification Service Need further help You can contact us at http quickemailverification com contact us</documentation>
+    <port name='quickEmailVerificationPort' binding='tns:quickEmailVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://quickEmailVerification' />
+    </port>
+  </service>
+</definitions>

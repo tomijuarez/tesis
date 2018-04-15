@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/grabicon/' name='grabicon' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/grabicon/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/grabicon/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/grabicon/'>
+      <xsd:element name='iconParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='iconResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='iconRequestMessage'>
+    <part name='parameters' element='tns:iconParameters' />
+  </message>
+  <message name='iconResponseMessage'>
+    <part name='response' element='tns:iconResponse' />
+  </message>
+  <portType name='grabiconPortType'>
+    <operation name='icon'>
+      <documentation>grab the favicon for a given domain in the size you want</documentation>
+      <input message='tns:iconRequestMessage' name='iconInput' />
+      <output message='tns:iconResponseMessage' name='iconOutput' />
+    </operation>
+  </portType>
+  <binding name='grabiconBinding' type='tns:grabiconPortType'>
+    <operation name='icon'>
+      <soap12:operation soapAction='http://icon' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='grabicon'>
+    <documentation>grabicon is a free service that makes it fast and easy to get high quality favicons from around the web in the size you want instantly It can take several seconds to a retrieve a domain s favicon from scratch We do the hard work in advance so you get a high quality PNG image in milliseconds Grabicon is free for developers to use in their applications We want to be used by as many web mobile apps as possible</documentation>
+    <port name='grabiconPort' binding='tns:grabiconBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://grabicon' />
+    </port>
+  </service>
+</definitions>

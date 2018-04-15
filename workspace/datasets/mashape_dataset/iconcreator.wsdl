@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/iconCreator/' name='iconCreator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/iconCreator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/iconCreator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/iconCreator/'>
+      <xsd:element name='createIconParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bgcolor' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='bgshape' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='color' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dimensions' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='name' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='padding' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createIconResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createIconRequestMessage'>
+    <part name='parameters' element='tns:createIconParameters' />
+  </message>
+  <message name='createIconResponseMessage'>
+    <part name='response' element='tns:createIconResponse' />
+  </message>
+  <portType name='iconCreatorPortType'>
+    <operation name='createIcon'>
+      <documentation>check icon category and names here http www you tracker com API IconCreator Client</documentation>
+      <input message='tns:createIconRequestMessage' name='createIconInput' />
+      <output message='tns:createIconResponseMessage' name='createIconOutput' />
+    </operation>
+  </portType>
+  <binding name='iconCreatorBinding' type='tns:iconCreatorPortType'>
+    <operation name='createIcon'>
+      <soap12:operation soapAction='http://createIcon' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='iconCreator'>
+    <documentation>icon Creator API is a free web api for creating flat icon with custom dimensions padding background shape background color and color You can use this API for over icon</documentation>
+    <port name='iconCreatorPort' binding='tns:iconCreatorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://iconCreator' />
+    </port>
+  </service>
+</definitions>

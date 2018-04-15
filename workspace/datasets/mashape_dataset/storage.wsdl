@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/storage/' name='storage' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/storage/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/storage/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/storage/'>
+      <xsd:element name='deleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='informationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='informationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='uploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='deleteRequestMessage'>
+    <part name='parameters' element='tns:deleteParameters' />
+  </message>
+  <message name='deleteResponseMessage'>
+    <part name='response' element='tns:deleteResponse' />
+  </message>
+  <message name='informationRequestMessage'>
+    <part name='parameters' element='tns:informationParameters' />
+  </message>
+  <message name='informationResponseMessage'>
+    <part name='response' element='tns:informationResponse' />
+  </message>
+  <message name='statusRequestMessage' />
+  <message name='statusResponseMessage'>
+    <part name='response' element='tns:statusResponse' />
+  </message>
+  <message name='uploadRequestMessage' />
+  <message name='uploadResponseMessage'>
+    <part name='response' element='tns:uploadResponse' />
+  </message>
+  <portType name='storagePortType'>
+    <operation name='delete'>
+      <documentation>delete an object</documentation>
+      <input message='tns:deleteRequestMessage' name='deleteInput' />
+      <output message='tns:deleteResponseMessage' name='deleteOutput' />
+    </operation>
+    <operation name='information'>
+      <documentation>get object details</documentation>
+      <input message='tns:informationRequestMessage' name='informationInput' />
+      <output message='tns:informationResponseMessage' name='informationOutput' />
+    </operation>
+    <operation name='status'>
+      <documentation>get the current api status</documentation>
+      <input message='tns:statusRequestMessage' name='statusInput' />
+      <output message='tns:statusResponseMessage' name='statusOutput' />
+    </operation>
+    <operation name='upload'>
+      <documentation>upload data to our servers</documentation>
+      <input message='tns:uploadRequestMessage' name='uploadInput' />
+      <output message='tns:uploadResponseMessage' name='uploadOutput' />
+    </operation>
+  </portType>
+  <binding name='storageBinding' type='tns:storagePortType'>
+    <operation name='delete'>
+      <soap12:operation soapAction='http://delete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='information'>
+      <soap12:operation soapAction='http://information' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='status'>
+      <soap12:operation soapAction='http://status' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='upload'>
+      <soap12:operation soapAction='http://upload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='storage'>
+    <documentation>storage stores stuff Simply POST some stuff to us and we ll host it We haven t fully launched yet but when we do it ll be awesome</documentation>
+    <port name='storagePort' binding='tns:storageBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://storage' />
+    </port>
+  </service>
+</definitions>

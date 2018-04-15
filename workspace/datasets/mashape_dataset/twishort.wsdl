@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/twishort/' name='twishort' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/twishort/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/twishort/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/twishort/'>
+      <xsd:element name='postResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='postRequestMessage' />
+  <message name='postResponseMessage'>
+    <part name='response' element='tns:postResponse' />
+  </message>
+  <portType name='twishortPortType'>
+    <operation name='post'>
+      <documentation>post the long text to Twishort and receive a tweet sized message with a link to the complete post</documentation>
+      <input message='tns:postRequestMessage' name='postInput' />
+      <output message='tns:postResponseMessage' name='postOutput' />
+    </operation>
+  </portType>
+  <binding name='twishortBinding' type='tns:twishortPortType'>
+    <operation name='post'>
+      <soap12:operation soapAction='http://post' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='twishort'>
+    <documentation>twishort API can be used by Twitter applications to post the long text to Twishort and receive a tweet sized message with a link to the complete post</documentation>
+    <port name='twishortPort' binding='tns:twishortBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://twishort' />
+    </port>
+  </service>
+</definitions>

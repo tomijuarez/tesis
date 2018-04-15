@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/zebraplan/' name='zebraplan' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/zebraplan/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/zebraplan/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/zebraplan/'>
+      <xsd:element name='checkTheDatabaseForASubdomainParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='subdomain' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='checkTheDatabaseForASubdomainResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='checkTheDatabaseForASubdomainRequestMessage'>
+    <part name='parameters' element='tns:checkTheDatabaseForASubdomainParameters' />
+  </message>
+  <message name='checkTheDatabaseForASubdomainResponseMessage'>
+    <part name='response' element='tns:checkTheDatabaseForASubdomainResponse' />
+  </message>
+  <portType name='zebraplanPortType'>
+    <operation name='checkTheDatabaseForASubdomain'>
+      <documentation>check the Database for a SubDomain Use this endpoint to test your api connexion is working</documentation>
+      <input message='tns:checkTheDatabaseForASubdomainRequestMessage' name='checkTheDatabaseForASubdomainInput' />
+      <output message='tns:checkTheDatabaseForASubdomainResponseMessage' name='checkTheDatabaseForASubdomainOutput' />
+    </operation>
+  </portType>
+  <binding name='zebraplanBinding' type='tns:zebraplanPortType'>
+    <operation name='checkTheDatabaseForASubdomain'>
+      <soap12:operation soapAction='http://checkTheDatabaseForASubdomain' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='zebraplan'>
+    <documentation>zebraPlan is an agile project management tool for software development companies ZebraPlan provides a web API which enables developers to integrate their websites mobile applications or other non web based applications with the ZebraPlan software using simple HTTP methods in either XML or JSON formats</documentation>
+    <port name='zebraplanPort' binding='tns:zebraplanBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://zebraplan' />
+    </port>
+  </service>
+</definitions>

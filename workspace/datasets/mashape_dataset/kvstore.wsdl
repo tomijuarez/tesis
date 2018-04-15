@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kvstore/' name='kvstore' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kvstore/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kvstore/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kvstore/'>
+      <xsd:element name='collectionListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createCollectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteCollectionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteCollectionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteKeyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteKeyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAValueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAValueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCollectionInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getCollectionInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='signUpResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='storeValueParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='collection' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='storeValueResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='collectionListRequestMessage' />
+  <message name='collectionListResponseMessage'>
+    <part name='response' element='tns:collectionListResponse' />
+  </message>
+  <message name='createCollectionRequestMessage' />
+  <message name='createCollectionResponseMessage'>
+    <part name='response' element='tns:createCollectionResponse' />
+  </message>
+  <message name='deleteCollectionRequestMessage'>
+    <part name='parameters' element='tns:deleteCollectionParameters' />
+  </message>
+  <message name='deleteCollectionResponseMessage'>
+    <part name='response' element='tns:deleteCollectionResponse' />
+  </message>
+  <message name='deleteKeyRequestMessage'>
+    <part name='parameters' element='tns:deleteKeyParameters' />
+  </message>
+  <message name='deleteKeyResponseMessage'>
+    <part name='response' element='tns:deleteKeyResponse' />
+  </message>
+  <message name='getAValueRequestMessage'>
+    <part name='parameters' element='tns:getAValueParameters' />
+  </message>
+  <message name='getAValueResponseMessage'>
+    <part name='response' element='tns:getAValueResponse' />
+  </message>
+  <message name='getCollectionInfoRequestMessage'>
+    <part name='parameters' element='tns:getCollectionInfoParameters' />
+  </message>
+  <message name='getCollectionInfoResponseMessage'>
+    <part name='response' element='tns:getCollectionInfoResponse' />
+  </message>
+  <message name='getItemsRequestMessage'>
+    <part name='parameters' element='tns:getItemsParameters' />
+  </message>
+  <message name='getItemsResponseMessage'>
+    <part name='response' element='tns:getItemsResponse' />
+  </message>
+  <message name='signUpRequestMessage' />
+  <message name='signUpResponseMessage'>
+    <part name='response' element='tns:signUpResponse' />
+  </message>
+  <message name='storeValueRequestMessage'>
+    <part name='parameters' element='tns:storeValueParameters' />
+  </message>
+  <message name='storeValueResponseMessage'>
+    <part name='response' element='tns:storeValueResponse' />
+  </message>
+  <portType name='kvstorePortType'>
+    <operation name='collectionList'>
+      <documentation>get the list of all collections</documentation>
+      <input message='tns:collectionListRequestMessage' name='collectionListInput' />
+      <output message='tns:collectionListResponseMessage' name='collectionListOutput' />
+    </operation>
+    <operation name='createCollection'>
+      <documentation>create a new collection</documentation>
+      <input message='tns:createCollectionRequestMessage' name='createCollectionInput' />
+      <output message='tns:createCollectionResponseMessage' name='createCollectionOutput' />
+    </operation>
+    <operation name='deleteCollection'>
+      <documentation>delete a Collection</documentation>
+      <input message='tns:deleteCollectionRequestMessage' name='deleteCollectionInput' />
+      <output message='tns:deleteCollectionResponseMessage' name='deleteCollectionOutput' />
+    </operation>
+    <operation name='deleteKey'>
+      <documentation>delete a key value pair</documentation>
+      <input message='tns:deleteKeyRequestMessage' name='deleteKeyInput' />
+      <output message='tns:deleteKeyResponseMessage' name='deleteKeyOutput' />
+    </operation>
+    <operation name='getAValue'>
+      <documentation>read the value</documentation>
+      <input message='tns:getAValueRequestMessage' name='getAValueInput' />
+      <output message='tns:getAValueResponseMessage' name='getAValueOutput' />
+    </operation>
+    <operation name='getCollectionInfo'>
+      <documentation>get information about the Collection</documentation>
+      <input message='tns:getCollectionInfoRequestMessage' name='getCollectionInfoInput' />
+      <output message='tns:getCollectionInfoResponseMessage' name='getCollectionInfoOutput' />
+    </operation>
+    <operation name='getItems'>
+      <documentation>get key value pairs ordered by DESC creation time</documentation>
+      <input message='tns:getItemsRequestMessage' name='getItemsInput' />
+      <output message='tns:getItemsResponseMessage' name='getItemsOutput' />
+    </operation>
+    <operation name='signUp'>
+      <documentation>sign up kvstore io</documentation>
+      <input message='tns:signUpRequestMessage' name='signUpInput' />
+      <output message='tns:signUpResponseMessage' name='signUpOutput' />
+    </operation>
+    <operation name='storeValue'>
+      <documentation>store a key value pair</documentation>
+      <input message='tns:storeValueRequestMessage' name='storeValueInput' />
+      <output message='tns:storeValueResponseMessage' name='storeValueOutput' />
+    </operation>
+  </portType>
+  <binding name='kvstoreBinding' type='tns:kvstorePortType'>
+    <operation name='collectionList'>
+      <soap12:operation soapAction='http://collectionList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createCollection'>
+      <soap12:operation soapAction='http://createCollection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteCollection'>
+      <soap12:operation soapAction='http://deleteCollection' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteKey'>
+      <soap12:operation soapAction='http://deleteKey' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAValue'>
+      <soap12:operation soapAction='http://getAValue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getCollectionInfo'>
+      <soap12:operation soapAction='http://getCollectionInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getItems'>
+      <soap12:operation soapAction='http://getItems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='signUp'>
+      <soap12:operation soapAction='http://signUp' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='storeValue'>
+      <soap12:operation soapAction='http://storeValue' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kvstore'>
+    <documentation>the simple key value API based storage service</documentation>
+    <port name='kvstorePort' binding='tns:kvstoreBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kvstore' />
+    </port>
+  </service>
+</definitions>

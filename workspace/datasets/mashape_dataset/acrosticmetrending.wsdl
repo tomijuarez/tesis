@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/acrosticMeTrending/' name='acrosticMeTrending' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/acrosticMeTrending/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/acrosticMeTrending/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/acrosticMeTrending/'>
+      <xsd:element name='getListOfTrendingPagesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='servicefilter' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='timefilter' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getListOfTrendingPagesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='shares' type='xsd:int' minOccurs='0' />
+            <xsd:element name='clicks' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getListOfTrendingPagesRequestMessage'>
+    <part name='parameters' element='tns:getListOfTrendingPagesParameters' />
+  </message>
+  <message name='getListOfTrendingPagesResponseMessage'>
+    <part name='response' element='tns:getListOfTrendingPagesResponse' />
+  </message>
+  <portType name='acrosticMeTrendingPortType'>
+    <operation name='getListOfTrendingPages'>
+      <documentation>a real time feed of the latest pages that are growing in popularity on the Acrostic me website</documentation>
+      <input message='tns:getListOfTrendingPagesRequestMessage' name='getListOfTrendingPagesInput' />
+      <output message='tns:getListOfTrendingPagesResponseMessage' name='getListOfTrendingPagesOutput' />
+    </operation>
+  </portType>
+  <binding name='acrosticMeTrendingBinding' type='tns:acrosticMeTrendingPortType'>
+    <operation name='getListOfTrendingPages'>
+      <soap12:operation soapAction='http://getListOfTrendingPages' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='acrosticMeTrending'>
+    <documentation>a real time feed of the pages currently growing in popularity on the Acrostic me website</documentation>
+    <port name='acrosticMeTrendingPort' binding='tns:acrosticMeTrendingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://acrosticMeTrending' />
+    </port>
+  </service>
+</definitions>

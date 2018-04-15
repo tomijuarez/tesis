@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dmoz/' name='dmoz' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dmoz/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dmoz/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dmoz/'>
+      <xsd:element name='dmozParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dmozResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dmoz_categories' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Category' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='Language' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='URL' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='dmoz_copyright' type='xsd:string' minOccurs='0' />
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dmozRequestMessage'>
+    <part name='parameters' element='tns:dmozParameters' />
+  </message>
+  <message name='dmozResponseMessage'>
+    <part name='response' element='tns:dmozResponse' />
+  </message>
+  <portType name='dmozPortType'>
+    <operation name='dmoz'>
+      <documentation>dmoz</documentation>
+      <input message='tns:dmozRequestMessage' name='dmozInput' />
+      <output message='tns:dmozResponseMessage' name='dmozOutput' />
+    </operation>
+  </portType>
+  <binding name='dmozBinding' type='tns:dmozPortType'>
+    <operation name='dmoz'>
+      <soap12:operation soapAction='http://dmoz' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dmoz'>
+    <documentation>this API retrieves DMOZ category for a given domain</documentation>
+    <port name='dmozPort' binding='tns:dmozBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dmoz' />
+    </port>
+  </service>
+</definitions>

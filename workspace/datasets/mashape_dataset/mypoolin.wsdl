@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mypoolin/' name='mypoolin' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mypoolin/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mypoolin/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mypoolin/'>
+      <xsd:element name='pageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='voucherpageResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='pageRequestMessage' />
+  <message name='pageResponseMessage'>
+    <part name='response' element='tns:pageResponse' />
+  </message>
+  <message name='voucherpageRequestMessage' />
+  <message name='voucherpageResponseMessage'>
+    <part name='response' element='tns:voucherpageResponse' />
+  </message>
+  <portType name='mypoolinPortType'>
+    <operation name='page'>
+      <documentation>requires product parameters like ID name description and more along with your client name that has been notified to us</documentation>
+      <input message='tns:pageRequestMessage' name='pageInput' />
+      <output message='tns:pageResponseMessage' name='pageOutput' />
+    </operation>
+    <operation name='voucherpage'>
+      <documentation>for group gifting of vouchers packages cards etc Requires parameters productname voucher client name shared and approved with us separately and imgSrc source image</documentation>
+      <input message='tns:voucherpageRequestMessage' name='voucherpageInput' />
+      <output message='tns:voucherpageResponseMessage' name='voucherpageOutput' />
+    </operation>
+  </portType>
+  <binding name='mypoolinBinding' type='tns:mypoolinPortType'>
+    <operation name='page'>
+      <soap12:operation soapAction='http://page' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='voucherpage'>
+      <soap12:operation soapAction='http://voucherpage' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mypoolin'>
+    <documentation>myPoolin API is the smartest way to allow your customers to do group purchases like group gifting group travel booking party dinner cost sharing wedding registries and more It is a RESTful plugin that gets seamlessly integrated either in the form of native integration complete front end customization or a microsite partial front end customization</documentation>
+    <port name='mypoolinPort' binding='tns:mypoolinBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mypoolin' />
+    </port>
+  </service>
+</definitions>

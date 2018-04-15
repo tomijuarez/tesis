@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/medicalTerminologyToolkit/' name='medicalTerminologyToolkit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/medicalTerminologyToolkit/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/medicalTerminologyToolkit/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/medicalTerminologyToolkit/'>
+      <xsd:element name='diseaseThesaurusParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='disease' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='diseaseThesaurusResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='disease_header' type='xsd:string' minOccurs='0' />
+            <xsd:element name='terms' type='xsd:string' minOccurs='0' />
+            <xsd:element name='synonyms' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' minOccurs='0' />
+            <xsd:element name='result_found' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='mesh_version' type='xsd:string' minOccurs='0' />
+            <xsd:element name='source_mesh_data_download_unix_timestamp' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='diseaseThesaurusRequestMessage'>
+    <part name='parameters' element='tns:diseaseThesaurusParameters' />
+  </message>
+  <message name='diseaseThesaurusResponseMessage'>
+    <part name='response' element='tns:diseaseThesaurusResponse' />
+  </message>
+  <portType name='medicalTerminologyToolkitPortType'>
+    <operation name='diseaseThesaurus'>
+      <documentation>finds synonyms of diseases</documentation>
+      <input message='tns:diseaseThesaurusRequestMessage' name='diseaseThesaurusInput' />
+      <output message='tns:diseaseThesaurusResponseMessage' name='diseaseThesaurusOutput' />
+    </operation>
+  </portType>
+  <binding name='medicalTerminologyToolkitBinding' type='tns:medicalTerminologyToolkitPortType'>
+    <operation name='diseaseThesaurus'>
+      <soap12:operation soapAction='http://diseaseThesaurus' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='medicalTerminologyToolkit'>
+    <documentation>this API aims to offer tools that people can use to more easily parse medical terminology in an automated fashion The API uses data provided by the U S National Library of Medicine more information here http www nlm nih gov mesh More Endpoints coming soon</documentation>
+    <port name='medicalTerminologyToolkitPort' binding='tns:medicalTerminologyToolkitBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://medicalTerminologyToolkit' />
+    </port>
+  </service>
+</definitions>

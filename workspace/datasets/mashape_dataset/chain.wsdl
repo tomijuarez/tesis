@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/chain/' name='chain' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/chain/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/chain/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/chain/'>
+      <xsd:element name='bitCoinTransactionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bitCoinTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='block_time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='outputs' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='script_hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='required_signatures' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='spent' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='script' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='fees' type='xsd:int' minOccurs='0' />
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='inputs' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sequence' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='script_signature' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='block_hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='double_spend' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='block_height' type='xsd:int' minOccurs='0' />
+            <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='chain_received_at' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='propagation_level' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='blockByHeightParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='blockByHeightResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='difficulty' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='transaction_hashes' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='bits' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='previous_block_hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='merkle_root' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:int' minOccurs='0' />
+            <xsd:element name='nonce' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='height' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='blockHashParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='blockHashResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='difficulty' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='transaction_hashes' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='bits' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='previous_block_hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='merkle_root' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:int' minOccurs='0' />
+            <xsd:element name='nonce' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='height' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createWebhookEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='blockchain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='confirmations' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='event' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='webhookid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createWebhookEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteWebhookParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteWebhookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteWebhookEventParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='eventtype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='webhookid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteWebhookEventResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='latestBlockResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='difficulty' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='transaction_hashes' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='bits' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='previous_block_hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='time' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+            <xsd:element name='merkle_root' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:int' minOccurs='0' />
+            <xsd:element name='nonce' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='height' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listWebhookEventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='webhookid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listWebhookEventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listWebhooksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1' />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='multipleAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addressaddressaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='multipleAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='unconfirmed_received' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='balance' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='unconfirmed_balance' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='received' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sent' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='unconfirmed_sent' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='multipleAddressTransactionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addressaddressaddress' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='multipleAddressTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='block_time' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='outputs' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='script_hex' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='required_signatures' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='spent' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='script' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fees' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='inputs' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='sequence' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='script_signature' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='block_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='block_height' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='chain_received_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='receiver_addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sender_addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnsByHashParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnsByHashResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sender_addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnsByHeightParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='height' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='opReturnsByHeightResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='receiver_addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='sender_addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='text' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendBitcoinTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='unconfirmed_received' type='xsd:int' minOccurs='0' />
+            <xsd:element name='balance' type='xsd:int' minOccurs='0' />
+            <xsd:element name='unconfirmed_balance' type='xsd:int' minOccurs='0' />
+            <xsd:element name='received' type='xsd:int' minOccurs='0' />
+            <xsd:element name='sent' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='unconfirmed_sent' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleAddressTransactionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='singleAddressTransactionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='block_time' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='outputs' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='script_hex' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='required_signatures' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='spent' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='script' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='fees' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='inputs' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='sequence' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='script_signature' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='block_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='block_height' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='chain_received_at' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hash' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='transactionOpReturnParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hash' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='transactionOpReturnResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='receiver_addresses' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='hex' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='sender_addresses' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unspentOutputMultipleAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='addressaddressaddress' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unspentOutputMultipleAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='script_hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='required_signatures' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='spent' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='script' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unspentOutputSingleAddressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='unspentOutputSingleAddressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='script_hex' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='addresses' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='required_signatures' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='spent' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='script_type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='output_index' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='confirmations' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='value' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='transaction_hash' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='script' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateWebhookParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateWebhookResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='webhookCreateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='bitCoinTransactionRequestMessage'>
+    <part name='parameters' element='tns:bitCoinTransactionParameters' />
+  </message>
+  <message name='bitCoinTransactionResponseMessage'>
+    <part name='response' element='tns:bitCoinTransactionResponse' />
+  </message>
+  <message name='blockByHeightRequestMessage'>
+    <part name='parameters' element='tns:blockByHeightParameters' />
+  </message>
+  <message name='blockByHeightResponseMessage'>
+    <part name='response' element='tns:blockByHeightResponse' />
+  </message>
+  <message name='blockHashRequestMessage'>
+    <part name='parameters' element='tns:blockHashParameters' />
+  </message>
+  <message name='blockHashResponseMessage'>
+    <part name='response' element='tns:blockHashResponse' />
+  </message>
+  <message name='createWebhookEventRequestMessage'>
+    <part name='parameters' element='tns:createWebhookEventParameters' />
+  </message>
+  <message name='createWebhookEventResponseMessage'>
+    <part name='response' element='tns:createWebhookEventResponse' />
+  </message>
+  <message name='deleteWebhookRequestMessage'>
+    <part name='parameters' element='tns:deleteWebhookParameters' />
+  </message>
+  <message name='deleteWebhookResponseMessage'>
+    <part name='response' element='tns:deleteWebhookResponse' />
+  </message>
+  <message name='deleteWebhookEventRequestMessage'>
+    <part name='parameters' element='tns:deleteWebhookEventParameters' />
+  </message>
+  <message name='deleteWebhookEventResponseMessage'>
+    <part name='response' element='tns:deleteWebhookEventResponse' />
+  </message>
+  <message name='latestBlockRequestMessage' />
+  <message name='latestBlockResponseMessage'>
+    <part name='response' element='tns:latestBlockResponse' />
+  </message>
+  <message name='listWebhookEventsRequestMessage'>
+    <part name='parameters' element='tns:listWebhookEventsParameters' />
+  </message>
+  <message name='listWebhookEventsResponseMessage'>
+    <part name='response' element='tns:listWebhookEventsResponse' />
+  </message>
+  <message name='listWebhooksRequestMessage' />
+  <message name='listWebhooksResponseMessage'>
+    <part name='response' element='tns:listWebhooksResponse' />
+  </message>
+  <message name='multipleAddressRequestMessage'>
+    <part name='parameters' element='tns:multipleAddressParameters' />
+  </message>
+  <message name='multipleAddressResponseMessage'>
+    <part name='response' element='tns:multipleAddressResponse' />
+  </message>
+  <message name='multipleAddressTransactionRequestMessage'>
+    <part name='parameters' element='tns:multipleAddressTransactionParameters' />
+  </message>
+  <message name='multipleAddressTransactionResponseMessage'>
+    <part name='response' element='tns:multipleAddressTransactionResponse' />
+  </message>
+  <message name='opReturnRequestMessage'>
+    <part name='parameters' element='tns:opReturnParameters' />
+  </message>
+  <message name='opReturnResponseMessage'>
+    <part name='response' element='tns:opReturnResponse' />
+  </message>
+  <message name='opReturnsByHashRequestMessage'>
+    <part name='parameters' element='tns:opReturnsByHashParameters' />
+  </message>
+  <message name='opReturnsByHashResponseMessage'>
+    <part name='response' element='tns:opReturnsByHashResponse' />
+  </message>
+  <message name='opReturnsByHeightRequestMessage'>
+    <part name='parameters' element='tns:opReturnsByHeightParameters' />
+  </message>
+  <message name='opReturnsByHeightResponseMessage'>
+    <part name='response' element='tns:opReturnsByHeightResponse' />
+  </message>
+  <message name='sendBitcoinTransactionRequestMessage' />
+  <message name='sendBitcoinTransactionResponseMessage'>
+    <part name='response' element='tns:sendBitcoinTransactionResponse' />
+  </message>
+  <message name='singleAddressRequestMessage'>
+    <part name='parameters' element='tns:singleAddressParameters' />
+  </message>
+  <message name='singleAddressResponseMessage'>
+    <part name='response' element='tns:singleAddressResponse' />
+  </message>
+  <message name='singleAddressTransactionRequestMessage'>
+    <part name='parameters' element='tns:singleAddressTransactionParameters' />
+  </message>
+  <message name='singleAddressTransactionResponseMessage'>
+    <part name='response' element='tns:singleAddressTransactionResponse' />
+  </message>
+  <message name='transactionOpReturnRequestMessage'>
+    <part name='parameters' element='tns:transactionOpReturnParameters' />
+  </message>
+  <message name='transactionOpReturnResponseMessage'>
+    <part name='response' element='tns:transactionOpReturnResponse' />
+  </message>
+  <message name='unspentOutputMultipleAddressRequestMessage'>
+    <part name='parameters' element='tns:unspentOutputMultipleAddressParameters' />
+  </message>
+  <message name='unspentOutputMultipleAddressResponseMessage'>
+    <part name='response' element='tns:unspentOutputMultipleAddressResponse' />
+  </message>
+  <message name='unspentOutputSingleAddressRequestMessage'>
+    <part name='parameters' element='tns:unspentOutputSingleAddressParameters' />
+  </message>
+  <message name='unspentOutputSingleAddressResponseMessage'>
+    <part name='response' element='tns:unspentOutputSingleAddressResponse' />
+  </message>
+  <message name='updateWebhookRequestMessage'>
+    <part name='parameters' element='tns:updateWebhookParameters' />
+  </message>
+  <message name='updateWebhookResponseMessage'>
+    <part name='response' element='tns:updateWebhookResponse' />
+  </message>
+  <message name='webhookCreateRequestMessage' />
+  <message name='webhookCreateResponseMessage'>
+    <part name='response' element='tns:webhookCreateResponse' />
+  </message>
+  <portType name='chainPortType'>
+    <operation name='bitCoinTransaction'>
+      <documentation>returns details about a Bitcoin transaction including inputs and outputs</documentation>
+      <input message='tns:bitCoinTransactionRequestMessage' name='bitCoinTransactionInput' />
+      <output message='tns:bitCoinTransactionResponseMessage' name='bitCoinTransactionOutput' />
+    </operation>
+    <operation name='blockByHeight'>
+      <documentation>returns a block by height</documentation>
+      <input message='tns:blockByHeightRequestMessage' name='blockByHeightInput' />
+      <output message='tns:blockByHeightResponseMessage' name='blockByHeightOutput' />
+    </operation>
+    <operation name='blockHash'>
+      <documentation>returns a block by hash</documentation>
+      <input message='tns:blockHashRequestMessage' name='blockHashInput' />
+      <output message='tns:blockHashResponseMessage' name='blockHashOutput' />
+    </operation>
+    <operation name='createWebhookEvent'>
+      <documentation>creates a Webhook Event</documentation>
+      <input message='tns:createWebhookEventRequestMessage' name='createWebhookEventInput' />
+      <output message='tns:createWebhookEventResponseMessage' name='createWebhookEventOutput' />
+    </operation>
+    <operation name='deleteWebhook'>
+      <documentation>deletes a Webhook and all associated Webhook Events</documentation>
+      <input message='tns:deleteWebhookRequestMessage' name='deleteWebhookInput' />
+      <output message='tns:deleteWebhookResponseMessage' name='deleteWebhookOutput' />
+    </operation>
+    <operation name='deleteWebhookEvent'>
+      <documentation>deletes a Webhook Event which will stop all further POST requests for the event</documentation>
+      <input message='tns:deleteWebhookEventRequestMessage' name='deleteWebhookEventInput' />
+      <output message='tns:deleteWebhookEventResponseMessage' name='deleteWebhookEventOutput' />
+    </operation>
+    <operation name='latestBlock'>
+      <documentation>returns the latest block added to the main chain</documentation>
+      <input message='tns:latestBlockRequestMessage' name='latestBlockInput' />
+      <output message='tns:latestBlockResponseMessage' name='latestBlockOutput' />
+    </operation>
+    <operation name='listWebhookEvents'>
+      <documentation>lists all Webhook Events associated with a Webhook</documentation>
+      <input message='tns:listWebhookEventsRequestMessage' name='listWebhookEventsInput' />
+      <output message='tns:listWebhookEventsResponseMessage' name='listWebhookEventsOutput' />
+    </operation>
+    <operation name='listWebhooks'>
+      <documentation>list all of the Webhooks associated with a Chain API KEY</documentation>
+      <input message='tns:listWebhooksRequestMessage' name='listWebhooksInput' />
+      <output message='tns:listWebhooksResponseMessage' name='listWebhooksOutput' />
+    </operation>
+    <operation name='multipleAddress'>
+      <documentation>returns basic balance details for more Bitcoin addresses</documentation>
+      <input message='tns:multipleAddressRequestMessage' name='multipleAddressInput' />
+      <output message='tns:multipleAddressResponseMessage' name='multipleAddressOutput' />
+    </operation>
+    <operation name='multipleAddressTransaction'>
+      <documentation>returns a set of transactions for more Bitcoin addresses</documentation>
+      <input message='tns:multipleAddressTransactionRequestMessage' name='multipleAddressTransactionInput' />
+      <output message='tns:multipleAddressTransactionResponseMessage' name='multipleAddressTransactionOutput' />
+    </operation>
+    <operation name='opReturn'>
+      <documentation>returns any OP RETURN values sent and received by a Bitcoin Address</documentation>
+      <input message='tns:opReturnRequestMessage' name='opReturnInput' />
+      <output message='tns:opReturnResponseMessage' name='opReturnOutput' />
+    </operation>
+    <operation name='opReturnsByHash'>
+      <documentation>returns all OP RETURNs in block by hash</documentation>
+      <input message='tns:opReturnsByHashRequestMessage' name='opReturnsByHashInput' />
+      <output message='tns:opReturnsByHashResponseMessage' name='opReturnsByHashOutput' />
+    </operation>
+    <operation name='opReturnsByHeight'>
+      <documentation>returns all OP RETURNs in block by height</documentation>
+      <input message='tns:opReturnsByHeightRequestMessage' name='opReturnsByHeightInput' />
+      <output message='tns:opReturnsByHeightResponseMessage' name='opReturnsByHeightOutput' />
+    </operation>
+    <operation name='sendBitcoinTransaction'>
+      <documentation>accepts a signed transaction in hex format and sends it to the Bitcoin network</documentation>
+      <input message='tns:sendBitcoinTransactionRequestMessage' name='sendBitcoinTransactionInput' />
+      <output message='tns:sendBitcoinTransactionResponseMessage' name='sendBitcoinTransactionOutput' />
+    </operation>
+    <operation name='singleAddress'>
+      <documentation>returns basic balance details for one bitcoin address</documentation>
+      <input message='tns:singleAddressRequestMessage' name='singleAddressInput' />
+      <output message='tns:singleAddressResponseMessage' name='singleAddressOutput' />
+    </operation>
+    <operation name='singleAddressTransaction'>
+      <documentation>returns a set of transactions for one Bitcoin address</documentation>
+      <input message='tns:singleAddressTransactionRequestMessage' name='singleAddressTransactionInput' />
+      <output message='tns:singleAddressTransactionResponseMessage' name='singleAddressTransactionOutput' />
+    </operation>
+    <operation name='transactionOpReturn'>
+      <documentation>returns the OP RETURN value and associated addresses for any transaction containing an OP RETURN script</documentation>
+      <input message='tns:transactionOpReturnRequestMessage' name='transactionOpReturnInput' />
+      <output message='tns:transactionOpReturnResponseMessage' name='transactionOpReturnOutput' />
+    </operation>
+    <operation name='unspentOutputMultipleAddress'>
+      <documentation>returns a collection of unspent outputs for a Bitcoin addresses These outputs can be used as inputs for a new transaction</documentation>
+      <input message='tns:unspentOutputMultipleAddressRequestMessage' name='unspentOutputMultipleAddressInput' />
+      <output message='tns:unspentOutputMultipleAddressResponseMessage' name='unspentOutputMultipleAddressOutput' />
+    </operation>
+    <operation name='unspentOutputSingleAddress'>
+      <documentation>returns a collection of unspent outputs for a Bitcoin address These outputs can be used as inputs for a new transaction</documentation>
+      <input message='tns:unspentOutputSingleAddressRequestMessage' name='unspentOutputSingleAddressInput' />
+      <output message='tns:unspentOutputSingleAddressResponseMessage' name='unspentOutputSingleAddressOutput' />
+    </operation>
+    <operation name='updateWebhook'>
+      <documentation>update the URL of a Webhook</documentation>
+      <input message='tns:updateWebhookRequestMessage' name='updateWebhookInput' />
+      <output message='tns:updateWebhookResponseMessage' name='updateWebhookOutput' />
+    </operation>
+    <operation name='webhookCreate'>
+      <documentation>creates a Webhook</documentation>
+      <input message='tns:webhookCreateRequestMessage' name='webhookCreateInput' />
+      <output message='tns:webhookCreateResponseMessage' name='webhookCreateOutput' />
+    </operation>
+  </portType>
+  <binding name='chainBinding' type='tns:chainPortType'>
+    <operation name='bitCoinTransaction'>
+      <soap12:operation soapAction='http://bitCoinTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='blockByHeight'>
+      <soap12:operation soapAction='http://blockByHeight' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='blockHash'>
+      <soap12:operation soapAction='http://blockHash' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createWebhookEvent'>
+      <soap12:operation soapAction='http://createWebhookEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteWebhook'>
+      <soap12:operation soapAction='http://deleteWebhook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteWebhookEvent'>
+      <soap12:operation soapAction='http://deleteWebhookEvent' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='latestBlock'>
+      <soap12:operation soapAction='http://latestBlock' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listWebhookEvents'>
+      <soap12:operation soapAction='http://listWebhookEvents' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listWebhooks'>
+      <soap12:operation soapAction='http://listWebhooks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='multipleAddress'>
+      <soap12:operation soapAction='http://multipleAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='multipleAddressTransaction'>
+      <soap12:operation soapAction='http://multipleAddressTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='opReturn'>
+      <soap12:operation soapAction='http://opReturn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='opReturnsByHash'>
+      <soap12:operation soapAction='http://opReturnsByHash' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='opReturnsByHeight'>
+      <soap12:operation soapAction='http://opReturnsByHeight' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='sendBitcoinTransaction'>
+      <soap12:operation soapAction='http://sendBitcoinTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleAddress'>
+      <soap12:operation soapAction='http://singleAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='singleAddressTransaction'>
+      <soap12:operation soapAction='http://singleAddressTransaction' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='transactionOpReturn'>
+      <soap12:operation soapAction='http://transactionOpReturn' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unspentOutputMultipleAddress'>
+      <soap12:operation soapAction='http://unspentOutputMultipleAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='unspentOutputSingleAddress'>
+      <soap12:operation soapAction='http://unspentOutputSingleAddress' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateWebhook'>
+      <soap12:operation soapAction='http://updateWebhook' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='webhookCreate'>
+      <soap12:operation soapAction='http://webhookCreate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='chain'>
+    <documentation>chain API makes it easy to build Bitcoin applications that are fast reliable and secure It doesn t need setup no credit card required Quickly retrieve wallet balances send transactions more</documentation>
+    <port name='chainPort' binding='tns:chainBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://chain' />
+    </port>
+  </service>
+</definitions>

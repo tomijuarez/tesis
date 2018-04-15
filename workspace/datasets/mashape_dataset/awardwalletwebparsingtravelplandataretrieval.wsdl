@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/awardwalletWebParsingTravelPlanDataRetrieval/' name='awardwalletWebParsingTravelPlanDataRetrieval' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingTravelPlanDataRetrieval/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/awardwalletWebParsingTravelPlanDataRetrieval/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/awardwalletWebParsingTravelPlanDataRetrieval/'>
+      <xsd:element name='getitinerariesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listprovidersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getitinerariesRequestMessage' />
+  <message name='getitinerariesResponseMessage'>
+    <part name='response' element='tns:getitinerariesResponse' />
+  </message>
+  <message name='listprovidersRequestMessage' />
+  <message name='listprovidersResponseMessage'>
+    <part name='response' element='tns:listprovidersResponse' />
+  </message>
+  <portType name='awardwalletWebParsingTravelPlanDataRetrievalPortType'>
+    <operation name='getitineraries'>
+      <documentation>get itineraries for account</documentation>
+      <input message='tns:getitinerariesRequestMessage' name='getitinerariesInput' />
+      <output message='tns:getitinerariesResponseMessage' name='getitinerariesOutput' />
+    </operation>
+    <operation name='listproviders'>
+      <documentation>information about supported loyalty programs</documentation>
+      <input message='tns:listprovidersRequestMessage' name='listprovidersInput' />
+      <output message='tns:listprovidersResponseMessage' name='listprovidersOutput' />
+    </operation>
+  </portType>
+  <binding name='awardwalletWebParsingTravelPlanDataRetrievalBinding' type='tns:awardwalletWebParsingTravelPlanDataRetrievalPortType'>
+    <operation name='getitineraries'>
+      <soap12:operation soapAction='http://getitineraries' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listproviders'>
+      <soap12:operation soapAction='http://listproviders' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='awardwalletWebParsingTravelPlanDataRetrieval'>
+    <documentation>this API allows you to retrieve travel plan details from user profiles by scanning their loyalty accounts Travel plans are returned in an OpenTravel standard data format For more details please contact us via http awardwallet com contact php</documentation>
+    <port name='awardwalletWebParsingTravelPlanDataRetrievalPort' binding='tns:awardwalletWebParsingTravelPlanDataRetrievalBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://awardwalletWebParsingTravelPlanDataRetrieval' />
+    </port>
+  </service>
+</definitions>

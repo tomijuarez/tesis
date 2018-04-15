@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mujmal/' name='mujmal' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mujmal/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mujmal/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mujmal/'>
+      <xsd:element name='summarizeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='summarizeRequestMessage' />
+  <message name='summarizeResponseMessage'>
+    <part name='response' element='tns:summarizeResponse' />
+  </message>
+  <portType name='mujmalPortType'>
+    <operation name='summarize'>
+      <documentation></documentation>
+      <input message='tns:summarizeRequestMessage' name='summarizeInput' />
+      <output message='tns:summarizeResponseMessage' name='summarizeOutput' />
+    </operation>
+  </portType>
+  <binding name='mujmalBinding' type='tns:mujmalPortType'>
+    <operation name='summarize'>
+      <soap12:operation soapAction='http://summarize' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mujmal'>
+    <documentation>mujmal summarizes Arabic news articles by selecting the most important sentences from the article it uses data mining techniques specific to the arabic language to achieve this When using Mujmal we can select how large the summary we are interested in to be</documentation>
+    <port name='mujmalPort' binding='tns:mujmalBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mujmal' />
+    </port>
+  </service>
+</definitions>

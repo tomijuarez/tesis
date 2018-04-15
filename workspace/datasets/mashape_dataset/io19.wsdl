@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/io/' name='io' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/io/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/io/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/io/'>
+      <xsd:element name='longShortParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accesstoken' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='appid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='longurl' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='longShortResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='longShortRequestMessage'>
+    <part name='parameters' element='tns:longShortParameters' />
+  </message>
+  <message name='longShortResponseMessage'>
+    <part name='response' element='tns:longShortResponse' />
+  </message>
+  <portType name='ioPortType'>
+    <operation name='longShort'>
+      <documentation>long url to short url</documentation>
+      <input message='tns:longShortRequestMessage' name='longShortInput' />
+      <output message='tns:longShortResponseMessage' name='longShortOutput' />
+    </operation>
+  </portType>
+  <binding name='ioBinding' type='tns:ioPortType'>
+    <operation name='longShort'>
+      <soap12:operation soapAction='http://longShort' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='io'>
+    <documentation></documentation>
+    <port name='ioPort' binding='tns:ioBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://io' />
+    </port>
+  </service>
+</definitions>

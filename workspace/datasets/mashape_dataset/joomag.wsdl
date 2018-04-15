@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/joomag/' name='joomag' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/joomag/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/joomag/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/joomag/'>
+      <xsd:element name='actionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' type='xsd:string' minOccurs='0' />
+            <xsd:element name='response' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='magazines' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='ID' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='error' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='actionRequestMessage' />
+  <message name='actionResponseMessage'>
+    <part name='response' element='tns:actionResponse' />
+  </message>
+  <portType name='joomagPortType'>
+    <operation name='action'>
+      <documentation>joomag provides an API which can be used to manage Joomag account by rd party applications For instance it may be used for creating magazines from PDF files The API is based on HTTP protocol with JSON responses API method is determined by the action parameter Refer to http www joomag com en api for more details</documentation>
+      <input message='tns:actionRequestMessage' name='actionInput' />
+      <output message='tns:actionResponseMessage' name='actionOutput' />
+    </operation>
+  </portType>
+  <binding name='joomagBinding' type='tns:joomagPortType'>
+    <operation name='action'>
+      <soap12:operation soapAction='http://action' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='joomag'>
+    <documentation>joomag is a FREE service for creating digital interactive content including digital magazines photo albums catalogs and e books</documentation>
+    <port name='joomagPort' binding='tns:joomagBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://joomag' />
+    </port>
+  </service>
+</definitions>

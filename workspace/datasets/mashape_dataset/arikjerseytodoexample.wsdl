@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/arikJerseyTodoExample/' name='arikJerseyTodoExample' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/arikJerseyTodoExample/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/arikJerseyTodoExample/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/arikJerseyTodoExample/'>
+      <xsd:element name='createItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='modification_token' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='modificationtoken' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='deleteItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAllItemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modifyItemParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='modifyItemResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='body' type='xsd:string' minOccurs='0' />
+            <xsd:element name='title' type='xsd:string' minOccurs='0' />
+            <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchItemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='searchItemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='body' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='done' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subscribeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='itemid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phonenumber' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='subscribeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createItemRequestMessage' />
+  <message name='createItemResponseMessage'>
+    <part name='response' element='tns:createItemResponse' />
+  </message>
+  <message name='deleteItemRequestMessage'>
+    <part name='parameters' element='tns:deleteItemParameters' />
+  </message>
+  <message name='deleteItemResponseMessage'>
+    <part name='response' element='tns:deleteItemResponse' />
+  </message>
+  <message name='getAllItemsRequestMessage' />
+  <message name='getAllItemsResponseMessage'>
+    <part name='response' element='tns:getAllItemsResponse' />
+  </message>
+  <message name='getItemRequestMessage'>
+    <part name='parameters' element='tns:getItemParameters' />
+  </message>
+  <message name='getItemResponseMessage'>
+    <part name='response' element='tns:getItemResponse' />
+  </message>
+  <message name='modifyItemRequestMessage'>
+    <part name='parameters' element='tns:modifyItemParameters' />
+  </message>
+  <message name='modifyItemResponseMessage'>
+    <part name='response' element='tns:modifyItemResponse' />
+  </message>
+  <message name='searchItemsRequestMessage'>
+    <part name='parameters' element='tns:searchItemsParameters' />
+  </message>
+  <message name='searchItemsResponseMessage'>
+    <part name='response' element='tns:searchItemsResponse' />
+  </message>
+  <message name='subscribeRequestMessage'>
+    <part name='parameters' element='tns:subscribeParameters' />
+  </message>
+  <message name='subscribeResponseMessage'>
+    <part name='response' element='tns:subscribeResponse' />
+  </message>
+  <portType name='arikJerseyTodoExamplePortType'>
+    <operation name='createItem'>
+      <documentation>create a new todo item</documentation>
+      <input message='tns:createItemRequestMessage' name='createItemInput' />
+      <output message='tns:createItemResponseMessage' name='createItemOutput' />
+    </operation>
+    <operation name='deleteItem'>
+      <documentation>remove an existing todo item</documentation>
+      <input message='tns:deleteItemRequestMessage' name='deleteItemInput' />
+      <output message='tns:deleteItemResponseMessage' name='deleteItemOutput' />
+    </operation>
+    <operation name='getAllItems'>
+      <documentation>get all todo items</documentation>
+      <input message='tns:getAllItemsRequestMessage' name='getAllItemsInput' />
+      <output message='tns:getAllItemsResponseMessage' name='getAllItemsOutput' />
+    </operation>
+    <operation name='getItem'>
+      <documentation>get a todo item by its ID</documentation>
+      <input message='tns:getItemRequestMessage' name='getItemInput' />
+      <output message='tns:getItemResponseMessage' name='getItemOutput' />
+    </operation>
+    <operation name='modifyItem'>
+      <documentation>modify an existing todo item</documentation>
+      <input message='tns:modifyItemRequestMessage' name='modifyItemInput' />
+      <output message='tns:modifyItemResponseMessage' name='modifyItemOutput' />
+    </operation>
+    <operation name='searchItems'>
+      <documentation>search all todo items</documentation>
+      <input message='tns:searchItemsRequestMessage' name='searchItemsInput' />
+      <output message='tns:searchItemsResponseMessage' name='searchItemsOutput' />
+    </operation>
+    <operation name='subscribe'>
+      <documentation>subscribe to the done status changes of a todo item</documentation>
+      <input message='tns:subscribeRequestMessage' name='subscribeInput' />
+      <output message='tns:subscribeResponseMessage' name='subscribeOutput' />
+    </operation>
+  </portType>
+  <binding name='arikJerseyTodoExampleBinding' type='tns:arikJerseyTodoExamplePortType'>
+    <operation name='createItem'>
+      <soap12:operation soapAction='http://createItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='deleteItem'>
+      <soap12:operation soapAction='http://deleteItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAllItems'>
+      <soap12:operation soapAction='http://getAllItems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getItem'>
+      <soap12:operation soapAction='http://getItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='modifyItem'>
+      <soap12:operation soapAction='http://modifyItem' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='searchItems'>
+      <soap12:operation soapAction='http://searchItems' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='subscribe'>
+      <soap12:operation soapAction='http://subscribe' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='arikJerseyTodoExample'>
+    <documentation>a Jersey based Todo API example hosted on Heroku</documentation>
+    <port name='arikJerseyTodoExamplePort' binding='tns:arikJerseyTodoExampleBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://arikJerseyTodoExample' />
+    </port>
+  </service>
+</definitions>

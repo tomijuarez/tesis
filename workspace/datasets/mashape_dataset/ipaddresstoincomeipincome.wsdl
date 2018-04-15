@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/ipAddressToIncomeIpIncome/' name='ipAddressToIncomeIpIncome' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/ipAddressToIncomeIpIncome/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/ipAddressToIncomeIpIncome/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/ipAddressToIncomeIpIncome/'>
+      <xsd:element name='ipIncomeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipIncomeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='zip' type='xsd:int' minOccurs='0' />
+            <xsd:element name='average_annual_income_in_2012' type='xsd:int' minOccurs='0' />
+            <xsd:element name='median_household_income_in_2012' type='xsd:int' minOccurs='0' />
+            <xsd:element name='city' type='xsd:string' minOccurs='0' />
+            <xsd:element name='median_family_income_in_2012' type='xsd:int' minOccurs='0' />
+            <xsd:element name='api-author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='gini_index_Of_income_inequality_in_2012' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-usage' type='xsd:string' minOccurs='0' />
+            <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipIncomeRequestMessage'>
+    <part name='parameters' element='tns:ipIncomeParameters' />
+  </message>
+  <message name='ipIncomeResponseMessage'>
+    <part name='response' element='tns:ipIncomeResponse' />
+  </message>
+  <portType name='ipAddressToIncomeIpIncomePortType'>
+    <operation name='ipIncome'>
+      <documentation>returns average income level of surrounding areas of an ip address data is based on census</documentation>
+      <input message='tns:ipIncomeRequestMessage' name='ipIncomeInput' />
+      <output message='tns:ipIncomeResponseMessage' name='ipIncomeOutput' />
+    </operation>
+  </portType>
+  <binding name='ipAddressToIncomeIpIncomeBinding' type='tns:ipAddressToIncomeIpIncomePortType'>
+    <operation name='ipIncome'>
+      <soap12:operation soapAction='http://ipIncome' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='ipAddressToIncomeIpIncome'>
+    <documentation>returns average income level of surrounding areas of an ip address data is based on census one of a kind</documentation>
+    <port name='ipAddressToIncomeIpIncomePort' binding='tns:ipAddressToIncomeIpIncomeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://ipAddressToIncomeIpIncome' />
+    </port>
+  </service>
+</definitions>

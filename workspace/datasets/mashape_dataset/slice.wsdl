@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/slice/' name='slice' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/slice/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/slice/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/slice/'>
+      <xsd:element name='categoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='emailsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='itemsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdeleted' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='itemsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='loginUpdateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mailboxesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdeleted' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mailboxesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lastUpdated' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='provider' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='user' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='email' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='status' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='merchantsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='serviceEmail' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='hidden' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='returnPolicyUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='editable' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='serviceFormUrl' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='logoUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='servicePhoneNumber' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='createTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='websiteUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='priceDropPolicyUrl' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ordersParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdeleted' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ordersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='providersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='domains' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='key' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='preferred' type='xsd:boolean' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='purchaseTypesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='recallsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shipmentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='showdeleted' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='since' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shipmentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='shipper' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='trackingEnabled' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='logoUrl' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='destinationAddress' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='postalCode' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='locationString' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='shippingDate' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='trackingUrl' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='history' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='activity' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='locationString' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='receivedShare' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='shippingEstimate' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='minDate' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='maxDate' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='emails' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='deliveryEstimate' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='minDate' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='maxDate' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='merchantTrackingUrl' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='trackingNumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='receivedDate' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='items' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='status' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='code' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shippersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='trackingEnabled' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='logoUrl' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='usersResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='currentTime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='result' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='firstName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lastName' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='createTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='updateTime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='userEmail' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='mailboxes' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='href' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='userName' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='categoriesRequestMessage' />
+  <message name='categoriesResponseMessage'>
+    <part name='response' element='tns:categoriesResponse' />
+  </message>
+  <message name='emailsRequestMessage' />
+  <message name='emailsResponseMessage'>
+    <part name='response' element='tns:emailsResponse' />
+  </message>
+  <message name='itemsRequestMessage'>
+    <part name='parameters' element='tns:itemsParameters' />
+  </message>
+  <message name='itemsResponseMessage'>
+    <part name='response' element='tns:itemsResponse' />
+  </message>
+  <message name='loginUpdateRequestMessage' />
+  <message name='loginUpdateResponseMessage'>
+    <part name='response' element='tns:loginUpdateResponse' />
+  </message>
+  <message name='mailboxesRequestMessage'>
+    <part name='parameters' element='tns:mailboxesParameters' />
+  </message>
+  <message name='mailboxesResponseMessage'>
+    <part name='response' element='tns:mailboxesResponse' />
+  </message>
+  <message name='merchantsRequestMessage' />
+  <message name='merchantsResponseMessage'>
+    <part name='response' element='tns:merchantsResponse' />
+  </message>
+  <message name='ordersRequestMessage'>
+    <part name='parameters' element='tns:ordersParameters' />
+  </message>
+  <message name='ordersResponseMessage'>
+    <part name='response' element='tns:ordersResponse' />
+  </message>
+  <message name='providersRequestMessage' />
+  <message name='providersResponseMessage'>
+    <part name='response' element='tns:providersResponse' />
+  </message>
+  <message name='purchaseTypesRequestMessage' />
+  <message name='purchaseTypesResponseMessage'>
+    <part name='response' element='tns:purchaseTypesResponse' />
+  </message>
+  <message name='recallsRequestMessage' />
+  <message name='recallsResponseMessage'>
+    <part name='response' element='tns:recallsResponse' />
+  </message>
+  <message name='shipmentsRequestMessage'>
+    <part name='parameters' element='tns:shipmentsParameters' />
+  </message>
+  <message name='shipmentsResponseMessage'>
+    <part name='response' element='tns:shipmentsResponse' />
+  </message>
+  <message name='shippersRequestMessage' />
+  <message name='shippersResponseMessage'>
+    <part name='response' element='tns:shippersResponse' />
+  </message>
+  <message name='usersRequestMessage' />
+  <message name='usersResponseMessage'>
+    <part name='response' element='tns:usersResponse' />
+  </message>
+  <portType name='slicePortType'>
+    <operation name='categories'>
+      <documentation>categories Resources</documentation>
+      <input message='tns:categoriesRequestMessage' name='categoriesInput' />
+      <output message='tns:categoriesResponseMessage' name='categoriesOutput' />
+    </operation>
+    <operation name='emails'>
+      <documentation>emails Resources</documentation>
+      <input message='tns:emailsRequestMessage' name='emailsInput' />
+      <output message='tns:emailsResponseMessage' name='emailsOutput' />
+    </operation>
+    <operation name='items'>
+      <documentation>items Resources</documentation>
+      <input message='tns:itemsRequestMessage' name='itemsInput' />
+      <output message='tns:itemsResponseMessage' name='itemsOutput' />
+    </operation>
+    <operation name='loginUpdate'>
+      <documentation>action to tell Slice to recrawl the mailboxes of a user who has just logged in</documentation>
+      <input message='tns:loginUpdateRequestMessage' name='loginUpdateInput' />
+      <output message='tns:loginUpdateResponseMessage' name='loginUpdateOutput' />
+    </operation>
+    <operation name='mailboxes'>
+      <documentation>mailboxes Resources</documentation>
+      <input message='tns:mailboxesRequestMessage' name='mailboxesInput' />
+      <output message='tns:mailboxesResponseMessage' name='mailboxesOutput' />
+    </operation>
+    <operation name='merchants'>
+      <documentation>merchants Resources</documentation>
+      <input message='tns:merchantsRequestMessage' name='merchantsInput' />
+      <output message='tns:merchantsResponseMessage' name='merchantsOutput' />
+    </operation>
+    <operation name='orders'>
+      <documentation>orders collection resources</documentation>
+      <input message='tns:ordersRequestMessage' name='ordersInput' />
+      <output message='tns:ordersResponseMessage' name='ordersOutput' />
+    </operation>
+    <operation name='providers'>
+      <documentation>mail Providers Resources</documentation>
+      <input message='tns:providersRequestMessage' name='providersInput' />
+      <output message='tns:providersResponseMessage' name='providersOutput' />
+    </operation>
+    <operation name='purchaseTypes'>
+      <documentation>purchase Types Resources</documentation>
+      <input message='tns:purchaseTypesRequestMessage' name='purchaseTypesInput' />
+      <output message='tns:purchaseTypesResponseMessage' name='purchaseTypesOutput' />
+    </operation>
+    <operation name='recalls'>
+      <documentation>recalls Resources</documentation>
+      <input message='tns:recallsRequestMessage' name='recallsInput' />
+      <output message='tns:recallsResponseMessage' name='recallsOutput' />
+    </operation>
+    <operation name='shipments'>
+      <documentation>shipments Resources</documentation>
+      <input message='tns:shipmentsRequestMessage' name='shipmentsInput' />
+      <output message='tns:shipmentsResponseMessage' name='shipmentsOutput' />
+    </operation>
+    <operation name='shippers'>
+      <documentation>shippers Resources</documentation>
+      <input message='tns:shippersRequestMessage' name='shippersInput' />
+      <output message='tns:shippersResponseMessage' name='shippersOutput' />
+    </operation>
+    <operation name='users'>
+      <documentation>users resource</documentation>
+      <input message='tns:usersRequestMessage' name='usersInput' />
+      <output message='tns:usersResponseMessage' name='usersOutput' />
+    </operation>
+  </portType>
+  <binding name='sliceBinding' type='tns:slicePortType'>
+    <operation name='categories'>
+      <soap12:operation soapAction='http://categories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='emails'>
+      <soap12:operation soapAction='http://emails' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='items'>
+      <soap12:operation soapAction='http://items' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='loginUpdate'>
+      <soap12:operation soapAction='http://loginUpdate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='mailboxes'>
+      <soap12:operation soapAction='http://mailboxes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='merchants'>
+      <soap12:operation soapAction='http://merchants' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='orders'>
+      <soap12:operation soapAction='http://orders' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='providers'>
+      <soap12:operation soapAction='http://providers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='purchaseTypes'>
+      <soap12:operation soapAction='http://purchaseTypes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='recalls'>
+      <soap12:operation soapAction='http://recalls' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='shipments'>
+      <soap12:operation soapAction='http://shipments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='shippers'>
+      <soap12:operation soapAction='http://shippers' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='users'>
+      <soap12:operation soapAction='http://users' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='slice'>
+    <documentation>slice has developed technology to extract purchase data from an email inbox and with the Slice Platform we are allowing developers everywhere to build awesome experiences that leverage their users purchase data We power applications from recommendation software to notification services to personal asset management software</documentation>
+    <port name='slicePort' binding='tns:sliceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://slice' />
+    </port>
+  </service>
+</definitions>

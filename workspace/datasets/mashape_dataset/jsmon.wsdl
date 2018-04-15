@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/jsmon/' name='jsmon' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/jsmon/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/jsmon/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/jsmon/'>
+      <xsd:element name='getInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='actiontype' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='callbackid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='sessionid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='siteid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='userid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='actionType' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='timeOnPage' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sessionID' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userID' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getInfoRequestMessage'>
+    <part name='parameters' element='tns:getInfoParameters' />
+  </message>
+  <message name='getInfoResponseMessage'>
+    <part name='response' element='tns:getInfoResponse' />
+  </message>
+  <portType name='jsmonPortType'>
+    <operation name='getInfo'>
+      <documentation>request information</documentation>
+      <input message='tns:getInfoRequestMessage' name='getInfoInput' />
+      <output message='tns:getInfoResponseMessage' name='getInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='jsmonBinding' type='tns:jsmonPortType'>
+    <operation name='getInfo'>
+      <soap12:operation soapAction='http://getInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='jsmon'>
+    <documentation>jSMon is an interactive tracking conversion tool Get started to understand who is on your site at a particular moment occasional visitor or potential customer And interact with him Our system will analyze visitor s behavioral factors and offer optimal variants for interaction with him We help to understand who are your visitors on line We make it possible to set up behavioral models you like We offer the visitor what he is interested in</documentation>
+    <port name='jsmonPort' binding='tns:jsmonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://jsmon' />
+    </port>
+  </service>
+</definitions>

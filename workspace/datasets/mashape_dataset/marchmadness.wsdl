@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/marchMadness/' name='marchMadness' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/marchMadness/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/marchMadness/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/marchMadness/'>
+      <xsd:element name='gamesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='away' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='college' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='conference' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='seed' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='team' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='home' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='college' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='conference' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='seed' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='team' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='teamsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='away' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='college' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='conference' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='seed' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='team' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='label' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='home' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='college' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='score' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='conference' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='seed' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='team' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='gamesRequestMessage' />
+  <message name='gamesResponseMessage'>
+    <part name='response' element='tns:gamesResponse' />
+  </message>
+  <message name='teamsRequestMessage' />
+  <message name='teamsResponseMessage'>
+    <part name='response' element='tns:teamsResponse' />
+  </message>
+  <portType name='marchMadnessPortType'>
+    <operation name='games'>
+      <documentation>returns game dates teams scores in the NCAA March Madness Tournament</documentation>
+      <input message='tns:gamesRequestMessage' name='gamesInput' />
+      <output message='tns:gamesResponseMessage' name='gamesOutput' />
+    </operation>
+    <operation name='teams'>
+      <documentation>returns teams in the NCAA March Madness Tournament</documentation>
+      <input message='tns:teamsRequestMessage' name='teamsInput' />
+      <output message='tns:teamsResponseMessage' name='teamsOutput' />
+    </operation>
+  </portType>
+  <binding name='marchMadnessBinding' type='tns:marchMadnessPortType'>
+    <operation name='games'>
+      <soap12:operation soapAction='http://games' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='teams'>
+      <soap12:operation soapAction='http://teams' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='marchMadness'>
+    <documentation>the unofficial NCAA March Madness tournament API providing team and game data in json xml csv and tsv formats</documentation>
+    <port name='marchMadnessPort' binding='tns:marchMadnessBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://marchMadness' />
+    </port>
+  </service>
+</definitions>

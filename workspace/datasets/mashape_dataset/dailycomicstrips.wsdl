@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dailyComicstrips/' name='dailyComicstrips' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dailyComicstrips/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dailyComicstrips/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dailyComicstrips/'>
+      <xsd:element name='getcomiclinksResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='intelligent_life' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='beetle_bailey' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='wizard_of_id' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='archie' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='blondie' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='hagar_the_horrible' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='peanuts' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='dennis_the_menace' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='garfield' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='marvin' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='bizarro' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='pickles' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='dilbert' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='zits' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='rugrats' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getcomiclinksRequestMessage' />
+  <message name='getcomiclinksResponseMessage'>
+    <part name='response' element='tns:getcomiclinksResponse' />
+  </message>
+  <portType name='dailyComicstripsPortType'>
+    <operation name='getcomiclinks'>
+      <documentation>gets links to many comics</documentation>
+      <input message='tns:getcomiclinksRequestMessage' name='getcomiclinksInput' />
+      <output message='tns:getcomiclinksResponseMessage' name='getcomiclinksOutput' />
+    </operation>
+  </portType>
+  <binding name='dailyComicstripsBinding' type='tns:dailyComicstripsPortType'>
+    <operation name='getcomiclinks'>
+      <soap12:operation soapAction='http://getcomiclinks' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dailyComicstrips'>
+    <documentation>an API that gets the links of the images of the most popular comicstrips Garfield Dilbert Peanuts More will be added soon Feel free to contribute</documentation>
+    <port name='dailyComicstripsPort' binding='tns:dailyComicstripsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dailyComicstrips' />
+    </port>
+  </service>
+</definitions>

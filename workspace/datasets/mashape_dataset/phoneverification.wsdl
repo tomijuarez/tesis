@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/phoneVerification/' name='phoneVerification' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/phoneVerification/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/phoneVerification/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/phoneVerification/'>
+      <xsd:element name='exportAllResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Uid' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Verified' type='xsd:boolean' minOccurs='0' />
+                  <xsd:element name='Number' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Timestamp' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lookupUserParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='uid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lookupUserResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Uid' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Verified' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='Number' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='Timestamp' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='newPhoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Error' type='xsd:string' minOccurs='0' />
+            <xsd:element name='Sent' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='overwritePhoneRecordResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='verifyPhoneResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Verified' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='exportAllRequestMessage' />
+  <message name='exportAllResponseMessage'>
+    <part name='response' element='tns:exportAllResponse' />
+  </message>
+  <message name='lookupUserRequestMessage'>
+    <part name='parameters' element='tns:lookupUserParameters' />
+  </message>
+  <message name='lookupUserResponseMessage'>
+    <part name='response' element='tns:lookupUserResponse' />
+  </message>
+  <message name='newPhoneRequestMessage' />
+  <message name='newPhoneResponseMessage'>
+    <part name='response' element='tns:newPhoneResponse' />
+  </message>
+  <message name='overwritePhoneRecordRequestMessage' />
+  <message name='overwritePhoneRecordResponseMessage'>
+    <part name='response' element='tns:overwritePhoneRecordResponse' />
+  </message>
+  <message name='verifyPhoneRequestMessage' />
+  <message name='verifyPhoneResponseMessage'>
+    <part name='response' element='tns:verifyPhoneResponse' />
+  </message>
+  <portType name='phoneVerificationPortType'>
+    <operation name='exportAll'>
+      <documentation></documentation>
+      <input message='tns:exportAllRequestMessage' name='exportAllInput' />
+      <output message='tns:exportAllResponseMessage' name='exportAllOutput' />
+    </operation>
+    <operation name='lookupUser'>
+      <input message='tns:lookupUserRequestMessage' name='lookupUserInput' />
+      <output message='tns:lookupUserResponseMessage' name='lookupUserOutput' />
+    </operation>
+    <operation name='newPhone'>
+      <documentation>new phone number to verify</documentation>
+      <input message='tns:newPhoneRequestMessage' name='newPhoneInput' />
+      <output message='tns:newPhoneResponseMessage' name='newPhoneOutput' />
+    </operation>
+    <operation name='overwritePhoneRecord'>
+      <documentation></documentation>
+      <input message='tns:overwritePhoneRecordRequestMessage' name='overwritePhoneRecordInput' />
+      <output message='tns:overwritePhoneRecordResponseMessage' name='overwritePhoneRecordOutput' />
+    </operation>
+    <operation name='verifyPhone'>
+      <input message='tns:verifyPhoneRequestMessage' name='verifyPhoneInput' />
+      <output message='tns:verifyPhoneResponseMessage' name='verifyPhoneOutput' />
+    </operation>
+  </portType>
+  <binding name='phoneVerificationBinding' type='tns:phoneVerificationPortType'>
+    <operation name='exportAll'>
+      <soap12:operation soapAction='http://exportAll' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='lookupUser'>
+      <soap12:operation soapAction='http://lookupUser' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='newPhone'>
+      <soap12:operation soapAction='http://newPhone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='overwritePhoneRecord'>
+      <soap12:operation soapAction='http://overwritePhoneRecord' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='verifyPhone'>
+      <soap12:operation soapAction='http://verifyPhone' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='phoneVerification'>
+    <documentation>phone verification is a great way to ensure that your users are genuine It is an increasingly common practice yet every one has to re invent the wheel to get it working Having used it for of our apps we decided to make it available to general public as a service This service uses text messaging to send verification code So it s more suited to mobile phones We haven t needed more than that However if you d like to run verifications via calling do let us know and we can add that feature</documentation>
+    <port name='phoneVerificationPort' binding='tns:phoneVerificationBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://phoneVerification' />
+    </port>
+  </service>
+</definitions>

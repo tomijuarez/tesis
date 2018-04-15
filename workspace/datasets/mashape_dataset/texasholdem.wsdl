@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/texasHoldEm/' name='texasHoldEm' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/texasHoldEm/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/texasHoldEm/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/texasHoldEm/'>
+      <xsd:element name='playParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='players' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='playResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='winners' type='xsd:int' minOccurs='0' />
+            <xsd:element name='winning_hands' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n1' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n2' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n3' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n4' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='showdown' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='player_cards' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n1' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n2' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n3' type='xsd:normalizedString' maxOccurs='unbounded' />
+                  <xsd:element name='n4' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='playRequestMessage'>
+    <part name='parameters' element='tns:playParameters' />
+  </message>
+  <message name='playResponseMessage'>
+    <part name='response' element='tns:playResponse' />
+  </message>
+  <portType name='texasHoldEmPortType'>
+    <operation name='play'>
+      <documentation></documentation>
+      <input message='tns:playRequestMessage' name='playInput' />
+      <output message='tns:playResponseMessage' name='playOutput' />
+    </operation>
+  </portType>
+  <binding name='texasHoldEmBinding' type='tns:texasHoldEmPortType'>
+    <operation name='play'>
+      <soap12:operation soapAction='http://play' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='texasHoldEm'>
+    <documentation>with this API you can easily develop a poker texas holdem game just design the graphic</documentation>
+    <port name='texasHoldEmPort' binding='tns:texasHoldEmBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://texasHoldEm' />
+    </port>
+  </service>
+</definitions>

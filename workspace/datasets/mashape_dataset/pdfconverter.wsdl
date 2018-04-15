@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/pdfConverter/' name='pdfConverter' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/pdfConverter/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/pdfConverter/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/pdfConverter/'>
+      <xsd:element name='convertFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='endpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startpage' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='convertUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertFileRequestMessage' />
+  <message name='convertFileResponseMessage'>
+    <part name='response' element='tns:convertFileResponse' />
+  </message>
+  <message name='convertUrlRequestMessage'>
+    <part name='parameters' element='tns:convertUrlParameters' />
+  </message>
+  <message name='convertUrlResponseMessage'>
+    <part name='response' element='tns:convertUrlResponse' />
+  </message>
+  <portType name='pdfConverterPortType'>
+    <operation name='convertFile'>
+      <documentation>converts pdf files to html docx xlsx json and txt files</documentation>
+      <input message='tns:convertFileRequestMessage' name='convertFileInput' />
+      <output message='tns:convertFileResponseMessage' name='convertFileOutput' />
+    </operation>
+    <operation name='convertUrl'>
+      <documentation>converts pdf files to html docx xlsx json and txt files</documentation>
+      <input message='tns:convertUrlRequestMessage' name='convertUrlInput' />
+      <output message='tns:convertUrlResponseMessage' name='convertUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='pdfConverterBinding' type='tns:pdfConverterPortType'>
+    <operation name='convertFile'>
+      <soap12:operation soapAction='http://convertFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='convertUrl'>
+      <soap12:operation soapAction='http://convertUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='pdfConverter'>
+    <documentation>this API extracts text data from PDF documents It can be used to create HTML documents that have high fidelity with the look of a PDF document Alternatively it can be used to create documents which capture the main parts of the document sections paragraphs tables lists and footnotes It also supports extraction to Word Excel JSON and plain text</documentation>
+    <port name='pdfConverterPort' binding='tns:pdfConverterBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://pdfConverter' />
+    </port>
+  </service>
+</definitions>

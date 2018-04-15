@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/quoteapi/' name='quoteapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/quoteapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/quoteapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/quoteapi/'>
+      <xsd:element name='longtermSymbolParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='longtermSymbolResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='period' type='xsd:int' minOccurs='0' />
+            <xsd:element name='performance' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trend' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='range' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lower' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='upper' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quotesSymbolParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='quotesSymbolResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='quotes' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='High' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Low' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Volume' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Adj_Close' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Close' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='Date' type='xsd:date' minOccurs='0' />
+                  <xsd:element name='Open' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shorttermSymbolParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='shorttermSymbolResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='period' type='xsd:int' minOccurs='0' />
+            <xsd:element name='performance' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trend' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='range' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='lower' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='upper' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='longtermSymbolRequestMessage'>
+    <part name='parameters' element='tns:longtermSymbolParameters' />
+  </message>
+  <message name='longtermSymbolResponseMessage'>
+    <part name='response' element='tns:longtermSymbolResponse' />
+  </message>
+  <message name='quotesSymbolRequestMessage'>
+    <part name='parameters' element='tns:quotesSymbolParameters' />
+  </message>
+  <message name='quotesSymbolResponseMessage'>
+    <part name='response' element='tns:quotesSymbolResponse' />
+  </message>
+  <message name='shorttermSymbolRequestMessage'>
+    <part name='parameters' element='tns:shorttermSymbolParameters' />
+  </message>
+  <message name='shorttermSymbolResponseMessage'>
+    <part name='response' element='tns:shorttermSymbolResponse' />
+  </message>
+  <portType name='quoteapiPortType'>
+    <operation name='longtermSymbol'>
+      <documentation>gets long term performance of a stock</documentation>
+      <input message='tns:longtermSymbolRequestMessage' name='longtermSymbolInput' />
+      <output message='tns:longtermSymbolResponseMessage' name='longtermSymbolOutput' />
+    </operation>
+    <operation name='quotesSymbol'>
+      <documentation>gets the quotes of the stock for the last days</documentation>
+      <input message='tns:quotesSymbolRequestMessage' name='quotesSymbolInput' />
+      <output message='tns:quotesSymbolResponseMessage' name='quotesSymbolOutput' />
+    </operation>
+    <operation name='shorttermSymbol'>
+      <documentation>gets the short term performance of a stock</documentation>
+      <input message='tns:shorttermSymbolRequestMessage' name='shorttermSymbolInput' />
+      <output message='tns:shorttermSymbolResponseMessage' name='shorttermSymbolOutput' />
+    </operation>
+  </portType>
+  <binding name='quoteapiBinding' type='tns:quoteapiPortType'>
+    <operation name='longtermSymbol'>
+      <soap12:operation soapAction='http://longtermSymbol' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='quotesSymbol'>
+      <soap12:operation soapAction='http://quotesSymbol' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='shorttermSymbol'>
+      <soap12:operation soapAction='http://shorttermSymbol' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='quoteapi'>
+    <documentation>this api provides analytics on Stock Prices Stock prices are curated from Yahoo Finance and Machine Learning is used to evaluate the stock</documentation>
+    <port name='quoteapiPort' binding='tns:quoteapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://quoteapi' />
+    </port>
+  </service>
+</definitions>

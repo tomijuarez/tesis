@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/statecounties/' name='statecounties' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/statecounties/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/statecounties/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/statecounties/'>
+      <xsd:element name='statecountiesStateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='statecountiesStateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='CountyCode' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='State' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='StateAbbr' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='County' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='NWSURL' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='statecountiesStateRequestMessage'>
+    <part name='parameters' element='tns:statecountiesStateParameters' />
+  </message>
+  <message name='statecountiesStateResponseMessage'>
+    <part name='response' element='tns:statecountiesStateResponse' />
+  </message>
+  <portType name='statecountiesPortType'>
+    <operation name='statecountiesState'>
+      <input message='tns:statecountiesStateRequestMessage' name='statecountiesStateInput' />
+      <output message='tns:statecountiesStateResponseMessage' name='statecountiesStateOutput' />
+    </operation>
+  </portType>
+  <binding name='statecountiesBinding' type='tns:statecountiesPortType'>
+    <operation name='statecountiesState'>
+      <soap12:operation soapAction='http://statecountiesState' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='statecounties'>
+    <documentation>returns list of state county data for a requested state</documentation>
+    <port name='statecountiesPort' binding='tns:statecountiesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://statecounties' />
+    </port>
+  </service>
+</definitions>

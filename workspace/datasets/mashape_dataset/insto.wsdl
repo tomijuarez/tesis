@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/insto/' name='insto' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/insto/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/insto/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/insto/'>
+      <xsd:element name='broadcastParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='item' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemn' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='broadcastResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='item' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemn' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='queryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='msg' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='userType' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apikey' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='item' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='itemn' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='key' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='value' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sendResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='broadcastRequestMessage'>
+    <part name='parameters' element='tns:broadcastParameters' />
+  </message>
+  <message name='broadcastResponseMessage'>
+    <part name='response' element='tns:broadcastResponse' />
+  </message>
+  <message name='queryRequestMessage'>
+    <part name='parameters' element='tns:queryParameters' />
+  </message>
+  <message name='queryResponseMessage'>
+    <part name='response' element='tns:queryResponse' />
+  </message>
+  <message name='sendRequestMessage'>
+    <part name='parameters' element='tns:sendParameters' />
+  </message>
+  <message name='sendResponseMessage'>
+    <part name='response' element='tns:sendResponse' />
+  </message>
+  <portType name='instoPortType'>
+    <operation name='broadcast'>
+      <documentation>send a collection of key pair values to all connected users</documentation>
+      <input message='tns:broadcastRequestMessage' name='broadcastInput' />
+      <output message='tns:broadcastResponseMessage' name='broadcastOutput' />
+    </operation>
+    <operation name='query'>
+      <documentation>return connected users that match a supplied query</documentation>
+      <input message='tns:queryRequestMessage' name='queryInput' />
+      <output message='tns:queryResponseMessage' name='queryOutput' />
+    </operation>
+    <operation name='send'>
+      <documentation>send a collection of key pair values to all matching connected users</documentation>
+      <input message='tns:sendRequestMessage' name='sendInput' />
+      <output message='tns:sendResponseMessage' name='sendOutput' />
+    </operation>
+  </portType>
+  <binding name='instoBinding' type='tns:instoPortType'>
+    <operation name='broadcast'>
+      <soap12:operation soapAction='http://broadcast' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='query'>
+      <soap12:operation soapAction='http://query' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='send'>
+      <soap12:operation soapAction='http://send' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='insto'>
+    <documentation>insto allows the simple addition of realtime websocket functionality to your web projects with no software installation or hardware configuration We handle the boring work behind the scenes to allow you to focus on developing rich and engaging applications for your users Create realtime chat analytics push notifications games presentation packages and so much more It is required that you sign up for an API key via www insto co uk</documentation>
+    <port name='instoPort' binding='tns:instoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://insto' />
+    </port>
+  </service>
+</definitions>

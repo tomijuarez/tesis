@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/termAnalysis/' name='termAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/termAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/termAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/termAnalysis/'>
+      <xsd:element name='termParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='termResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' minOccurs='0' />
+            <xsd:element name='lemma_text' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='termRequestMessage'>
+    <part name='parameters' element='tns:termParameters' />
+  </message>
+  <message name='termResponseMessage'>
+    <part name='response' element='tns:termResponse' />
+  </message>
+  <portType name='termAnalysisPortType'>
+    <operation name='term'>
+      <documentation>given a text this API returns lemma text</documentation>
+      <input message='tns:termRequestMessage' name='termInput' />
+      <output message='tns:termResponseMessage' name='termOutput' />
+    </operation>
+  </portType>
+  <binding name='termAnalysisBinding' type='tns:termAnalysisPortType'>
+    <operation name='term'>
+      <soap12:operation soapAction='http://term' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='termAnalysis'>
+    <documentation>given a text this API returns the lemmatized text</documentation>
+    <port name='termAnalysisPort' binding='tns:termAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://termAnalysis' />
+    </port>
+  </service>
+</definitions>

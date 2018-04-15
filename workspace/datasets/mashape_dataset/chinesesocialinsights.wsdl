@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/chineseSocialInsights/' name='chineseSocialInsights' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/chineseSocialInsights/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/chineseSocialInsights/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/chineseSocialInsights/'>
+      <xsd:element name='accessAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='accessAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='datetime' type='xsd:int' minOccurs='0' />
+            <xsd:element name='consumptions' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='subscriptions' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='report' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='current' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='last' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='percentage' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='plan' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='monthly' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='limit' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='overage' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='username' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSubscriptionsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='includespast' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='listSubscriptionsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='current' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='datetime' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='query' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='tags' type='xsd:normalizedString' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeSubscriptionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removeSubscriptionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveContextsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='end' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startend' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveContextsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='contexts' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='sentiment' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='raw' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveDemographicsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='end' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startend' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveDemographicsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='locations' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Dongcheng' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='chinese' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='count' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='coordinates' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='lng' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='lat' type='xsd:decimal' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='genders' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='f' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='m' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trends' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='genders' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1389913200' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='f' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='m' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='n1390086000' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='m' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='n1389826800' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='f' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='m' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveOverviewParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='end' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startend' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveOverviewResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='count' type='xsd:int' minOccurs='0' />
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trends' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='count' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1369868400' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='platforms' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1369868400' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='tencent_weibo' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='sina_weibo' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='platforms' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='tencent_weibo' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='sina_weibo' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveSentimentsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='end' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='startend' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='retrieveSentimentsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='emotions' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='love' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='joy' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='sentiments' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='neutral' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='positive' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='trends' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='emotions' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1369868400' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='love' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='joy' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sentiments' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='n1369868400' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='neutral' type='xsd:int' minOccurs='0' />
+                              <xsd:element name='positive' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateAccountParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='updateAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='upsertSubscriptionParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='query' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='upsertSubscriptionResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accessAccountRequestMessage'>
+    <part name='parameters' element='tns:accessAccountParameters' />
+  </message>
+  <message name='accessAccountResponseMessage'>
+    <part name='response' element='tns:accessAccountResponse' />
+  </message>
+  <message name='listSubscriptionsRequestMessage'>
+    <part name='parameters' element='tns:listSubscriptionsParameters' />
+  </message>
+  <message name='listSubscriptionsResponseMessage'>
+    <part name='response' element='tns:listSubscriptionsResponse' />
+  </message>
+  <message name='removeSubscriptionRequestMessage'>
+    <part name='parameters' element='tns:removeSubscriptionParameters' />
+  </message>
+  <message name='removeSubscriptionResponseMessage'>
+    <part name='response' element='tns:removeSubscriptionResponse' />
+  </message>
+  <message name='retrieveContextsRequestMessage'>
+    <part name='parameters' element='tns:retrieveContextsParameters' />
+  </message>
+  <message name='retrieveContextsResponseMessage'>
+    <part name='response' element='tns:retrieveContextsResponse' />
+  </message>
+  <message name='retrieveDemographicsRequestMessage'>
+    <part name='parameters' element='tns:retrieveDemographicsParameters' />
+  </message>
+  <message name='retrieveDemographicsResponseMessage'>
+    <part name='response' element='tns:retrieveDemographicsResponse' />
+  </message>
+  <message name='retrieveOverviewRequestMessage'>
+    <part name='parameters' element='tns:retrieveOverviewParameters' />
+  </message>
+  <message name='retrieveOverviewResponseMessage'>
+    <part name='response' element='tns:retrieveOverviewResponse' />
+  </message>
+  <message name='retrieveSentimentsRequestMessage'>
+    <part name='parameters' element='tns:retrieveSentimentsParameters' />
+  </message>
+  <message name='retrieveSentimentsResponseMessage'>
+    <part name='response' element='tns:retrieveSentimentsResponse' />
+  </message>
+  <message name='updateAccountRequestMessage'>
+    <part name='parameters' element='tns:updateAccountParameters' />
+  </message>
+  <message name='updateAccountResponseMessage'>
+    <part name='response' element='tns:updateAccountResponse' />
+  </message>
+  <message name='upsertSubscriptionRequestMessage'>
+    <part name='parameters' element='tns:upsertSubscriptionParameters' />
+  </message>
+  <message name='upsertSubscriptionResponseMessage'>
+    <part name='response' element='tns:upsertSubscriptionResponse' />
+  </message>
+  <portType name='chineseSocialInsightsPortType'>
+    <operation name='accessAccount'>
+      <documentation>access account information such as created date and consumptions</documentation>
+      <input message='tns:accessAccountRequestMessage' name='accessAccountInput' />
+      <output message='tns:accessAccountResponseMessage' name='accessAccountOutput' />
+    </operation>
+    <operation name='listSubscriptions'>
+      <documentation>access subscribed queries</documentation>
+      <input message='tns:listSubscriptionsRequestMessage' name='listSubscriptionsInput' />
+      <output message='tns:listSubscriptionsResponseMessage' name='listSubscriptionsOutput' />
+    </operation>
+    <operation name='removeSubscription'>
+      <documentation>delete a subscription</documentation>
+      <input message='tns:removeSubscriptionRequestMessage' name='removeSubscriptionInput' />
+      <output message='tns:removeSubscriptionResponseMessage' name='removeSubscriptionOutput' />
+    </operation>
+    <operation name='retrieveContexts'>
+      <documentation>retrieve the aggregated contexts on the data analyzed Polling required The first call will trigger report generation and the following calls will check the progress and return results if completed</documentation>
+      <input message='tns:retrieveContextsRequestMessage' name='retrieveContextsInput' />
+      <output message='tns:retrieveContextsResponseMessage' name='retrieveContextsOutput' />
+    </operation>
+    <operation name='retrieveDemographics'>
+      <documentation>retrieve the aggregated demographics on the data analyzed Polling required The first call will trigger report generation and the following calls will check the progress and return results if completed</documentation>
+      <input message='tns:retrieveDemographicsRequestMessage' name='retrieveDemographicsInput' />
+      <output message='tns:retrieveDemographicsResponseMessage' name='retrieveDemographicsOutput' />
+    </operation>
+    <operation name='retrieveOverview'>
+      <documentation>retrieve the overview on the data analyzed Polling required The first call will trigger report generation and the following calls will check the progress and return results if completed</documentation>
+      <input message='tns:retrieveOverviewRequestMessage' name='retrieveOverviewInput' />
+      <output message='tns:retrieveOverviewResponseMessage' name='retrieveOverviewOutput' />
+    </operation>
+    <operation name='retrieveSentiments'>
+      <documentation>retrieve the aggregated sentiments on the data analyzed Polling required The first call will trigger report generation and the following calls will check the progress and return results if completed</documentation>
+      <input message='tns:retrieveSentimentsRequestMessage' name='retrieveSentimentsInput' />
+      <output message='tns:retrieveSentimentsResponseMessage' name='retrieveSentimentsOutput' />
+    </operation>
+    <operation name='updateAccount'>
+      <documentation>update account information Currently only supports password updates</documentation>
+      <input message='tns:updateAccountRequestMessage' name='updateAccountInput' />
+      <output message='tns:updateAccountResponseMessage' name='updateAccountOutput' />
+    </operation>
+    <operation name='upsertSubscription'>
+      <documentation>create or update a subscription</documentation>
+      <input message='tns:upsertSubscriptionRequestMessage' name='upsertSubscriptionInput' />
+      <output message='tns:upsertSubscriptionResponseMessage' name='upsertSubscriptionOutput' />
+    </operation>
+  </portType>
+  <binding name='chineseSocialInsightsBinding' type='tns:chineseSocialInsightsPortType'>
+    <operation name='accessAccount'>
+      <soap12:operation soapAction='http://accessAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='listSubscriptions'>
+      <soap12:operation soapAction='http://listSubscriptions' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removeSubscription'>
+      <soap12:operation soapAction='http://removeSubscription' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveContexts'>
+      <soap12:operation soapAction='http://retrieveContexts' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveDemographics'>
+      <soap12:operation soapAction='http://retrieveDemographics' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveOverview'>
+      <soap12:operation soapAction='http://retrieveOverview' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='retrieveSentiments'>
+      <soap12:operation soapAction='http://retrieveSentiments' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='updateAccount'>
+      <soap12:operation soapAction='http://updateAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='upsertSubscription'>
+      <soap12:operation soapAction='http://upsertSubscription' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='chineseSocialInsights'>
+    <documentation>provide access to update Soshio account manage subscriptions and generate reports on Chinese social data Existing Soshio members only</documentation>
+    <port name='chineseSocialInsightsPort' binding='tns:chineseSocialInsightsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://chineseSocialInsights' />
+    </port>
+  </service>
+</definitions>

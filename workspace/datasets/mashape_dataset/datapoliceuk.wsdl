@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dataPoliceUk/' name='dataPoliceUk' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dataPoliceUk/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dataPoliceUk/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dataPoliceUk/'>
+      <xsd:element name='crimeCategoriesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimeCategoriesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimesAtLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimesAtLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='location_subtype' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='outcome_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='persistent_id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='month' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='context' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='street' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimesWithNoLocationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='force' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='crimesWithNoLocationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='month' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='context' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='eventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='county' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='neighbourhood' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='eventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='contact_details' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='start_date' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='forcesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='lastUpdatedResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:date' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='localNeighbourhoodParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='q' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='localNeighbourhoodResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='neighbourhood' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='force' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='outcomesForASpecificCrimeParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='persistentid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='outcomesForASpecificCrimeResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='outcomes' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='category' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='crime' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='location_subtype' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='persistent_id' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='month' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='context' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='street' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='specificForceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='force' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='specificForceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='name' type='xsd:string' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='telephone' type='xsd:int' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='engagement_methods' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streetLevelAvailabilityResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streetLevelCrimesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streetLevelCrimesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='location_subtype' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='outcome_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='persistent_id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='month' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='context' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='street' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='location_type' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streetLevelOutcomesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='lng' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='streetLevelOutcomesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='crimeCategoriesRequestMessage'>
+    <part name='parameters' element='tns:crimeCategoriesParameters' />
+  </message>
+  <message name='crimeCategoriesResponseMessage'>
+    <part name='response' element='tns:crimeCategoriesResponse' />
+  </message>
+  <message name='crimesAtLocationRequestMessage'>
+    <part name='parameters' element='tns:crimesAtLocationParameters' />
+  </message>
+  <message name='crimesAtLocationResponseMessage'>
+    <part name='response' element='tns:crimesAtLocationResponse' />
+  </message>
+  <message name='crimesWithNoLocationRequestMessage'>
+    <part name='parameters' element='tns:crimesWithNoLocationParameters' />
+  </message>
+  <message name='crimesWithNoLocationResponseMessage'>
+    <part name='response' element='tns:crimesWithNoLocationResponse' />
+  </message>
+  <message name='eventsRequestMessage'>
+    <part name='parameters' element='tns:eventsParameters' />
+  </message>
+  <message name='eventsResponseMessage'>
+    <part name='response' element='tns:eventsResponse' />
+  </message>
+  <message name='forcesRequestMessage' />
+  <message name='forcesResponseMessage'>
+    <part name='response' element='tns:forcesResponse' />
+  </message>
+  <message name='lastUpdatedRequestMessage' />
+  <message name='lastUpdatedResponseMessage'>
+    <part name='response' element='tns:lastUpdatedResponse' />
+  </message>
+  <message name='localNeighbourhoodRequestMessage'>
+    <part name='parameters' element='tns:localNeighbourhoodParameters' />
+  </message>
+  <message name='localNeighbourhoodResponseMessage'>
+    <part name='response' element='tns:localNeighbourhoodResponse' />
+  </message>
+  <message name='outcomesForASpecificCrimeRequestMessage'>
+    <part name='parameters' element='tns:outcomesForASpecificCrimeParameters' />
+  </message>
+  <message name='outcomesForASpecificCrimeResponseMessage'>
+    <part name='response' element='tns:outcomesForASpecificCrimeResponse' />
+  </message>
+  <message name='specificForceRequestMessage'>
+    <part name='parameters' element='tns:specificForceParameters' />
+  </message>
+  <message name='specificForceResponseMessage'>
+    <part name='response' element='tns:specificForceResponse' />
+  </message>
+  <message name='streetLevelAvailabilityRequestMessage' />
+  <message name='streetLevelAvailabilityResponseMessage'>
+    <part name='response' element='tns:streetLevelAvailabilityResponse' />
+  </message>
+  <message name='streetLevelCrimesRequestMessage'>
+    <part name='parameters' element='tns:streetLevelCrimesParameters' />
+  </message>
+  <message name='streetLevelCrimesResponseMessage'>
+    <part name='response' element='tns:streetLevelCrimesResponse' />
+  </message>
+  <message name='streetLevelOutcomesRequestMessage'>
+    <part name='parameters' element='tns:streetLevelOutcomesParameters' />
+  </message>
+  <message name='streetLevelOutcomesResponseMessage'>
+    <part name='response' element='tns:streetLevelOutcomesResponse' />
+  </message>
+  <portType name='dataPoliceUkPortType'>
+    <operation name='crimeCategories'>
+      <documentation>returns a list of valid categories for a given data set date</documentation>
+      <input message='tns:crimeCategoriesRequestMessage' name='crimeCategoriesInput' />
+      <output message='tns:crimeCategoriesResponseMessage' name='crimeCategoriesOutput' />
+    </operation>
+    <operation name='crimesAtLocation'>
+      <documentation>returns just the crimes which occurred at the specified location rather than those within a radius If given latitude and longitude finds the nearest pre defined location and returns the crimes which occurred there</documentation>
+      <input message='tns:crimesAtLocationRequestMessage' name='crimesAtLocationInput' />
+      <output message='tns:crimesAtLocationResponseMessage' name='crimesAtLocationOutput' />
+    </operation>
+    <operation name='crimesWithNoLocation'>
+      <documentation>returns a list of crimes where the responsible force hasn t specified a location</documentation>
+      <input message='tns:crimesWithNoLocationRequestMessage' name='crimesWithNoLocationInput' />
+      <output message='tns:crimesWithNoLocationResponseMessage' name='crimesWithNoLocationOutput' />
+    </operation>
+    <operation name='events'>
+      <documentation></documentation>
+      <input message='tns:eventsRequestMessage' name='eventsInput' />
+      <output message='tns:eventsResponseMessage' name='eventsOutput' />
+    </operation>
+    <operation name='forces'>
+      <documentation>a list of all the police forces available via the API Unique force identifiers obtained here are used in requests for force specific data via other methods</documentation>
+      <input message='tns:forcesRequestMessage' name='forcesInput' />
+      <output message='tns:forcesResponseMessage' name='forcesOutput' />
+    </operation>
+    <operation name='lastUpdated'>
+      <documentation>crime data in the API is updated once a month Find out when it was last updated</documentation>
+      <input message='tns:lastUpdatedRequestMessage' name='lastUpdatedInput' />
+      <output message='tns:lastUpdatedResponseMessage' name='lastUpdatedOutput' />
+    </operation>
+    <operation name='localNeighbourhood'>
+      <documentation></documentation>
+      <input message='tns:localNeighbourhoodRequestMessage' name='localNeighbourhoodInput' />
+      <output message='tns:localNeighbourhoodResponseMessage' name='localNeighbourhoodOutput' />
+    </operation>
+    <operation name='outcomesForASpecificCrime'>
+      <documentation>returns the outcomes case history for the specified crime Crime ID is character identifier as returned by other API methods</documentation>
+      <input message='tns:outcomesForASpecificCrimeRequestMessage' name='outcomesForASpecificCrimeInput' />
+      <output message='tns:outcomesForASpecificCrimeResponseMessage' name='outcomesForASpecificCrimeOutput' />
+    </operation>
+    <operation name='specificForce'>
+      <documentation>provides detailed information about a specific force</documentation>
+      <input message='tns:specificForceRequestMessage' name='specificForceInput' />
+      <output message='tns:specificForceResponseMessage' name='specificForceOutput' />
+    </operation>
+    <operation name='streetLevelAvailability'>
+      <documentation>return a list of available data sets</documentation>
+      <input message='tns:streetLevelAvailabilityRequestMessage' name='streetLevelAvailabilityInput' />
+      <output message='tns:streetLevelAvailabilityResponseMessage' name='streetLevelAvailabilityOutput' />
+    </operation>
+    <operation name='streetLevelCrimes'>
+      <documentation>crimes at street level either within a mile radius of a single point or within a custom area For custom areas see http data police uk docs method crime street</documentation>
+      <input message='tns:streetLevelCrimesRequestMessage' name='streetLevelCrimesInput' />
+      <output message='tns:streetLevelCrimesResponseMessage' name='streetLevelCrimesOutput' />
+    </operation>
+    <operation name='streetLevelOutcomes'>
+      <documentation>outcomes at street level either at a specific location within a mile radius of a single point or within a custom area</documentation>
+      <input message='tns:streetLevelOutcomesRequestMessage' name='streetLevelOutcomesInput' />
+      <output message='tns:streetLevelOutcomesResponseMessage' name='streetLevelOutcomesOutput' />
+    </operation>
+  </portType>
+  <binding name='dataPoliceUkBinding' type='tns:dataPoliceUkPortType'>
+    <operation name='crimeCategories'>
+      <soap12:operation soapAction='http://crimeCategories' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='crimesAtLocation'>
+      <soap12:operation soapAction='http://crimesAtLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='crimesWithNoLocation'>
+      <soap12:operation soapAction='http://crimesWithNoLocation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='events'>
+      <soap12:operation soapAction='http://events' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='forces'>
+      <soap12:operation soapAction='http://forces' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='lastUpdated'>
+      <soap12:operation soapAction='http://lastUpdated' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='localNeighbourhood'>
+      <soap12:operation soapAction='http://localNeighbourhood' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='outcomesForASpecificCrime'>
+      <soap12:operation soapAction='http://outcomesForASpecificCrime' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='specificForce'>
+      <soap12:operation soapAction='http://specificForce' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='streetLevelAvailability'>
+      <soap12:operation soapAction='http://streetLevelAvailability' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='streetLevelCrimes'>
+      <soap12:operation soapAction='http://streetLevelCrimes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='streetLevelOutcomes'>
+      <soap12:operation soapAction='http://streetLevelOutcomes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dataPoliceUk'>
+    <documentation>this is the unofficial documentation for the Data Police UK API</documentation>
+    <port name='dataPoliceUkPort' binding='tns:dataPoliceUkBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dataPoliceUk' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/airports/' name='airports' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/airports/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/airports/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/airports/'>
+      <xsd:element name='airportsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='airportsRequestMessage' />
+  <message name='airportsResponseMessage'>
+    <part name='response' element='tns:airportsResponse' />
+  </message>
+  <portType name='airportsPortType'>
+    <operation name='airports'>
+      <documentation></documentation>
+      <input message='tns:airportsRequestMessage' name='airportsInput' />
+      <output message='tns:airportsResponseMessage' name='airportsOutput' />
+    </operation>
+  </portType>
+  <binding name='airportsBinding' type='tns:airportsPortType'>
+    <operation name='airports'>
+      <soap12:operation soapAction='http://airports' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='airports'>
+    <documentation>provides a listing of international airports in JSON format</documentation>
+    <port name='airportsPort' binding='tns:airportsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://airports' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/lifeExpectancy/' name='lifeExpectancy' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/lifeExpectancy/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/lifeExpectancy/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/lifeExpectancy/'>
+      <xsd:element name='timeLeftGetParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='birth' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='gender' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeLeftGetResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hours' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='seconds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='months' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minutes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='days' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='years' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='currentAge' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='yearsLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='minutesLeft' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lifeComplete' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='dateString' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='daysLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='monthsLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='secondsLeft' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hoursLeft' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='timeLeftPostResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='date' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='hours' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='seconds' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='months' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='minutes' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='days' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='years' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='currentAge' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='yearsLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='minutesLeft' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='lifeComplete' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='dateString' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='daysLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='monthsLeft' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='secondsLeft' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='hoursLeft' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='timeLeftGetRequestMessage'>
+    <part name='parameters' element='tns:timeLeftGetParameters' />
+  </message>
+  <message name='timeLeftGetResponseMessage'>
+    <part name='response' element='tns:timeLeftGetResponse' />
+  </message>
+  <message name='timeLeftPostRequestMessage' />
+  <message name='timeLeftPostResponseMessage'>
+    <part name='response' element='tns:timeLeftPostResponse' />
+  </message>
+  <portType name='lifeExpectancyPortType'>
+    <operation name='timeLeftGet'>
+      <documentation>expected time left to live</documentation>
+      <input message='tns:timeLeftGetRequestMessage' name='timeLeftGetInput' />
+      <output message='tns:timeLeftGetResponseMessage' name='timeLeftGetOutput' />
+    </operation>
+    <operation name='timeLeftPost'>
+      <documentation></documentation>
+      <input message='tns:timeLeftPostRequestMessage' name='timeLeftPostInput' />
+      <output message='tns:timeLeftPostResponseMessage' name='timeLeftPostOutput' />
+    </operation>
+  </portType>
+  <binding name='lifeExpectancyBinding' type='tns:lifeExpectancyPortType'>
+    <operation name='timeLeftGet'>
+      <soap12:operation soapAction='http://timeLeftGet' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='timeLeftPost'>
+      <soap12:operation soapAction='http://timeLeftPost' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='lifeExpectancy'>
+    <documentation>returns life expectancy in different formats such as years left to live and fraction of life completed Based on US data</documentation>
+    <port name='lifeExpectancyPort' binding='tns:lifeExpectancyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://lifeExpectancy' />
+    </port>
+  </service>
+</definitions>

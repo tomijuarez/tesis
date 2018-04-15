@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/imageOcr/' name='imageOcr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/imageOcr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/imageOcr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/imageOcr/'>
+      <xsd:element name='imageOcrResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='frames' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='framename' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='results' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='x' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='width' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='y' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='text' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='height' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='imageOcrRequestMessage' />
+  <message name='imageOcrResponseMessage'>
+    <part name='response' element='tns:imageOcrResponse' />
+  </message>
+  <portType name='imageOcrPortType'>
+    <operation name='imageOcr'>
+      <documentation>recognizes texts from video frames and images</documentation>
+      <input message='tns:imageOcrRequestMessage' name='imageOcrInput' />
+      <output message='tns:imageOcrResponseMessage' name='imageOcrOutput' />
+    </operation>
+  </portType>
+  <binding name='imageOcrBinding' type='tns:imageOcrPortType'>
+    <operation name='imageOcr'>
+      <soap12:operation soapAction='http://imageOcr' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='imageOcr'>
+    <documentation>this API method is developed for recognizing text content from images It differs from conventional print OCR engines by using a set of sophisticated preprocessing such as text localisation background reparation etc It is suited for processing overlay text and some of scene text occurred within video frames and images with limited rotation and enough contrast ratio</documentation>
+    <port name='imageOcrPort' binding='tns:imageOcrBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://imageOcr' />
+    </port>
+  </service>
+</definitions>

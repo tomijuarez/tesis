@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/nudityRecognitionNudityFilterForImages/' name='nudityRecognitionNudityFilterForImages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/nudityRecognitionNudityFilterForImages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/nudityRecognitionNudityFilterForImages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/nudityRecognitionNudityFilterForImages/'>
+      <xsd:element name='nuditysearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='score' type='xsd:int' minOccurs='0' />
+            <xsd:element name='objecturl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='classification' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='transactionid' type='xsd:int' minOccurs='0' />
+            <xsd:element name='setting' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='nuditysearchRequestMessage' />
+  <message name='nuditysearchResponseMessage'>
+    <part name='response' element='tns:nuditysearchResponse' />
+  </message>
+  <portType name='nudityRecognitionNudityFilterForImagesPortType'>
+    <operation name='nuditysearch'>
+      <documentation>use this API to detect nudity in images Nobody gets more naked NOTE API accepts JSON and XML encoded posts</documentation>
+      <input message='tns:nuditysearchRequestMessage' name='nuditysearchInput' />
+      <output message='tns:nuditysearchResponseMessage' name='nuditysearchOutput' />
+    </operation>
+  </portType>
+  <binding name='nudityRecognitionNudityFilterForImagesBinding' type='tns:nudityRecognitionNudityFilterForImagesPortType'>
+    <operation name='nuditysearch'>
+      <soap12:operation soapAction='http://nuditysearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='nudityRecognitionNudityFilterForImages'>
+    <documentation>imageVision s NuditySearch Recognizing nudity is a highly complex problem NuditySearch tackles this problem by recognizing anatomical attributes and determining if there is nudity or suggestive imagery in images The service is useful for website or app owners looking to provide site safety ad safety and online profile verification We provide different settings of varying sensitivities depending on your tolerance for exposed skin i e lingerie and bikini</documentation>
+    <port name='nudityRecognitionNudityFilterForImagesPort' binding='tns:nudityRecognitionNudityFilterForImagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://nudityRecognitionNudityFilterForImages' />
+    </port>
+  </service>
+</definitions>

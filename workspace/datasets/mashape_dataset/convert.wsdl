@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/convert/' name='convert' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/convert/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/convert/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/convert/'>
+      <xsd:element name='convertResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='result' type='xsd:decimal' minOccurs='0' />
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='to-type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='from-value' type='xsd:int' minOccurs='0' />
+            <xsd:element name='from-type' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='convertRequestMessage' />
+  <message name='convertResponseMessage'>
+    <part name='response' element='tns:convertResponse' />
+  </message>
+  <portType name='convertPortType'>
+    <operation name='convert'>
+      <documentation></documentation>
+      <input message='tns:convertRequestMessage' name='convertInput' />
+      <output message='tns:convertResponseMessage' name='convertOutput' />
+    </operation>
+  </portType>
+  <binding name='convertBinding' type='tns:convertPortType'>
+    <operation name='convert'>
+      <soap12:operation soapAction='http://convert' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='convert'>
+    <documentation>a powerful unit conversion tool Convert currency using an up to date international currency feed Convert most known measurement types imperial metric mass length temperature time and more The convertor will accept full unit names as well as abbreviations e g millimeter and mm</documentation>
+    <port name='convertPort' binding='tns:convertBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://convert' />
+    </port>
+  </service>
+</definitions>

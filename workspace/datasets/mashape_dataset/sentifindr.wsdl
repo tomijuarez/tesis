@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sentifindr/' name='sentifindr' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sentifindr/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sentifindr/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sentifindr/'>
+      <xsd:element name='Parameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='classifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='context' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='target' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='Response'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='RequestMessage'>
+    <part name='parameters' element='tns:Parameters' />
+  </message>
+  <message name='ResponseMessage'>
+    <part name='response' element='tns:Response' />
+  </message>
+  <portType name='sentifindrPortType'>
+    <operation name=''>
+      <input message='tns:RequestMessage' name='Input' />
+      <output message='tns:ResponseMessage' name='Output' />
+    </operation>
+  </portType>
+  <binding name='sentifindrBinding' type='tns:sentifindrPortType'>
+    <operation name=''>
+      <soap12:operation soapAction='http://' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sentifindr'>
+    <documentation>sentiFindr will help you analyze for sentiment your English texts from social media news and any other source you care about It swiftly tags sentiment with respect to certain target brand product person or any other object described with a phrase Like sentiment analysis in the text Sentiment analysis has never been so good yields positive tag</documentation>
+    <port name='sentifindrPort' binding='tns:sentifindrBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sentifindr' />
+    </port>
+  </service>
+</definitions>

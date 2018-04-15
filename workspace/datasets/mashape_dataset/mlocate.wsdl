@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mlocate/' name='mlocate' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mlocate/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mlocate/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mlocate/'>
+      <xsd:element name='indianPhoneNumberInfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='phone' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='indianPhoneNumberInfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='Number' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='IsCDMA' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='Carrier' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='Location' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='status' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='indianPhoneNumberInfoRequestMessage'>
+    <part name='parameters' element='tns:indianPhoneNumberInfoParameters' />
+  </message>
+  <message name='indianPhoneNumberInfoResponseMessage'>
+    <part name='response' element='tns:indianPhoneNumberInfoResponse' />
+  </message>
+  <portType name='mlocatePortType'>
+    <operation name='indianPhoneNumberInfo'>
+      <documentation>zone information API</documentation>
+      <input message='tns:indianPhoneNumberInfoRequestMessage' name='indianPhoneNumberInfoInput' />
+      <output message='tns:indianPhoneNumberInfoResponseMessage' name='indianPhoneNumberInfoOutput' />
+    </operation>
+  </portType>
+  <binding name='mlocateBinding' type='tns:mlocatePortType'>
+    <operation name='indianPhoneNumberInfo'>
+      <soap12:operation soapAction='http://indianPhoneNumberInfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mlocate'>
+    <documentation>mLocation is an open API that can be used to lookup number location info It is a hosted secure scalable solution that is developer friendly and can be easily integrated with your application Just give any digit Indian mobile number and get information such as network connection type circle name and operator name using this API Mobile number portability not supported as of now Please get in touch with us if you would like to improve this api or need any additional information</documentation>
+    <port name='mlocatePort' binding='tns:mlocateBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mlocate' />
+    </port>
+  </service>
+</definitions>

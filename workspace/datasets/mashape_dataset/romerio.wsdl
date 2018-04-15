@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/romeRio/' name='romeRio' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/romeRio/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/romeRio/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/romeRio/'>
+      <xsd:element name='getroutesParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='dname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='dpos' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='oname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='opos' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getroutesResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='routes' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='segments' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='duration' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='distance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='sPos' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='tPos' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='kind' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='sName' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='itineraries' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='legs' minOccurs='0'>
+                                <xsd:complexType>
+                                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                    <xsd:element name='hops' minOccurs='0'>
+                                      <xsd:complexType>
+                                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                          <xsd:element name='duration' type='xsd:int' minOccurs='0' />
+                                          <xsd:element name='path' type='xsd:normalizedString' minOccurs='0' />
+                                          <xsd:element name='agency' type='xsd:string' minOccurs='0' />
+                                          <xsd:element name='sPos' type='xsd:normalizedString' minOccurs='0' />
+                                          <xsd:element name='tPos' type='xsd:normalizedString' minOccurs='0' />
+                                          <xsd:element name='line' type='xsd:string' minOccurs='0' />
+                                          <xsd:element name='sName' type='xsd:normalizedString' minOccurs='0' />
+                                          <xsd:element name='tName' type='xsd:string' minOccurs='0' />
+                                          <xsd:element name='frequency' type='xsd:string' minOccurs='0' />
+                                          <xsd:element name='vehicle' type='xsd:normalizedString' minOccurs='0' />
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='tName' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='airlines' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='url' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='airports' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='code' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='pos' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getroutesRequestMessage'>
+    <part name='parameters' element='tns:getroutesParameters' />
+  </message>
+  <message name='getroutesResponseMessage'>
+    <part name='response' element='tns:getroutesResponse' />
+  </message>
+  <portType name='romeRioPortType'>
+    <operation name='getroutes'>
+      <documentation>provide routes options from one point to another</documentation>
+      <input message='tns:getroutesRequestMessage' name='getroutesInput' />
+      <output message='tns:getroutesResponseMessage' name='getroutesOutput' />
+    </operation>
+  </portType>
+  <binding name='romeRioBinding' type='tns:romeRioPortType'>
+    <operation name='getroutes'>
+      <soap12:operation soapAction='http://getroutes' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='romeRio'>
+    <documentation>nOTE This is version of our API Please use the latest version instead</documentation>
+    <port name='romeRioPort' binding='tns:romeRioBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://romeRio' />
+    </port>
+  </service>
+</definitions>

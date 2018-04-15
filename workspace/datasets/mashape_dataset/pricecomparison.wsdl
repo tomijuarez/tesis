@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/priceComparison/' name='priceComparison' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/priceComparison/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/priceComparison/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/priceComparison/'>
+      <xsd:element name='getComparisonUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='product' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getComparisonUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='link' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getComparisonUrlRequestMessage'>
+    <part name='parameters' element='tns:getComparisonUrlParameters' />
+  </message>
+  <message name='getComparisonUrlResponseMessage'>
+    <part name='response' element='tns:getComparisonUrlResponse' />
+  </message>
+  <portType name='priceComparisonPortType'>
+    <operation name='getComparisonUrl'>
+      <documentation>gives the URL containing compared prices of various sites Note More stores can be found in our home website http www datayuge in</documentation>
+      <input message='tns:getComparisonUrlRequestMessage' name='getComparisonUrlInput' />
+      <output message='tns:getComparisonUrlResponseMessage' name='getComparisonUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='priceComparisonBinding' type='tns:priceComparisonPortType'>
+    <operation name='getComparisonUrl'>
+      <soap12:operation soapAction='http://getComparisonUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='priceComparison'>
+    <documentation>this Price Comparison api India find and compare product prices from various eCommerce sites The developer can add his her own affiliate id to the returned URL This can be used to ecommerce price comparison websites or apps Note This is a basic version of our API for full version visit http www datayuge in Keywords online price comparison price comparison india price comparison sites india price comparison Price check india compare prices price compare compare price price comparison sites compare prices online price comparison websites price comparison website price comparison api india price checker</documentation>
+    <port name='priceComparisonPort' binding='tns:priceComparisonBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://priceComparison' />
+    </port>
+  </service>
+</definitions>

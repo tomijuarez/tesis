@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/liveaddressCityStateZipLookups/' name='liveaddressCityStateZipLookups' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/liveaddressCityStateZipLookups/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/liveaddressCityStateZipLookups/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/liveaddressCityStateZipLookups/'>
+      <xsd:element name='cityStateZipLookupsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='state' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='zipcode' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='cityStateZipLookupsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='zipcodes' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='zipcode' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='city_states' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='state_abbreviation' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='state' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='input_index' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='cityStateZipLookupsRequestMessage'>
+    <part name='parameters' element='tns:cityStateZipLookupsParameters' />
+  </message>
+  <message name='cityStateZipLookupsResponseMessage'>
+    <part name='response' element='tns:cityStateZipLookupsResponse' />
+  </message>
+  <portType name='liveaddressCityStateZipLookupsPortType'>
+    <operation name='cityStateZipLookups'>
+      <documentation>look up and verify city state zip data</documentation>
+      <input message='tns:cityStateZipLookupsRequestMessage' name='cityStateZipLookupsInput' />
+      <output message='tns:cityStateZipLookupsResponseMessage' name='cityStateZipLookupsOutput' />
+    </operation>
+  </portType>
+  <binding name='liveaddressCityStateZipLookupsBinding' type='tns:liveaddressCityStateZipLookupsPortType'>
+    <operation name='cityStateZipLookups'>
+      <soap12:operation soapAction='http://cityStateZipLookups' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='liveaddressCityStateZipLookups'>
+    <documentation>look up US cities states and ZIP codes using this LiveAddress endpoint Get ZIP codes for a city state and get cities states for a ZIP code Batch lookups supported</documentation>
+    <port name='liveaddressCityStateZipLookupsPort' binding='tns:liveaddressCityStateZipLookupsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://liveaddressCityStateZipLookups' />
+    </port>
+  </service>
+</definitions>

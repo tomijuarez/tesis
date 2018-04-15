@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/youmpa/' name='youmpa' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/youmpa/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/youmpa/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/youmpa/'>
+      <xsd:element name='eventsParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='coords' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='date' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='distance' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='start' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='eventsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='hasMore' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='list' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='firstDateEnd' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastDateStart' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='lastDateEnd' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='location' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='address' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='cap' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='city' minOccurs='0'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='latitude' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='permalink' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='longitude' type='xsd:decimal' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='firstDateStart' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='avatar' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='path' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='thumb' type='xsd:anyURI' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='aspectRatio' type='xsd:decimal' minOccurs='0' />
+                        <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='categories' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='title' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='permalink' type='xsd:anyURI' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='eventsRequestMessage'>
+    <part name='parameters' element='tns:eventsParameters' />
+  </message>
+  <message name='eventsResponseMessage'>
+    <part name='response' element='tns:eventsResponse' />
+  </message>
+  <portType name='youmpaPortType'>
+    <operation name='events'>
+      <documentation></documentation>
+      <input message='tns:eventsRequestMessage' name='eventsInput' />
+      <output message='tns:eventsResponseMessage' name='eventsOutput' />
+    </operation>
+  </portType>
+  <binding name='youmpaBinding' type='tns:youmpaPortType'>
+    <operation name='events'>
+      <soap12:operation soapAction='http://events' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='youmpa'>
+    <documentation>youmpa www youmpa com is a social platform for event promotion and selling We operate mainly in Italy but we plan to expand in the future With this API you can access all Youmpa events querying over by location date ranges categories and more</documentation>
+    <port name='youmpaPort' binding='tns:youmpaBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://youmpa' />
+    </port>
+  </service>
+</definitions>

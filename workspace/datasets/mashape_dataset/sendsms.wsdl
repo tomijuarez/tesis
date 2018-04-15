@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sendsms/' name='sendsms' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sendsms/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sendsms/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sendsms/'>
+      <xsd:element name='messageSendParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='action' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='reportmask' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='reporturl' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='messageSendResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='messageSendRequestMessage'>
+    <part name='parameters' element='tns:messageSendParameters' />
+  </message>
+  <message name='messageSendResponseMessage'>
+    <part name='response' element='tns:messageSendResponse' />
+  </message>
+  <portType name='sendsmsPortType'>
+    <operation name='messageSend'>
+      <input message='tns:messageSendRequestMessage' name='messageSendInput' />
+      <output message='tns:messageSendResponseMessage' name='messageSendOutput' />
+    </operation>
+  </portType>
+  <binding name='sendsmsBinding' type='tns:sendsmsPortType'>
+    <operation name='messageSend'>
+      <soap12:operation soapAction='http://messageSend' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sendsms'>
+    <documentation>sMS Service Provider</documentation>
+    <port name='sendsmsPort' binding='tns:sendsmsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sendsms' />
+    </port>
+  </service>
+</definitions>

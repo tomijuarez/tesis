@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/wordIdfInverseDocumentFrequency/' name='wordIdfInverseDocumentFrequency' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/wordIdfInverseDocumentFrequency/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/wordIdfInverseDocumentFrequency/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/wordIdfInverseDocumentFrequency/'>
+      <xsd:element name='articleExtractFromAWebsiteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='articleExtractFromAWebsiteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordIdfInverseDocumentFrequencyParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='term' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='wordIdfInverseDocumentFrequencyResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='idf' type='xsd:decimal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='articleExtractFromAWebsiteRequestMessage'>
+    <part name='parameters' element='tns:articleExtractFromAWebsiteParameters' />
+  </message>
+  <message name='articleExtractFromAWebsiteResponseMessage'>
+    <part name='response' element='tns:articleExtractFromAWebsiteResponse' />
+  </message>
+  <message name='wordIdfInverseDocumentFrequencyRequestMessage'>
+    <part name='parameters' element='tns:wordIdfInverseDocumentFrequencyParameters' />
+  </message>
+  <message name='wordIdfInverseDocumentFrequencyResponseMessage'>
+    <part name='response' element='tns:wordIdfInverseDocumentFrequencyResponse' />
+  </message>
+  <portType name='wordIdfInverseDocumentFrequencyPortType'>
+    <operation name='articleExtractFromAWebsite'>
+      <documentation>extracts an article from a website It requires the url parameter URI encoded</documentation>
+      <input message='tns:articleExtractFromAWebsiteRequestMessage' name='articleExtractFromAWebsiteInput' />
+      <output message='tns:articleExtractFromAWebsiteResponseMessage' name='articleExtractFromAWebsiteOutput' />
+    </operation>
+    <operation name='wordIdfInverseDocumentFrequency'>
+      <documentation>gives you back the Inverse Document Frequency of an unigramm word</documentation>
+      <input message='tns:wordIdfInverseDocumentFrequencyRequestMessage' name='wordIdfInverseDocumentFrequencyInput' />
+      <output message='tns:wordIdfInverseDocumentFrequencyResponseMessage' name='wordIdfInverseDocumentFrequencyOutput' />
+    </operation>
+  </portType>
+  <binding name='wordIdfInverseDocumentFrequencyBinding' type='tns:wordIdfInverseDocumentFrequencyPortType'>
+    <operation name='articleExtractFromAWebsite'>
+      <soap12:operation soapAction='http://articleExtractFromAWebsite' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='wordIdfInverseDocumentFrequency'>
+      <soap12:operation soapAction='http://wordIdfInverseDocumentFrequency' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='wordIdfInverseDocumentFrequency'>
+    <documentation>this API helps you to get the Inverse Document Frequency IDF Tf idf stands for term frequency inverse document frequency and the tf idf weight is a weight often used in information retrieval and text mining This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus Variations of the tf idf weighting scheme are often used by search engines as a central tool in scoring and ranking a document s relevance given a user query</documentation>
+    <port name='wordIdfInverseDocumentFrequencyPort' binding='tns:wordIdfInverseDocumentFrequencyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://wordIdfInverseDocumentFrequency' />
+    </port>
+  </service>
+</definitions>

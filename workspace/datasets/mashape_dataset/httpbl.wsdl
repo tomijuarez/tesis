@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/httpbl/' name='httpbl' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/httpbl/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/httpbl/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/httpbl/'>
+      <xsd:element name='ipParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='ipResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='flags' type='xsd:int' minOccurs='0' />
+            <xsd:element name='days' type='xsd:int' minOccurs='0' />
+            <xsd:element name='threat' type='xsd:int' minOccurs='0' />
+            <xsd:element name='reply' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='ipRequestMessage'>
+    <part name='parameters' element='tns:ipParameters' />
+  </message>
+  <message name='ipResponseMessage'>
+    <part name='response' element='tns:ipResponse' />
+  </message>
+  <portType name='httpblPortType'>
+    <operation name='ip'>
+      <documentation>lookup IP in Project Honeypot</documentation>
+      <input message='tns:ipRequestMessage' name='ipInput' />
+      <output message='tns:ipResponseMessage' name='ipOutput' />
+    </operation>
+  </portType>
+  <binding name='httpblBinding' type='tns:httpblPortType'>
+    <operation name='ip'>
+      <soap12:operation soapAction='http://ip' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='httpbl'>
+    <documentation>rEST API to check an IP address status via Project Honey Pot http BL service</documentation>
+    <port name='httpblPort' binding='tns:httpblBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://httpbl' />
+    </port>
+  </service>
+</definitions>

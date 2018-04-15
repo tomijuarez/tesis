@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kloudless/' name='kloudless' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kloudless/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kloudless/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kloudless/'>
+      <xsd:element name='accountListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fileUploadResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='size' type='xsd:int' minOccurs='0' />
+            <xsd:element name='created' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='name' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='modified' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='id' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='account' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountListRequestMessage' />
+  <message name='accountListResponseMessage'>
+    <part name='response' element='tns:accountListResponse' />
+  </message>
+  <message name='fileUploadRequestMessage' />
+  <message name='fileUploadResponseMessage'>
+    <part name='response' element='tns:fileUploadResponse' />
+  </message>
+  <portType name='kloudlessPortType'>
+    <operation name='accountList'>
+      <documentation>cloud storage service accounts</documentation>
+      <input message='tns:accountListRequestMessage' name='accountListInput' />
+      <output message='tns:accountListResponseMessage' name='accountListOutput' />
+    </operation>
+    <operation name='fileUpload'>
+      <documentation>files from cloud storage services</documentation>
+      <input message='tns:fileUploadRequestMessage' name='fileUploadInput' />
+      <output message='tns:fileUploadResponseMessage' name='fileUploadOutput' />
+    </operation>
+  </portType>
+  <binding name='kloudlessBinding' type='tns:kloudlessPortType'>
+    <operation name='accountList'>
+      <soap12:operation soapAction='http://accountList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fileUpload'>
+      <soap12:operation soapAction='http://fileUpload' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kloudless'>
+    <documentation>kloudless is a cloud storage API that integrates many cloud storage services into your app Code once and integrate many like Dropbox Box and Google Drive Visit our developer page for the latest version of our documentation https developers kloudless com docs</documentation>
+    <port name='kloudlessPort' binding='tns:kloudlessBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kloudless' />
+    </port>
+  </service>
+</definitions>

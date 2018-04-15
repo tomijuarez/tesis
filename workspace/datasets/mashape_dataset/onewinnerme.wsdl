@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/onewinnerMe/' name='onewinnerMe' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/onewinnerMe/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/onewinnerMe/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/onewinnerMe/'>
+      <xsd:element name='getemscoreParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='star' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='star' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getemscoreResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Score' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registeremcombParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='num' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='star' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='star' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='registeremcombResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Success' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getemscoreRequestMessage'>
+    <part name='parameters' element='tns:getemscoreParameters' />
+  </message>
+  <message name='getemscoreResponseMessage'>
+    <part name='response' element='tns:getemscoreResponse' />
+  </message>
+  <message name='registeremcombRequestMessage'>
+    <part name='parameters' element='tns:registeremcombParameters' />
+  </message>
+  <message name='registeremcombResponseMessage'>
+    <part name='response' element='tns:registeremcombResponse' />
+  </message>
+  <portType name='onewinnerMePortType'>
+    <operation name='getemscore'>
+      <documentation>this method will return the score earning expectation of a Euro Millions EM lottery combination Euro Millions is the biggest lottery in the worlds This pan European lottery game is run in countries at the same time Approximately million people play every week in Europe At Euro Millions combination is composed of numbers and stars</documentation>
+      <input message='tns:getemscoreRequestMessage' name='getemscoreInput' />
+      <output message='tns:getemscoreResponseMessage' name='getemscoreOutput' />
+    </operation>
+    <operation name='registeremcomb'>
+      <documentation>this method will register a Euro Millions EM lottery combination Registering a combination will prevent other players from choosing the same Euro Millions is the biggest lottery in the worlds This pan European lottery game is run in countries at the same time Approximately million people play every week in Europe A Euro Millions combination is composed of numbers and stars</documentation>
+      <input message='tns:registeremcombRequestMessage' name='registeremcombInput' />
+      <output message='tns:registeremcombResponseMessage' name='registeremcombOutput' />
+    </operation>
+  </portType>
+  <binding name='onewinnerMeBinding' type='tns:onewinnerMePortType'>
+    <operation name='getemscore'>
+      <soap12:operation soapAction='http://getemscore' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='registeremcomb'>
+      <soap12:operation soapAction='http://registeremcomb' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='onewinnerMe'>
+    <documentation>oneWinner Me is a service that lets you check the earning expectation of your lottery numbers and register your combination to prevent other players from choosing similar ones In lotteries Euro Millions some combinations are more played than others It is better to choose combinations rarely played they have the same probability of draw but pay much more because there are fewer winners The service works through a crowdsourcing technology and advanced learning algorithms This API allows third party application to check and register combinations into the OneWinner Me service For the moment only Euro Millions lottery is available but more are coming soon Good luck Mashapers and enjoy</documentation>
+    <port name='onewinnerMePort' binding='tns:onewinnerMeBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://onewinnerMe' />
+    </port>
+  </service>
+</definitions>

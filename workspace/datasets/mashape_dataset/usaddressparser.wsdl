@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/usAddressParser/' name='usAddressParser' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/usAddressParser/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/usAddressParser/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/usAddressParser/'>
+      <xsd:element name='addressParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='address' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='addressResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='number' type='xsd:int' minOccurs='0' />
+            <xsd:element name='delivery' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='last_line' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='address_line' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='input' type='xsd:string' minOccurs='0' />
+            <xsd:element name='city' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='street' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='intersection' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='street_suffix' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='addressRequestMessage'>
+    <part name='parameters' element='tns:addressParameters' />
+  </message>
+  <message name='addressResponseMessage'>
+    <part name='response' element='tns:addressResponse' />
+  </message>
+  <portType name='usAddressParserPortType'>
+    <operation name='address'>
+      <input message='tns:addressRequestMessage' name='addressInput' />
+      <output message='tns:addressResponseMessage' name='addressOutput' />
+    </operation>
+  </portType>
+  <binding name='usAddressParserBinding' type='tns:usAddressParserPortType'>
+    <operation name='address'>
+      <soap12:operation soapAction='http://address' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='usAddressParser'>
+    <documentation>simple API that parses United States addresses</documentation>
+    <port name='usAddressParserPort' binding='tns:usAddressParserBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://usAddressParser' />
+    </port>
+  </service>
+</definitions>

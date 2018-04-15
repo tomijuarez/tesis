@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/randomFamousQuotes/' name='randomFamousQuotes' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/randomFamousQuotes/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/randomFamousQuotes/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/randomFamousQuotes/'>
+      <xsd:element name='myEndpointParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='category' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='myEndpointResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='quote' type='xsd:string' minOccurs='0' />
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='cat' type='xsd:string' minOccurs='0' />
+            <xsd:element name='category' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='myEndpointRequestMessage'>
+    <part name='parameters' element='tns:myEndpointParameters' />
+  </message>
+  <message name='myEndpointResponseMessage'>
+    <part name='response' element='tns:myEndpointResponse' />
+  </message>
+  <portType name='randomFamousQuotesPortType'>
+    <operation name='myEndpoint'>
+      <documentation>don t know what to put here</documentation>
+      <input message='tns:myEndpointRequestMessage' name='myEndpointInput' />
+      <output message='tns:myEndpointResponseMessage' name='myEndpointOutput' />
+    </operation>
+  </portType>
+  <binding name='randomFamousQuotesBinding' type='tns:randomFamousQuotesPortType'>
+    <operation name='myEndpoint'>
+      <soap12:operation soapAction='http://myEndpoint' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='randomFamousQuotes'>
+    <documentation>get a random quote in JSON format Current categories are famous movies</documentation>
+    <port name='randomFamousQuotesPort' binding='tns:randomFamousQuotesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://randomFamousQuotes' />
+    </port>
+  </service>
+</definitions>

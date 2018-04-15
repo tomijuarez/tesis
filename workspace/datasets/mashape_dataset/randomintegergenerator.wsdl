@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/randomIntegerGenerator/' name='randomIntegerGenerator' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/randomIntegerGenerator/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/randomIntegerGenerator/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/randomIntegerGenerator/'>
+      <xsd:element name='randomIntegerGeneratorParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='max' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='min' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='randomIntegerGeneratorResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='random_integer' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='randomIntegerGeneratorRequestMessage'>
+    <part name='parameters' element='tns:randomIntegerGeneratorParameters' />
+  </message>
+  <message name='randomIntegerGeneratorResponseMessage'>
+    <part name='response' element='tns:randomIntegerGeneratorResponse' />
+  </message>
+  <portType name='randomIntegerGeneratorPortType'>
+    <operation name='randomIntegerGenerator'>
+      <documentation>generates Random Integer</documentation>
+      <input message='tns:randomIntegerGeneratorRequestMessage' name='randomIntegerGeneratorInput' />
+      <output message='tns:randomIntegerGeneratorResponseMessage' name='randomIntegerGeneratorOutput' />
+    </operation>
+  </portType>
+  <binding name='randomIntegerGeneratorBinding' type='tns:randomIntegerGeneratorPortType'>
+    <operation name='randomIntegerGenerator'>
+      <soap12:operation soapAction='http://randomIntegerGenerator' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='randomIntegerGenerator'>
+    <documentation>generates a random Integer between given boundaries</documentation>
+    <port name='randomIntegerGeneratorPort' binding='tns:randomIntegerGeneratorBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://randomIntegerGenerator' />
+    </port>
+  </service>
+</definitions>

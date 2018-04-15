@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/email/' name='email' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/email/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/email/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/email/'>
+      <xsd:element name='analysisParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='email' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='analysisResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='valid' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='recoded-email' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='domain' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='api-message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='analysisRequestMessage'>
+    <part name='parameters' element='tns:analysisParameters' />
+  </message>
+  <message name='analysisResponseMessage'>
+    <part name='response' element='tns:analysisResponse' />
+  </message>
+  <portType name='emailPortType'>
+    <operation name='analysis'>
+      <documentation>analyse validate and parse the content of a given Email Address</documentation>
+      <input message='tns:analysisRequestMessage' name='analysisInput' />
+      <output message='tns:analysisResponseMessage' name='analysisOutput' />
+    </operation>
+  </portType>
+  <binding name='emailBinding' type='tns:emailPortType'>
+    <operation name='analysis'>
+      <soap12:operation soapAction='http://analysis' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='email'>
+    <documentation>analyse the content of an Email Address and check if it is valid or not Email API can recode the Email Address if any common error or misspelling is found The API can also check for invalid or fake DNS</documentation>
+    <port name='emailPort' binding='tns:emailBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://email' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/portraitD/' name='portraitD' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/portraitD/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/portraitD/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/portraitD/'>
+      <xsd:element name='createAvatarFromPostFileResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='avatar' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAvatarFromUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='createAvatarFromUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='avatar' type='xsd:normalizedString' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createAvatarFromPostFileRequestMessage' />
+  <message name='createAvatarFromPostFileResponseMessage'>
+    <part name='response' element='tns:createAvatarFromPostFileResponse' />
+  </message>
+  <message name='createAvatarFromUrlRequestMessage'>
+    <part name='parameters' element='tns:createAvatarFromUrlParameters' />
+  </message>
+  <message name='createAvatarFromUrlResponseMessage'>
+    <part name='response' element='tns:createAvatarFromUrlResponse' />
+  </message>
+  <portType name='portraitDPortType'>
+    <operation name='createAvatarFromPostFile'>
+      <documentation></documentation>
+      <input message='tns:createAvatarFromPostFileRequestMessage' name='createAvatarFromPostFileInput' />
+      <output message='tns:createAvatarFromPostFileResponseMessage' name='createAvatarFromPostFileOutput' />
+    </operation>
+    <operation name='createAvatarFromUrl'>
+      <documentation></documentation>
+      <input message='tns:createAvatarFromUrlRequestMessage' name='createAvatarFromUrlInput' />
+      <output message='tns:createAvatarFromUrlResponseMessage' name='createAvatarFromUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='portraitDBinding' type='tns:portraitDPortType'>
+    <operation name='createAvatarFromPostFile'>
+      <soap12:operation soapAction='http://createAvatarFromPostFile' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='createAvatarFromUrl'>
+      <soap12:operation soapAction='http://createAvatarFromUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='portraitD'>
+    <documentation>portrait D API is based on Avatarion s Tethys D solution and provides software developers with a technology to create animated facial models based on photos</documentation>
+    <port name='portraitDPort' binding='tns:portraitDBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://portraitD' />
+    </port>
+  </service>
+</definitions>

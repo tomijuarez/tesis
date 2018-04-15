@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/slicify/' name='slicify' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/slicify/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/slicify/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/slicify/'>
+      <xsd:element name='accountbalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bidactivateParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bidid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bidactivateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='biddeleteParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bidid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='biddeleteResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bidgetallinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bidgetbookingidParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bidid' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='bidgetbookingidResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='accountbalanceRequestMessage' />
+  <message name='accountbalanceResponseMessage'>
+    <part name='response' element='tns:accountbalanceResponse' />
+  </message>
+  <message name='bidactivateRequestMessage'>
+    <part name='parameters' element='tns:bidactivateParameters' />
+  </message>
+  <message name='bidactivateResponseMessage'>
+    <part name='response' element='tns:bidactivateResponse' />
+  </message>
+  <message name='biddeleteRequestMessage'>
+    <part name='parameters' element='tns:biddeleteParameters' />
+  </message>
+  <message name='biddeleteResponseMessage'>
+    <part name='response' element='tns:biddeleteResponse' />
+  </message>
+  <message name='bidgetallinfoRequestMessage' />
+  <message name='bidgetallinfoResponseMessage'>
+    <part name='response' element='tns:bidgetallinfoResponse' />
+  </message>
+  <message name='bidgetbookingidRequestMessage'>
+    <part name='parameters' element='tns:bidgetbookingidParameters' />
+  </message>
+  <message name='bidgetbookingidResponseMessage'>
+    <part name='response' element='tns:bidgetbookingidResponse' />
+  </message>
+  <portType name='slicifyPortType'>
+    <operation name='accountbalance'>
+      <documentation>retrieve account balance</documentation>
+      <input message='tns:accountbalanceRequestMessage' name='accountbalanceInput' />
+      <output message='tns:accountbalanceResponseMessage' name='accountbalanceOutput' />
+    </operation>
+    <operation name='bidactivate'>
+      <documentation></documentation>
+      <input message='tns:bidactivateRequestMessage' name='bidactivateInput' />
+      <output message='tns:bidactivateResponseMessage' name='bidactivateOutput' />
+    </operation>
+    <operation name='biddelete'>
+      <documentation>delete a bid and cancel the associated booking</documentation>
+      <input message='tns:biddeleteRequestMessage' name='biddeleteInput' />
+      <output message='tns:biddeleteResponseMessage' name='biddeleteOutput' />
+    </operation>
+    <operation name='bidgetallinfo'>
+      <documentation></documentation>
+      <input message='tns:bidgetallinfoRequestMessage' name='bidgetallinfoInput' />
+      <output message='tns:bidgetallinfoResponseMessage' name='bidgetallinfoOutput' />
+    </operation>
+    <operation name='bidgetbookingid'>
+      <documentation></documentation>
+      <input message='tns:bidgetbookingidRequestMessage' name='bidgetbookingidInput' />
+      <output message='tns:bidgetbookingidResponseMessage' name='bidgetbookingidOutput' />
+    </operation>
+  </portType>
+  <binding name='slicifyBinding' type='tns:slicifyPortType'>
+    <operation name='accountbalance'>
+      <soap12:operation soapAction='http://accountbalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='bidactivate'>
+      <soap12:operation soapAction='http://bidactivate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='biddelete'>
+      <soap12:operation soapAction='http://biddelete' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='bidgetallinfo'>
+      <soap12:operation soapAction='http://bidgetallinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='bidgetbookingid'>
+      <soap12:operation soapAction='http://bidgetbookingid' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='slicify'>
+    <documentation>slicify is an IaaS cloud computing platform that competes with Amazon s EC Spot market Slicify offers high performance linux VMs up to x cheaper than AWS by allowing anyone with a PC to sell their spare compute power to the cloud Our fully featured REST API allows you to book machines get access details and manage your account</documentation>
+    <port name='slicifyPort' binding='tns:slicifyBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://slicify' />
+    </port>
+  </service>
+</definitions>

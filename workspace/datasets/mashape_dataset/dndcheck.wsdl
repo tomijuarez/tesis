@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/dndCheck/' name='dndCheck' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/dndCheck/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/dndCheck/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/dndCheck/'>
+      <xsd:element name='dndCheckParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mobilenos' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='dndCheckResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='mobilenumber' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='activation_date' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='preference_history' maxOccurs='unbounded'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='preference_date' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='preference' type='xsd:normalizedString' minOccurs='0' />
+                        <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='DND_status' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='current_preference' type='xsd:int' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='dndCheckRequestMessage'>
+    <part name='parameters' element='tns:dndCheckParameters' />
+  </message>
+  <message name='dndCheckResponseMessage'>
+    <part name='response' element='tns:dndCheckResponse' />
+  </message>
+  <portType name='dndCheckPortType'>
+    <operation name='dndCheck'>
+      <documentation>check any Indian Mobile Number s DND Status</documentation>
+      <input message='tns:dndCheckRequestMessage' name='dndCheckInput' />
+      <output message='tns:dndCheckResponseMessage' name='dndCheckOutput' />
+    </operation>
+  </portType>
+  <binding name='dndCheckBinding' type='tns:dndCheckPortType'>
+    <operation name='dndCheck'>
+      <soap12:operation soapAction='http://dndCheck' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='dndCheck'>
+    <documentation>check any Indian mobile number s DND Do Not Disturb status using our API</documentation>
+    <port name='dndCheckPort' binding='tns:dndCheckBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://dndCheck' />
+    </port>
+  </service>
+</definitions>

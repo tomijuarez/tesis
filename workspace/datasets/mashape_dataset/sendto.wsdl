@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sendto/' name='sendto' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sendto/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sendto/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sendto/'>
+      <xsd:element name='sendtoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sendtoRequestMessage' />
+  <message name='sendtoResponseMessage'>
+    <part name='response' element='tns:sendtoResponse' />
+  </message>
+  <portType name='sendtoPortType'>
+    <operation name='sendto'>
+      <documentation>sending bitcoin via API is done by sending an http POST to https bips me api v sendto containing amount to from and notes</documentation>
+      <input message='tns:sendtoRequestMessage' name='sendtoInput' />
+      <output message='tns:sendtoResponseMessage' name='sendtoOutput' />
+    </operation>
+  </portType>
+  <binding name='sendtoBinding' type='tns:sendtoPortType'>
+    <operation name='sendto'>
+      <soap12:operation soapAction='http://sendto' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sendto'>
+    <documentation>sending bitcoin via API is done by sending an http POST to https bips me api v sendto containing amount to from and notes On a successful POST the word success will be received in the response On any invalid API request an error message will be received in the response of the POST Your system should account for this API key should never be publicly visible If compromised one can generate a new one in BIPS account Numbers MUST be in their international format no leading zeroes The UK number will become</documentation>
+    <port name='sendtoPort' binding='tns:sendtoBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sendto' />
+    </port>
+  </service>
+</definitions>

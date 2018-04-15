@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/kraang/' name='kraang' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/kraang/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/kraang/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/kraang/'>
+      <xsd:element name='translateResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='translateRequestMessage' />
+  <message name='translateResponseMessage'>
+    <part name='response' element='tns:translateResponse' />
+  </message>
+  <portType name='kraangPortType'>
+    <operation name='translate'>
+      <documentation>translate sentences into Kraang talk</documentation>
+      <input message='tns:translateRequestMessage' name='translateInput' />
+      <output message='tns:translateResponseMessage' name='translateOutput' />
+    </operation>
+  </portType>
+  <binding name='kraangBinding' type='tns:kraangPortType'>
+    <operation name='translate'>
+      <soap12:operation soapAction='http://translate' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='kraang'>
+    <documentation>translate sentences into Kraang speak This API is just for fun and you can find it on kraang io</documentation>
+    <port name='kraangPort' binding='tns:kraangBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://kraang' />
+    </port>
+  </service>
+</definitions>

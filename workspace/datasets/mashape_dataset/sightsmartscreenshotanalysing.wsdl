@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sightSmartScreenshotAnalysing/' name='sightSmartScreenshotAnalysing' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sightSmartScreenshotAnalysing/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sightSmartScreenshotAnalysing/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sightSmartScreenshotAnalysing/'>
+      <xsd:element name='apiVSResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='token' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiVSTokenParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='token' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='apiVSTokenResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='data' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='url' type='xsd:anyURI' minOccurs='0' />
+                  <xsd:element name='status' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='ok' type='xsd:boolean' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiVSRequestMessage' />
+  <message name='apiVSResponseMessage'>
+    <part name='response' element='tns:apiVSResponse' />
+  </message>
+  <message name='apiVSTokenRequestMessage'>
+    <part name='parameters' element='tns:apiVSTokenParameters' />
+  </message>
+  <message name='apiVSTokenResponseMessage'>
+    <part name='response' element='tns:apiVSTokenResponse' />
+  </message>
+  <portType name='sightSmartScreenshotAnalysingPortType'>
+    <operation name='apiVS'>
+      <documentation>upload a screenshot for analysing The whole processing and searching processes are asynchronous so developers should issue another API request to fetch the final result using the given token</documentation>
+      <input message='tns:apiVSRequestMessage' name='apiVSInput' />
+      <output message='tns:apiVSResponseMessage' name='apiVSOutput' />
+    </operation>
+    <operation name='apiVSToken'>
+      <documentation>try to fetch the processing result associated with given token If the status is NOT FOUND or FOUND then the processing process finished Otherwise developer should try to fetch again after serval seconds delay better seconds</documentation>
+      <input message='tns:apiVSTokenRequestMessage' name='apiVSTokenInput' />
+      <output message='tns:apiVSTokenResponseMessage' name='apiVSTokenOutput' />
+    </operation>
+  </portType>
+  <binding name='sightSmartScreenshotAnalysingBinding' type='tns:sightSmartScreenshotAnalysingPortType'>
+    <operation name='apiVS'>
+      <soap12:operation soapAction='http://apiVS' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='apiVSToken'>
+      <soap12:operation soapAction='http://apiVSToken' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sightSmartScreenshotAnalysing'>
+    <documentation>this API is the magic behind Sight the amazing iOS app https itunes apple com us app id Uploading a screenshot of any web pages blogs even news apps like Yahoo Digest Sight will try to find the ORIGINAL web link Here is a good sample to show what Sight can do Given the screenshot http mac us s amazonaws com sight api usercontent c b f aa b a df jpg and Sight API returns http eatingonadime com mexican white cheese dip as the original web link</documentation>
+    <port name='sightSmartScreenshotAnalysingPort' binding='tns:sightSmartScreenshotAnalysingBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sightSmartScreenshotAnalysing' />
+    </port>
+  </service>
+</definitions>

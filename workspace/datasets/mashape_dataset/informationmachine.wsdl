@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/informationMachine/' name='informationMachine' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/informationMachine/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/informationMachine/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/informationMachine/'>
+      <xsd:element name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretRequestMessage' />
+  <message name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretResponseMessage'>
+    <part name='response' element='tns:apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretResponse' />
+  </message>
+  <portType name='informationMachinePortType'>
+    <operation name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecret'>
+      <documentation>list of user stores is request</documentation>
+      <input message='tns:apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretRequestMessage' name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretInput' />
+      <output message='tns:apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretResponseMessage' name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecretOutput' />
+    </operation>
+  </portType>
+  <binding name='informationMachineBinding' type='tns:informationMachinePortType'>
+    <operation name='apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecret'>
+      <soap12:operation soapAction='http://apiIamdataCoUserUserIdStoresClientIdYourAppIdClientSecretYourAppSecret' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='informationMachine'>
+    <documentation>with the Information Machine API your users can choose to stream their purchase receipt data from online or loyalty card purchases Your application now has access to live historic product level purchase data fundamentally changing the value you can offer can offer to your customers</documentation>
+    <port name='informationMachinePort' binding='tns:informationMachineBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://informationMachine' />
+    </port>
+  </service>
+</definitions>

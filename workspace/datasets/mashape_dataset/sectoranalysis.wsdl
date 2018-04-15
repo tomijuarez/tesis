@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/sectorAnalysis/' name='sectorAnalysis' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/sectorAnalysis/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/sectorAnalysis/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/sectorAnalysis/'>
+      <xsd:element name='sectorAnalysisApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='returnsecuritydetails' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='sectorAnalysisApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='apiVersion' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='tenantName' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='portfolios' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='n0' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='portfolioSectors' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='sectorValue' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='sectorName' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='sectorAllocation' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='sector' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='cashBalance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='portfolioName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='portfolioValue' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='n1' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='portfolioSectors' maxOccurs='unbounded'>
+                          <xsd:complexType>
+                            <xsd:sequence minOccurs='1' maxOccurs='1'>
+                              <xsd:element name='sectorValue' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='sectorName' type='xsd:normalizedString' minOccurs='0' />
+                              <xsd:element name='sectorAllocation' type='xsd:decimal' minOccurs='0' />
+                              <xsd:element name='sector' type='xsd:normalizedString' minOccurs='0' />
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name='cashBalance' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='portfolioName' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='portfolioValue' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='timestamp' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='sectorAnalysisApiRequestMessage'>
+    <part name='parameters' element='tns:sectorAnalysisApiParameters' />
+  </message>
+  <message name='sectorAnalysisApiResponseMessage'>
+    <part name='response' element='tns:sectorAnalysisApiResponse' />
+  </message>
+  <portType name='sectorAnalysisPortType'>
+    <operation name='sectorAnalysisApi'>
+      <documentation>the Sector Analysis API returns the sector weights of up to portfolios A common use for the Sector Analysis API is to power charts or tables that show the sector breakdown of a portfolio Sector weights are determined based on each security s sector assignments in the tenant s security master The Sector Analysis API utilizes the Global Industry Classification Standard GICS sector categories to classify securities by sector and determine sector weights of a portfolio You can also analyze a model portfolio by specifying the Model ID in the request using the modelID parameter The Model ID is retrieved using the Models API</documentation>
+      <input message='tns:sectorAnalysisApiRequestMessage' name='sectorAnalysisApiInput' />
+      <output message='tns:sectorAnalysisApiResponseMessage' name='sectorAnalysisApiOutput' />
+    </operation>
+  </portType>
+  <binding name='sectorAnalysisBinding' type='tns:sectorAnalysisPortType'>
+    <operation name='sectorAnalysisApi'>
+      <soap12:operation soapAction='http://sectorAnalysisApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='sectorAnalysis'>
+    <documentation>the Sector Analysis API returns the sector weights of up to portfolios A common use for the Sector Analysis API is to power charts or tables that show the sector breakdown of a portfolio Sector weights are determined based on each security s sector assignments in the tenant s security master The Sector Analysis API utilizes the Global Industry Classification Standard GICS sector categories to classify securities by sector and determine sector weights of a portfolio You can also analyze a model portfolio by specifying the Model ID in the request using the modelID parameter The Model ID is retrieved using the Models API</documentation>
+    <port name='sectorAnalysisPort' binding='tns:sectorAnalysisBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://sectorAnalysis' />
+    </port>
+  </service>
+</definitions>

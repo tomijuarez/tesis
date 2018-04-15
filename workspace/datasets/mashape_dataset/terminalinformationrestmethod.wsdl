@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/terminalInformationRestMethod/' name='terminalInformationRestMethod' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/terminalInformationRestMethod/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/terminalInformationRestMethod/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/terminalInformationRestMethod/'>
+      <xsd:element name='terminalinfoParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='airline' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='day' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='flightnumber' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='from' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='month' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='to' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='year' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='terminalinfoResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='terminalinfoRequestMessage'>
+    <part name='parameters' element='tns:terminalinfoParameters' />
+  </message>
+  <message name='terminalinfoResponseMessage'>
+    <part name='response' element='tns:terminalinfoResponse' />
+  </message>
+  <portType name='terminalInformationRestMethodPortType'>
+    <operation name='terminalinfo'>
+      <documentation>this method returns either the departure or arrival terminal information for a specified airline and flight number or a specified airport on a specified date</documentation>
+      <input message='tns:terminalinfoRequestMessage' name='terminalinfoInput' />
+      <output message='tns:terminalinfoResponseMessage' name='terminalinfoOutput' />
+    </operation>
+  </portType>
+  <binding name='terminalInformationRestMethodBinding' type='tns:terminalInformationRestMethodPortType'>
+    <operation name='terminalinfo'>
+      <soap12:operation soapAction='http://terminalinfo' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='terminalInformationRestMethod'>
+    <documentation>flightLookup Terminal Info Answer the most frequently asked question by frequent travelers what terminal do I go to Returns Terminal Information Flight Number Arrival Terminal Depart Terminal Operating Carrier</documentation>
+    <port name='terminalInformationRestMethodPort' binding='tns:terminalInformationRestMethodBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://terminalInformationRestMethod' />
+    </port>
+  </service>
+</definitions>

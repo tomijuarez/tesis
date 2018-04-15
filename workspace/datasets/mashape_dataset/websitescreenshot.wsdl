@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/websiteScreenshot/' name='websiteScreenshot' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/websiteScreenshot/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/websiteScreenshot/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/websiteScreenshot/'>
+      <xsd:element name='urlUrlParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='adblockenabled' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='callback' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='cliprect' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='format' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='height' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='javascriptenabled' xmlns='xsd' type='boolean' maxOccurs='unbounded' />
+            <xsd:element name='password' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='size' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='url' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='useragent' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='username' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='width' type='xsd:int' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='urlUrlResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='urlUrlRequestMessage'>
+    <part name='parameters' element='tns:urlUrlParameters' />
+  </message>
+  <message name='urlUrlResponseMessage'>
+    <part name='response' element='tns:urlUrlResponse' />
+  </message>
+  <portType name='websiteScreenshotPortType'>
+    <operation name='urlUrl'>
+      <documentation>take a screenshot</documentation>
+      <input message='tns:urlUrlRequestMessage' name='urlUrlInput' />
+      <output message='tns:urlUrlResponseMessage' name='urlUrlOutput' />
+    </operation>
+  </portType>
+  <binding name='websiteScreenshotBinding' type='tns:websiteScreenshotPortType'>
+    <operation name='urlUrl'>
+      <soap12:operation soapAction='http://urlUrl' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='websiteScreenshot'>
+    <documentation>takes screenshots of websites</documentation>
+    <port name='websiteScreenshotPort' binding='tns:websiteScreenshotBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://websiteScreenshot' />
+    </port>
+  </service>
+</definitions>

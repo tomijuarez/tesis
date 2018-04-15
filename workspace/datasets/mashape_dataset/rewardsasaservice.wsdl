@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/rewardsAsAService/' name='rewardsAsAService' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/rewardsAsAService/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/rewardsAsAService/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/rewardsAsAService/'>
+      <xsd:element name='createAnAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='account' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='available_balance' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='customer' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAccountInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountidentifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customer' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getAccountInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='account' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='available_balance' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='customer' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fundAccountResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+            <xsd:element name='success' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='denial_code' type='xsd:string' minOccurs='0' />
+            <xsd:element name='fund_id' type='xsd:string' minOccurs='0' />
+            <xsd:element name='denial_message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getListOfRewardsResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='brands' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='image_url' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='rewards' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='max_price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='min_price' type='xsd:int' minOccurs='0' />
+                        <xsd:element name='currency_type' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='available' type='xsd:boolean' minOccurs='0' />
+                        <xsd:element name='description' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='sku' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='unit_price' type='xsd:int' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='placeAnOrderForARewardResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='invalid_inputs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='field' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='error' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:string' minOccurs='0' />
+            <xsd:element name='order' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reward' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='pin' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='token' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reward_from' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_subject' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='account_identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recipient' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sku' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='delivered_at' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='order_id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='customer' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getOrderInformationParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='orderid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getOrderInformationResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='error_message' type='xsd:string' minOccurs='0' />
+            <xsd:element name='invalid_inputs' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='field' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='error' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='success' type='xsd:string' minOccurs='0' />
+            <xsd:element name='order' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reward' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='pin' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='token' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reward_from' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_subject' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='account_identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recipient' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sku' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='delivered_at' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='order_id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='customer' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getOrderHistoryParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='accountidentifier' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='customer' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='enddate' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='limit' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='offset' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='startdate' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getOrderHistoryResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='success' type='xsd:string' minOccurs='0' />
+            <xsd:element name='orders' minOccurs='0'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='reward' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='number' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='pin' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='token' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='amount' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='reward_from' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_subject' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='account_identifier' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='recipient' minOccurs='0'>
+                    <xsd:complexType>
+                      <xsd:sequence minOccurs='1' maxOccurs='1'>
+                        <xsd:element name='name' type='xsd:string' minOccurs='0' />
+                        <xsd:element name='email' type='xsd:string' minOccurs='0' />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name='sku' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='reward_message' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='delivered_at' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='order_id' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='customer' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='createAnAccountRequestMessage' />
+  <message name='createAnAccountResponseMessage'>
+    <part name='response' element='tns:createAnAccountResponse' />
+  </message>
+  <message name='getAccountInformationRequestMessage'>
+    <part name='parameters' element='tns:getAccountInformationParameters' />
+  </message>
+  <message name='getAccountInformationResponseMessage'>
+    <part name='response' element='tns:getAccountInformationResponse' />
+  </message>
+  <message name='fundAccountRequestMessage' />
+  <message name='fundAccountResponseMessage'>
+    <part name='response' element='tns:fundAccountResponse' />
+  </message>
+  <message name='getListOfRewardsRequestMessage' />
+  <message name='getListOfRewardsResponseMessage'>
+    <part name='response' element='tns:getListOfRewardsResponse' />
+  </message>
+  <message name='placeAnOrderForARewardRequestMessage' />
+  <message name='placeAnOrderForARewardResponseMessage'>
+    <part name='response' element='tns:placeAnOrderForARewardResponse' />
+  </message>
+  <message name='getOrderInformationRequestMessage'>
+    <part name='parameters' element='tns:getOrderInformationParameters' />
+  </message>
+  <message name='getOrderInformationResponseMessage'>
+    <part name='response' element='tns:getOrderInformationResponse' />
+  </message>
+  <message name='getOrderHistoryRequestMessage'>
+    <part name='parameters' element='tns:getOrderHistoryParameters' />
+  </message>
+  <message name='getOrderHistoryResponseMessage'>
+    <part name='response' element='tns:getOrderHistoryResponse' />
+  </message>
+  <portType name='rewardsAsAServicePortType'>
+    <operation name='createAnAccount'>
+      <documentation></documentation>
+      <input message='tns:createAnAccountRequestMessage' name='createAnAccountInput' />
+      <output message='tns:createAnAccountResponseMessage' name='createAnAccountOutput' />
+    </operation>
+    <operation name='getAccountInformation'>
+      <documentation>get the information for an account created under a Customer</documentation>
+      <input message='tns:getAccountInformationRequestMessage' name='getAccountInformationInput' />
+      <output message='tns:getAccountInformationResponseMessage' name='getAccountInformationOutput' />
+    </operation>
+    <operation name='fundAccount'>
+      <documentation>funds the given account</documentation>
+      <input message='tns:fundAccountRequestMessage' name='fundAccountInput' />
+      <output message='tns:fundAccountResponseMessage' name='fundAccountOutput' />
+    </operation>
+    <operation name='getListOfRewards'>
+      <documentation>gets the list of rewards available for the platform</documentation>
+      <input message='tns:getListOfRewardsRequestMessage' name='getListOfRewardsInput' />
+      <output message='tns:getListOfRewardsResponseMessage' name='getListOfRewardsOutput' />
+    </operation>
+    <operation name='placeAnOrderForAReward'>
+      <documentation>order a rewar</documentation>
+      <input message='tns:placeAnOrderForARewardRequestMessage' name='placeAnOrderForARewardInput' />
+      <output message='tns:placeAnOrderForARewardResponseMessage' name='placeAnOrderForARewardOutput' />
+    </operation>
+    <operation name='getOrderInformation'>
+      <documentation>get more information about an order</documentation>
+      <input message='tns:getOrderInformationRequestMessage' name='getOrderInformationInput' />
+      <output message='tns:getOrderInformationResponseMessage' name='getOrderInformationOutput' />
+    </operation>
+    <operation name='getOrderHistory'>
+      <documentation>get more information about all the orders placed on this customer and account</documentation>
+      <input message='tns:getOrderHistoryRequestMessage' name='getOrderHistoryInput' />
+      <output message='tns:getOrderHistoryResponseMessage' name='getOrderHistoryOutput' />
+    </operation>
+  </portType>
+  <binding name='rewardsAsAServiceBinding' type='tns:rewardsAsAServicePortType'>
+    <operation name='createAnAccount'>
+      <soap12:operation soapAction='http://createAnAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getAccountInformation'>
+      <soap12:operation soapAction='http://getAccountInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='fundAccount'>
+      <soap12:operation soapAction='http://fundAccount' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getListOfRewards'>
+      <soap12:operation soapAction='http://getListOfRewards' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='placeAnOrderForAReward'>
+      <soap12:operation soapAction='http://placeAnOrderForAReward' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getOrderInformation'>
+      <soap12:operation soapAction='http://getOrderInformation' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='getOrderHistory'>
+      <soap12:operation soapAction='http://getOrderHistory' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='rewardsAsAService'>
+    <documentation>create an account fund an account manage a catalog send rewards and get reporting all available on demand in real time and as a service With our RaaS API you can elegantly knit a sophisticated rewards program into your platform Best of all the service has zero fees</documentation>
+    <port name='rewardsAsAServicePort' binding='tns:rewardsAsAServiceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://rewardsAsAService' />
+    </port>
+  </service>
+</definitions>

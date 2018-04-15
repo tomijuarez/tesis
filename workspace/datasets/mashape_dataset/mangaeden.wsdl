@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/mangaEden/' name='mangaEden' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/mangaEden/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/mangaEden/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/mangaEden/'>
+      <xsd:element name='mangaInfoAndChaptersListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='mangaid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='mangaid' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mangaInfoAndChaptersListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='image' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='artist' type='xsd:string' minOccurs='0' />
+            <xsd:element name='chapters' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='array' type='xsd:int' maxOccurs='unbounded' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='author' type='xsd:string' minOccurs='0' />
+            <xsd:element name='created' type='xsd:int' minOccurs='0' />
+            <xsd:element name='last_chapter_date' type='xsd:int' minOccurs='0' />
+            <xsd:element name='description' type='xsd:string' minOccurs='0' />
+            <xsd:element name='updatedKeywords' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='language' type='xsd:int' minOccurs='0' />
+            <xsd:element name='title' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='type' type='xsd:int' minOccurs='0' />
+            <xsd:element name='hits' type='xsd:int' minOccurs='0' />
+            <xsd:element name='random' type='xsd:decimal' maxOccurs='unbounded' />
+            <xsd:element name='alias' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='title_kw' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='categories' type='xsd:normalizedString' maxOccurs='unbounded' />
+            <xsd:element name='chapters_len' type='xsd:int' minOccurs='0' />
+            <xsd:element name='released' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='startsWith' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='status' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mangaListParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='language' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='p' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='mangaListResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='total' type='xsd:int' minOccurs='0' />
+            <xsd:element name='start' type='xsd:int' minOccurs='0' />
+            <xsd:element name='manga' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='a' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='s' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='im' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='t' type='xsd:string' minOccurs='0' />
+                  <xsd:element name='h' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='ld' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='i' type='xsd:normalizedString' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='end' type='xsd:int' minOccurs='0' />
+            <xsd:element name='page' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='mangaInfoAndChaptersListRequestMessage'>
+    <part name='parameters' element='tns:mangaInfoAndChaptersListParameters' />
+  </message>
+  <message name='mangaInfoAndChaptersListResponseMessage'>
+    <part name='response' element='tns:mangaInfoAndChaptersListResponse' />
+  </message>
+  <message name='mangaListRequestMessage'>
+    <part name='parameters' element='tns:mangaListParameters' />
+  </message>
+  <message name='mangaListResponseMessage'>
+    <part name='response' element='tns:mangaListResponse' />
+  </message>
+  <portType name='mangaEdenPortType'>
+    <operation name='mangaInfoAndChaptersList'>
+      <documentation>returned data all the informations and chapters of the manga</documentation>
+      <input message='tns:mangaInfoAndChaptersListRequestMessage' name='mangaInfoAndChaptersListInput' />
+      <output message='tns:mangaInfoAndChaptersListResponseMessage' name='mangaInfoAndChaptersListOutput' />
+    </operation>
+    <operation name='mangaList'>
+      <documentation>dictionaries in the key manga contains the manga s image im title t ID i alias a status s last chapter date ld hits h page start end and total are self explanatory</documentation>
+      <input message='tns:mangaListRequestMessage' name='mangaListInput' />
+      <output message='tns:mangaListResponseMessage' name='mangaListOutput' />
+    </operation>
+  </portType>
+  <binding name='mangaEdenBinding' type='tns:mangaEdenPortType'>
+    <operation name='mangaInfoAndChaptersList'>
+      <soap12:operation soapAction='http://mangaInfoAndChaptersList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='mangaList'>
+      <soap12:operation soapAction='http://mangaList' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='mangaEden'>
+    <documentation>mangaEden is today one of the best sources where readers can access high quality manga from leading publishers for free Readers have access to a wide range of classic genres summaries manga art books and popular fiction and non fiction manga titles</documentation>
+    <port name='mangaEdenPort' binding='tns:mangaEdenBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://mangaEden' />
+    </port>
+  </service>
+</definitions>

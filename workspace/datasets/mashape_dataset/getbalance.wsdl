@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/getbalance/' name='getbalance' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/getbalance/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/getbalance/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/getbalance/'>
+      <xsd:element name='getbalanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getbalanceRequestMessage' />
+  <message name='getbalanceResponseMessage'>
+    <part name='response' element='tns:getbalanceResponse' />
+  </message>
+  <portType name='getbalancePortType'>
+    <operation name='getbalance'>
+      <documentation>getting balance of bitcoin and in fiat via API is done by sending an http POST to https bips me api v getbalance</documentation>
+      <input message='tns:getbalanceRequestMessage' name='getbalanceInput' />
+      <output message='tns:getbalanceResponseMessage' name='getbalanceOutput' />
+    </operation>
+  </portType>
+  <binding name='getbalanceBinding' type='tns:getbalancePortType'>
+    <operation name='getbalance'>
+      <soap12:operation soapAction='http://getbalance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='getbalance'>
+    <documentation>getting balance of bitcoin and in fiat via API is done by sending an http POST to https bips me api v getbalance On a successful POST a JSON encoded array will be received in the response On any invalid API request an error message will be received in the response of the POST Your system should account for this API key should never be publicly visible If compromised one can generate a new one in BIPS account BIPS GetBalance example btc amount rate fiat amount currency USD</documentation>
+    <port name='getbalancePort' binding='tns:getbalanceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://getbalance' />
+    </port>
+  </service>
+</definitions>

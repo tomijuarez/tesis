@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/textRecognitionOcrForImages/' name='textRecognitionOcrForImages' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/textRecognitionOcrForImages/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/textRecognitionOcrForImages/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/textRecognitionOcrForImages/'>
+      <xsd:element name='textsearchResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='textDetected' type='xsd:boolean' minOccurs='0' />
+            <xsd:element name='imageDimensions' type='xsd:int' maxOccurs='unbounded' />
+            <xsd:element name='resource' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='objectUrl' type='xsd:anyURI' minOccurs='0' />
+            <xsd:element name='text' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='id' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='textCoordinates' type='xsd:int' maxOccurs='unbounded' />
+                  <xsd:element name='textString' type='xsd:string' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name='message' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='version' type='xsd:normalizedString' minOccurs='0' />
+            <xsd:element name='transactionId' type='xsd:int' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='textsearchRequestMessage' />
+  <message name='textsearchResponseMessage'>
+    <part name='response' element='tns:textsearchResponse' />
+  </message>
+  <portType name='textRecognitionOcrForImagesPortType'>
+    <operation name='textsearch'>
+      <documentation>use this API to detect and recognize in image text NOTE API accepts JSON and XML encoded posts</documentation>
+      <input message='tns:textsearchRequestMessage' name='textsearchInput' />
+      <output message='tns:textsearchResponseMessage' name='textsearchOutput' />
+    </operation>
+  </portType>
+  <binding name='textRecognitionOcrForImagesBinding' type='tns:textRecognitionOcrForImagesPortType'>
+    <operation name='textsearch'>
+      <soap12:operation soapAction='http://textsearch' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='textRecognitionOcrForImages'>
+    <documentation>if you think OCR is th century scanner technology ImageVision has revolutionized the technology to recognize text on images If your business revolves around user content and you are concerned with image based advertising or unwanted speech ImageVision s OCR for Images service can help</documentation>
+    <port name='textRecognitionOcrForImagesPort' binding='tns:textRecognitionOcrForImagesBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://textRecognitionOcrForImages' />
+    </port>
+  </service>
+</definitions>

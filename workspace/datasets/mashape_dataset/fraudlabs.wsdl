@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/fraudlabs/' name='fraudlabs' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/fraudlabs/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/fraudlabs/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/fraudlabs/'>
+      <xsd:element name='fraudlabsApiParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='bin' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binname' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='binphone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='city' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='country' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='domain' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='ip' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='license' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='phone' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='postal' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='queryid' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='region' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipaddr' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipcity' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipcountry' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shippostal' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='shipregion' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='fraudlabsApiResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='fraudlabsApiRequestMessage'>
+    <part name='parameters' element='tns:fraudlabsApiParameters' />
+  </message>
+  <message name='fraudlabsApiResponseMessage'>
+    <part name='response' element='tns:fraudlabsApiResponse' />
+  </message>
+  <portType name='fraudlabsPortType'>
+    <operation name='fraudlabsApi'>
+      <documentation>credit Card Fraud Detection API</documentation>
+      <input message='tns:fraudlabsApiRequestMessage' name='fraudlabsApiInput' />
+      <output message='tns:fraudlabsApiResponseMessage' name='fraudlabsApiOutput' />
+    </operation>
+  </portType>
+  <binding name='fraudlabsBinding' type='tns:fraudlabsPortType'>
+    <operation name='fraudlabsApi'>
+      <soap12:operation soapAction='http://fraudlabsApi' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='fraudlabs'>
+    <documentation>the FraudLabs Credit Card Fraud Detection Web Service allows instant detection of fraudulent online credit card order transactions which helps internet retailers to avoid loss of revenue waste of productivity and increase of operation costs in chargebacks or refunds Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</documentation>
+    <port name='fraudlabsPort' binding='tns:fraudlabsBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://fraudlabs' />
+    </port>
+  </service>
+</definitions>

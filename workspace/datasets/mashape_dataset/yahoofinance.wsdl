@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/yahooFinance/' name='yahooFinance' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/yahooFinance/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/yahooFinance/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/yahooFinance/'>
+      <xsd:element name='yahooFinanceParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='text' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='yahooFinanceResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='root' maxOccurs='unbounded'>
+              <xsd:complexType>
+                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                  <xsd:element name='volume' type='xsd:int' minOccurs='0' />
+                  <xsd:element name='symbol' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='high' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='low' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='ask' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='last_trade_date' type='xsd:normalizedString' minOccurs='0' />
+                  <xsd:element name='low_52_weeks' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='bid' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='close' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='open' type='xsd:decimal' minOccurs='0' />
+                  <xsd:element name='high_52_weeks' type='xsd:decimal' minOccurs='0' />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='yahooFinanceRequestMessage'>
+    <part name='parameters' element='tns:yahooFinanceParameters' />
+  </message>
+  <message name='yahooFinanceResponseMessage'>
+    <part name='response' element='tns:yahooFinanceResponse' />
+  </message>
+  <portType name='yahooFinancePortType'>
+    <operation name='yahooFinance'>
+      <documentation>yahoo Finance API</documentation>
+      <input message='tns:yahooFinanceRequestMessage' name='yahooFinanceInput' />
+      <output message='tns:yahooFinanceResponseMessage' name='yahooFinanceOutput' />
+    </operation>
+  </portType>
+  <binding name='yahooFinanceBinding' type='tns:yahooFinancePortType'>
+    <operation name='yahooFinance'>
+      <soap12:operation soapAction='http://yahooFinance' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='yahooFinance'>
+    <documentation>give a list of stock symbols this API returns stock data using Yahoo Finance</documentation>
+    <port name='yahooFinancePort' binding='tns:yahooFinanceBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://yahooFinance' />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions targetNamespace='http://generatedWSDL.com/speechapi/' name='speechapi' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://generatedWSDL.com/speechapi/'>
+  <types>
+    <xsd:schema targetNamespace='http://generatedWSDL.com/speechapi/' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://generatedWSDL.com/speechapi/'>
+      <xsd:element name='classifyspeechParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='inputformat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='classifyspeechResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='Message' type='xsd:string' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removenoiseParameters'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='inputformat' type='xsd:string' maxOccurs='unbounded' />
+            <xsd:element name='outputformat' type='xsd:string' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='removenoiseResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element name='response' xmlns='xsd' type='any' maxOccurs='unbounded' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='classifyspeechRequestMessage'>
+    <part name='parameters' element='tns:classifyspeechParameters' />
+  </message>
+  <message name='classifyspeechResponseMessage'>
+    <part name='response' element='tns:classifyspeechResponse' />
+  </message>
+  <message name='removenoiseRequestMessage'>
+    <part name='parameters' element='tns:removenoiseParameters' />
+  </message>
+  <message name='removenoiseResponseMessage'>
+    <part name='response' element='tns:removenoiseResponse' />
+  </message>
+  <portType name='speechapiPortType'>
+    <operation name='classifyspeech'>
+      <documentation>eXPERIMENTAL Finds speech segments inside the file and marks them with attributes like speaker language Age sex sentiment and speaker dependent hash will come later</documentation>
+      <input message='tns:classifyspeechRequestMessage' name='classifyspeechInput' />
+      <output message='tns:classifyspeechResponseMessage' name='classifyspeechOutput' />
+    </operation>
+    <operation name='removenoise'>
+      <documentation>removes from audio data everything except the voice Handles virtually any type of noise like passing cars sirens crying children and so on</documentation>
+      <input message='tns:removenoiseRequestMessage' name='removenoiseInput' />
+      <output message='tns:removenoiseResponseMessage' name='removenoiseOutput' />
+    </operation>
+  </portType>
+  <binding name='speechapiBinding' type='tns:speechapiPortType'>
+    <operation name='classifyspeech'>
+      <soap12:operation soapAction='http://classifyspeech' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+    <operation name='removenoise'>
+      <soap12:operation soapAction='http://removenoise' style='document' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/' />
+      <input>
+        <tns:body use='literal' parts='parameters' />
+      </input>
+      <output>
+        <tns:body use='literal' parts='response' />
+      </output>
+    </operation>
+  </binding>
+  <service name='speechapi'>
+    <documentation>noise suppression and speech classification API</documentation>
+    <port name='speechapiPort' binding='tns:speechapiBinding' xmlns:soap12='http://schemas.xmlsoap.org/wsdl/soap12/'>
+      <soap12:address location='http://speechapi' />
+    </port>
+  </service>
+</definitions>
