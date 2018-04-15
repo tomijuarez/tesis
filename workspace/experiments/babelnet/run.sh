@@ -17,11 +17,11 @@ HITLIST_FILE_PATH=hitlist.xml
 QUERY_FILE_PATH=queries.csv
 MASHAPE_DATASET_PATH=$DATASET_PATH/mashape_dataset/
 
-run_kmeans=true
+run_kmeans=false
 run_kdtree=true
-run_wsqbe=true
+run_wsqbe=false
 run_kernel_vsm=false
-run_lsa=true
+run_lsa=false
 
 
 metrics=( euclidean )
