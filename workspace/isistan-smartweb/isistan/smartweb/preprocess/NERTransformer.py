@@ -24,11 +24,13 @@ class NERTransformer(Transformer):
         entities = self._get_entities(string_data)
         if entities is not None:
             for entity in entities:
-                additional_information = self._information_source.get_description(entity)
+                #additional_information = self._information_source.get_description(entity)
+                additional_information = self._information_source.get_description(entity.text)
                 if additional_information is not None:
                     wordbag.get_words_list().extend(additional_information)
         return wordbag
-
+    
+    ''' VERSION ORIGINAL 
     def _get_entities(self, text):
         entities = self._ner.get_entities(text)
         if self._ner.ENTITY_ORGANIZATION in entities:
@@ -36,3 +38,8 @@ class NERTransformer(Transformer):
                 return entities[self._ner.ENTITY_ORGANIZATION]
             else:
                 return None
+    
+    '''
+    #MODIFICACION PARA INTEGRAR SPACY
+    def _get_entities(self, text):
+        return self._ner.get_entities(text)

@@ -15,6 +15,7 @@ from isistan.smartweb.preprocess.CombineTransformer import CombineTransformer
 from isistan.smartweb.core.FreebaseInformationSource import FreebaseInformationSource
 from isistan.smartweb.core.BabelInformationSource import BabelInformationSource
 from isistan.smartweb.core.StandfordNER import StandfordNER
+from isistan.smartweb.core.SpacyNER import SpacyNER
 
 
 __author__ = 'ignacio'
@@ -131,13 +132,18 @@ class SmartSearchEngine(SearchEngine):
 
         if config.get('RegistryConfigurations', 'ner_expansion').lower() == 'true':
             kdb_api_key = config.get('RegistryConfigurations', 'kdb_api_key')
-            standford_ner = StandfordNER()
+
+            #Usar uno u otro NER
+            #ner = StandfordNER()
+            ner = SpacyNER()
+
             kdb_source_opt = config.get('RegistryConfigurations', 'kdb_source').lower()
             if kdb_source_opt == 'freebase':
                 knowledge_source = FreebaseInformationSource(kdb_api_key)
             else:
                 knowledge_source = BabelInformationSource(kdb_api_key)
-            self._document_transformer = NERTransformer(knowledge_source, standford_ner)
+
+            self._document_transformer = NERTransformer(knowledge_source, ner)
             self._document_expansion = True
 
         if config.get('RegistryConfigurations', 'wordnet_expansion').lower() == 'true':
