@@ -1,0 +1,17 @@
+Modificaciones para la integracion de SpaCy:
+
+1- SearchEngine.py linea 136
+Originalmente se creaba el stanford_ner, ahora se crea la variable ner y se debe comentar el ner que NO se quiere usar. De esta forma se crea El NerTransformer con el elegido.
+
+2- Lo mismo en BM25SearchEngine.py linea 46
+
+3- NerTransformer.py 
+	a- Nueva implementacion del metodo _get_entities(). Se debe usar uno u otro dependiendo de que se comento en los puntos 1 y 2
+	
+	b- Para evitar el error "exceptions.TypeError: Argument 'string' has incorrect type (expected unicode, got str)" en la linea 27 en 		lugar de pasarle la entidad completa, se le pasa el entity.text
+
+4- En el run.sh cambiar la impresion para que diga que esta empezando SpaCy NER y que esta terminando
+
+
+LOGUEO:
+	1-NerTransformer.py: linea 41, intenta imprimir la entidad reconocida (va con .text o sin el depende cual se ejecute) 	

@@ -28,11 +28,13 @@ metrics=( euclidean )
 n_clusters=( 8 )
 n_topics=( 500 )
 
-#echo "Starting Standford NER..."
-echo "Starting SpaCy NER..."
+echo "Starting Standford NER..."
+#echo "Starting SpaCy NER..."
 java -mx1000m -cp $STANFORD_NER_PATH edu.stanford.nlp.ie.NERServer -loadClassifier $STANDFORD_ROOT_PATH/classifiers/english.all.3class.distsim.crf.ser.gz -port $STANFORD_NER_PORT -outputFormat inlineXML &
 STANDFORD_SERVER_PID=$!
 sleep $SLEEP_TIME
+
+#mv $ROOT_PATH/experiments/babelnet/ner.log $$ROOT_PATH/experiments/babelnet/nerBackup.log
 
 
 #Clustering KMeans searcher experiments
@@ -64,6 +66,7 @@ if [ "$run_kdtree" = true ] ; then
     do
         mkdir kdtree/$n
         KDTREE_RAW_RESULTS_FILE=kdtree/$n/kdtree_raw_results.csv
+        echo "KDTREE_RAW_RESULTS_FILE: " KDTREE_RAW_RESULTS_FILE
         KDTREE_RESULTS_FILE=kdtree/$n/kdtree_results.txt
         sed -i "s/%s%/${n}/g" kdtree_properties.cfg
         echo -n "Starting smartweb server (KDTreeSearchEngine)..."
@@ -138,7 +141,7 @@ if [ "$run_lsa" = true ] ; then
     done
 fi
 
-#echo -n "Stoping Standford NER..."
-echo -n "Stoping SpaCy NER..."
+echo -n "Stoping Standford NER..."
+#echo -n "Stoping SpaCy NER..."
 kill -9 $STANDFORD_SERVER_PID
 echo "[OK]"

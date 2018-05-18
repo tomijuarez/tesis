@@ -43,8 +43,8 @@ class BM25SearchEngine(SearchEngine):
 
         if str(config.get('RegistryConfigurations', 'document_expansion')).lower() == 'true':
             freebase_api_key = str(config.get('RegistryConfigurations', 'freebase_api_key'))
-            #ner = StandfordNER()
-            ner = SpacyNER()
+            ner = StandfordNER()
+            #ner = SpacyNER()
             freebase_source = FreebaseInformationSource(freebase_api_key)
             self._semantic_transformer = NERTransformer(freebase_source, ner)
             self._document_expansion = True

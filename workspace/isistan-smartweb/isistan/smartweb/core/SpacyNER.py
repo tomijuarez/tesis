@@ -18,6 +18,7 @@ class SpacyNER(NamedEntityRecognizer):
         #self._engine = ... [instanciar]
         self.nlp = spacy.load('en') #cargo el modelo en ingles.
 
+
     def get_entities(self, text):
         #Retornar las entidades en el formato adecuado [hacer]
 		doc = self.nlp(text.decode('UTF-8'))
