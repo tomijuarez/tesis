@@ -12,7 +12,6 @@ class SpacyNER(NamedEntityRecognizer):
     # Agregar los tags que nos corresponden segun el analisis que hicimos.
     ENTITY_ORGANIZATION = 'ORGANIZATION'
     types_labels = {"ORG"}
-    results = []
 
     def __init__(self):
         #self._engine = ... [instanciar]
@@ -21,9 +20,10 @@ class SpacyNER(NamedEntityRecognizer):
 
     def get_entities(self, text):
         #Retornar las entidades en el formato adecuado [hacer]
-		doc = self.nlp(text.decode('UTF-8'))
-		for ent in doc.ents:
-			if ent.label_ in self.types_labels:
-				self.results.append(ent)
+        results = []
+        doc = self.nlp(text.decode('UTF-8'))
+        for ent in doc.ents:
+            if ent.label_ in self.types_labels:
+                results.append(ent)
 
-		return self.results
+        return results

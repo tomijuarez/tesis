@@ -145,8 +145,8 @@ class SmartSearchEngine(SearchEngine):
             kdb_api_key = config.get('RegistryConfigurations', 'kdb_api_key')
 
             #Usar uno u otro NER
-            ner = StandfordNER()
-            #ner = SpacyNER()
+            #ner = StandfordNER()
+            ner = SpacyNER()
 
             kdb_source_opt = config.get('RegistryConfigurations', 'kdb_source').lower()
             if kdb_source_opt == 'freebase':

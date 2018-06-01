@@ -28,8 +28,8 @@ metrics=( euclidean )
 n_clusters=( 8 )
 n_topics=( 500 )
 
-echo "Starting Standford NER..."
-#echo "Starting SpaCy NER..."
+#echo "Starting Standford NER..."
+echo "Starting SpaCy NER..."
 java -mx1000m -cp $STANFORD_NER_PATH edu.stanford.nlp.ie.NERServer -loadClassifier $STANDFORD_ROOT_PATH/classifiers/english.all.3class.distsim.crf.ser.gz -port $STANFORD_NER_PORT -outputFormat inlineXML &
 STANDFORD_SERVER_PID=$!
 sleep $SLEEP_TIME

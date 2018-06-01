@@ -35,14 +35,14 @@ class NERTransformer(Transformer):
         entities = self._get_entities(string_data)
         if entities is not None:
             for entity in entities:
-                print 'ENTITY: ' + entity
-                #print 'ENTITY: ' + entity.text
+                #print 'ENTITY: ' + entity
+                print 'ENTITY: ' + entity.text
                 self.varGlobales.increment_reconognized_entities()
-                #logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity.text)
-                logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
+                logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity.text)
+                #logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
 
-                additional_information = self._information_source.get_description(entity)
-                #additional_information = self._information_source.get_description(entity.text)
+                #additional_information = self._information_source.get_description(entity)
+                additional_information = self._information_source.get_description(entity.text)
                 if additional_information is not None:
                     wordbag.get_words_list().extend(additional_information)
                     logging.debug('INFORMACION ADICIONAL AGREGADA')
@@ -52,7 +52,7 @@ class NERTransformer(Transformer):
         print ''
         return wordbag
     
-    '''VERSION ORIGINAL'''
+    '''VERSION ORIGINAL
     def _get_entities(self, text):
         print 'TEXTO: ' + text
         entities = self._ner.get_entities(text)
@@ -67,4 +67,4 @@ class NERTransformer(Transformer):
     def _get_entities(self, text):
         print 'TEXTO: ' + text
         logging.debug('TEXTO: ' + text)
-        return self._ner.get_entities(text)'''
+        return self._ner.get_entities(text)
