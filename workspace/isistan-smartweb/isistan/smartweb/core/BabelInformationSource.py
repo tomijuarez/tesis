@@ -75,7 +75,8 @@ class BabelInformationSource(InformationSource):
                             print 'SYNSET_URL -> ' + synset_url
                             logging.debug('SYNSET_URL -> ' + synset_url)
                             synset = json.loads(HttpUtils.http_request(synset_url))
-                            logging.debug('SYNSET -> ' + synset)
+                            logging.debug('SYNSET -> ')
+                            logging.debug(synset)
                             self._cache[query] = synset
                             self._cache[elem['id']] = synset
                             return synset
