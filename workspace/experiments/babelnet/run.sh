@@ -17,11 +17,11 @@ HITLIST_FILE_PATH=hitlist.xml
 QUERY_FILE_PATH=queries.csv
 MASHAPE_DATASET_PATH=$DATASET_PATH/mashape_dataset/
 
-run_kmeans=true
+run_kmeans=false
 run_kdtree=true
-run_wsqbe=true
+run_wsqbe=false
 run_kernel_vsm=false
-run_lsa=true
+run_lsa=false
 
 
 metrics=( euclidean )
@@ -32,6 +32,8 @@ echo "Starting Standford NER..."
 java -mx1000m -cp $STANFORD_NER_PATH edu.stanford.nlp.ie.NERServer -loadClassifier $STANDFORD_ROOT_PATH/classifiers/english.all.3class.distsim.crf.ser.gz -port $STANFORD_NER_PORT -outputFormat inlineXML &
 STANDFORD_SERVER_PID=$!
 sleep $SLEEP_TIME
+
+#mv $ROOT_PATH/experiments/babelnet/ner.log $$ROOT_PATH/experiments/babelnet/nerBackup.log
 
 
 #Clustering KMeans searcher experiments
@@ -63,6 +65,7 @@ if [ "$run_kdtree" = true ] ; then
     do
         mkdir kdtree/$n
         KDTREE_RAW_RESULTS_FILE=kdtree/$n/kdtree_raw_results.csv
+        echo "KDTREE_RAW_RESULTS_FILE: " KDTREE_RAW_RESULTS_FILE
         KDTREE_RESULTS_FILE=kdtree/$n/kdtree_results.txt
         sed -i "s/%s%/${n}/g" kdtree_properties.cfg
         echo -n "Starting smartweb server (KDTreeSearchEngine)..."
@@ -138,5 +141,6 @@ if [ "$run_lsa" = true ] ; then
 fi
 
 echo -n "Stoping Standford NER..."
+#echo -n "Stoping SpaCy NER..."
 kill -9 $STANDFORD_SERVER_PID
 echo "[OK]"

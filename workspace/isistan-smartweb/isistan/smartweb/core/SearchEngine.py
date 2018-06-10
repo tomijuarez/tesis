@@ -16,6 +16,10 @@ from isistan.smartweb.core.FreebaseInformationSource import FreebaseInformationS
 from isistan.smartweb.core.BabelInformationSource import BabelInformationSource
 from isistan.smartweb.core.StandfordNER import StandfordNER
 
+from isistan.smartweb.preprocess.variablesGlobales import variablesGlobales
+
+import logging
+
 
 __author__ = 'ignacio'
 
@@ -23,6 +27,11 @@ __author__ = 'ignacio'
 class SearchEngine(object):
     #
     # Search engine abstract class
+
+
+    logging.basicConfig(filename='ner.log',
+                        level=logging.DEBUG,
+                        format="%(asctime)s:%(levelname)s: %(message)s")
 
     __metaclass__ = abc.ABCMeta
 
@@ -78,6 +87,7 @@ class SmartSearchEngine(SearchEngine):
             elif self._use_wordnet:
                 return WSDLSimpleTransformer()
         print 'Invalid document dataset'
+        logging.debug('Invalid document dataset')
         return None
 
     @abc.abstractmethod
@@ -99,6 +109,7 @@ class SmartSearchEngine(SearchEngine):
                 self._document_transformer.get_transformer1().fit(service_list)
         for document in service_list:
             print 'Loading document ' + str(current_document) + ' of ' + str(len(service_list))
+            logging.debug('Loading document ' + str(current_document) + ' of ' + str(len(service_list)))
             if self._load_corpus_from_file:
                 if self._document_expansion:
                     bag = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
@@ -131,13 +142,19 @@ class SmartSearchEngine(SearchEngine):
 
         if config.get('RegistryConfigurations', 'ner_expansion').lower() == 'true':
             kdb_api_key = config.get('RegistryConfigurations', 'kdb_api_key')
-            standford_ner = StandfordNER()
+
+            ner = StandfordNER()
+
             kdb_source_opt = config.get('RegistryConfigurations', 'kdb_source').lower()
             if kdb_source_opt == 'freebase':
                 knowledge_source = FreebaseInformationSource(kdb_api_key)
             else:
                 knowledge_source = BabelInformationSource(kdb_api_key)
-            self._document_transformer = NERTransformer(knowledge_source, standford_ner)
+
+
+            self._document_transformer = NERTransformer(knowledge_source, ner)
+            var = variablesGlobales()
+            self._document_transformer.setVarGlobales(var)
             self._document_expansion = True
 
         if config.get('RegistryConfigurations', 'wordnet_expansion').lower() == 'true':
