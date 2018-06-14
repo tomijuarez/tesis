@@ -37,15 +37,15 @@ class NERTransformer(Transformer):
             for entity in entities:
                 print 'ENTITY: ' + entity
                 self.varGlobales.increment_reconognized_entities()
-                logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
+                #logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
 
-                additional_information = self._information_source.get_description(entity)
+                additional_information = self._information_source.get_description(entity, string_data)
                 if additional_information is not None:
                     wordbag.get_words_list().extend(additional_information)
-                    logging.debug('INFORMACION ADICIONAL AGREGADA')
-                    logging.debug(additional_information)
+                    #logging.debug('INFORMACION ADICIONAL AGREGADA')
+                    #logging.debug(additional_information)
                 print '**********************************'
-                logging.debug('**********************************')
+                #logging.debug('**********************************')
         print ''
         return wordbag
 
@@ -57,3 +57,8 @@ class NERTransformer(Transformer):
                 return entities[self._ner.ENTITY_ORGANIZATION]
             else:
                 return None
+
+    def print_count_queries(self):
+        self._information_source.getCountEntitys()
+        self._information_source.getCountSynsets()
+        

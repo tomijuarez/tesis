@@ -10,7 +10,7 @@ class InformationSource(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
-    def get_description(self, query):
+    def get_description(self, query, text):
         pass
 
     @abc.abstractmethod

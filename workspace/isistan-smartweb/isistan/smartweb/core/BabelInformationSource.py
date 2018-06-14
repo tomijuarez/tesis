@@ -28,100 +28,117 @@ class BabelInformationSource(InformationSource):
 
     def __init__(self, api_key):
         self._api_key = api_key
-        self._cache = {}
+        # Para almacenar las palabras reconocidas y sus search_url de la consulta
+        self._cacheEntity = {} 
+        # Para almacenar cada id de palabra y su synset
+        self._cacheSynset = {}
 
-    def _query_babelnet(self, query):
+    def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
         n_retries = 0
         retry = True
+        ''' 
+        NO SE PUEDE DESCARTAR POR MAS QUE LA ENTIDAD YA HAYA SIDO BUSCADA, PUEDE QUE AHORA 
+        DEPENDA DE OTRO CONTEXTO.
+
         if query in self._cache:
             print 'found information for query: ' + query
             self.cached_entity_count += 1
             logging.debug('La entidad esta en el CACHE -> ' + repr(self.cached_entity_count))
             logging.debug(query)
             return self._cache[query]
-        params = {
-                'word': query,
-                'langs': 'EN',
-                'key': self._api_key
-        }
-        search_url = self._SEARCH_SERVICE_URL + '?' + urllib.urlencode(params)
-        print 'SEARCH_URL -> ' + search_url
-        logging.debug('SEARCH_URL -> ' + search_url)
+        '''
+
         while retry and n_retries < self._NUMBER_OF_RETRIES:
             try:
                 retry = False
-                response = json.loads(HttpUtils.http_request(search_url))
-                self.count_queries += 1
-                logging.debug('Query realizada -> ' + repr(self.count_queries))
-                if len(response) > 0:
-                    print 'Response:'
-                    print json.dumps(response)
-                    logging.debug('Response: ')
-                    logging.debug(json.dumps(response))
+                # En lugar de volver a hacer el query, se cachea el search_url junto con la
+                # entidad, ya que eso no depende del contexto sino de la API
+                if query in self._cacheEntity:
+                    print 'La palabra' + query + 'ya ha sido reconocida y ya se tiene su conjunto de sinonimos: '
+                    logging.debug('La palabra' + query + 'ya ha sido reconocida y ya se tiene su conjunto de sinonimos: ')
+                else:
+                    params = {
+                            'word': query,
+                            #'pos': 'NOUN', 
+                            'langs': 'EN',
+                            'key': self._api_key
+                    }
+                    search_url = self._SEARCH_SERVICE_URL + '?' + urllib.urlencode(params)
+                    print 'SEARCH_URL -> ' + search_url
+                    logging.debug('SEARCH_URL -> ' + search_url)
+                    self._cacheEntity[query] = json.loads(HttpUtils.http_request(search_url))
+
+                if len(self._cacheEntity[query]) > 0:
+                    print 'cacheEntity['+query+']: '
+                    print json.dumps(self._cacheEntity[query])
+                    logging.debug('cacheEntity['+query+']: ')
+                    logging.debug(json.dumps(self._cacheEntity[query]))
                     
-                    for elem in response:
+                    for elem in self._cacheEntity[query]:
                         if elem['pos'] == 'NOUN':
-                            if elem['id'] in self._cache:
-                                print 'found information for query: ' + query
-                                logging.debug('Agregando entidad al cache con la definicion: ' + elem['id'])
-                                logging.debug(query)
-                                return self._cache[elem['id']]
-                            params = {
-                                'id': elem['id'],
-                                'key': self._api_key
-                            }
-                            synset_url = self._TOPIC_SERVICE_URL + '?' + urllib.urlencode(params)
-                            print 'SYNSET_URL -> ' + synset_url
-                            logging.debug('SYNSET_URL -> ' + synset_url)
-                            synset = json.loads(HttpUtils.http_request(synset_url))
-                            logging.debug('SYNSET -> ')
-                            logging.debug(synset)
-                            self._cache[query] = synset
-                            self._cache[elem['id']] = synset
-                            return synset
+                            if elem['id'] in self._cacheSynset:
+                                print 'Ya se consulto por este sinonimo: ' + elem['id']
+                                logging.debug('Ya se consulto por este sinonimo: ' + elem['id'])
+                                logging.debug(self._cacheSynset[elem['id']])
+                            else:
+                                params = {
+                                    'id': elem['id'],
+                                    'key': self._api_key
+                                }
+                                synset_url = self._TOPIC_SERVICE_URL + '?' + urllib.urlencode(params)
+                                logging.debug('SYNSET_URL -> ' + synset_url)
+                                synset = json.loads(HttpUtils.http_request(synset_url))
+                                self._cacheSynset[elem['id']] = synset
+                        else:
+                            print 'No es sustantivo: ' + elem['id']
+                            logging.debug('No es sustantivo: ' + elem['id'])
+                else: 
+                    print 'No hay conjunto de sinonimos'
+                    logging.debug('No hay conjunto de sinonimos')
             except (urllib2.HTTPError, httplib.BadStatusLine, urllib2.URLError):
                 print 'retry'
                 logging.debug('retry')
                 retry = True
                 n_retries += 1
 
-    def get_description(self, query):
-        additional_words = []
-        synset = self._query_babelnet(query)
-        if synset is not None:
-            if len(synset) > 0:
-                if len(synset['glosses']) > 0:
-                    if 'gloss' in synset['glosses'][0]:
-                        sentences = synset['glosses'][0]['gloss'].split('.')
-                        print 'Description Result:'
-                        print sentences
-                        logging.debug('Description Result: ')
-                        logging.debug(sentences)
+    def analyze_sentence(self, documentText, synsetContext):
+        print 'Contexto: ' + synsetContext
+        logging.debug('Contexto: ' + synsetContext)
 
-                        if sentences is not None:
-                            print 'found information for query: ' + query
-                            logging.debug('found information for query: ' + query)
-                            for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)):
-                                transformer = StringTransformer()
-                                additional_sentence = transformer.transform(sentences[i]).get_words_list()
-                                additional_words.extend(additional_sentence)
-                        else:
-                            print 'information not found for query: ' + query
-                            logging.debug('information not found for query: ' + query)
-                    else:
-                        print 'information not found for query: ' + query
-                        logging.debug('information not found for query: ' + query)
-                else:
-                    print 'information not found for query: ' + query
-                    logging.debug('information not found for query: ' + query)
-            else:
-                print 'information not found for query: ' + query
-                logging.debug('information not found for query: ' + query)
+    def get_description(self, query, text):
+        additional_words = []
+        self._query_babelnet(query, text)
+        synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
+        if synset is not None:
+            for elem in self._cacheEntity[query]:
+                if elem['pos'] == 'NOUN':
+                    sentido = self._cacheSynset[elem['id']] #filtrar por Sustantivo
+                    for g in sentido['glosses']:
+                        print 'IdSinonimo: ' + g['sourceSense']
+                        logging.debug('IdSinonimo: ' + g['sourceSense'])
+                        self.analyze_sentence(text, g['gloss'])
+                        sentences = g['gloss']
+                        for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)):
+                            transformer = StringTransformer()
+                            additional_sentence = transformer.transform(sentences[i]).get_words_list()
+                            additional_words.extend(additional_sentence)
+                
         return additional_words
+
 
     def get_type(self, query):
         pass
 
     def get_aka(self, query):
         pass
+
+    def getCountEntitys(self):
+        count = len(self._cacheEntity)
+        print 'La cantidad de conjuntos que se consulto es: ' + str(count)
+        logging.debug('La cantidad de conjuntos que se consulto es: ' + str(count))
+
+    def getCountSynsets(self):
+        count = len(self._cacheSynset)
+        print 'La cantidad de sinonimos que se consulto es: ' + str(count)
+        logging.debug('La cantidad de sinonimos que se consulto es: ' + str(count))

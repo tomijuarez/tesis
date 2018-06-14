@@ -126,7 +126,9 @@ class SmartSearchEngine(SearchEngine):
             documents.append(self._preprocess(bag_of_words))
             self._service_array.append(document)
             current_document += 1
+            logging.debug('')
         self._after_publish(documents)
+        self._document_transformer.print_count_queries()
 
     def load_configuration(self, configuration_file):
         config = ConfigParser.ConfigParser()

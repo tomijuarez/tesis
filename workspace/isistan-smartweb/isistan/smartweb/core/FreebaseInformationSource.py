@@ -74,7 +74,7 @@ class FreebaseInformationSource(InformationSource):
                 retry = True
                 n_retries += 1
 
-    def get_description(self, query):
+    def get_description(self, query, text):
         additional_words = []
         topic = self._query_freebase(query)
         if topic is not None:
