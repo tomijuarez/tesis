@@ -60,7 +60,7 @@ class BabelInformationSource(InformationSource):
                 else:
                     params = {
                             'word': query,
-                            #'pos': 'NOUN', 
+                            'pos': 'NOUN', 
                             'langs': 'EN',
                             'key': self._api_key
                     }
