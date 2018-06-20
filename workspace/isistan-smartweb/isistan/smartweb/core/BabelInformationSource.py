@@ -5,6 +5,7 @@ import json
 from InformationSource import InformationSource
 from isistan.smartweb.preprocess.StringTransformer import StringTransformer
 from isistan.smartweb.util.HttpUtils import HttpUtils
+from HeuristicJaccard import HeuristicJaccard
 
 __author__ = 'ignacio'
 
@@ -32,6 +33,8 @@ class BabelInformationSource(InformationSource):
         self._cacheEntity = {} 
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
+
+        self._heuristic = HeuristicJaccard()
 
     def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
@@ -102,28 +105,28 @@ class BabelInformationSource(InformationSource):
                 retry = True
                 n_retries += 1
 
-    def analyze_sentence(self, documentText, synsetContext):
-        print 'Contexto: ' + synsetContext
-        logging.debug('Contexto: ' + synsetContext)
-
     def get_description(self, query, text):
         additional_words = []
+        maxValue = -1
+        similarSentence = ''
         self._query_babelnet(query, text)
         synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
         if synset is not None:
             for elem in self._cacheEntity[query]:
                 if elem['pos'] == 'NOUN':
-                    sentido = self._cacheSynset[elem['id']] #filtrar por Sustantivo
+                    sentido = self._cacheSynset[elem['id']] 
                     for g in sentido['glosses']:
                         print 'IdSinonimo: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])
-                        self.analyze_sentence(text, g['gloss'])
-                        sentences = g['gloss']
-                        for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)):
-                            transformer = StringTransformer()
-                            additional_sentence = transformer.transform(sentences[i]).get_words_list()
-                            additional_words.extend(additional_sentence)
-                
+                        self._heuristic.calculate(text, g['gloss'])
+
+
+        sentences = self._heuristic.getBetterSentence()
+        for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)): #Toma hasta 3 oraciones(si hay)
+            transformer = StringTransformer()
+            additional_sentence = transformer.transform(sentences[i]).get_words_list()
+            additional_words.extend(additional_sentence)
+        
         return additional_words
 
 
