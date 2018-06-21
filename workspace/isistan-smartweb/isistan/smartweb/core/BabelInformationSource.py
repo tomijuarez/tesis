@@ -6,6 +6,7 @@ from InformationSource import InformationSource
 from isistan.smartweb.preprocess.StringTransformer import StringTransformer
 from isistan.smartweb.util.HttpUtils import HttpUtils
 from HeuristicJaccard import HeuristicJaccard
+from HeuristicSpaCy import HeuristicSpaCy
 
 __author__ = 'ignacio'
 
@@ -35,6 +36,7 @@ class BabelInformationSource(InformationSource):
         self._cacheSynset = {}
 
         self._heuristic = HeuristicJaccard()
+        self._heuristic = HeuristicSpaCy()
 
     def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
@@ -122,11 +124,12 @@ class BabelInformationSource(InformationSource):
 
 
         sentences = self._heuristic.getBetterSentence()
+        logging.debug(sentences)
         for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)): #Toma hasta 3 oraciones(si hay)
             transformer = StringTransformer()
             additional_sentence = transformer.transform(sentences[i]).get_words_list()
             additional_words.extend(additional_sentence)
-        
+        logging.debug(additional_words)
         return additional_words
 
 
