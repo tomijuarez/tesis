@@ -3,23 +3,31 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import nltk
 import string
-import spacy
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
 
 import logging
 
-class HeuristicSpaCy(HeuristicAbs):
+class HeuristicSorensenDice(HeuristicAbs):
+    #
+    # Obtains information about terms using freebase as a source
 
     def __init__(self):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
 
     def calculate(self, documentText, synsetContext):
         logging.debug('Contexto: ' + synsetContext)
-        nlp = spacy.load('en')
-        a = nlp(unicode(documentText, "utf-8"))
-        b = nlp(synsetContext)
-        resultado = b.similarity(a)
+
+        documentText = self.normalizeText(documentText)
+        synsetContext = self.normalizeText(synsetContext)
+        a = set(documentText)
+        b = set(synsetContext)
+
+        c = a.intersection(b)
+
+
+        resultado = (2 * float(len(c)))/ (len(a) + len(b))
+        logging.debug('2 * ' + str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ') = ' + str(resultado) )
         logging.debug('resultado: ' + str(resultado))
         self.analyzed_sentences.append({"value":resultado, "sentence":synsetContext})
 
@@ -46,4 +54,6 @@ class HeuristicSpaCy(HeuristicAbs):
             if elem['value'] > maxValue:
                 maxValue = elem['value']
                 sentence = elem['sentence']
+        #logging.debug('sentencia elegida: ')
+        #logging.debug(sentence)
         return sentence

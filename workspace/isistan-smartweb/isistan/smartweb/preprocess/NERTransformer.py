@@ -51,6 +51,7 @@ class NERTransformer(Transformer):
 
     def _get_entities(self, text):
         print 'TEXTO: ' + text
+        logging.debug('TEXTO: ' + text)
         entities = self._ner.get_entities(text)
         if self._ner.ENTITY_ORGANIZATION in entities:
             if entities[self._ner.ENTITY_ORGANIZATION] is not None:

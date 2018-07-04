@@ -16,32 +16,18 @@ class HeuristicJaccard(HeuristicAbs):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
 
     def calculate(self, documentText, synsetContext):
-        print 'JACCARD '
-        logging.debug('JACCARD ')
-        logging.debug('TEXTO: ')
-        logging.debug(documentText)
-        logging.debug('Contexto: ')
-        logging.debug(synsetContext)
+        logging.debug('Contexto: ' + synsetContext)
 
         documentText = self.normalizeText(documentText)
         synsetContext = self.normalizeText(synsetContext)
-
-        logging.debug('Despues de filtrar por stop words: ')
-        logging.debug('TEXTO: ')
-        logging.debug(documentText)
-        logging.debug('Contexto: ')
-        logging.debug(synsetContext)
-
         a = set(documentText)
         b = set(synsetContext)
 
         c = a.intersection(b)
 
-        logging.debug(str(float(len(c))))
-        logging.debug(str((len(a))))
-        logging.debug(str((len(b))))
 
         resultado = float(len(c)) / (len(a) + len(b) - len(c))
+        logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
         logging.debug('resultado: ' + str(resultado))
         self.analyzed_sentences.append({"value":resultado, "sentence":synsetContext})
 

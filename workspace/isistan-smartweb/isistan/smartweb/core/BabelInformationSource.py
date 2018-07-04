@@ -7,6 +7,7 @@ from isistan.smartweb.preprocess.StringTransformer import StringTransformer
 from isistan.smartweb.util.HttpUtils import HttpUtils
 from HeuristicJaccard import HeuristicJaccard
 from HeuristicSpaCy import HeuristicSpaCy
+from HeuristicSorensenDice import HeuristicSorensenDice
 
 __author__ = 'ignacio'
 
@@ -35,8 +36,9 @@ class BabelInformationSource(InformationSource):
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
 
-        self._heuristic = HeuristicJaccard()
-        self._heuristic = HeuristicSpaCy()
+        #self._heuristic = HeuristicJaccard()
+        #self._heuristic = HeuristicSpaCy()
+        self._heuristic = HeuristicSorensenDice()
 
     def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
@@ -70,8 +72,6 @@ class BabelInformationSource(InformationSource):
                             'key': self._api_key
                     }
                     search_url = self._SEARCH_SERVICE_URL + '?' + urllib.urlencode(params)
-                    print 'SEARCH_URL -> ' + search_url
-                    logging.debug('SEARCH_URL -> ' + search_url)
                     self._cacheEntity[query] = json.loads(HttpUtils.http_request(search_url))
 
                 if len(self._cacheEntity[query]) > 0:
@@ -92,7 +92,7 @@ class BabelInformationSource(InformationSource):
                                     'key': self._api_key
                                 }
                                 synset_url = self._TOPIC_SERVICE_URL + '?' + urllib.urlencode(params)
-                                logging.debug('SYNSET_URL -> ' + synset_url)
+                                #logging.debug('SYNSET_URL -> ' + synset_url)
                                 synset = json.loads(HttpUtils.http_request(synset_url))
                                 self._cacheSynset[elem['id']] = synset
                         else:
@@ -124,7 +124,8 @@ class BabelInformationSource(InformationSource):
 
 
         sentences = self._heuristic.getBetterSentence()
-        logging.debug(sentences)
+        if sentences is not None:
+            logging.debug(sentences)
         for i in range(0, min(len(sentences), self._NUMBER_OF_SENTENCES)): #Toma hasta 3 oraciones(si hay)
             transformer = StringTransformer()
             additional_sentence = transformer.transform(sentences[i]).get_words_list()
