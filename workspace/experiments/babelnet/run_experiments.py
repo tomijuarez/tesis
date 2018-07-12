@@ -18,11 +18,17 @@ def main():
     parser.add_argument("--address", help="specifies the address of the smartweb server, default=127.0.0.1", default='127.0.0.1', type=str)
     parser.add_argument("--port", help="specifies the port of the smartweb server, default=8080", default='8080', type=str)
     args = parser.parse_args()
+    counter = 1
     if isdir(args.dataset_path):
         wsdl_documents = []
         for root, dirnames, filenames in walk(args.dataset_path):
             for filename in fnmatch.filter(filenames, '*.wsdl'):
-                wsdl_documents.append(pathlib2.Path(abspath(join(root, filename))).as_uri())
+                if counter <= 30:
+                    wsdl_documents.append(pathlib2.Path(abspath(join(root, filename))).as_uri())
+                else:
+                    break
+                counter = counter+1
+
         registry = SmartWebClient(args.address, args.port)
         registry.publish_services(wsdl_documents)
         with open(args.query_file, 'rb') as query_file:
