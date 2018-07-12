@@ -32,7 +32,7 @@ class BabelInformationSource(InformationSource):
     def __init__(self, api_key):
         self._api_key = api_key
         # Para almacenar las palabras reconocidas y sus search_url de la consulta
-        self._cacheEntity = {} 
+        self._cacheEntity = {}
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
 
@@ -44,8 +44,8 @@ class BabelInformationSource(InformationSource):
         query = query.encode('utf-8')
         n_retries = 0
         retry = True
-        ''' 
-        NO SE PUEDE DESCARTAR POR MAS QUE LA ENTIDAD YA HAYA SIDO BUSCADA, PUEDE QUE AHORA 
+        '''
+        NO SE PUEDE DESCARTAR POR MAS QUE LA ENTIDAD YA HAYA SIDO BUSCADA, PUEDE QUE AHORA
         DEPENDA DE OTRO CONTEXTO.
 
         if query in self._cache:
@@ -67,7 +67,7 @@ class BabelInformationSource(InformationSource):
                 else:
                     params = {
                             'word': query,
-                            'pos': 'NOUN', 
+                            'pos': 'NOUN',
                             'langs': 'EN',
                             'key': self._api_key
                     }
@@ -79,7 +79,7 @@ class BabelInformationSource(InformationSource):
                     print json.dumps(self._cacheEntity[query])
                     logging.debug('cacheEntity['+query+']: ')
                     logging.debug(json.dumps(self._cacheEntity[query]))
-                    
+
                     for elem in self._cacheEntity[query]:
                         if elem['pos'] == 'NOUN':
                             if elem['id'] in self._cacheSynset:
@@ -98,7 +98,7 @@ class BabelInformationSource(InformationSource):
                         else:
                             print 'No es sustantivo: ' + elem['id']
                             logging.debug('No es sustantivo: ' + elem['id'])
-                else: 
+                else:
                     print 'No hay conjunto de sinonimos'
                     logging.debug('No hay conjunto de sinonimos')
             except (urllib2.HTTPError, httplib.BadStatusLine, urllib2.URLError):
@@ -116,7 +116,7 @@ class BabelInformationSource(InformationSource):
         if synset is not None:
             for elem in self._cacheEntity[query]:
                 if elem['pos'] == 'NOUN':
-                    sentido = self._cacheSynset[elem['id']] 
+                    sentido = self._cacheSynset[elem['id']]
                     for g in sentido['glosses']:
                         print 'IdSinonimo: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])

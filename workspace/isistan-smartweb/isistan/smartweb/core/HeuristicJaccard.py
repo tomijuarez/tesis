@@ -12,11 +12,20 @@ class HeuristicJaccard(HeuristicAbs):
     #
     # Obtains information about terms using freebase as a source
 
+    CSV_LOGGING=True;
+
     def __init__(self):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
+        if CSV_LOGGING:
+            logging.basicConfig(
+                filename='jaccard_pre_csv.log',
+                level=logging.DEBUG,
+                format="%(message)s,"
+            )
 
     def calculate(self, documentText, synsetContext):
-        logging.debug('Contexto: ' + synsetContext)
+        if not CSV_LOGGING:
+            logging.debug('Contexto: ' + synsetContext)
 
         documentText = self.normalizeText(documentText)
         synsetContext = self.normalizeText(synsetContext)
@@ -25,10 +34,14 @@ class HeuristicJaccard(HeuristicAbs):
 
         c = a.intersection(b)
 
-
         resultado = float(len(c)) / (len(a) + len(b) - len(c))
-        logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
-        logging.debug('resultado: ' + str(resultado))
+
+        if CSV_LOGGING:
+            logging.debug(str(resultado)+' ')
+        else:
+            logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
+            logging.debug('resultado: ' + str(resultado))
+
         self.analyzed_sentences.append({"value":resultado, "sentence":synsetContext})
 
     def normalizeText(self, text):
@@ -41,7 +54,7 @@ class HeuristicJaccard(HeuristicAbs):
         #Creamos las listas de palabras
         text = text.split(" ")
 
-        # eliminar stopwords 
+        # eliminar stopwords
         text = filter(lambda x: x not in self.stop_words, text)
 
         return text
