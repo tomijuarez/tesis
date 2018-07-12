@@ -12,11 +12,10 @@ class HeuristicJaccard(HeuristicAbs):
     #
     # Obtains information about terms using freebase as a source
 
-    CSV_LOGGING=True;
-
     def __init__(self):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
-        if CSV_LOGGING:
+        self.CSV_LOGGING=True;
+        if self.CSV_LOGGING:
             logging.basicConfig(
                 filename='jaccard_pre_csv.log',
                 level=logging.DEBUG,
@@ -24,7 +23,7 @@ class HeuristicJaccard(HeuristicAbs):
             )
 
     def calculate(self, documentText, synsetContext):
-        if not CSV_LOGGING:
+        if not self.CSV_LOGGING:
             logging.debug('Contexto: ' + synsetContext)
 
         documentText = self.normalizeText(documentText)
@@ -36,7 +35,7 @@ class HeuristicJaccard(HeuristicAbs):
 
         resultado = float(len(c)) / (len(a) + len(b) - len(c))
 
-        if CSV_LOGGING:
+        if self.CSV_LOGGING:
             logging.debug(str(resultado)+' ')
         else:
             logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )

@@ -36,9 +36,9 @@ class BabelInformationSource(InformationSource):
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
 
-        #self._heuristic = HeuristicJaccard()
+        self._heuristic = HeuristicJaccard()
         #self._heuristic = HeuristicSpaCy()
-        self._heuristic = HeuristicSorensenDice()
+        #self._heuristic = HeuristicSorensenDice()
 
     def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
