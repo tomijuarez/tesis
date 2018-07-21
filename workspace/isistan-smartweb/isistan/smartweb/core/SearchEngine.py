@@ -102,14 +102,19 @@ class SmartSearchEngine(SearchEngine):
         transformer = self._create_document_transformer(service_list)
         documents = []
         current_document = 1
+
+
+        var = variablesGlobales()
         if self._dimensionality_reduction:
             if self._load_corpus_from_file:
                 self._document_transformer.get_transformer1().fit(service_list, transformer)
             else:
                 self._document_transformer.get_transformer1().fit(service_list)
+
         for document in service_list:
             print 'Loading document ' + str(current_document) + ' of ' + str(len(service_list))
             logging.debug('Loading document ' + str(current_document) + ' of ' + str(len(service_list)))
+            
             if self._load_corpus_from_file:
                 if self._document_expansion:
                     bag = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
@@ -124,8 +129,12 @@ class SmartSearchEngine(SearchEngine):
             if self._save_corpus:
                 bag_of_words.save_to_file(join(self._corpus_path, self._get_document_filename(document)))
             documents.append(self._preprocess(bag_of_words))
-            self._service_array.append(document)
+            self._service_array.append(document)  
+            self._document_transformer.get_variablesGlobales().increment_current_document()           
             current_document += 1
+        
+        var = self._document_transformer.get_variablesGlobales()
+        var.exports_rows()
         self._after_publish(documents)
         self._document_transformer.print_count_queries()
 

@@ -8,6 +8,7 @@ from isistan.smartweb.util.HttpUtils import HttpUtils
 from HeuristicJaccard import HeuristicJaccard
 from HeuristicSpaCy import HeuristicSpaCy
 from HeuristicSorensenDice import HeuristicSorensenDice
+from isistan.smartweb.preprocess.variablesGlobales import variablesGlobales
 
 __author__ = 'ignacio'
 
@@ -35,6 +36,7 @@ class BabelInformationSource(InformationSource):
         self._cacheEntity = {} 
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
+        self.varGlobales = None
 
         #self._heuristic = HeuristicJaccard()
         #self._heuristic = HeuristicSpaCy()
@@ -73,6 +75,8 @@ class BabelInformationSource(InformationSource):
                     }
                     search_url = self._SEARCH_SERVICE_URL + '?' + urllib.urlencode(params)
                     self._cacheEntity[query] = json.loads(HttpUtils.http_request(search_url))
+                    self.count_queries += 1
+                    print "QUERY -> " + str(self.count_queries)
 
                 if len(self._cacheEntity[query]) > 0:
                     print 'cacheEntity['+query+']: '
@@ -94,6 +98,8 @@ class BabelInformationSource(InformationSource):
                                 synset_url = self._TOPIC_SERVICE_URL + '?' + urllib.urlencode(params)
                                 #logging.debug('SYNSET_URL -> ' + synset_url)
                                 synset = json.loads(HttpUtils.http_request(synset_url))
+                                self.count_queries += 1
+                                print "QUERY -> " + str(self.count_queries)
                                 self._cacheSynset[elem['id']] = synset
                         else:
                             print 'No es sustantivo: ' + elem['id']
@@ -108,6 +114,9 @@ class BabelInformationSource(InformationSource):
                 n_retries += 1
 
     def get_description(self, query, text):
+        row = [self.varGlobales.get_current_document(), query]
+        print "Doc " + str(self.varGlobales.get_current_document())
+
         additional_words = []
         maxValue = -1
         similarSentence = ''
@@ -121,8 +130,10 @@ class BabelInformationSource(InformationSource):
                         print 'IdSinonimo: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])
                         self._heuristic.calculate(text, g['gloss'])
+                        row.append(g['gloss'].encode('utf-8'))
+                        print "---------------------------------"
 
-
+        self.varGlobales.add_row(row)
         sentences = self._heuristic.getBetterSentence()
         if sentences is not None:
             logging.debug(sentences)
@@ -149,3 +160,6 @@ class BabelInformationSource(InformationSource):
         count = len(self._cacheSynset)
         print 'La cantidad de sinonimos que se consulto es: ' + str(count)
         logging.debug('La cantidad de sinonimos que se consulto es: ' + str(count))
+
+    def setVarGlobales(self,var):
+        self.varGlobales = var

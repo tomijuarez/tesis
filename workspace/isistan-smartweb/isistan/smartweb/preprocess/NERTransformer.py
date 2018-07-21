@@ -27,6 +27,7 @@ class NERTransformer(Transformer):
 
     def setVarGlobales(self,var):
         self.varGlobales = var
+        self._information_source.setVarGlobales(var)
 
     def transform(self, wordbag):
         string_data = wordbag.get_words_str()
@@ -62,4 +63,7 @@ class NERTransformer(Transformer):
     def print_count_queries(self):
         self._information_source.getCountEntitys()
         self._information_source.getCountSynsets()
+
+    def get_variablesGlobales(self):
+        return self.varGlobales
         
