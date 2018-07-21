@@ -23,7 +23,7 @@ def main():
         wsdl_documents = []
         for root, dirnames, filenames in walk(args.dataset_path):
             for filename in fnmatch.filter(filenames, '*.wsdl'):
-                if counter <= 30:
+                if counter < 30:
                     wsdl_documents.append(pathlib2.Path(abspath(join(root, filename))).as_uri())
                 else:
                     break

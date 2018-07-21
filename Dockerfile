@@ -20,7 +20,7 @@ RUN apt -qq update
 RUN apt -qq -y install openjdk-8-jdk
 
 # Clone smartweb
-RUN git clone https://gitlab.com/lizarralde.ignacio/isistan-smartweb.git
+#RUN git clone https://gitlab.com/lizarralde.ignacio/isistan-smartweb.git
 
 #Install project dependencies
-RUN ./install_dependencies.sh
+#RUN ./install_dependencies.sh
