@@ -114,7 +114,7 @@ class SmartSearchEngine(SearchEngine):
         for document in service_list:
             print 'Loading document ' + str(current_document) + ' of ' + str(len(service_list))
             logging.debug('Loading document ' + str(current_document) + ' of ' + str(len(service_list)))
-            
+
             if self._load_corpus_from_file:
                 if self._document_expansion:
                     bag = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
@@ -129,10 +129,10 @@ class SmartSearchEngine(SearchEngine):
             if self._save_corpus:
                 bag_of_words.save_to_file(join(self._corpus_path, self._get_document_filename(document)))
             documents.append(self._preprocess(bag_of_words))
-            self._service_array.append(document)  
-            self._document_transformer.get_variablesGlobales().increment_current_document()           
+            self._service_array.append(document)
+            self._document_transformer.get_variablesGlobales().increment_current_document()
             current_document += 1
-        
+
         var = self._document_transformer.get_variablesGlobales()
         var.exports_rows()
         self._after_publish(documents)

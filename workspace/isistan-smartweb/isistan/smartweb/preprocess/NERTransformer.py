@@ -66,4 +66,4 @@ class NERTransformer(Transformer):
 
     def get_variablesGlobales(self):
         return self.varGlobales
-        
+

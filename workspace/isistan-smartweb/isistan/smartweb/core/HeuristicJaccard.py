@@ -14,17 +14,9 @@ class HeuristicJaccard(HeuristicAbs):
 
     def __init__(self):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
-        self.CSV_LOGGING=True;
-        if self.CSV_LOGGING:
-            logging.basicConfig(
-                filename='jaccard_pre_csv.log',
-                level=logging.DEBUG,
-                format="%(message)s,"
-            )
 
     def calculate(self, documentText, synsetContext):
-        if not self.CSV_LOGGING:
-            logging.debug('Contexto: ' + synsetContext)
+        logging.debug('Contexto: ' + synsetContext)
 
         documentText = self.normalizeText(documentText)
         synsetContext = self.normalizeText(synsetContext)
@@ -35,13 +27,11 @@ class HeuristicJaccard(HeuristicAbs):
 
         resultado = float(len(c)) / (len(a) + len(b) - len(c))
 
-        if self.CSV_LOGGING:
-            logging.debug(str(resultado)+' ')
-        else:
-            logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
-            logging.debug('resultado: ' + str(resultado))
+        logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
+        logging.debug('resultado: ' + str(resultado))
 
         self.analyzed_sentences.append({"value":resultado, "sentence":synsetContext})
+        return resultado
 
     def normalizeText(self, text):
         #Elimino los componentes de puntuacion

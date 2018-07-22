@@ -37,6 +37,9 @@ class BabelInformationSource(InformationSource):
         # Para almacenar cada id de palabra y su synset
         self._cacheSynset = {}
         self.varGlobales = None
+        self.contextCSV = False # contexts (True) or results (False) CSV
+        self.contextsHeader = ['#Doc','Entidad','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15']
+        self.resultsHeader = ['#Doc', 'Entidad','R1', 'R2','R3','R4','R5','R6','R7','R8','R9','R10','R11','R12','R13','R14','R15']
 
         self._heuristic = HeuristicJaccard()
         #self._heuristic = HeuristicSpaCy()
@@ -113,13 +116,17 @@ class BabelInformationSource(InformationSource):
                 retry = True
                 n_retries += 1
 
+
     def get_description(self, query, text):
+        #se completa en las heuristicas si no es el documento de contextos.
         row = [self.varGlobales.get_current_document(), query]
+
         print "Doc " + str(self.varGlobales.get_current_document())
 
         additional_words = []
         maxValue = -1
         similarSentence = ''
+        result = -1
         self._query_babelnet(query, text)
         synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
         if synset is not None:
@@ -129,8 +136,11 @@ class BabelInformationSource(InformationSource):
                     for g in sentido['glosses']:
                         print 'IdSinonimo: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])
-                        self._heuristic.calculate(text, g['gloss'])
-                        row.append(g['gloss'].encode('utf-8'))
+                        result = self._heuristic.calculate(text, g['gloss'])
+                        if self.contextCSV:
+                            row.append(g['gloss'].encode('utf-8'))
+                        else:
+                            row.append(result);
                         print "---------------------------------"
 
         self.varGlobales.add_row(row)
@@ -162,4 +172,10 @@ class BabelInformationSource(InformationSource):
         logging.debug('La cantidad de sinonimos que se consulto es: ' + str(count))
 
     def setVarGlobales(self,var):
+        if self.contextCSV:
+            var.set_header(self.contextsHeader)
+        else:
+            var.set_header(self.resultsHeader)
+
+        self._heuristic.setLogger(var)
         self.varGlobales = var
