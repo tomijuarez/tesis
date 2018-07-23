@@ -1,6 +1,6 @@
 from HeuristicAbs import HeuristicAbs
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
+#from nltk.tokenize import word_tokenize
+#from nltk.corpus import stopwords
 import nltk
 import string
 import spacy
@@ -11,8 +11,9 @@ import logging
 
 class HeuristicSpaCy(HeuristicAbs):
 
-    def __init__(self):
-        self.stop_words = set(stopwords.words("english"))  # load stopwords
+    def __init__(self, stop_words):
+        #self.stop_words = set(stopwords.words("english"))  # load stopwords
+        self.stop_words = stop_words
         self._analyzed_sentences = []
 
     def calculate(self, documentText, synsetContext, id):
