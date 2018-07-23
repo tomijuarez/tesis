@@ -171,7 +171,6 @@ class BabelInformationSource(InformationSource):
                 additional_words.extend(additional_sentence)
             
             self.varGlobales.add_row(rowResults, 'results')
-
         self.varGlobales.add_row(rowContexts, 'contexts')
         logging.debug(additional_words)
         return additional_words
