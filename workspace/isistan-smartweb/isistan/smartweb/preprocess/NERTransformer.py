@@ -34,19 +34,23 @@ class NERTransformer(Transformer):
         string_data = string_data.replace('API', '')
         string_data = string_data.replace('Api', '')
         entities = self._get_entities(string_data)
+        #Para evitar los duplicados que trae Stanford
+        processedEntities = set()
         if entities is not None:
             for entity in entities:
-                print 'ENTITY: ' + entity
-                self.varGlobales.increment_reconognized_entities()
-                #logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
+                if(entity not in processedEntities):
+                    print 'ENTITY: ' + entity
+                    self.varGlobales.increment_reconognized_entities()
+                    #logging.debug('ENTIDAD RECONOCIDA -> ' + repr(self.varGlobales.get_reconognized_entities()) + ' - '+ entity)
 
-                additional_information = self._information_source.get_description(entity, string_data)
-                if additional_information is not None:
-                    wordbag.get_words_list().extend(additional_information)
-                    #logging.debug('INFORMACION ADICIONAL AGREGADA')
-                    #logging.debug(additional_information)
-                print '**********************************'
-                #logging.debug('**********************************')
+                    additional_information = self._information_source.get_description(entity, string_data)
+                    if additional_information is not None:
+                        wordbag.get_words_list().extend(additional_information)
+                        #logging.debug('INFORMACION ADICIONAL AGREGADA')
+                        #logging.debug(additional_information)
+                    print '**********************************'
+                    #logging.debug('**********************************')
+                    processedEntities.add(entity)
         print ''
         return wordbag
 
