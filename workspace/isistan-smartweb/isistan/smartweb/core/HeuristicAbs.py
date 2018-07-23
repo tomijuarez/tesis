@@ -9,20 +9,18 @@ class HeuristicAbs(object):
 
     __metaclass__ = abc.ABCMeta
 
-    synsetContext = ''
-    documentText = ''
-    analyzed_sentences = []
-
     @abc.abstractmethod
-    def calculate(self):
+    def calculate(self, documentText, synsetContext, id):
         pass
-
-    def setSysntexContext(self,synsetContext):
-        self.synsetContext = synsetContext
-
-    def setDocumentText(self, documentText):
-        self.documentText = documentText
     
-    @abc.abstractmethod
     def getBetterSentence(self):
-        pass
+        result = None
+        maxValue = -1
+        for elem in self._analyzed_sentences:
+            #logging.debug(str(elem['value']) + ' - ' + str(elem['sentence']))
+            if elem['value'] > maxValue:
+                maxValue = elem['value']
+                result = elem
+        #logging.debug('sentencia elegida: ')
+        #logging.debug(result['sentence'])
+        return result

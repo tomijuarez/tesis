@@ -112,24 +112,25 @@ class SmartSearchEngine(SearchEngine):
                 self._document_transformer.get_transformer1().fit(service_list)
 
         for document in service_list:
-            print 'Loading document ' + str(current_document) + ' of ' + str(len(service_list))
-            logging.debug('Loading document ' + str(current_document) + ' of ' + str(len(service_list)))
+            if (current_document == 47):
+                print 'Loading document ' + str(current_document) + ' of ' + str(len(service_list))
+                logging.debug('Loading document ' + str(current_document) + ' of ' + str(len(service_list)))
 
-            if self._load_corpus_from_file:
-                if self._document_expansion:
-                    bag = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
-                    bag_of_words = self._document_transformer.transform(bag)
+                if self._load_corpus_from_file:
+                    if self._document_expansion:
+                        bag = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
+                        bag_of_words = self._document_transformer.transform(bag)
+                    else:
+                        bag_of_words = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
                 else:
-                    bag_of_words = WordBag().load_from_file(join(self._corpus_path, self._get_document_filename(document)))
-            else:
-                if self._document_expansion:
-                    bag_of_words = self._document_transformer.transform(transformer.transform(document))
-                else:
-                    bag_of_words = transformer.transform(document)
-            if self._save_corpus:
-                bag_of_words.save_to_file(join(self._corpus_path, self._get_document_filename(document)))
-            documents.append(self._preprocess(bag_of_words))
-            self._service_array.append(document)
+                    if self._document_expansion:
+                        bag_of_words = self._document_transformer.transform(transformer.transform(document))
+                    else:
+                        bag_of_words = transformer.transform(document)
+                if self._save_corpus:
+                    bag_of_words.save_to_file(join(self._corpus_path, self._get_document_filename(document)))
+                documents.append(self._preprocess(bag_of_words))
+                self._service_array.append(document)
             self._document_transformer.get_variablesGlobales().increment_current_document()
             current_document += 1
 

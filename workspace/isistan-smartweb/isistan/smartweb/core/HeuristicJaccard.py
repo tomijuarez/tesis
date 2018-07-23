@@ -14,8 +14,9 @@ class HeuristicJaccard(HeuristicAbs):
 
     def __init__(self):
         self.stop_words = set(stopwords.words("english"))  # load stopwords
+        self._analyzed_sentences = []
 
-    def calculate(self, documentText, synsetContext):
+    def calculate(self, documentText, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
 
         documentText = self.normalizeText(documentText)
@@ -30,8 +31,7 @@ class HeuristicJaccard(HeuristicAbs):
         logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
         logging.debug('resultado: ' + str(resultado))
 
-        self.analyzed_sentences.append({"value":resultado, "sentence":synsetContext})
-        return resultado
+        self._analyzed_sentences.append({"id":id, "value":resultado, "sentence":synsetContext})
 
     def normalizeText(self, text):
         #Elimino los componentes de puntuacion
@@ -47,15 +47,3 @@ class HeuristicJaccard(HeuristicAbs):
         text = filter(lambda x: x not in self.stop_words, text)
 
         return text
-
-    def getBetterSentence(self):
-        sentence = ''
-        maxValue = -1
-        for elem in self.analyzed_sentences:
-            #logging.debug(str(elem['value']) + ' - ' + str(elem['sentence']))
-            if elem['value'] > maxValue:
-                maxValue = elem['value']
-                sentence = elem['sentence']
-        #logging.debug('sentencia elegida: ')
-        #logging.debug(sentence)
-        return sentence
