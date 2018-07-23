@@ -1,6 +1,6 @@
 from HeuristicAbs import HeuristicAbs
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
+#from nltk.tokenize import word_tokenize
+#from nltk.corpus import stopwords
 import nltk
 import string
 
@@ -12,8 +12,9 @@ class HeuristicSorensenDice(HeuristicAbs):
     #
     # Obtains information about terms using freebase as a source
 
-    def __init__(self):
-        self.stop_words = set(stopwords.words("english"))  # load stopwords
+    def __init__(self, stop_words):
+        #self.stop_words = set(stopwords.words("english"))  # load stopwords
+        self.stop_words = stop_words
         self._analyzed_sentences = []
 
     def calculate(self, documentText, synsetContext, id):

@@ -1,4 +1,5 @@
 import csv
+from nltk.corpus import stopwords
 
 class variablesGlobales(object):
 
@@ -9,6 +10,8 @@ class variablesGlobales(object):
         self.current_document = 1
         self.rowsContexts = [['#Doc','Entidad','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15']]
         self.rowsResults = [['#Doc', 'Entidad','Jaccard','Jaccard','SpaCy','SpaCy','SorensenDice','SorensenDice'],['', '','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado']]
+
+        self.stop_words = set(stopwords.words("english"))  # load stopwords
 
     def get_reconognized_entities(self):
         return self.recognized_entities
@@ -50,4 +53,7 @@ class variablesGlobales(object):
             writer = csv.writer(f)
             writer.writerows(self.rowsResults)
         f.close()
+
+    def get_stop_words(self):
+        return self.stop_words
 

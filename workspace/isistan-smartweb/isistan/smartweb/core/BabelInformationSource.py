@@ -117,9 +117,10 @@ class BabelInformationSource(InformationSource):
 
     def get_description(self, query, text):
         #Creando cada algoritmo para obtener los resultdos, y definiendo en cual se basa la ejecucion
-        self._heuristic = HeuristicJaccard()
-        heuristicSorensenDice = HeuristicSorensenDice()
-        heuristicSpaCy = HeuristicSpaCy()
+        stop_words = self.varGlobales.get_stop_words()
+        self._heuristic = HeuristicJaccard(stop_words)
+        heuristicSorensenDice = HeuristicSorensenDice(stop_words)
+        heuristicSpaCy = HeuristicSpaCy(stop_words)
 
         #se completa en las heuristicas si no es el documento de contextos.
         rowContexts = [self.varGlobales.get_current_document(), query]
@@ -169,8 +170,9 @@ class BabelInformationSource(InformationSource):
                 additional_sentence = transformer.transform(sentences[i]).get_words_list()
                 additional_words.extend(additional_sentence)
             
-            self.varGlobales.add_row(rowContexts, 'contexts')
             self.varGlobales.add_row(rowResults, 'results')
+
+        self.varGlobales.add_row(rowContexts, 'contexts')
         logging.debug(additional_words)
         return additional_words
 
