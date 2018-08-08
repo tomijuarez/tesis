@@ -14,6 +14,8 @@ class HeuristicAbs(object):
         pass
     
     def getBetterSentence(self):
+        print self._analyzed_sentences
+        print '*********************************'
         result = None
         maxValue = -1
         for elem in self._analyzed_sentences:

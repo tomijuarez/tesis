@@ -9,7 +9,7 @@ class variablesGlobales(object):
         self.cached_entity_count = 0
         self.current_document = 1
         self.rowsContexts = [['#Doc','Entidad','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15']]
-        self.rowsResults = [['#Doc', 'Entidad','Jaccard','Jaccard','SpaCy','SpaCy','SorensenDice','SorensenDice'],['', '','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado']]
+        self.rowsResults = [['#Doc', 'Entidad','Jaccard','Jaccard','SpaCy','SpaCy','SorensenDice','SorensenDice', 'Dist Cos', 'Dist Cos'],['', '','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado']]
 
         self.stop_words = set(stopwords.words("english"))  # load stopwords
 

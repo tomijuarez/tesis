@@ -8,6 +8,7 @@ from isistan.smartweb.util.HttpUtils import HttpUtils
 from HeuristicJaccard import HeuristicJaccard
 from HeuristicSpaCy import HeuristicSpaCy
 from HeuristicSorensenDice import HeuristicSorensenDice
+from HeuristicCosineSimilarity import HeuristicCosineSimilarity
 from isistan.smartweb.preprocess.variablesGlobales import variablesGlobales
 
 __author__ = 'ignacio'
@@ -42,6 +43,7 @@ class BabelInformationSource(InformationSource):
         #self._heuristic = HeuristicJaccard()
         #self._heuristic = HeuristicSpaCy()
         #self._heuristic = HeuristicSorensenDice()
+        #self._heuristic = HeuristicCosineSimilarity()
 
     def _query_babelnet(self, query, text):
         query = query.encode('utf-8')
@@ -121,6 +123,7 @@ class BabelInformationSource(InformationSource):
         self._heuristic = HeuristicJaccard(stop_words)
         heuristicSorensenDice = HeuristicSorensenDice(stop_words)
         heuristicSpaCy = HeuristicSpaCy(stop_words)
+        heuristicCosineSimilarity = HeuristicCosineSimilarity(stop_words)
 
         #se completa en las heuristicas si no es el documento de contextos.
         rowContexts = [self.varGlobales.get_current_document(), query]
@@ -141,16 +144,19 @@ class BabelInformationSource(InformationSource):
                         print 'IdSinonimo: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])
 
-                        self._heuristic.calculate(text, g['gloss'], elem['id'])
-                        heuristicSorensenDice.calculate(text, g['gloss'], elem['id'])
-                        heuristicSpaCy.calculate(text, g['gloss'], elem['id'])
+                        self._heuristic.calculate(text, g['gloss'], g['sourceSense'])
+                        heuristicSorensenDice.calculate(text, g['gloss'], g['sourceSense'])
+                        heuristicSpaCy.calculate(text, g['gloss'], g['sourceSense'])
+                        heuristicCosineSimilarity.addContext(g['gloss'], g['sourceSense'])
 
                         rowContexts.append(g['gloss'].encode('utf-8'))
+                    heuristicCosineSimilarity.calculate(text,'',0)
 
 
         result = self._heuristic.getBetterSentence()
         resultSorensenDice = heuristicSorensenDice.getBetterSentence()
         resultSpaCy = heuristicSpaCy.getBetterSentence()
+        resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
 
         if result is not None:
             rowResults.append(result['id'])
@@ -161,6 +167,9 @@ class BabelInformationSource(InformationSource):
 
             rowResults.append(resultSorensenDice['id'])
             rowResults.append(resultSorensenDice['value'])
+
+            rowResults.append(resultCosineSimilarity['id'])
+            rowResults.append(resultCosineSimilarity['value'])
 
             #Solo tomo la sentencia del algoritmo por defecto
             sentences = result['sentence']
