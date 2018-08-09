@@ -2,10 +2,46 @@ from HeuristicAbs import HeuristicAbs
 import nltk
 import string
 from gensim import corpora, models, similarities
+from nltk.stem.porter import PorterStemmer
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
 
 import logging
+
+class PorterPreprocessor(object):
+
+    def __init__(self, stop_words):
+        self._stemmer = PorterStemmer()
+        self._stoplist = stop_words
+
+    def process_term(self, term):
+        stem_term = None
+        term = term.lower()
+        stops = set(self._stoplist)
+        if term is not None and term not in stops:
+            stem_term = self._stemmer.stem(term)
+        return stem_term
+
+
+class StringPreprocessor(PorterPreprocessor):
+    #
+    # String query preprocessor
+
+    def __init__(self, stop_words):
+        super(StringPreprocessor, self).__init__(stop_words)
+
+    def __call__(self, *args):
+        terms = []
+        data = args[0]
+        for term in data:
+            processed_term = self.process_term(term)
+            if processed_term is not None:
+                terms.append(processed_term)
+
+        logging.debug('Contexto procesado: ')
+        logging.debug(processed_term)
+        return terms
+
 
 class HeuristicCosineSimilarity(HeuristicAbs):
     #
@@ -16,44 +52,20 @@ class HeuristicCosineSimilarity(HeuristicAbs):
         self._analyzed_sentences = []
         self.ids = []
         self.contexts = []
+        self.preprocessor = StringPreprocessor(stop_words)
 
     def calculate(self, documentText, synsetContext, id):
 
-        #texts = [[word for word in document.lower().split()] for document in documents]
-        #texts = [preprocessor(text) for text in texts]
         texts = self.contexts
-        print 'texts'
-        print texts
-        print '--------------------------'
         dictionary = corpora.Dictionary(texts)
-        print 'dictionary'
-        print dictionary
-        print '--------------------------'
         corpus = [dictionary.doc2bow(text) for text in texts]
-        print 'corpus'
-        print corpus
-        print '--------------------------'
         tfidf_model = models.TfidfModel(corpus)
-        print 'tfidf_model'
-        print tfidf_model
-        print '--------------------------'
         tfidf_corpus = tfidf_model[corpus]
-        print 'tfidf_corpus'
-        print tfidf_corpus
-        print '--------------------------'
-        index = similarities.MatrixSimilarity(tfidf_corpus)
-        print 'index'
-        print index
-        print '--------------------------'
+        index = similarities.MatrixSimilarity(tfidf_corpus, num_features=len(dictionary))
 
-
-        documentText = self.normalizeText(documentText)
-        documentText_vector = dictionary.doc2bow(documentText)
+        documentText_vector = dictionary.doc2bow(self.preprocessor(documentText.split()))
 
         query_tfidf_vector = tfidf_model[documentText_vector]
-        print 'query_tfidf_vector'
-        print query_tfidf_vector
-        print '--------------------------'
         results = index[query_tfidf_vector]
         results = sorted(enumerate(results), key=lambda item: -item[1])
 
@@ -66,31 +78,13 @@ class HeuristicCosineSimilarity(HeuristicAbs):
                 (0, 0.0)
             ]
         '''
-        print(results)
         logging.debug('RESULTADOS COSINE:')
-        logging.debug(results)
         for result in results:
-            print self.ids[result[0]]
-            print result
+            logging.debug({"id":self.ids[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
             self._analyzed_sentences.append({"id":self.ids[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
+
 
     def addContext(self, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
-        synsetContext = self.normalizeText(synsetContext)
         self.ids.append(id)
-        self.contexts.append(synsetContext)
-
-    def normalizeText(self, text):
-        #Elimino los componentes de puntuacion
-        text = filter(lambda x: x not in string.punctuation, text)
-
-        #Cambiamos todo a minusculas
-        text = text.lower()
-
-        #Creamos las listas de palabras
-        text = text.split(" ")
-
-        # eliminar stopwords 
-        text = filter(lambda x: x not in self.stop_words, text)
-
-        return text
+        self.contexts.append(self.preprocessor(synsetContext.lower().split()))

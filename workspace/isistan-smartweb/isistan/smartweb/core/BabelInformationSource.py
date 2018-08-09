@@ -136,27 +136,43 @@ class BabelInformationSource(InformationSource):
         similarSentence = ''
         self._query_babelnet(query, text)
         synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
+        onlyContext = []
+        countContext = 0
         if synset is not None:
             for elem in self._cacheEntity[query]:
                 if elem['pos'] == 'NOUN':
                     sentido = self._cacheSynset[elem['id']]
-                    for g in sentido['glosses']:
-                        print 'IdSinonimo: ' + g['sourceSense']
-                        logging.debug('IdSinonimo: ' + g['sourceSense'])
+                    if(len(sentido['glosses']) == 1):
+                        countContext = 1
+                        rowContexts.append(sentido['glosses'][0]['gloss'].encode('utf-8'))
+                        #Debo normalizar el contexto
+                        normalizedContext = self._heuristic.normalizeText(sentido['glosses'][0]['gloss'])
+                        onlyContext = [normalizedContext,sentido['glosses'][0]['sourceSense']]
+                    else:
+                        for g in sentido['glosses']:
+                            print 'IdSinonimo: ' + g['sourceSense']
+                            logging.debug('IdSinonimo: ' + g['sourceSense'])
 
-                        self._heuristic.calculate(text, g['gloss'], g['sourceSense'])
-                        heuristicSorensenDice.calculate(text, g['gloss'], g['sourceSense'])
-                        heuristicSpaCy.calculate(text, g['gloss'], g['sourceSense'])
-                        heuristicCosineSimilarity.addContext(g['gloss'], g['sourceSense'])
+                            self._heuristic.calculate(text, g['gloss'], g['sourceSense'])
+                            heuristicSorensenDice.calculate(text, g['gloss'], g['sourceSense'])
+                            heuristicSpaCy.calculate(text, g['gloss'], g['sourceSense'])
+                            heuristicCosineSimilarity.addContext(g['gloss'], g['sourceSense'])
 
-                        rowContexts.append(g['gloss'].encode('utf-8'))
-                    heuristicCosineSimilarity.calculate(text,'',0)
+                            rowContexts.append(g['gloss'].encode('utf-8'))
+                        heuristicCosineSimilarity.calculate(text,'',0)
 
-
-        result = self._heuristic.getBetterSentence()
-        resultSorensenDice = heuristicSorensenDice.getBetterSentence()
-        resultSpaCy = heuristicSpaCy.getBetterSentence()
-        resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
+        if(countContext == 1):
+            #Si solo hay un contexto, no se calcula, se audita el contexto con valor nulo(-)
+            result = {"id":onlyContext[1], "value":'-', "sentence":onlyContext[0]}
+            resultSorensenDice = result
+            resultSpaCy = result
+            resultCosineSimilarity = result
+        else:
+            #Si habia mas de 1 contexto, entonces se calcula cual tuvo el valor mas alto.
+            result = self._heuristic.getBetterSentence()
+            resultSorensenDice = heuristicSorensenDice.getBetterSentence()
+            resultSpaCy = heuristicSpaCy.getBetterSentence()
+            resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
 
         if result is not None:
             rowResults.append(result['id'])
