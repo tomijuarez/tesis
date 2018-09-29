@@ -10,6 +10,7 @@ from HeuristicSpaCy import HeuristicSpaCy
 from HeuristicSorensenDice import HeuristicSorensenDice
 from HeuristicCosineSimilarity import HeuristicCosineSimilarity
 from isistan.smartweb.preprocess.variablesGlobales import variablesGlobales
+import unicodedata
 
 __author__ = 'ignacio'
 
@@ -101,6 +102,9 @@ class BabelInformationSource(InformationSource):
                                 synset_url = self._TOPIC_SERVICE_URL + '?' + urllib.urlencode(params)
                                 #logging.debug('SYNSET_URL -> ' + synset_url)
                                 synset = json.loads(HttpUtils.http_request(synset_url))
+                                print '**************************'
+                                print synset_url
+                                print '**************************'
                                 self.count_queries += 1
                                 print "QUERY -> " + str(self.count_queries)
                                 self._cacheSynset[elem['id']] = synset
@@ -135,56 +139,47 @@ class BabelInformationSource(InformationSource):
         maxValue = -1
         similarSentence = ''
         self._query_babelnet(query, text)
+
         synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
-        onlyContext = []
-        countContext = 0
         if synset is not None:
             for elem in self._cacheEntity[query]:
                 if elem['pos'] == 'NOUN':
                     sentido = self._cacheSynset[elem['id']]
-                    if(len(sentido['glosses']) == 1):
-                        countContext = 1
-                        rowContexts.append(sentido['glosses'][0]['gloss'].encode('utf-8'))
-                        #Debo normalizar el contexto
-                        normalizedContext = self._heuristic.normalizeText(sentido['glosses'][0]['gloss'])
-                        onlyContext = [normalizedContext,sentido['glosses'][0]['sourceSense']]
-                    else:
-                        for g in sentido['glosses']:
-                            print 'IdSinonimo: ' + g['sourceSense']
-                            logging.debug('IdSinonimo: ' + g['sourceSense'])
+                    for g in sentido['glosses']:
+                        print 'IdSinonimo: ' + g['sourceSense']
+                        logging.debug('IdSinonimo: ' + g['sourceSense'])
 
-                            self._heuristic.calculate(text, g['gloss'], g['sourceSense'])
-                            heuristicSorensenDice.calculate(text, g['gloss'], g['sourceSense'])
-                            heuristicSpaCy.calculate(text, g['gloss'], g['sourceSense'])
-                            heuristicCosineSimilarity.addContext(g['gloss'], g['sourceSense'])
+                        self._heuristic.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicSorensenDice.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicSpaCy.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicCosineSimilarity.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
 
-                            rowContexts.append(g['gloss'].encode('utf-8'))
+                        rowContexts.append(g['gloss'].replace(";", ".").encode('utf-8'))
+                    if(len(sentido['glosses']) != 0):
                         heuristicCosineSimilarity.calculate(text,'',0)
 
-        if(countContext == 1):
-            #Si solo hay un contexto, no se calcula, se audita el contexto con valor nulo(-)
-            result = {"id":onlyContext[1], "value":'-', "sentence":onlyContext[0]}
-            resultSorensenDice = result
-            resultSpaCy = result
-            resultCosineSimilarity = result
-        else:
-            #Si habia mas de 1 contexto, entonces se calcula cual tuvo el valor mas alto.
-            result = self._heuristic.getBetterSentence()
-            resultSorensenDice = heuristicSorensenDice.getBetterSentence()
-            resultSpaCy = heuristicSpaCy.getBetterSentence()
-            resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
+        result = self._heuristic.getBetterSentence()
+        resultSorensenDice = heuristicSorensenDice.getBetterSentence()
+        resultSpaCy = heuristicSpaCy.getBetterSentence()
+        resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
 
         if result is not None:
-            rowResults.append(result['id'])
+            print '---------------------------------------------'
+            print 'babelnetSource'
+            print result
+            print '---------------------------------------------'
+
+            #rowResults.append(unicode(result['id']))
+            rowResults.append(unicodedata.normalize('NFKD', unicode(result['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(result['value'])
 
-            rowResults.append(resultSpaCy['id'])
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultSpaCy['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultSpaCy['value'])
 
-            rowResults.append(resultSorensenDice['id'])
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultSorensenDice['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultSorensenDice['value'])
 
-            rowResults.append(resultCosineSimilarity['id'])
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultCosineSimilarity['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultCosineSimilarity['value'])
 
             #Solo tomo la sentencia del algoritmo por defecto

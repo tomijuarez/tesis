@@ -14,15 +14,17 @@ class HeuristicAbs(object):
         pass
     
     def getBetterSentence(self):
-        print self._analyzed_sentences
-        print '*********************************'
         result = None
         maxValue = -1
+
+        #Si solo hay un contexto, se devuelve el contexto con valor nulo(-)
+        if(len(self._analyzed_sentences) == 1):
+            result = self._analyzed_sentences[0]
+            result['value'] = '-'
+            return result
+
         for elem in self._analyzed_sentences:
-            #logging.debug(str(elem['value']) + ' - ' + str(elem['sentence']))
             if elem['value'] > maxValue:
                 maxValue = elem['value']
                 result = elem
-        #logging.debug('sentencia elegida: ')
-        #logging.debug(result['sentence'])
         return result

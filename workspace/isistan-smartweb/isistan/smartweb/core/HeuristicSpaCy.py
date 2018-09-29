@@ -18,12 +18,15 @@ class HeuristicSpaCy(HeuristicAbs):
 
     def calculate(self, documentText, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
+
+        contexto = synsetContext
+        
         nlp = spacy.load('en')
         a = nlp(unicode(documentText, "utf-8"))
         b = nlp(synsetContext)
         resultado = b.similarity(a)
         logging.debug('resultado: ' + str(resultado))
-        self._analyzed_sentences.append({"id":id, "value":resultado, "sentence":synsetContext})
+        self._analyzed_sentences.append({"contexto":contexto, "value":resultado, "sentence":synsetContext})
 
     def normalizeText(self, text):
         #Elimino los componentes de puntuacion

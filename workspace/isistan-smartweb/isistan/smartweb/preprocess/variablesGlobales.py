@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+import codecs
 import csv
 from nltk.corpus import stopwords
+import unicodedata
 
 class variablesGlobales(object):
 
@@ -9,7 +12,7 @@ class variablesGlobales(object):
         self.cached_entity_count = 0
         self.current_document = 1
         self.rowsContexts = [['#Doc','Entidad','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15']]
-        self.rowsResults = [['#Doc', 'Entidad','Jaccard','Jaccard','SpaCy','SpaCy','SorensenDice','SorensenDice', 'Dist Cos', 'Dist Cos'],['', '','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado','idElegida', 'resultado']]
+        self.rowsResults = [['#Doc', 'Entidad','Jaccard','Jaccard','SpaCy','SpaCy','SorensenDice','SorensenDice', 'Dist Cos', 'Dist Cos'],['', '','textoElegido', 'resultado','textoElegido', 'resultado','textoElegido', 'resultado','textoElegido', 'resultado']]
 
         self.stop_words = set(stopwords.words("english"))  # load stopwords
 
@@ -41,7 +44,24 @@ class variablesGlobales(object):
         if(nameArch == 'contexts'):
             self.rowsContexts.append(row)
         else:
-            self.rowsResults.append(row)
+            self.rowsResults.append(row)       
+            ''' 
+            with codecs.open('resultados.csv', 'a', encoding="utf8") as csv_file:
+                text = 'Pokémon_(video_game_series)'
+                print 'row'
+                print row
+                #[152, u'Pokemon', u'Pok\xe9mon_(video_game_series)', 0.045454545454545456, 
+                #u'Q1079748_EN', 0.7778036768539751, u'Pok\xe9mon_(video_game_series)', 0.08695652173913043]
+                csv_file.write(str(row[0])+','+row[1]) #Doc + Entidad
+                csv_file.write(unicodedata.normalize('NFKD', row[2]).encode('ascii', 'ignore'))
+
+                csv_file.write(unicode(row[2], encoding="utf8")+','+str(row[3])) #(Jaccard) id + value 
+                csv_file.write(unicode(row[4], encoding="utf8")+','+str(row[5])) #(SpaCy) id + value 
+                csv_file.write(unicode(row[6], encoding="utf8")+','+str(row[7])) #(SorensenDice) id + value 
+                csv_file.write(unicode(row[8], encoding="utf8")+','+str(row[9])) #(Dist Cos) id + value 
+                csv_file.write(+u'\n') #(Dist Cos) id + value 
+                '''
+
 
     def exports_rows(self):
         with open('contextosXEntidad.csv', 'w') as f:

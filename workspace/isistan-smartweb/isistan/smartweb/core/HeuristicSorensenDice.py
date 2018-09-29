@@ -20,6 +20,8 @@ class HeuristicSorensenDice(HeuristicAbs):
     def calculate(self, documentText, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
 
+        contexto = synsetContext
+
         documentText = self.normalizeText(documentText)
         synsetContext = self.normalizeText(synsetContext)
         a = set(documentText)
@@ -31,7 +33,7 @@ class HeuristicSorensenDice(HeuristicAbs):
         resultado = (2 * float(len(c)))/ (len(a) + len(b))
         logging.debug('2 * ' + str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ') = ' + str(resultado) )
         logging.debug('resultado: ' + str(resultado))
-        self._analyzed_sentences.append({"id":id, "value":resultado, "sentence":synsetContext})
+        self._analyzed_sentences.append({"contexto":contexto, "value":resultado, "sentence":synsetContext})
 
     def normalizeText(self, text):
         #Elimino los componentes de puntuacion

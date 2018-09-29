@@ -20,6 +20,8 @@ class HeuristicJaccard(HeuristicAbs):
     def calculate(self, documentText, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
 
+        contexto = synsetContext
+
         documentText = self.normalizeText(documentText)
         synsetContext = self.normalizeText(synsetContext)
         a = set(documentText)
@@ -32,7 +34,7 @@ class HeuristicJaccard(HeuristicAbs):
         logging.debug(str(len(c)) + ' / (' + str(len(a)) + ' + ' + str(len(b)) + ' - ' + str(len(c)) + ') = ' + str(resultado) )
         logging.debug('resultado: ' + str(resultado))
 
-        self._analyzed_sentences.append({"id":id, "value":resultado, "sentence":synsetContext})
+        self._analyzed_sentences.append({"contexto":contexto, "value":resultado, "sentence":synsetContext})
 
     def normalizeText(self, text):
         #Elimino los componentes de puntuacion

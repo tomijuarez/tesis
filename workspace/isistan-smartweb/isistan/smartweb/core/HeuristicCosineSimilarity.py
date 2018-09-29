@@ -50,13 +50,15 @@ class HeuristicCosineSimilarity(HeuristicAbs):
     def __init__(self, stop_words):
         self.stop_words = stop_words
         self._analyzed_sentences = []
-        self.ids = []
+        self.originalContext = []
         self.contexts = []
+        self.processedContext = []
         self.preprocessor = StringPreprocessor(stop_words)
 
     def calculate(self, documentText, synsetContext, id):
 
-        texts = self.contexts
+
+        texts = self.processedContext
         dictionary = corpora.Dictionary(texts)
         corpus = [dictionary.doc2bow(text) for text in texts]
         tfidf_model = models.TfidfModel(corpus)
@@ -80,11 +82,28 @@ class HeuristicCosineSimilarity(HeuristicAbs):
         '''
         logging.debug('RESULTADOS COSINE:')
         for result in results:
-            logging.debug({"id":self.ids[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
-            self._analyzed_sentences.append({"id":self.ids[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
+            logging.debug({"contexto":self.originalContext[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
+            self._analyzed_sentences.append({"contexto":self.originalContext[result[0]], "value":result[1], "sentence":self.contexts[result[0]]})
 
 
     def addContext(self, synsetContext, id):
         logging.debug('Contexto: ' + synsetContext)
-        self.ids.append(id)
-        self.contexts.append(self.preprocessor(synsetContext.lower().split()))
+        self.originalContext.append(synsetContext)
+        synsetContext = self.normalizeText(synsetContext)
+        self.contexts.append(synsetContext)
+        self.processedContext.append(self.preprocessor(synsetContext))
+
+    def normalizeText(self, text):
+        #Elimino los componentes de puntuacion
+        text = filter(lambda x: x not in string.punctuation, text)
+
+        #Cambiamos todo a minusculas
+        text = text.lower()
+
+        #Creamos las listas de palabras
+        text = text.split(" ")
+
+        # eliminar stopwords
+        text = filter(lambda x: x not in self.stop_words, text)
+
+        return text
