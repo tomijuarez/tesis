@@ -57,14 +57,16 @@ class HeuristicCosineSimilarity(HeuristicAbs):
 
     def calculate(self, documentText, synsetContext, id):
 
-
+        #Inicializando texts con cada contexto devuelto por Babelnet
         texts = self.processedContext
+
         dictionary = corpora.Dictionary(texts)
         corpus = [dictionary.doc2bow(text) for text in texts]
         tfidf_model = models.TfidfModel(corpus)
         tfidf_corpus = tfidf_model[corpus]
         index = similarities.MatrixSimilarity(tfidf_corpus, num_features=len(dictionary))
 
+        #Genera el vector del documento del que fue extraida la entidad
         documentText_vector = dictionary.doc2bow(self.preprocessor(documentText.split()))
 
         query_tfidf_vector = tfidf_model[documentText_vector]

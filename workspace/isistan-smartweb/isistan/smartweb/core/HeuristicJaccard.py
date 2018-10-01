@@ -8,6 +8,39 @@ __author__ = 'Tomas Juarez y Damian Dominguez'
 
 import logging
 
+class PorterPreprocessor(object):
+
+    def __init__(self, stop_words):
+        self._stemmer = PorterStemmer()
+        self._stoplist = stop_words
+
+    def process_term(self, term):
+        stem_term = None
+        term = term.lower()
+        stops = set(self._stoplist)
+        if term is not None and term not in stops:
+            stem_term = self._stemmer.stem(term)
+        return stem_term
+
+class StringPreprocessor(PorterPreprocessor):
+    #
+    # String query preprocessor
+
+    def __init__(self, stop_words):
+        super(StringPreprocessor, self).__init__(stop_words)
+
+    def __call__(self, *args):
+        terms = []
+        data = args[0]
+        for term in data:
+            processed_term = self.process_term(term)
+            if processed_term is not None:
+                terms.append(processed_term)
+
+        logging.debug('Contexto procesado: ')
+        logging.debug(processed_term)
+        return terms
+
 class HeuristicJaccard(HeuristicAbs):
     #
     # Obtains information about terms using freebase as a source

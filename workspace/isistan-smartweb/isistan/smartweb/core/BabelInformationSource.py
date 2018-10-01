@@ -6,9 +6,15 @@ from InformationSource import InformationSource
 from isistan.smartweb.preprocess.StringTransformer import StringTransformer
 from isistan.smartweb.util.HttpUtils import HttpUtils
 from HeuristicJaccard import HeuristicJaccard
-from HeuristicSpaCy import HeuristicSpaCy
+#from HeuristicSpaCy import HeuristicSpaCy
 from HeuristicSorensenDice import HeuristicSorensenDice
 from HeuristicCosineSimilarity import HeuristicCosineSimilarity
+from HeuristicEuclidean import HeuristicEuclidean
+from HeuristicManhattan import HeuristicManhattan
+from HeuristicCosineSimilarityDos import HeuristicCosineSimilarityDos
+from HeuristicChebyshev import HeuristicChebyshev
+from HeuristicJaccard2 import HeuristicJaccard2
+from HeuristicDice2 import HeuristicDice2
 from isistan.smartweb.preprocess.variablesGlobales import variablesGlobales
 import unicodedata
 
@@ -126,8 +132,14 @@ class BabelInformationSource(InformationSource):
         stop_words = self.varGlobales.get_stop_words()
         self._heuristic = HeuristicJaccard(stop_words)
         heuristicSorensenDice = HeuristicSorensenDice(stop_words)
-        heuristicSpaCy = HeuristicSpaCy(stop_words)
+        #heuristicSpaCy = HeuristicSpaCy(stop_words)
         heuristicCosineSimilarity = HeuristicCosineSimilarity(stop_words)
+        heuristicEuclidean = HeuristicEuclidean(stop_words)
+        heuristicManhattan = HeuristicManhattan(stop_words)
+        heuristicCosineSimilarityDos = HeuristicCosineSimilarityDos(stop_words)
+        heuristicChebyshev = HeuristicChebyshev(stop_words)
+        heuristicJaccard2 = HeuristicJaccard2(stop_words)
+        heuristicDice2 = HeuristicDice2(stop_words)
 
         #se completa en las heuristicas si no es el documento de contextos.
         rowContexts = [self.varGlobales.get_current_document(), query]
@@ -136,32 +148,51 @@ class BabelInformationSource(InformationSource):
         print "Doc " + str(self.varGlobales.get_current_document())
 
         additional_words = []
-        maxValue = -1
-        similarSentence = ''
         self._query_babelnet(query, text)
 
+        noun = False
         synset = self._cacheEntity.get(query, None) #Si la entidad no fue insertada en el dict devuelve None
         if synset is not None:
             for elem in self._cacheEntity[query]:
                 if elem['pos'] == 'NOUN':
+                    noun = True
                     sentido = self._cacheSynset[elem['id']]
                     for g in sentido['glosses']:
-                        print 'IdSinonimo: ' + g['sourceSense']
+                        print 'IdSinonimo!: ' + g['sourceSense']
                         logging.debug('IdSinonimo: ' + g['sourceSense'])
 
                         self._heuristic.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicSorensenDice.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
-                        heuristicSpaCy.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
+                        #heuristicSpaCy.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicCosineSimilarity.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
-
+                        heuristicEuclidean.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicManhattan.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicCosineSimilarityDos.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicChebyshev.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicJaccard2.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        heuristicDice2.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        
                         rowContexts.append(g['gloss'].replace(";", ".").encode('utf-8'))
-                    if(len(sentido['glosses']) != 0):
-                        heuristicCosineSimilarity.calculate(text,'',0)
+
+            if(noun):
+                heuristicCosineSimilarity.calculate(text,'',0)
+                heuristicEuclidean.calculate(text,'',0)
+                heuristicManhattan.calculate(text,'',0)
+                heuristicCosineSimilarityDos.calculate(text,'',0)
+                heuristicChebyshev.calculate(text,'',0)
+                heuristicJaccard2.calculate(text,'',0)
+                heuristicDice2.calculate(text,'',0)
 
         result = self._heuristic.getBetterSentence()
         resultSorensenDice = heuristicSorensenDice.getBetterSentence()
-        resultSpaCy = heuristicSpaCy.getBetterSentence()
+        #resultSpaCy = heuristicSpaCy.getBetterSentence()
         resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
+        resultEuclidean = heuristicEuclidean.getBetterSentence()
+        resultManhattan = heuristicManhattan.getBetterSentence()
+        resultCosineSimilarityDos = heuristicCosineSimilarityDos.getBetterSentence()
+        resultChebyshev = heuristicChebyshev.getBetterSentence()
+        resultJaccard2 = heuristicJaccard2.getBetterSentence()
+        resultDice2 = heuristicDice2.getBetterSentence()
 
         if result is not None:
             print '---------------------------------------------'
@@ -169,18 +200,35 @@ class BabelInformationSource(InformationSource):
             print result
             print '---------------------------------------------'
 
-            #rowResults.append(unicode(result['id']))
             rowResults.append(unicodedata.normalize('NFKD', unicode(result['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(result['value'])
 
-            rowResults.append(unicodedata.normalize('NFKD', unicode(resultSpaCy['contexto'])).encode('ascii', 'ignore'))
-            rowResults.append(resultSpaCy['value'])
+            #rowResults.append(unicodedata.normalize('NFKD', unicode(resultSpaCy['contexto'])).encode('ascii', 'ignore'))
+            #rowResults.append(resultSpaCy['value'])
 
             rowResults.append(unicodedata.normalize('NFKD', unicode(resultSorensenDice['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultSorensenDice['value'])
 
             rowResults.append(unicodedata.normalize('NFKD', unicode(resultCosineSimilarity['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultCosineSimilarity['value'])
+
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultEuclidean['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultEuclidean['value'])
+
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultManhattan['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultManhattan['value'])
+            
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultCosineSimilarityDos['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultCosineSimilarityDos['value'])  
+                      
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultChebyshev['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultChebyshev['value'])
+
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultJaccard2['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultJaccard2['value'])  
+                      
+            rowResults.append(unicodedata.normalize('NFKD', unicode(resultDice2['contexto'])).encode('ascii', 'ignore'))
+            rowResults.append(resultDice2['value'])
 
             #Solo tomo la sentencia del algoritmo por defecto
             sentences = result['sentence']
