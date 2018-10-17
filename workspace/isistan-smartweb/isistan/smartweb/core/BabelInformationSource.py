@@ -133,7 +133,7 @@ class BabelInformationSource(InformationSource):
         self._heuristic = HeuristicJaccard(stop_words)
         heuristicSorensenDice = HeuristicSorensenDice(stop_words)
         #heuristicSpaCy = HeuristicSpaCy(stop_words)
-        heuristicCosineSimilarity = HeuristicCosineSimilarity(stop_words)
+        #heuristicCosineSimilarity = HeuristicCosineSimilarity(stop_words)
         heuristicEuclidean = HeuristicEuclidean(stop_words)
         heuristicManhattan = HeuristicManhattan(stop_words)
         heuristicCosineSimilarityDos = HeuristicCosineSimilarityDos(stop_words)
@@ -164,7 +164,7 @@ class BabelInformationSource(InformationSource):
                         self._heuristic.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicSorensenDice.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
                         #heuristicSpaCy.calculate(text, g['gloss'].replace(";", "."), g['sourceSense'])
-                        heuristicCosineSimilarity.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
+                        #heuristicCosineSimilarity.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicEuclidean.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicManhattan.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
                         heuristicCosineSimilarityDos.addContext(g['gloss'].replace(";", "."), g['sourceSense'])
@@ -175,7 +175,7 @@ class BabelInformationSource(InformationSource):
                         rowContexts.append(g['gloss'].replace(";", ".").encode('utf-8'))
 
             if(noun):
-                heuristicCosineSimilarity.calculate(text,'',0)
+                #heuristicCosineSimilarity.calculate(text,'',0)
                 heuristicEuclidean.calculate(text,'',0)
                 heuristicManhattan.calculate(text,'',0)
                 heuristicCosineSimilarityDos.calculate(text,'',0)
@@ -186,7 +186,7 @@ class BabelInformationSource(InformationSource):
         result = self._heuristic.getBetterSentence()
         resultSorensenDice = heuristicSorensenDice.getBetterSentence()
         #resultSpaCy = heuristicSpaCy.getBetterSentence()
-        resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
+        #resultCosineSimilarity = heuristicCosineSimilarity.getBetterSentence()
         resultEuclidean = heuristicEuclidean.getBetterSentence()
         resultManhattan = heuristicManhattan.getBetterSentence()
         resultCosineSimilarityDos = heuristicCosineSimilarityDos.getBetterSentence()
@@ -209,8 +209,8 @@ class BabelInformationSource(InformationSource):
             rowResults.append(unicodedata.normalize('NFKD', unicode(resultSorensenDice['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultSorensenDice['value'])
 
-            rowResults.append(unicodedata.normalize('NFKD', unicode(resultCosineSimilarity['contexto'])).encode('ascii', 'ignore'))
-            rowResults.append(resultCosineSimilarity['value'])
+            #rowResults.append(unicodedata.normalize('NFKD', unicode(resultCosineSimilarity['contexto'])).encode('ascii', 'ignore'))
+            #rowResults.append(resultCosineSimilarity['value'])
 
             rowResults.append(unicodedata.normalize('NFKD', unicode(resultEuclidean['contexto'])).encode('ascii', 'ignore'))
             rowResults.append(resultEuclidean['value'])

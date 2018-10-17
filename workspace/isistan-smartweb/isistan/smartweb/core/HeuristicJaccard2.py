@@ -1,14 +1,14 @@
 from HeuristicAbs import HeuristicAbs
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import DistanceMetric
+from nltk.stem.porter import PorterStemmer
 import string
-import nltk.stem
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
 
 import logging
 
-stemmer = nltk.stem.SnowballStemmer('english')
+stemmer = PorterStemmer()
 class StemmedTfidfVectorizer(TfidfVectorizer):
     def build_analyzer(self):
         analyzer = super(StemmedTfidfVectorizer, self).build_analyzer()
@@ -30,7 +30,7 @@ class HeuristicJaccard2(HeuristicAbs):
       dist = DistanceMetric.get_metric('jaccard')
 
       #vectorizer = TfidfVectorizer(stop_words='english')
-      vectorizer = StemmedTfidfVectorizer(min_df=3, analyzer="word", stop_words='english')
+      vectorizer = StemmedTfidfVectorizer(min_df=1, analyzer="word", stop_words='english')
       features = vectorizer.fit_transform(self.originalContext).todense() 
       #print( vectorizer.vocabulary_ )
       results = []

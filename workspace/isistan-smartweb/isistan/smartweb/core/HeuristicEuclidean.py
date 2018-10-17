@@ -1,14 +1,15 @@
 from HeuristicAbs import HeuristicAbs
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import euclidean_distances
+from sklearn.preprocessing import normalize
+from nltk.stem.porter import PorterStemmer
 import string
-import nltk.stem
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
 
 import logging
 
-stemmer = nltk.stem.SnowballStemmer('english')
+stemmer = PorterStemmer()
 class StemmedTfidfVectorizer(TfidfVectorizer):
     def build_analyzer(self):
         analyzer = super(StemmedTfidfVectorizer, self).build_analyzer()
@@ -28,7 +29,7 @@ class HeuristicEuclidean(HeuristicAbs):
       self.originalContext.insert(0,documentText)
 
       #vectorizer = TfidfVectorizer(stop_words='english')
-      vectorizer = StemmedTfidfVectorizer(min_df=3, analyzer="word", stop_words='english')
+      vectorizer = StemmedTfidfVectorizer(analyzer="word", stop_words='english')
       features = vectorizer.fit_transform(self.originalContext).todense() 
       #print( vectorizer.vocabulary_ )
       results = []
@@ -37,7 +38,7 @@ class HeuristicEuclidean(HeuristicAbs):
           #print f
           #print( euclidean_distances(features[0], f) )
           #Se guarda como  => 1 / 1 + d(x,y)
-          results.append(1/(1+euclidean_distances(features[0], f)))
+          results.append(1/(1+euclidean_distances(normalize(features[0]), normalize(f))))
       
       logging.debug('RESULTADOS EUCLIDEAN:')
       print 'RESULTADOS EUCLIDEAN'

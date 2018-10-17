@@ -1,14 +1,14 @@
 from HeuristicAbs import HeuristicAbs
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import DistanceMetric
+from sklearn.preprocessing import normalize
+from nltk.stem.porter import PorterStemmer
 import string
-import nltk.stem
-
 import logging
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
 
-stemmer = nltk.stem.SnowballStemmer('english')
+stemmer = PorterStemmer()
 class StemmedTfidfVectorizer(TfidfVectorizer):
     def build_analyzer(self):
         analyzer = super(StemmedTfidfVectorizer, self).build_analyzer()
@@ -30,7 +30,7 @@ class HeuristicChebyshev(HeuristicAbs):
       dist = DistanceMetric.get_metric('chebyshev')
 
       #vectorizer = TfidfVectorizer(stop_words='english')
-      vectorizer = StemmedTfidfVectorizer(min_df=3, analyzer="word", stop_words='english')
+      vectorizer = StemmedTfidfVectorizer(min_df=1, analyzer="word", stop_words='english')
       features = vectorizer.fit_transform(self.originalContext).todense() 
       #print( vectorizer.vocabulary_ )
       results = []
@@ -40,7 +40,7 @@ class HeuristicChebyshev(HeuristicAbs):
           #print( dist.pairwise(features[0], f) )
 
           #Se guarda como  => 1 / 1 + d(x,y)
-          results.append( 1 / (1 + dist.pairwise(features[0], f)))
+          results.append( 1 / (1 + dist.pairwise(normalize(features[0]), normalize(f))))
       
       logging.debug('RESULTADOS Chebyshev:')
       print 'RESULTADOS Chebyshev'
