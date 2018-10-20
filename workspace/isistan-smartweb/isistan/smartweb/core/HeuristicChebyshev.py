@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import DistanceMetric
 from sklearn.preprocessing import normalize
 from nltk.stem.porter import PorterStemmer
+from scipy import spatial
 import string
 import logging
 
@@ -40,7 +41,9 @@ class HeuristicChebyshev(HeuristicAbs):
           #print( dist.pairwise(features[0], f) )
 
           #Se guarda como  => 1 / 1 + d(x,y)
-          results.append( 1 / (1 + dist.pairwise(normalize(features[0]), normalize(f))))
+          #results.append( 1 / (1 + dist.pairwise(normalize(features[0]), normalize(f))))
+          results.append(1/(1+spatial.distance.cdist(features[0], f,  "chebyshev")))
+
       
       logging.debug('RESULTADOS Chebyshev:')
       print 'RESULTADOS Chebyshev'

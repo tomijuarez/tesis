@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import manhattan_distances
 from sklearn.preprocessing import normalize
 from nltk.stem.porter import PorterStemmer
+from scipy import spatial
 import string
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
@@ -38,8 +39,9 @@ class HeuristicManhattan(HeuristicAbs):
           #print f
           #print( manhattan_distances(features[0], f) )          
           #Se guarda como  => 1 / 1 + d(x,y)
-          results.append( 1 / (1 + manhattan_distances(normalize(features[0]), normalize(f))))
-      
+          #results.append( 1 / (1 + manhattan_distances(normalize(features[0]), normalize(f))))
+        results.append(1/(1+spatial.distance.cdist(features[0], f,  "cityblock")))
+
       logging.debug('RESULTADOS MANHATTAN:')
       print 'RESULTADOS MANHATTAN'
       for i in range(1, len(results)):

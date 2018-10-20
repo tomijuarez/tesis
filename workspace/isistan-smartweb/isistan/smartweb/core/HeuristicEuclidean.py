@@ -3,6 +3,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.preprocessing import normalize
 from nltk.stem.porter import PorterStemmer
+from scipy import spatial
+import math
 import string
 
 __author__ = 'Tomas Juarez y Damian Dominguez'
@@ -24,6 +26,7 @@ class HeuristicEuclidean(HeuristicAbs):
         self.originalContext = []
         self._analyzed_sentences = []
 
+
     def calculate(self, documentText, synsetContext, id):
       #Agrego el documento en la primer posicion
       self.originalContext.insert(0,documentText)
@@ -34,11 +37,8 @@ class HeuristicEuclidean(HeuristicAbs):
       #print( vectorizer.vocabulary_ )
       results = []
       for f in features:
-          #print features[0]
-          #print f
-          #print( euclidean_distances(features[0], f) )
           #Se guarda como  => 1 / 1 + d(x,y)
-          results.append(1/(1+euclidean_distances(normalize(features[0]), normalize(f))))
+          results.append(1/(1+spatial.distance.cdist(features[0], f,  "euclidean")))
       
       logging.debug('RESULTADOS EUCLIDEAN:')
       print 'RESULTADOS EUCLIDEAN'
